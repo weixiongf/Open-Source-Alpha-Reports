@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AgentFlow 商业价值分析 · 动态幻灯片</title>
+<style>
+:root{
+  --blue:#3b82f6; --violet:#8b5cf6; --green:#22c55e; --amber:#f59e0b; --red:#ef4444;
+  --ink:#f8fafc; --dim:#94a3b8;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:#020617;font-family:"Microsoft YaHei","PingFang SC",sans-serif;color:var(--ink)}
+.deck{position:relative;width:1080px;height:1920px;margin:0 auto;overflow:hidden;
+  background:radial-gradient(1200px 800px at 80% -10%,#1e3a8a55,transparent),
+             radial-gradient(900px 700px at -10% 110%,#7c3aed33,transparent),#020617}
+.slide{position:absolute;inset:0;display:none;flex-direction:column;justify-content:space-evenly;
+  padding:100px 76px 300px;gap:28px}
+.slide.active{display:flex}
+.kicker{color:var(--blue);letter-spacing:10px;font-size:30px;font-weight:700}
+h1{font-size:88px;line-height:1.25;font-weight:800}
+h2{font-size:64px;line-height:1.3;font-weight:800}
+.accent{background:linear-gradient(90deg,#60a5fa,#a78bfa);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{color:var(--dim);font-size:34px;line-height:1.6}
+.card{background:#0f172acc;border:1px solid #334155;border-radius:28px;padding:40px 44px}
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.stat .n{font-size:62px;font-weight:800;color:#60a5fa}
+.stat .l{color:var(--dim);font-size:28px;margin-top:6px}
+.big-badge{align-self:flex-start;background:linear-gradient(135deg,#2563eb,#7c3aed);
+  border-radius:26px;padding:34px 54px}
+.big-badge .g{font-size:96px;font-weight:900;line-height:1}
+.big-badge .s{font-size:32px;opacity:.9;margin-top:10px}
+.bar-row{display:flex;align-items:center;gap:18px;margin:17px 0}
+.bar-name{width:250px;text-align:right;font-size:30px;font-weight:600;color:#cbd5e1}
+.bar-track{flex:1;height:22px;background:#1e293b;border-radius:12px;overflow:hidden}
+.bar-fill{display:block;height:100%;border-radius:12px;width:0;transition:width 1.2s cubic-bezier(.22,1,.36,1)}
+.static .bar-fill,.shown .bar-fill{width:var(--w)}
+.bar-val{width:86px;font-size:34px;font-weight:800}
+ul.points{list-style:none;display:flex;flex-direction:column;gap:26px}
+ul.points li{display:flex;gap:22px;align-items:flex-start;font-size:37px;line-height:1.55}
+ul.points .ico{flex:0 0 auto;width:64px;height:64px;border-radius:18px;display:flex;align-items:center;
+  justify-content:center;font-size:34px;background:#1d4ed8}
+li b{color:#93c5fd}
+.good .ico{background:#15803d}.bad .ico{background:#b91c1c}.warn .ico{background:#b45309}
+.foot{position:absolute;bottom:215px;left:76px;right:76px;display:flex;justify-content:space-between;
+  color:#475569;font-size:24px}
+.credit{position:absolute;bottom:166px;left:76px;right:76px;text-align:center;color:#93c5fd;
+  font-size:27px;font-weight:700;letter-spacing:2px}
+.note{position:absolute;bottom:118px;left:76px;right:76px;text-align:center;color:#475569;
+  font-size:21px;line-height:1.5}
+.quote{font-size:46px;line-height:1.65;font-weight:700;border-left:10px solid var(--violet);
+  padding-left:36px;color:#e2e8f0}
+/* 入场动画 */
+.anim .in{opacity:0;transform:translateY(46px)}
+.anim.shown .in{opacity:1;transform:none;transition:all .8s cubic-bezier(.22,1,.36,1)}
+.anim.shown .in.d1{transition-delay:.15s}.anim.shown .in.d2{transition-delay:.3s}
+.anim.shown .in.d3{transition-delay:.45s}.anim.shown .in.d4{transition-delay:.6s}
+.anim.shown .in.d5{transition-delay:.75s}
+.static .in{opacity:1 !important;transform:none !important;transition:none !important}
+.pager{position:absolute;top:52px;right:76px;color:#475569;font-size:26px;letter-spacing:2px}
+</style>
+</head>
+<body>
+<div class="deck" id="deck">
+
+<section class="slide anim" data-n="1">
+  <div class="kicker in">开源项目商业价值拆解 · 第 1 期</div>
+  <h1 class="in d1">2000 Star 的 <span class="accent">AgentFlow</span>，<br>是个空壳？</h1>
+  <div class="sub in d2">用九维度商业化评估模型，<br>把多智能体框架的「身份危机」彻底算一遍账。</div>
+  <div class="big-badge in d3"><div class="g">C 级 · 49.1</div><div class="s">综合评分 / 满分 100 · 低商业化潜力</div></div>
+  <div class="foot"><span>lupantech/AgentFlow</span><span>数据实测于 2026-07</span></div>
+  <div class="credit in d4">@魔法工厂　@向量之心　@南山科学家</div>
+  <div class="note">本内容由 AI 自动分析生成，仅供研究参考，不构成投资建议</div>
+</section>
+
+<section class="slide anim" data-n="2">
+  <div class="kicker in">01 · 项目速览</div>
+  <h2 class="in d1">一个<span class="accent">「身份混乱」</span>的框架</h2>
+  <div class="card stat-grid in d2">
+    <div class="stat"><div class="n">1,974</div><div class="l">GitHub Star</div></div>
+    <div class="stat"><div class="n">4</div><div class="l">贡献者</div></div>
+    <div class="stat"><div class="n">5 个月</div><div class="l">项目年龄</div></div>
+    <div class="stat"><div class="n">MIT</div><div class="l">开源协议</div></div>
+  </div>
+  <ul class="points in d3">
+    <li><span class="ico">🚩</span><span>仓库名、描述指向 AgentFlow，代码却是 <b>Gin + Pelican</b></span></li>
+    <li><span class="ico">📂</span><span>目录含 gin-master（Go）和 pelican-main（Python），<b>核心功能缺失</b></span></li>
+    <li><span class="ico">🧩</span><span>无版本发布、无 CI/CD、无社区活动，<b>商业化基础为零</b></span></li>
+  </ul>
+  <div class="foot"><span>AgentFlow 商业价值分析</span><span>2 / 8</span></div>
+</section>
+
+<section class="slide anim" data-n="3">
+  <div class="kicker in">02 · 九维评分</div>
+  <h2 class="in d1">全面溃败，<span class="accent">亮点难寻</span></h2>
+  <div class="card in d2">
+    <div class="bar-row"><span class="bar-name">D1 市场需求</span><span class="bar-track"><span class="bar-fill" style="--w:68%;background:#f59e0b"></span></span><span class="bar-val">6.75</span></div>
+    <div class="bar-row"><span class="bar-name">D2 技术成熟</span><span class="bar-track"><span class="bar-fill" style="--w:54%;background:#ef4444"></span></span><span class="bar-val">5.44</span></div>
+    <div class="bar-row"><span class="bar-name">D7 企业就绪</span><span class="bar-track"><span class="bar-fill" style="--w:50%;background:#ef4444"></span></span><span class="bar-val">5.0</span></div>
+    <div class="bar-row"><span class="bar-name">D3 社区生态</span><span class="bar-track"><span class="bar-fill" style="--w:49%;background:#ef4444"></span></span><span class="bar-val">4.9</span></div>
+    <div class="bar-row"><span class="bar-name">D6 法律合规</span><span class="bar-track"><span class="bar-fill" style="--w:41%;background:#ef4444"></span></span><span class="bar-val">4.1</span></div>
+    <div class="bar-row"><span class="bar-name">D5 竞争格局</span><span class="bar-track"><span class="bar-fill" style="--w:38%;background:#ef4444"></span></span><span class="bar-val">3.8</span></div>
+    <div class="bar-row"><span class="bar-name">D11 社会价值</span><span class="bar-track"><span class="bar-fill" style="--w:34%;background:#ef4444"></span></span><span class="bar-val">3.4</span></div>
+    <div class="bar-row"><span class="bar-name">D8 团队治理</span><span class="bar-track"><span class="bar-fill" style="--w:31%;background:#ef4444"></span></span><span class="bar-val">3.1</span></div>
+    <div class="bar-row"><span class="bar-name">D4 变现潜力</span><span class="bar-track"><span class="bar-fill" style="--w:0%;background:#ef4444"></span></span><span class="bar-val">N/A</span></div>
+  </div>
+  <div class="sub in d3">权重最高的 D4 变现潜力（18%）与 D9 上手难度（10%）完全无法评估。</div>
+  <div class="foot"><span>AgentFlow 商业价值分析</span><span>3 / 8</span></div>
+</section>
+
+<section class="slide anim" data-n="4">
+  <div class="kicker in">03 · 三大亮点</div>
+  <h2 class="in d1">仅有的<span class="accent">「闪光点」</span></h2>
+  <ul class="points good">
+    <li class="in d2"><span class="ico">🎯</span><span><b>市场时机精准</b>：切入 agentic AI 优化赛道，5 个月获近 2000 Star，初步关注度</span></li>
+    <li class="in d3"><span class="ico">🛠️</span><span><b>代码质量尚可</b>：测试覆盖率 58.8%，代码整洁性与安全性评分均为 0.8/1</span></li>
+    <li class="in d4"><span class="ico">📚</span><span><b>概念验证价值</b>：涉及 reinforcement-learning、multi-agent-systems，可作学术参考</span></li>
+  </ul>
+  <div class="card in d5"><div class="sub">测试覆盖率 <b style="color:#4ade80">58.8%</b> ｜ 代码整洁性 <b style="color:#4ade80">0.8/1</b> ｜ 安全性评分 <b style="color:#4ade80">0.8/1</b></div></div>
+  <div class="foot"><span>AgentFlow 商业价值分析</span><span>4 / 8</span></div>
+</section>
+
+<section class="slide anim" data-n="5">
+  <div class="kicker in" style="color:#f87171">04 · 两大硬伤</div>
+  <h2 class="in d1">为什么它<span style="color:#f87171">一文不值</span>？</h2>
+  <ul class="points bad">
+    <li class="in d2"><span class="ico">💀</span><span><b>身份彻底混乱</b>：仓库描述与代码严重不符，核心功能缺失，D4/D9/D10 无法评估</span></li>
+    <li class="in d3"><span class="ico">🕸️</span><span><b>社区完全停滞</b>：近 90 天零 PR、零 Issue，无 CI/CD，无版本发布，随时可能被放弃</span></li>
+  </ul>
+  <ul class="points warn">
+    <li class="in d4"><span class="ico">⚠️</span><span>4 名贡献者无商业化背景，无资金支持，<b style="color:#fbbf24">巴士因子极低</b></span></li>
+  </ul>
+  <div class="foot"><span>AgentFlow 商业价值分析</span><span>5 / 8</span></div>
+</section>
+
+<section class="slide anim" data-n="6">
+  <div class="kicker in">05 · 商业路径</div>
+  <h2 class="in d1">唯一的解法：<span class="accent">技术借鉴，而非投资</span></h2>
+  <ul class="points">
+    <li class="in d2 good"><span class="ico">✅</span><span><b>推荐</b>：提取仓库内成熟项目（Gin、Pelican）的技术资产，或关注 4 位贡献者的技术能力</span></li>
+    <li class="in d3 warn"><span class="ico">🟡</span><span><b>备选</b>：作为学术研究或概念验证参考，评估多智能体系统优化方向的技术可行性</span></li>
+    <li class="in d4 bad"><span class="ico">❌</span><span><b>别碰</b>：所有商业路径（SaaS、企业版、开源赞助）均因身份混乱而不可行</span></li>
+  </ul>
+  <div class="foot"><span>AgentFlow 商业价值分析</span><span>6 / 8</span></div>
+</section>
+
+<section class="slide anim" data-n="7">
+  <div class="kicker in" style="color:#fbbf24">06 · 最大风险</div>
+  <h2 class="in d1">敌人不是竞品，<br>是 <span class="accent">项目本身</span></h2>
+  <div class="card in d2"><div class="sub">仓库内容与描述严重不符，可能为错误配置、污染或恶意伪装——<br>评估基础完全崩塌，任何结论都建立在沙地上。</div></div>
+  <ul class="points warn in d3">
+    <li><span class="ico">⚖️</span><span>子项目含 AGPLv3 授权，<b style="color:#fbbf24">版权归属不清</b>，法律风险中高</span></li>
+    <li><span class="ico">🔥</span><span>间接竞品（LangChain、AutoGen）平均 Star <b style="color:#fbbf24">10,087</b>，用户可轻易迁移</span></li>
+  </ul>
+  <div class="foot"><span>AgentFlow 商业价值分析</span><span>7 / 8</span></div>
+</section>
+
+<section class="slide anim" data-n="8">
+  <div class="kicker in">07 · 结论</div>
+  <h2 class="in d1">一句话总结</h2>
+  <div class="quote in d2">项目身份混乱导致商业化基础为零，<br>不建议投入任何资源，<br>仅适合技术借鉴或人才筛选。</div>
+  <div class="big-badge in d3"><div class="g">不推荐</div><div class="s">商业化可行性判定 · C 级 49.1 / 100</div></div>
+  <div class="sub in d4">关注我，下期拆解下一个开源项目的商业密码。</div>
+  <div class="foot"><span>AgentFlow 商业价值分析</span><span>8 / 8</span></div>
+  <div class="credit in d5">报告出品：@魔法工厂　@向量之心　@南山科学家　www.mova.work</div>
+  <div class="note">AI 辅助生成的第三方独立分析 · 与项目方无关，结论仅供参考</div>
+</section>
+
+<div class="pager" id="pager"></div>
+</div>
+
+<script>
+const qs = new URLSearchParams(location.search);
+const slides = [...document.querySelectorAll('.slide')];
+let cur = Math.min(Math.max(parseInt(qs.get('slide')||'1',10),1),slides.length)-1;
+if(qs.get('static')==='1') document.getElementById('deck').classList.add('static');
+function show(i){
+  cur=(i+slides.length)%slides.length;
+  slides.forEach((s,k)=>{s.classList.toggle('active',k===cur);s.classList.remove('shown');});
+  requestAnimationFrame(()=>requestAnimationFrame(()=>slides[cur].classList.add('shown')));
+  document.getElementById('pager').textContent=(cur+1)+' / '+slides.length;
+}
+show(cur);
+addEventListener('keydown',e=>{
+  if(['ArrowRight','ArrowDown',' ','PageDown'].includes(e.key)) show(cur+1);
+  if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)) show(cur-1);
+});
+document.getElementById('deck').addEventListener('click',()=>show(cur+1));
+// 桌面浏览时自动缩放适配窗口
+function fit(){
+  const d=document.getElementById('deck');
+  const s=Math.min(innerWidth/1080,innerHeight/1920);
+  if(s<1){d.style.transformOrigin='top center';d.style.transform=`scale(${s})`;}
+}
+if(qs.get('static')!=='1'){fit();addEventListener('resize',fit);}
+</script>
+</body>
+</html>

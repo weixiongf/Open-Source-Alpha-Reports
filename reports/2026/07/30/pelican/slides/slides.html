@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pelican 商业价值分析 · 动态幻灯片</title>
+<style>
+:root{
+  --blue:#3b82f6; --violet:#8b5cf6; --green:#22c55e; --amber:#f59e0b; --red:#ef4444;
+  --ink:#f8fafc; --dim:#94a3b8;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:#020617;font-family:"Microsoft YaHei","PingFang SC",sans-serif;color:var(--ink)}
+.deck{position:relative;width:1080px;height:1920px;margin:0 auto;overflow:hidden;
+  background:radial-gradient(1200px 800px at 80% -10%,#1e3a8a55,transparent),
+             radial-gradient(900px 700px at -10% 110%,#7c3aed33,transparent),#020617}
+.slide{position:absolute;inset:0;display:none;flex-direction:column;justify-content:space-evenly;
+  padding:100px 76px 300px;gap:28px}
+.slide.active{display:flex}
+.kicker{color:var(--blue);letter-spacing:10px;font-size:30px;font-weight:700}
+h1{font-size:88px;line-height:1.25;font-weight:800}
+h2{font-size:64px;line-height:1.3;font-weight:800}
+.accent{background:linear-gradient(90deg,#60a5fa,#a78bfa);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{color:var(--dim);font-size:34px;line-height:1.6}
+.card{background:#0f172acc;border:1px solid #334155;border-radius:28px;padding:40px 44px}
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.stat .n{font-size:62px;font-weight:800;color:#60a5fa}
+.stat .l{color:var(--dim);font-size:28px;margin-top:6px}
+.big-badge{align-self:flex-start;background:linear-gradient(135deg,#2563eb,#7c3aed);
+  border-radius:26px;padding:34px 54px}
+.big-badge .g{font-size:96px;font-weight:900;line-height:1}
+.big-badge .s{font-size:32px;opacity:.9;margin-top:10px}
+.bar-row{display:flex;align-items:center;gap:18px;margin:17px 0}
+.bar-name{width:250px;text-align:right;font-size:30px;font-weight:600;color:#cbd5e1}
+.bar-track{flex:1;height:22px;background:#1e293b;border-radius:12px;overflow:hidden}
+.bar-fill{display:block;height:100%;border-radius:12px;width:0;transition:width 1.2s cubic-bezier(.22,1,.36,1)}
+.static .bar-fill,.shown .bar-fill{width:var(--w)}
+.bar-val{width:86px;font-size:34px;font-weight:800}
+ul.points{list-style:none;display:flex;flex-direction:column;gap:26px}
+ul.points li{display:flex;gap:22px;align-items:flex-start;font-size:37px;line-height:1.55}
+ul.points .ico{flex:0 0 auto;width:64px;height:64px;border-radius:18px;display:flex;align-items:center;
+  justify-content:center;font-size:34px;background:#1d4ed8}
+li b{color:#93c5fd}
+.good .ico{background:#15803d}.bad .ico{background:#b91c1c}.warn .ico{background:#b45309}
+.foot{position:absolute;bottom:215px;left:76px;right:76px;display:flex;justify-content:space-between;
+  color:#475569;font-size:24px}
+.credit{position:absolute;bottom:166px;left:76px;right:76px;text-align:center;color:#93c5fd;
+  font-size:27px;font-weight:700;letter-spacing:2px}
+.note{position:absolute;bottom:118px;left:76px;right:76px;text-align:center;color:#475569;
+  font-size:21px;line-height:1.5}
+.quote{font-size:46px;line-height:1.65;font-weight:700;border-left:10px solid var(--violet);
+  padding-left:36px;color:#e2e8f0}
+/* 入场动画 */
+.anim .in{opacity:0;transform:translateY(46px)}
+.anim.shown .in{opacity:1;transform:none;transition:all .8s cubic-bezier(.22,1,.36,1)}
+.anim.shown .in.d1{transition-delay:.15s}.anim.shown .in.d2{transition-delay:.3s}
+.anim.shown .in.d3{transition-delay:.45s}.anim.shown .in.d4{transition-delay:.6s}
+.anim.shown .in.d5{transition-delay:.75s}
+.static .in{opacity:1 !important;transform:none !important;transition:none !important}
+.pager{position:absolute;top:52px;right:76px;color:#475569;font-size:26px;letter-spacing:2px}
+</style>
+</head>
+<body>
+<div class="deck" id="deck">
+
+<section class="slide anim" data-n="1">
+  <div class="kicker in">开源项目商业价值拆解 · Pelican</div>
+  <h1 class="in d1">13k Star 的 <span class="accent">Pelican</span>，<br>为什么赚不到钱？</h1>
+  <div class="sub in d2">用九维度商业化评估模型，<br>把 Python 最老牌的静态站生成器彻底算一遍账。</div>
+  <div class="big-badge in d3"><div class="g">B 级 · 60.4</div><div class="s">综合评分 / 满分 100 · 中等商业化潜力</div></div>
+  <div class="foot"><span>getpelican/pelican</span><span>数据实测于 2026-07</span></div>
+  <div class="credit in d4">@魔法工厂　@向量之心　@南山科学家</div>
+  <div class="note">本内容由 AI 自动分析生成，仅供研究参考，不构成投资建议</div>
+</section>
+
+<section class="slide anim" data-n="2">
+  <div class="kicker in">01 · 项目速览</div>
+  <h2 class="in d1">Python 静态站的<span class="accent">「老牌劲旅」</span></h2>
+  <div class="card stat-grid in d2">
+    <div class="stat"><div class="n">13,332</div><div class="l">GitHub Star</div></div>
+    <div class="stat"><div class="n">414</div><div class="l">贡献者</div></div>
+    <div class="stat"><div class="n">15 年</div><div class="l">持续维护</div></div>
+    <div class="stat"><div class="n">AGPL-3.0</div><div class="l">开源协议</div></div>
+  </div>
+  <ul class="points in d3">
+    <li><span class="ico">📝</span><span>支持 Markdown 和 reStructuredText，<b>10 分钟</b>跑通博客</span></li>
+    <li><span class="ico">🧩</span><span>官方插件仓库 + 主题系统，<b>生态丰富</b></span></li>
+    <li><span class="ico">🏛️</span><span>被 Python 社区广泛用于<b>文档和博客</b>站点</span></li>
+  </ul>
+  <div class="foot"><span>Pelican 商业价值分析</span><span>2 / 8</span></div>
+</section>
+
+<section class="slide anim" data-n="3">
+  <div class="kicker in">02 · 九维评分</div>
+  <h2 class="in d1">易用性极佳，<span class="accent">变现是死穴</span></h2>
+  <div class="card in d2">
+    <div class="bar-row"><span class="bar-name">D9 上手难度</span><span class="bar-track"><span class="bar-fill" style="--w:85%;background:#22c55e"></span></span><span class="bar-val">8.5</span></div>
+    <div class="bar-row"><span class="bar-name">D2 技术成熟</span><span class="bar-track"><span class="bar-fill" style="--w:76.7%;background:#22c55e"></span></span><span class="bar-val">7.67</span></div>
+    <div class="bar-row"><span class="bar-name">D1 市场需求</span><span class="bar-track"><span class="bar-fill" style="--w:70%;background:#3b82f6"></span></span><span class="bar-val">7.0</span></div>
+    <div class="bar-row"><span class="bar-name">D3 社区生态</span><span class="bar-track"><span class="bar-fill" style="--w:69%;background:#3b82f6"></span></span><span class="bar-val">6.9</span></div>
+    <div class="bar-row"><span class="bar-name">D6 法律合规</span><span class="bar-track"><span class="bar-fill" style="--w:60%;background:#f59e0b"></span></span><span class="bar-val">6.0</span></div>
+    <div class="bar-row"><span class="bar-name">D8 团队治理</span><span class="bar-track"><span class="bar-fill" style="--w:60%;background:#f59e0b"></span></span><span class="bar-val">6.0</span></div>
+    <div class="bar-row"><span class="bar-name">D5 竞争格局</span><span class="bar-track"><span class="bar-fill" style="--w:50%;background:#ef4444"></span></span><span class="bar-val">5.0</span></div>
+    <div class="bar-row"><span class="bar-name">D4 变现潜力</span><span class="bar-track"><span class="bar-fill" style="--w:40%;background:#ef4444"></span></span><span class="bar-val">4.0</span></div>
+    <div class="bar-row"><span class="bar-name">D7 企业就绪</span><span class="bar-track"><span class="bar-fill" style="--w:36%;background:#ef4444"></span></span><span class="bar-val">3.6</span></div>
+  </div>
+  <div class="sub in d3">权重最高的 D4 变现潜力（18%）和 D7 企业就绪（8%），得分垫底。</div>
+  <div class="foot"><span>Pelican 商业价值分析</span><span>3 / 8</span></div>
+</section>
+
+<section class="slide anim" data-n="4">
+  <div class="kicker in">03 · 三大亮点</div>
+  <h2 class="in d1">它凭什么值 <span class="accent">B 级</span>？</h2>
+  <ul class="points good">
+    <li class="in d2"><span class="ico">⚡</span><span><b>极致的易用性</b>：pip 一键安装，10 分钟初始化，CLI 简洁支持自动重载</span></li>
+    <li class="in d3"><span class="ico">📚</span><span><b>成熟的技术与生态</b>：代码整洁、架构解耦，414 名贡献者，官方插件仓库丰富</span></li>
+    <li class="in d4"><span class="ico">🌍</span><span><b>高公共价值</b>：完全开源免费，支持多语言，显著降低博客和文档运维成本</span></li>
+  </ul>
+  <div class="card in d5"><div class="sub">测试覆盖率 <b style="color:#4ade80">48.4%</b> ｜ 15 年持续维护 ｜ 功能价值评分 <b style="color:#4ade80">9.1/10</b></div></div>
+  <div class="foot"><span>Pelican 商业价值分析</span><span>4 / 8</span></div>
+</section>
+
+<section class="slide anim" data-n="5">
+  <div class="kicker in" style="color:#f87171">04 · 两大硬伤</div>
+  <h2 class="in d1">为什么它<span style="color:#f87171">赚不到钱</span>？</h2>
+  <ul class="points bad">
+    <li class="in d2"><span class="ico">💸</span><span><b>商业模式完全空白</b>：无企业版、无付费产品，AGPL 协议堵死闭源和 SaaS 路径</span></li>
+    <li class="in d3"><span class="ico">🔒</span><span><b>企业就绪度极低</b>：无 SSO、RBAC、审计日志，单进程架构不支持高可用</span></li>
+  </ul>
+  <ul class="points warn">
+    <li class="in d4"><span class="ico">⚠️</span><span>用户无付费触发点，变现路径仅剩<b style="color:#fbbf24">捐赠</b>，收入天花板极低</span></li>
+  </ul>
+  <div class="foot"><span>Pelican 商业价值分析</span><span>5 / 8</span></div>
+</section>
+
+<section class="slide anim" data-n="6">
+  <div class="kicker in">05 · 商业路径</div>
+  <h2 class="in d1">唯一的解法：<span class="accent">影响力变现</span></h2>
+  <ul class="points">
+    <li class="in d2 good"><span class="ico">✅</span><span><b>推荐</b>：利用高公共价值，吸引赞助、基金会托管或大厂雇佣核心维护者</span></li>
+    <li class="in d3 warn"><span class="ico">🟡</span><span><b>备选</b>：围绕生态提供付费培训、咨询、定制主题/插件开发服务</span></li>
+    <li class="in d4 bad"><span class="ico">❌</span><span><b>别碰</b>：立即推出企业版或托管服务，风险高、投入大、市场空间有限</span></li>
+  </ul>
+  <div class="foot"><span>Pelican 商业价值分析</span><span>6 / 8</span></div>
+</section>
+
+<section class="slide anim" data-n="7">
+  <div class="kicker in" style="color:#fbbf24">06 · 最大风险</div>
+  <h2 class="in d1">敌人不是 Hugo，<br>是 <span class="accent">AGPL 协议</span></h2>
+  <div class="card in d2"><div class="sub">AGPL-3.0 强 copyleft 协议是商业化最大障碍，缺乏 CLA/DCO 导致贡献版权归属不清，商标可用性未核查。</div></div>
+  <ul class="points warn in d3">
+    <li><span class="ico">⏳</span><span>核心维护者仅<b style="color:#fbbf24">一人</b>（Justin Mayer），巴士因子极低</span></li>
+    <li><span class="ico">🔥</span><span>近 90 天社区活跃度下降，仅 <b style="color:#fbbf24">9 个 PR</b>，无稳定资金支持</span></li>
+  </ul>
+  <div class="foot"><span>Pelican 商业价值分析</span><span>7 / 8</span></div>
+</section>
+
+<section class="slide anim" data-n="8">
+  <div class="kicker in">07 · 结论</div>
+  <h2 class="in d1">一句话总结</h2>
+  <div class="quote in d2">Pelican 是一座技术金矿——<br>框架本身不能收费，<br>但它掌握的 13k Star 开发者社区，<br>足以支撑一条影响力变现的生态路径。</div>
+  <div class="big-badge in d3"><div class="g">不推荐直接商业化</div><div class="s">商业化可行性判定 · B 级 60.4 / 100</div></div>
+  <div class="sub in d4">关注我，下期拆解下一个开源项目的商业密码。</div>
+  <div class="foot"><span>Pelican 商业价值分析</span><span>8 / 8</span></div>
+  <div class="credit in d5">报告出品：@魔法工厂　@向量之心　@南山科学家</div>
+  <div class="note">AI 辅助生成的第三方独立分析 · 与项目方无关，结论仅供参考</div>
+</section>
+
+<div class="pager" id="pager"></div>
+</div>
+
+<script>
+const qs = new URLSearchParams(location.search);
+const slides = [...document.querySelectorAll('.slide')];
+let cur = Math.min(Math.max(parseInt(qs.get('slide')||'1',10),1),slides.length)-1;
+if(qs.get('static')==='1') document.getElementById('deck').classList.add('static');
+function show(i){
+  cur=(i+slides.length)%slides.length;
+  slides.forEach((s,k)=>{s.classList.toggle('active',k===cur);s.classList.remove('shown');});
+  requestAnimationFrame(()=>requestAnimationFrame(()=>slides[cur].classList.add('shown')));
+  document.getElementById('pager').textContent=(cur+1)+' / '+slides.length;
+}
+show(cur);
+addEventListener('keydown',e=>{
+  if(['ArrowRight','ArrowDown',' ','PageDown'].includes(e.key)) show(cur+1);
+  if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)) show(cur-1);
+});
+document.getElementById('deck').addEventListener('click',()=>show(cur+1));
+// 桌面浏览时自动缩放适配窗口
+function fit(){
+  const d=document.getElementById('deck');
+  const s=Math.min(innerWidth/1080,innerHeight/1920);
+  if(s<1){d.style.transformOrigin='top center';d.style.transform=`scale(${s})`;}
+}
+if(qs.get('static')!=='1'){fit();addEventListener('resize',fit);}
+</script>
+</body>
+</html>

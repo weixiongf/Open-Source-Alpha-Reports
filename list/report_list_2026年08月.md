@@ -1,13 +1,14 @@
 # 报告清单 · 2026年08月
 
 > 本文件由 github_anyliasis 自动维护，每次发布报告时更新。
-> 本月共收录 3 条报告记录。
+> 本月共收录 4 条报告记录。
 
 | 序号 | 项目 | 综合得分 | 等级 | 一句话结论 |
 |------|------|----------|------|-----------|
 | 1 | [deepseek-ai/deepseek-harness](../reports/2026/08/22/deepseek-harness/) | 78.1 | A | 高潜力早阶段明星资产：技术顶级、市场窗口明确，但9天项目未验证生产稳定性，短期看API导流、中期看企业版、长期看生态平台化。 |
 | 2 | [cathrynlavery/diagram-design](../reports/2026/08/22/diagram-design/) | 76.6 | A | 价值已证明、路径待构建——先发卡位真实，但MIT全开源与薄弱壁垒决定必须走服务+生态位路线，窗口期6-12个月。 |
 | 3 | [harry0703/MoneyPrinterTurbo](../reports/2026/08/22/moneyprinterturbo/) | 75.8 | A | AI短视频开源绝对头部，113k Star碾压竞品18.6倍，但付费转化缺失，需以托管SaaS打通变现闭环。 |
+| 4 | [public-apis/public-apis](../reports/2026/08/22/public-apis/) | 77.5 | A | 46.8万Star的开发者流量入口，广告变现已验证但收入单一、治理薄弱——短期可收割，长期需补课。 |
 
 ---
 

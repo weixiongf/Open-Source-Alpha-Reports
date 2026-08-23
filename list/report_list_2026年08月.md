@@ -1,7 +1,7 @@
 # 报告清单 · 2026年08月
 
 > 本文件由 github_anyliasis 自动维护，每次发布报告时更新。
-> 本月共收录 9 条报告记录。
+> 本月共收录 10 条报告记录。
 
 | 序号 | 项目 | 综合得分 | 等级 | 一句话结论 |
 |------|------|----------|------|-----------|
@@ -11,9 +11,10 @@
 | 4 | [harry0703/MoneyPrinterTurbo](../reports/2026/08/22/moneyprinterturbo/) | 75.8 | A | AI短视频开源绝对头部，113k Star碾压竞品18.6倍，但付费转化缺失，需以托管SaaS打通变现闭环。 |
 | 5 | [public-apis/public-apis](../reports/2026/08/22/public-apis/) | 77.5 | A | 46.8万Star的开发者流量入口，广告变现已验证但收入单一、治理薄弱——短期可收割，长期需补课。 |
 | 6 | [openai/codex](../reports/2026/08/23/codex/) | 87.5 | S | OpenAI 官方出品、变现路径已打通的 AI 编程赛道头部资产，技术护城河与社区热度顶级，但 alpha 版本状态和治理封闭是商业化提速的两大绊脚石。 |
-| 7 | [volcengine/OpenViking](../reports/2026/08/23/openviking/) | 80.5 | S | S级明星资产，技术领先+时机精准+大厂背书，建议立即投入Open Core双轨商业化，但须先补查AGPL合规性。 |
-| 8 | [mattpocock/skills](../reports/2026/08/23/skills/) | 80.8 | S | S级明星资产，23万Star卡位Agent技能标准化窗口，但个人单点依赖与脆弱变现链路是商业化两大坎。 |
-| 9 | [guillaumemeyer/watermarks-remover](../reports/2026/08/23/watermarks-remover/) | 70.0 | A | 罕见高热度+强技术底座，但监管逆风、变现空白、单点维护者三大短板，需先验证付费意愿再规模化投入。 |
+| 7 | [yjh051108/dsh-routing-suite](../reports/2026/08/23/dsh-routing-suite/) | 46.8 | D | 高功能价值、极低商业可行性的 DSH 插件套装，无 LICENSE 触发一票否决，应先补合规再做影响力变现。 |
+| 8 | [volcengine/OpenViking](../reports/2026/08/23/openviking/) | 80.5 | S | S级明星资产，技术领先+时机精准+大厂背书，建议立即投入Open Core双轨商业化，但须先补查AGPL合规性。 |
+| 9 | [mattpocock/skills](../reports/2026/08/23/skills/) | 80.8 | S | S级明星资产，23万Star卡位Agent技能标准化窗口，但个人单点依赖与脆弱变现链路是商业化两大坎。 |
+| 10 | [guillaumemeyer/watermarks-remover](../reports/2026/08/23/watermarks-remover/) | 70.0 | A | 罕见高热度+强技术底座，但监管逆风、变现空白、单点维护者三大短板，需先验证付费意愿再规模化投入。 |
 
 ---
 

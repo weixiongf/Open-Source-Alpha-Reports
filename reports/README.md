@@ -10,6 +10,7 @@
 | 日期 | 项目 | 评分 | 等级 | 一句话结论 |
 |------|------|------|------|-----------|
 | 2026-08-23 | [openai/codex](2026/08/23/codex/) | 87.5 | S | OpenAI 官方出品、变现路径已打通的 AI 编程赛道头部资产，技术护城河与社区热度顶级，但 al |
+| 2026-08-23 | [volcengine/OpenViking](2026/08/23/openviking/) | 80.5 | S | S级明星资产，技术领先+时机精准+大厂背书，建议立即投入Open Core双轨商业化，但须先补查AG |
 | 2026-08-23 | [mattpocock/skills](2026/08/23/skills/) | 80.8 | S | S级明星资产，23万Star卡位Agent技能标准化窗口，但个人单点依赖与脆弱变现链路是商业化两大坎 |
 | 2026-08-22 | [deepseek-ai/deepseek-harness](2026/08/22/deepseek-harness/) | 78.1 | A | 高潜力早阶段明星资产：技术顶级、市场窗口明确，但9天项目未验证生产稳定性，短期看API导流、中期看企 |
 | 2026-08-22 | [anywhere-labs/deepseek-harness-desktop](2026/08/22/deepseek-harness-desktop/) | 75.1 | A | DSH生态桌面入口卡位精准，8天17.5k Star验证刚需，技术质量顶尖；但商业化为零、采用率极低 |

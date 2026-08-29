@@ -1,7 +1,7 @@
 # 报告清单 · 2026年08月
 
 > 本文件由 github_anyliasis 自动维护，每次发布报告时更新。
-> 本月共收录 36 条报告记录。
+> 本月共收录 37 条报告记录。
 
 | 序号 | 项目 | 综合得分 | 等级 | 一句话结论 |
 |------|------|----------|------|-----------|
@@ -40,7 +40,8 @@
 | 33 | [VoltAgent/awesome-agent-skills](../reports/2026/08/29/awesome-agent-skills/) | 82.1 | S | Agent Skills头部流量入口，社区势能现象级、变现已实证，但零代码架构制约平台化，短期吃透赞助、中期必须补技术升级。 |
 | 34 | [AgriciDaniel/claude-obsidian](../reports/2026/08/29/claude-obsidian/) | 71.5 | A | 技术顶级、需求真实的明星资产，但维护带宽与变现机制是致命短板，商业化应走周边服务而非功能墙。 |
 | 35 | [tinyhumansai/openhuman](../reports/2026/08/29/openhuman/) | 78.2 | A | 个人AI智能体赛道高潜力明星资产，技术护城河深、变现路径清晰，但需立即补CLA法律课并验证付费转化。 |
-| 36 | [K-Dense-AI/scientific-agent-skills](../reports/2026/08/30/scientific-agent-skills/) | 77.2 | A | AI for Science 明星资产，需求真实产品成熟，建议立即商业化但须先解决混合许可冲突。 |
+| 36 | [omacom/omarchy](../reports/2026/08/30/omarchy/) | 67.8 | A | 顶级社区势能+垄断级赛道地位，但工程治理与变现路径空白，宜走影响力变现路线，谨慎推进商业化。 |
+| 37 | [K-Dense-AI/scientific-agent-skills](../reports/2026/08/30/scientific-agent-skills/) | 77.2 | A | AI for Science 明星资产，需求真实产品成熟，建议立即商业化但须先解决混合许可冲突。 |
 
 ---
 

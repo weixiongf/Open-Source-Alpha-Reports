@@ -3,12 +3,13 @@
 > 本索引由 github_anyliasis 自动维护，按日期倒序。
 > 仓库介绍见根目录 [README](../README.md)。
 
-**最后更新**: 2026-08-29
+**最后更新**: 2026-08-30
 
 ---
 
 | 日期 | 项目 | 评分 | 等级 | 一句话结论 |
 |------|------|------|------|-----------|
+| 2026-08-30 | [K-Dense-AI/scientific-agent-skills](2026/08/30/scientific-agent-skills/) | 77.2 | A | AI for Science 明星资产，需求真实产品成熟，建议立即商业化但须先解决混合许可冲突。 |
 | 2026-08-29 | [pathwaycom/arc-task-gen](2026/08/29/arc-task-gen/) | 52.4 | B | 高公共价值、低商业成熟度的研究工具，8.5k Star 验证刚需，但工程与社区短板使其只适合做影响力 |
 | 2026-08-29 | [VoltAgent/awesome-agent-skills](2026/08/29/awesome-agent-skills/) | 82.1 | S | Agent Skills头部流量入口，社区势能现象级、变现已实证，但零代码架构制约平台化，短期吃透赞 |
 | 2026-08-29 | [AgriciDaniel/claude-obsidian](2026/08/29/claude-obsidian/) | 71.5 | A | 技术顶级、需求真实的明星资产，但维护带宽与变现机制是致命短板，商业化应走周边服务而非功能墙。 |

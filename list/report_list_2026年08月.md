@@ -1,7 +1,7 @@
 # 报告清单 · 2026年08月
 
 > 本文件由 github_anyliasis 自动维护，每次发布报告时更新。
-> 本月共收录 34 条报告记录。
+> 本月共收录 35 条报告记录。
 
 | 序号 | 项目 | 综合得分 | 等级 | 一句话结论 |
 |------|------|----------|------|-----------|
@@ -37,8 +37,9 @@
 | 30 | [santifer/career-ops](../reports/2026/08/28/career-ops/) | 74.3 | A |  |
 | 31 | [Alishahryar1/free-claude-code](../reports/2026/08/28/free-claude-code/) | 70.4 | A | 社区价值已验证、商业价值待挖掘的明星资产，首选Open Core路径，须先解决CLA、商标与治理三大前置问题。 |
 | 32 | [pathwaycom/arc-task-gen](../reports/2026/08/29/arc-task-gen/) | 52.4 | B | 高公共价值、低商业成熟度的研究工具，8.5k Star 验证刚需，但工程与社区短板使其只适合做影响力载体，建议基金会托管。 |
-| 33 | [AgriciDaniel/claude-obsidian](../reports/2026/08/29/claude-obsidian/) | 71.5 | A | 技术顶级、需求真实的明星资产，但维护带宽与变现机制是致命短板，商业化应走周边服务而非功能墙。 |
-| 34 | [tinyhumansai/openhuman](../reports/2026/08/29/openhuman/) | 78.2 | A | 个人AI智能体赛道高潜力明星资产，技术护城河深、变现路径清晰，但需立即补CLA法律课并验证付费转化。 |
+| 33 | [VoltAgent/awesome-agent-skills](../reports/2026/08/29/awesome-agent-skills/) | 82.1 | S | Agent Skills头部流量入口，社区势能现象级、变现已实证，但零代码架构制约平台化，短期吃透赞助、中期必须补技术升级。 |
+| 34 | [AgriciDaniel/claude-obsidian](../reports/2026/08/29/claude-obsidian/) | 71.5 | A | 技术顶级、需求真实的明星资产，但维护带宽与变现机制是致命短板，商业化应走周边服务而非功能墙。 |
+| 35 | [tinyhumansai/openhuman](../reports/2026/08/29/openhuman/) | 78.2 | A | 个人AI智能体赛道高潜力明星资产，技术护城河深、变现路径清晰，但需立即补CLA法律课并验证付费转化。 |
 
 ---
 

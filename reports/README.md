@@ -10,6 +10,7 @@
 | 日期 | 项目 | 评分 | 等级 | 一句话结论 |
 |------|------|------|------|-----------|
 | 2026-08-30 | [omacom/omarchy](2026/08/30/omarchy/) | 67.8 | A | 顶级社区势能+垄断级赛道地位，但工程治理与变现路径空白，宜走影响力变现路线，谨慎推进商业化。 |
+| 2026-08-30 | [CopilotKit/OpenBot](2026/08/30/openbot/) | 78.8 | A | 商业模式设计满分、技术底子扎实的 AI Agent 治理平台，但 Alpha 阶段与近零采用规模是硬 |
 | 2026-08-30 | [K-Dense-AI/scientific-agent-skills](2026/08/30/scientific-agent-skills/) | 77.2 | A | AI for Science 明星资产，需求真实产品成熟，建议立即商业化但须先解决混合许可冲突。 |
 | 2026-08-29 | [pathwaycom/arc-task-gen](2026/08/29/arc-task-gen/) | 52.4 | B | 高公共价值、低商业成熟度的研究工具，8.5k Star 验证刚需，但工程与社区短板使其只适合做影响力 |
 | 2026-08-29 | [VoltAgent/awesome-agent-skills](2026/08/29/awesome-agent-skills/) | 82.1 | S | Agent Skills头部流量入口，社区势能现象级、变现已实证，但零代码架构制约平台化，短期吃透赞 |

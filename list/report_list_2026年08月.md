@@ -1,7 +1,7 @@
 # 报告清单 · 2026年08月
 
 > 本文件由 github_anyliasis 自动维护，每次发布报告时更新。
-> 本月共收录 40 条报告记录。
+> 本月共收录 41 条报告记录。
 
 | 序号 | 项目 | 综合得分 | 等级 | 一句话结论 |
 |------|------|----------|------|-----------|
@@ -43,8 +43,9 @@
 | 36 | [omacom/omarchy](../reports/2026/08/30/omarchy/) | 67.8 | A | 顶级社区势能+垄断级赛道地位，但工程治理与变现路径空白，宜走影响力变现路线，谨慎推进商业化。 |
 | 37 | [CopilotKit/OpenBot](../reports/2026/08/30/openbot/) | 78.8 | A | 商业模式设计满分、技术底子扎实的 AI Agent 治理平台，但 Alpha 阶段与近零采用规模是硬伤，建议验证为先、变现为后。 |
 | 38 | [K-Dense-AI/scientific-agent-skills](../reports/2026/08/30/scientific-agent-skills/) | 77.2 | A | AI for Science 明星资产，需求真实产品成熟，建议立即商业化但须先解决混合许可冲突。 |
-| 39 | [tashfeenahmed/freellmapi](../reports/2026/08/31/freellmapi/) | 75.1 | A | 技术过硬、卡位精准但自设个人实验天花板，单点维护风险高，建议Open Core深化并补齐企业级能力后再放大投入。 |
-| 40 | [THU-MAIC/OpenMAIC](../reports/2026/08/31/openmaic/) | 75.4 | A | A级明星资产，技术壁垒与社区势能俱佳，但付费意愿零验证、示例内容缺失，需6-12个月验证商业化闭环。 |
+| 39 | [dmmulroy/anti-slop](../reports/2026/08/31/anti-slop/) | 61.7 | B | 理念验证成功但商业化远未成熟：19天3905星证明市场共鸣，但单人维护、零参与、无Release，当前仅适合技术借鉴与人才引进。 |
+| 40 | [tashfeenahmed/freellmapi](../reports/2026/08/31/freellmapi/) | 75.1 | A | 技术过硬、卡位精准但自设个人实验天花板，单点维护风险高，建议Open Core深化并补齐企业级能力后再放大投入。 |
+| 41 | [THU-MAIC/OpenMAIC](../reports/2026/08/31/openmaic/) | 75.4 | A | A级明星资产，技术壁垒与社区势能俱佳，但付费意愿零验证、示例内容缺失，需6-12个月验证商业化闭环。 |
 
 ---
 

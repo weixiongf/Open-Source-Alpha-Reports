@@ -9,6 +9,7 @@
 
 | 日期 | 项目 | 评分 | 等级 | 一句话结论 |
 |------|------|------|------|-----------|
+| 2026-09-03 | [omdsh-dev/DSH-better-sidebar](2026/09/03/dsh-better-sidebar/) | 67.4 | A | DSH生态侧边栏底座卡位者，技术扎实生态锁定成形，但变现通道为零且依赖上游alpha期，建议先巩固主 |
 | 2026-09-03 | [dataelement/dsh-desktop](2026/09/03/dsh-desktop/) | 67.7 | A | 高潜力零收入的早期项目，需在DeepSeek官方化前完成付费层设计与生态锁定，窗口期约3-6个月。 |
 | 2026-09-03 | [calesthio/OpenMontage](2026/09/03/openmontage/) | 68.1 | A | 高潜力低就绪的明星资产：5个月55k Star验证市场，$1.33成片构筑壁垒，但0.1.0版本+L |
 | 2026-09-02 | [rohitg00/ai-engineering-from-scratch](2026/09/02/ai-engineering-from-scratch/) | 76.5 | A | 明星资产级开源AI课程，流量与内容壁垒已就绪，B端培训与认证辅导是付费突破口，商业化时机成熟。 |

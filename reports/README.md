@@ -3,12 +3,13 @@
 > 本索引由 github_anyliasis 自动维护，按日期倒序。
 > 仓库介绍见根目录 [README](../README.md)。
 
-**最后更新**: 2026-09-04
+**最后更新**: 2026-09-05
 
 ---
 
 | 日期 | 项目 | 评分 | 等级 | 一句话结论 |
 |------|------|------|------|-----------|
+| 2026-09-05 | [debpalash/VoiceStudio](2026/09/05/voicestudio/) | 66.6 | A | 社区爆发力与工程底子俱佳，双许可通道已铺好，但 Active beta 与 Bus Factor=1 |
 | 2026-09-04 | [firecrawl/firecrawl](2026/09/04/firecrawl/) | 78.9 | A | AI 数据层明星资产，SaaS+私有化双轨变现已获资本验证，补齐法律合规与企业级短板即可规模化扩张。 |
 | 2026-09-04 | [JetBrains/go-modern-guidelines](2026/09/04/go-modern-guidelines/) | 70.5 | A | JetBrains 官方背书+蓝海卡位，但变现机制空白、企业就绪度不足，当前宜作生态战略资产而非独立 |
 | 2026-09-04 | [blader/humanizer](2026/09/04/humanizer/) | 70.6 | A | 41K Star 顶级流量+35 条规则知识壁垒，但零商业闭环、工程极简、治理缺失，需在 12-24 |

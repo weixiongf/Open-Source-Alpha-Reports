@@ -12,6 +12,7 @@
 | 2026-09-04 | [firecrawl/firecrawl](2026/09/04/firecrawl/) | 78.9 | A | AI 数据层明星资产，SaaS+私有化双轨变现已获资本验证，补齐法律合规与企业级短板即可规模化扩张。 |
 | 2026-09-04 | [JetBrains/go-modern-guidelines](2026/09/04/go-modern-guidelines/) | 70.5 | A | JetBrains 官方背书+蓝海卡位，但变现机制空白、企业就绪度不足，当前宜作生态战略资产而非独立 |
 | 2026-09-04 | [blader/humanizer](2026/09/04/humanizer/) | 70.6 | A | 41K Star 顶级流量+35 条规则知识壁垒，但零商业闭环、工程极简、治理缺失，需在 12-24 |
+| 2026-09-04 | [jingyaogong/minimind](2026/09/04/minimind/) | 63.7 | B | 教育价值与社区影响力显著，但工程化与治理短板制约直接商业化，应走影响力变现路径。 |
 | 2026-09-04 | [sapientinc/PRAXIST](2026/09/04/praxist/) | 79.2 | A | 法律变现设计独特、竞争蓝海明确，但法律合规未验证、商业验证为零，先补法律审查再谈变现。 |
 | 2026-09-03 | [omdsh-dev/DSH-better-sidebar](2026/09/03/dsh-better-sidebar/) | 67.4 | A | DSH生态侧边栏底座卡位者，技术扎实生态锁定成形，但变现通道为零且依赖上游alpha期，建议先巩固主 |
 | 2026-09-03 | [dataelement/dsh-desktop](2026/09/03/dsh-desktop/) | 67.7 | A | 高潜力零收入的早期项目，需在DeepSeek官方化前完成付费层设计与生态锁定，窗口期约3-6个月。 |

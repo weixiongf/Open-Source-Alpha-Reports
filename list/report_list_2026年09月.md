@@ -1,7 +1,7 @@
 # 报告清单 · 2026年09月
 
 > 本文件由 github_anyliasis 自动维护，每次发布报告时更新。
-> 本月共收录 15 条报告记录。
+> 本月共收录 16 条报告记录。
 
 | 序号 | 项目 | 综合得分 | 等级 | 一句话结论 |
 |------|------|----------|------|-----------|
@@ -19,7 +19,8 @@
 | 12 | [blader/humanizer](../reports/2026/09/04/humanizer/) | 70.6 | A | 41K Star 顶级流量+35 条规则知识壁垒，但零商业闭环、工程极简、治理缺失，需在 12-24 个月窗口期内完成 API 服务化转型。 |
 | 13 | [jingyaogong/minimind](../reports/2026/09/04/minimind/) | 63.7 | B | 教育价值与社区影响力显著，但工程化与治理短板制约直接商业化，应走影响力变现路径。 |
 | 14 | [sapientinc/PRAXIST](../reports/2026/09/04/praxist/) | 79.2 | A | 法律变现设计独特、竞争蓝海明确，但法律合规未验证、商业验证为零，先补法律审查再谈变现。 |
-| 15 | [debpalash/VoiceStudio](../reports/2026/09/05/voicestudio/) | 66.6 | A | 社区爆发力与工程底子俱佳，双许可通道已铺好，但 Active beta 与 Bus Factor=1 需先补课再商业化。 |
+| 15 | [Gitlawb/openclaude](../reports/2026/09/05/openclaude/) | 48.6 | D | 运营能力顶尖但法律根基不合法——89万行派生代码未获Anthropic授权，一票否决商业化；先解决合法性，再谈任何变现。 |
+| 16 | [debpalash/VoiceStudio](../reports/2026/09/05/voicestudio/) | 66.6 | A | 社区爆发力与工程底子俱佳，双许可通道已铺好，但 Active beta 与 Bus Factor=1 需先补课再商业化。 |
 
 ---
 

@@ -10,6 +10,7 @@
 | 日期 | 项目 | 评分 | 等级 | 一句话结论 |
 |------|------|------|------|-----------|
 | 2026-09-05 | [Gitlawb/openclaude](2026/09/05/openclaude/) | 48.6 | D | 运营能力顶尖但法律根基不合法——89万行派生代码未获Anthropic授权，一票否决商业化；先解决合 |
+| 2026-09-05 | [useagenthq/useagent](2026/09/05/useagent/) | 60.5 | B | 技术质量显著高于阶段预期但外部验证为零的极早期项目，精准卡位+深护城河值得技术借鉴或人才引进，暂不投 |
 | 2026-09-05 | [debpalash/VoiceStudio](2026/09/05/voicestudio/) | 66.6 | A | 社区爆发力与工程底子俱佳，双许可通道已铺好，但 Active beta 与 Bus Factor=1 |
 | 2026-09-04 | [firecrawl/firecrawl](2026/09/04/firecrawl/) | 78.9 | A | AI 数据层明星资产，SaaS+私有化双轨变现已获资本验证，补齐法律合规与企业级短板即可规模化扩张。 |
 | 2026-09-04 | [JetBrains/go-modern-guidelines](2026/09/04/go-modern-guidelines/) | 70.5 | A | JetBrains 官方背书+蓝海卡位，但变现机制空白、企业就绪度不足，当前宜作生态战略资产而非独立 |

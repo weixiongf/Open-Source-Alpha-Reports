@@ -1,7 +1,7 @@
 # 报告清单 · 2026年09月
 
 > 本文件由 github_anyliasis 自动维护，每次发布报告时更新。
-> 本月共收录 17 条报告记录。
+> 本月共收录 18 条报告记录。
 
 | 序号 | 项目 | 综合得分 | 等级 | 一句话结论 |
 |------|------|----------|------|-----------|
@@ -21,7 +21,8 @@
 | 14 | [sapientinc/PRAXIST](../reports/2026/09/04/praxist/) | 79.2 | A | 法律变现设计独特、竞争蓝海明确，但法律合规未验证、商业验证为零，先补法律审查再谈变现。 |
 | 15 | [Gitlawb/openclaude](../reports/2026/09/05/openclaude/) | 48.6 | D | 运营能力顶尖但法律根基不合法——89万行派生代码未获Anthropic授权，一票否决商业化；先解决合法性，再谈任何变现。 |
 | 16 | [useagenthq/useagent](../reports/2026/09/05/useagent/) | 60.5 | B | 技术质量显著高于阶段预期但外部验证为零的极早期项目，精准卡位+深护城河值得技术借鉴或人才引进，暂不投入直接商业化。 |
-| 17 | [debpalash/VoiceStudio](../reports/2026/09/05/voicestudio/) | 66.6 | A | 社区爆发力与工程底子俱佳，双许可通道已铺好，但 Active beta 与 Bus Factor=1 需先补课再商业化。 |
+| 17 | [deeplethe/utopia](../reports/2026/09/05/utopia/) | 76.8 | A | 技术底座与市场卡位俱佳的明星资产，但商业验证为零——先跑通 v1.0 + 首个付费客户，再谈规模化。 |
+| 18 | [debpalash/VoiceStudio](../reports/2026/09/05/voicestudio/) | 66.6 | A | 社区爆发力与工程底子俱佳，双许可通道已铺好，但 Active beta 与 Bus Factor=1 需先补课再商业化。 |
 
 ---
 

@@ -1,7 +1,7 @@
 # 报告清单 · 2026年09月
 
 > 本文件由 github_anyliasis 自动维护，每次发布报告时更新。
-> 本月共收录 22 条报告记录。
+> 本月共收录 23 条报告记录。
 
 | 序号 | 项目 | 综合得分 | 等级 | 一句话结论 |
 |------|------|----------|------|-----------|
@@ -25,8 +25,9 @@
 | 18 | [deeplethe/utopia](../reports/2026/09/05/utopia/) | 76.8 | A | 技术底座与市场卡位俱佳的明星资产，但商业验证为零——先跑通 v1.0 + 首个付费客户，再谈规模化。 |
 | 19 | [debpalash/VoiceStudio](../reports/2026/09/05/voicestudio/) | 66.6 | A | 社区爆发力与工程底子俱佳，双许可通道已铺好，但 Active beta 与 Bus Factor=1 需先补课再商业化。 |
 | 20 | [Qiushen-first/cn-investment-banking-skills](../reports/2026/09/06/cn-investment-banking-skills/github%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AECn-investment-banking-skills%E7%9A%84%E5%95%86%E4%B8%9A%E4%BB%B7%E5%80%BC%E5%88%86%E6%9E%90%E6%8A%A5%E5%91%8A_%E5%AE%8C%E6%95%B4%E7%89%88.pdf) | 56.5 | B | 领域知识值钱但项目疑似停更、零社区参与、零商业设计，当前不建议投入，建议fork自用或观望。 |
-| 21 | [tailscale/tailcat](../reports/2026/09/06/tailcat/github%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AETailcat%E7%9A%84%E5%95%86%E4%B8%9A%E4%BB%B7%E5%80%BC%E5%88%86%E6%9E%90%E6%8A%A5%E5%91%8A_%E5%AE%8C%E6%95%B4%E7%89%88.pdf) | 73.6 | A | tailcat 是 A 级明星资产，最优路径是作为 Tailscale 商业体系的技术引流入口，而非独立变现；需补齐企业级功能与治理短板。 |
-| 22 | [google-research/timesfm](../reports/2026/09/06/timesfm/github%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AETimesfm%E7%9A%84%E5%95%86%E4%B8%9A%E4%BB%B7%E5%80%BC%E5%88%86%E6%9E%90%E6%8A%A5%E5%91%8A_%E5%AE%8C%E6%95%B4%E7%89%88.pdf) | 76.4 | A | TSFM赛道技术标杆，Google云托管已验证变现，但3.0权重非商业许可封死第三方直接商用，仅推荐绕开权重限制的垂直场景路径。 |
+| 21 | [DogParty/iPodClickWheelRecomps](../reports/2026/09/06/ipodclickwheelrecomps/github%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AEiPodClickWheelRecomps%E7%9A%84%E5%95%86%E4%B8%9A%E4%BB%B7%E5%80%BC%E5%88%86%E6%9E%90%E6%8A%A5%E5%91%8A_%E5%AE%8C%E6%95%B4%E7%89%88.pdf) | 49.6 | C | 技术世界首创但版权死结+单人维护+零商业模式，仅适合技术借鉴与人才引进，不建议商业投入。 |
+| 22 | [tailscale/tailcat](../reports/2026/09/06/tailcat/github%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AETailcat%E7%9A%84%E5%95%86%E4%B8%9A%E4%BB%B7%E5%80%BC%E5%88%86%E6%9E%90%E6%8A%A5%E5%91%8A_%E5%AE%8C%E6%95%B4%E7%89%88.pdf) | 73.6 | A | tailcat 是 A 级明星资产，最优路径是作为 Tailscale 商业体系的技术引流入口，而非独立变现；需补齐企业级功能与治理短板。 |
+| 23 | [google-research/timesfm](../reports/2026/09/06/timesfm/github%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AETimesfm%E7%9A%84%E5%95%86%E4%B8%9A%E4%BB%B7%E5%80%BC%E5%88%86%E6%9E%90%E6%8A%A5%E5%91%8A_%E5%AE%8C%E6%95%B4%E7%89%88.pdf) | 76.4 | A | TSFM赛道技术标杆，Google云托管已验证变现，但3.0权重非商业许可封死第三方直接商用，仅推荐绕开权重限制的垂直场景路径。 |
 
 ---
 

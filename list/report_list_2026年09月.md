@@ -1,7 +1,7 @@
 # 报告清单 · 2026年09月
 
 > 本文件由 github_anyliasis 自动维护，每次发布报告时更新。
-> 本月共收录 34 条报告记录。
+> 本月共收录 35 条报告记录。
 
 | 序号 | 项目 | 综合得分 | 等级 | 一句话结论 |
 |------|------|----------|------|-----------|
@@ -39,6 +39,7 @@
 | 32 | [heygen-com/hyperframes](../reports/2026/09/08/hyperframes/github%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AEHyperframes%E7%9A%84%E5%95%86%E4%B8%9A%E4%BB%B7%E5%80%BC%E5%88%86%E6%9E%90%E6%8A%A5%E5%91%8A_%E5%AE%8C%E6%95%B4%E7%89%88.pdf) | 80.0 | S | S级明星资产，立即投入商业化——首选云渲染托管路径，维持Apache-2.0内核开放，3个月内锁定v1.0接口。 |
 | 33 | [DannyMac180/astra-advisor](../reports/2026/09/09/astra-advisor/github%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AEAstra-advisor%E7%9A%84%E5%95%86%E4%B8%9A%E4%BB%B7%E5%80%BC%E5%88%86%E6%9E%90%E6%8A%A5%E5%91%8A_%E5%AE%8C%E6%95%B4%E7%89%88.pdf) | 56.0 | B | 极早期 AI 编排插件，易用性出色但社区空白、护城河薄弱，当前价值是期权而非现金流，建议影响力变现为主。 |
 | 34 | [handsomestWei/patent-disclosure-skill](../reports/2026/09/09/patent-disclosure-skill/github%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AEPatent-disclosure-skill%E7%9A%84%E5%95%86%E4%B8%9A%E4%BB%B7%E5%80%BC%E5%88%86%E6%9E%90%E6%8A%A5%E5%91%8A_%E5%AE%8C%E6%95%B4%E7%89%88.pdf) | 70.4 | A | 精准卡位中国专利AI空白赛道，8.7k Star验证需求，MIT加持变现自由；但工程治理与商业模式未落地，需补齐SaaS化能力方可将势能转化为收入。 |
+| 35 | [openai/skills](../reports/2026/09/09/skills/github%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AESkills%E7%9A%84%E5%95%86%E4%B8%9A%E4%BB%B7%E5%80%BC%E5%88%86%E6%9E%90%E6%8A%A5%E5%91%8A_%E5%AE%8C%E6%95%B4%E7%89%88.pdf) | 59.7 | B | OpenAI 官方已弃用的技能目录，26.5K Star 品牌资产救不了零工程化、零护城河的底子——只可借内容做技术参考，不可投入直接商业化。 |
 
 ---
 

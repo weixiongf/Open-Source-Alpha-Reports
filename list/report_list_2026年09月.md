@@ -1,7 +1,7 @@
 # 报告清单 · 2026年09月
 
 > 本文件由 github_anyliasis 自动维护，每次发布报告时更新。
-> 本月共收录 47 条报告记录。
+> 本月共收录 48 条报告记录。
 
 | 序号 | 项目 | 综合得分 | 等级 | 一句话结论 |
 |------|------|----------|------|-----------|
@@ -49,9 +49,10 @@
 | 42 | [openai/NavierStokesAndEuler](../reports/2026/09/10/navierstokesandeuler/github%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AENavierStokesAndEuler%E7%9A%84%E5%95%86%E4%B8%9A%E4%BB%B7%E5%80%BC%E5%88%86%E6%9E%90%E6%8A%A5%E5%91%8A_%E5%AE%8C%E6%95%B4%E7%89%88.pdf) | 51.8 | B | 高质量研究工件而非商业项目，价值在证明能力而非提供服务，应借鉴方法论而非试图变现。 |
 | 43 | [earendil-works/pi](../reports/2026/09/10/pi/github%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AEPi%E7%9A%84%E5%95%86%E4%B8%9A%E4%BB%B7%E5%80%BC%E5%88%86%E6%9E%90%E6%8A%A5%E5%91%8A_%E5%AE%8C%E6%95%B4%E7%89%88.pdf) | 78.9 | A | AI Coding Agent 赛道明星开源资产，技术社区势能扎实但商业化闭环未启动，Open Core 路径清晰待验证。 |
 | 44 | [ruvnet/ruflo](../reports/2026/09/10/ruflo/github%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AERuflo%E7%9A%84%E5%95%86%E4%B8%9A%E4%BB%B7%E5%80%BC%E5%88%86%E6%9E%90%E6%8A%A5%E5%91%8A_%E5%AE%8C%E6%95%B4%E7%89%88.pdf) | 79.6 | A | 高潜力明星资产但商业化执行力为零，先补治理验证再建定价体系，6个月无收入则降级为公共产品策略。 |
-| 45 | [torvalds/linux](../reports/2026/09/11/linux/github%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AELinux%E7%9A%84%E5%95%86%E4%B8%9A%E4%BB%B7%E5%80%BC%E5%88%86%E6%9E%90%E6%8A%A5%E5%91%8A_%E5%AE%8C%E6%95%B4%E7%89%88.pdf) | 83.6 | S | 内核本体不可直接变现，但围绕它的下游商业化具备 S 级可行性——投的是生态，不是代码。 |
-| 46 | [lnkiai/m3e-canvas](../reports/2026/09/11/m3e-canvas/github%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AEM3e-canvas%E7%9A%84%E5%95%86%E4%B8%9A%E4%BB%B7%E5%80%BC%E5%88%86%E6%9E%90%E6%8A%A5%E5%91%8A_%E5%AE%8C%E6%95%B4%E7%89%88.pdf) | 63.8 | B | 产品优秀合规干净，但变现路径被主动关闭、护城河首周即被克隆，宜作社区声誉资产而非商业标的。 |
-| 47 | [openai/plugins](../reports/2026/09/11/plugins/github%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AEPlugins%E7%9A%84%E5%95%86%E4%B8%9A%E4%BB%B7%E5%80%BC%E5%88%86%E6%9E%90%E6%8A%A5%E5%91%8A_%E5%AE%8C%E6%95%B4%E7%89%88.pdf) | 60.9 | D | Codex 生态的官方说明书与样板间：生态价值极高，商业价值为零，适合学习借鉴，不适合投资变现。 |
+| 45 | [mksglu/context-mode](../reports/2026/09/11/context-mode/github%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AEContext-mode%E7%9A%84%E5%95%86%E4%B8%9A%E4%BB%B7%E5%80%BC%E5%88%86%E6%9E%90%E6%8A%A5%E5%91%8A_%E5%AE%8C%E6%95%B4%E7%89%88.pdf) | 70.9 | A | 痛点真、工程硬、17平台分发广，但巴士因子≈1与变现零验证是两座必须翻的山——可投，先补治理与定价。 |
+| 46 | [torvalds/linux](../reports/2026/09/11/linux/github%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AELinux%E7%9A%84%E5%95%86%E4%B8%9A%E4%BB%B7%E5%80%BC%E5%88%86%E6%9E%90%E6%8A%A5%E5%91%8A_%E5%AE%8C%E6%95%B4%E7%89%88.pdf) | 83.6 | S | 内核本体不可直接变现，但围绕它的下游商业化具备 S 级可行性——投的是生态，不是代码。 |
+| 47 | [lnkiai/m3e-canvas](../reports/2026/09/11/m3e-canvas/github%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AEM3e-canvas%E7%9A%84%E5%95%86%E4%B8%9A%E4%BB%B7%E5%80%BC%E5%88%86%E6%9E%90%E6%8A%A5%E5%91%8A_%E5%AE%8C%E6%95%B4%E7%89%88.pdf) | 63.8 | B | 产品优秀合规干净，但变现路径被主动关闭、护城河首周即被克隆，宜作社区声誉资产而非商业标的。 |
+| 48 | [openai/plugins](../reports/2026/09/11/plugins/github%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AEPlugins%E7%9A%84%E5%95%86%E4%B8%9A%E4%BB%B7%E5%80%BC%E5%88%86%E6%9E%90%E6%8A%A5%E5%91%8A_%E5%AE%8C%E6%95%B4%E7%89%88.pdf) | 60.9 | D | Codex 生态的官方说明书与样板间：生态价值极高，商业价值为零，适合学习借鉴，不适合投资变现。 |
 
 ---
 

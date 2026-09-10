@@ -1,7 +1,7 @@
 # 报告清单 · 2026年09月
 
 > 本文件由 github_anyliasis 自动维护，每次发布报告时更新。
-> 本月共收录 44 条报告记录。
+> 本月共收录 45 条报告记录。
 
 | 序号 | 项目 | 综合得分 | 等级 | 一句话结论 |
 |------|------|----------|------|-----------|
@@ -49,6 +49,7 @@
 | 42 | [openai/NavierStokesAndEuler](../reports/2026/09/10/navierstokesandeuler/github%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AENavierStokesAndEuler%E7%9A%84%E5%95%86%E4%B8%9A%E4%BB%B7%E5%80%BC%E5%88%86%E6%9E%90%E6%8A%A5%E5%91%8A_%E5%AE%8C%E6%95%B4%E7%89%88.pdf) | 51.8 | B | 高质量研究工件而非商业项目，价值在证明能力而非提供服务，应借鉴方法论而非试图变现。 |
 | 43 | [earendil-works/pi](../reports/2026/09/10/pi/github%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AEPi%E7%9A%84%E5%95%86%E4%B8%9A%E4%BB%B7%E5%80%BC%E5%88%86%E6%9E%90%E6%8A%A5%E5%91%8A_%E5%AE%8C%E6%95%B4%E7%89%88.pdf) | 78.9 | A | AI Coding Agent 赛道明星开源资产，技术社区势能扎实但商业化闭环未启动，Open Core 路径清晰待验证。 |
 | 44 | [ruvnet/ruflo](../reports/2026/09/10/ruflo/github%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AERuflo%E7%9A%84%E5%95%86%E4%B8%9A%E4%BB%B7%E5%80%BC%E5%88%86%E6%9E%90%E6%8A%A5%E5%91%8A_%E5%AE%8C%E6%95%B4%E7%89%88.pdf) | 79.6 | A | 高潜力明星资产但商业化执行力为零，先补治理验证再建定价体系，6个月无收入则降级为公共产品策略。 |
+| 45 | [torvalds/linux](../reports/2026/09/11/linux/github%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AELinux%E7%9A%84%E5%95%86%E4%B8%9A%E4%BB%B7%E5%80%BC%E5%88%86%E6%9E%90%E6%8A%A5%E5%91%8A_%E5%AE%8C%E6%95%B4%E7%89%88.pdf) | 83.6 | S | 内核本体不可直接变现，但围绕它的下游商业化具备 S 级可行性——投的是生态，不是代码。 |
 
 ---
 

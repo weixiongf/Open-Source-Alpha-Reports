@@ -1,7 +1,7 @@
 # 报告清单 · 2026年09月
 
 > 本文件由 github_anyliasis 自动维护，每次发布报告时更新。
-> 本月共收录 50 条报告记录。
+> 本月共收录 51 条报告记录。
 
 | 序号 | 项目 | 综合得分 | 等级 | 一句话结论 |
 |------|------|----------|------|-----------|
@@ -54,7 +54,8 @@
 | 47 | [lnkiai/m3e-canvas](../reports/2026/09/11/m3e-canvas/github%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AEM3e-canvas%E7%9A%84%E5%95%86%E4%B8%9A%E4%BB%B7%E5%80%BC%E5%88%86%E6%9E%90%E6%8A%A5%E5%91%8A_%E5%AE%8C%E6%95%B4%E7%89%88.pdf) | 63.8 | B | 产品优秀合规干净，但变现路径被主动关闭、护城河首周即被克隆，宜作社区声誉资产而非商业标的。 |
 | 48 | [openai/plugins](../reports/2026/09/11/plugins/github%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AEPlugins%E7%9A%84%E5%95%86%E4%B8%9A%E4%BB%B7%E5%80%BC%E5%88%86%E6%9E%90%E6%8A%A5%E5%91%8A_%E5%AE%8C%E6%95%B4%E7%89%88.pdf) | 60.9 | D | Codex 生态的官方说明书与样板间：生态价值极高，商业价值为零，适合学习借鉴，不适合投资变现。 |
 | 49 | [cozyblaze/portal-agent](../reports/2026/09/11/portal-agent/github%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AEPortal-agent%E7%9A%84%E5%95%86%E4%B8%9A%E4%BB%B7%E5%80%BC%E5%88%86%E6%9E%90%E6%8A%A5%E5%91%8A_%E5%AE%8C%E6%95%B4%E7%89%88.pdf) | 34.4 | D | 25分钟活跃窗口、0行源码、根目录无License的一次性实验归档，技术可借鉴，商业价值为零。 |
-| 50 | [jakubkrehel/skills](../reports/2026/09/12/skills/github%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AESkills%E7%9A%84%E5%95%86%E4%B8%9A%E4%BB%B7%E5%80%BC%E5%88%86%E6%9E%90%E6%8A%A5%E5%91%8A_%E5%AE%8C%E6%95%B4%E7%89%88.pdf) | 56.5 | B | 高关注度、低工程化、零独立变现能力的品牌占位型资产，商业价值应通过母体产品兑现。 |
+| 50 | [EvoMap/AutoResearch](../reports/2026/09/12/autoresearch/github%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AEAutoResearch%E7%9A%84%E5%95%86%E4%B8%9A%E4%BB%B7%E5%80%BC%E5%88%86%E6%9E%90%E6%8A%A5%E5%91%8A_%E5%AE%8C%E6%95%B4%E7%89%88.pdf) | 66.6 | A | A级资产配C级组织：法律与产品设计就绪，组织扩容与产品化封装缺位，先补人再补产品最后谈收入。 |
+| 51 | [jakubkrehel/skills](../reports/2026/09/12/skills/github%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AESkills%E7%9A%84%E5%95%86%E4%B8%9A%E4%BB%B7%E5%80%BC%E5%88%86%E6%9E%90%E6%8A%A5%E5%91%8A_%E5%AE%8C%E6%95%B4%E7%89%88.pdf) | 56.5 | B | 高关注度、低工程化、零独立变现能力的品牌占位型资产，商业价值应通过母体产品兑现。 |
 
 ---
 

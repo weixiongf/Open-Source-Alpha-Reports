@@ -1,7 +1,7 @@
 # 报告清单 · 2026年09月
 
 > 本文件由 github_anyliasis 自动维护，每次发布报告时更新。
-> 本月共收录 63 条报告记录。
+> 本月共收录 64 条报告记录。
 
 | 序号 | 项目 | 综合得分 | 等级 | 一句话结论 |
 |------|------|----------|------|-----------|
@@ -66,8 +66,9 @@
 | 59 | [alibaba/open-code-review](../reports/2026/09/15/open-code-review/github%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AEOpen-code-review%E7%9A%84%E5%95%86%E4%B8%9A%E4%BB%B7%E5%80%BC%E5%88%86%E6%9E%90%E6%8A%A5%E5%91%8A_%E5%AE%8C%E6%95%B4%E7%89%88.pdf) | 78.2 | A | 技术工程社区合规全线优档，商业侧D4/D5恰为最高权重短板，先补生态与企业治理再以Open Core切入。 |
 | 60 | [TauricResearch/TradingAgents](../reports/2026/09/15/tradingagents/github%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AETradingAgents%E7%9A%84%E5%95%86%E4%B8%9A%E4%BB%B7%E5%80%BC%E5%88%86%E6%9E%90%E6%8A%A5%E5%91%8A_%E5%AE%8C%E6%95%B4%E7%89%88.pdf) | 66.1 | A | 106K Star 的心智资产可变现但不可防守，须以机构侧增值慢跑，而非产品化冲刺。 |
 | 61 | [decolua/9router](../reports/2026/09/16/9router/github%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE9router%E7%9A%84%E5%95%86%E4%B8%9A%E4%BB%B7%E5%80%BC%E5%88%86%E6%9E%90%E6%8A%A5%E5%91%8A_%E5%AE%8C%E6%95%B4%E7%89%88.pdf) | 67.7 | A | 需求侧头部明星、变现侧彻底空白，核心卖点依赖正在被上游收回的免费额度，先补治理合规再谈企业版。 |
-| 62 | [petergyang/no-ai-slop](../reports/2026/09/16/no-ai-slop/github%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AENo-ai-slop%E7%9A%84%E5%95%86%E4%B8%9A%E4%BB%B7%E5%80%BC%E5%88%86%E6%9E%90%E6%8A%A5%E5%91%8A_%E5%AE%8C%E6%95%B4%E7%89%88.pdf) | 59.5 | B | 127行代码换9862 Star的注意力资产，护城河近零、无付费触发点，不建议投入直接商业化资源。 |
-| 63 | [max-sixty/worktrunk](../reports/2026/09/16/worktrunk/github%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AEWorktrunk%E7%9A%84%E5%95%86%E4%B8%9A%E4%BB%B7%E5%80%BC%E5%88%86%E6%9E%90%E6%8A%A5%E5%91%8A_%E5%AE%8C%E6%95%B4%E7%89%88.pdf) | 67.0 | A | 痛点真、迭代猛、上手快，但变现载体为零且上游随时可能内化这一层，买的是窗口期权不是生意。 |
+| 62 | [elie222/botdirectory.ai](../reports/2026/09/16/botdirectory.ai/github%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AEBotdirectory.ai%E7%9A%84%E5%95%86%E4%B8%9A%E4%BB%B7%E5%80%BC%E5%88%86%E6%9E%90%E6%8A%A5%E5%91%8A_%E5%AE%8C%E6%95%B4%E7%89%88.pdf) | 62.5 | B | 值得借鉴其贡献工作流与 feed 设计，不值得投入商业化资源。 |
+| 63 | [petergyang/no-ai-slop](../reports/2026/09/16/no-ai-slop/github%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AENo-ai-slop%E7%9A%84%E5%95%86%E4%B8%9A%E4%BB%B7%E5%80%BC%E5%88%86%E6%9E%90%E6%8A%A5%E5%91%8A_%E5%AE%8C%E6%95%B4%E7%89%88.pdf) | 59.5 | B | 127行代码换9862 Star的注意力资产，护城河近零、无付费触发点，不建议投入直接商业化资源。 |
+| 64 | [max-sixty/worktrunk](../reports/2026/09/16/worktrunk/github%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AEWorktrunk%E7%9A%84%E5%95%86%E4%B8%9A%E4%BB%B7%E5%80%BC%E5%88%86%E6%9E%90%E6%8A%A5%E5%91%8A_%E5%AE%8C%E6%95%B4%E7%89%88.pdf) | 67.0 | A | 痛点真、迭代猛、上手快，但变现载体为零且上游随时可能内化这一层，买的是窗口期权不是生意。 |
 
 ---
 

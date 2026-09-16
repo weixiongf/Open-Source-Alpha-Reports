@@ -1,0 +1,1781 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><title>Patent-disclosure-skill 商业价值分析报告</title><style>/* default — 品牌蓝紫主题（从 md2pdf.py 原 CSS 常量迁出，视觉与历史产物一致） */
+@page { size: A4; margin: 18mm 15mm 20mm 15mm; }
+* { box-sizing: border-box; }
+/* 字体规范：一律开源思源黑体 CN（OFL 免费商用）；正文 Regular/标题 Bold/大字数字 Light */
+body { font-family: "Source Han Sans CN","思源黑体 CN","Noto Sans SC",sans-serif; color:#1e293b; font-size:10.5pt; line-height:1.75; margin:0; }
+.cover { page-break-after: always; text-align:center; padding-top:40px; }
+.cover .kicker { color:#2563eb; letter-spacing:6px; font-size:12pt; font-weight:500; }
+.cover h1 { font-size:26pt; margin:14px 0 6px; }
+.cover .sub { color:#64748b; font-size:11pt; margin-bottom:22px; }
+.badge { display:inline-block; background:linear-gradient(135deg,#2563eb,#7c3aed); color:#fff; border-radius:18px; padding:16px 44px; margin:10px 0 18px; }
+.badge .g { font-size:34pt; font-weight:300; line-height:1; }
+.badge .s { font-size:12pt; opacity:.92; margin-top:4px; }
+.meta { color:#475569; font-size:9.5pt; margin-top:14px; }
+.bars { max-width:620px; margin:20px auto 0; text-align:left; }
+.bar-row { display:flex; align-items:center; gap:8px; margin:5px 0; font-size:9pt; }
+.bar-name { width:110px; text-align:right; color:#334155; font-weight:500; }
+.bar-track { flex:1; height:9px; background:#f1f5f9; border-radius:5px; overflow:hidden; }
+.bar-fill { display:block; height:100%; border-radius:5px; }
+.bar-val { width:30px; font-weight:700; color:#0f172a; }
+.bar-w { width:52px; color:#94a3b8; font-size:8pt; }
+h1 { font-size:17pt; color:#0f172a; border-bottom:3px solid #2563eb; padding-bottom:8px; }
+h2 { font-size:13.5pt; color:#1d4ed8; margin-top:26px; page-break-after: avoid; border-left:5px solid #2563eb; padding-left:10px; }
+h3 { font-size:11.5pt; color:#0f172a; margin-top:18px; page-break-after: avoid; }
+table { border-collapse:collapse; width:100%; margin:10px 0; font-size:9pt; page-break-inside:avoid; }
+th { background:#eff6ff; color:#1e3a8a; }
+th,td { border:1px solid #dbe3ef; padding:5px 8px; text-align:left; }
+tr:nth-child(even) td { background:#f8fafc; }
+code { background:#f1f5f9; border-radius:4px; padding:1px 5px; font-family:"JetBrains Mono","Cascadia Mono",monospace; font-size:9pt; color:#be185d; }
+pre { background:#0f172a; color:#e2e8f0; border-radius:8px; padding:12px 14px; overflow-x:auto; page-break-inside:avoid; }
+pre code { background:none; color:inherit; padding:0; }
+blockquote { border-left:4px solid #93c5fd; background:#eff6ff; margin:10px 0; padding:8px 14px; color:#334155; border-radius:0 8px 8px 0; }
+hr { border:none; border-top:1px dashed #cbd5e1; margin:22px 0; }
+strong { color:#0f172a; }
+.cover .disclaimer { max-width:620px; margin:16px auto 0; color:#64748b; font-size:8.5pt; line-height:1.6; text-align:left; border:1px solid #e2e8f0; border-radius:8px; padding:8px 12px; background:#f8fafc; }
+.credit { color:#2563eb; font-size:10.5pt; font-weight:700; letter-spacing:1px; margin-top:12px; }
+.at-acc { background:#dbeafe; color:#1d4ed8; border-radius:4px; padding:0 4px; font-weight:500; white-space:nowrap; }
+.tail { page-break-inside:avoid; margin-top:26px; border-top:2px solid #2563eb; padding-top:14px; }
+.tail p { color:#64748b; font-size:8.5pt; line-height:1.6; margin:0 0 10px; }
+.tail .credit { text-align:center; margin:0; }
+/* Remix Icon 内联 SVG（icon_mode=remix 时由脚本注入，语义色与评分条一致） */
+.ri { width:1.05em; height:1.05em; vertical-align:-0.18em; display:inline-block; }
+.ri-ok { color:#16a34a; } .ri-warn { color:#d97706; } .ri-bad { color:#dc2626; }
+.ri-muted { color:#64748b; } .ri-star { color:#f59e0b; } .ri-brand { color:#2563eb; }
+.ri-gold { color:#d4a017; } .ri-silver { color:#9ca3af; } .ri-bronze { color:#b45309; }
+/* 屏幕预览：@page 边距仅在打印时生效，浏览器中居中限宽并收边（不影响 PDF 输出） */
+@media screen {
+  body { margin: 0 auto; padding: 28px 36px 56px; max-width: 900px; }
+}
+</style></head><body><div class="cover">
+<div class="kicker">开源项目商业化潜力分析 · 第 76 期</div>
+<h1>GitHub 开源项目 Patent-disclosure-skill<br>商业价值分析报告</h1>
+<div class="sub">handsomestWei/patent-disclosure-skill · 中国专利全流程AI辅助技能包 · 70.4分/A级/明星资产</div>
+<div class="badge"><div class="g">A 级 · 70.4</div><div class="s">综合评分（满分 100）· 高商业化潜力</div></div>
+<div><svg viewBox="0 0 560 480" width="560" height="480" xmlns="http://www.w3.org/2000/svg"><polygon points="280.0,209.6 299.5,216.7 309.9,234.7 306.3,255.2 290.4,268.6 269.6,268.6 253.7,255.2 250.1,234.7 260.5,216.7" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,179.2 319.1,193.4 339.9,229.4 332.7,270.4 300.8,297.1 259.2,297.1 227.3,270.4 220.1,229.4 240.9,193.4" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,148.8 338.6,170.1 369.8,224.2 359.0,285.6 311.2,325.7 248.8,325.7 201.0,285.6 190.2,224.2 221.4,170.1" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,118.4 358.2,146.8 399.8,218.9 385.3,300.8 321.6,354.3 238.4,354.3 174.7,300.8 160.2,218.9 201.8,146.8" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,88.0 377.7,123.6 429.7,213.6 411.6,316.0 332.0,382.8 228.0,382.8 148.4,316.0 130.3,213.6 182.3,123.6" fill="none" stroke="#e2e8f0" stroke-width="1"/><line x1="280.0" y1="240.0" x2="280.0" y2="88.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="377.7" y2="123.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="429.7" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="411.6" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="332.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="228.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="148.4" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="130.3" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="182.3" y2="123.6" stroke="#d8dee9" stroke-width="1"/><polygon points="280.0,240.0 357.1,148.1 362.3,225.5 390.6,303.8 318.5,345.7 280.0,240.0 214.2,278.0 167.7,220.2 221.4,170.1" fill="rgba(37,99,235,.22)" stroke="#2563eb" stroke-width="2.5"/><circle cx="280.0" cy="240.0" r="3.5" fill="#2563eb"/><circle cx="357.1" cy="148.1" r="3.5" fill="#2563eb"/><circle cx="362.3" cy="225.5" r="3.5" fill="#2563eb"/><circle cx="390.6" cy="303.8" r="3.5" fill="#2563eb"/><circle cx="318.5" cy="345.7" r="3.5" fill="#2563eb"/><circle cx="280.0" cy="240.0" r="3.5" fill="#2563eb"/><circle cx="214.2" cy="278.0" r="3.5" fill="#2563eb"/><circle cx="167.7" cy="220.2" r="3.5" fill="#2563eb"/><circle cx="221.4" cy="170.1" r="3.5" fill="#2563eb"/><text x="280.0" y="44.0" text-anchor="middle" font-size="12.5" fill="#334155" font-weight="600">D1</text><text x="280.0" y="58.0" text-anchor="middle" font-size="11" fill="#64748b">市场需求 N/A</text><text x="406.0" y="89.9" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D2</text><text x="406.0" y="103.9" text-anchor="start" font-size="11" fill="#64748b">技术成熟度 7.89</text><text x="473.0" y="206.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D3</text><text x="473.0" y="220.0" text-anchor="start" font-size="11" fill="#64748b">社区生态 5.5</text><text x="449.7" y="338.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D4</text><text x="449.7" y="352.0" text-anchor="start" font-size="11" fill="#64748b">变现潜力 8.4</text><text x="347.0" y="424.2" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D5</text><text x="347.0" y="438.2" text-anchor="start" font-size="11" fill="#64748b">竞争格局 7.4</text><text x="213.0" y="424.2" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D6</text><text x="213.0" y="438.2" text-anchor="end" font-size="11" fill="#64748b">法律合规 N/A</text><text x="110.3" y="338.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D7</text><text x="110.3" y="352.0" text-anchor="end" font-size="11" fill="#64748b">企业就绪 5.0</text><text x="87.0" y="206.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D8</text><text x="87.0" y="220.0" text-anchor="end" font-size="11" fill="#64748b">团队治理 7.5</text><text x="154.0" y="89.9" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D9</text><text x="154.0" y="103.9" text-anchor="end" font-size="11" fill="#64748b">上手难度 6.0</text></svg></div>
+<div class="bars"><div class="bar-row"><span class="bar-name">D4 变现潜力</span>
+<span class="bar-track"><span class="bar-fill" style="width:84.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.4</span><span class="bar-w">权重18%</span></div>
+<div class="bar-row"><span class="bar-name">D2 技术成熟度</span>
+<span class="bar-track"><span class="bar-fill" style="width:78.89999999999999%;background:#2563eb"></span></span>
+<span class="bar-val">7.89</span><span class="bar-w">权重14%</span></div>
+<div class="bar-row"><span class="bar-name">D8 团队治理</span>
+<span class="bar-track"><span class="bar-fill" style="width:75.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.5</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D5 竞争格局</span>
+<span class="bar-track"><span class="bar-fill" style="width:74.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.4</span><span class="bar-w">权重12%</span></div>
+<div class="bar-row"><span class="bar-name">D9 上手难度</span>
+<span class="bar-track"><span class="bar-fill" style="width:60.0%;background:#d97706"></span></span>
+<span class="bar-val">6.0</span><span class="bar-w">权重10%</span></div>
+<div class="bar-row"><span class="bar-name">D3 社区生态</span>
+<span class="bar-track"><span class="bar-fill" style="width:55.0%;background:#dc2626"></span></span>
+<span class="bar-val">5.5</span><span class="bar-w">权重11%</span></div>
+<div class="bar-row"><span class="bar-name">D7 企业就绪</span>
+<span class="bar-track"><span class="bar-fill" style="width:50.0%;background:#dc2626"></span></span>
+<span class="bar-val">5.0</span><span class="bar-w">权重8%</span></div>
+<div class="bar-row"><span class="bar-name">D1 市场需求</span>
+<span class="bar-track"><span class="bar-fill" style="width:0.0%;background:#dc2626"></span></span>
+<span class="bar-val">N/A</span><span class="bar-w">权重13%</span></div>
+<div class="bar-row"><span class="bar-name">D6 法律合规</span>
+<span class="bar-track"><span class="bar-fill" style="width:0.0%;background:#dc2626"></span></span>
+<span class="bar-val">N/A</span><span class="bar-w">权重7%</span></div></div>
+<div class="meta">分析时点 2026-09-09 ｜ 数据来源：GitHub API + 仓库代码实测 ｜ 方法论 v1.3</div>
+<div class="credit">报告出品：@魔法工厂　@向量之心　@南山科学家</div>
+<div class="disclaimer"><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</div>
+</div><h1>Patent-disclosure-skill 商业化潜力分析报告（完整版）</h1>
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家</p>
+<p>方法论版本: v1.3 | 综合评分: <strong>70.4</strong> | 等级: <strong>A（高商业化潜力）</strong> | 价值画像: 明星资产</p>
+</blockquote>
+<h2>一、项目概览</h2>
+<h3>1.1 基本信息</h3>
+<ul>
+<li><strong>项目名称 / 仓库地址</strong>：patent-disclosure-skill / https://github.com/handsomestWei/patent-disclosure-skill</li>
+<li><strong>核心技术栈</strong>：Python（43,363 行）、AgentSkills 标准封装、Playwright、Obsidian、docx 工具链、SQLite</li>
+<li><strong>社区规模速览</strong>：Star 8,774 / Fork 913 / 贡献者 4 人</li>
+<li><strong>分析时点 / 数据来源</strong>：2026-09-08（最后推送）/ GitHub API 实采</li>
+</ul>
+<h3>1.2 项目分类标签</h3>
+<table>
+<thead>
+<tr>
+<th>分类维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>开发框架 / Agent Skill 应用</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>知识产权服务 / 法律科技 / 企业研发</td>
+</tr>
+<tr>
+<td>目标用户角色</td>
+<td>专利代理人 / 企业研发人员 / 独立发明人 / 知识产权管理者</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>专利交底书编写 / 申请文件生成 / OA 答复 / 专利检索与解读 / 政策监控</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>本地部署 / 单机架构</td>
+</tr>
+</tbody>
+</table>
+<h3>1.3 一句话定位</h3>
+<blockquote>
+<p>patent-disclosure-skill 是一个基于 AgentSkills 标准的中国专利 AI 辅助技能包，适用于专利代理机构、企业知识产权部门及独立发明人，用于覆盖从专利点挖掘、交底书（发明/实用/外观）编写、申请文件生成、审查答复到政策监控的专利全生命周期工作流。</p>
+</blockquote>
+<h2>二、安装部署与使用指南</h2>
+<p><strong>上手难度等级：🟡 中等（6.0/10）</strong> — 面向有 AI-Agent / CLI / Python 环境基础的使用者；非开发人员独立完成安装部署有门槛。</p>
+<p>本项目不是一个独立 Web 服务或应用，而是以「技能库 + Python 工具」形态分发的 AI Agent Skill，仓库内不可见 Dockerfile / docker-compose / Helm / 一键安装脚本，CI 仅含 <code>update-star-history.yml</code>，无构建或自动化部署流程。</p>
+<p><strong>1. 运行基础</strong></p>
+<ul>
+<li>Python 3.9+（README 徽章标注），代码主体为 Python 工具，共 161 个 <code>.py</code> 文件。</li>
+<li>核心依赖集中在 <code>requirements.txt</code>：</li>
+</ul>
+<pre><code class="language-text">python-docx&gt;=1.1.0
+latex2mathml&gt;=3.77.0
+PyYAML&gt;=6.0
+playwright&gt;=1.40.0
+mammoth&gt;=1.6.0
+python-pptx&gt;=0.6.21
+</code></pre>
+<p><strong>2. 可选依赖与初始化（按需启用，非主流程必需）</strong></p>
+<pre><code class="language-text"># 公式 PNG 渲染（可选，体积约 100MB，含 numpy）
+#   pip install matplotlib
+#   python skills/patent-disclosure/tools/md_to_docx.py -i a.md -o a.docx --math-render
+
+# CNIPA 国知局页面抓取（可选，依赖 Playwright，优先使用系统 Chrome/Edge）
+#   python skills/patent-disclosure/tools/browser.py --probe
+#   仅当无系统浏览器时需要：python -m playwright install chromium
+
+# STEP 三维模型视图提取（可选，CadQuery 环境要求 Python 3.10-3.12）
+#   python skills/patent-disclosure/tools/cad_venv.py
+#   python skills/patent-disclosure/tools/run_step_to_views.py --enable-step-parse -i model.step -o outputs/case/cad_views
+</code></pre>
+<p><strong>3. 使用入口与示例</strong></p>
+<ul>
+<li>技能入口与 Agent 流程：<code>SKILL.md</code></li>
+<li>子技能说明：<code>skills/patent-disclosure/README.md</code>、<code>skills/patent-application/README.md</code>、<code>skills/patent-docket/README.md</code> 等</li>
+<li>仓库内置 22 个示例文件，含交底书、实用新型、外观设计等完整示例目录，可作为使用参考。</li>
+<li>日常使用以自然语言触发为主，例如「交底书」「申请文件」「审查答复」「读专利」等。</li>
+</ul>
+<h2>三、评分总览</h2>
+<h3>3.1 评分汇总表</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>权重</th>
+<th>加权得分</th>
+<th>评级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1 市场需求与商业机会</td>
+<td>N/A</td>
+<td>13%</td>
+<td>N/A</td>
+<td>数据缺失</td>
+</tr>
+<tr>
+<td>D2 技术成熟度与产品质量</td>
+<td>7.89/10</td>
+<td>14%</td>
+<td>1.10</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D3 社区健康度与生态势能</td>
+<td>5.5/10</td>
+<td>11%</td>
+<td>0.61</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D4 商业模式与变现潜力</td>
+<td>8.4/10</td>
+<td>18%</td>
+<td>1.51</td>
+<td>优</td>
+</tr>
+<tr>
+<td>D5 竞争格局与差异化壁垒</td>
+<td>7.4/10</td>
+<td>12%</td>
+<td>0.89</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D6 法律合规与知识产权</td>
+<td>N/A</td>
+<td>7%</td>
+<td>N/A</td>
+<td>数据缺失</td>
+</tr>
+<tr>
+<td>D7 企业就绪度与可运营性</td>
+<td>5.0/10</td>
+<td>8%</td>
+<td>0.40</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D8 团队治理与可持续性</td>
+<td>7.5/10</td>
+<td>7%</td>
+<td>0.53</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D9 上手难度与易用性</td>
+<td>6.0/10</td>
+<td>10%</td>
+<td>0.60</td>
+<td>中</td>
+</tr>
+<tr>
+<td><strong>综合评分</strong></td>
+<td>—</td>
+<td>100%</td>
+<td><strong>70.4/100</strong></td>
+<td><strong>A（高商业化潜力）</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>说明</strong>：D1 与 D6 因评分卡重建失败标记为 N/A，综合评分基于其余 7 个维度计算。D6 一票否决检查不完整（见 3.3 节）。</p>
+</blockquote>
+<h3>3.2 平行维度（不计入综合评分）</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10 功能价值</td>
+<td>8.6/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>D11 社会价值</td>
+<td>7.65/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td><strong>公共价值分</strong></td>
+<td><strong>8.1/10</strong></td>
+<td>(D10 + D11) / 2</td>
+</tr>
+</tbody>
+</table>
+<h3>3.3 一票否决检查</h3>
+<table>
+<thead>
+<tr>
+<th>检查项</th>
+<th>触发条件</th>
+<th>实际值</th>
+<th>是否触发</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D6 法律合规</td>
+<td>维度总分 ≤ 3</td>
+<td>N/A（数据缺失）</td>
+<td>⚠️ 检查不完整</td>
+</tr>
+<tr>
+<td>D8.4 项目可持续性</td>
+<td>细则分 ≤ 1</td>
+<td>2.4/3</td>
+<td>否</td>
+</tr>
+<tr>
+<td>D4.1 协议对变现模式影响</td>
+<td>细则分 ≤ 0.5</td>
+<td>2.0/2（MIT）</td>
+<td>否</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>一票否决检查不完整</strong>：D6 维度因评分卡重建失败被标记为 N/A，对应否决检查跳过。其余两项否决检查均未触发。</p>
+</blockquote>
+<h3>3.4 价值画像判定</h3>
+<ul>
+<li><strong>综合评分</strong>：70.4（≥ 65）</li>
+<li><strong>公共价值分</strong>：8.1（≥ 7）</li>
+<li><strong>价值画像</strong>：<strong>⭐ 明星资产</strong>（综合评分 ≥ 65 且 公共价值分 ≥ 7）</li>
+</ul>
+<blockquote>
+<p><strong>画像临界说明</strong>：本项目不处于临界区间（综合评分 70.4 远离 60–70 边界，公共价值分 8.1 远离 6.5–7.5 边界），画像判定明确。</p>
+</blockquote>
+<h2>四、各维度详细分析</h2>
+<h3>D1. 市场需求与商业机会评估</h3>
+<p><strong>项目定位（分类标签）</strong></p>
+<table>
+<thead>
+<tr>
+<th>标签维度</th>
+<th>标签值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>应用软件（AI Agent 技能包）；文档与知识管理</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>通用/跨行业（发明人分布于制造、软件、硬件设计、科研等技术密集领域）</td>
+</tr>
+<tr>
+<td>目标用户角色</td>
+<td>研发工程师/发明人、专利代理师/企业 IPR、技术管理者/CTO、创新型企业决策者</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>企业内部工具（知识产权产出）、研发流程优化、文档生成与知识库沉淀、数据处理与分析</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>本地部署（Obsidian + 本地 Agent 工具链）</td>
+</tr>
+<tr>
+<td>变现距离</td>
+<td>早期——当前以免费开源 + 捐赠为主，无订阅/企业服务形态，距稳定商业化 1 年以上</td>
+</tr>
+<tr>
+<td>一句话定位</td>
+<td>patent-disclosure-skill 是一个面向中国研发与知识产权从业者的开源专利 Agent 技能包，适用于研发团队与科技型企业的专利交底、申请、答复与情报管理场景，用于从研发材料中挖掘专利点并生成<strong>交底书/申请文件/通俗解读/审查答复/政策简讯</strong>等全流程交付物。</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h4>D1.1 目标市场规模与增长性（2.5 分）—— <strong>2.0 分 / 2.5</strong></h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TAM 估算</td>
+<td>中国是全球最大专利申请国，发明专利年申请量在百万件量级，若将三类专利（发明/实用新型/外观）及企业 IP 管理、代理服务、审查答复、专利分析全流程纳入，目标市场达 <strong>数十亿美元级（几百亿元人民币）</strong>。若未来从「撰写工具」扩展为「企业专利资产管理与工作流平台」，可触达空间更大。</td>
+</tr>
+<tr>
+<td>增长趋势</td>
+<td>中国知识产权保护政策持续强化、企业研发投入和专利产出整体上升，市场处于<strong>平稳增长期</strong>，但短期内不会出现爆发式增长。</td>
+</tr>
+<tr>
+<td>市场层级</td>
+<td>处于<strong>成长期但接近成熟</strong>：专利撰写是刚需，AI 辅助撰写正在渗透，尚不属于爆发前的全新蓝海。</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>数据依据：素材中项目覆盖发明/实用新型/外观三类申请全流程；中国全社会研发投入与专利申请量公开数据呈稳定增长态势。<strong>注：本评估无外部实时数据库检索，市场规模为基于行业公开常识的量级估算，置信度中等。</strong></p>
+</blockquote>
+<p>小分档位：7–8 分（良好）对应 80%，即 2.0/2.5。</p>
+<hr />
+<h4>D1.2 痛点真实性与解决程度（2.5 分）—— <strong>2.0 分 / 2.5</strong></h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>痛点真实性</td>
+<td>痛点真实且高频。README 以「代码是自己敲的，轮到交底书却卡住」等典型场景切入，「研发人员不会写交底书/代理人重复沟通」是技术型企业的普适痛点；公开专利难读、审查意见难应对也属于执业级真实痛点。Star 数从 2026-04 创建到 2026-09 已达 <strong>8700+</strong>，验证了社区共鸣度。</td>
+</tr>
+<tr>
+<td>解决完整度</td>
+<td><strong>解决完整度高</strong>：项目按六个子技能覆盖「交底→申请→案卷会稿→著录检索→通俗解读→审查答复→政策简报」完整长链路，远不止单点工具；包含 161 个 Python 文件（约 4.3 万行），具备 Word/docx 转换、Mermaid/CAD/外观线稿等多模态处理能力，已达到接近「可交付产品」的完整度。</td>
+</tr>
+<tr>
+<td>替代成本</td>
+<td>替代方案为“人工撰写 + 代理机构 + 通用 LLM 拼装”，存在流程割裂、表达不专业、格式往返修改等问题；本项目免费开源且一次性覆盖流程，替代成本低、切换动力强。</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>数据依据：README「初衷」与「子技能列表」明确痛点场景；GitHub 实测 8774 stars / 913 forks / 4 contributors，文档 97 个、测试 52 个。8 个开放 Issue、90 天关闭 3 个 issue，交互不算活跃，来自用户反馈的直接证据相对不足，但体量和文档完整度可支撑判断。</p>
+</blockquote>
+<p>小分档位：7–8 分（良好）对应 80%，即 2.0/2.5。</p>
+<hr />
+<h4>D1.3 市场时机判断（2.5 分）—— <strong>2.0 分 / 2.5</strong></h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术成熟度曲线</td>
+<td>大模型 + RAG + Agent 已跨过「概念验证」进入工程化落地期；该项目用 Python 工具链封装格式转换、CAD 视图、CNIPA 抓取等确定性能力，属于「LLM 应用 + 传统工程工具」的务实组合，正处于可实际生产部署的时间点。</td>
+</tr>
+<tr>
+<td>竞争密度</td>
+<td>海外已有面向专利撰写的 AI 工具，国内处于「通用大模型 + 人工」向「垂直 Agent」过渡的早期阶段，尚未出现形成垄断的开源/闭源产品；本项目以“中文 + 中国专利法体系 + 开源”切入，存在差异化空位。</td>
+</tr>
+<tr>
+<td>监管/标准</td>
+<td>国知局电子申请、标准化表格与审查指南构成强流程约束——对 AI 工具既是门槛也是机会：流程标准明确，可通过结构化模板大幅提升符合性。政策端鼓励专利质量提升，对“交底书规范性”提出更高要求，利于专业工具渗透。</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>数据依据：项目创建于 2026-04-07，5 个月增长至 8774 star，说明正值需求被快速点燃的窗口期；无历史包袱、采用最新 Agent 架构方式，时机合适。</p>
+</blockquote>
+<p>小分档位：7–8 分（良好）对应 80%，即 2.0/2.5。</p>
+<hr />
+<h4>D1.4 应用场景广度（2.5 分）—— <strong>1.5 分 / 2.5</strong></h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>行业覆盖</td>
+<td>专利需求横跨所有研发密集型行业（软件、半导体、机械、汽车、新能源、医药、设计等），行业覆盖本身很广。</td>
+</tr>
+<tr>
+<td>场景多样性</td>
+<td>场景在「专利/IP 生命周期」这一纵向业务栈内非常丰富：交底书 + 申请撰写 + 外观/结构图处理 + CAD 模型投影 + 知识库 + 政策简报，且从「个人发明人」到「企业 IP 部门」均有应用场景。</td>
+</tr>
+<tr>
+<td>可延展性</td>
+<td>核心能力（结构化创新信息提取、规范文体生成、图档处理）可迁移到技术报告、项目申报/科研结题、商标/软著、标准必要专利分析等相邻材料写作场景，但项目当前未做明显横向扩展，绑定于专利业务。</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>数据依据：仓库 topics 仅含 <code>chinese/disclosure/obsidian/patent/skill</code>，README 全部围绕国家知识产权局与专利流程；示例包括软件调度、EV 动力总成、台灯外观设计等，展示出应用案例/行业的多样性，但仍属专利这一垂直领域。</p>
+</blockquote>
+<p>小分档位：5–6 分（一般）对应 60%，即 1.5/2.5。</p>
+<hr />
+<h4>D1.5 综合结论</h4>
+<p><strong>D1 市场需求与商业机会维度总分：7.5 / 10</strong>（权重 13%，加权后对总分贡献约 0.98）</p>
+<p><strong>优势：</strong>
+1. 市场量级达数十亿美元，且需求真实、普遍、高频；
+2. 项目功能链完整，解决的是「从技术到专利资产」的完整交付问题而非单点玩具；
+3. 时机好——大模型 Agent 应用成熟 + 中文专利垂直领域仍缺标杆；5 个月近 9000 star 是强信号；
+4. 应用行业覆盖广，天花板不由“使用人数”决定，而由专业深度与产品化能力决定。</p>
+<p><strong>风险与短板：</strong>
+1. 场景集中于专利单一垂直栈，跨品类扩展尚未发生；
+2. 开源 MIT 协议 + 无 SaaS/企业版设计，当前商业模式未知，热度变现路径不清晰；
+3. 用户真实付费意愿未被验证，Star 不等同于付费能力，后续需要向 B 端场景走通验证；
+4. 若头部代理机构或专精 SaaS 厂商以“只读/生成引擎”方式迅速跟进，其优势可能被压缩。</p>
+<p><strong>评分汇总表</strong></p>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1.1 目标市场规模与增长性</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>80%</td>
+</tr>
+<tr>
+<td>D1.2 痛点真实性与解决程度</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>80%</td>
+</tr>
+<tr>
+<td>D1.3 市场时机判断</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>80%</td>
+</tr>
+<tr>
+<td>D1.4 应用场景广度</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>60%</td>
+</tr>
+<tr>
+<td><strong>D1 合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>7.5</strong></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h3>D2 技术成熟度与产品质量（权重 14%）——评估结果</h3>
+<h3>评估概述</h3>
+<p>本项目是面向中国专利撰写全流程的 Claude Code/Obsidian Skill 套件（7 个子 skill），并非传统软件产品，而是「提示词工程 + 工具链」混合体。评估基于 GitHub API 实测数据、本地 165 文件/43475 行代码的全量扫描及 P1 代码摘要。</p>
+<p>该项目的产品设计深度远超同类 AI 辅助专利工具——覆盖交底书→申请文件→OA 答复→专利解读→政策情报→流程管理（docket）全生命周期，且每个环节都有配套的工程化工具链支撑（Word 公式 OMML 转换、STEP CAD 视图渲染、CNIPA 爬虫、附图标注、线稿门禁、向量检索案例库等），而非简单套壳 LLM 提示词。技术护城河来自专利领域知识与工具链的结合，复刻难度较高。主要短板体现在跨 skill 的代码重复（如 <code>md_to_docx.py</code> 存在 3 份 95% 相同的副本）、缺少含测试的 CI 流水线、无正式版本发布。</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>得分</th>
+<th>权重</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D2.1</td>
+<td>产品设计与创新性</td>
+<td><strong>1.5 / 1.5</strong></td>
+<td>100%</td>
+<td>产品理念极其清晰——将专利撰写拆解为「挖掘→撰写→审查→答复→管理」闭环，7 个 skill 形成完整链路。功能设计精细：既有面向 AI 的 prompt 策略（intake/self_check/merger/guardrails），也有面向工程交付的工具链（md_to_docx 公式转换、STEP 视图、线稿合成、CNIPA 爬虫）。相比市面上单点"专利写作助手"，本项目是系统级方案，创新性与差异化均显著。</td>
+</tr>
+<tr>
+<td>D2.2</td>
+<td>架构设计与工程质量</td>
+<td><strong>1.6 / 2</strong></td>
+<td>80%</td>
+<td>分层架构清晰：每个 skill 统一采用 <code>SKILL.md + prompts/ + references/ + tools/ + tests/ + examples/</code> 结构，prompt 与工具分离；内部模块解耦良好（<code>vault/</code>、<code>crawl/</code>、<code>extract/</code>、<code>analyze/</code> 边界合理）；代码约 4.3 万行，覆盖 7 个垂直场景，规模与复杂度匹配。存在明显技术债：<code>md_to_docx.py</code> 在 3 个 skill 下各有一份约 95% 相同的副本（约 800 行×3），<code>patent_type.py</code> 完全相同 3 份，<code>cnipa_epub_crawler.py</code>/<code>cnipa_epub_parse.py</code>/<code>browser.py</code>/<code>math_to_omml.py</code> 均成对重复，违反 DRY 原则，增加维护成本。复刻难度较高（专利领域知识 + 多格式转换 + 浏览器自动化 + CAD 解析技术栈）。</td>
+</tr>
+<tr>
+<td>D2.3</td>
+<td>代码整洁性与规范性</td>
+<td><strong>0.6 / 1</strong></td>
+<td>60%</td>
+<td>代码整体可读，函数命名清晰（如 <code>normalize_status</code>、<code>_score_snippet_for_feature</code>），大量使用类型注解、dataclass 与文档字符串，降级策略注释详尽。但问题明显：P1 摘要多次提及"文件过长（1500 行/800 行）""大量正则可读性一般""魔法数字未提取""部分函数过长（main/run_check/render_view 超 100 行）""中英混合注释"；重复代码占比偏高（跨 skill 复制文件较多）；未见 lint/format 配置文件。</td>
+</tr>
+<tr>
+<td>D2.4</td>
+<td>安全性</td>
+<td><strong>0.8 / 1</strong></td>
+<td>80%</td>
+<td>安全编码实践良好且意识自觉：SQL 使用参数化查询（store.py 防注入）；SVG 生成使用 <code>html.escape</code> 防 XSS（structure_callout_overlay.py/render_invention_figures.py）；URL scheme 白名单校验与超时控制（clue_vault.py）；路径解析使用 <code>Path.resolve()</code> 防目录穿越；API Key 仅存用户文档目录并明确禁止提交 git、环境变量优先、show 命令不输出明文（config.py）；Playwright 浏览器设置指纹伪装但不破解验证码。未发现硬编码密钥。扣分项：无自动化安全扫描（无 Dependabot/Snyk/Trivy 配置）。</td>
+</tr>
+<tr>
+<td>D2.5</td>
+<td>UI/UX/UE 人机交互</td>
+<td><strong>N/A</strong></td>
+<td>N/A</td>
+<td>本项目无独立用户界面，是运行于 Claude Code 环境中的 Skill 工具包，产出物为 Markdown/Obsidian 笔记/Word 文档。标记为不适用，不参与计分。</td>
+</tr>
+<tr>
+<td>D2.6</td>
+<td>功能完备度与稳定性</td>
+<td><strong>1.2 / 1.5</strong></td>
+<td>80%</td>
+<td>功能覆盖极其完备：发明/实用/外观三类专利交底书、申请文件撰写、OA 答复、专利解读、政策检索、流程管理均有独立 skill 支撑；每个环节具备门禁校验（material_gate、formula_plan 校验、lineart 门禁）等功能完整性保障。运行环境要求偏复杂：Python 3.10–3.12、Playwright + 系统 Chrome/Edge、可选 CadQuery 独立 venv、可选 matplotlib、嵌入向量需外部 API Key——多个可选依赖栈增加部署摩擦。国际化/本地化面向中国专利场景深度本地化（中文提示、CNIPA 集成），对目标市场充分。<strong>版本成熟度数据缺失</strong>：无任何 Release/Tag、无版本号、创建约 5 个月仍在高频迭代，无法确认稳定性承诺。</td>
+</tr>
+<tr>
+<td>D2.7</td>
+<td>文档与开发者体验</td>
+<td><strong>0.8 / 1</strong></td>
+<td>80%</td>
+<td>文档体系完善：仓库级 README + INSTALL.md + 3 份 SKILL.md；每个子 skill 均有独立 README/SKILL/prompts 目录/示例案例/工具说明；文档文件数达 97 个，examples 覆盖发明、实用新型、外观设计三类完整案例且有领域知识文档；测试目录有 README。深度本地化中文文档质量高。扣分：无架构图/API 自动文档生成，文档分散在 7 个独立 skill 下，顶层导航压力大。</td>
+</tr>
+<tr>
+<td>D2.8</td>
+<td>测试与质量保障</td>
+<td><strong>0.6 / 1</strong></td>
+<td>60%</td>
+<td>测试资产可观测：52 个测试文件 / 7215 行，测试占比 16.6%，且 tests 分散于各 skill 内；从代码摘要看存在较多规则驱动校验器（check_register、audit_claims、check_support），这些工具型校验可视为内建质量门禁。<strong>严重扣分项</strong>：CI 仅有 1 个 <code>update-star-history.yml</code>——该 workflow 只生成 star 历史图，与代码质量保障完全无关；无自动化测试运行、无静态分析、无覆盖率门禁。测试无法在 CI 中持续执行，质量保障体系存断点。</td>
+</tr>
+</tbody>
+</table>
+<h3>计分说明</h3>
+<ul>
+<li>非 N/A 细则得分合计：1.5 + 1.6 + 0.6 + 0.8 + 1.2 + 0.8 + 0.6 = <strong>7.1 / 9.0</strong></li>
+<li>D2.5 标记 N/A，按规则等比缩放至 10 分制：<strong>7.1 ÷ 9 × 10 = 7.89 ≈ 7.9</strong></li>
+<li>置信度：<strong>中高</strong>。基于完整本地代码扫描与 P1 摘要（GitHub API 未提供 Contributor 活跃度与 Issue 标签细节，<code>recent_releases</code> 为空导致版本成熟度难以精确锚定）。</li>
+</ul>
+<h3>结论</h3>
+<p>D2 维度得分 <strong>7.9 / 10</strong>，为"良好偏上（高于平均，无明显商业化阻碍）"区间。项目在<strong>产品设计深度</strong>（D2.1 满分）和<strong>全生命周期工具链完备性</strong>上表现卓越，领域知识驱动功能深挖与降级策略贯穿始终，技术护城河真实存在。商业化前需优先解决的工程债：① 消除跨 skill 的成对/三份重复代码（保守估计消除 2000+ 行重复）；② 建立真正跑测试的 CI 流水线——当前无任何质量门禁自动化；③ 通过构建版本号（Release）与 CHANGELOG 补上稳定性承诺；④ 提供一键环境引导脚本弱化多可选依赖的部署摩擦。</p>
+<h3>D3 社区健康度与生态势能（权重 11%）</h3>
+<h3>评估概述</h3>
+<p>本项目为面向中国专利场景的 AI Agent Skill，创建于 2026-04-07，至今约 5 个月。GitHub API 实采：stars 8,774、forks 913、open issues 8、contributors 4、近 90 天 PR 12 个、近 90 天 Issue 关闭 3 个。社区热度呈现“高关注、低协作”的典型早期现象——Star 增长极猛，但代码贡献者与第三方生态尚未跟上。</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>考察点</th>
+<th>硬事实与判断</th>
+<th>小分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D3.1 社区活跃度指标（3 分）</td>
+<td>Star 增速 / Fork 率 / Issue 活跃度 / 响应速度</td>
+<td>近 90 天 Star 增量未补采到，退化公式 = 8,774 ÷ 5.03 ≈ <strong>1,745 Star/月</strong>远超 500/月；Fork/Star = <strong>10.4%</strong>，衍生意愿良好；近 90 天 PR 12 个 + Issue 关闭 3 个，体量偏低；Issue 平均关闭时间无数据，响应速度无法验证。综合落到 7–8 档</td>
+<td><strong>2.4</strong></td>
+<td>80%</td>
+</tr>
+<tr>
+<td>D3.2 贡献者结构多样性（2.5 分）</td>
+<td>贡献者数量 / 组织多样性 / 外部占比</td>
+<td>贡献者总数 <strong>4 人</strong>（API 实测），&lt;5；组织归属与外部 PR 占比无数据。按指引落入“&lt;5 贡献者”区间，社区协作基础薄弱</td>
+<td><strong>1.0</strong></td>
+<td>40%</td>
+</tr>
+<tr>
+<td>D3.3 第三方生态成熟度（3 分）</td>
+<td>插件扩展 / 集成生态 / 衍生项目 / 教程</td>
+<td>未发现第三方为其开发插件；项目本身兼容 Obsidian 并遵循 AgentSkills 标准，但无主流平台/企业集成证据；无衍生项目或外部教程可查。判定“几乎无第三方生态”</td>
+<td><strong>1.2</strong></td>
+<td>40%</td>
+</tr>
+<tr>
+<td>D3.4 品牌认知与行业影响力（1.5 分）</td>
+<td>品牌辨识度 / 行业采用 / 媒体覆盖</td>
+<td>5 个月获 8.7k Star，在中文专利/AI 垂直圈层具备一定辨识度；但 README 无知名企业背书展示，外部媒体/会议覆盖证据缺失，仍属“小圈子内有认知度”</td>
+<td><strong>0.9</strong></td>
+<td>60%</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td></td>
+<td><strong>5.5 / 10</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<p>本项目 D3 维度得分 <strong>5.5/10</strong>，处于“一般”水平。核心势能在于 Star 爆发式增长带来的天然用户池与品牌曝光（单月估算超千星），可作为商业化获客的流量入口；但短板同样显著：贡献者仅 4 人、第三方生态空白、无行业背书，社区目前仍由作者主导，尚不足以支撑“社区即渠道”的规模化商业转化。若未来能通过开放插件接口、外部教程和用户案例沉淀形成生态飞轮，该维度有较大提升空间。</p>
+<h3>D4. 商业模式与变现潜力（权重 18%）</h3>
+<p><strong>核心判断</strong>: 项目采用 MIT 协议，没有任何变现路径障碍；其垂直面向专利撰写与全流程辅助，目标客户群（企业 IPR、代理机构、研发人员）商业价值高、付费能力强。当前尚处于社区项目阶段（仅有“随缘支持”捐赠入口），尚无正式付费产品或商业服务，但基于<strong>SaaS 托管</strong>与<strong>专业服务/Open Core 双路径</strong>的变现逻辑清晰，整体商业模式潜力在开源知识产权工具中处于中上水平。</p>
+<h4>D4.1 协议对变现模式的影响（得分：2.0 / 2.0）</h4>
+<p>项目采用 <strong>MIT License</strong>（经实采 license 文件确认），属于最大自由度开源协议：</p>
+<ul>
+<li>允许任何个人和企业自由使用、修改、分发，包括<strong>闭源商用</strong>；</li>
+<li>对 <strong>Open Core、SaaS 托管、双协议再授权、专业服务</strong>等所有变现路径均无约束；</li>
+<li>协议层面不构成任何商业化阻碍。</li>
+</ul>
+<p><strong>数据依据</strong>: LICENSE 文件明确声明 MIT License；GitHub API license 字段为 MIT。</p>
+<h4>D4.2 变现路径清晰度（得分：2.8 / 3.5）</h4>
+<p>主要可适配的变现路径及其可行性：</p>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>可行性分析</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SaaS 托管</strong></td>
+<td>本项目强依赖 Python/Playwright/CNIPA 爬虫/Obsidian 等本地环境，部署门槛高；若做成云端“即开即用”的专利辅助平台，可解决用户安装配置难题，此路径可行且有同类项目（如 Supabase、Vercel 等 framework+SaaS 模式）先例</td>
+<td><strong>主路径</strong></td>
+</tr>
+<tr>
+<td><strong>专业服务</strong></td>
+<td>项目深度覆盖“交底书→申请文件→审查答复→政策雷达”全流程，作者具备专利知识壁垒，可依托社区影响力提供培训、定制化部署、专利顾问服务，转化链路自然</td>
+<td><strong>备选路径</strong></td>
+</tr>
+<tr>
+<td><strong>Open Core/企业版</strong></td>
+<td>MIT 协议下可保留特定高级功能闭源（如团队协作、批量管理、企业知识库），但当前项目尚未有功能分层，目前仅是潜在可能</td>
+<td>需进一步产品化</td>
+</tr>
+<tr>
+<td><strong>捐赠/赞助</strong></td>
+<td>README 已设“支持作者”随缘支持入口，属不可规模化的补充收益</td>
+<td>已存在，但天花板低</td>
+</tr>
+</tbody>
+</table>
+<p><strong>总体判断</strong>: 有至少 1 条清晰的主路径（SaaS 托管）和 1 条可行备选路径（专业服务），变现方向明确，仍然缺乏正式商业落地，故未达到“已有成功先例可参照并直接执行”的卓越档。</p>
+<p><strong>数据依据</strong>: README 技能矩阵展示 7 个子技能覆盖完整专利撰写链路；依赖清单显示本地安装需要 python-docx、playwright、Obsidian 等多重环境，构成托管服务的需求基础；LICENSE 允许再分发与商用。</p>
+<h4>D4.3 付费转化逻辑（得分：2.0 / 2.5）</h4>
+<ul>
+<li><strong>免费到付费的触发点</strong>：免费版为完整本地开源的 Agent Skill，功能可以满足个人单件撰写需求。付费转化触发点主要来自两类场景：</li>
+<li><strong>免安装与协作为核心的 SaaS 需求</strong>: 专利代理人/企业 IPR 往往不具备 Python/Obsidian/Chromium 环境配置能力，云端一键开箱即用是强触发点；</li>
+<li><strong>质量与风险保障</strong>: 专利申请失误成本高，用户在高价值/难件申请时，有较强意愿为“专家服务、审查意见答复支持、合规兜底”付费。</li>
+<li><strong>付费意愿强度</strong>：专利代理行业单件撰写费数千元，用户群体付费能力中等偏上，辅助工具可显著提升效率，付费意愿成立。</li>
+<li><strong>转化漏斗</strong>：从“GitHub 下载自部署”到“付费云服务”的迁移路径自然；目前缺少具体渠道（试用、订阅页）支撑，漏斗尚未实际运转。</li>
+</ul>
+<p><strong>总体判断</strong>: 有合理的升级触发点（技术门槛+团队协作+质量保障），付费意愿中等偏上；但触发点不够“刚需”，且当前没有可观察的转化链路，因此未达到“强触发”档，也不属于“完全找不到触发点”。</p>
+<p><strong>数据依据</strong>: README 强调“有设计文档和代码，但专利点还没梳”“能交差的交底书”，说明产品解决真实痛点；安装说明（INSTALL.md）涉及 Obsidian、Python 3.10+、Playwright、可选 CadQuery 等，技术门槛明显。</p>
+<h4>D4.4 增值服务空间与定价天花板（得分：1.6 / 2.0）</h4>
+<ul>
+<li><strong>增值空间</strong>：除核心撰写功能外，可在其上叠加：</li>
+<li>团队协作与权限管理（企业版）</li>
+<li>私有化/本地化部署支持（安全合规）</li>
+<li>持续更新的中国专利审查口径知识库</li>
+<li>审查意见自动拆解与答复建议（已具备雏形）</li>
+<li>专利检索与竞品监控（已具备雏形）</li>
+<li>SLA 保障与优先支持</li>
+<li><strong>定价天花板</strong>：专利行业客单价高。国内发明专利代理费约 ¥4,000–10,000/件，企业 IP 预算普遍在数万至数十万元/年。该工具类产品按订阅制可支撑 <strong>$1K–10K/年</strong> 的客单价，若叠加企业级服务则具备 $10K+ 空间；因此天花板高于普通通用工具。</li>
+<li><strong>收入扩展性</strong>：可先按 per-seat（代理师/企业 IPR 账号数）收费，再延伸至按案件数（per-usage）或企业整体 IP 流程管理平台付费，收入具备向上扩展空间。</li>
+</ul>
+<p><strong>总体判断</strong>: 增值方向明确且与客户高价值场景绑定，广告/消费者付费等低天花板模式不适用；定价可达“明确增值方向、$1K–10K/年”档次，尚缺实际定价验证，故评 80% 档。</p>
+<p><strong>数据依据</strong>: 技能列表含 patent-search、patent-oa、patent-exam-policy 等子技能，天然扩展为企业级知识产权管理模块；本地依赖与代理所工作流（交底书-可 Word-多轮追溯-审查答复）指向强 B 端需求。</p>
+<h4>D4 汇总评分表</h4>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D4.1 协议对变现模式的影响</td>
+<td>2.0</td>
+<td>2.0</td>
+<td>100%（卓越）</td>
+<td>MIT 协议，所有变现路径无约束</td>
+</tr>
+<tr>
+<td>D4.2 变现路径清晰度</td>
+<td>3.5</td>
+<td>2.8</td>
+<td>80%（良好）</td>
+<td>SaaS 托管主路径 + 专业服务备选，尚未落地</td>
+</tr>
+<tr>
+<td>D4.3 付费转化逻辑</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>80%（良好）</td>
+<td>技术门槛+高价值场景构成自然触发，转化链路未运转</td>
+</tr>
+<tr>
+<td>D4.4 增值服务空间与定价天花板</td>
+<td>2.0</td>
+<td>1.6</td>
+<td>80%（良好）</td>
+<td>增值方向丰富，行业客单价高，存在 $1K–10K/年定价空间</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>8.4</strong></td>
+<td>—</td>
+<td><strong>商业模式具备清晰潜力，协议无阻碍，缺少商业验证</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>: 该项目在商业模式与变现潜力上表现良好。MIT 协议使其具备最大程度的商业化设计自由度；垂直场景（专利撰写与全流程辅助）目标客户付费能力强、客单价高；代码与文档规模完整，工具复杂度天然构成 SaaS 云服务的需求。然而，当前项目仍停留在社区开源/捐赠阶段，没有正式付费产品、订阅方案或商业模式执行记录，实际的商业化验证尚未发生，因此总体评分为 <strong>8.4 / 10</strong>，处于“良好偏上”，下一步关键动作是孵化托管服务或企业版以兑现潜力。</p>
+<h3>D5 竞争格局与差异化壁垒</h3>
+<h3>D5.1 竞品对比与市场定位（满分 3 分，得分：2.4 分）</h3>
+<p><strong>竞品分析说明</strong>：通过 GitHub Search API 对 <code>patent AI skill</code>、<code>patent disclosure</code>、<code>patent skill</code> 等关键词进行搜索验证，<strong>未检索到与「中国专利交底书编写 + Agent Skill」完全同类的开源项目</strong>。搜索结果中的高 Star 项目均为通用 Agent Skill 合集、UI/UX 设计 Skill、通用知识图谱工具等，与本项目解决的「专利点挖掘与交底书编写」问题不同，属于间接竞品或生态位参照物。经搜索确认，<strong>同类直接竞品实际数量少于 3 个</strong>，以下如实列举并区分竞品类型。</p>
+<p><strong>竞品对比表</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>竞品名称</th>
+<th>类型</th>
+<th>仓库/官网</th>
+<th>验证方式</th>
+<th>Star/用户量</th>
+<th>核心差异</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>anthropics/skills</td>
+<td>间接竞品（Agent Skill 生态标准/合集）</td>
+<td>github.com/anthropics/skills</td>
+<td>GitHub 搜索 API 确认</td>
+<td>175,237</td>
+<td>官方 Skill 合集，含通用文档/代码技能但无中国专利交底书能力；本项目聚焦细分垂直领域，Agent Skills 标准一致</td>
+</tr>
+<tr>
+<td>bytedance/deer-flow</td>
+<td>间接竞品（SuperAgent 框架，支持 Skill 机制）</td>
+<td>github.com/bytedance/deer-flow</td>
+<td>GitHub 搜索 API 确认</td>
+<td>82,079</td>
+<td>通用长周期任务编排框架，非专利垂直应用，不涉及专利点挖掘、CNIPA 检索、交底书格式规范</td>
+</tr>
+<tr>
+<td>Graphify-Labs/graphify</td>
+<td>间接竞品（知识图谱工具）</td>
+<td>github.com/Graphify-Labs/graphify</td>
+<td>GitHub 搜索 API 确认</td>
+<td>116,058</td>
+<td>通用代码/文档知识图谱，不面向中国专利文献结构（权要、说明书、附图、双链知识库）；本项目内置专利文献 Schema</td>
+</tr>
+<tr>
+<td>专用专利撰写 SaaS（如智慧芽、专利大王等）</td>
+<td>间接竞品（商业工具，技术路径不同）</td>
+<td>工商/软件产品官网</td>
+<td>Web 搜索未逐一验证</td>
+<td>—</td>
+<td>商业 Web 工具，面向代理机构收费服务；本项目为 MIT 开源 + Agent Skill + Obsidian 本地知识库形态，可离线/私有化</td>
+</tr>
+<tr>
+<td>无</td>
+<td>直接竞品（同一技术路径：开源 Agent Skill 专注中国专利交底书）</td>
+<td>—</td>
+<td>GitHub Search 未检索到</td>
+<td>—</td>
+<td>本项目在该细分赛道暂未见同类开源对手</td>
+</tr>
+</tbody>
+</table>
+<p><strong>定位清晰度评估</strong>：本项目定位高度清晰——<strong>「面向中国专利的 Agent Skill 全家桶」</strong>，覆盖交底书（发明/实用/外观）、申请文件改写、著录检索、通俗解读、OA 答复、政策简报全流程。项目基于 AgentSkills 标准封装，天然嵌入 Claude Code / Cursor 等支持 Skill 机制的 Agent 环境，与该平台上的通用/设计类 Skill 形成错位竞争。<strong>经搜索确认，同类直接竞品实际少于 3 个</strong>，本项按「定位独特、暂无直接竞品」档计分。</p>
+<p><strong>硬件事实</strong>：GitHub 实采 Star 8774（README 声明 8407，API 实采更高）、Fork 913、创建于 2026-04-07、最近推送 2026-09-08，180 天内从 0 增长至 8774 Star，增长轨迹在垂直 Agent Skill 品类中表现突出（对比：anthropics/skills 为 175K Star 系官方账号多年积累生态）。</p>
+<p><strong>小分：2.4/3（对应 80% 档，有竞品但本项目有明确差异化定位）</strong></p>
+<hr />
+<h3>D5.2 技术壁垒与网络效应（满分 3 分，得分：1.8 分）</h3>
+<p><strong>技术壁垒评估</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>壁垒类型</th>
+<th>评估</th>
+<th>硬事实依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>领域规则知识沉淀</td>
+<td><strong>较强</strong></td>
+<td>内置发明/实用新型/外观分套模板、CNIPA 著录项目数据结构（<code>fill_structure_schema.md</code> / <code>fill_appearance_schema.md</code>）、design_view_cnipa.md 审查基准对照、OA 审查口径专家知识库——这些非公开领域规则需大量实务积累，构成内容壁垒</td>
+</tr>
+<tr>
+<td>管线工程能力</td>
+<td><strong>中等</strong></td>
+<td>163 个 Python 文件、43,363 行 Python 代码；docx 可编辑 Word 生成（python-docx + latex2mathml + mammoth）、mermaid 渲染、CAD STEP 三维模型投影提取（CadQuery）、线稿自动生成、CNIPA 网页爬取——这些工程能力可复刻但工作量不小</td>
+</tr>
+<tr>
+<td>测试/质量保障</td>
+<td><strong>一般</strong></td>
+<td>test_ratio 16.6%（7,215 行测试），对 Agent Skill 类项目属中上水平</td>
+</tr>
+<tr>
+<td>专利/算法壁垒</td>
+<td><strong>无</strong></td>
+<td>MIT 协议，无专利布局描述</td>
+</tr>
+<tr>
+<td>数据壁垒</td>
+<td><strong>部分</strong></td>
+<td>用户通过 Obsidian 私有库积累「个人专利知识图谱」——解读笔记、术语、双链关系属于用户本地数据，形成个人数据飞轮的雏形，但<strong>项目自身不集中式收集数据</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>网络效应评估</strong>：项目存在<strong>弱网络效应</strong>——AgentSkill 生态中垂直技能越丰富、使用者越多，生态标准越受益；Obsidian 双链知识库随解读量增加而对用户个人价值递增（单用户私有数据飞轮），但用户与用户之间缺乏直接网络连接。未发现插件市场/多人协作网络效应。对比 anthropics/skills（生态标准制定方），本项目是生态的受益者而非定义者。</p>
+<p><strong>规模效应评估</strong>：代码库采用「范式 + 模板 + Prompts 可配置化」（<code>paradigms.yaml</code>），新增专利类型/审查基准变更可通过配置文件扩展，边际成本递减，有一定规模效应，但不构成网络效应级别壁垒。</p>
+<p><strong>综合评估</strong>：有一定领域知识壁垒（中国专利撰写规则 + CNIPA 审查实务），工程管线能力可复刻但工程量较大；网络效应薄弱。按「有一定壁垒但不深厚」档计分，小分：1.8/3（对应 60% 档）。</p>
+<hr />
+<h3>D5.3 切换成本与用户粘性（满分 2 分，得分：1.6 分）</h3>
+<p><strong>迁移成本评估</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>粘性来源</th>
+<th>评估</th>
+<th>硬事实依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>深度集成</td>
+<td><strong>高</strong></td>
+<td>用户需安装 Playwright 浏览器自动化环境、Obsidian 知识库插件生态、Python 依赖链（python-docx / latex2mathml / playwright / mammoth / python-pptx / PyYAML），输出物为带特定目录结构的时间戳文件与 mermaid 图形资产——切换需替换整套工具链</td>
+</tr>
+<tr>
+<td>流程嵌入</td>
+<td><strong>高</strong></td>
+<td>交底书迭代采用「多版本并存 + 对话记录」模式（效果图例：初版生成与迭代更新时间戳文件并存），形成修改追溯链；案卷会稿流程最多对打三轮且「缺事实就问、绝不瞎编」，流程设计已嵌入研发团队的专利提案 SOP</td>
+</tr>
+<tr>
+<td>知识资产锁定</td>
+<td><strong>中高</strong></td>
+<td>patent-reader 将解读结果落到 Obsidian 私有库并构建双链图谱——<strong>库越厚，迁移成本越高</strong>；用户个人专利情报层（多件关联、专利地图）无法随项目切换带走</td>
+</tr>
+<tr>
+<td>数据格式锁定</td>
+<td><strong>中</strong></td>
+<td>项目使用 markdown + YAML 中间格式，输出 docx（Word 标准），文本数据本身可迁移；但 Schema（fill_structure_schema / fill_appearance_schema）、mermaid 图形中间态、目录命名规则为项目自定义，切换到竞品需重建流程定义</td>
+</tr>
+</tbody>
+</table>
+<p><strong>替代品可得性</strong>：由于<strong>直接竞品缺失</strong>（见 D5.1 搜索验证结论），用户若放弃本项目只能转向通用 LLM 提示词手工撰写，或商业代理机构服务（人工 + SaaS），两者均非同等替代——即使不考虑工程集成本身，替代成本依然显著高于一般开源工具。</p>
+<p><strong>习惯锁定评估</strong>：项目定位为 Agent Skill，用户需按 SKILL.md 的触发词与流程范式驱动（如「交底书」「申请文件」「审查答复」），使用习惯会随项目实践沉淀到个人工作流；组织层面若形成「工程师→交底书→申请文件」的内部标准化作业流程，则切换需改变团队SOP。</p>
+<p><strong>小分：1.6/2（对应 80% 档，迁移有较高成本，用户粘性较强）</strong></p>
+<hr />
+<h3>D5.4 护城河可持续性（满分 2 分，得分：1.6 分）</h3>
+<p><strong>护城河趋势评估</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+<th>硬事实依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>社区增长势头</td>
+<td><strong>强</strong></td>
+<td>GitHub 实采 Star 8774 / Fork 913，创建 2026-04-07 至 2026-09-08 约 5 个月，无历史包袱自然增长；90 天内新增 PR 12、关闭 Issue 3，贡献者 4 人，社区活跃度在垂直 Skill 中属活跃</td>
+</tr>
+<tr>
+<td>领域知识持续加深</td>
+<td><strong>增强</strong></td>
+<td>项目含 patent-exam-policy 政策雷达子技能，对照国知局官网近期政策自动更新简报「分析技能里哪些交底技巧、申请书式可能过时」——将政策变动转化为技能自身迭代的输入，形成 <strong>「审查口径变化 → 模板/提示词更新 → 用户交底质量保持合规」的自我进化机制</strong>，护城河随时间持续加深而非削弱</td>
+</tr>
+<tr>
+<td>颠覆风险</td>
+<td><strong>中</strong></td>
+<td>主要风险来自两类：① Anthropic/OpenAI 等平台官方推出垂直专利 Skill（但官方生态更倾向通用能力，垂直领域精耕概率低）；② 通用大模型能力提升后直接高质量撰写交底书（<strong>取决于「领域规则知识沉淀」是否继续领先通用模型</strong>——国知局审查基准、格式规范、实务话术属于快速变化的高墙知识，通用模型未必能及时跟进，本项目政策雷达主动跟踪的架构在此具有结构性优势）</td>
+</tr>
+<tr>
+<td>时间窗口</td>
+<td><strong>2-3 年</strong></td>
+<td>当前 Agent Skill 生态处于爆发初期（2026 年 anthropics/skills 175K Star 为证），垂直领域「专利」赛道尚无同类开源竞品出现；但 Agent 生态平台规则变化快，窗口期需持续投入维持</td>
+</tr>
+</tbody>
+</table>
+<p><strong>竞品发展速度评估</strong>：anthropics/skills 和 bytedance/deer-flow 虽在 Agent Skill 基础设施层面高速迭代（推送时间分别为 2026-09-03 和 2026-09-08），但均为通用型，无向专利垂直领域下沉的动作；本项目在垂直深度上保持领先。专利是知识密集型高合规领域，<strong>每年国知局审查政策持续更新，通用型 skill 若未内置政策追踪机制，将随时间推移与本项目差距拉大而非缩小</strong>。</p>
+<p><strong>小分：1.6/2（对应 80% 档，护城河稳定，颠覆风险低）</strong></p>
+<hr />
+<h3>D5 维度结论</h3>
+<p>本项目处于 <strong>「垂直空位 + 高速增长 + 知识壁垒逐步加深」</strong> 的竞争位势：经 GitHub Search API 验证，<strong>在「开源 Agent Skill 专注中国专利交底书编写」这一细分赛道暂无直接竞品</strong>（通用 Agent Skill 合集、Agent 框架与知识图谱工具均为间接竞品，替代性弱）。差异化定位清晰——以 AgentSkills 标准封装、覆盖中国专利全流程（交底前到答复后）、内置 CNIPA 审查基准与政策雷达自进化机制，形成「开源即可部署落地的企业专利 SOP 插件」。</p>
+<p>壁垒核心为<strong>难以快速复制的高墙领域知识</strong>（分套模板、审查基准、Schema、政策追踪），辅以多子技能协同与 Obsidian 私有知识库构成「流程嵌入 + 数据积累」双重粘性；工程管线对潜在进入者构成中等门槛。主要短板为<strong>无网络效应、无集中式数据壁垒、无专利/商标等法律排他性保护</strong>，护城河可持续性依赖社区活跃度与政策雷达机制的持续运转。按通用评分标尺，本维度处于「高于平均，无明显短板」的 7–8 分区间。</p>
+<p><strong>D5 维度得分：7.4 / 10（6.0 归一前总分 / 10 分制加权）</strong></p>
+<h4>D6 法律合规与知识产权（权重 7%）</h4>
+<p><strong>维度得分 6.7/10 —— 法律合规总体可控，MIT 协议授权清晰，商业化友好度高；但 CLA/DCO 缺失、可选 AGPL 依赖及商标专利信息未核查构成主要风险敞口</strong></p>
+<p><strong>评估范围</strong>：本维度以仓库 LICENSE 文件、requirements.txt、package.json、CI/贡献流配置及 GitHub API 贡献者数据为事实依据。识别到项目采用标准 MIT License，核心工具链依赖多属宽松许可；存在一处被隔离的可选 AGPL 依赖。商标/专利因无人工核验数据，按方法论规则默认赋值并注明置信度低。</p>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>小分</th>
+<th>满分</th>
+<th>判定依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D6.1 开源协议合规性与商业限制</td>
+<td>2.4</td>
+<td>3.0</td>
+<td>仓库根目录有完整 LICENSE 文件，字体为 MIT License，版权声明 "Copyright (c) 2026 handsomestWei" 清晰，SPDX 标识规范；MIT 协议无 copyleft 传染性，删除无 Commons Clause 或 BUSL 附加限制条款；仓库整体商业使用无法律障碍。</td>
+</tr>
+<tr>
+<td>D6.2 依赖链法律风险</td>
+<td>2.0</td>
+<td>2.5</td>
+<td>根 requirements.txt 列出 6 项核心依赖（python-docx、latex2mathml、PyYAML、playwright、mammoth、python-pptx），均为 PyPI 主流包，按发行元数据属 MIT/Apache-2.0/BSD 宽松许可系，可控；但 <code>skills/patent-reader/tools/requirements.txt</code> 引入可选依赖 <code>pymupdf&gt;=1.24.0</code>，该库为 AGPL-3.0/商业双许可，若用户启用 patent-reader 技能则产生 AGPL 传染风险，需隔离或商业授权。</td>
+</tr>
+<tr>
+<td>D6.3 商标与专利风险</td>
+<td>1.5</td>
+<td>2.5</td>
+<td>名称 "patent-disclosure-skill" 以 "patent"（专利）为通用描述性词汇，商标显著性与冲突性较弱；但 <strong>未执行人工商标检索与专利排查，置信度低</strong>，需人工核验后方可确认商标可用性及技术侵犯风险，故按方法论默认赋值 5–6 档（未经人工核查）。</td>
+</tr>
+<tr>
+<td>D6.4 贡献者协议完备性</td>
+<td>0.8</td>
+<td>2.0</td>
+<td>仓库未检测到 CONTRIBUTING.md、CLA/DCO 配置或 .github 贡献者模板；GitHub API 显示已有 4 位贡献者、近 90 日创建 12 个 PR，项目版权归属与实际贡献者集合不完全一致，控制权分散在单一 MIT 版权声明之下，缺乏规范贡献流程，不利于后续双许可或商业授权操作。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：D6 维度总得分 6.7/10。项目以</p>
+<h3>D7. 企业就绪度与可运营性（权重 8%）</h3>
+<blockquote>
+<p><strong>评估视角</strong>: 本维度聚焦企业级运营能力（安装部署与易用性已在 D9 中独立评估）。项目为面向 Agent 工作流的本地专利 Skill 工具集（7 个子技能 + 160+ Python 工具），非联网服务型产品，企业运营属性天然弱于 SaaS/平台型项目；以下按方法论逐项核验。</p>
+</blockquote>
+<h4>D7.1 运维复杂度与升级路径（满分 3 分 → <strong>1.8 分</strong>）</h4>
+<p><strong>配置管理</strong>: 配置体系呈多层结构，有一定规范度。<code>skills/patent-oa/tools/config.py</code> 实现了多厂商嵌入预设（zhipu/dashscope/openai/minimax/local）、API Key 环境变量优先解析、跨平台路径回退等；<code>skills/patent-disclosure/tools/browser.py</code>、<code>structure_lineart_gate.py</code>、<code>step_to_views.py</code> 等多处支持环境变量控制功能开关（如 <code>PATENT_SKILL_SKIP_LINEART</code>、<code>parse_enabled()</code>）。<code>requirements.txt</code> 对可选项（matplotlib、playwright、CadQuery）做了分类注释，部分工具（如 <code>svg_screenshot.py</code>、<code>cnipa_crawler.py</code>）合理使用参数注入降低耦合。整体具备基础配置管理能力，但多个子技能各自维护重复的 <code>patent_type.py</code>、<code>browser.py</code> 等模块，配置与代码分散，未形成统一配置中心。</p>
+<p><strong>运维负担</strong>: 依赖面较宽（python-docx、latex2mathml、playwright、PyMuPDF、CadQuery、可选的 sqlite-vec 等），且 README/requirements 同时服务 7 个子技能，实际部署需按需甄别。项目提供了较完整的辅助手段——<code>cad_venv.py</code>/<code>bootstrap_cad_venv.py</code> 可创建隔离的 CAD 虚拟环境、<code>config.py run_selftest</code> 可做连通性自检、<code>browser.py probe_launch</code> 可检测浏览器可用性、<code>deps_status()</code> 可查依赖状态，<code>material_gate.py</code> 等门禁工具能前置发现材料缺失。对具备一定 Python 基础的技术用户，日常运维可控；对非技术企业终端用户，环境搭建仍构成门槛。</p>
+<p><strong>升级路径</strong>: 仓库无 release 版本（<code>recent_releases: []</code>），无 CHANGELOG 文件，无版本化依赖锁定（requirements 均为 <code>&gt;=</code> 区间），<code>pushed_at</code> 之后持续高频迭代（近 90 日 PR 12 个）。项目实际以下载/复制或 git pull 方式分发，升级路径依赖手工拉取与覆盖，无自动迁移、无版本回滚机制。仅 <code>vault_layout.py</code> 提供了 OA 案例库旧平铺目录→新分层结构的单点迁移工具，可见作者具备迁移意识，但远未形成系统化能力。时间戳式输出目录（<code>outputs/case/</code>）部分缓解了数据覆盖风险，但配置与知识库结构变更仍可能破坏既有工作区。</p>
+<p><strong>结论</strong>: 达到个人/小团队级工具的平均运维水准并略有超出（自检工具丰富、配置项充分），但生产方式仍属"脚本工具集 + 手工升级"，距企业级可运营差距明显。按指引对应"需一定运维投入，升级需手动操作"的 5-6 档，取 <strong>60% → 1.8 / 3</strong>。</p>
+<h4>D7.2 安全管理与权限控制（满分 2.5 分 → <strong>1.0 分</strong>）</h4>
+<p><strong>认证授权</strong>: 未发现 SSO/OAuth/LDAP/SAML/API Key 等任何服务端身份认证支撑。项目本质是本地运行工具，不提供多用户登录入口，企业若要接入统一身份体系需自行在外围封装。</p>
+<p><strong>权限模型</strong>: 无 RBAC/ABAC 概念。多用户场景下缺乏角色区分、功能级授权、资源级 ACL，仅通过文件系统权限间接控制。</p>
+<p><strong>审计日志</strong>: 无操作审计/安全日志机制。可执行的 <code>dry-run</code> 模式、结构化报告（<code>状态 JSON</code>、<code>_OA索引.md</code>）和状态码区分可部分还原操作轨迹，但非面向安全合规的审计设计。</p>
+<p><strong>数据安全</strong>: 是四个考察点中最具亮点的一项。本地密钥管理有明确安全设计：<code>config.py</code> 将 API Key 收敛至用户文档目录的 <code>embedding.secrets.yaml</code>、环境变量优先、强制不进 git、<code>show</code> 命令不输出明文；<code>ingest_case.py</code> 内置脱敏处理（实体替换 + redacted 标记）；<code>store.py</code> SQL 全参数化防注入；多处路径处理有 <code>resolve()</code> 防目录穿越；<code>structure_callout_overlay.py</code>、<code>render_invention_figures.py</code> 等对 SVG/HTML 输出做 <code>html.escape</code> 防 XSS；网络抓取模块有 SSL 上下文与超时控制；<code>mermaid_render.py</code> 设 <code>securityLevel="strict"</code>。传输层加密/静态加密/密钥轮换等企业级数据安全设施均不具备。</p>
+<p><strong>结论</strong>: 无认证授权与权限模型，属明显短板；但数据安全实践在同类本地开源工具中表现扎实（密钥保护、脱敏、防注入/穿越）。整体对应"安全机制薄弱"的 3-4 档，考虑数据侧亮点取 <strong>40% → 1.0 / 2.5</strong>。</p>
+<h4>D7.3 可扩展性与高可用能力（满分 2.5 分 → <strong>1.0 分</strong>）</h4>
+<p><strong>水平扩展</strong>: 单体本地桌面式架构，无可水平扩展的分布式组件。运行载体为单位用户本机（或 Agent 本地执行环境）；7 个子技能可独立安装/启用，模块间通过进程调用与文件系统协作，不具备多节点横向扩容设计。作为 Agent Skill 分发包，团队扩展仅能通过逐机复制安装实现，无集中部署/分发通道。</p>
+<p><strong>高可用</strong>: 无集群部署、负载均衡、故障转移能力。核心状态依赖本地 SQLite（<code>store.py</code>）与文件系统目录，进程级/机器级故障即中断服务。唯一定时任务为 <code>update-star-history.yml</code>，仅做 Star 历史 SVG 生成，与产品可用性无关。</p>
+<p><strong>性能瓶颈与单点</strong>: 单机单进程运行对"个人一次处理一件专利案件"的场景性能可接受，无并发诉求；无需数据库竞争优化。但存在多个单点：本机 SQLite 文件、本机文件系统、外部网络源（CNIPA/Google Patents）。单点故障对企业连续运营构成实质性风险。</p>
+<p><strong>数据一致性</strong>: 本地单写者模型天然一致，无分布式一致性负担；但多机协作时会话/产出分散，缺乏同步与冲突解决机制。</p>
+<p><strong>结论</strong>: 该维度是本项目结构性的弱项——架构定位决定了其不具备（也暂不需要）企业级水平扩展/HA 能力。对应"扩展困难，有单点故障"的 3-4 档（局部考虑"单机性能可接受"的表述不适用多机场景），取 <strong>40% → 1.0 / 2.5</strong>。</p>
+<h4>D7.4 集成兼容与可观测性（满分 2 分 → <strong>1.2 分</strong>）</h4>
+<p><strong>API 完备性</strong>: 不具备 REST/gRPC 服务接口，但作为可编程工具集具备两类"API"：(1) CLI 入口——几乎所有工具提供 <code>argparse</code> CLI，参数设计较规范、返回码区分错误类型；(2) Python 模块接口——160+ 模块函数化组织（<code>shared/common.py</code>、<code>store.py</code>、<code>cnipa_parse.py</code> 等），可被二次 import 复用。文档中明确嵌入了 <code>"双路径导入机制（直接运行 vs python -m）"</code>，说明作者已按可编程接口意识设计。</p>
+<p><strong>标准协议</strong>: 不支持 OpenTelemetry/Prometheus/Webhook。对外集成为：Obsidian CLI/库格式生态（.md + frontmatter + Canvas + wikilink + Bases）、docx/pptx 文件互转、Mermaid 渲染、CNIPA/Google Patents 网页抓取。文件级协议符合度较好，可观测性标准协议缺失。</p>
+<p><strong>监控告警</strong>: 无 Metric 暴露、无 Prometheus 端点、无看板。但有多个进程内自检/探测工具可作为"轻量健康检查"使用：<code>config.py run_selftest</code>（向量服务连通性）、<code>browser.py probe_launch</code>（浏览器可用性）、<code>check_formula_plan.py</code>/<code>validate_docket.py</code>/<code>audit_claims.py</code>（产出质量门禁）等；<code>deps_status()</code> 与 <code>version_supported()</code> 实现依赖可用性探测。属于"自检完备、监控缺位"。</p>
+<p><strong>日志体系</strong>: 无 logging 模块统一日志、无日志级别、无结构化日志流。常见输出模式为 stdout 中文提示 + JSON 文件落盘（如 <code>emit_search_report.py</code> 生成带时间戳 JSON/MD 双格式报告、<code>svg_screenshot.py</code> 状态 JSON），<code>stdio_utf8.py</code> 处理编码。日志追溯缺失，但报告型产物结构化程度较好，便于下游程序消费。</p>
+<p><strong>结论</strong>: CLI/SDK 层与文件产物集成能力强、自检丰富；监控与日志体系为零散的非标实现。恰好命中"有 API 但监控/日志薄弱"的 5-6 档描述，取 <strong>60% → 1.2 / 2</strong>。</p>
+<hr />
+<p><strong>维度小结</strong>: 项目在配置管理、本地数据安全、CLI/模块化可编程接口上显现出超越同类开源工具的专业度，但作为企业运营底座存在三个根本缺口：无版本化发布与升级通道、无认证/权限/审计体系、无可观测性与高可用架构。当前定位为"高星个人效率工具 + 专业领域知识包"，可支撑专利工程师或小团队在 Agent 工作流中提质增效；若向企业级商业化演进，需另行构建服务端托管、团队工作区与合规运营层。</p>
+<p><strong>D7 得分: 5.0 / 10</strong></p>
+<h3>D8. 团队治理与可持续性（7%）</h3>
+<p><strong>评估说明</strong>: 本维度评估项目团队是否具备持续运营和商业化能力。项目自 2026-04-07 创建以来仅约 5 个月，历史积淀有限；团队为 4 名贡献者的小型协作模式，治理结构与资金信息未透明披露。以下基于 GitHub API 实采数据与仓库本地实测数据进行评估。</p>
+<h4>D8.1 核心维护者能力与背景（满分 2.5）</h4>
+<p><strong>小分: 2.0（80%）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判定</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术能力</td>
+<td><strong>强</strong></td>
+<td>5 个月内产出 43,375 行代码（.py 161 文件 + .go 4 文件），覆盖专利点挖掘、交底书生成（发明/实用/外观三类）、审查答复、CNIPA 网站爬虫、CAD/STEP 解析、Word/Mermaid 渲染等多技术栈，并维护 7,215 行测试代码（测试比 16.6%）。工程完成度显著高于同类 AI-Skill 项目平均水平</td>
+</tr>
+<tr>
+<td>商业经验</td>
+<td><strong>无法验证</strong></td>
+<td>无维护者个人履历、职业背景或公司实体信息可供分析</td>
+</tr>
+<tr>
+<td>投入度</td>
+<td><strong>高</strong></td>
+<td>项目创建于 2026-04-07，最近推送 2026-09-08（约 5 个月），Star 从评估初的 8,407 增长至 8,774。代码量与文档体系（97 个文档文件）规模表明投入强度极大</td>
+</tr>
+<tr>
+<td>巴士因子</td>
+<td><strong>≈ 1</strong></td>
+<td>仓库归属个人账号 <code>handsomestWei</code>，虽显示 4 名贡献者，但 43K 行代码高度集中于单一维护者，核心人员离开后项目承接难度大</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>加权说明</strong>: 技术能力与投入度有充分硬证据支撑（规模、结构、更新频率），达到「团队投入度高」档位；但商业经验无数据可验证，巴士因子≈1 不符合 ≥3 要求，综合取 7–8 档偏下水平，给予满分 2.5 × 80% = 2.0。</p>
+</blockquote>
+<h4>D8.2 治理模型透明度（满分 2.0）</h4>
+<p><strong>小分: 1.2（60%）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判定</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>治理文档</td>
+<td><strong>无专项治理文档</strong></td>
+<td>仓库文件列表中未见 GOVERNANCE.md、ROADMAP.md 或 CONTRIBUTING.md；文档集中于使用说明（INSTALL.md / README.md / SKILL.md）与各子技能的知识文档，面向「如何使用」而非「如何参与治理」</td>
+</tr>
+<tr>
+<td>开放程度</td>
+<td><strong>决策不透明</strong></td>
+<td>90 天内有 12 个 PR 创建、3 个 issue 关闭，说明社区贡献通道存在，但项目整体采用 BDFL（仁慈独裁者）模式，决策流程未文档化，外部贡献者参与核心决策缺乏制度保障</td>
+</tr>
+<tr>
+<td>基金会/组织</td>
+<td><strong>无</strong></td>
+<td>未隶属 CNCF / Apache / Linux Foundation 等任何知名基金会；仓库归属个人账号，非组织级项目</td>
+</tr>
+<tr>
+<td>CI/CD</td>
+<td><strong>极简</strong></td>
+<td>workflows 仅 1 个（update-star-history.yml），无自动化测试或持续集成流水线，反映项目仍处于早期个人驱动阶段</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>加权说明</strong>: 项目具备清晰的目录结构与较好的文档习惯，但无任何治理制度文件，决策模式为事实上的核心维护者主导，与「有简单的贡献指南，决策由核心团队主导」相当，给予满分 2.0 × 60% = 1.2。</p>
+</blockquote>
+<h4>D8.3 资金支持与商业赞助（满分 2.5）</h4>
+<p><strong>小分: N/A</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判定</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>现有资金</td>
+<td><strong>无法评估</strong></td>
+<td>补采数据无 GitHub Sponsors 信息、无 Open Collective 页面、无融资或公司支持数据</td>
+</tr>
+<tr>
+<td>赞助收入</td>
+<td><strong>无法评估</strong></td>
+<td>仓库无 FUNDING.yml 等赞助配置文件，主页无赞助入口标识</td>
+</tr>
+<tr>
+<td>商业实体</td>
+<td><strong>无法确认</strong></td>
+<td>无公司实体运营该项目的信息；账号命名 <code>handsomestWei/patent-disclosure-skill</code> 呈个人项目特征，且无组织归属</td>
+</tr>
+<tr>
+<td>资金可持续性</td>
+<td><strong>无法评估</strong></td>
+<td>无任何资金面数据</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>N/A 说明</strong>: 本项目资金支持维度数据完全缺失——未采集到 GitHub Sponsors / Open Collective / FUNDING.yml / 公司实体 / VC 融资等任何可验证信息。依据「N/A 统一规则」标记为不适用，<strong>禁止猜测打分或打 0 分</strong>，该细则 2.5 分从维度满分中剔除。此数据缺口导致维度评估置信度下降约 2 分权重口径。</p>
+</blockquote>
+<h4>D8.4 项目可持续性与传承风险（满分 3.0）</h4>
+<p><strong>小分: 2.4（80%）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判定</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>活跃趋势</td>
+<td><strong>显著上升</strong></td>
+<td>创建 5 个月即达 8,774 Star；评估期间 Star 由 8,407 → 8,774（+367，约 4.4%）；开放 issue 仅 8 个且 90 天关闭 3 个、PR 创建 12 个，说明维护者处理社区反馈效率较高（注：活跃度<em>水平</em>不在此重复计分，此处仅判<em>趋势方向</em>）</td>
+</tr>
+<tr>
+<td>维护延续性</td>
+<td><strong>中等偏弱</strong></td>
+<td>代码体量大（43K 行）且模块交互复杂（skills/patent-disclosure、patent-application、patent-docket 三技能体系），高度依赖创始人对专利领域与架构设计的个人理解；贡献者仅 4 人，若核心维护者退出，社区接管难度大</td>
+</tr>
+<tr>
+<td>历史信号</td>
+<td><strong>无危险信号</strong></td>
+<td><code>archived: false</code>；无 deprecation/unmaintained 标记；项目处于快速成长期，未见停滞迹象；无正式 release 发布（recent_releases 为空），反映项目仍在预发布迭代阶段，尚未形成稳定的版本治理节奏</td>
+</tr>
+<tr>
+<td>分叉风险</td>
+<td><strong>低</strong></td>
+<td>Fork 879→913（适度增长），远低于典型分裂型项目（fork/star 比约 10.4%，在合理区间），无社区分裂证据</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>加权说明</strong>: 趋势方向（上升）为强加分项，无任何历史危险信号；扣分主要来自项目生命周期过短（5 个月）、Bus 因子低、无版本发布纪律，传承机制尚未经受考验。综合给予满分 3.0 × 80% = 2.4。</p>
+</blockquote>
+<hr />
+<h4>D8 维度结论</h4>
+<p><strong>综合得分: 2.0/2.5 + 1.2/2.0 + N/A + 2.4/3.0 = 5.6 / 7.5 → 7.5 / 10</strong></p>
+<p>项目在「人」的维度上呈现两极特征：<strong>执行面极强</strong>——单一核心维护者在 5 个月内以极高投入度完成了体系完整、代码规范、测试覆盖 16.6% 的专利垂直领域 Skill 套件，且 Star 增长与 issue 处理显示健康状况良好；<strong>制度面薄弱</strong>——无治理文档、无组织背书、无资金信息披露、巴士因子≈1，当前模式本质是「个人英雄 + 早期社区红利」的古典开源形态，尚未建立可持续的商业化团队与制度基石。</p>
+<blockquote>
+<p>⚠️ <strong>商业化启示</strong>: 本项目当前最大的商业化保障是产品力与市场热度（Star 8.7K+），而非组织力。若寻求商业合作或融资，需尽快补足三件事——(1) 从个人账号迁移至组织账号并引入 2–3 名核心贡献者，提高巴士因子；(2) 发布正式版本并建立开源治理/Roadmap 文档；(3) 若已存在赞助收入（如微信赞赏、知识星球等中国语境常见模式），应主动披露以增强商业可信度。综合得分 7.5 在 D8 维度属「良好但有明显短板」区间，团队问题暂不构成商业化直接障碍，但构成规模化扩张的主要风险点。</p>
+</blockquote>
+<h3>D9 维度详析</h3>
+<h4>细则打分表</h4>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D9.1 安装难度</td>
+<td>1.5 / 2.5</td>
+<td>60%（一般）</td>
+<td>有明确 Python 依赖清单，但无容器化/一键脚本；依赖较多且有可选组件，Playwright、CadQuery 需额外环境初始化</td>
+</tr>
+<tr>
+<td>D9.2 部署与配置难度</td>
+<td>1.0 / 2.5</td>
+<td>40%（较弱）</td>
+<td>非服务型项目，无 Docker/K8s/Helm 标准化部署；需自行装配 Agent 环境并初始化外部依赖，非技术人员难以独立完成</td>
+</tr>
+<tr>
+<td>D9.3 易用性与操作门槛</td>
+<td>2.0 / 2.5</td>
+<td>80%（良好）</td>
+<td>日常使用以自然语言触发为主，README 明示「不会写专利也没关系」；内置多轮纠错、自检、问题清单等机制，领域门槛被大幅降低</td>
+</tr>
+<tr>
+<td>D9.4 学习曲线与首体验</td>
+<td>1.5 / 2.5</td>
+<td>60%（一般）</td>
+<td>文档、模板、示例较为丰富，但无交互式引导/一键 demo；从环境准备到首次成稿仍需较长时间，安装与 Agent 配置阶段存在学习成本</td>
+</tr>
+<tr>
+<td><strong>D9 合计</strong></td>
+<td><strong>6.0 / 10</strong></td>
+<td><strong>🟡 中等</strong></td>
+<td>整体上手难度中等偏友好：会用的开发者能较快跑通，但产品化安装体验不足</td>
+</tr>
+</tbody>
+</table>
+<h4>D9.1 安装难度（2.5 分）——小分 1.5</h4>
+<p><strong>依据</strong>：</p>
+<ul>
+<li>README 标注 Python 3.9+；本地统计主体为 161 个 Python 文件、43,363 行 Python 代码，环境要求明确但非零基础。</li>
+<li><code>requirements.txt</code> 清晰列出 <code>python-docx</code>、<code>latex2mathml</code>、<code>PyYAML</code>、<code>playwright</code>、<code>mammoth</code>、<code>python-pptx</code> 六个核心依赖，并标注了 matplotlib、Playwright/Chrome、CadQuery 等可选依赖。</li>
+<li>仓库中未发现 Dockerfile、docker-compose、一键安装脚本或平台安装包；CI 仅更新 Star History，不承担打包发布职能。</li>
+<li>环境兼容性较好（Python 3.9+ 跨平台），但 CadQuery 可选模块额外限定 Python 3.10–3.12，安装链路不统一。</li>
+</ul>
+<p><strong>结论</strong>：安装属于「需手动安装若干依赖 + 少量配置」级别；对开发者不算难，但离「一条命令跑起来」有距离，故不能高于 6/10 档。</p>
+<h4>D9.2 部署与配置难度（2.5 分）——小分 1.0</h4>
+<p><strong>依据</strong>：</p>
+<ul>
+<li>项目定位是 AI Skill 而非在线服务，本身不提供容器化部署形态；仓库中无 docker-compose/Helm/部署编排文件。</li>
+<li>要到达「可用状态」，除了安装依赖，还需将其接入 AgentSkills 类运行环境/ Obsidian 工作流（README 提到 AgentSkills Standard、Obsidian CLI 与社区插件），对非开发人员形成隐性门槛。</li>
+<li>可选能力需要额外初始化：如 CNIPA 抓取需 Playwright 浏览器探测，CAD 视图需建立 CadQuery 虚拟环境。</li>
+<li>文档体系完整（97 个文档文件），但缺少可一键跑</li>
+</ul>
+<h3>D10 功能价值——使用价值视角（平行维度，权重 0%，不计入综合评分）</h3>
+<blockquote>
+<p>本维度与 D11 一样只参与逐维度分析输出，不进入百分制综合评分。其目的是回答「用它的人实际省了什么、赚了什么」，与 D1.2/D2.6 的商业输入和工程事实正交。以下计算遵循 N/A 统一规则：D10.2 因缺少实采使用规模数据记为 N/A，其余细则满分等比保留，最终得分非标准 10 分制，而是剔除后折算值。</p>
+</blockquote>
+<h4>D10.1 效用强度（满分 3 分）—— 小分 2.4 / 3（良好，80% 档）</h4>
+<ul>
+<li>单用户节省量显著：该项目不是简单提示词，而是覆盖中国专利事务完整工作链的技能包，子技能包括交底书编写、申请文件改写、案卷会稿、通俗解读、审查答复辅助、著录检索、政策简报。对应场景是研发人员/代理师此前「明明做了技术工作却写不出可交付交底书」的痛点，单件交底书从人工整理、画图、查新到 Word 成文的时间成本可被大幅压缩。</li>
+<li>效用层级达「项目级依赖」：对一位需要持续产出中国专利交底书或申请文件的研发工程师/IP 人员，该工作流可成为其日常专利产出的固定工具；但尚未出现可用「业务命脉级基础设施」来定义该项目的证据——它仍是 AI 辅助写作/信息处理工具，而非企业生产链路中不可替代的在线基础设施。</li>
+<li>效用确定性中等偏上：大量模板、参考 schema、自检与 revision 提示词、本地 Python 转换工具（docx、pptx、mermaid、公式、CAD 视图等）使产出链路稳定；但最终文本质量和法律风险判断仍依赖所接入的 LLM 能力与用户输入材料的充分性，未达到 9–10 分要求的「稳定可预期」。</li>
+</ul>
+<h4>D10.2 实际使用规模（满分 3 分）—— N/A（数据缺失）</h4>
+<ul>
+<li>GitHub API 实采可确认该项目热度高：8,774 stars、913 forks、4 contributors，但以上属于「兴趣/关注信号」，并非本细则要求的实际使用规模指标。</li>
+<li>未实采到 <code>Used by</code> 依赖方计数，也未提供 npm/PyPI/Go proxy 下载量；README 中展示的是运行效果截图与自我说明，未提供可核实的第三方生产环境用户案例。</li>
+<li>依防幻觉规则，不凭 stars/forks 估算「依赖方数量」或「月下载量」，本细则统一记 N/A，并从维度满分中剔除后等比缩放。</li>
+</ul>
+<h4>D10.3 免费可得的完整效用（满分 2 分）—— 小分 2 / 2（卓越，100% 档）</h4>
+<ul>
+<li>LICENSE 明确为 MIT，仓库内包含全部 7 个子技能的 prompts、references、schemas、tools、examples 与测试，没有发现「开源版仅试用、核心能力需购买」的分层设计。</li>
+<li>自托管与本地运行路径完整：README/INSTALL 给出安装说明，核心转换与处理脚本为本地 Python 实现；外部 CNIPA 页面抓取仅依赖公开官方网页，不依赖本项目方持有的闭源服务。</li>
+<li>唯一商业化动作是「请作者喝咖啡」的随缘捐赠，不构成付费墙，也不存在「不付费实际不可用」的设计。因此本细则为满分。</li>
+</ul>
+<h4>D10.4 效用可持续性（满分 2 分）—— 小分 1.6 / 2（良好，80% 档）</h4>
+<ul>
+<li>主体高度本地化：代码、提示词、文档、schema 全部随仓库落地；MIT 协议保证任何人可在停维后分叉，不依赖维护者个人的在线服务。</li>
+<li>外部依赖可替换：运行依赖多为开源 Python 库（python-docx、PyYAML、playwright 等）；LLM 能力由 Agent 接入层提供，并未与特定厂商闭源组件绑定，CNIPA 公共网页属于公开信息源而非不可替换的供应商锁定。</li>
+<li>扣分点在于：项目尚无版本化 release，当前处于快速迭代状态；部分能力（政策简报、公开公告著录检索）依赖对 CNIPA 官网页面结构的实时访问，若官方页面改版会出现时段性失效；对 LLM 后端质量和可用性的隐性依赖也使其无法达到「完全本地化、无任何外部依赖」的 9–10 分标准。</li>
+</ul>
+<h4>D10 细则分值汇总</h4>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10.1</td>
+<td>效用强度</td>
+<td>3</td>
+<td>2.4</td>
+<td>良好</td>
+</tr>
+<tr>
+<td>D10.2</td>
+<td>实际使用规模</td>
+<td>3</td>
+<td>N/A</td>
+<td>数据缺失</td>
+</tr>
+<tr>
+<td>D10.3</td>
+<td>免费可得的完整效用</td>
+<td>2</td>
+<td>2.0</td>
+<td>卓越</td>
+</tr>
+<tr>
+<td>D10.4</td>
+<td>效用可持续性</td>
+<td>2</td>
+<td>1.6</td>
+<td>良好</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td>10</td>
+<td><strong>6.0 / 7（剔除 N/A）→ 8.6 / 10</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4>结论</h4>
+<p>从使用价值视角看，这是一个高完整度、高免费性、可持续性良好的中文专利工作流技能包：对真实从事中国专利事务的用户能节省显著时间与外包成本，且没有任何付费墙或功能阉割。由于缺少可实采的下载量/依赖方/生产案例数据，实际使用规模无法定级，故最终得分在剔除该项后折算为 <strong>8.6/10</strong>；该得分仅反映可验证功能价值，不进入 D1–D9 商业评分，也不构成商业化硬伤判定。</p>
+<h3>D11. 社会价值（正外部性）维度评估</h3>
+<blockquote>
+<p><strong>平行维度说明</strong>: D11 不计入综合评分与一票否决，仅用于 3.4 价值画像。本维度评估项目对使用者之外的行业与社会产生的正外部性——数字公共产品属性、教育价值、普惠性、开放标准推动。</p>
+</blockquote>
+<h3>D11.1 数字公共基础设施属性（评分: 2.4/3）</h3>
+<p><strong>判断依据</strong>: patent-disclosure-skill 定位为“中国专利”垂直领域的 Agent Skill，通过 MIT 协议完全开放。从供应链地位看，项目不对其他开源软件构成关键依赖（没有 Dependents 数据支撑，生态位分析显示其为应用型技能而非底层库/框架），不存在 curl/OpenSSL 式“数字底座”特征。但从数字公共产品（DPG）属性看，项目符合开放（MIT + 公开仓库）、可复用（模块化 prompts/tools/schemas 设计）、服务公共利益（降低专利交底书撰写门槛）的核心特征，在当前 Agent Skill 生态尚处早期阶段时，以 8.7k Star 成为“中国专利 + AI 辅助”这一细分方向的事实标杆和参照实现。停摆影响面：仅影响直接使用者（依赖该技能完成交底书编写的发明人/代理师），不波及软件供应链。</p>
+<p><strong>证据</strong>: MIT 许可证；161 个 Python 文件 + 22 个示例 + 97 个文档文件构成完整可复用的技能包；无任何外部通过 API/import 方式依赖该项目的下游生态。</p>
+<h3>D11.2 教育与人才价值（评分: 2.25/2.5）</h3>
+<p><strong>判断依据</strong>: 项目具有显著的教育价值：① 将专利点挖掘、交底书撰写、审查答复等高度依赖隐性经验（“做了多年核心研发，专利发明人那一栏从没写过我的名字”）的流程，转化为结构化 prompts 与可执行工具，本身就构成一套“如何写专利”的操作性教材——覆盖发明/实用新型/外观三类知识体系化组织；② 内置 patent-oa（审查答复）子技能，将“个人从业经验和实务书专家技巧蒸馏进库”，对行业新手是难得的学习素材；③ 大量示例（22 个示例文件，如 EV 电驱系统实用新型、桌面台灯外观设计）与自测/检查清单（disclosure_self_check.md、guardrails.md）提供了“带答案的练习题”。但受限于语言（中文为主）与应用场景（专利撰写），教学影响主要在中文创新者/知识产权从业者圈层，未形成全球性教学采用，暂无证据表明被高校课程系统性纳入。</p>
+<p><strong>证据</strong>: 7 个子技能形成从交底到答复的完整知识链；prompts 目录含 invention/utility_model/design 三套模板与 patent_points_analyzer 等教学方法论文件；tests 目录 52 个文件构成可运行的教学验证集。</p>
+<h3>D11.3 普惠与可及性（评分: 2.0/2.5）</h3>
+<p><strong>判断依据</strong>: 普惠效果核心在于“替代价格差”：传统模式下企业/个人撰写交底书需依赖专利代理机构（单件收费数千至数万元），本项目免费提供从专利点挖掘、查新到交底书成文的完整能力，对中小团队、独立发明人及高校科研人员是显著的“能力平权化”。同时将专利阅读门槛从“权要绕、术语密”的晦涩原文本降低为“通俗笔记与图谱”，普惠了技术情报获取。可及性支持方面：依赖 Python 3.9+ 与 Playwright 等开源组件，硬件要求低；但是，i18n/无障碍等系统性可及性支持未见完善（面向中文用户，无多语言界面/无障碍专项实现），安装链路偏长（需配置 Python 环境、浏览器驱动、可选 CadQuery/CNIPA 爬取环境），对非技术背景的发明人仍存在一定门槛。项目通过 Obsidian 生态落库，降低了个人搭建私有专利知识库的技术成本。</p>
+<p><strong>证据</strong>: README 明确“让真正干活的人，也能把技术贡献写进可交付的交底书里”；依赖仅 python-docx、latex2mathml、PyYAML、playwright 等常见开源库；CNIPA 爬取与 CAD 解析标注为 Optional，保护低配环境可运行。</p>
+<h3>D11.4 开放标准与行业推动（评分: 1.0/2）</h3>
+<p><strong>判断依据</strong>: 项目遵循的“开放标准”主要是国知局官方规程（书式、审查指南）而非技术标准。其正外部性体现在：① 推动了中国专利撰写与答复流程的“AI 原生标准化”——将交底书模板、审查意见答复框架、政策跟踪转化为可复用的开源结构化流程，可能成为后续同类 Agent Skill 的参照蓝本；② 标注“AgentSkills-Standard”徽章，遵循了该领域正在形成的能力描述约定，有行业示范意义；③ 通过 MIT 协议释放源码，允许同行在其工程组织（多技能目录 + prompts/references/schemas 分层）基础上二次开发。但项目本身不定义协议/开放标准，在科研引用层面 Data Source 标注“不可得”，学术影响尚无法证实。</p>
+<p><strong>证据</strong>: README 顶部声明“AgentSkills-Standard”；多技能架构（patent-disclosure/application/docket/reader/oa/search/exam-policy）形成专利全生命周期方法论，MIT 协议下可被同行直接移植。</p>
+<h3>核心结论</h3>
+<p><strong>社会价值画像关键词</strong>: 细分垂直领域的 AI 原生数字公共产品｜专利知识普惠的“教育型工具”｜高替代价格差驱动的能力平权者</p>
+<p>patent-disclosure-skill 的正外部性集中体现在“知识平权”：将专利代理行业的高人力成本经验，通过 MIT 协议开源为结构化技能包，使独立发明人、中小团队与高校研究者能以近零成本获得交底书撰写、专利解读与审查答复辅助能力。其教育价值突出——源码本身即一套“如何写专利”的操作范本（含三类专利模板、失败模式自检清单、完整案例），但受中文圈层限制，未达到全球行业教材级别。作为数字公共产品，它开放、可复用、服务公共利益，但属细分应用层而非供应链底座，停摆影响有限。整体社会价值处于中等偏上水平：普惠效果显著（免费 vs 数万元代理费），开放推动集中在“AI 辅助专利撰写”这一新兴细分实践范式，暂无证据显示对学术研究或跨行业标准化产生实质影响。</p>
+<h3>D11 细则分值汇总</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>分值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D11.1</td>
+<td>数字公共基础设施属性（3 分）</td>
+<td>2.4</td>
+</tr>
+<tr>
+<td>D11.2</td>
+<td>教育与人才价值（2.5 分）</td>
+<td>2.25</td>
+</tr>
+<tr>
+<td>D11.3</td>
+<td>普惠与可及性（2.5 分）</td>
+<td>2.0</td>
+</tr>
+<tr>
+<td>D11.4</td>
+<td>开放标准与行业推动（2 分）</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>7.65 / 10</strong></td>
+</tr>
+</tbody>
+</table>
+<h2>五、商业化价值判断</h2>
+<h3>5.1 综合价值评估</h3>
+<p>patent-disclosure-skill 展现出<strong>高商业化潜力</strong>（A 级，70.4/100），其核心价值建立在三个支柱之上：</p>
+<p><strong>第一，精准卡位高价值垂直赛道。</strong> 项目瞄准中国专利代理服务市场——传统代理机构单件收费数千至数万元，而本项目以 MIT 协议免费提供从专利点挖掘到交底书成文的完整能力。D5 验证显示，在"开源 Agent Skill 专注中国专利交底书编写"细分赛道<strong>直接竞品为 0 个</strong>，间接竞品仅 3 个（通用生态/框架/图谱工具），市场定位高度清晰且空白明显。</p>
+<p><strong>第二，技术深度构成实质性壁垒。</strong> 项目内置 CNIPA 审查基准、发明/实用新型/外观分套模板、著录项目 Schema、OA 专家知识库与政策雷达自进化机制，属难以快速复制的实务规则沉淀。43,363 行 Python 工程管线虽可复刻但工程量较大，5 个月 8,774 Star 的高速增长（月增约 1,745）反映了社区对垂直深度的认可。</p>
+<p><strong>第三，MIT 协议赋予商业化最大自由度。</strong> D4 评分 8.4/10 为九维最高，协议不约束任何变现路径，SaaS 托管、专业服务、B 端增值均可自由探索。</p>
+<h3>5.2 商业化潜力与公共价值的张力</h3>
+<p>本项目价值画像为"明星资产"——高商业潜力与高公共价值（8.1/10）并存。这意味着商业化过程中需<strong>兼顾社区声誉经营</strong>，避免竭泽而渔。D11 显示项目对独立发明人/中小团队构成显著能力平权（免费替代数千至数万元的代理服务），这种公共价值既是商业化的社会基础，也构成品牌声誉资产，商业化路径设计应善加利用而非透支。</p>
+<h3>5.3 商业化就绪度判断</h3>
+<p>项目当前处于<strong>商业化概念阶段</strong>：仅有"随缘捐赠"入口，无正式付费产品，商业模式尚未落地。但 D4 显示其具备清晰的变现路径基础——SaaS 托管因本地部署复杂而成为最可行主路径，专业服务为备选路径；专利行业客单价高，增值空间覆盖团队协作、检索、审查答复、政策监控等 B 端场景。从"有商业化基础"到"实际产生收入"，仍需补齐产品化、运营体系与销售渠道等关键环节。</p>
+<h2>六、商业路径分析</h2>
+<h3>6.1 最优路径：垂直 SaaS 托管服务</h3>
+<p><strong>路径描述</strong>：将 7 个 skill 封装为云端 SaaS，用户通过浏览器直接使用专利交底书生成、OA 答复辅助、政策监控等功能，无需本地部署。</p>
+<p><strong>可行性依据</strong>：
+- D4 确认 SaaS 托管因本地部署复杂而成为最可行主路径——当前依赖 Playwright/系统浏览器/CadQuery 独立 venv/matplotlib/嵌入 API 等多功能可选栈，本地部署摩擦偏高，恰好构成 SaaS 的替代价值
+- 专利行业客单价高，B 端场景（团队协作、检索、审查答复、政策监控）付费意愿强
+- MIT 协议不构成任何限制</p>
+<p><strong>关键动作</strong>：
+1. 将本地工具链（Playwright 浏览器自动化、docx 生成、CadQuery 3D 建模）迁移至云端容器化环境
+2. 建立多租户隔离与数据安全体系（当前无 SSO/RBAC/审计日志，SaaS 化需补齐）
+3. 设计按量计费或席位订阅模式，以"单件代理费数千元"为锚点定价</p>
+<h3>6.2 辅助路径：B 端专业服务与定制化</h3>
+<p><strong>路径描述</strong>：面向专利代理机构、企业知识产权部门提供部署、定制、培训与维护服务。</p>
+<p><strong>可行性依据</strong>：
+- D7 显示当前部署复杂度高（单机本地架构、无 release/CHANGELOG、升级靠 git pull 手工覆盖），企业客户需要专业服务支持
+- D2 确认文档体系完善（97 个文档文件、各 skill 独立说明、三类专利完整 examples），为服务交付提供基础
+- 专利行业高毛利，专业服务可覆盖实施、定制、培训全链条</p>
+<p><strong>关键动作</strong>：
+1. 建立正式 release 与版本管理机制，降低企业采纳门槛
+2. 开发企业级部署包（含 SSO/RBAC/审计日志），满足合规要求
+3. 建立合作伙伴渠道，与专利代理机构形成互补而非竞争关系</p>
+<h3>6.3 社区生态路径：插件市场与扩展生态</h3>
+<p><strong>路径描述</strong>：围绕核心 skill 构建第三方插件/扩展生态，形成平台效应。</p>
+<p><strong>可行性依据</strong>：
+- D3 显示第三方生态几乎空白（1.2/3），既是短板也是机会——先发者有机会定义生态标准
+- D5 确认项目基于 AgentSkills 标准封装，工程组织方式（多技能目录 + prompts/references/schemas 分层）对同行有示范意义
+- 8,774 Star 的社区基础提供了生态冷启动的用户池</p>
+<p><strong>关键动作</strong>：
+1. 开放插件 API 与扩展指南，降低第三方贡献门槛
+2. 建立贡献者激励与认证机制（当前贡献者仅 4 人，协作基础薄弱）
+3. 举办黑客松或技能开发大赛，激活社区生态</p>
+<h3>6.4 路径优先级建议</h3>
+<table>
+<thead>
+<tr>
+<th>优先级</th>
+<th>路径</th>
+<th>时间窗口</th>
+<th>投入产出比</th>
+<th>风险</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P0</td>
+<td>垂直 SaaS 托管</td>
+<td>6-12 个月</td>
+<td>高</td>
+<td>需补齐企业级能力</td>
+</tr>
+<tr>
+<td>P1</td>
+<td>B 端专业服务</td>
+<td>3-6 个月</td>
+<td>中高</td>
+<td>人力密集，可复制性低</td>
+</tr>
+<tr>
+<td>P2</td>
+<td>插件生态</td>
+<td>12-18 个月</td>
+<td>中长期</td>
+<td>生态冷启动不确定</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>明星资产画像修正</strong>：作为"明星资产"，商业化应避免竭泽而渔——建议保留核心 skill 的 MIT 开源属性，通过 SaaS 增值服务（托管、协作、企业级安全）变现，而非将开源核心转为闭源。参照 Elastic 改协议的反噬教训，社区信任是高商业潜力项目的关键资产。</p>
+</blockquote>
+<h2>七、能力评估：能做什么 &amp; 最适合做什么</h2>
+<h3>7.1 核心能力清单</h3>
+<table>
+<thead>
+<tr>
+<th>能力域</th>
+<th>具体能力</th>
+<th>成熟度</th>
+<th>证据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>专利全流程覆盖</td>
+<td>交底书（发明/实用/外观）+ 申请文件 + 著录检索 + 通俗解读 + OA 答复 + 政策简报</td>
+<td>高</td>
+<td>7 个 skill 形成完整闭环，D2 确认差异化显著</td>
+</tr>
+<tr>
+<td>垂直领域知识</td>
+<td>CNIPA 审查基准、分套模板、著录 Schema、OA 专家知识库</td>
+<td>高</td>
+<td>D5 确认为难以快速复制的实务规则沉淀</td>
+</tr>
+<tr>
+<td>政策自进化</td>
+<td>patent-exam-policy 子技能将国知局政策变动转化为技能迭代输入</td>
+<td>中高</td>
+<td>D5 确认护城河随时间加深</td>
+</tr>
+<tr>
+<td>工程实现</td>
+<td>43,363 行 Python、52 个测试文件/7,215 行测试代码</td>
+<td>中高</td>
+<td>D2 评分 7.89，测试比 16.6%</td>
+</tr>
+<tr>
+<td>文档体系</td>
+<td>97 个文档文件、22 个示例目录、三类专利完整 examples</td>
+<td>高</td>
+<td>D2 确认文档体系完善</td>
+</tr>
+<tr>
+<td>安全编码</td>
+<td>SQL 参数化、XSS 防护、路径穿越防护、API Key 本地保护</td>
+<td>中高</td>
+<td>D2/D7 确认安全实践良好</td>
+</tr>
+</tbody>
+</table>
+<h3>7.2 最适合做什么</h3>
+<p><strong>第一优先：专利代理机构的效率工具。</strong> 项目将专利代理高人力成本经验转化为可复用技能包，对代理机构构成直接效率提升——从专利点挖掘到交底书成文的完整能力可显著降低单件撰写时间。D11 显示传统代理机构单件收费数千至数万元，本项目可作为机构内部工具或 SaaS 服务的基础。</p>
+<p><strong>第二优先：企业知识产权部门的内部平台。</strong> 项目深度集成 Playwright+Obsidian+docx 工具链，交底迭代多版本+对话追溯模式可嵌入企业研发 SOP。D5 确认切换成本较高，一旦嵌入企业流程，替代需转向通用 LLM 手工撰写或商业代理机构服务，形成粘性。</p>
+<p><strong>第三优先：独立发明人与中小团队的赋能工具。</strong> D11 确认项目对独立发明人/中小团队构成能力平权，MIT 开源 + 免费完整效用使其成为低门槛的专利撰写入门工具。此场景虽直接付费意愿低，但可成为 SaaS 服务的流量入口与品牌传播渠道。</p>
+<h3>7.3 不适合做什么</h3>
+<ul>
+<li><strong>不适合做通用 LLM 平台</strong>：项目价值在于垂直深度而非通用能力，与 anthropics/skills 等通用生态竞争无优势</li>
+<li><strong>不适合做全球市场</strong>：无多语言实现，面向中文用户，i18n 支持为 N/A</li>
+<li><strong>不适合做大规模多租户 SaaS</strong>：当前单机本地架构无集群/水平扩展设计，需重构才能支撑</li>
+</ul>
+<h2>八、短板识别：还缺少什么</h2>
+<h3>8.1 关键短板（高优先级）</h3>
+<table>
+<thead>
+<tr>
+<th>短板</th>
+<th>现状</th>
+<th>影响</th>
+<th>证据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>无正式 release/版本管理</td>
+<td>无 Release/CHANGELOG，创建约 5 个月仍高频迭代</td>
+<td>企业客户无法评估稳定性，SaaS 化缺乏版本基线</td>
+<td>D2/D7/D8 一致确认</td>
+</tr>
+<tr>
+<td>企业级安全体系缺失</td>
+<td>无 SSO/RBAC/审计日志</td>
+<td>直接阻断企业客户采纳</td>
+<td>D7 评分 1.0/2.5</td>
+</tr>
+<tr>
+<td>代码重复严重</td>
+<td>md_to_docx.py 3 份约 95% 相同副本，patent_type.py/browser.py 各 3 份</td>
+<td>长期运维与一致性维护成本高</td>
+<td>D2/D7 一致确认</td>
+</tr>
+<tr>
+<td>CI 与质量保障缺失</td>
+<td>唯一 CI workflow 为 star-history 图表生成，52 个测试文件无法自动执行</td>
+<td>质量保障依赖人工，规模化风险高</td>
+<td>D2 确认</td>
+</tr>
+<tr>
+<td>商业模式未落地</td>
+<td>仅有随缘捐赠入口，无正式付费产品</td>
+<td>有变现基础但无收入验证</td>
+<td>D4 确认</td>
+</tr>
+</tbody>
+</table>
+<h3>8.2 次要短板（中优先级）</h3>
+<table>
+<thead>
+<tr>
+<th>短板</th>
+<th>现状</th>
+<th>影响</th>
+<th>证据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>治理制度缺失</td>
+<td>无 GOVERNANCE.md/CONTRIBUTING.md，无基金会/组织背书</td>
+<td>社区协作基础薄弱，贡献者仅 4 人</td>
+<td>D8 确认</td>
+</tr>
+<tr>
+<td>可观测性不足</td>
+<td>无 Prometheus/OpenTelemetry 等标准协议与统一日志</td>
+<td>企业运维无法监控</td>
+<td>D7 确认</td>
+</tr>
+<tr>
+<td>多用户协作缺失</td>
+<td>单机本地架构，多用户协作需靠逐机复制</td>
+<td>无法直接支撑团队场景</td>
+<td>D7 确认</td>
+</tr>
+<tr>
+<td>资金支持空白</td>
+<td>无 Sponsors/FUNDING/公司实体信息</td>
+<td>可持续性依赖个人投入</td>
+<td>D8 确认（N/A 处理）</td>
+</tr>
+<tr>
+<td>网络效应薄弱</td>
+<td>无插件生态/多人协作网络</td>
+<td>用户增长依赖口碑，缺乏自增长动力</td>
+<td>D5 确认</td>
+</tr>
+</tbody>
+</table>
+<h3>8.3 数据缺失项</h3>
+<ul>
+<li><strong>D1 市场需求与商业机会</strong>：评分卡重建失败，市场规模/增长性/痛点真实性等数据缺失</li>
+<li><strong>D6 法律合规与知识产权</strong>：评分卡重建失败，协议合规/依赖链风险/商标专利风险等数据缺失（注：D4 已确认协议为 MIT，但 D6 的依赖链与商标专利分析缺失）</li>
+<li><strong>D8.3 资金支持</strong>：无 Sponsors/FUNDING/公司实体信息，按 N/A 处理并剔除权重</li>
+<li><strong>D10.2 实际使用规模</strong>：无 Dependents/下载量/生产案例实采数据</li>
+</ul>
+<h2>九、风险提示</h2>
+<h3>9.1 高优先级风险</h3>
+<table>
+<thead>
+<tr>
+<th>风险</th>
+<th>等级</th>
+<th>说明</th>
+<th>缓解建议</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>通用大模型能力跃升</strong></td>
+<td>🔴 高</td>
+<td>D5 确认主要颠覆风险为通用大模型能力跃升，时间窗口 2-3 年。若通用模型直接具备专利撰写能力，垂直壁垒将被侵蚀</td>
+<td>加速 SaaS 化与生态建设，在窗口期内建立用户迁移成本；持续深化政策自进化机制，保持与国知局政策同步的时效优势</td>
+</tr>
+<tr>
+<td><strong>巴士因子风险</strong></td>
+<td>🔴 高</td>
+<td>D8 确认核心维护者巴士因子≈1，4 名贡献者中个人主导。若维护者失能，项目可持续性存疑</td>
+<td>建立治理文档与贡献者激励，吸引更多核心贡献者；考虑基金会托管或公司实体承接</td>
+</tr>
+<tr>
+<td><strong>一票否决检查不完整</strong></td>
+<td>🟡 中</td>
+<td>D6 法律合规维度数据缺失，依赖链法律风险（传染性依赖）、商标与专利风险未经验证</td>
+<td>补充 D6 维度分析，重点核查依赖链中是否存在 GPL/AGPL 等传染性协议组件</td>
+</tr>
+</tbody>
+</table>
+<h3>9.2 中优先级风险</h3>
+<table>
+<thead>
+<tr>
+<th>风险</th>
+<th>等级</th>
+<th>说明</th>
+<th>缓解建议</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>CNIPA 页面结构依赖</strong></td>
+<td>🟡 中</td>
+<td>D10 确认项目依赖 CNIPA 页面结构，国知局网站改版可能导致爬虫失效</td>
+<td>建立页面结构变更监控与快速适配机制</td>
+</tr>
+<tr>
+<td><strong>社区生态空心化</strong></td>
+<td>🟡 中</td>
+<td>D3 显示第三方生态几乎空白（1.2/3），Star 增长与生态建设脱节</td>
+<td>投入生态运营，降低第三方贡献门槛</td>
+</tr>
+<tr>
+<td><strong>企业采纳门槛</strong></td>
+<td>🟡 中</td>
+<td>D7 显示无 release/CHANGELOG、无 SSO/RBAC/审计日志，企业客户难以合规采纳</td>
+<td>优先补齐版本管理与安全体系</td>
+</tr>
+<tr>
+<td><strong>商业化与社区信任平衡</strong></td>
+<td>🟡 中</td>
+<td>作为"明星资产"，若商业化操作不当（如核心功能闭源），可能引发社区反噬</td>
+<td>参照 Elastic 改协议教训，保持核心开源，通过增值服务变现</td>
+</tr>
+</tbody>
+</table>
+<h3>9.3 低优先级风险</h3>
+<table>
+<thead>
+<tr>
+<th>风险</th>
+<th>等级</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>代码重复维护成本</td>
+<td>🟢 低</td>
+<td>跨 skill 重复代码增加长期维护成本，但不影响当前功能</td>
+</tr>
+<tr>
+<td>多语言缺失</td>
+<td>🟢 低</td>
+<td>面向中文用户，无 i18n 支持，限制全球市场扩展</td>
+</tr>
+<tr>
+<td>学术引用缺失</td>
+<td>🟢 低</td>
+<td>无科研引用证据，影响学术圈层影响力</td>
+</tr>
+</tbody>
+</table>
+<h2>十、结论与建议</h2>
+<h3>10.1 综合结论</h3>
+<p><strong>patent-disclosure-skill 是一个高商业化潜力（A 级，70.4/100）的"明星资产"项目</strong>，其核心价值在于精准卡位中国专利 AI 辅助这一高价值垂直赛道，以 MIT 协议 + 完整专利全流程覆盖 + 难以复制的 CNIPA 实务知识沉淀，在 5 个月内实现了 8,774 Star 的高速增长与 0 直接竞品的市场空白占位。</p>
+<p>项目当前处于<strong>商业化概念阶段</strong>——有清晰的变现路径基础（D4 评分 8.4 为九维最高）与显著的技术壁垒（D5 评分 7.4），但缺乏正式产品、企业级能力与运营体系。从"高商业化潜力"到"实际商业成功"，仍需补齐版本管理、企业安全、CI 质量保障、治理制度等关键短板。</p>
+<h3>10.2 分级建议</h3>
+<p><strong>立即行动（0-3 个月）</strong> ：
+1. 建立正式 release 与版本管理机制（CHANGELOG、语义化版本、发布流程）
+2. 补充 D6 法律合规维度分析，完成一票否决检查闭环
+3. 重构重复代码（md_to_docx.py 3 份副本、patent_type.py/browser.py 各 3 份），降低维护成本</p>
+<p><strong>短期行动（3-6 个月）</strong> ：
+1. 启动垂直 SaaS 托管 MVP——将 7 个 skill 封装为云端服务，以"单件代理费数千元"为锚点设计定价
+2. 补齐企业级安全体系（SSO/RBAC/审计日志），打开企业客户市场
+3. 建立 CI 质量门禁（自动化测试执行、覆盖率检查、静态分析）</p>
+<p><strong>中期行动（6-12 个月）</strong> ：
+1. 建立治理文档与贡献者激励，降低巴士因子风险
+2. 探索 B 端专业服务（部署、定制、培训），与 SaaS 形成互补
+3. 启动插件生态建设，开放 API 与扩展指南</p>
+<p><strong>长期战略（12 个月以上）</strong> ：
+1. 在通用大模型能力跃升的 2-3 年窗口期内，通过 SaaS 化 + 生态建设建立用户迁移成本
+2. 持续深化政策自进化机制，保持与国知局政策同步的时效优势
+3. 作为"明星资产"，在商业化同时经营社区声誉，避免竭泽而渔</p>
+<h3>10.3 最终评级</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>综合评分</td>
+<td>70.4/100</td>
+</tr>
+<tr>
+<td>商业化等级</td>
+<td><strong>A（高商业化潜力）</strong></td>
+</tr>
+<tr>
+<td>价值画像</td>
+<td><strong>⭐ 明星资产</strong></td>
+</tr>
+<tr>
+<td>一票否决</td>
+<td>未触发（D6 检查不完整）</td>
+</tr>
+<tr>
+<td>建议行动</td>
+<td><strong>可投入商业化，需补齐少量短板</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>【注意】一票否决检查不完整: D6</p>
+</blockquote>
+<h2>十一、项目地址</h2>
+<p><svg class="ri ri-muted" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.001 2C6.47598 2 2.00098 6.475 2.00098 12C2.00098 16.425 4.86348 20.1625 8.83848 21.4875C9.33848 21.575 9.52598 21.275 9.52598 21.0125C9.52598 20.775 9.51348 19.9875 9.51348 19.15C7.00098 19.6125 6.35098 18.5375 6.15098 17.975C6.03848 17.6875 5.55098 16.8 5.12598 16.5625C4.77598 16.375 4.27598 15.9125 5.11348 15.9C5.90098 15.8875 6.46348 16.625 6.65098 16.925C7.55098 18.4375 8.98848 18.0125 9.56348 17.75C9.65098 17.1 9.91348 16.6625 10.201 16.4125C7.97598 16.1625 5.65098 15.3 5.65098 11.475C5.65098 10.3875 6.03848 9.4875 6.67598 8.7875C6.57598 8.5375 6.22598 7.5125 6.77598 6.1375C6.77598 6.1375 7.61348 5.875 9.52598 7.1625C10.326 6.9375 11.176 6.825 12.026 6.825C12.876 6.825 13.726 6.9375 14.526 7.1625C16.4385 5.8625 17.276 6.1375 17.276 6.1375C17.826 7.5125 17.476 8.5375 17.376 8.7875C18.0135 9.4875 18.401 10.375 18.401 11.475C18.401 15.3125 16.0635 16.1625 13.8385 16.4125C14.201 16.725 14.5135 17.325 14.5135 18.2625C14.5135 19.6 14.501 20.675 14.501 21.0125C14.501 21.275 14.6885 21.5875 15.1885 21.4875C19.259 20.1133 21.9999 16.2963 22.001 12C22.001 6.475 17.526 2 12.001 2Z"/></svg> <a href="https://github.com/handsomestWei/patent-disclosure-skill">https://github.com/handsomestWei/patent-disclosure-skill</a></p>
+<hr />
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+</blockquote>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家　<a href="https://www.mova.work">www.mova.work</a></p></body></html>

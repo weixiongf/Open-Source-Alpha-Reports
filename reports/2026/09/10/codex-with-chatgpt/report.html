@@ -1,0 +1,1864 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><title>Codex-with-chatgpt 商业价值分析报告</title><style>/* default — 品牌蓝紫主题（从 md2pdf.py 原 CSS 常量迁出，视觉与历史产物一致） */
+@page { size: A4; margin: 18mm 15mm 20mm 15mm; }
+* { box-sizing: border-box; }
+/* 字体规范：一律开源思源黑体 CN（OFL 免费商用）；正文 Regular/标题 Bold/大字数字 Light */
+body { font-family: "Source Han Sans CN","思源黑体 CN","Noto Sans SC",sans-serif; color:#1e293b; font-size:10.5pt; line-height:1.75; margin:0; }
+.cover { page-break-after: always; text-align:center; padding-top:40px; }
+.cover .kicker { color:#2563eb; letter-spacing:6px; font-size:12pt; font-weight:500; }
+.cover h1 { font-size:26pt; margin:14px 0 6px; }
+.cover .sub { color:#64748b; font-size:11pt; margin-bottom:22px; }
+.badge { display:inline-block; background:linear-gradient(135deg,#2563eb,#7c3aed); color:#fff; border-radius:18px; padding:16px 44px; margin:10px 0 18px; }
+.badge .g { font-size:34pt; font-weight:300; line-height:1; }
+.badge .s { font-size:12pt; opacity:.92; margin-top:4px; }
+.meta { color:#475569; font-size:9.5pt; margin-top:14px; }
+.bars { max-width:620px; margin:20px auto 0; text-align:left; }
+.bar-row { display:flex; align-items:center; gap:8px; margin:5px 0; font-size:9pt; }
+.bar-name { width:110px; text-align:right; color:#334155; font-weight:500; }
+.bar-track { flex:1; height:9px; background:#f1f5f9; border-radius:5px; overflow:hidden; }
+.bar-fill { display:block; height:100%; border-radius:5px; }
+.bar-val { width:30px; font-weight:700; color:#0f172a; }
+.bar-w { width:52px; color:#94a3b8; font-size:8pt; }
+h1 { font-size:17pt; color:#0f172a; border-bottom:3px solid #2563eb; padding-bottom:8px; }
+h2 { font-size:13.5pt; color:#1d4ed8; margin-top:26px; page-break-after: avoid; border-left:5px solid #2563eb; padding-left:10px; }
+h3 { font-size:11.5pt; color:#0f172a; margin-top:18px; page-break-after: avoid; }
+table { border-collapse:collapse; width:100%; margin:10px 0; font-size:9pt; page-break-inside:avoid; }
+th { background:#eff6ff; color:#1e3a8a; }
+th,td { border:1px solid #dbe3ef; padding:5px 8px; text-align:left; }
+tr:nth-child(even) td { background:#f8fafc; }
+code { background:#f1f5f9; border-radius:4px; padding:1px 5px; font-family:"JetBrains Mono","Cascadia Mono",monospace; font-size:9pt; color:#be185d; }
+pre { background:#0f172a; color:#e2e8f0; border-radius:8px; padding:12px 14px; overflow-x:auto; page-break-inside:avoid; }
+pre code { background:none; color:inherit; padding:0; }
+blockquote { border-left:4px solid #93c5fd; background:#eff6ff; margin:10px 0; padding:8px 14px; color:#334155; border-radius:0 8px 8px 0; }
+hr { border:none; border-top:1px dashed #cbd5e1; margin:22px 0; }
+strong { color:#0f172a; }
+.cover .disclaimer { max-width:620px; margin:16px auto 0; color:#64748b; font-size:8.5pt; line-height:1.6; text-align:left; border:1px solid #e2e8f0; border-radius:8px; padding:8px 12px; background:#f8fafc; }
+.credit { color:#2563eb; font-size:10.5pt; font-weight:700; letter-spacing:1px; margin-top:12px; }
+.at-acc { background:#dbeafe; color:#1d4ed8; border-radius:4px; padding:0 4px; font-weight:500; white-space:nowrap; }
+.tail { page-break-inside:avoid; margin-top:26px; border-top:2px solid #2563eb; padding-top:14px; }
+.tail p { color:#64748b; font-size:8.5pt; line-height:1.6; margin:0 0 10px; }
+.tail .credit { text-align:center; margin:0; }
+/* Remix Icon 内联 SVG（icon_mode=remix 时由脚本注入，语义色与评分条一致） */
+.ri { width:1.05em; height:1.05em; vertical-align:-0.18em; display:inline-block; }
+.ri-ok { color:#16a34a; } .ri-warn { color:#d97706; } .ri-bad { color:#dc2626; }
+.ri-muted { color:#64748b; } .ri-star { color:#f59e0b; } .ri-brand { color:#2563eb; }
+.ri-gold { color:#d4a017; } .ri-silver { color:#9ca3af; } .ri-bronze { color:#b45309; }
+/* 屏幕预览：@page 边距仅在打印时生效，浏览器中居中限宽并收边（不影响 PDF 输出） */
+@media screen {
+  body { margin: 0 auto; padding: 28px 36px 56px; max-width: 900px; }
+}
+</style></head><body><div class="cover">
+<div class="kicker">开源项目商业化潜力分析 · 第 79 期</div>
+<h1>GitHub 开源项目 Codex-with-chatgpt<br>商业价值分析报告</h1>
+<div class="sub">XiaoDuoYa/codex-with-chatgpt · 本地只读MCP桥接，让ChatGPT规划、Codex执行 · 九维度加权评估 63.8/100（B级）</div>
+<div class="badge"><div class="g">B 级 · 63.8</div><div class="s">综合评分（满分 100）· 中等商业化潜力</div></div>
+<div><svg viewBox="0 0 560 480" width="560" height="480" xmlns="http://www.w3.org/2000/svg"><polygon points="280.0,209.6 299.5,216.7 309.9,234.7 306.3,255.2 290.4,268.6 269.6,268.6 253.7,255.2 250.1,234.7 260.5,216.7" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,179.2 319.1,193.4 339.9,229.4 332.7,270.4 300.8,297.1 259.2,297.1 227.3,270.4 220.1,229.4 240.9,193.4" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,148.8 338.6,170.1 369.8,224.2 359.0,285.6 311.2,325.7 248.8,325.7 201.0,285.6 190.2,224.2 221.4,170.1" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,118.4 358.2,146.8 399.8,218.9 385.3,300.8 321.6,354.3 238.4,354.3 174.7,300.8 160.2,218.9 201.8,146.8" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,88.0 377.7,123.6 429.7,213.6 411.6,316.0 332.0,382.8 228.0,382.8 148.4,316.0 130.3,213.6 182.3,123.6" fill="none" stroke="#e2e8f0" stroke-width="1"/><line x1="280.0" y1="240.0" x2="280.0" y2="88.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="377.7" y2="123.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="429.7" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="411.6" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="332.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="228.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="148.4" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="130.3" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="182.3" y2="123.6" stroke="#d8dee9" stroke-width="1"/><polygon points="280.0,133.6 349.4,157.3 378.8,222.6 348.5,279.5 309.1,320.0 242.0,344.3 202.3,284.8 203.7,226.5 201.8,146.8" fill="rgba(37,99,235,.22)" stroke="#2563eb" stroke-width="2.5"/><circle cx="280.0" cy="133.6" r="3.5" fill="#2563eb"/><circle cx="349.4" cy="157.3" r="3.5" fill="#2563eb"/><circle cx="378.8" cy="222.6" r="3.5" fill="#2563eb"/><circle cx="348.5" cy="279.5" r="3.5" fill="#2563eb"/><circle cx="309.1" cy="320.0" r="3.5" fill="#2563eb"/><circle cx="242.0" cy="344.3" r="3.5" fill="#2563eb"/><circle cx="202.3" cy="284.8" r="3.5" fill="#2563eb"/><circle cx="203.7" cy="226.5" r="3.5" fill="#2563eb"/><circle cx="201.8" cy="146.8" r="3.5" fill="#2563eb"/><text x="280.0" y="44.0" text-anchor="middle" font-size="12.5" fill="#334155" font-weight="600">D1</text><text x="280.0" y="58.0" text-anchor="middle" font-size="11" fill="#64748b">市场需求 7.0</text><text x="406.0" y="89.9" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D2</text><text x="406.0" y="103.9" text-anchor="start" font-size="11" fill="#64748b">技术成熟度 7.1</text><text x="473.0" y="206.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D3</text><text x="473.0" y="220.0" text-anchor="start" font-size="11" fill="#64748b">社区生态 6.6</text><text x="449.7" y="338.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D4</text><text x="449.7" y="352.0" text-anchor="start" font-size="11" fill="#64748b">变现潜力 5.2</text><text x="347.0" y="424.2" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D5</text><text x="347.0" y="438.2" text-anchor="start" font-size="11" fill="#64748b">竞争格局 5.6</text><text x="213.0" y="424.2" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D6</text><text x="213.0" y="438.2" text-anchor="end" font-size="11" fill="#64748b">法律合规 7.3</text><text x="110.3" y="338.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D7</text><text x="110.3" y="352.0" text-anchor="end" font-size="11" fill="#64748b">企业就绪 5.9</text><text x="87.0" y="206.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D8</text><text x="87.0" y="220.0" text-anchor="end" font-size="11" fill="#64748b">团队治理 5.1</text><text x="154.0" y="89.9" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D9</text><text x="154.0" y="103.9" text-anchor="end" font-size="11" fill="#64748b">上手难度 8.0</text></svg></div>
+<div class="bars"><div class="bar-row"><span class="bar-name">D9 上手难度</span>
+<span class="bar-track"><span class="bar-fill" style="width:80.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.0</span><span class="bar-w">权重10%</span></div>
+<div class="bar-row"><span class="bar-name">D6 法律合规</span>
+<span class="bar-track"><span class="bar-fill" style="width:73.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.3</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D2 技术成熟度</span>
+<span class="bar-track"><span class="bar-fill" style="width:71.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.1</span><span class="bar-w">权重14%</span></div>
+<div class="bar-row"><span class="bar-name">D1 市场需求</span>
+<span class="bar-track"><span class="bar-fill" style="width:70.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.0</span><span class="bar-w">权重13%</span></div>
+<div class="bar-row"><span class="bar-name">D3 社区生态</span>
+<span class="bar-track"><span class="bar-fill" style="width:66.0%;background:#d97706"></span></span>
+<span class="bar-val">6.6</span><span class="bar-w">权重11%</span></div>
+<div class="bar-row"><span class="bar-name">D7 企业就绪</span>
+<span class="bar-track"><span class="bar-fill" style="width:59.0%;background:#dc2626"></span></span>
+<span class="bar-val">5.9</span><span class="bar-w">权重8%</span></div>
+<div class="bar-row"><span class="bar-name">D5 竞争格局</span>
+<span class="bar-track"><span class="bar-fill" style="width:56.0%;background:#dc2626"></span></span>
+<span class="bar-val">5.6</span><span class="bar-w">权重12%</span></div>
+<div class="bar-row"><span class="bar-name">D4 变现潜力</span>
+<span class="bar-track"><span class="bar-fill" style="width:52.0%;background:#dc2626"></span></span>
+<span class="bar-val">5.2</span><span class="bar-w">权重18%</span></div>
+<div class="bar-row"><span class="bar-name">D8 团队治理</span>
+<span class="bar-track"><span class="bar-fill" style="width:51.0%;background:#dc2626"></span></span>
+<span class="bar-val">5.1</span><span class="bar-w">权重7%</span></div></div>
+<div class="meta">分析时点 2026-09-10 ｜ 数据来源：GitHub API + 仓库代码实测 ｜ 方法论 v1.3</div>
+<div class="credit">报告出品：@魔法工厂　@向量之心　@南山科学家</div>
+<div class="disclaimer"><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</div>
+</div><h1>Codex-with-chatgpt 商业化潜力分析报告（完整版）</h1>
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家</p>
+<p>方法论版本: v1.3 | 综合评分: <strong>63.8</strong> | 等级: <strong>B（中等商业化潜力）</strong> | 价值画像: 长尾项目</p>
+</blockquote>
+<h2>一、项目概览</h2>
+<h3>1.1 基本信息</h3>
+<ul>
+<li><strong>项目名称 / 仓库地址</strong>：XiaoDuoYa/codex-with-chatgpt</li>
+<li><strong>核心技术栈</strong>：TypeScript（8,856 行 TS / 总代码 8,875 行、51 个源码文件），运行时依赖仅 5 个（@modelcontextprotocol/sdk、commander、express、ignore、zod）；技术域覆盖 AI Agent 集成 / MCP 协议 / OAuth 2.1 安全 / 隧道网络</li>
+<li><strong>社区规模速览</strong>：Star 3,777 / Fork 386（Fork 比率 10.2%）/ 贡献者 10 人 / Watchers 6 / 开放 Issue 19 / 90 天 PR 43 条、Issue 关闭 46 条 / Release 3 个（v0.1.0–v0.1.2）</li>
+<li><strong>分析时点 / 数据来源</strong>：项目创建于 2026-08-28，最近推送 2026-09-09，库龄约 12 天；数据来源为 GitHub 仓库元数据、GitHub Search API 竞品实测、仓库内文档与代码统计</li>
+</ul>
+<h3>1.2 项目分类标签</h3>
+<table>
+<thead>
+<tr>
+<th>分类维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>开发者工具（兼具中间件 / 集成桥接属性）</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>通用 / 跨行业（软件研发）</td>
+</tr>
+<tr>
+<td>目标用户角色</td>
+<td>后端 / 全栈开发者、AI/ML 工程师、AI 编码 Agent 重度用户（README 亦面向由 Agent 代装的非技术小白）</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>AI 编码会话的规划与独立审查（ChatGPT 网页版作只读规划大脑 + Codex 独占执行）</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>本地部署（loopback-only HTTP 服务）+ Cloudflare Quick/Named Tunnel 公网暴露</td>
+</tr>
+</tbody>
+</table>
+<h3>1.3 一句话定位</h3>
+<blockquote>
+<p>Codex with ChatGPT 是一个本地部署的开源 CLI + MCP 桥接工具，适用于各行业的 AI 编码场景，主要面向已付费订阅 ChatGPT 并使用 Codex 的开发者，用于把 ChatGPT 网页版作为只读的规划/审查大脑、由 Codex 独占执行权，从而在不使用 API Key、不上传仓库的前提下节省 API 额度。</p>
+</blockquote>
+<hr />
+<h2>二、安装部署与使用指南</h2>
+<blockquote>
+<p>【注意】本章节为降级概要（安装指南草稿缺失），要点来自 D9 评分卡：</p>
+</blockquote>
+<ul>
+<li>提供"One-paste install"——把一段固定 prompt 粘贴给编码 Agent 即可全程自动安装，明确面向不懂 git/Node/终端的小白用户</li>
+<li>无 Dockerfile / docker-compose / Helm，安装为包管理器路径：corepack pnpm install + corepack pnpm build，需自行构建才产出 c2c bin</li>
+<li>部署为单命令 c2c setup（bridge + tunnel + pairing code all in one），无需数据库/缓存/消息队列等外部组件初始化</li>
+<li>系统级依赖为 Node.js &gt;= 20、git、cloudflared 三项，cloudflared 由 Skill 自动安装；平台以 macOS/Windows 为主，Linux 未明确声明</li>
+<li>UX 被刻意抽离到 Skill 层（README: skill/ the Codex Skill (the real UX layer)），日常操作压缩为对 Codex 说一句话，用户无需理解 MCP/OAuth/tunnel/port</li>
+<li>示例文件数为 0，缺少可模仿的模板项目；提供了 docs/troubleshooting.md 与 c2c doctor/logs 自诊断能力</li>
+<li>首次使用存在不可消除的人工断点：ChatGPT 登录、验证码/2FA、连接器配对、可选 Cloudflare 授权，故首体验落在 30 分钟档而非 10 分钟档</li>
+<li>上手便利性高度依赖前置条件"用户已有一个可执行安装的编码 Agent（Codex）"，无 Codex 时需回落到需 Node 环境与构建的手动路径</li>
+</ul>
+<h2>三、评分总览</h2>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>权重</th>
+<th>加权得分</th>
+<th>评级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1 市场需求与商业机会</td>
+<td>7.0/10</td>
+<td>13%</td>
+<td>0.91</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D2 技术成熟度与产品质量</td>
+<td>7.1/10</td>
+<td>14%</td>
+<td>0.99</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D3 社区健康度与生态势能</td>
+<td>6.6/10</td>
+<td>11%</td>
+<td>0.73</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D4 商业模式与变现潜力</td>
+<td>5.2/10</td>
+<td>18%</td>
+<td>0.94</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D5 竞争格局与差异化壁垒</td>
+<td>5.6/10</td>
+<td>12%</td>
+<td>0.67</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D6 法律合规与知识产权</td>
+<td>7.3/10</td>
+<td>7%</td>
+<td>0.51</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D7 企业就绪度与可运营性</td>
+<td>5.9/10</td>
+<td>8%</td>
+<td>0.47</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D8 团队治理与可持续性</td>
+<td>5.1/10</td>
+<td>7%</td>
+<td>0.36</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D9 上手难度与易用性</td>
+<td>8.0/10</td>
+<td>10%</td>
+<td>0.80</td>
+<td>优</td>
+</tr>
+<tr>
+<td><strong>综合评分</strong></td>
+<td>—</td>
+<td>100%</td>
+<td><strong>63.8/100</strong></td>
+<td><strong>B（中等商业化潜力）</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>平行维度（不计入综合评分）</strong></p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10 功能价值</td>
+<td>7.1/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>D11 社会价值</td>
+<td>5.4/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>公共价值分</td>
+<td>6.2/10</td>
+<td>(D10+D11)/2</td>
+</tr>
+</tbody>
+</table>
+<p><strong>一票否决检查</strong>：未触发。D6 维度总分 7.3（&gt; 3）；D8.4 项目可持续性 1.8（&gt; 1）；D4.1 协议对变现模式的影响 2.0（&gt; 0.5）。三项否决检查均完整执行，无 N/A 跳过项。</p>
+<p><strong>价值画像</strong>：📦 长尾项目（综合评分 63.8 &lt; 65，公共价值分 6.2 &lt; 7）。综合评分落在 60–70 临界区间，标注「画像临界」，详见第五章。</p>
+<blockquote>
+<p>各维度细则分值构成详见「二、维度评分细则」。</p>
+</blockquote>
+<hr />
+<h2>四、各维度详细分析</h2>
+<h3>D1. 市场需求与商业机会</h3>
+<h3>项目分类标签（1.6 体系）</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>开发者工具（兼具中间件/集成桥接属性）</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>通用/跨行业（软件研发）</td>
+</tr>
+<tr>
+<td>目标用户角色</td>
+<td>后端/全栈开发者、AI/ML 工程师、AI 编码 Agent 重度用户（README 亦显式面向"不懂 git/Node 的小白"，由 Agent 代装）</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>研发流程优化、AI 编码会话的规划与独立审查、API/订阅额度成本控制</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>本地部署（loopback-only HTTP 服务）+ Cloudflare Tunnel 公网暴露 + 云原生 MCP/OAuth 协议栈</td>
+</tr>
+</tbody>
+</table>
+<p><strong>一句话定位</strong>：Codex with ChatGPT 是一个本地部署的开源 CLI + MCP 桥接工具，适用于各行业的 AI 编码场景，主要面向已经同时付费订阅 ChatGPT 与使用 Codex 的开发者，用于把 ChatGPT 网页版权限作为只读的"规划/审查大脑"、由 Codex 独占执行权，从而在不上传仓库、不使用 API Key 的前提下节省 API/额度消耗。</p>
+<h3>硬事实基线</h3>
+<ul>
+<li>创建 2026-08-28、最近推送 2026-09-09，<strong>存活期约 12 天即获 3,777 Star / 386 Fork / 10 贡献者</strong>，Star 增速极高。</li>
+<li>90 天内 PR 43 个、Issue 关闭 46 个、当前开放 Issue 19 个，维护响应活跃。</li>
+<li>代码 8,875 行（TypeScript 为主），测试 2,743 行、测试占比 30.9%，README 声称 146 个 vitest 用例（路径安全 / OAuth / 配对 / MCP e2e）。</li>
+<li>3 个 release（v0.1.0 ~ v0.1.2，8/30–9/4），MIT 许可，无 Dockerfile、无 CI workflow、无 CONTRIBUTING/SECURITY.md、示例 0 个，文档 5 篇。</li>
+<li>自述 "Unofficial community project. Not affiliated with or endorsed by OpenAI."</li>
+</ul>
+<hr />
+<h3>D1.1 目标市场规模与增长性（满分 2.5）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TAM 估算</td>
+<td>细分 ICP = "已购 ChatGPT Plus/Pro 订阅 <strong>且</strong> 使用 Codex CLI 的重度用户"。上游（AI 编码助手）确为百亿美元级赛道，但本项目切的是其中极窄的"额度套利/规划外置"切口，量级估算在千万至亿美元之间。<strong>估算未经外部数据验证，置信度低</strong></td>
+</tr>
+<tr>
+<td>增长趋势</td>
+<td>扩张。AI 编码 Agent 与 MCP 连接器生态处于高速增长期，潜在用户盘子持续变大</td>
+</tr>
+<tr>
+<td>市场层级</td>
+<td>新兴蓝海/早期成长市场：MCP 连接器刚成为主流能力，尚无垄断者</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分</strong>：5–6 档 → 60% → <strong>1.5 / 2.5</strong></p>
+<p><strong>依据</strong>：需求锚定的是"省钱"而非"必须新增预算"，用户天然价格敏感；且该项目是依附于 OpenAI 生态的补充型工具，可触达市场被"ChatGPT 付费 + Codex 用户"双重条件收窄。上游赛道足够大，但本项目自身的可货币化市场量级仅为千万至亿美元级，难以支撑 7–8 档（十亿美元级）判断。</p>
+<h3>D1.2 痛点真实性与解决程度（满分 2.5）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>痛点真实性</td>
+<td>真实且表述精准："付费订阅额度闲置，Codex 却在烧紧张的 API 额度做规划和 Review"。对重度 Agent 使用者是持续可感知的成本摩擦；README 面向"非技术用户"的一句话安装提示词，说明用户群已外溢到非专业开发者，痛点具普遍性</td>
+</tr>
+<tr>
+<td>解决完整度</td>
+<td>较高。9 个只读 MCP 工具（workspace_info / read_file / git_diff / test_status 等）+ OAuth 2.1（PKCE、动态客户端注册、refresh 轮换）+ 一次性配对码 + 路径收敛（realpath、symlink/<code>../</code> 逃逸阻断）+ 敏感文件默认拒绝 + <code>.c2cignore</code> + TunnelProvider 抽象 + 执行记录驱动的 IN​IT→PLAN→EXECUTED→REVIEW 闭环，测试覆盖 30.9%，属端到端可用的完整方案而非 demo</td>
+</tr>
+<tr>
+<td>替代成本</td>
+<td>存在替代品但均更差：直接烧 API/Codex 额度（贵）、手工在网页版与 IDE 间复制粘贴上下文（低效且易泄露）、换用其他 Agent（需重新适配仓库与流程）。不存在"零成本同效果"的替代路径</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分</strong>：7–8 档 → 80% → <strong>2.0 / 2.5</strong></p>
+<p><strong>依据</strong>：解决的是明确痛点且方案完整度高（安全模型、协议、Skill 三层齐备），但痛点性质属"成本优化 + 流程增强"而非"不用就无法工作"的行业级刚需，因此不给 9–10 档。README 中"遇到问题先更新到最新版本"的醒目提示、以及 19 个开放 Issue、无 CI 等事实，也提示首次部署摩擦仍是未完全消除的体验缺口。</p>
+<h3>D1.3 市场时机判断（满分 2.5）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术成熟度曲线</td>
+<td>占位良好。MCP 已从概念期进入"实质生产期"（官方 SDK 已被列为运行时依赖 <code>@modelcontextprotocol/sdk</code>），OAuth 2.1 已被 MCP 生态接纳为连接器鉴权标准，ChatGPT 侧 Connector 能力已可消费远程 MCP 端点</td>
+</tr>
+<tr>
+<td>竞争密度</td>
+<td>格局未定。同类"把 ChatGPT 网页订阅接进本地工作区"的桥接项目存在若干，但无强势垄断者；本项目以"只读 + 官方网页 + OAuth"路线做出差异化</td>
+</tr>
+<tr>
+<td>监管/标准</td>
+<td>无直接政策推动；但 MCP 事实标准的快速普及本身构成需求放大器</td>
+</tr>
+<tr>
+<td>反向风险</td>
+<td><strong>平台依赖风险显著</strong>：一旦 OpenAI 推出第一方"ChatGPT ↔ Codex 共享上下文/额度"能力，本项目价值主张可能被一夜抹平；同时依赖 Cloudflare Quick Tunnel 与 ChatGPT 网页 DOM/Connector 行为，非自有可控面较多</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分</strong>：7–8 档 → 80% → <strong>2.0 / 2.5</strong></p>
+<p><strong>依据</strong>：创建时间（2026-08）恰好卡在 MCP Connector + 编码 Agent 爆发的时间窗，属"早期成长期、有先行者但格局未定"，符合 7–8 档。未给 9–10 档的原因是平台方（OpenAI）既是被依赖方也是最大潜在竞争者，时机窗口受制于人而非自己有先发壁垒。</p>
+<h3>D1.4 应用场景广度（满分 2.5）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>行业覆盖</td>
+<td>横向：任何使用 AI 编码 Agent 的软件行业（通用/跨行业）</td>
+</tr>
+<tr>
+<td>场景多样性</td>
+<td>纵向单一：核心场景只有"编码会话中的规划 + 执行后独立审查"一条主线，属纵向专用工具而非通用平台</td>
+</tr>
+<tr>
+<td>可延展性</td>
+<td>中等偏上。底层能力（只读 MCP 工作区桥 + OAuth + 隧道管理）与 Agent 无关，理论上可迁移到 Claude Code、Cursor 等其他 harness；但当前强绑定 <code>skill/</code> + Codex 工作流 + <code>.c2cignore</code> 等 Codex 语境，迁移需改造</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分</strong>：5–6 档 → 60% → <strong>1.5 / 2.5</strong></p>
+<p><strong>依据</strong>：行业维度是跨行业的，但场景维度高度收敛于"编码 Agent 的脑/手分离"这一个用法，既非跨行业通用基础设施（9–10 档），也未达到"多行业可用、场景丰富"（7–8 档）。可延展性存在但尚未被实现，故按 5–6 档计。</p>
+<hr />
+<h3>D1 维度结论</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1.1 目标市场规模与增长性</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6</td>
+</tr>
+<tr>
+<td>D1.2 痛点真实性与解决程度</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8</td>
+</tr>
+<tr>
+<td>D1.3 市场时机判断</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8</td>
+</tr>
+<tr>
+<td>D1.4 应用场景广度</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>7.0</strong></td>
+<td><strong>良好（7–8 档下沿）</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>核心判断</strong>：需求真实、时机精准、方案完整度高于同规模开源项目的平均水平（30.9% 测试占比 + OAuth 2.1 安全模型 + 5 篇设计文档，均为硬证据），<strong>12 天 3,777 Star、90 天 46 个 Issue 关闭</strong>也说明痛点被市场即时验证。但两个结构性弱点压低了本维度得分：(1) 市场天花板受"省钱型"价值主张与"ChatGPT 付费 + Codex 用户"双重收窄，可货币化规模有限；(2) 全栈依附于 OpenAI 生态，既是需求来源也是最大替代威胁。因此 D1 属"需求成立、但商业空间偏窄"类型，商业化潜力更依赖后续向通用 Agent 桥接平台延展的能力，而非当前单点场景的自然放大。</p>
+<p><strong>数据置信度说明</strong>：本维度所有市场规模量级判断均为基于项目类型与行业类别的内部估算，<strong>外部市场规模数据不可用、未经外部验证，置信度低</strong>；项目自身的活动性、代码与文档指标为本地/API 实采硬事实，置信度高。</p>
+<h3>D2. 技术成熟度与产品质量（权重 14%）</h3>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D2.1</td>
+<td>产品设计与创新性</td>
+<td>1.5</td>
+<td>1.2</td>
+<td>80%（7–8）</td>
+</tr>
+<tr>
+<td>D2.2</td>
+<td>架构设计与工程质量</td>
+<td>2.0</td>
+<td>1.6</td>
+<td>80%（7–8）</td>
+</tr>
+<tr>
+<td>D2.3</td>
+<td>代码整洁性与规范性</td>
+<td>1.0</td>
+<td>0.6</td>
+<td>60%（5–6）</td>
+</tr>
+<tr>
+<td>D2.4</td>
+<td>安全性</td>
+<td>1.0</td>
+<td>0.8</td>
+<td>80%（7–8）</td>
+</tr>
+<tr>
+<td>D2.5</td>
+<td>UI/UX/UE 人机交互</td>
+<td>1.0</td>
+<td>0.6</td>
+<td>60%（5–6）</td>
+</tr>
+<tr>
+<td>D2.6</td>
+<td>功能完备度与稳定性</td>
+<td>1.5</td>
+<td>0.9</td>
+<td>60%（5–6）</td>
+</tr>
+<tr>
+<td>D2.7</td>
+<td>文档与开发者体验</td>
+<td>1.0</td>
+<td>0.8</td>
+<td>80%（7–8）</td>
+</tr>
+<tr>
+<td>D2.8</td>
+<td>测试与质量保障</td>
+<td>1.0</td>
+<td>0.6</td>
+<td>60%（5–6）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td><strong>7.1</strong></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>D2.1 产品设计与创新性 — 1.2 / 1.5</h3>
+<p><strong>判断依据</strong></p>
+<ul>
+<li><strong>产品理念清晰</strong>：一句话定位明确——"ChatGPT thinks. Codex works."，即让 ChatGPT 作为「规划大脑」，同时保留 Codex 作为「执行外壳」。解决的问题是 ChatGPT 侧缺执行环境、Codex 侧缺高质量规划模型，通过把本地 Codex 能力封装为 MCP 服务并接入 ChatGPT 连接器来打通两端。</li>
+<li><strong>功能设计围绕核心场景</strong>：代码模块（<code>bridge</code>/<code>mcp</code>/<code>auth</code>/<code>tunnel</code>/<code>pairing</code>/<code>workspace</code>/<code>execution</code>/<code>session</code>）完整覆盖了「暴露本地工作区 → 鉴权配对 → 公网可达 → 工具调用 → 执行留痕」这一条主链路，无明显堆砌；<code>skill/SKILL.md</code> 还提供了与 Agent 协作的技能描述，属于对场景的细化取舍。</li>
+<li><strong>创新性中等偏上</strong>：本质是把两个成熟产品（ChatGPT 连接器机制 + Codex CLI）用 MCP + OAuth + Cloudflare 隧道做集成式创新，属于「模式创新」而非底层技术创新；但这种「反向桥接」（把本地 Agent Harness 反过来喂给云端大模型当工具集）在同类中并不常见。</li>
+<li><strong>差异化点</strong>：自带 OAuth 2.x + PKCE 授权服务器、配对码机制、cloudflared 快速/命名隧道双模式、工作区沙箱白名单自动改写 Codex TOML 配置，这些都是「开箱即用」取向的差异化设计，比单纯转发 MCP 请求的项目更完整。</li>
+</ul>
+<p>未达 9–10 档的原因：创新建立在既有生态组件之上，缺少独到的算法或体验层突破；产品形态仍绑定 ChatGPT 与 Codex 两方外部依赖。</p>
+<hr />
+<h3>D2.2 架构设计与工程质量 — 1.6 / 2.0</h3>
+<p><strong>判断依据</strong></p>
+<ul>
+<li><strong>分层清晰</strong>：<code>src/</code> 下按职责划分为 12 个一级模块（auth / bridge / cli / config / execution / logger / mcp / pairing / process / session / tunnel / workspace），<code>bridge</code>（HTTP/生命周期）与 <code>mcp</code>（协议工具层）分离、<code>tunnel</code>（可达性）与 <code>auth</code>（鉴权）分离，符合本地代理服务的典型分层范式。</li>
+<li><strong>模块解耦较好</strong>：依赖方向基本单向——<code>cli</code> → <code>bridge</code>/<code>process</code>，<code>bridge</code> → <code>auth</code>/<code>workspace</code>/<code>pairing</code>，底层 <code>config</code>/<code>logger</code> 被广泛复用且无反向依赖；<code>tunnel/provider.ts</code> 定义了 <code>TunnelProvider</code> 抽象并配 <code>cloudflared</code> / <code>cloudflared-named</code> 两种实现，抽象层次恰当，未过度设计。</li>
+<li><strong>复用性尚可</strong>：<code>config/paths.ts</code>（状态目录、安全写 JSON）、<code>logger/index.ts</code>（<code>redact</code> 脱敏）、<code>execution/sanitize.ts</code>（路径脱敏、截断）被多模块复用，公共能力有抽离。</li>
+<li><strong>代码量与复杂度匹配</strong>：8,875 行 TS、51 个源文件，对应「OAuth 服务器 + MCP 服务器 + 隧道编排 + 工作区沙箱 + Git/diff + 执行留痕」这一功能集合，规模合理，无臃肿迹象。</li>
+<li><strong>复刻难度中等偏高</strong>：需同时掌握 MCP Streamable HTTP 传输、OAuth 2.1 PKCE + 动态客户端注册、cloudflared Quick/Named Tunnel 编排、Codex 沙箱白名单 TOML 改写（<code>config/sandbox-allow.ts</code>）、大 diff 分块（<code>chunkSafePaths</code>）等，具备一定工程护城河。</li>
+<li><strong>扣分项</strong>：<code>src/cli/index.ts</code> 单文件 827 行，命令注册、隧道交互、沙箱提示、错误处理混于一处，是明显的「胖 CLI」热点；项目无 lint/format 配置（devDependencies 仅 <code>typescript</code>/<code>tsx</code>/<code>vitest</code>），工程质量约束缺少工具化保障。</li>
+</ul>
+<hr />
+<h3>D2.3 代码整洁性与规范性 — 0.6 / 1.0</h3>
+<p><strong>判断依据</strong></p>
+<ul>
+<li><strong>命名规范统一</strong>：文件/变量/函数普遍采用语义化 camelCase，模块命名（<code>cloudflared-named</code>、<code>named-provision</code>、<code>sandbox-allow</code>、<code>ui-prefs</code>）一致且可读；类型与接口命名（<code>TunnelDoctorReport</code>、<code>PairingVerifyResult</code>、<code>PersistedAuthState</code>）表意明确。</li>
+<li><strong>类型化程度高</strong>：全量 TypeScript，广泛使用 <code>type</code>/<code>interface</code> 描述边界，<code>zod</code> 用于运行时校验（<code>execution/records.ts</code>、<code>mcp/server.ts</code>），类型与校验双轨。</li>
+<li><strong>模块内聚度好</strong>：单文件职责单一，除个别大文件外多在 30–380 行区间，无大段复制粘贴迹象（<code>ok</code>/<code>fail</code> 等工具函数集中定义并复用）。</li>
+<li><strong>扣分项</strong>：① 无 ESLint / Prettier 等风格约束配置，代码风格一致性缺少强制门禁；② <code>src/cli/index.ts</code> 827 行、<code>src/mcp/server.ts</code> 472 行属于偏长文件，函数长度未受约束；③ 无 <code>CONTRIBUTING.md</code> 明确代码规范。综合落在「基本可读、命名规范、约束不足」的 5–6 档。</li>
+</ul>
+<hr />
+<h3>D2.4 安全性 — 0.8 / 1.0</h3>
+<p><strong>判断依据</strong></p>
+<ul>
+<li><strong>安全编码扎实</strong>：<code>auth/store.ts</code> 使用 <code>randomBytes</code> 生成令牌、<code>sha256hex</code>/<code>base64UrlSha256</code> 哈希存储、<code>timingSafeEqual</code> 做恒定时间比较；<code>auth/oauth.ts</code> 校验 <code>isAllowedRedirectUri</code> 并实现 PKCE；<code>auth/middleware.ts</code> 提供 Bearer 鉴权；<code>auth/html.ts</code> 提供 <code>escapeHtml</code> + <code>setAuthSecurityHeaders</code>（XSS 与响应头防护）。</li>
+<li><strong>敏感信息处理得当</strong>：<code>logger/index.ts</code> 的 <code>redact</code> 与 <code>execution/sanitize.ts</code>（<code>redactHomePaths</code>、<code>truncate</code>）对日志与执行输出做脱敏，<code>config/paths.ts</code> 提供 <code>writeSecureJson</code> 落盘，未见硬编码密钥/Token。</li>
+<li><strong>面向前端的注入面收敛</strong>：<code>tunnel/cloudflared*.ts</code> 对 cloudflared 输出做 <code>readline</code> 解析而非 shell 拼接，<code>workspace/git.ts</code> 通过 <code>spawnSync</code> 参数数组调用并做 <code>isPathInScope</code> 范围校验，降低命令注入风险。</li>
+<li><strong>有安全设计文档</strong>：<code>docs/security.md</code> 存在，且提供沙箱白名单（<code>sandbox-allow.ts</code>）限制可写路径。</li>
+<li><strong>扣分项</strong>：① 依赖 <code>@modelcontextprotocol/sdk: "latest"</code> 未锁版本，存在上游引入风险与供应链不可复现问题；② 无 Dependabot / Snyk / Trivy 等自动化漏洞扫描配置，无 <code>.github/workflows</code>（CI workflows = 0）；③ 无 <code>SECURITY.md</code> 披露流程。</li>
+</ul>
+<hr />
+<h3>D2.5 UI/UX/UE 人机交互 — 0.6 / 1.0</h3>
+<p><strong>判断依据</strong></p>
+<ul>
+<li><strong>适用性判定</strong>：本项目主体为 CLI 工具 + 本地 MCP/HTTP 服务，但存在两类人机界面：① commander 构建的<strong>交互式 CLI</strong>（隧道选择、沙箱授权提示、配对流程引导）；② OAuth 流程中由 <code>auth/oauth.ts</code> + <code>auth/html.ts</code> 渲染的<strong>浏览器配对页</strong>。按规则中「交互式 CLI 适用」的口径，本项参与计分。</li>
+<li><strong>界面设计</strong>：Web 侧仅有配对/授权页，为最简 HTML + 安全响应头，无组件库与视觉规范，属「功能可用」级别。</li>
+<li><strong>交互体验</strong>：CLI 侧设计有可取之处——<code>persistWorkspaceEndpoint</code>、<code>trySandboxAllow</code>、<code>ensureBridgeAndTunnel</code>、<code>handleCliError</code> 表明对状态持久化、失败兜底与友好报错有考虑，并内置 <code>doctor</code> 类诊断（<code>TunnelDoctorReport</code>）；但无交互式演示/截图可供佐证体验水准。</li>
+<li><strong>信息架构与一致性</strong>：CLI 子命令与提示文案一致，<code>i18n</code> 缺失（提示语为单一语言），无本地化框架。</li>
+<li><strong>无障碍</strong>：未见相关实现。</li>
+<li>综合落在「基本可用、交互有改进空间、证据不足」的 5–6 档，取 60%。</li>
+</ul>
+<hr />
+<h3>D2.6 功能完备度与稳定性 — 0.9 / 1.5</h3>
+<p><strong>判断依据</strong></p>
+<ul>
+<li><strong>版本成熟度偏低（主要扣分项）</strong>：最新 Release 为 <strong>v0.1.2</strong>（2026-09-04），此前 v0.1.0（08-30）、v0.1.1（08-31），一周内连发三个补丁版，项目创建于 2026-08-28、最近推送 2026-09-09，整体仅约两周生命周期，属早期 rapid-iteration 阶段，<strong>未发布 v1.0 稳定版</strong>，向后兼容性尚未形成承诺。</li>
+<li><strong>核心功能覆盖较完整</strong>：鉴权（OAuth + PKCE + 配对码）、MCP 工具集（读写文件、列目录、搜索、Git status/diff、执行记录）、隧道（Quick/Named 双模式 + 探测 + 状态）、会话状态、沙箱白名单、诊断命令均有对应实现，未见主干功能缺口。</li>
+<li><strong>性能表现</strong>：搜索路径同时提供 <code>searchWithRipgrep</code> 与 <code>searchWithNode</code> 回退，Git diff 做了 <code>chunkSafePaths</code> 分块，说明对典型负载有考虑；但无基准测试数据支撑。</li>
+<li><strong>运行环境要求</strong>：需 Node.js 运行时 + Codex CLI 本体 + 可选 cloudflared 外部二进制（<code>tunnel/detect.ts</code> 探测），环境门槛中等，非「开箱即用」但也谈不上苛刻；无 Dockerfile，交付形态依赖手工部署。</li>
+<li><strong>硬件要求</strong>：无特殊硬件依赖（无 GPU/TPU 需求），标记为低。</li>
+<li><strong>国际化</strong>：提供 <code>README.md</code> / <code>README.zh-CN.md</code> 双语文档，但产品层（CLI 提示、配对页）未见 i18n 框架与多语言支持，本地化能力有限。</li>
+<li>综合落在「主要功能可用、版本尚未稳定、环境有一定限制」的 5–6 档，取 60%。</li>
+</ul>
+<hr />
+<h3>D2.7 文档与开发者体验 — 0.8 / 1.0</h3>
+<p><strong>判断依据</strong></p>
+<ul>
+<li><strong>文档覆盖面超出同龄项目</strong>：README.md + README.zh-CN.md（双语），并配 <code>docs/architecture.md</code>、<code>docs/protocol.md</code>、<code>docs/security.md</code>、<code>docs/troubleshooting.md</code>，另含 <code>skill/SKILL.md</code> 面向 Agent 使用的技能说明。对一个仅两周的项目而言，架构文档 + 协议文档 + 排障文档的组合明显高于平均线。</li>
+<li><strong>文档质量</strong>：设有独立 <code>docs/protocol.md</code>（协议说明）与 <code>docs/architecture.md</code>（架构说明），说明对 MCP/OAuth 协议的复杂性做了主动解释；<code>docs/troubleshooting.md</code> 覆盖常见故障，具备 FAQ 属性。</li>
+<li><strong>扣分项</strong>：① <code>examples/</code> 目录存在但<strong>示例文件数为 0</strong>，缺少可直接运行的端到端示例代码；② 无 API 参考生成配置（typedoc 等）；③ 无 <code>CONTRIBUTING.md</code>、无 <code>CODEOWNERS</code>，贡献者体验不完整；④ 项目仅两周历史，文档与版本的同步性尚无长期验证。</li>
+</ul>
+<hr />
+<h3>D2.8 测试与质量保障 — 0.6 / 1.0</h3>
+<p><strong>判断依据</strong></p>
+<ul>
+<li><strong>测试体量可观</strong>：<code>tests/</code> 下 16 个测试文件、约 2,672 行测试代码，测试代码占代码总量比例 <strong>0.309（约 31%）</strong>，对 8,875 行的项目而言属中上投入；<code>vitest.config.ts</code> 存在，测试框架配置规范。</li>
+<li><strong>测试基础设施到位</strong>：<code>tests/helpers.ts</code> 提供 <code>makeTmpDir</code>、<code>makeGitRepo</code>、<code>isolateStateDir</code>、<code>pkceVerifierAndChallenge</code> 等夹具，表明对文件系统、Git、状态目录隔离、OAuth PKCE 等关键路径有针对性集成测试设计。</li>
+<li><strong>关键扣分项：无 CI/CD</strong>：<code>.github/workflows</code> 数量为 <strong>0</strong>，无自动化构建、测试、发布流水线，也没有覆盖率报告产出、静态分析与安全扫描门禁；无 <code>.github</code> 级代码审查自动化配置。</li>
+<li>按标尺，测试「量」达到 5–6 档以上水平，但「CI/CD 完善/质量门禁」要素完全缺失，且无覆盖率数据可验证（无法确认是否 &gt;50%）。综合取 5–6 档，60%。这一项也是本维度最主要的短板之一。</li>
+</ul>
+<hr />
+<h3>结论</h3>
+<p><strong>D2 维度得分：7.1 / 10（良好区间下限，接近行业平均偏上水平）</strong></p>
+<p>该项目在「两周生命周期」的背景下展现出超预期的工程质量：模块分层清晰、抽象克制、安全编码实践（OAuth+PKCE、令牌哈希、恒定时间比较、日志脱敏、沙箱白名单）明显优于同类早期项目；文档体系（架构/协议/安全/排障）与测试体量（16 文件、31% 测试代码占比）也远超同龄项目平均。</p>
+<p><strong>主要短板集中在「工程化闭环」与「成熟度」两端</strong>：</p>
+<ol>
+<li><strong>零 CI/CD</strong>（CI workflows = 0）——已有的 16 个测试文件完全依赖本地手动执行，既无覆盖率门禁也无自动化发布，是产品质量保障的最大缺口；</li>
+<li><strong>无 lint/format 配置</strong>，叠加 <code>src/cli/index.ts</code> 827 行的胖文件，代码规范性缺少工具约束；</li>
+<li><strong>版本仅 v0.1.2</strong>，发布节奏密集（一周三个版本），向后兼容性尚未形成承诺，不宜直接用于生产；</li>
+<li><strong>依赖未锁版本</strong>（<code>@modelcontextprotocol/sdk: "latest"</code>）且无漏洞扫描，供应链与可复现构建存在风险；</li>
+<li><strong>无示例代码 + 无 UI 层建设</strong>（仅有最简 OAuth 配对页），产品体验层证据薄弱。</li>
+</ol>
+<p><strong>商业化启示</strong>：技术底座扎实、复刻门槛中等偏高，适合作为「个人/小团队效率工具」直接分发；但若要支撑商业化交付，需优先补齐 CI/CD 与质量门禁、锁定依赖版本、推进 v1.0 稳定版，并补齐示例与多语言体验。当前分数构成中，D2.6（功能完备度与稳定性）与 D2.8（测试与质量保障）是未来提升弹性最大的两项。</p>
+<h3>D3. 社区健康度与生态势能（权重 11%）</h3>
+<p><strong>结论摘要</strong>: 项目呈现"高热度、浅生态、极年轻"的典型早期爆款特征。Star 增速处于顶级档，Issue/PR 吞吐活跃，社区势能已初步形成；但贡献者基数仅 10 人、第三方生态几乎空白、治理基础设施（CI / CONTRIBUTING / CODEOWNERS）缺失，生态沉淀尚需时间。本维度得分 <strong>6.6 / 10</strong>。</p>
+<blockquote>
+<p><strong>数据充足性与口径说明（置信度提示）</strong>
+1. 项目创建于 2026-08-28、最近推送 2026-09-09，<strong>库龄仅约 12 天（≈0.4 个月）</strong>。因此"近 90 天 PR/Issue 数据"实际覆盖的是建库以来全周期，属"自诞生起累计"口径，而非成熟项目的稳态 90 天口径。
+2. 未取得近 90 天 Star 增量的 API 补采数据，Star 增速按<strong>退化公式</strong>「Star 数 ÷ 项目年龄(月)」计算得 ≈9,440/月。该公式本为历史平均、通常高估老项目早期红利；但本项目极年轻，全部 Star 均产生于最近 12 天，故该值<strong>恰为真实近期增速</strong>，不存在高估，但仍须标注其来源为退化公式。
+3. Issue 平均关闭时长、贡献者组织归属等字段缺失，相关判定以推断为主，置信度中等。</p>
+</blockquote>
+<h4>D3.1 社区活跃度指标（满分 3 分）→ <strong>3.0 分</strong></h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Star 增速</td>
+<td>≈9,440 / 月（退化公式：3,777 ÷ 0.4 月）</td>
+<td>远超「&gt;500/月」阈值</td>
+</tr>
+<tr>
+<td>Fork 比率</td>
+<td>386 ÷ 3,777 = <strong>10.2%</strong></td>
+<td>衍生意愿强，高于常见 5–8% 水平</td>
+</tr>
+<tr>
+<td>Issue 活跃度</td>
+<td>建库以来 PR 43 条、Issue 关闭 46 条、开放 19 条</td>
+<td>社区参与度高</td>
+</tr>
+<tr>
+<td>响应速度</td>
+<td>无精确平均关闭时长；关闭 46 / 开放 19，关闭比 0.71</td>
+<td>推断响应良好但未经实测</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判定依据</strong>: Star 月增与社区吞吐量均落入 9–10 档（Star 月增 &gt;500、社区极度活跃）。响应速度一项缺乏硬数据，但高关闭量与极短库龄相互印证维护者处于高频处理状态。综合给出 <strong>100%（9–10 档）→ 3.0 分</strong>。</p>
+<h4>D3.2 贡献者结构多样性（满分 2.5 分）→ <strong>1.5 分</strong></h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>贡献者数量</td>
+<td><strong>10 人</strong></td>
+<td>落入 5–20 区间</td>
+</tr>
+<tr>
+<td>组织多样性</td>
+<td>无数据（补采未提供组织归属）</td>
+<td>无法评估，未加分</td>
+</tr>
+<tr>
+<td>核心团队占比</td>
+<td>无数据</td>
+<td>无法评估</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判定依据</strong>: 按评分指引，10 名贡献者明确落在「5–20 贡献者」区间，对应 5–6 档（通常意味着主要来自 1–2 个组织/个人主导）。虽组织多样性数据缺失，但<strong>贡献者总量本身已构成该档位的上限约束</strong>（20–50 人才进入 7–8 档），故数据缺失不影响档位判定。给出 <strong>60% → 1.5 分</strong>。</p>
+<h4>D3.3 第三方生态成熟度（满分 3 分）→ <strong>1.2 分</strong></h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>插件/扩展</td>
+<td>仅内置 <code>skill/SKILL.md</code>（仓库自带，非第三方）；无插件市场</td>
+<td>无</td>
+</tr>
+<tr>
+<td>集成生态</td>
+<td>自身为 ChatGPT↔Codex 的 MCP 桥接，依赖 <code>@modelcontextprotocol/sdk</code>；属"消费生态"而非"被生态集成"</td>
+<td>弱</td>
+</tr>
+<tr>
+<td>衍生项目</td>
+<td>无任何第三方二次开发/商业衍生品记录的迹象</td>
+<td>无</td>
+</tr>
+<tr>
+<td>教程/课程</td>
+<td>库龄 12 天，无外部教程/课程/博客覆盖证据</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判定依据</strong>: 第三方生态维度要求的是<strong>外部主体基于本项目构建</strong>的扩展与衍生，本项目当前仅具备自身功能集与官方文档（架构/协议/安全/排障 4 篇 + 双语 README），欠缺外部生态参与。落入 3–4 档「几乎无第三方生态」。给出 <strong>40% → 1.2 分</strong>。需注意：此为<strong>时间函数</strong>，随库龄增长大概率上移，不构成固化的商业化障碍。</p>
+<h4>D3.4 品牌认知与行业影响力（满分 1.5 分）→ <strong>0.9 分</strong></h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>品牌辨识度</td>
+<td>12 天累计 3,777 Star，处于 Trending 级热度，但品牌沉淀时间过短</td>
+<td>中</td>
+</tr>
+<tr>
+<td>行业采用</td>
+<td>README 无企业用户/案例背书，无知名项目采用证据</td>
+<td>无</td>
+</tr>
+<tr>
+<td>媒体覆盖</td>
+<td>无技术媒体/会议关注证据</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判定依据</strong>: 高 Star 增速说明其在 AI Agent / DevTools 圈层内已获得关注，符合「小圈子内有认知度」的 5–6 档；但缺少知名企业背书与媒体覆盖，不足以进入 7–8 档。给出 <strong>60% → 0.9 分</strong>。</p>
+<h4>维度总评</h4>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D3.1 社区活跃度指标</td>
+<td>3.0</td>
+<td>3.0</td>
+<td>9–10 档（100%）</td>
+</tr>
+<tr>
+<td>D3.2 贡献者结构多样性</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6 档（60%）</td>
+</tr>
+<tr>
+<td>D3.3 第三方生态成熟度</td>
+<td>3.0</td>
+<td>1.2</td>
+<td>3–4 档（40%）</td>
+</tr>
+<tr>
+<td>D3.4 品牌认知与行业影响力</td>
+<td>1.5</td>
+<td>0.9</td>
+<td>5–6 档（60%）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>6.6</strong></td>
+<td><strong>6.6 / 10</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>商业化含义</strong>: 该项目的社区势能"入口强、沉淀弱"。Star 与 Issue 吞吐表明存在可观的潜在客户池与真实使用需求（尤其"订阅制 ChatGPT + Codex 融合"这一痛点切得准），对早期获客与产品验证极为有利；但 12 天的库龄意味着贡献者梯队、第三方集成、企业背书均未成型，<strong>尚不能作为稳定的商业化护城河</strong>，且治理基础设施（0 个 CI workflow、无 CONTRIBUTING、根目录无 SECURITY.md、无 CODEOWNERS）缺失会削弱外部贡献者的参与意愿。建议在后续 3–6 个月复核本维度：若贡献者突破 20–50 人、出现第三方扩展或集成，则本维度有望上修至 7.5+。</p>
+<h3>D4. 商业模式与变现潜力</h3>
+<h3>4.1 细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D4.1 协议对变现模式的影响</td>
+<td>2.0</td>
+<td><strong>2.0</strong></td>
+<td>100%（9–10 档）</td>
+<td>LICENSE 实测为 MIT License（<code>Copyright (c) 2026 codex-with-chatgpt contributors</code>），仓库根目录单一 LICENSE 文件，无附加条款、无 Commons Clause、无 SSPL/BUSL 变异；<code>package.json</code> 未声明任何限制性许可。Open Core 闭源模块、SaaS 托管、双协议、专业服务、插件市场等全部路径在法律层面无障碍。</td>
+</tr>
+<tr>
+<td>D4.2 变现路径清晰度</td>
+<td>3.5</td>
+<td><strong>1.4</strong></td>
+<td>40%（3–4 档）</td>
+<td>见下文逐模式排查：项目是单用途的本地桥接器（loopback HTTP + 只读 MCP + Cloudflare Tunnel），不存在"核心开源 + 企业功能闭源"的功能分层土壤；SaaS 托管与产品架构天然冲突（桥接器必须运行在用户本机才能读取本地工作区）；MIT 已给出全部权利，无双协议空间；README 的核心卖点恰恰是"把首次配置、环境自检、更新维护全部交给 Agent 自动完成"，系统性消灭了专业服务/代部署的付费点；项目非平台、非标准，无市场抽成与认证生态空间。剩余唯一成立的是捐赠/赞助（Vue.js 模式，天花板约 $1M/年且不可规模化），且仓库内无 FUNDING 配置，尚未启动。变现路径整体模糊，需大量探索。</td>
+</tr>
+<tr>
+<td>D4.3 付费转化逻辑</td>
+<td>2.5</td>
+<td><strong>1.0</strong></td>
+<td>40%（3–4 档）</td>
+<td>免费版即完整版：MIT + 本地自托管 + 官方一段话安装，功能无任何阉割，不存在"免费不够用"的触发点。更关键的是目标客户画像与付费动机相冲突——README 首句即"ChatGPT 付费订阅的网页版额度大量闲置，Codex 却在消耗紧张的 API 额度"，即用户采用本项目的<strong>核心动机就是省钱</strong>，属于价格敏感度最高的客群；产品交付的价值（少花 API 费用）与向开发者收费在逻辑上互斥。可想象的最弱路径是"面向非技术用户的代管/代维服务"，但 README 已用 Codex Skill 把该环节自动化，付费逻辑勉强。</td>
+</tr>
+<tr>
+<td>D4.4 增值服务空间与定价天花板</td>
+<td>2.0</td>
+<td><strong>0.8</strong></td>
+<td>40%（3–4 档）</td>
+<td>可叠加的增值方向有限且均为弱项：稳定域名隧道（README 已内置，仅需用户自有 Cloudflare 账号，无收费点）、安全审计日志、团队策略管控、SLA 支持。定价天花板被客群锁死：目标为个人开发者/非技术个人用户，客单价对标 ChatGPT Plus 量级（约 $5–20/月，即 $60–240/年），远低于 $1K/年门槛。收入扩展性差：无 per-seat 组织概念，无 per-usage 计量接口，难以向 enterprise flat fee 跃迁；企业侧还受"将本地仓库读取通道经公有 Cloudflare 隧道暴露给 ChatGPT 网页版"这一架构特性的采用阻力限制。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>维度总分：5.2 / 10</strong></p>
+<h3>4.2 逐模式可行性排查（D4.2 依据）</h3>
+<table>
+<thead>
+<tr>
+<th>变现模式</th>
+<th>可行性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Open Core</td>
+<td>✗</td>
+<td>无企业功能分层，核心即为全部；单用途桥接器难以切出闭源企业版</td>
+</tr>
+<tr>
+<td>SaaS 托管</td>
+<td>✗（架构冲突）</td>
+<td>桥接器须与用户本地工作区同机（loopback + 本地路径包含校验），托管化需同时下发本地 Agent，SaaS 层极薄</td>
+</tr>
+<tr>
+<td>双协议许可</td>
+<td>✗</td>
+<td>MIT 已完全让渡权利，无可回收的授权空间</td>
+</tr>
+<tr>
+<td>专业服务</td>
+<td>✗（被自我消解）</td>
+<td>README 以"不懂 git/Node/终端也行"的一段话安装 + 自动更新主动消灭实施/运维服务需求</td>
+</tr>
+<tr>
+<td>市场/插件</td>
+<td>✗</td>
+<td>非平台型产品</td>
+</tr>
+<tr>
+<td>认证/生态</td>
+<td>✗</td>
+<td>无标准制定地位，且项目自述"Unofficial community project"</td>
+</tr>
+<tr>
+<td>捐赠/赞助</td>
+<td>△（唯一可落地，但不可规模化）</td>
+<td>参照 Vue.js ≈ $1M+/年天花板；仓库暂无 FUNDING 配置，未启动</td>
+</tr>
+</tbody>
+</table>
+<h3>4.3 结论与风险提示</h3>
+<p><strong>综合判断：5.2/10（一般偏弱）。</strong> 协议层面是满分（MIT 完全放开所有变现路径），但商业实质层面存在结构性矛盾——<strong>该项目的核心价值主张是"省钱"而非"创造新的付费理由"</strong>，免费版即完整版，且目标客群正是价格敏感度最高的个人开发者。五项商业可行模式（Open Core/SaaS/双协议/专业服务/插件市场）中四项被架构或产品定位直接排除。</p>
+<p>三条决定性风险：</p>
+<ol>
+<li><strong>平台依附与合规悬崖</strong>：产品依赖 ChatGPT 网页版订阅额度（Plus/Pro）与 Computer Use 通道，属非官方集成，README 明示"Not affiliated with or endorsed by OpenAI"。任何商业化（尤其收费的托管/代管）都会显著抬高被平台封禁、ToS 追责的风险，构成对变现可行性的根本性约束（法律合规细节见 D6.1，本维度仅评估其对商业路径的压制）。</li>
+<li><strong>可替代性风险</strong>：OpenAI 官方 Codex 与 ChatGPT 的原生协同属其路线图内能力，一旦官方打通，本项目价值即刻归零，无技术护城河（8875 行 TypeScript、~10 名贡献者、v0.1.x、无 CI）。</li>
+<li><strong>成熟度过早</strong>：2026-08-28 创建，至最近推送仅约 2 周，3 个 patch 版本（v0.1.0–v0.1.2），未进入 PMF 验证阶段，尚不具备讨论收入模型的时间基础。</li>
+</ol>
+<p><strong>可探索的弱路径</strong>（若强行商业化）：面向非技术用户的付费托管/代维套餐（$5–15/月）、面向小团队的稳定隧道 + 审计合规增值包、以及 Sponsors/OpenCollective 赞助。三者合计天花板有限，建议在 D4 维度上按"潜在但高度不确定"处理。</p>
+<hr />
+<p><strong>数据依据</strong>：LICENSE（MIT，单文件无附加条款）；package.json（dependencies: @modelcontextprotocol/sdk / commander / express / ignore / zod，devDeps 含 vitest/tsx/typescript，无授权/计费相关模块）；README.md（价值主张、目标客群、自动化安装与自更新机制、安全模型）；仓库元数据（stars 3777 / forks 386 / contributors 10 / created 2026-08-28 / pushed 2026-09-09 / releases v0.1.0–v0.1.2）；本地实测（总代码 8875 行，测试 2743 行 / 30.9%，CI workflows 0，Dockerfile 无，CONTRIBUTING/SECURITY.md/CODEOWNERS 均无）。</p>
+<h3>D5 竞争格局与差异化壁垒（权重 12%）</h3>
+<p><strong>结论摘要</strong>：项目定位<strong>清晰且独特</strong>——「用已付费的 ChatGPT 网页订阅额度做规划大脑 + 只读 MCP 桥接 + Codex 保留执行权」，在实测检索中<strong>未发现完全同构的直接竞品</strong>，差异化叙事（No API keys, no reverse proxy）直击痛点。但壁垒侧极其薄弱：无网络效应、无数据飞轮、MIT 许可、纯标准协议实现，且商业模式根基悬于 OpenAI 的平台策略之上，属于「定位先锋、护城河浅滩」型项目。</p>
+<h4>D5.1 竞品对比与市场定位（3 分 → 2.4 分，80% 档）</h4>
+<p><strong>竞品验证说明</strong>：以下竞品均通过 <strong>GitHub Search API 实测确认</strong>（返回仓库 <code>full_name</code>、star 数、<code>pushed_at</code>、<code>archived=false</code> 字段，API 实测于本评估采集时点）。须如实说明两点：(1) 检索返回的 5 个高星仓库<strong>全部为间接竞品</strong>，未检索到与「ChatGPT 网页订阅额度 → Codex 规划大脑 + 只读 MCP 桥接」完全同构的直接竞品；(2) 本清单基于关键词检索，可能遗漏命名差异较大或非英语的同构项目，存在检出偏差。</p>
+<table>
+<thead>
+<tr>
+<th>竞品名称</th>
+<th>类型</th>
+<th>仓库/官网</th>
+<th>验证方式</th>
+<th>Star/用户量</th>
+<th>核心差异</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code-yeongyu/oh-my-openagent (OmO)</td>
+<td>间接竞品</td>
+<td>github.com/code-yeongyu/oh-my-openagent</td>
+<td>GitHub Search API 实测确认</td>
+<td>68,859★</td>
+<td>Agent 编排/「图工程」框架，解决多 agent 任务编排，不涉及订阅额度套利与 MCP 只读桥</td>
+</tr>
+<tr>
+<td>MemTensor/memmy-agent</td>
+<td>间接竞品</td>
+<td>github.com/MemTensor/memmy-agent</td>
+<td>GitHub Search API 实测确认</td>
+<td>1,602★</td>
+<td>跨 agent 共享的本地记忆中枢，解决「上下文持久化」，与本项目「规划大脑」互补而非替代</td>
+</tr>
+<tr>
+<td>neurogen-dev/NeuroAPI</td>
+<td>间接竞品</td>
+<td>github.com/neurogen-dev/NeuroAPI</td>
+<td>GitHub Search API 实测确认</td>
+<td>1,320★</td>
+<td>面向 Codex CLI / Claude Code 的一键安装器（俄语市场），同属「编码 agent 周边分发层」</td>
+</tr>
+<tr>
+<td>milisp/codexia</td>
+<td>间接竞品</td>
+<td>github.com/milisp/codexia</td>
+<td>GitHub Search API 实测确认</td>
+<td>915★</td>
+<td>Codex CLI + Claude Code 的轻量工作站（任务调度、git worktree、远程控制），做「执行侧」增强</td>
+</tr>
+<tr>
+<td>vostride/agent-qa</td>
+<td>间接竞品</td>
+<td>github.com/vostride/agent-qa</td>
+<td>GitHub Search API 实测确认</td>
+<td>908★</td>
+<td>自改进 QA agent / 测试 harness，以自然语言写测试，落在「验证侧」</td>
+</tr>
+<tr>
+<td>OpenAI 官方 Codex + ChatGPT 连接器</td>
+<td>间接/潜在直接</td>
+<td>openai.com（第一方）</td>
+<td>仓库内引用（README「Unofficial community project. Not affiliated with or endorsed by OpenAI.」）</td>
+<td>—</td>
+<td>第一方原生能力，一旦官方支持「ChatGPT 规划 + Codex 执行」闭环，本项目价值主张被直接吸收</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：</p>
+<ul>
+<li><strong>定位清晰度极高（加分项）</strong>：README 用一句话锚定利基——"ChatGPT Plus/Pro web quota sits idle while your coding agent burns scarce API/Codex tokens"，并明确划出边界「不用 API Key、不搞逆向代理，官方网页 + 只读 MCP」。这是可被用户一句话复述的差异化，优于大多数「agent 周边工具」的模糊定位。</li>
+<li><strong>无同构直接竞品（加分项）</strong>：实测检索的 5 个竞品分别落在编排层（OmO）、记忆层（memmy-agent）、分发层（NeuroAPI）、执行工作台（codexia）、验证层（agent-qa），与本项目的「额度套利用 + 只读桥接 + 审查回环」正交。</li>
+<li><strong>但差异化不构成「明显领先」</strong>：第一方平台（OpenAI）是悬顶之剑；同时 68,859★ 的 OmO 表明该生态注意力高度集中于头部通用 agent 框架，利基工具面临「被上层框架顺手实现」的风险。</li>
+<li>故落入「有竞品但本项目有明确差异化定位」的 7–8 档，取 80% → <strong>2.4 分</strong>。</li>
+</ul>
+<h4>D5.2 技术壁垒与网络效应（3 分 → 1.2 分，40% 档）</h4>
+<p><strong>判断依据</strong>：</p>
+<ul>
+<li><strong>技术壁垒：弱</strong>。核心组件均为公开标准与成熟开源库——MCP 依赖 <code>@modelcontextprotocol/sdk</code>，HTTP 层用 <code>express</code>，校验用 <code>zod</code>，OAuth 2.1（PKCE S256 / 动态客户端注册 / refresh token 轮换）为 RFC 标准化实现。无专利、无独占算法、无专有数据集。源码 8,875 行 TypeScript（50 个 .ts 文件），工程规模可由 2–3 名熟悉 MCP/OAuth 的开发者在数周内复刻。</li>
+<li><strong>网络效应：无</strong>。产品形态是<strong>单机本地桥接</strong>（loopback-only HTTP server + 个人 Cloudflare Tunnel），用户数增长不会提升任何单个用户的价值：不存在插件市场、不存在多用户协作面、不存在跨用户数据共享。Skill 层（<code>skill/SKILL.md</code>）是静态 Markdown，不具备生态扩展性。</li>
+<li><strong>规模效应：无</strong>。本地进程 + 个人隧道，边际成本恒定；Cloudflare Quick Tunnel 为临时地址，用户规模与体验无关。</li>
+<li><strong>生态位真相</strong>：项目真正的「护城河候选」是零触达首次配置体验（Skill 自动安装 cloudflared、c2c setup、配对码、连接器自动修复），但这属于工程复杂度，已在 D2.2 计分，按归属说明<strong>不在此重复计分</strong>。</li>
+<li>MIT 许可 + 无网络效应 + 标准协议栈，构成「易复制、可被 fork 分流」的典型特征，落入 3–4 档，取 40% → <strong>1.2 分</strong>。</li>
+</ul>
+<h4>D5.3 切换成本与用户粘性（2 分 → 1.2 分，60% 档）</h4>
+<p><strong>判断依据</strong>：</p>
+<ul>
+<li><strong>迁移成本：中等偏高</strong>。用户切换需重做：<code>skill/SKILL.md</code> 安装与路径改写 → <code>c2c setup</code> 重建桥接 → ChatGPT 侧连接器重新配置与配对码输入 → 若采用稳定域名方案还需重新授权 Cloudflare → 重建 ChatGPT Project（collection）并选定 project-only memory。凭据存放于 OS app state 目录（非项目内），迁移时需重新走一遍 OAuth 授权链。</li>
+<li><strong>深度集成：中等</strong>。集成点位于 Codex 的 Skill 层与 ChatGPT 的 MCP 连接器，属于「工作流胶水层」而非「业务逻辑层」——用户的代码仓库、Git 历史、CI 均不被本项目托管（README 强调 "Your repository is never uploaded"），因此没有数据资产被锁定。这既是安全卖点，也同时是<strong>粘性的天花板</strong>：卸载 = 删除 skill 目录 + <code>c2c stop</code>。</li>
+<li><strong>习惯锁定：中等</strong>。项目重塑的是「规划—执行—审查」的对话习惯：<code>[C2C]</code> 状态机（INIT → PLAN → EXECUTED → REVIEW → DONE）、ChatGPT 通过 9 个只读工具独立复核 git diff 与测试记录。用户一旦形成「先让 ChatGPT 想、再让 Codex 干」的节律，替换为纯 API 模式会带来明显的体验与成本回退。</li>
+<li>综合三项均为「中等」，落入 5–6 档，取 60% → <strong>1.2 分</strong>。</li>
+</ul>
+<h4>D5.4 护城河可持续性（2 分 → 0.8 分，40% 档）</h4>
+<p><strong>判断依据</strong>：</p>
+<ul>
+<li><strong>护城河趋势：尚未成型即面临结构性风险</strong>。项目创建于 2026-08-28，最近推送 2026-09-09，生命周期约 <strong>2 周</strong>（star 3,777、fork 386、10 位贡献者、3 个 release 至 v0.1.2）——增长迅猛，但所有「优势」都还是工程执行优势，尚未沉淀为可防御资产。</li>
+<li><strong>颠覆风险：高且明确</strong>。项目的全部价值前提是「ChatGPT 网页订阅额度充裕而 Codex API 额度紧张」这一<strong>平台定价事实</strong>。该事实由 OpenAI 单方面控制，可被以下任一动作抹平：(1) OpenAI 官方在 Codex 中原生支持「ChatGPT 侧规划 + 本地执行」闭环；(2) 调整订阅/API 额度配比；(3) 收紧 ChatGPT 侧自定义连接器（MCP/OAuth）能力边界。README 自身的 "Unofficial community project" 声明与对 ChatGPT "Computer Use" 控制面的依赖，正是这一风险的直接注脚。</li>
+<li><strong>时间窗口</strong>：短期（数月至一两个产品周期）内可维持，因为官方尚未提供等价闭环；但缺少任何能延长窗口的自建壁垒（无数据、无网络、无专利、无锁定）。</li>
+<li><strong>反证</strong>：项目迭代速度快（90 天 43 个 PR、46 个 issue 关闭、3 个 release），社区活跃度高（star 2 周破 3.7k），说明需求真实存在、执行力强。但这是「团队速度」，不是「护城河」。</li>
+<li>落入「护城河薄弱、有明确潜在颠覆者」的 3–4 档，取 40% → <strong>0.8 分</strong>。</li>
+</ul>
+<h4>D5 维度汇总</h4>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>对应档位</th>
+<th>核心判据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D5.1 竞品对比与市场定位</td>
+<td>3</td>
+<td><strong>2.4</strong></td>
+<td>7–8（良好）</td>
+<td>无同构直接竞品，定位一句话可复述；但受第一方平台威胁</td>
+</tr>
+<tr>
+<td>D5.2 技术壁垒与网络效应</td>
+<td>3</td>
+<td><strong>1.2</strong></td>
+<td>3–4（较弱）</td>
+<td>标准协议栈 + MIT + 单机形态，无网络/规模/数据壁垒</td>
+</tr>
+<tr>
+<td>D5.3 切换成本与用户粘性</td>
+<td>2</td>
+<td><strong>1.2</strong></td>
+<td>5–6（一般）</td>
+<td>配置与习惯有粘性，但无数据锁定，卸载成本低</td>
+</tr>
+<tr>
+<td>D5.4 护城河可持续性</td>
+<td>2</td>
+<td><strong>0.8</strong></td>
+<td>3–4（较弱）</td>
+<td>价值前提由平台单方面控制，颠覆风险明确</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>5.6</strong></td>
+<td><strong>一般（5–6）</strong></td>
+<td>定位先锋、护城河浅滩；需求真实但防御力不足</td>
+</tr>
+</tbody>
+</table>
+<p><strong>商业化含义</strong>：本项目适合以「极致体验型利基工具」路径变现（Skill 分发 + 低摩擦安装 + 高留存），不具备「平台化/生态化」的竞争条件。其最大风险不是同类竞品，而是<strong>平台方功能吸收</strong>；其最大资产不是代码，而是对非技术用户的零触达安装叙事与 2 周内 3,777 star 的需求验证信号。若不能在窗口期内沉淀出自有资产（如托管式稳定连接服务、团队协作层、或跨订阅源的路由抽象），护城河将长期停留在「执行速度」层面。</p>
+<h3>D6. 法律合规与知识产权（权重 7%）</h3>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D6.1 开源协议合规性与商业限制</td>
+<td>3</td>
+<td>3.0</td>
+<td>9–10（100%）</td>
+<td>MIT 全文规范，package.json SPDX 声明 <code>"license": "MIT"</code> 一致；无 copyleft、无 Commons Clause/BUSL 等商业附加条款</td>
+</tr>
+<tr>
+<td>D6.2 依赖链法律风险</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8（80%）</td>
+<td>仅 5 个运行时直接依赖，均为 MIT/ISC 宽松协议，无传染性；但关键依赖 <code>@modelcontextprotocol/sdk</code> 锁定为 <code>latest</code>，版本不可确定，影响协议审计的可复现性</td>
+</tr>
+<tr>
+<td>D6.3 商标与专利风险</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6（60%）</td>
+<td>未经人工核查，按规则默认档位给分；需注意项目名直接嵌入第三方商标 "ChatGPT""Codex"，存在显性命名风险，无商标使用政策文件</td>
+</tr>
+<tr>
+<td>D6.4 贡献者协议完备性</td>
+<td>2</td>
+<td>0.8</td>
+<td>3–4（40%）</td>
+<td>无 CONTRIBUTING.md、无 CLA/DCO、无 CODEOWNERS；10 名贡献者，版权声明为 "codex-with-chatgpt contributors" 集合，权利分散，不利于双协议/商业授权</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>7.3</strong></td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h3>分项分析</h3>
+<p><strong>D6.1 协议合规性（3.0/3，9–10 档）</strong>
+LICENSE 文件为标准 MIT 全文，版权人标注为 "codex-with-chatgpt contributors"，正文无任何删改或附加限制条款。package.json 中 SPDX 标识 <code>MIT</code> 与 LICENSE 文件一致，README 未见其他协议声明冲突。MIT 属完全宽松许可，明确授予商用、修改、分发、再许可与销售权，不构成 copyleft 传染，不存在 Commons Clause、BUSL、SSPL 等限制商业使用的附加条款。对本项目而言，采用 MIT 意味着无法通过版权许可本身构建排他性壁垒（该影响已在 D4.1 层面讨论，本细则不重复扣分），但从<strong>法律合规角度</strong>无任何障碍，商业路径在协议层面完全通畅。</p>
+<p><strong>D6.2 依赖链法律风险（2.0/2.5，7–8 档）</strong>
+运行时直接依赖仅 5 个，数量少、可控：<code>@modelcontextprotocol/sdk</code>（MIT）、<code>commander</code>（MIT）、<code>express</code>（MIT）、<code>ignore</code>（ISC）、<code>zod</code>（MIT）；开发依赖（<code>@types/express</code>、<code>@types/node</code>、<code>tsx</code>、<code>typescript</code>、<code>vitest</code>）同样均为 MIT，且不进入分发包。已知依赖链中<strong>无 GPL/AGPL 等传染性协议</strong>，无来源不明的私有包或非 npm 源依赖，整体合规成本低。</p>
+<p>唯一实质性扣分项：<code>@modelcontextprotocol/sdk</code> 使用了 <code>"latest"</code> 作为版本约束，而非语义化版本区间或锁定版本。这意味着每一次安装都可能拉取不同的代码版本，<strong>直接依赖的协议构成随时间漂移、不可复现</strong>，对需要出具合规审计报告的商业化场景（尤其是企业采购的 OSS 合规扫描）构成障碍；同时也放大了供应链投毒风险。传递依赖（express 5.x 生态的间接依赖）未在采集数据中列出，无法逐一核验，但主流子依赖普遍为 MIT/ISC。</p>
+<p><strong>D6.3 商标与专利风险（1.5/2.5，5–6 档，置信度低）</strong>
+依据方法论规定，商标检索与专利 FTO 排查无法由自动化手段完成，本细则无人工核查数据，故按 5–6 档默认给分（60%），并明确标注<strong>结论置信度低</strong>，不得作为最终商业决策依据。</p>
+<p>需人工重点复核的硬事实信号：
+1. <strong>项目命名直接嵌入第三方商标</strong>——名称 <code>codex-with-chatgpt</code> 同时包含 OpenAI 的 "ChatGPT" 与 "Codex" 两个品牌标识，且 README/描述以 "ChatGPT thinks. Codex works." 作为核心宣传语，属于典型的<strong>描述性/指代性使用边界问题</strong>，存在被主张商标侵权或收到平台下架/更名要求的现实风险；
+2. <strong>无商标使用政策文件</strong>——仓库未见 TRADEMARK 或 README 商标条款，未对衍生品使用项目名称作出限制，商标资产不受项目方控制；
+3. <strong>技术领域专利密集</strong>——项目涉及 LLM Agent 编排、MCP（Model Context Protocol）集成与 OAuth 授权流程，属专利活动活跃领域，需专业 FTO 检索。</p>
+<p><strong>D6.4 贡献者协议完备性（0.8/2，3–4 档）</strong>
+硬事实：<code>CONTRIBUTING.md</code> 不存在，无 CLA（贡献者许可协议），无 DCO（Developer Certificate of Origin）签名要求，无 <code>.github/CODEOWNERS</code>，亦无 Issue/PR 模板目录配置。项目已有 <strong>10 名贡献者</strong>（90 天内 43 个 PR、46 个 Issue 关闭），贡献活动活跃但<strong>全部集中于 GitHub PR 流程，缺少任何法律层面的权利让渡安排</strong>。</p>
+<p>LICENSE 版权人写作 "codex-with-chatgpt contributors"（复数集合），而非单一实体或个人，意味着版权由全体贡献者按贡献比例共有。这一结构的直接后果是：若项目方未来希望采用<strong>双协议模式</strong>（开源 MIT + 商业授权）、更换许可证、或将代码并入闭源产品，需要逐一取得全部历史贡献者的授权同意，10 人规模虽不至于完全不可行，但缺乏 CLA 使该流程无制度化保障，且随贡献者增长边际成本持续上升。相较之下，PR 审核流程的存在使代码来源可追溯，未构成"版权混乱"，故不至落入 1–2 档。</p>
+<h3>结论</h3>
+<p>XiaoDuoYa/codex-with-chatgpt 在法律合规维度<strong>整体处于良好区间（7.3/10）</strong>：自身采用标准 MIT 协议、无商业附加条款、依赖链短且无传染性协议，法律层面几乎不存在阻断商业路径的硬伤，商业化可选空间大（SaaS、私有部署、增值服务均无障碍）。</p>
+<p>主要短板集中在两处：一是<strong>治理层面</strong>（D6.4），无 CLA/DCO、版权分散于 10 名贡献者，虽不阻碍当前 MIT 分发，但会实质性抬高未来双协议授权或闭源整合的交易成本，属于典型的"早期不痛、后期昂贵"型负债，建议在贡献者规模进一步扩大前补齐 CLA 或至少引入 DCO；二是<strong>商标层面</strong>（D6.3），项目名直接承载 OpenAI 的 "ChatGPT""Codex" 品牌，未经人工核查前无法定论，但该命名方式在商业推广（尤其是付费产品品牌化）阶段存在被要求更名的现实风险，且项目未建立商标使用政策，若计划以此名称构建品牌资产需优先完成商标检索与风险处置。此外，<code>@modelcontextprotocol/sdk</code> 锁定 <code>latest</code> 应尽快改为确定版本，以满足企业客户的 OSS 合规审计要求。</p>
+<h3>D7. 企业就绪度与可运营性（权重 8%）</h3>
+<p><strong>维度定位说明</strong>：本项目是一个<strong>单用户本地开发工具</strong>（本地 CLI + express bridge + Cloudflare Tunnel，把 ChatGPT 网页版接入 Codex），而非面向多租户的企业服务。因此本维度需在「企业级运营特性」标尺下评估其结构性缺口，同时承认其安全工程投入在同规模（v0.1.x、8.8k 行）项目中相当突出。CI（0 个 workflow）、Dockerfile（无）、CODEOWNERS（无）等硬事实指向工程化运营能力的整体薄弱。</p>
+<h3>细则打分</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D7.1 运维复杂度与升级路径</td>
+<td>3</td>
+<td>1.8</td>
+<td>60%（5–6 档）</td>
+<td>有 <code>src/config/</code>（paths/endpoint/ui-prefs/sandbox-allow）与 OS app state 目录集中管理状态，凭证不落项目目录；Skill 每日检查 GitHub 自动更新、<code>c2c setup</code> 一步配置，降低了终端用户运维负担。<strong>但</strong>：无 CHANGELOG、无回滚机制、无版本化数据迁移说明；状态文件跨版本存在「单会话 ↔ Project 集合」模式切换（<code>mergeSession</code>/<code>normalizeProjectUrl</code>）却无正式迁移指南；Quick Tunnel 地址重启即变、需删除并重建连接器，属持续运维摩擦；v0.1.0→v0.1.2 数天内三连发，处于高速迭代期。</td>
+</tr>
+<tr>
+<td>D7.2 安全管理与权限控制</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>60%（5–6 档）</td>
+<td>安全实现<strong>超过同规模项目平均</strong>：自建 OAuth 2.1 授权服务器（<code>src/auth/oauth.ts</code> 364 行，含 AS/PRM metadata、PKCE、redirect URI 白名单）、scope 授权（<code>requireScope</code>/<code>SUPPORTED_SCOPES</code>）、配对码（<code>src/pairing/manager.ts</code>，timing-safe 比较）、token SHA-256 哈希存储、<code>writeSecureJson</code>、日志脱敏（<code>redact</code>/<code>sanitizeExecutionOutput</code>/<code>redactHomePaths</code>）、<code>docs/security.md</code>、安全响应头。<strong>但</strong>企业标尺下缺口明确：无 SSO/LDAP/SAML 联邦认证、无多角色 RBAC/ABAC（仅单用户只读 scope）、无独立审计日志（<code>execution/records.ts</code> 仅为执行记录）、无 SECURITY.md、无密钥管理/KMS。属「有较强认证、权限粒度粗、无企业级审计」区间。</td>
+</tr>
+<tr>
+<td>D7.3 可扩展性与高可用能力</td>
+<td>2.5</td>
+<td>1.0</td>
+<td>40%（3–4 档）</td>
+<td>架构为<strong>单机单实例</strong>：express bridge + 本地 cloudflared 隧道，<code>bridge/runtime.ts</code> 以 PID/健康探测（<code>findLiveBridge</code>/<code>probeBridge</code>）做单实例接管，无集群、无故障转移、无水平扩展设计。公有入口依赖 Cloudflare Quick Tunnel（临时域名、重启即失效）构成明确单点；状态一致性依赖本地 JSON 文件（<code>writeSecureJson</code>），无分布式一致性机制。扩展困难、存在单点，但符合其单用户场景，非缺陷而系设计边界。</td>
+</tr>
+<tr>
+<td>D7.4 集成兼容与可观测性</td>
+<td>2</td>
+<td>1.6</td>
+<td>80%（7–8 档）</td>
+<td>采用<strong>标准协议 MCP</strong>（<code>@modelcontextprotocol/sdk</code>，<code>src/mcp/server.ts</code> 472 行工具定义 + Streamable HTTP transport），OAuth 标准 metadata 端点（<code>.well-known</code>）；内置健康检查（<code>HealthPayload</code>/<code>bridgeHealth</code>）、隧道诊断（<code>TunnelDoctorReport</code>）、运行态文件；<code>src/logger/index.ts</code> 具备日志级别管理与脱敏。<strong>缺口</strong>：无 Prometheus/OpenTelemetry 指标导出、无告警、无结构化 JSON 日志确认证据。属「有标准 API + 基本监控」区间。</td>
+</tr>
+</tbody>
+</table>
+<h3>加权计算</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>满分</th>
+<th>得分</th>
+<th>折算</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D7.1</td>
+<td>3</td>
+<td>1.8</td>
+<td>60%</td>
+</tr>
+<tr>
+<td>D7.2</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>60%</td>
+</tr>
+<tr>
+<td>D7.3</td>
+<td>2.5</td>
+<td>1.0</td>
+<td>40%</td>
+</tr>
+<tr>
+<td>D7.4</td>
+<td>2</td>
+<td>1.6</td>
+<td>80%</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>5.9</strong></td>
+<td><strong>5.9 / 10</strong></td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<p><strong>得分 5.9 / 10（一般，达行业平均偏上，但企业就绪度结构性不足）</strong></p>
+<ul>
+<li><strong>亮点</strong>：安全工程（自建 OAuth 2.1 + PKCE + scope + 配对码 + 脱敏）与标准协议集成（MCP）远超同类 v0.1 早期项目；Skill 驱动的自动更新 + 一键配置显著压低终端用户运维负担；测试比 30.9%（2672–2743 行 / 16 文件）体现较高工程纪律。</li>
+<li><strong>企业障碍</strong>：① 无水平扩展/高可用，单机 + Quick Tunnel 为单点，无法支撑多租户/团队级部署；② 无 SSO/LDAP/SAML、无多角色 RBAC、无正规审计日志；③ 运营工程化薄弱——0 CI workflow、无 Dockerfile、无 CHANGELOG/回滚/迁移方案、无 SECURITY.md/CODEOWNERS，版本迭代快（3 天 3 版）加剧升级不确定性；④ 无指标/告警等可观测性标准协议。</li>
+<li><strong>商业化含义</strong>：作为<strong>个人开发者工具</strong>变现（订阅/捐赠/Pro 功能）路径成立，企业客户不是本项目的可行付费方；若未来转向企业市场，需补齐多租户认证、RBAC/审计、集群化与 CI/CD 发布体系。</li>
+<li><strong>置信度</strong>：中高。判断基于本地代码结构、依赖清单、文档清单与发布/CI 硬数据；未获取实际部署文档正文与 CHANGELOG，部分运维细节为基于文件结构的合理推断。</li>
+</ul>
+<h3>D8. 团队治理与可持续性</h3>
+<h3>评估概述</h3>
+<p>本项目为个人账号 XiaoDuoYa 旗下的全新工具型项目（创建于 2026-08-28，最近推送 2026-09-09，项目历史不足两周），以「ChatGPT 做规划大脑 + 保留 Codex harness」为定位。项目热度增长极快（2 周内 3,777 Star、386 Fork、3 个版本发布），工程规范（30.9% 测试占比、5 份文档、详尽安全模型）明显高于同阶段个人项目，但<strong>治理结构、资金支持与传承机制几乎为空白</strong>，是本维度的核心短板。</p>
+<h3>细则打分</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D8.1 核心维护者能力与背景</td>
+<td>2.5</td>
+<td><strong>1.5</strong></td>
+<td>5–6 档（60%）</td>
+<td>10 名贡献者、90 天内 43 个 PR、3 个版本迭代，说明有一定协作规模而非纯单人；<code>docs/security.md</code> 中的威胁模型、PKCE/令牌轮换、路径穿越与符号链接逃逸防护等设计显示核心技术能力扎实；30.9% 测试占比同属高水平工程素养。但<strong>无任何商业化/创业/企业服务背景证据</strong>，组织为个人账号，投入度（全职/业余）无法从数据判断，巴士因子因缺乏贡献者分布数据只能推断为偏低（项目历史仅 12 天，Owner 依赖度极高）。</td>
+</tr>
+<tr>
+<td>D8.2 治理模型透明度</td>
+<td>2</td>
+<td><strong>0.8</strong></td>
+<td>3–4 档（40%）</td>
+<td>无 GOVERNANCE.md、无 CONTRIBUTING.md、无 CODEOWNERS、无路线图文档、未加入任何基金会（CNCF/Apache/LF 均无）。MIT License 与公开 Issue/PR 通道提供了最低限度的协作开放性（90 天 43 PR 表明外部贡献可行），但决策流程、角色分工、晋升机制完全无文档化，治理处于不透明状态。</td>
+</tr>
+<tr>
+<td>D8.3 资金支持与商业赞助</td>
+<td>2.5</td>
+<td><strong>1.0</strong></td>
+<td>3–4 档（40%）</td>
+<td>无 GitHub Sponsors / Open Collective 记录，无公司实体或 VC 融资信息，组织为个人账号。项目属典型的「纯热情驱动」阶段。未落入 1–2 档的原因：维护者活跃度极高（推送在评估前 1 天内），并非「已不活跃」状态。</td>
+</tr>
+<tr>
+<td>D8.4 项目可持续性与传承风险</td>
+<td>3</td>
+<td><strong>1.8</strong></td>
+<td>5–6 档（60%）</td>
+<td>活跃趋势明确<strong>上升</strong>（12 天内 3 个 release、90 天 43 PR / 46 Issue 关闭、19 个开放 Issue 处理中），未归档（archived=false），无 deprecated 标记。但传承机制严重不足：无 CODEOWNERS、无 CI（0 个 workflow）、无治理文档，一旦核心维护者退出，社区接管成本极高；386 个 Fork（fork/star ≈ 10%）在如此年轻的项目上更多反映「拿来即用」型使用而非治理分裂。综合为「活跃度上升但传承风险中等偏高」。</td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<p><strong>本维度得分 5.1 / 10（一般，达到行业平均线以下但未构成致命障碍）</strong></p>
+<ul>
+<li><strong>优势</strong>：核心维护者技术能力突出（安全模型文档的专业程度接近企业级），项目处于高速上升期，社区关注度与贡献活跃度远超同期个人项目，短期内无停滞风险。</li>
+<li><strong>风险</strong>：治理与资金两条支撑腿缺失——无治理文档、无贡献指南、无 CODEOWNERS、无 CI、无赞助/公司/基金会支持。项目对单一维护者的依赖度高，且项目历史过短，巴士因子无法验证。</li>
+<li><strong>商业化含义</strong>：作为「个人技术品牌型」项目，短期内可凭借热度与工程质量吸引用户；但若要走商业化路径（如企业授权、云托管服务），必须优先补齐治理文档与资金/实体结构，否则企业客户尽调时会在「谁来长期维护」问题上受阻。</li>
+<li><strong>置信度说明</strong>：数据缺失项包括核心维护者的个人背景（工作经历/全职与否）、贡献者 Commit 分布、资金信息，D8.1/D8.3 的判断基于间接证据，置信度中等偏低。</li>
+</ul>
+<h3>安装部署与使用指南（D9 上手难度：🟢 简单，8.0/10）</h3>
+<blockquote>
+<p>本维度评定为 🟢 简单（8.0/10），面向人群为"所有人"，故以下给出完整可操作步骤；所有命令均取自项目 README / package.json 原文，未作任何补写。</p>
+</blockquote>
+<h3>一、环境要求</h3>
+<table>
+<thead>
+<tr>
+<th>项</th>
+<th>要求</th>
+<th>来源</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>运行时</td>
+<td>Node.js ≥ 20</td>
+<td><code>package.json</code> → <code>"engines": { "node": "&gt;=20" }</code></td>
+</tr>
+<tr>
+<td>包管理器</td>
+<td>pnpm（<code>packageManager: pnpm@11.24.0</code>），通过 <code>corepack</code> 调用</td>
+<td><code>package.json</code></td>
+</tr>
+<tr>
+<td>系统依赖</td>
+<td>git；<code>cloudflared</code>（公网连接用，自动检测；Skill 会代为安装）</td>
+<td>README「Requirements: Node.js &gt;= 20, git. <code>cloudflared</code> for the public connection (auto-detected; the Skill installs it for you).」</td>
+</tr>
+<tr>
+<td>容器支持</td>
+<td>无 Dockerfile、无 docker-compose、无 Helm Chart</td>
+<td>本地实测 <code>has_dockerfile: false</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>注意：项目<strong>不提供容器化镜像</strong>，安装路径是"包管理器 + 构建"，而非 <code>docker run</code>。</p>
+</blockquote>
+<h3>二、安装路径 A：非技术用户（一段话交给编码 Agent）</h3>
+<p>README 明确面向"不懂 git、Node、终端"的用户，提供"One-paste install"。原文如下（中文版）：</p>
+<pre><code class="language-text">请帮我完整安装并配置 Codex with ChatGPT，全程自动，我是不懂技术的小白，
+所有事情你自己做：
+
+1. 环境自检：需要 git 和 Node.js ≥ 20，缺什么就自动安装
+  （macOS 用 Homebrew，Windows 用 winget），同时安装 cloudflared。
+2. 下载：把 https://github.com/XiaoDuoYa/codex-with-chatgpt 克隆到
+   ~/codex-with-chatgpt（已存在就 git pull 更新）。
+3. 构建：在该目录里执行 corepack pnpm install 和 corepack pnpm build。
+4. 安装 Skill：把仓库里的 skill/SKILL.md 复制到
+   ~/.codex/skills/codex-with-chatgpt/SKILL.md，并把文件中
+   &quot;The codex-with-chatgpt checkout lives at:&quot; 那一行的路径改成实际克隆路径。
+5. 首次配置：按 SKILL.md 里的 first-time setup 流程执行
+  （运行 c2c setup，用内置浏览器打开 ChatGPT 配置连接器并输入配对码）。
+   全程只用内置浏览器，禁止打开任何第三方浏览器。
+6. 只有遇到需要我登录（ChatGPT / Cloudflare）、验证码或两步验证时才叫我，
+   而且一次只告诉我一个动作。
+7. 完成后给我看 ✓ 清单，并确认文件读取测试通过。我不懂 MCP、OAuth、
+   Tunnel、端口这些词，不要向我解释；出了问题先自己修。
+</code></pre>
+<p>英文版等价（README 亦提供），核心命令一致：<code>corepack pnpm install</code> → <code>corepack pnpm build</code> → 复制 <code>skill/SKILL.md</code> → <code>c2c setup</code>。</p>
+<h3>三、安装路径 B：手动三步（README「Install → Setup → Use (manual)」）</h3>
+<ol>
+<li>Install the Codex Skill: copy <code>skill/</code> to <code>~/.codex/skills/codex-with-chatgpt/</code>.</li>
+<li>Tell Codex: <strong>"Set up Codex with ChatGPT."</strong>（中文："使用 Codex with ChatGPT 完成首次配置。"）</li>
+<li>Use Codex normally: <strong>"Use Codex with ChatGPT to implement XXX."</strong></li>
+</ol>
+<p>README 对使用者的说明：「That's the whole manual. You don't need to know what MCP, OAuth, tunnels, ports or localhost are — Codex configures everything automatically」。</p>
+<h3>四、安装路径 C：开发者（README「For developers」）</h3>
+<pre><code class="language-bash">pnpm install
+pnpm build          # -&gt; dist/, exposes the `c2c` bin
+pnpm test           # vitest: 146 tests (path security, OAuth, pairing, MCP e2e)
+
+c2c setup           # bridge + tunnel + pairing code, all in one
+c2c sandbox-allow   # whitelist the settings dir in Codex (macOS + Windows)
+c2c status / doctor / pair / unpair / logs / stop
+</code></pre>
+<p><code>package.json</code> 中可用的 npm scripts：<code>build</code>（<code>tsc -p tsconfig.json</code>）、<code>dev</code>（<code>tsx src/cli/index.ts</code>）、<code>test</code>（<code>vitest run</code>）、<code>test:watch</code>、<code>typecheck</code>（<code>tsc --noEmit</code>）。CLI 入口为 <code>bin/c2c.js</code>，命令 <code>c2c</code>。</p>
+<h3>五、部署与首次配置</h3>
+<ul>
+<li><strong>部署形态</strong>：单机 CLI 拉起本地 loopback HTTP server（C2C Bridge）+ Cloudflare Quick Tunnel，无需数据库/缓存/消息队列等外部组件。</li>
+<li><strong>一键启动</strong>：<code>c2c setup</code>（「bridge + tunnel + pairing code, all in one」）。</li>
+<li><strong>首次配置</strong>：通过配对码（one-time pairing code，5 分钟 TTL）在内置浏览器中配置 ChatGPT 连接器；新工作区需创建一次 ChatGPT Project。</li>
+<li><strong>凭据存放</strong>：README 明确「Credentials stay in the OS app state directory, not in the project.」</li>
+<li><strong>可选稳定域名</strong>：若已有 Cloudflare 账号与域名，首次配置会询问是否启用 <code>c2c-&lt;project&gt;.your-domain.com</code>；跳过则使用临时 Cloudflare URL。</li>
+<li><strong>成功标志</strong>（README 原文）：</li>
+</ul>
+<pre><code>Codex with ChatGPT
+
+✓ Project detected
+✓ Workspace Bridge started
+✓ Secure connection established
+✓ ChatGPT connected
+✓ File read test passed
+
+Ready.
+</code></pre>
+<h3>六、故障排查</h3>
+<ul>
+<li>README 顶部 IMPORTANT：遇到问题先让 Codex 执行 <strong>"Update Codex with ChatGPT"</strong> 更新到最新版本。</li>
+<li>可用 <code>c2c status / doctor / logs</code> 诊断，<code>c2c stop</code> 停止。</li>
+<li>详细文档：<a href="docs/architecture.md">architecture</a> · <a href="docs/protocol.md">protocol</a> · <a href="docs/security.md">security</a> · <a href="docs/troubleshooting.md">troubleshooting</a>。</li>
+</ul>
+<hr />
+<h3>D9 维度详析</h3>
+<h4>细则打分表</h4>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D9.1 安装难度</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8（80%）</td>
+<td>有 pnpm 包管理器安装路径（<code>corepack pnpm install</code> + <code>corepack pnpm build</code>），依赖均托管于 npm（5 个 runtime deps，全部自包含）；但<strong>无 Docker/一键安装包</strong>，需手动具备 git、Node ≥ 20、cloudflared 三项系统级依赖，且必须自行构建后才产出 <code>c2c</code> bin；平台覆盖以 macOS/Windows 为主（<code>c2c sandbox-allow</code> 注明 macOS + Windows），Linux 未明确声明。</td>
+</tr>
+<tr>
+<td>D9.2 部署与配置难度</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8（80%）</td>
+<td><code>c2c setup</code> 一条命令完成 bridge + tunnel + pairing（「all in one」）；无需数据库/缓存/消息队列等外部组件初始化；凭据落 OS app state 目录。但<strong>无 docker-compose/Helm 等标准化编排</strong>，首次配置仍需人工参与 ChatGPT 连接器配置、配对码输入、新工作区建 ChatGPT Project，以及可选的 Cloudflare 授权登录，非"零人工"部署。</td>
+</tr>
+<tr>
+<td>D9.3 易用性与操作门槛</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8（80%）</td>
+<td>日常操作被 Skill 层封装为一句话（"Use Codex with ChatGPT to implement XXX"），README 明言用户无需理解 MCP/OAuth/tunnel/port；CLI 由 commander 构建，提供 <code>status/doctor/logs</code> 等自诊断子命令；提供 <code>docs/troubleshooting.md</code>。但素材中<strong>未见具体的错误提示文案或交互式提示/补全证据</strong>，且首次使用仍有前置条件（ChatGPT 付费订阅、建 Project/连接器）。</td>
+</tr>
+<tr>
+<td>D9.4 学习曲线与首体验</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8（80%）</td>
+<td>有清晰 quickstart（"One-paste install" + 手动三步 + <code>c2c setup</code>），宣称"zero-touch first-run experience"，目标用户为"不懂 git/Node/终端"的小白，概念门槛被 Skill 层屏蔽。但<strong>示例文件数为 0</strong>（本地实测 examples: 0），缺少可参考的模板项目；首次成功仍需跨过账号登录、连接器配对、可选 Cloudflare 授权等人工环节，落在"30 分钟内首次成功"档而非"10 分钟内有交互式引导"档。</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>8.0</strong></td>
+<td>🟢 简单</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h4>结论</h4>
+<p><strong>D9 = 8.0 / 10（🟢 简单，面向所有人）</strong>，上手体验是本项目相对突出的商业化优势项，且与产品定位高度自洽——项目把"非技术用户能否用起来"当成一等公民来设计：</p>
+<ol>
+<li><strong>UX 层被刻意抽离到 Skill</strong>：README「Project layout」中明确 <code>skill/  the Codex Skill (the real UX layer)</code>，用户侧接口被压缩为"对 Codex 说一句话"，规避了 CLI 参数记忆负担。</li>
+<li><strong>单命令部署</strong>：<code>c2c setup</code> 一条命令拉起 bridge、tunnel 与配对码，无外部中间件依赖，这是其在新兴 agent 工具中的显著便利点。</li>
+<li><strong>主要的减分项集中在"非容器化 + 系统级依赖"</strong>：无 Dockerfile、无 CI workflows（实测 <code>ci_workflows: []</code>），安装依赖 Node ≥ 20、git、cloudflared 三项外部条件，必须经构建步骤才能得到 <code>c2c</code> bin；这使其无法触达"单条 <code>docker run</code> 即用"的 9–10 档。</li>
+<li><strong>示例生态薄弱</strong>：示例文件 0 个，用户可模仿的模板缺失，首体验更多依赖 Skill 的自动编排而非可复制样例。</li>
+<li><strong>人工断点不可避免</strong>：ChatGPT 登录、验证码/2FA、连接器配对、可选 Cloudflare 授权是流程中必须由人介入的环节，因此首体验落在"30 分钟内"档，而非完全零接触的 10 分钟档。</li>
+</ol>
+<p><strong>对商业化的含义</strong>：D9 不构成推广障碍，反而是可营销点（"一段话安装 + 不懂技术也能用"）。但要注意其上手便利性高度依赖"用户已有一个能执行安装的编码 Agent（Codex）"这一前置条件——若目标客户没有 Codex，则必须回落到手动路径 B/C，此时需 Node 环境与构建操作，便利性会明显下降。建议补充示例项目与 Docker 镜像以补齐最后 2 分。</p>
+<h3>D10 功能价值（使用价值视角）</h3>
+<blockquote>
+<p>平行维度，权重 0%，不计入综合评分。仅用于 3.4 价值画像判定，回答「用它的人省了多少/赚了多少」。</p>
+</blockquote>
+<h3>项目效用定位</h3>
+<p><code>codex-with-chatgpt</code> 不是被依赖的库，而是一个<strong>本地桥接工具</strong>：把用户已付费但闲置的 ChatGPT Plus/Pro 网页端额度，通过一条 OAuth 保护的只读 MCP 连接，变成 Codex 编码会话的「规划 + 独立审查大脑」；Codex 保留全部执行权（shell/test/git 写操作）。它的效用公式很清晰：</p>
+<blockquote>
+<p><strong>省下的</strong> = API/Codex token 消耗（规划与 Review 环节外移） + 人工审查成本（ChatGPT 通过 MCP 直接读真实 git diff 与测试记录，而非信任「测试全过」的口头声明）
+<strong>投入的</strong> = 一次性的安装配置（Node/git/cloudflared、ChatGPT 连接器配对、首次 Project 创建） + 每次重启的临时域名修复成本</p>
+</blockquote>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10.1</td>
+<td>效用强度</td>
+<td>3</td>
+<td><strong>1.8</strong></td>
+<td>5–6 档（60%）</td>
+<td>对「既有 Codex 又付了 ChatGPT Plus/Pro」的用户，省 token 支出 + 引入基于真实 diff 的独立审查回路，效用明确；但属<strong>可选项增强层</strong>，不是项目级依赖（无任何项目 build 在它之上），直用 Codex 自带规划或换其他 MCP 桥即可替代。效用确定性偏弱：同时依赖 ChatGPT 网页 Computer Use/连接器、Cloudflare Tunnel、Codex harness 三个外部面，README 明示 Quick Tunnel 重启即换 URL、连接器需删除重建。</td>
+</tr>
+<tr>
+<td>D10.2</td>
+<td>实际使用规模</td>
+<td>3</td>
+<td><strong>N/A</strong></td>
+<td>—</td>
+<td><strong>实采缺失</strong>：npm 周下载量 N/A、GitHub Dependents 未取得、README 无任何生产用户案例。仅有 3777 star / 386 fork（项目上线约 12 天）作为兴趣度旁证，但 star/fork 不能换算为依赖方数或下载量，按防幻觉规则不得估算。</td>
+</tr>
+<tr>
+<td>D10.3</td>
+<td>免费可得的完整效用</td>
+<td>2</td>
+<td><strong>2.0</strong></td>
+<td>9–10 档（100%）</td>
+<td>MIT 全量开源，无 open-core、无企业版、无托管 SaaS：自托管（<code>c2c setup</code>）就是唯一且完整的部署形态，功能无任何阉割，无「不付费不可用」的项目内收费设计。（<strong>外部前提</strong>：效用本身依赖用户另行付费的 ChatGPT Plus/Pro 订阅与 Codex，详见结论。）</td>
+</tr>
+<tr>
+<td>D10.4</td>
+<td>效用可持续性</td>
+<td>2</td>
+<td><strong>1.2</strong></td>
+<td>5–6 档（60%）</td>
+<td>代码侧健康：loopback-only 本地守护进程、依赖全部为通用件（express / zod / commander / @modelcontextprotocol/sdk / ignore）、MIT 可分叉、<code>pnpm build</code> 可重现，停维后代码本身不会立即归零。但<strong>价值链强绑定外部闭源在线服务</strong>：离开 ChatGPT 网页与 Cloudflare Tunnel 即完全无效用；「订阅额度套利」路线对 OpenAI 的接口与政策变动高度敏感，连接器/Computer Use 任一变更即需上游修复。</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td><strong>5.0 / 7</strong></td>
+<td><strong>7.1</strong>（含 1 项 N/A，等比缩放）</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<p><strong>D10 综合：7.1 / 10（良好，但含 N/A 缩放，置信度中等）</strong></p>
+<ol>
+<li><strong>效用真实但对场景挑剔</strong>。它解决的是一个具体且不小的痛点——把已付费的网页订阅额度从「闲置」变成「生产力」，同时给编码 Agent 补上真实的独立审查回路（读 git diff / test_status 而非听信自述）。对 Codex + ChatGPT Plus/Pro 的重度用户，节省量可量化（按每会话少烧的 API token 计）；对不满足该前提的开发者，效用为零。</li>
+<li><strong>效用确定性弱于强度</strong>。三处外部依赖、临时域名重启即变、连接器需重建，说明「稳定可预期」这一项不达标——这也是 D10.1 未进 7–8 档的主因。README 把「更新一下再试」写成首要排障动作，本身就是效用水位受外部影响的证据。</li>
+<li><strong>使用价值与交换价值呈典型镜像</strong>。D10.3 拿满（MIT，开源版即全部价值，自托管唯一形态）恰恰意味着 D4.3 的付费转化逻辑几乎不存在——没有任何功能位于付费墙后，也没有官方托管版可作对照。这是「使用价值极高 / 交换价值平平」的标准形态，也正是本平行维度存在的意义：单看 D1–D9 会低估它，单看 D10 又会高估它的商业可行性。</li>
+<li><strong>使用规模是最大信息盲区</strong>。3.7k star / 386 fork 于 12 天内取得，说明触达面不窄，但 Dependents 与下载量双双取不到，README 无用户案例，无法判断这些 star 中有多少转化为「真实装并用起来」的使用者。D10.2 记 N/A 后本维度按剩余 7 分等比放大，客观上抬高了分值，<strong>实际效用总量证据并不完整</strong>。</li>
+<li><strong>可分叉性提供了效用下限</strong>。即使作者停维，MIT + 纯本地 + 通用依赖意味着社区可继续修补连接器与隧道逻辑；但若 OpenAI 侧改变网页端交互或订阅政策，分叉也难独力维持——效用的长期存续最终由上游而非本项目决定。</li>
+</ol>
+<h3>D11 社会价值——正外部性视角（平行维度，权重 0%）</h3>
+<blockquote>
+<p>本维度为平行维度，不计入综合评分与一票否决，仅用于 3.4 价值画像。评估项目对使用者之外的行业与社会的正外部性。</p>
+</blockquote>
+<h3>D11.1 数字公共基础设施属性（满分 3，得分 1.2）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测事实</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>关键依赖地位</td>
+<td>项目为面向终端用户的 CLI/Skill 工具（<code>c2c</code> bin + Codex Skill），非被下游引用的库；dependencies 仅 5 项（<code>@modelcontextprotocol/sdk</code>、<code>commander</code>、<code>express</code>、<code>ignore</code>、<code>zod</code>），均为通用库</td>
+<td>处于依赖链<strong>末端消费者</strong>位置，而非被依赖方</td>
+</tr>
+<tr>
+<td>停摆影响面</td>
+<td>缺失即用户回到「直接用 Codex + ChatGPT 网页版」的原生工作流；无任何下游软件将其作为供应链组件</td>
+<td>影响面局限于本工具存量用户（3777 star / 386 fork）</td>
+</tr>
+<tr>
+<td>数字公共产品属性</td>
+<td>MIT 许可、源码开放、可自托管、解决的是「付费订阅额度闲置 vs API 额度紧张」的资源再分配问题，有一定公共福利色彩</td>
+<td>具备开放可复用属性，但不是 DPG 意义上的公共基础设施</td>
+</tr>
+</tbody>
+</table>
+<p><strong>依据</strong>: 项目无 Dependents 计数（未采集到，N/A），本质是个人/团队工作流增强工具，可替代路径清晰（直接用 Codex、用 API Key、用其他桥接方案）。符合「几乎无下游依赖，停摆影响微小」档（3–4 档 → 40%）。</p>
+<h3>D11.2 教育与人才价值（满分 2.5，得分 1.5）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测事实</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>教学采用</td>
+<td>项目创建于 2026-08-28，至 2026-09-09 仅约 12 天；未检索到外部教程/课程/awesome 列表收录证据</td>
+<td>教学采用证据不足</td>
+</tr>
+<tr>
+<td>门槛降低效应</td>
+<td>README 提供中英双语「一段话安装」提示词，显式面向「不懂 git、Node、终端」的非技术用户，由 Agent 全自动完成环境自检、构建、Skill 安装与配对；同时明确「不要向我解释 MCP/OAuth/Tunnel」</td>
+<td><strong>强</strong>：将复杂的 MCP+OAuth+隧道配置封装为自然语言指令，实质降低了 LLM 工具链的使用门槛</td>
+</tr>
+<tr>
+<td>源码学习价值</td>
+<td>8856 行 TypeScript，测试 2743 行（test_ratio 30.9%，146 个测试）；含 <code>docs/architecture.md</code>、<code>docs/protocol.md</code>、<code>docs/security.md</code>、<code>docs/troubleshooting.md</code>，其中 OAuth 2.1（PKCE S256、DCR、refresh 轮换）、路径逃逸防护、只读 MCP 9 工具的工程示范价值明确；但无 CONTRIBUTING/CODEOWNERS、无 CI workflow</td>
+<td>代码与文档具备可作为「MCP/OAuth 安全桥接」工程范本阅读的价值，但尚无可观测的广泛研读证据</td>
+</tr>
+</tbody>
+</table>
+<p><strong>依据</strong>: 门槛降低效应显著且有明确设计意图，但项目过新，无教程生态、无被引用痕迹。判为「有一定教学使用，影响限于小圈子」偏上沿（5–6 档 → 60%）。</p>
+<h3>D11.3 普惠与可及性（满分 2.5，得分 1.5）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测事实</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>能力平权化</td>
+<td>核心价值主张：把「规划/Review」放在用户<strong>已付费</strong>的 ChatGPT Plus/Pro 网页版上，避免额外消耗紧张的 API/Codex 额度；不用 API Key、不搞逆向代理</td>
+<td>对个人/小团队有真实的成本再分配效果，但前提是已持有 ChatGPT/Codex 付费订阅（月费门槛仍在）</td>
+</tr>
+<tr>
+<td>替代价格差</td>
+<td>无同类商业方案的明确定价对比数据（N/A）；npm 周下载量、PyPI 月下载量均 N/A，无法量化覆盖人群</td>
+<td>数据缺失</td>
+</tr>
+<tr>
+<td>可及性支持</td>
+<td>README.md + README.zh-CN.md 双语文档（中文完整版独立文件）；安装流程自动化，仅需 OS 内置浏览器，对非英语/非技术用户友好；但无显式无障碍（a11y）支持说明，运行需 Node.js ≥ 20、git、cloudflared</td>
+<td><strong>中上</strong>：语言与操作门槛有实质降低；硬件/技术栈门槛仍存在</td>
+</tr>
+</tbody>
+</table>
+<p><strong>依据</strong>: 普惠效果真实但受「必须先有付费订阅」「需本地运行 Node + 隧道」双重限制，覆盖人群以已在 AI 工具生态内的开发者为主。判为「有普惠效果但受技术门槛/语言/硬件限制」偏上沿（5–6 档 → 60%）。</p>
+<h3>D11.4 开放标准与行业推动（满分 2，得分 1.2）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测事实</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>标准推动</td>
+<td>实现 MCP（Model Context Protocol）服务端，提供 9 个只读工具（<code>workspace_info</code>/<code>list_directory</code>/<code>read_file</code>/<code>search_workspace</code>/<code>git_status</code>/<code>git_diff</code>/<code>test_status</code>/<code>execution_summary</code>/<code>execution_output</code>）；实现 OAuth 2.1（PKCE S256、动态客户端注册、refresh token 轮换、撤销）</td>
+<td><strong>遵循并落地</strong>重要开放标准，且把非 MCP 原生的 ChatGPT 网页端接入 MCP 生态，有推广意味；但未定义/主导标准，也无标准组织层面贡献</td>
+</tr>
+<tr>
+<td>科研支撑</td>
+<td>未检索到论文引用证据（外部检索不可得，按素材无支撑）</td>
+<td>无</td>
+</tr>
+<tr>
+<td>行业示范效应</td>
+<td>「只读 MCP + OAuth 配对码 + 控制面/数据面分离 + 零信任写入不可能」的架构在 <code>docs/architecture.md</code>/<code>docs/protocol.md</code> 中有完整描述，设计上有可借鉴性；但项目仅 12 天，无同行模仿/借鉴的可观测痕迹</td>
+<td>示范效应待观察</td>
+</tr>
+</tbody>
+</table>
+<p><strong>依据</strong>: 属「遵循开放标准但无推动作用」（5–6 档 → 60%）。MCP 与 OAuth 2.1 的实现在同类工具中完成度较高（146 测试、含路径逃逸/OAuth/配对 e2e），但评分口径要求的是对标准的推动与示范，暂无证据。</p>
+<h3>D11 细则分值汇总</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D11.1</td>
+<td>数字公共基础设施属性</td>
+<td>3</td>
+<td>1.2</td>
+<td>3–4 档（40%）</td>
+</tr>
+<tr>
+<td>D11.2</td>
+<td>教育与人才价值</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6 档（60%）</td>
+</tr>
+<tr>
+<td>D11.3</td>
+<td>普惠与可及性</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6 档（60%）</td>
+</tr>
+<tr>
+<td>D11.4</td>
+<td>开放标准与行业推动</td>
+<td>2</td>
+<td>1.2</td>
+<td>5–6 档（60%）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td><strong>5.4</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<p>本项目的社会价值（正外部性）处于<strong>行业平均偏上（5.4/10）</strong>，特征鲜明但外溢半径有限：</p>
+<ol>
+<li><strong>无数字底座属性</strong>（D11.1 最弱）。它是工作流末端工具而非被依赖组件，无 Dependents、无包分发量数据，消失后用户可平滑退回原生 Codex/ChatGPT 工作流，供应链影响几乎为零。</li>
+<li><strong>真实但不是广谱的普惠</strong>（D11.2/D11.3 均 60%）。最值得肯定的正外部性是<strong>门槛工程</strong>：中英双语文档 + 「一段话安装 + Agent 全自动配置 + 不要向小白解释 MCP/OAuth」的产品化设计，把一套高复杂度的 MCP/OAuth/隧道栈封装到自然语言可驱动，并把「规划算力」重新分配到用户已付费的订阅额度上——这对个人开发者与中文用户群体有实际的能力平权效果。但受益前提是已持有 ChatGPT/Codex 付费订阅，且需本地 Node ≥ 20 环境，因此并非面向欠发达地区或无资源人群的普惠。</li>
+<li><strong>标准上是「优秀实现者」而非「规则制定者」</strong>（D11.4 60%）。MCP 9 工具、OAuth 2.1 PKCE/DCR/refresh 轮换、只读架构与路径围栏的落地质量高于同类（30.9% 测试占比、146 个测试、四份设计文档），是把 ChatGPT 网页端拉入开放 MCP 生态的有益实践，但既未定义标准，也无学术引用与同行模仿证据。</li>
+<li><strong>置信度说明</strong>：项目仅创建 12 天（2026-08-28 → 2026-09-09），外部教程/课程/引用检索均不可得，Dependents 与下载量均为 N/A，教育与行业示范两项的评分主要基于代码/文档自身的可读性与可达性证据，而非采用度证据，<strong>置信度中等偏低</strong>，建议 3–6 个月后复评。</li>
+</ol>
+<h2>五、商业化价值判断</h2>
+<h3>5.1 总体判断</h3>
+<p>本项目综合评分 63.8/100，等级 B（中等商业化潜力），处于「有商业化基础、需较多投入补齐短板」的区间。但这一分数需要放在一个关键前提下解读：<strong>项目的核心价值主张与商业化逻辑在方向上互斥</strong>。</p>
+<p>D4 商业模式与变现潜力仅 5.2/10，是九个维度中最低分，且其四个细则全部低于满分的一半（D4.1 2.0/2、D4.2 1.4/3.5、D4.3 1.0/2.5、D4.4 0.8/2）。评分卡明确指出：项目「核心价值主张是帮用户节省 API 费用（'ChatGPT 订阅额度闲置'），与向用户收费的逻辑互斥，目标客群价格敏感度最高」；「免费版即完整版且安装/更新全自动，不存在免费到付费的触发点」；「MIT 已让渡全部权利，无双协议空间，非平台无市场抽成空间」。</p>
+<p>因此，本项目的高分维度（D9 易用性 8.0、D6 合规 7.3、D2 技术 7.1、D1 需求 7.0）证明的是<strong>产品力与需求真实性</strong>，而非<strong>变现可行性</strong>。二者之间存在结构性断层。</p>
+<h3>5.2 价值画像：📦 长尾项目（画像临界）</h3>
+<ul>
+<li>综合评分 63.8 &lt; 65，公共价值分 6.2 &lt; 7，按方法论 3.4 判定为「📦 长尾项目」。</li>
+<li><strong>临界标注</strong>：综合评分 63.8 落在 60–70 临界区间，公共价值分 6.2 落在 6.5–7.5 临界区间下沿附近，故标注「画像临界」。</li>
+<li>两种画像下的路径差异：</li>
+<li>若按<strong>长尾项目</strong>处理：技术借鉴或人才引进，不投入商业化——对应本项目「MIT + 无付费点 + 价值主张即省钱」的现实。</li>
+<li>若按<strong>公共产品型</strong>处理（需公共价值分上行至 7 以上）：走「影响力变现」——赞助 / 基金会托管 / 大厂雇佣维护者 / 围绕生态做服务与培训。</li>
+<li>两者的共同结论是：<strong>不建议按纯商业工具路径直接变现</strong>。差异仅在于是否值得投入社区声誉经营。考虑到 D10 功能价值 7.1（效用真实、代码侧完全免费开放）与 D11 社会价值 5.4（门槛工程有正外部性但普惠非广谱），本项目更接近「长尾项目」一侧，但保留向公共产品型漂移的可能。</li>
+</ul>
+<h3>5.3 价值结构特征：「使用价值高 / 交换价值低」</h3>
+<p>D10.3 免费可得的完整效用接近满分（2.0/2），与 D4.3 付费转化逻辑（1.0/2.5）天然反相关，构成评分卡所述的典型结构。这意味着：</p>
+<ul>
+<li>用户获得的价值是真实的（省钱 + 独立审查提质），但这份价值<strong>无法被项目方捕获</strong>；</li>
+<li>项目越成功（用户越多），越是在替 OpenAI 的订阅额度做增值，而非为自己积累可变现资产；</li>
+<li>D10.2 实际使用规模实采失败（npm 周下载、Dependents 均 N/A），仅 3,777 Star / 386 Fork 作为兴趣度旁证，<strong>实际使用规模无法判定</strong>，这进一步削弱了任何商业化测算的可靠性。</li>
+</ul>
+<hr />
+<h2>六、商业路径分析</h2>
+<h3>6.1 路径可行性总览</h3>
+<p>基于 D4 的细则结论，本项目四条常规变现路径均被结构性封堵：</p>
+<table>
+<thead>
+<tr>
+<th>变现路径</th>
+<th>可行性</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Open Core / 企业版</td>
+<td>❌ 不可行</td>
+<td>MIT 已让渡全部权利，无双协议空间（D4.1 满分 2.0 反证：协议不限制，但项目自身无保留权利）</td>
+</tr>
+<tr>
+<td>SaaS 托管</td>
+<td>❌ 极薄</td>
+<td>架构为本地桥接（loopback + 只读 MCP + Cloudflare 隧道），SaaS 托管层极薄（D4.2 1.4/3.5）</td>
+</tr>
+<tr>
+<td>专业服务 / 代运维</td>
+<td>❌ 被自我消灭</td>
+<td>README 的自动化设计主动消灭了专业服务/代运维的付费场景（D4.3 1.0/2.5）</td>
+</tr>
+<tr>
+<td>平台抽成</td>
+<td>❌ 无平台</td>
+<td>非平台形态，无市场抽成空间（D4.4 0.8/2）</td>
+</tr>
+</tbody>
+</table>
+<h3>6.2 剩余可行方向</h3>
+<p>在上述封堵下，仅剩以下方向具备讨论价值，且均属「影响力变现」而非「产品变现」：</p>
+<ol>
+<li><strong>赞助 / 捐赠</strong>：项目目前无任何资金支持证据（无 GitHub Sponsors / Open Collective / 公司实体 / VC，D8.3 1.0/2.5）。这是唯一与「免费即完整」不冲突的路径，但天花板受限于价格敏感客群。</li>
+<li><strong>基金会托管 / 大厂雇佣维护者</strong>：D8.2 治理模型透明度仅 0.8/2（无 GOVERNANCE.md、无 CONTRIBUTING.md、无 CODEOWNERS、无路线图、未加入任何基金会），当前不具备被托管或接管的治理条件。</li>
+<li><strong>围绕生态做服务与培训</strong>：D3.3 第三方生态成熟度仅 1.2/3（无插件市场、无外部衍生项目、无教程/课程覆盖），生态尚未成型，服务与培训缺乏载体。</li>
+<li><strong>技术借鉴 / 人才引进</strong>：这是画像判定给出的默认建议——项目在 OAuth 2.1 自建授权服务器、只读 MCP 工具设计、隧道桥接、安全编码（PKCE、token SHA-256、timingSafeEqual、日志脱敏、沙箱白名单）等方面具备可迁移的工程资产。</li>
+</ol>
+<h3>6.3 路径修正说明</h3>
+<p>按方法论 3.4，价值画像不改变 S–D 商业化等级（含一票否决结果），只修正本章路径建议的方向。本项目画像为「长尾项目」，故路径建议修正为：<strong>不投入商业化，优先考虑技术借鉴或人才引进</strong>；若后续公共价值分上行至 7 以上，可切换至「公共产品型」路径（赞助 / 基金会托管 / 大厂雇佣维护者）。</p>
+<hr />
+<h2>七、能力评估：能做什么 &amp; 最适合做什么</h2>
+<h3>7.1 项目当前具备的能力</h3>
+<p><strong>（1）完整的「规划—执行」分离闭环</strong>
+9 个只读 MCP 工具（workspace_info、list_directory、read_file、search_workspace、git_status、git_diff、test_status、execution_summary、execution_output），让 ChatGPT 网页版能读取真实 git diff 与测试记录做独立验证，而 Codex 独占执行权（D1、D5）。</p>
+<p><strong>（2）自建 OAuth 2.1 授权服务器</strong>
+支持 PKCE（S256）、DCR、refresh 轮换、metadata、redirect 白名单、scope 授权、一次性配对码、token SHA-256 哈希、timingSafeEqual、日志与执行输出脱敏、realpath 路径收敛、敏感文件默认拒绝、沙箱白名单（D2.4 0.8/1、D7.2 1.5/2.5）。</p>
+<p><strong>（3）极低的上手门槛</strong>
+「One-paste install」——把一段固定 prompt 粘贴给编码 Agent 即可全程自动安装，明确面向不懂 git/Node/终端的小白用户；部署为单命令 <code>c2c setup</code>（bridge + tunnel + pairing code all in one），无需数据库/缓存/消息队列；UX 被刻意抽离到 Skill 层，日常操作压缩为对 Codex 说一句话（D9 全部四个细则均 2.0/2.5，维度得分 8.0/10，为九维最高）。</p>
+<p><strong>（4）超出同龄项目的工程素养</strong>
+8,875 行代码 / 51 个源码文件 / 2,743 行测试（test_ratio 30.9%、146 个 vitest 测试）/ 7 份文档（中英 README + architecture + protocol + security + troubleshooting + SKILL.md）/ 12 个职责模块 / TunnelProvider 双实现（D2.2、D2.7、D8.1）。</p>
+<p><strong>（5）宽松的合规基线</strong>
+MIT 协议、package.json SPDX 声明一致、无 copyleft、无 Commons Clause/BUSL 等商业附加条款、5 个运行时依赖全部为 MIT/ISC 宽松协议、已知依赖链无 GPL/AGPL 传染性依赖（D6.1 满分 3.0、D6.2 2.0/2.5）。</p>
+<h3>7.2 最适合做什么</h3>
+<p><strong>最适合：作为「AI 编码 Agent 与网页版大模型之间的只读桥接」的工程范本与个人生产力工具。</strong></p>
+<p>具体而言：</p>
+<ul>
+<li><strong>对个人开发者</strong>：在已付费 ChatGPT Plus/Pro 且使用 Codex 的前提下，作为省钱 + 独立审查的生产力工具，价值主张清晰、上手成本低（D9 8.0）。</li>
+<li><strong>对技术团队</strong>：作为 MCP 协议落地、OAuth 2.1 自建授权服务器、Cloudflare 隧道桥接、只读工具集设计的<strong>参考实现</strong>——这部分工程资产（8,856 行 TS、2,743 行测试、4 份技术文档）具备跨项目复用价值。</li>
+<li><strong>对人才识别</strong>：核心维护者在两周内交付了测试占比 30.9%、含完整安全威胁模型的项目，工程素养高于同阶段个人项目（D8.1 1.5/2.5），是明确的人才引进信号。</li>
+</ul>
+<p><strong>不适合</strong>：作为独立商业产品运营，或作为企业级多租户服务的基础（D7.1 1.8/3：单用户本地工具架构，HA/水平扩展天然缺失）。</p>
+<hr />
+<h2>八、短板识别：还缺少什么</h2>
+<h3>8.1 变现侧短板（最致命）</h3>
+<ul>
+<li><strong>无任何付费点或商业入口</strong>：仓库内无 Open Core、无托管服务、无企业版，自托管是唯一形态（D4）。</li>
+<li><strong>价值主张与收费逻辑互斥</strong>：核心卖点是替用户省钱，目标客群价格敏感度最高（D4.2）。</li>
+<li><strong>无免费到付费的触发点</strong>：免费版即完整版，安装/更新全自动（D4.3）。</li>
+<li><strong>无资金支持证据</strong>：无 GitHub Sponsors / Open Collective / 公司实体 / VC（D8.3 1.0/2.5）。</li>
+</ul>
+<h3>8.2 治理与可持续性短板</h3>
+<ul>
+<li><strong>治理结构几乎空白</strong>：无 GOVERNANCE.md、无 CONTRIBUTING.md、无 CODEOWNERS、无路线图、未加入任何基金会（D8.2 0.8/2，为全部细则中最低分之一）。</li>
+<li><strong>无 CI</strong>：0 个 CI workflow，无覆盖率报告与自动化质量门禁（D2.8 0.6/1、D7.1、D8.4）。</li>
+<li><strong>贡献者协议缺失</strong>：无 CLA/DCO，10 名贡献者版权以「codex-with-chatgpt contributors」集合共有，未来双协议授权或闭源整合需逐一取得全体贡献者同意，治理负债显著（D6.4 0.8/2）。</li>
+<li><strong>巴士因子无法验证</strong>：项目历史仅约两周，对单一维护者依赖度高（D8.4 1.8/3）。</li>
+</ul>
+<h3>8.3 工程与运营短板</h3>
+<ul>
+<li><strong>成熟度不足</strong>：仅发布至 v0.1.2，三天连发三版，未达生产就绪（D2.6 0.9/1.5）。</li>
+<li><strong>无容器化</strong>：无 Dockerfile / docker-compose / Helm，安装需 <code>corepack pnpm install &amp;&amp; corepack pnpm build</code> 自行构建（D9.1 2.0/2.5）。</li>
+<li><strong>无示例</strong>：examples 目录示例文件为 0，缺少可模仿的模板项目（D2.7、D9.3）。</li>
+<li><strong>单点故障</strong>：单实例 + PID 探测接管，Cloudflare Quick Tunnel 临时域名重启即失效（D7.1 1.8/3）。</li>
+<li><strong>无企业级能力</strong>：无 SSO/LDAP/SAML、无多角色 RBAC、无独立审计日志、无 Prometheus/OTel 指标与告警（D7.2、D7.3 1.0/2.5）。</li>
+<li><strong>版本锁定异常</strong>：关键依赖 @modelcontextprotocol/sdk 锁定为 <code>latest</code>，版本不可复现，影响合规审计可追溯性；无 Dependabot/Snyk 等扫描（D2.4、D6.2）。</li>
+<li><strong>单文件过大</strong>：src/cli/index.ts 单文件 827 行，且无 lint/format 配置（D2.3 0.6/1）。</li>
+</ul>
+<h3>8.4 生态与品牌短板</h3>
+<ul>
+<li><strong>第三方生态几乎空白</strong>：无插件市场、无外部衍生项目、无教程/课程覆盖，属消费生态而非被生态集成（D3.3 1.2/3）。</li>
+<li><strong>品牌热度高但沉淀浅</strong>：12 天获 3,777 Star 属 Trending 级，但无企业采用背书、无媒体/会议覆盖证据（D3.4 0.9/1.5）。</li>
+<li><strong>商标风险未核查</strong>：项目名直接嵌入第三方商标 ChatGPT 与 Codex，且无商标使用政策文件（D6.3 1.5/2.5，按默认档位给分，置信度低）。</li>
+</ul>
+<h3>8.5 数据缺口</h3>
+<ul>
+<li>市场规模外部数据不可用（D1.1 为量级估算，置信度低）。</li>
+<li>实际使用规模实采失败：npm 周下载、PyPI 月下载、GitHub Dependents 均 N/A（D10.2 记 N/A，导致 D10 置信度下降）。</li>
+<li>学术引用未检索到（D11.4）。</li>
+</ul>
+<hr />
+<h2>九、风险提示</h2>
+<h3>9.1 平台依赖风险（最高优先级）</h3>
+<p><strong>全部价值前提由 OpenAI 单方面控制</strong>。评分卡明确指出：「全部价值前提（订阅额度充裕 vs API 额度紧张）由 OpenAI 单方面控制，官方若在 Codex 原生支持同构闭环或收紧 ChatGPT 连接器能力，项目价值主张将被直接吸收」；「OpenAI 官方 Codex×ChatGPT 原生整合一旦落地，本项目价值归零，无护城河」。README 自述「Unofficial community project」即该风险的注脚，产品亦明示「Not affiliated with or endorsed by OpenAI」。</p>
+<p><strong>风险等级：极高。</strong> 这是本项目最根本的风险，且不可通过项目自身努力消除。</p>
+<h3>9.2 合规与 ToS 风险</h3>
+<p>项目依赖 ChatGPT 网页版订阅额度的非官方集成，商业化面临平台封禁 / ToS 追责风险（D4）。虽然 D6 维度得分 7.3 且未触发一票否决（自身 MIT 协议合规、依赖链无传染性），但<strong>平台侧 ToS 风险不在 D6 的评估范围内</strong>，属于独立于开源协议合规的额外风险层。</p>
+<h3>9.3 效用稳定性风险</h3>
+<p>价值链条同时依赖 ChatGPT 网页（Computer Use/连接器）、Cloudflare Quick Tunnel、Codex harness 三方外部服务。README 明示临时域名重启即变、连接器需删除重建，稳定性不足（D10.1 1.8/3）。D10.4 效用可持续性仅 1.2/2：「实际效用强绑定 OpenAI 网页端与 Cloudflare，属订阅套利路线，上游接口或政策一变即大幅打折」。</p>
+<h3>9.4 治理与传承风险</h3>
+<ul>
+<li>无治理文档、无 CI、无资金支持、项目历史过短，巴士因子无法验证，对单一维护者依赖度高（D8）。</li>
+<li>无 CLA/DCO，10 名贡献者版权分散共有，未来任何双协议授权或闭源整合均需逐一取得全体贡献者同意（D6.4）。</li>
+<li>一票否决检查虽未触发（D8.4 = 1.8 &gt; 1），但该判定建立在「项目处于快速上升期」的当前状态上；若维护者停止投入，D8.4 存在下行至触发否决的风险。</li>
+</ul>
+<h3>9.5 企业采用风险</h3>
+<p>架构上，本地仓库读取通道经公有 Cloudflare 隧道暴露给 ChatGPT 网页版，构成企业采用的结构性阻力（D4）。同时 D7.1 指出单用户本地工具架构「非多租户企业服务，HA/水平扩展天然缺失」。<strong>本项目不适合企业级部署场景。</strong></p>
+<h3>9.6 商标风险</h3>
+<p>项目名直接嵌入第三方商标 ChatGPT 与 Codex，无商标使用政策文件，属未经人工核查的显性命名风险，商业化品牌化前需完成商标检索（D6.3，该结论置信度低）。</p>
+<h3>9.7 数据置信度风险</h3>
+<ul>
+<li>D1.1 市场规模为基于项目类型的量级估算，未经外部验证、置信度低。</li>
+<li>D10.2 实际使用规模 N/A，D10 维度置信度下降。</li>
+<li>D6.3 商标与专利排查无人工核查数据，按默认档位给分，结论置信度低。</li>
+<li>D3.1 Star 增速约 9,440/月来源于退化公式而非 90 天 API 补采，须标注。</li>
+</ul>
+<hr />
+<h2>十、结论与建议</h2>
+<h3>10.1 结论</h3>
+<p><strong>Codex with ChatGPT 是一个需求真实、产品力强、但商业化路径结构性封堵的早期开源项目。</strong></p>
+<ul>
+<li><strong>综合评分 63.8/100，等级 B（中等商业化潜力）</strong>，未触发一票否决。</li>
+<li><strong>价值画像：📦 长尾项目（画像临界）</strong>，公共价值分 6.2/10。</li>
+<li>项目的强项集中在<strong>产品力与需求侧</strong>：D9 易用性 8.0（九维最高）、D6 合规 7.3、D2 技术 7.1、D1 需求 7.0；12 天内 3,777 Star、386 Fork、10 贡献者、43 PR、46 Issue 关闭，需求验证信号强。</li>
+<li>项目的弱项集中在<strong>变现与治理侧</strong>：D4 变现 5.2（九维最低）、D8 治理 5.1、D5 壁垒 5.6、D7 企业就绪 5.9。</li>
+<li>核心矛盾：<strong>使用价值高（D10.3 接近满分）/ 交换价值低（D4.3 仅 1.0/2.5）</strong>，且全部价值前提由 OpenAI 单方面控制，无自有护城河。</li>
+</ul>
+<h3>10.2 建议</h3>
+<p><strong>（1）不建议按纯商业工具路径直接投入变现。</strong>
+D4 四条常规路径（Open Core、SaaS 托管、专业服务、平台抽成）均被结构性封堵，且核心价值主张（替用户省钱）与收费逻辑互斥。强行变现将同时损害产品定位与用户信任。</p>
+<p><strong>（2）优先考虑技术借鉴与人才引进。</strong>
+项目在 OAuth 2.1 自建授权服务器、只读 MCP 工具集设计、Cloudflare 隧道桥接、安全编码实践（PKCE、token SHA-256、timingSafeEqual、日志脱敏、沙箱白名单）等方面具备可迁移的工程资产；核心维护者在两周内交付测试占比 30.9%、含完整安全威胁模型的项目，是明确的人才引进信号。</p>
+<p><strong>（3）若坚持投入，走「影响力变现」而非「产品变现」。</strong>
+具体动作：接入 GitHub Sponsors / Open Collective 建立资金通道（当前 D8.3 仅 1.0/2.5，无任何资金支持证据）；补齐 GOVERNANCE.md / CONTRIBUTING.md / CODEOWNERS / 路线图（当前 D8.2 仅 0.8/2）；引入 CLA/DCO 解决版权分散共有的治理负债（D6.4 0.8/2）。这些动作不改变变现天花板，但能提升项目被基金会托管或被大厂接管的可能性。</p>
+<p><strong>（4）工程侧优先补齐项（按性价比排序）。</strong>
+① 建立 CI workflow（当前 0 个，同时影响 D2.8、D7.1、D8.4）；② 锁定 @modelcontextprotocol/sdk 版本（当前为 <code>latest</code>，影响合规审计可追溯性）；③ 补充 examples 示例（当前 0 个）；④ 提供 Dockerfile（当前无）；⑤ 拆分 src/cli/index.ts（单文件 827 行）并引入 lint/format 配置。</p>
+<p><strong>（5）风险监控建议。</strong>
+持续监控 OpenAI 官方 Codex×ChatGPT 原生整合动向——这是决定项目存续的单一最大变量。同时建议 3–6 个月后复审 D3（社区健康度与生态势能），评分卡明确指出该维度呈「入口强、沉淀弱」特征，「12 天库龄下生态与治理均未成型，不足以构成商业化护城河」。</p>
+<p><strong>（6）数据补采建议。</strong>
+补采 npm 周下载量、GitHub Dependents、Issue 平均关闭时长、90 天 Star 增速 API 数据，以提升 D1.1、D3.1、D10.2 的结论置信度；商业化品牌化前完成商标检索以补齐 D6.3。</p>
+<h2>十一、项目地址</h2>
+<p><svg class="ri ri-muted" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.001 2C6.47598 2 2.00098 6.475 2.00098 12C2.00098 16.425 4.86348 20.1625 8.83848 21.4875C9.33848 21.575 9.52598 21.275 9.52598 21.0125C9.52598 20.775 9.51348 19.9875 9.51348 19.15C7.00098 19.6125 6.35098 18.5375 6.15098 17.975C6.03848 17.6875 5.55098 16.8 5.12598 16.5625C4.77598 16.375 4.27598 15.9125 5.11348 15.9C5.90098 15.8875 6.46348 16.625 6.65098 16.925C7.55098 18.4375 8.98848 18.0125 9.56348 17.75C9.65098 17.1 9.91348 16.6625 10.201 16.4125C7.97598 16.1625 5.65098 15.3 5.65098 11.475C5.65098 10.3875 6.03848 9.4875 6.67598 8.7875C6.57598 8.5375 6.22598 7.5125 6.77598 6.1375C6.77598 6.1375 7.61348 5.875 9.52598 7.1625C10.326 6.9375 11.176 6.825 12.026 6.825C12.876 6.825 13.726 6.9375 14.526 7.1625C16.4385 5.8625 17.276 6.1375 17.276 6.1375C17.826 7.5125 17.476 8.5375 17.376 8.7875C18.0135 9.4875 18.401 10.375 18.401 11.475C18.401 15.3125 16.0635 16.1625 13.8385 16.4125C14.201 16.725 14.5135 17.325 14.5135 18.2625C14.5135 19.6 14.501 20.675 14.501 21.0125C14.501 21.275 14.6885 21.5875 15.1885 21.4875C19.259 20.1133 21.9999 16.2963 22.001 12C22.001 6.475 17.526 2 12.001 2Z"/></svg> <a href="https://github.com/XiaoDuoYa/codex-with-chatgpt">https://github.com/XiaoDuoYa/codex-with-chatgpt</a></p>
+<hr />
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+</blockquote>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家　<a href="https://www.mova.work">www.mova.work</a></p></body></html>

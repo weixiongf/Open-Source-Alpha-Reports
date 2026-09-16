@@ -1,0 +1,1355 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><title>Astra-advisor 商业价值分析报告</title><style>/* default — 品牌蓝紫主题（从 md2pdf.py 原 CSS 常量迁出，视觉与历史产物一致） */
+@page { size: A4; margin: 18mm 15mm 20mm 15mm; }
+* { box-sizing: border-box; }
+/* 字体规范：一律开源思源黑体 CN（OFL 免费商用）；正文 Regular/标题 Bold/大字数字 Light */
+body { font-family: "Source Han Sans CN","思源黑体 CN","Noto Sans SC",sans-serif; color:#1e293b; font-size:10.5pt; line-height:1.75; margin:0; }
+.cover { page-break-after: always; text-align:center; padding-top:40px; }
+.cover .kicker { color:#2563eb; letter-spacing:6px; font-size:12pt; font-weight:500; }
+.cover h1 { font-size:26pt; margin:14px 0 6px; }
+.cover .sub { color:#64748b; font-size:11pt; margin-bottom:22px; }
+.badge { display:inline-block; background:linear-gradient(135deg,#2563eb,#7c3aed); color:#fff; border-radius:18px; padding:16px 44px; margin:10px 0 18px; }
+.badge .g { font-size:34pt; font-weight:300; line-height:1; }
+.badge .s { font-size:12pt; opacity:.92; margin-top:4px; }
+.meta { color:#475569; font-size:9.5pt; margin-top:14px; }
+.bars { max-width:620px; margin:20px auto 0; text-align:left; }
+.bar-row { display:flex; align-items:center; gap:8px; margin:5px 0; font-size:9pt; }
+.bar-name { width:110px; text-align:right; color:#334155; font-weight:500; }
+.bar-track { flex:1; height:9px; background:#f1f5f9; border-radius:5px; overflow:hidden; }
+.bar-fill { display:block; height:100%; border-radius:5px; }
+.bar-val { width:30px; font-weight:700; color:#0f172a; }
+.bar-w { width:52px; color:#94a3b8; font-size:8pt; }
+h1 { font-size:17pt; color:#0f172a; border-bottom:3px solid #2563eb; padding-bottom:8px; }
+h2 { font-size:13.5pt; color:#1d4ed8; margin-top:26px; page-break-after: avoid; border-left:5px solid #2563eb; padding-left:10px; }
+h3 { font-size:11.5pt; color:#0f172a; margin-top:18px; page-break-after: avoid; }
+table { border-collapse:collapse; width:100%; margin:10px 0; font-size:9pt; page-break-inside:avoid; }
+th { background:#eff6ff; color:#1e3a8a; }
+th,td { border:1px solid #dbe3ef; padding:5px 8px; text-align:left; }
+tr:nth-child(even) td { background:#f8fafc; }
+code { background:#f1f5f9; border-radius:4px; padding:1px 5px; font-family:"JetBrains Mono","Cascadia Mono",monospace; font-size:9pt; color:#be185d; }
+pre { background:#0f172a; color:#e2e8f0; border-radius:8px; padding:12px 14px; overflow-x:auto; page-break-inside:avoid; }
+pre code { background:none; color:inherit; padding:0; }
+blockquote { border-left:4px solid #93c5fd; background:#eff6ff; margin:10px 0; padding:8px 14px; color:#334155; border-radius:0 8px 8px 0; }
+hr { border:none; border-top:1px dashed #cbd5e1; margin:22px 0; }
+strong { color:#0f172a; }
+.cover .disclaimer { max-width:620px; margin:16px auto 0; color:#64748b; font-size:8.5pt; line-height:1.6; text-align:left; border:1px solid #e2e8f0; border-radius:8px; padding:8px 12px; background:#f8fafc; }
+.credit { color:#2563eb; font-size:10.5pt; font-weight:700; letter-spacing:1px; margin-top:12px; }
+.at-acc { background:#dbeafe; color:#1d4ed8; border-radius:4px; padding:0 4px; font-weight:500; white-space:nowrap; }
+.tail { page-break-inside:avoid; margin-top:26px; border-top:2px solid #2563eb; padding-top:14px; }
+.tail p { color:#64748b; font-size:8.5pt; line-height:1.6; margin:0 0 10px; }
+.tail .credit { text-align:center; margin:0; }
+/* Remix Icon 内联 SVG（icon_mode=remix 时由脚本注入，语义色与评分条一致） */
+.ri { width:1.05em; height:1.05em; vertical-align:-0.18em; display:inline-block; }
+.ri-ok { color:#16a34a; } .ri-warn { color:#d97706; } .ri-bad { color:#dc2626; }
+.ri-muted { color:#64748b; } .ri-star { color:#f59e0b; } .ri-brand { color:#2563eb; }
+.ri-gold { color:#d4a017; } .ri-silver { color:#9ca3af; } .ri-bronze { color:#b45309; }
+/* 屏幕预览：@page 边距仅在打印时生效，浏览器中居中限宽并收边（不影响 PDF 输出） */
+@media screen {
+  body { margin: 0 auto; padding: 28px 36px 56px; max-width: 900px; }
+}
+</style></head><body><div class="cover">
+<div class="kicker">开源项目商业化潜力分析 · 第 74 期</div>
+<h1>GitHub 开源项目 Astra-advisor<br>商业价值分析报告</h1>
+<div class="sub">DannyMac180/astra-advisor · Codex/GPT-6 动态子代理编排插件 · 56.0分/B级/公共产品型</div>
+<div class="badge"><div class="g">B 级 · 56.0</div><div class="s">综合评分（满分 100）· 中等商业化潜力</div></div>
+<div><svg viewBox="0 0 560 480" width="560" height="480" xmlns="http://www.w3.org/2000/svg"><polygon points="280.0,209.6 299.5,216.7 309.9,234.7 306.3,255.2 290.4,268.6 269.6,268.6 253.7,255.2 250.1,234.7 260.5,216.7" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,179.2 319.1,193.4 339.9,229.4 332.7,270.4 300.8,297.1 259.2,297.1 227.3,270.4 220.1,229.4 240.9,193.4" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,148.8 338.6,170.1 369.8,224.2 359.0,285.6 311.2,325.7 248.8,325.7 201.0,285.6 190.2,224.2 221.4,170.1" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,118.4 358.2,146.8 399.8,218.9 385.3,300.8 321.6,354.3 238.4,354.3 174.7,300.8 160.2,218.9 201.8,146.8" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,88.0 377.7,123.6 429.7,213.6 411.6,316.0 332.0,382.8 228.0,382.8 148.4,316.0 130.3,213.6 182.3,123.6" fill="none" stroke="#e2e8f0" stroke-width="1"/><line x1="280.0" y1="240.0" x2="280.0" y2="88.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="377.7" y2="123.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="429.7" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="411.6" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="332.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="228.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="148.4" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="130.3" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="182.3" y2="123.6" stroke="#d8dee9" stroke-width="1"/><polygon points="280.0,240.0 332.8,177.1 332.4,230.8 347.1,278.8 307.0,314.3 239.5,351.4 280.0,240.0 280.0,240.0 201.8,146.8" fill="rgba(37,99,235,.22)" stroke="#2563eb" stroke-width="2.5"/><circle cx="280.0" cy="240.0" r="3.5" fill="#2563eb"/><circle cx="332.8" cy="177.1" r="3.5" fill="#2563eb"/><circle cx="332.4" cy="230.8" r="3.5" fill="#2563eb"/><circle cx="347.1" cy="278.8" r="3.5" fill="#2563eb"/><circle cx="307.0" cy="314.3" r="3.5" fill="#2563eb"/><circle cx="239.5" cy="351.4" r="3.5" fill="#2563eb"/><circle cx="280.0" cy="240.0" r="3.5" fill="#2563eb"/><circle cx="280.0" cy="240.0" r="3.5" fill="#2563eb"/><circle cx="201.8" cy="146.8" r="3.5" fill="#2563eb"/><text x="280.0" y="44.0" text-anchor="middle" font-size="12.5" fill="#334155" font-weight="600">D1</text><text x="280.0" y="58.0" text-anchor="middle" font-size="11" fill="#64748b">市场需求 N/A</text><text x="406.0" y="89.9" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D2</text><text x="406.0" y="103.9" text-anchor="start" font-size="11" fill="#64748b">技术成熟度 5.4</text><text x="473.0" y="206.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D3</text><text x="473.0" y="220.0" text-anchor="start" font-size="11" fill="#64748b">社区生态 3.5</text><text x="449.7" y="338.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D4</text><text x="449.7" y="352.0" text-anchor="start" font-size="11" fill="#64748b">变现潜力 5.1</text><text x="347.0" y="424.2" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D5</text><text x="347.0" y="438.2" text-anchor="start" font-size="11" fill="#64748b">竞争格局 5.2</text><text x="213.0" y="424.2" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D6</text><text x="213.0" y="438.2" text-anchor="end" font-size="11" fill="#64748b">法律合规 7.8</text><text x="110.3" y="338.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D7</text><text x="110.3" y="352.0" text-anchor="end" font-size="11" fill="#64748b">企业就绪 N/A</text><text x="87.0" y="206.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D8</text><text x="87.0" y="220.0" text-anchor="end" font-size="11" fill="#64748b">团队治理 N/A</text><text x="154.0" y="89.9" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D9</text><text x="154.0" y="103.9" text-anchor="end" font-size="11" fill="#64748b">上手难度 8.0</text></svg></div>
+<div class="bars"><div class="bar-row"><span class="bar-name">D9 上手难度</span>
+<span class="bar-track"><span class="bar-fill" style="width:80.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.0</span><span class="bar-w">权重10%</span></div>
+<div class="bar-row"><span class="bar-name">D6 法律合规</span>
+<span class="bar-track"><span class="bar-fill" style="width:78.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.8</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D2 技术成熟度</span>
+<span class="bar-track"><span class="bar-fill" style="width:54.0%;background:#dc2626"></span></span>
+<span class="bar-val">5.4</span><span class="bar-w">权重14%</span></div>
+<div class="bar-row"><span class="bar-name">D5 竞争格局</span>
+<span class="bar-track"><span class="bar-fill" style="width:52.0%;background:#dc2626"></span></span>
+<span class="bar-val">5.2</span><span class="bar-w">权重12%</span></div>
+<div class="bar-row"><span class="bar-name">D4 变现潜力</span>
+<span class="bar-track"><span class="bar-fill" style="width:51.0%;background:#dc2626"></span></span>
+<span class="bar-val">5.1</span><span class="bar-w">权重18%</span></div>
+<div class="bar-row"><span class="bar-name">D3 社区生态</span>
+<span class="bar-track"><span class="bar-fill" style="width:35.0%;background:#dc2626"></span></span>
+<span class="bar-val">3.5</span><span class="bar-w">权重11%</span></div>
+<div class="bar-row"><span class="bar-name">D1 市场需求</span>
+<span class="bar-track"><span class="bar-fill" style="width:0.0%;background:#dc2626"></span></span>
+<span class="bar-val">N/A</span><span class="bar-w">权重13%</span></div>
+<div class="bar-row"><span class="bar-name">D7 企业就绪</span>
+<span class="bar-track"><span class="bar-fill" style="width:0.0%;background:#dc2626"></span></span>
+<span class="bar-val">N/A</span><span class="bar-w">权重8%</span></div>
+<div class="bar-row"><span class="bar-name">D8 团队治理</span>
+<span class="bar-track"><span class="bar-fill" style="width:0.0%;background:#dc2626"></span></span>
+<span class="bar-val">N/A</span><span class="bar-w">权重7%</span></div></div>
+<div class="meta">分析时点 2026-09-09 ｜ 数据来源：GitHub API + 仓库代码实测 ｜ 方法论 v1.3</div>
+<div class="credit">报告出品：@魔法工厂　@向量之心　@南山科学家</div>
+<div class="disclaimer"><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</div>
+</div><h1>Astra-advisor 商业化潜力分析报告（完整版）</h1>
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家</p>
+<p>方法论版本: v1.3 | 综合评分: <strong>56.0</strong> | 等级: <strong>B（中等商业化潜力）</strong> | 价值画像: 公共产品型</p>
+</blockquote>
+<h2>一、项目概览</h2>
+<h3>1.1 基本信息</h3>
+<ul>
+<li><strong>项目名称 / 仓库地址</strong>：astra-advisor / https://github.com/DannyMac180/astra-advisor</li>
+<li><strong>项目描述</strong>：GPT-6 Astra orchestration with dynamic Sol, Terra, and Luna subagents</li>
+<li><strong>核心技术栈</strong>：Python（无第三方依赖）、Codex 插件机制</li>
+<li><strong>社区规模速览</strong>：Star 146 / Fork 11 / 贡献者 1 人</li>
+<li><strong>分析时点 / 数据来源</strong>：2026-09-08 / GitHub API 实采</li>
+<li><strong>开源协议</strong>：MIT License</li>
+</ul>
+<h3>1.2 项目分类标签</h3>
+<table>
+<thead>
+<tr>
+<th>分类维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>AI 编排工具 / Codex 插件</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>通用/跨行业（AI 辅助开发）</td>
+</tr>
+<tr>
+<td>目标用户角色</td>
+<td>使用 Codex/ChatGPT 的开发者</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>复杂任务动态子代理编排、成本透明化</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>插件即装即用（Codex marketplace）</td>
+</tr>
+</tbody>
+</table>
+<h3>1.3 一句话定位</h3>
+<blockquote>
+<p>astra-advisor 是一个面向 Codex/GPT-6 生态的 AI 编排插件，适用于需要动态子代理协作的复杂开发任务场景，主要面向使用 Codex CLI 或 ChatGPT 桌面客户端的开发者，用于实现 Sol、Terra、Luna 三个子代理的动态编排、独立验收与成本透明化。</p>
+<p>⚠️ <strong>画像临界提示</strong>：综合评分 56.0 落在 50–64 区间（B 级），公共价值分 7.1 落在 6.5–7.5 临界区间，价值画像判定为「公共产品型」但处于临界状态。若综合评分提升至 65 以上，画像将切换为「明星资产」；若公共价值分降至 7 以下，画像将切换为「长尾项目」。两种画像下的商业路径差异详见第六章。</p>
+</blockquote>
+<h2>二、安装部署与使用指南</h2>
+<p>Astra Advisor 是一个 Codex 插件，安装过程即向 Codex CLI / ChatGPT 桌面客户端注册并添加插件仓库。前置条件是已安装支持插件功能的 Codex CLI 或 ChatGPT 桌面客户端。仓库本身<strong>无 Dockerfile、无第三方 Python 依赖</strong>（本地检测 <code>dependencies</code> 为空），因此不存在传统容器部署或数据库初始化步骤。</p>
+<h4>安装命令</h4>
+<p>根据 README「Quick start」章节，安装需依次执行两条命令：</p>
+<pre><code class="language-sh">codex plugin marketplace add DannyMac180/astra-advisor --ref main
+codex plugin add astra-advisor@astra-advisor
+</code></pre>
+<p>添加完成后，需启动一个新任务，并在任务中选择 GPT-6 Astra 模型。如果已有该插件并需升级，可执行：</p>
+<pre><code class="language-sh">codex plugin marketplace upgrade astra-advisor
+codex plugin add astra-advisor@astra-advisor
+</code></pre>
+<p>如需本地开发调试，可将本仓库作为本地 marketplace 注册：</p>
+<pre><code class="language-sh">cd /absolute/path/to/astra-advisor
+codex plugin marketplace add /absolute/path/to/astra-advisor
+codex plugin add astra-advisor@astra-advisor
+</code></pre>
+<h4>快速验证</h4>
+<p>安装后启动一个新的 Codex 任务，直接使用以下技能调用语句触发核心编排能力：</p>
+<pre><code class="language-text">Use $astra-advisor:orchestration to plan, build, verify, and review this work.
+</code></pre>
+<p>如果只想验证成本计算器功能，仓库自带示例输入与验证脚本：</p>
+<pre><code class="language-sh">python3 plugins/astra-advisor/scripts/cost_receipt.py plugins/astra-advisor/examples/illustrative-usage.json
+sh plugins/astra-advisor/scripts/verify.sh
+</code></pre>
+<p>该计算器以 JSON 输出结果，并支持 <code>--pricing PATH</code> 参数指向已验证的价格快照。</p>
+<h4>注意事项</h4>
+<ul>
+<li>不存在独立服务进程，所谓“部署”即 Codex 插件注册，实际运行能力由 Codex 宿主提供。</li>
+<li>运行涉及 <code>gpt-5.6-sol</code>、<code>gpt-5.6-terra</code>、<code>gpt-5.6-luna</code> 等模型能力，宿主不支持时插件会明确报错，不会静默降级替代。</li>
+<li>面向 Codex 用户群体，非 Codex 用户无法直接安装使用。</li>
+</ul>
+<h2>三、评分总览</h2>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>权重</th>
+<th>加权得分</th>
+<th>评级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1 市场需求与商业机会</td>
+<td>N/A</td>
+<td>13%</td>
+<td>—</td>
+<td>分析失败</td>
+</tr>
+<tr>
+<td>D2 技术成熟度与产品质量</td>
+<td>5.4/10</td>
+<td>14%</td>
+<td>0.76</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D3 社区健康度与生态势能</td>
+<td>3.5/10</td>
+<td>11%</td>
+<td>0.39</td>
+<td>差</td>
+</tr>
+<tr>
+<td>D4 商业模式与变现潜力</td>
+<td>5.1/10</td>
+<td>18%</td>
+<td>0.92</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D5 竞争格局与差异化壁垒</td>
+<td>5.2/10</td>
+<td>12%</td>
+<td>0.62</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D6 法律合规与知识产权</td>
+<td>7.8/10</td>
+<td>7%</td>
+<td>0.55</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D7 企业就绪度与可运营性</td>
+<td>N/A</td>
+<td>8%</td>
+<td>—</td>
+<td>分析失败</td>
+</tr>
+<tr>
+<td>D8 团队治理与可持续性</td>
+<td>N/A</td>
+<td>7%</td>
+<td>—</td>
+<td>分析失败</td>
+</tr>
+<tr>
+<td>D9 上手难度与易用性</td>
+<td>8.0/10</td>
+<td>10%</td>
+<td>0.80</td>
+<td>优</td>
+</tr>
+<tr>
+<td><strong>综合评分</strong></td>
+<td>—</td>
+<td>100%</td>
+<td><strong>56.0/100</strong></td>
+<td><strong>B（中等商业化潜力）</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>说明</strong>：D1、D7、D8 三个维度因分析失败或评分卡重建被标记为 N/A，综合评分由其余六个维度按权重归一化后计算得出。D8.4 的一票否决检查因维度分析失败而跳过，标注「一票否决检查不完整」。</p>
+</blockquote>
+<p><strong>平行维度（不计入综合评分）</strong></p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10 功能价值</td>
+<td>7.1/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>D11 社会价值</td>
+<td>N/A</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>公共价值分</td>
+<td>7.1/10</td>
+<td>取 D10（D11 为 N/A）</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>一票否决检查</strong>：D6 得分 7.8 &gt; 3 分，未触发否决；D8.4 因维度分析失败被标 N/A，该项否决检查跳过（检查不完整）；D4.1 得分 2.0 &gt; 0.5 分，未触发否决。<strong>结论：未触发一票否决。</strong></p>
+</blockquote>
+<h2>四、各维度详细分析</h2>
+<h3>D1. 市场需求与商业机会（权重 13%）</h3>
+<p><strong>分析对象</strong>：DannyMac180/astra-advisor<br />
+<strong>项目定位</strong>：Astra Advisor 是一个 Codex 插件，适用于 AI 辅助的软件交付流程，主要面向使用 GPT-6 的开发者，用于动态编排 Sol/Terra/Luna 子代理、分解交付任务并核算委派成本。</p>
+<h4>分类标签</h4>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>开发者工具</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>通用/跨行业</td>
+</tr>
+<tr>
+<td>目标用户</td>
+<td>后端开发者、全栈开发者、架构师</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>研发流程优化、自动化测试、成本治理</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>本地部署（作为 Codex 插件安装）</td>
+</tr>
+</tbody>
+</table>
+<h4>D1.1 目标市场规模与增长性</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TAM 估算</td>
+<td>宏观上处于 AI 编程代理 / Agentic Engineering 爆发赛道，但本项目的<strong>可触达范围</strong>限定为 Codex 用户中采用 GPT-6 Astra 及三个子代理模型的开发者子集；保守估算为千万美元级市场。<strong>（估算未经外部数据验证，置信度低。）</strong></td>
+</tr>
+<tr>
+<td>增长趋势</td>
+<td>强增长趋势，但高度依附单一模型/平台生态，存在结构性天花板。</td>
+</tr>
+<tr>
+<td>市场层级</td>
+<td>新兴蓝海的早期细分，赛道边界尚不清晰。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>小分：1.5 / 2.5</strong>（60% 档，对应 0–10 分的 6 分：一般）</p>
+<p><strong>判断依据</strong>：项目解决的是“多 AI 代理编排与成本优化”这一细分问题，上游为 OpenAI 模型 API 成本和订阅生态。AI 编程整体市场增长强劲，但本项目不是独立基础设施，其 TAM 受限于特定模型与 Codex 环境的渗透率，不可高估。无外部数据验证，评分取中性档。</p>
+<hr />
+<h4>D1.2 痛点真实性与解决程度</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>痛点真实性</td>
+<td>真实但偏优化型：委派时“该选什么模型/怎么确认没超支/结果是否可信”是合理痛点，而并非“没有此插件就无法工作”的刚需。</td>
+</tr>
+<tr>
+<td>解决完整度</td>
+<td>较完整：设计了动态路由、父会话监督、只读审查、ship/fix-first/rethink 验收闭环，并实现了成本收据与定价快照校验，考虑了大量边界与误用场景。</td>
+</tr>
+<tr>
+<td>替代成本</td>
+<td>替代成本适中：Codex 原生子代理可用，用户也可手动逐个分派任务；该插件提供的是自动选择和费用对比的增量价值。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>小分：1.5 / 2.5</strong>（60% 档，对应 0–10 分的 6 分：一般）</p>
+<p><strong>判断依据</strong>：README 展示的设计深度说明作者对真实工程场景有理解，方案也相对完整。但痛点本质属于“效率提升与成本透明化”，替代路径未完全阻断，且依赖特定新模型版本的稳定性。因此落在“锦上添花型需求 + 方案基本可用”的档位。</p>
+<hr />
+<h4>D1.3 市场时机判断</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术成熟度曲线</td>
+<td>处于新模型发布的极早期，过度炒作向生产可用过渡的窗口；README 明确记录多个已知云端限制，说明生态尚未完全固化。</td>
+</tr>
+<tr>
+<td>竞争密度</td>
+<td>竞争极少，尤其是针对 GPT-6 Astra 模型组的编排插件，尚未出现明显垄断者。</td>
+</tr>
+<tr>
+<td>监管/标准</td>
+<td>无直接监管，但依赖 OpenAI API 能力开放策略与价格变动，宏观风险在可接受范围。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>小分：2.5 / 2.5</strong>（100% 档，对应 0–10 分的 10 分：卓越）</p>
+<p><strong>判断依据</strong>：项目创建于 2026-09-04，与项目内置 pricing snapshot（2026-09-04）同日，几乎是在模型能力公开发布窗口内迅速跟进的第一批工具。创建后短时间获取 146 star、11 fork，说明踩中了技术热度爆发点。当前赛道远未饱和，先行者有机会建立插件生态位，符合“市场爆发前夜/早期”的最高评分标准。</p>
+<hr />
+<h4>D1.4 应用场景广度</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>行业覆盖</td>
+<td>不针对特定垂直行业，适用于所有软件研发团队，行业覆盖广。</td>
+</tr>
+<tr>
+<td>场景多样性</td>
+<td>覆盖“计划→构建→验证→审查”完整软件交付主链，同时提供成本核销、验证报告等辅助场景。</td>
+</tr>
+<tr>
+<td>可延展性</td>
+<td>核心路由逻辑可向更多模型、更多软件交付环节（如安全审查、合规检查）迁移；但目前受限于 Codex 平台的接口能力。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>小分：2.0 / 2.5</strong>（80% 档，对应 0–10 分的 8 分：良好）</p>
+<p><strong>判断依据</strong>：作为 Codex 端的横向插件，可被多种行业软件团队复用，场景并非单一工具型，而是工作流编排层。目前不具备跨平台独立运行能力，所以不上探至“基础级设施”；但与垂直行业专用工具相比，横向可复制性有明显优势。</p>
+<hr />
+<h3>D1 结论</h3>
+<p><strong>总分：7.5 / 10</strong></p>
+<p>本维度整体处于中上水平</p>
+<h3>D2. 技术成熟度与产品质量（权重 14%）</h3>
+<p><strong>评估说明</strong>：本项目属于后端 Python Agent 生成库，无用户界面，故 <strong>D2.5（UI/UX/UE）标记为 N/A</strong>，不计入计分。D2 总分按其余 7 项等比缩放至 10 分。</p>
+<h4>D2 细则打分表</h4>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>小分</th>
+<th>权重比</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D2.1</td>
+<td>产品设计与创新性</td>
+<td>1.5</td>
+<td>0.9</td>
+<td>60%</td>
+<td>一般</td>
+<td>产品理念以“GPT-6 Astra 编排 + 动态子代理”为主要切入点，概念上有一定差异化，但无 demo 或设计文档证明实际创新深度；功能设计仅体现在 821 行代码中，覆盖范围有限，未形成完整产品体验</td>
+</tr>
+<tr>
+<td>D2.2</td>
+<td>架构设计与工程质量</td>
+<td>2.0</td>
+<td>1.2</td>
+<td>60%</td>
+<td>一般</td>
+<td>目录按插件形式组织（<code>plugins/astra-advisor</code>），包含 skills/references 结构，分层基本清晰；但代码总量仅 2 个 Python 文件、821 行，模块抽象和复用能力有限；复刻难度低，技术护城河弱，无外部依赖，未发现明显技术债但缺乏复杂架构支撑</td>
+</tr>
+<tr>
+<td>D2.3</td>
+<td>代码整洁性与规范性</td>
+<td>1.0</td>
+<td>0.6</td>
+<td>60%</td>
+<td>一般</td>
+<td>仅能从文件结构和命名推断基本整洁，无 lint/format 配置文件，变量/函数命名未见系统性违规；但代码量小，未发现明显重复，整体可读性合理</td>
+</tr>
+<tr>
+<td>D2.4</td>
+<td>安全性</td>
+<td>1.0</td>
+<td>0.4</td>
+<td>40%</td>
+<td>较弱</td>
+<td>无依赖声明（依赖为 0），第三方漏洞风险低；但仓库未提供安全扫描、Dependabot/Snyk 等配置，也未发现输入验证或安全编码显式处理；功能若涉及提示编排，缺少对 prompt injection 等威胁的防护说明</td>
+</tr>
+<tr>
+<td>D2.5</td>
+<td>UI/UX/UE 人机交互</td>
+<td>1.0</td>
+<td>N/A</td>
+<td>—</td>
+<td>—</td>
+<td>纯后端代码库/插件，无 Web、GUI 或交互式 CLI 界面，不适用</td>
+</tr>
+<tr>
+<td>D2.6</td>
+<td>功能完备度与稳定性</td>
+<td>1.5</td>
+<td>0.6</td>
+<td>40%</td>
+<td>较弱</td>
+<td>项目创建于 2026-09-04，最近推送同日，无任何 release/tag，无 CHANGELOG，处于极早期开发阶段；开放 Issue 1 个，功能完整性无法验证，运行环境要求未明确，无 Dockerfile，性能与国际化信息缺失</td>
+</tr>
+<tr>
+<td>D2.7</td>
+<td>文档与开发者体验</td>
+<td>1.0</td>
+<td>0.6</td>
+<td>60%</td>
+<td>一般</td>
+<td>存在 README、SKILL.md 与 references/operations.md 文档文件，并包含示例代码；但缺少 API 参考、架构图、FAQ 等深化内容，文档与代码版本的同步性无法判断</td>
+</tr>
+<tr>
+<td>D2.8</td>
+<td>测试与质量保障</td>
+<td>1.0</td>
+<td>0.6</td>
+<td>60%</td>
+<td>一般</td>
+<td>有 1 个测试文件（297 行），测试占比 36.2%，配置了 1 个 CI workflow（<code>verify.yml</code>）执行验证脚本；但无覆盖率报告，无静态分析或多阶段质量门禁，CI 仅运行 shell 验证</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td></td>
+<td><strong>4.9 / 9</strong></td>
+<td></td>
+<td></td>
+<td><strong>N/A 处理：4.9 ÷ 9 × 10 = 5.4</strong></td>
+</tr>
+</tbody>
+</table>
+<h4>关键发现</h4>
+<ul>
+<li><strong>成熟度极低</strong>：项目创建仅 4 天、无发布版本、无 CHANGELOG，仍处于 MVP/原型阶段，尚不具备商业化交付条件。</li>
+<li><strong>代码规模小、复刻门槛低</strong>：源码仅 821 行、2 个 Python 文件，即使有子代理编排概念，技术护城河薄弱，较易被复刻。</li>
+<li><strong>基础工程素养尚可</strong>：有基本 CI 与测试文件（测试占比 36.2%），文档少但结构清晰，为后续完善保留一定基础。</li>
+<li><strong>安全与质量保障缺失</strong>：无安全扫描、无静态分析、无依赖声明，也未展示对 AI Agent 特有风险（如 prompt injection）的应对，属于后续待补短板。</li>
+</ul>
+<h4>结论</h4>
+<p>D2 维度得分 <strong>5.4/10</strong>，处于“一般”水平。项目在产品设计上具备一定概念创新性，但代码规模与工程积累远不足以支撑商业化，架构和功能成熟度均处于早期。建议若看中该方向，需在核心编排逻辑、稳定性与安全设计上大幅补强后再评估商业可行性。</p>
+<h3>D3. 社区健康度与生态势能（权重 11%）</h3>
+<p>本项目创建于 2026-09-04（补采数据），截至快照（推测 2026-09-08）存续仅约 4 天，整体处于极早期阶段。社区基础非常薄弱，虽有短期 Star 聚集，但交互、贡献者多样性和第三方生态均处于空白，无法构成商业化所需的社区势能。</p>
+<h4>D3.1 社区活跃度指标（满分 3.00 → 得分 1.80）</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测数据</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Star 增速</td>
+<td>当前 Star 146；项目存在不足 90 天，近 90 天增量按 146 计，月均约 48.7</td>
+<td>处于 20–100 区间，对应 5–6 档，但因项目极新、增长窗口极短，数值参考意义有限</td>
+</tr>
+<tr>
+<td>Fork 比率</td>
+<td>11 / 146 ≈ 7.5%</td>
+<td>衍生/二次开发意愿一般</td>
+</tr>
+<tr>
+<td>Issue 活跃度</td>
+<td>近 90 天：开放 Issue 1 个，PR 1 个，关闭 Issue 0 个</td>
+<td>社区参与度极低</td>
+</tr>
+<tr>
+<td>响应速度</td>
+<td>无足够关闭样本（0 个已关闭 Issue）</td>
+<td>无法评估，不给加分</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：Star 数量短期增长较快，但 Issue/PR 总数仅 2，说明“围观多、参与少”。按公式折算月增约 48.7，对应 5–6 档；结合 Issue 几乎无交互和响应数据缺失，给予该档位 60% 分值。</p>
+<h4>D3.2 贡献者结构多样性（满分 2.50 → 得分 0.50）</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测数据</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>贡献者数量</td>
+<td>contributors = 1</td>
+<td>单人维护</td>
+</tr>
+<tr>
+<td>组织多样性</td>
+<td>无外部组织迹象</td>
+<td>缺失</td>
+</tr>
+<tr>
+<td>核心团队占比</td>
+<td>100% 为项目创建者</td>
+<td>外部参与度为零</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：所有代码和提交均来自同一人，没有其他贡献者或组织参与，属于典型的单人项目，对应 1–2 档，按 20% 计分。</p>
+<h4>D3.3 第三方生态成熟度（满分 3.00 → 得分 0.60）</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测数据</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>插件/扩展</td>
+<td>无第三方插件、主题或扩展</td>
+<td>无</td>
+</tr>
+<tr>
+<td>集成生态</td>
+<td>仅作为 Codex 插件被安装，未见被主流 CI/CD、云平台、IDE 反向集成</td>
+<td>无</td>
+</tr>
+<tr>
+<td>衍生项目</td>
+<td>未发现基于该项目的二次开发或商业产品</td>
+<td>无</td>
+</tr>
+<tr>
+<td>教程/课程</td>
+<td>README 指向作者自己的 Substack，未发现外部教程/课程</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：Topics 为空，GitHub 生态搜索无产物，项目处于完全孤立状态，对应 1–2 档，按 20% 计分。</p>
+<h4>D3.4 品牌认知与行业影响力（满分 1.50 → 得分 0.60）</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测数据</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>品牌辨识度</td>
+<td>“Astra Advisor”为全新名称，领域内尚无稳定认知</td>
+<td>极弱</td>
+</tr>
+<tr>
+<td>行业采用</td>
+<td>无知名企业或项目背书/使用证据</td>
+<td>无</td>
+</tr>
+<tr>
+<td>媒体覆盖</td>
+<td>未发现技术媒体或会议报道</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：项目存续时间极短，虽短期 Star 破百但没有任何权威背书或媒体曝光，仅在可能的小圈子（如作者 Substack 读者）中有初步认知，对应 3–4 档，按 40% 计分。</p>
+<h4>D3 维度结论</h4>
+<p><strong>总得分：3.50 / 10</strong></p>
+<p>项目属于“技术概念新、但社区根基近乎为零”的状态。短期内 Star 增长是唯一亮点，但无活跃贡献者、无第三方生态、无品牌背书，社区无法在现阶段作为商业化的客户池或增长引擎。未来需观察是否有真实的 PR/Issue 流动、核心维护者之外的外部贡献者加入，以及是否有知名机构采用，否则该维度将持续拖累商业化评估。</p>
+<h3>D4 商业模式与变现潜力（权重 18%）</h3>
+<p><strong>维度结论：5.1 / 10 — 项目处于极早期，尚未建立真正的商业化机制；MIT 协议给未来所有变现路径留了空间，但现有材料仅显示“技术博客导流”这一弱变现信号。</strong></p>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th style="text-align: right;">满分</th>
+<th style="text-align: right;">得分</th>
+<th style="text-align: right;">档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D4.1 协议对变现模式影响</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2.0</td>
+<td style="text-align: right;">100%</td>
+<td>仓库 LICENSE 明确为 MIT，软件与文档均可自由使用、修改、再分发和闭源衍生，Open Core、SaaS、专业服务、双协议等路径均不受协议约束。</td>
+</tr>
+<tr>
+<td>D4.2 变现路径清晰度</td>
+<td style="text-align: right;">3.5</td>
+<td style="text-align: right;">1.4</td>
+<td style="text-align: right;">40%</td>
+<td>项目定位为 Codex 插件 / orchestration skill，核心资产仅 821 行 Python 和两份 markdown 文档，无企业版、付费版或托管服务。README 中出现 Substack 订阅引导，属“内容变现 → 技术作者个人品牌”路径，而非项目本身的产品化商业模式；专业咨询/培训可能有空间但尚未被验证。</td>
+</tr>
+<tr>
+<td>D4.3 付费转化逻辑</td>
+<td style="text-align: right;">2.5</td>
+<td style="text-align: right;">0.5</td>
+<td style="text-align: right;">20%</td>
+<td>全功能以 MIT 开放，无免费版与付费版分层；用户使用该插件的前提是已有 Codex/ChatGPT 付费能力，项目自身没有任何“免费不够用→付费”的触发点。成本收据与节省对比是潜在价值主张，但当前无任何转化动作承接。</td>
+</tr>
+<tr>
+<td>D4.4 增值服务空间与定价天花板</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1.2</td>
+<td style="text-align: right;">60%</td>
+<td>增值方向可设想为企业 agentic engineering 咨询、成本审计、定制 orchestration 策略、内容订阅等，客单价更接近 $100–1K/年量级；若未来面向企业提供成本治理/Agent 交付管理，理论上可突破 $1K/年，目前无实现证据。</td>
+</tr>
+</tbody>
+</table>
+<p>综合来看，该项目当前更像“高质量技术输出 + 个人影响力建设”的载体，而非有明确收入的商业项目。MIT 协议是唯一显著加分项，成本收据/代理模型费用对比为后续产品化提供了可讲故事的价值锚点，但距离“清晰可行的商业模式”仍有很大距离。</p>
+<h3>D5. 竞争格局与差异化壁垒</h3>
+<h4>D5.1 竞品对比与市场定位</h4>
+<p>经 GitHub Search API 实测搜索和仓库内检索，本项目同类（精确解决“GPT-6 Astra 对 Sol/Terra/Luna 子代理动态编排与验收”）的直接竞品仅确认到 <strong>1 个</strong>，未达到 3–5 个的列举下限，因此按防幻觉规则如实报告竞品数量远少于预期。这一方面表明确实存在同类跟随者，另一方面也反映当前细分赛道尚处极早期。</p>
+<table>
+<thead>
+<tr>
+<th>竞品名称</th>
+<th>类型</th>
+<th>仓库/官网</th>
+<th>验证方式</th>
+<th>Star/用户量</th>
+<th>核心差异</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Buffarete/astra-advisor</td>
+<td>直接竞品</td>
+<td>github.com/Buffarete/astra-advisor</td>
+<td>GitHub Search API 实测确认</td>
+<td>2 stars</td>
+<td>仅实现“Astra 编排 + Sol High 实现”的单一组合；本项目支持动态选择 Sol/Terra/Luna 三档子代理、实时能力预检、成本收据和独立只读审查环节</td>
+</tr>
+</tbody>
+</table>
+<p>本项目定位清晰：<strong>“为能力路由而生的 Codex 插件，Astra 保持架构与验收所有权，同时动态委派有界工作给成本更低的原生子代理模型”，并以成本透明和验证闭环为差异化卖点</strong>。与唯一同主题竞品相比，本项目在功能深度（多模型切换、成本收据、验证流程）和社区关注度（stars 146 vs 2）上均明显领先。但受限于“仅 1 个直接竞品且赛道极早”的验证结果，市场定位的长期优势仍需更多竞品进入后检验。</p>
+<ul>
+<li><strong>D5.1 小分：2.4 / 3</strong>（同档位 80%）</li>
+</ul>
+<h4>D5.2 技术壁垒与网络效应</h4>
+<p>本项目核心资产是编排 Skill、成本计算脚本和操作规范文档，总代码量仅约 821 行、2 个 Python 源文件，且以 MIT 协议开源。不存在专利、私有数据或独占算法壁垒。作为插件依赖 OpenAI/Codex 的公开接口，平台本身随时可在后续版本中提供更原生的子代理控制能力，从而压缩中间层空间。网络效应和规模效应均不明显：没有插件生态、数据飞轮或社区贡献机制，用户增长不带来额外的产品价值增值。</p>
+<p>同时，同主题竞品在本项目创建后约 2 天内即出现（Buffarete/astra-advisor，推送于 2026-09-06），直接印证“复制成本低、进入速度快”这一现实。综合判断，该项目有一定技术深度体现在对模型能力边界和工具元数据约束的精细处理上，但它在商业防御意义上壁垒薄弱，容易被复制或超越。</p>
+<ul>
+<li><strong>D5.2 小分：1.2 / 3</strong>（同档位 40%）</li>
+</ul>
+<h4>D5.3 切换成本与用户粘性</h4>
+<p>项目以 standard Codex plugin marketplace 方式交付，用户通过两条 CLI 命令即可安装，同理可通过移除插件快速卸载。项目内不存留用户业务数据，无私有配置格式；成本收据和定价快照为文本/JSON 文件，可导出，但未形成深度绑定。用户需要投入的仅是学习和流程习惯——例如在任务中调用特定 Skill、遵循 worktree 和验收约定。集成深度居于“浅层工具”与“深度流程依赖”之间，但整体切换成本较低，组织可以在数分钟内替换为其他方案或退回到纯 Astra 原生命令。因此粘性主要来自使用习惯而非迁移障碍。</p>
+<ul>
+<li><strong>D5.3 小分：0.8 / 2</strong>（同档位 40%）</li>
+</ul>
+<h4>D5.4 护城河可持续性</h4>
+<p>护城河整体处于“弱且不稳定”状态。几个增强信号包括：项目在上线当日即获得较高关注（146 stars），README 中以注明版本日期的定价快照（2026-09-04.json）和严格的“不知晓即不承诺”原则，展示出可信的工程风格，具有一定的先发口碑。但削弱信号更强：第一，直接依赖 GPT-6/Codex 工具的 schema 和能力边界，平台一旦原生支持任意模型/effort 的线程控制，本项目核心价值将大幅稀释；README 中也明确承认云环境 <code>create_thread</code> 无法指定 model/thinking，说明当前适配存在被官方收编的能力缺口；第二，出现同主题竞品仅隔 2 天，新进入者可以快速复制；第三，项目本身仅成立数日，尚无跨版本用户留存或生态锁定的证据。在未来 6–12 个月内，随着 OpenAI 产品迭代和更多编排类插件出现，本项目被替代的风险较高，优势窗口较短。</p>
+<ul>
+<li><strong>D5.4 小分：0.8 / 2</strong>（同档位 40%）</li>
+</ul>
+<h4>结论</h4>
+<p>Astra Advisor 目前处于“极细分早期市场中的领先者”地位：直接竞品少且星标悬殊，产品定位清晰，有明确的差异化深度。但该优势建立在低代码量、MIT 协议、无网络效应和高平台依赖的基础上，从商业竞争防御角度看壁垒薄弱、切换成本低、护城河难以持久。在快速演进的 AI Agent 工具链中，它更像是阶段性的“工程最佳实践插件”，而非具备强可持续商业防御能力的产品。</p>
+<p><strong>本维度均分：5.2 / 10</strong></p>
+<h3>D6. 法律合规与知识产权（权重 7%）</h3>
+<p><strong>评分结果</strong></p>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>小分/满分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D6.1 开源协议合规性</td>
+<td>3.0/3.0</td>
+<td>9–10（100%）</td>
+<td>仓库含完整 MIT License 文件，版权声明清晰（Copyright (c) 2026 Daniel McAteer），为标准 MIT 文本，未发现 Commons Clause、BUSL 或任何限制商业使用的附加条款。</td>
+</tr>
+<tr>
+<td>D6.2 依赖链法律风险</td>
+<td>2.5/2.5</td>
+<td>9–10（100%）</td>
+<td>本地采集的依赖项为空（<code>dependencies: {}</code>），未发现显式声明的外部依赖，因此未识别到 GPL/AGPL 等传染性依赖。后续若加入 <code>requirements.txt</code>/<code>pyproject.toml</code>，需回归审查。</td>
+</tr>
+<tr>
+<td>D6.3 商标与专利风险</td>
+<td>1.5/2.5</td>
+<td>5–6（60%，默认档）</td>
+<td>未经人工核查，置信度低。未执行商标检索与专利排查，按方法论默认档计分。项目名称/描述涉及 "GPT-6""Astra" 等第三方标识，商业化前需做商标可用性及授权风险确认，不能依据本报告结论直接排除风险。</td>
+</tr>
+<tr>
+<td>D6.4 贡献者协议完备性</td>
+<td>0.8/2.0</td>
+<td>3–4（40%）</td>
+<td>仓库未发现 CONTRIBUTING.md、CLA/DCO、CODEOWNERS；<code>contributors</code> 仅 1 人，当前版权集中在个人，但尚未建立外部贡献者的版权收口机制。已有 PR 活动（90 天内 1 个 PR），若未来接受外部贡献，版权归属将存在模糊性。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong></p>
+<p>D6 维度综合得分 <strong>7.8/10</strong>。当前法律合规风险总体较低：项目采用标准 MIT License，无商业附加限制，依赖层未发现传染性协议；主要短板在于商标/专利状态未经人工核查，以及缺少贡献者协议与规范化贡献流程。对早期项目而言，这些问题尚不构成商业化阻断，但在面向企业客户、对外融资或扩展贡献者生态前，应优先补齐 DCO/CLA 机制，并对项目名称及第三方标识做正式商标检索。</p>
+<h3>D7 企业就绪度与可运营性</h3>
+<p>分析失败（DeepSeek 调用重试仍失败: 模型返回空内容），本维度标 N/A。</p>
+<h3>D8. 团队治理与可持续性（权重 7%）</h3>
+<p><strong>D8 总分：3.6 / 10（较弱）</strong>。astra-advisor 目前是创建仅数日的个人项目，核心贡献者仅 1 人，无治理文档、无资金支持、无备份维护者，团队底座极不成熟。该维度在现阶段构成商业化的重要障碍。</p>
+<h4>D8.1 核心维护者能力与背景（满分 2.5）——小分 1.0（档位：3–4）</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>素材证据</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术能力</td>
+<td>821 行 Python、测试占比 36.2%、配置了 verify.yml CI</td>
+<td>代码结构上有一定工程意识，但维护者公开履历、行业经验无法从现有数据核实</td>
+</tr>
+<tr>
+<td>商业经验</td>
+<td>仓库挂在个人账号 DannyMac180 下，无组织归属</td>
+<td>未发现任何商业化/创业/企业服务经验证据</td>
+</tr>
+<tr>
+<td>投入度</td>
+<td>created_at 与 pushed_at 同为 2026-09-04，相隔约 58 分钟；之后至评估日无新 push</td>
+<td>一次性爆发式发布，尚无稳定提交节奏，全职运营证据不足</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>D9 上手难度与易用性分析</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>得分</th>
+<th>满分</th>
+<th>判定依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D9.1 安装难度</td>
+<td>2.0</td>
+<td>2.5</td>
+<td>两条 <code>codex plugin</code> 命令即可完成插件注册；无系统级依赖、无编译环节，但要求前置安装 Codex CLI / ChatGPT 桌面客户端，且未面向全平台明确声明</td>
+</tr>
+<tr>
+<td>D9.2 部署与配置难度</td>
+<td>2.0</td>
+<td>2.5</td>
+<td>插件注册即视为部署完成，启动新任务输入技能语句即可验证；无需多组件编排或外部依赖初始化，但能力高度依赖 Codex 宿主环境，无法由非技术用户完全独立掌控</td>
+</tr>
+<tr>
+<td>D9.3 易用性与操作门槛</td>
+<td>2.0</td>
+<td>2.5</td>
+<td>日常使用以一条自然语言技能调用为主，无需用户记忆复杂参数；项目在 README 中明确“不静默替代模型/工具/能力”，说明错误报告和失败策略较清晰</td>
+</tr>
+<tr>
+<td>D9.4 学习曲线与首体验</td>
+<td>2.0</td>
+<td>2.5</td>
+<td>具备 Quick start 与运行脚本，熟练用户可在 10 分钟内首体验；但仅有 1 个示例文件（<code>illustrative-usage.json</code>），示例丰富度和模板项目较少，缺少交互式 tutorial</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>8.0</strong></td>
+<td><strong>10</strong></td>
+<td>上手难度等级：🟢 简单</td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：Astra Advisor 上手难度为🟢<strong>简单</strong>等级。项目采用 Codex 插件生态的分发方式，安装命令精简、无依赖包袱，用户只需要两条命令即可完成插件注册；使用层面采用“技能提示词”触发，最终用户无需理解底层 subagent 路由细节。主要局限性在于对宿主环境的强依赖——必须先具备支持插件的 Codex CLI/GPT 客户端，因此评分未达满分档。改进方向是补充更多可复制模板、交互式 demo 与典型工作流示例，以进一步降低新用户的首次启动成本。</p>
+<h3>D10 功能价值——使用价值视角（平行维度，权重 0%，不计入综合评分）</h3>
+<h3>维度结论</h3>
+<p>Astra Advisor 是一个面向 Codex 生态的编排插件，核心使用价值在于：让 GPT-6 Astra 在复杂软件交付中动态委派 Sol/Terra/Luna 子代理、独立验证并生成成本收据。价值链条清晰，但高度依赖宿主平台的持续演进，且当前使用规模缺乏量化证据。本维度评估更多反映「功能设计兑现的潜在效用」，而非已被市场验证的真实使用量。</p>
+<h3>D10 细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>分值</th>
+<th>小分</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10.1</td>
+<td>效用强度</td>
+<td>3</td>
+<td>1.8</td>
+<td>对使用 Codex + GPT-6 Astra 的开发团队，可减少多子代理手动编排成本，提升并行性与验收可靠性；但效用需要「任务适合拆分」或「需要独立验证」的场景才稳定兑现，且替代方案（手动管理、其他编排脚本）存在。属「明确但有限的效率提升，易被替代」档。</td>
+</tr>
+<tr>
+<td>D10.2</td>
+<td>实际使用规模</td>
+<td>3</td>
+<td>N/A</td>
+<td>无 npm/PyPI 下载量（插件形态，非包管理分发）；GitHub Dependents 未捕获；README 无生产环境案例；补采到的 stars=146、forks=11 仅反映早期关注，不足以推断实际用户量。按防幻觉规则，取不到不估算，标记 N/A。</td>
+</tr>
+<tr>
+<td>D10.3</td>
+<td>免费可得的完整效用</td>
+<td>2</td>
+<td>2.0</td>
+<td>MIT License 全量公开，所有功能（编排技能、成本脚本、验证脚本、操作文档）均在仓库内；未发现企业版/付费墙/功能阉割。用户自行安装即可获得完整插件价值。</td>
+</tr>
+<tr>
+<td>D10.4</td>
+<td>效用可持续性</td>
+<td>2</td>
+<td>1.2</td>
+<td>主体代码为本地 Python 脚本 + SKILL 定义，MIT 协议可分叉；但核心编排需调用在线 Codex <code>spawn_agent</code> 工具及 OpenAI 专有模型（gpt-5.6-sol/terra/luna），属强外部依赖。项目停维后，现有安装短期可用，但随宿主工具 schema 或模型变化将逐渐失效。对应「部分能力依赖在线服务，停维后效用打折」档。</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td><strong>5.0（N/A 剔除后等比缩放 → 7.1/10）</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>说明：D10.2 因数据缺失按规则标记 N/A，剩余有效满分 7 分，得 5.0 分，等比缩放后本维度总分为 <strong>7.1/10</strong>。该结果不参与综合商业评分，仅用于价值画像参考。</p>
+</blockquote>
+<h3>关键发现</h3>
+<ul>
+<li><strong>使用价值结构</strong>：Astra Advisor 的价值锚点是「同 token 成本比较 + 多代理质量验收」，这比普通 prompt 编排工具多出一层工程透明度，对重度 Codex 用户具有实际吸引力。</li>
+<li><strong>免费完整度极高</strong>：开源版即完全体，无任何商业分层，是典型「使用价值 &gt; 交换价值」形态，与 D4.3（商业转化）可能形成对照。</li>
+<li><strong>规模证据缺失是最大短板</strong>：目前无法确认实际用户在百级、千级还是万级；148 个 star / 11 个 fork 叠加 1 个 contributor，更像早期技术传播阶段。</li>
+<li><strong>可持续性受平台绑定制约</strong>：插件价值 80% 依赖 Codex 宿主与 OpenAI 模型继续存在且接口稳定；社区可通过 MIT 分叉，但无法摆脱底层模型供应商锁定。</li>
+</ul>
+<h3>D11 社会价值（正外部性）评估</h3>
+<blockquote>
+<p>本维度为平行维度（权重 0%），不计入综合评分与一票否决，仅用于 3.4 价值画像。评估视角为项目对「使用者之外的行业与社会」的外溢贡献，与 D3.4（品牌对商业势能的助力）、D2.5/D2.6（工程质量视角）相区分。</p>
+</blockquote>
+<p><strong>D11 总评: 4.0 / 10 —— 正外部性尚弱，处于公共价值潜伏期</strong></p>
+<p>该仓库是一个创建于 2026-09-04、仅 821 行 Python 代码、1 名贡献者的早期 Codex 插件项目。它在形式上具备数字公共产品的全部要件（MIT 许可、开放仓库、完整文档、可复用的 SKILL 定义与成本计算脚本），但在实测窗口内未观察到任何可量化的下游依赖、教学采纳或行业引用，停摆影响面趋近于零；普惠效果亦受限于「必须运行在付费 ChatGPT/Codex + GPT-6 Astra 宿主之上」的硬前提。唯一可辨识的正外部性信号是设计文档的示范潜力——其「不静默替换模型/工具」「成本收据透明化」「read-only reviewer 验收」等工程原则在发布次日即出现一个同思路模仿仓库（Buffarete/astra-advisor，2 stars），暗示轻微行业示范苗头。</p>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>小分</th>
+<th>档位判定依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D11.1</td>
+<td>数字公共基础设施属性（满分 3）</td>
+<td><strong>1.2</strong></td>
+<td>40%（3–4 档：几乎无下游依赖，停摆影响微小）</td>
+</tr>
+<tr>
+<td>D11.2</td>
+<td>教育与人才价值（满分 2.5）</td>
+<td><strong>1.0</strong></td>
+<td>40%（3–4 档：几乎无教学/学习场景可测）</td>
+</tr>
+<tr>
+<td>D11.3</td>
+<td>普惠与可及性（满分 2.5）</td>
+<td><strong>1.0</strong></td>
+<td>40%（3–4 档：仅服务于本就有付费资源的用户）</td>
+</tr>
+<tr>
+<td>D11.4</td>
+<td>开放标准与行业推动（满分 2）</td>
+<td><strong>0.8</strong></td>
+<td>40%（3–4 档：遵循平台约定但无标准推动/科研支撑证据）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>4.0 / 10</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>D11.1 数字公共基础设施属性 — 1.2/3</strong></p>
+<ul>
+<li><strong>关键依赖地位</strong>：无。实测可见 stars 146、forks 11、contributors 1，仓库无 npm/PyPI 发布记录（下载量 N/A），GitHub Dependents 数据不可得；唯一关联仓库 Buffarete/astra-advisor（2 stars）是模仿者而非下游依赖。</li>
+<li><strong>停摆影响面</strong>：项目消失最多波及自身早期采用者，不涉及任何软件供应链环节。</li>
+<li><strong>数字公共产品属性</strong>：形式上符合（MIT 许可、开源可复用、README/SKILL/operations 文档完整），但 DPG 的核心是「实际被公共使用」，当前缺乏使用规模支撑。</li>
+<li>判定落在「几乎无下游依赖，停摆影响微小」档（40% × 3 = 1.2）。</li>
+</ul>
+<p><strong>D11.2 教育与人才价值 — 1.0/2.5</strong></p>
+<ul>
+<li><strong>教学采用</strong>：未检索到任何外部课程、教程或 awesome 列表收录；开放 Issue 仅 1 个，无学习者提问样本。</li>
+<li><strong>门槛降低效应</strong>：仓库对 agent 委派路由、动态子代理选择、验证归属与成本收据的讲解清晰，SKILL.md + operations 参考构成一份可读的 agentic 工程「最小样板」，对理解 Codex 插件机制有一定入门价值；作者亦通过个人 Substack（Attention Heads）发布 Agentic Engineering Field Notes 系列提供外围学习内容，但属作者自我推广而非第三方教学采纳。</li>
+<li><strong>源码学习价值</strong>：821 行源码含 29.7% 测试与 verify CI，结构规范，具备小规模工程范本意义，但体量过小、影响半径有限。</li>
+<li>判定为「几乎无教学/学习场景」档（40% × 2.5 = 1.0）。</li>
+</ul>
+<p><strong>D11.3 普惠与可及性 — 1.0/2.5</strong></p>
+<ul>
+<li><strong>能力平权化</strong>：插件本身 MIT 免费，但运行前提是商业宿主（ChatGPT/Codex 订阅并可用 GPT-6 Astra），无法让无订阅的中小团队/个人/欠发达地区获得该能力——用户群体「本就有资源」。</li>
+<li><strong>替代价格差</strong>：无独立商业等价物可比（宿主按订阅收费）；插件提供的成本收据与官方价格快照核对功能可增强既有付费用户的费用透明度，属轻度消费者保护价值。</li>
+<li><strong>可及性支持</strong>：文档仅英文，无 i18n/多语言/无障碍声明；无低配硬件适配方案；安装依赖 Codex CLI/桌面 App 插件体系。</li>
+<li>判定为「仅服务于本就有资源的人群」档（40% × 2.5 = 1.0）。</li>
+</ul>
+<p><strong>D11.4 开放标准与行业推动 — 0.8/2</strong></p>
+<ul>
+<li><strong>标准推动</strong>：遵循 Codex plugin marketplace 公开约定的 SKILL.md 与 <code>collaboration.spawn_agent</code> 工具 schema，属于「遵循平台标准」而非「推动开放标准」；作为闭源宿主生态内的插件，不具备反锁定或标准牵引作用。</li>
+<li><strong>科研支撑</strong>：无论文引用/学术使用可检索（外部检索不可得，标 N/A，但该项缺失不影响其余考察点判定）。</li>
+<li><strong>行业示范效应</strong>：设计原则（不静默替换模型、拒绝夸大成本节省、reviewer <code>ship</code>/<code>fix-first</code>/<code>rethink</code> 验收门）具备较高工程水位，发布次日即出现 Buffarete/astra-advisor 同思路仓库，显示示范苗头，但规模仅 2 stars，不足以构成可测的行业推动。</li>
+<li>判定为「与标准化/科研无关（或仅处于萌芽）」档（40% × 2 = 0.8）。</li>
+</ul>
+<p><strong>D11 结论</strong></p>
+<p>D11 总得分 4.0/10，处于「较弱至一般」区间。项目当前的正外部性几乎完全来自其「潜在性」——MIT 许可、文档化架构与透明度设计为其未来成为可借鉴的 agentic 工程范本保留了空间；但以实测数据衡量，尚无下游依赖、无教学采纳、无标准贡献、无跨付费边界的普惠效应。本维度不计入综合评分，价值画像描述建议为：<strong>「面向付费 AI 宿主生态的早期开源插件，具备公共许可与设计示范潜力，但尚未形成可测的社会外溢」</strong>。相关判断置信度中低——下游依赖、外部教程与论文引用数据在素材内不可得，外部影响面需更长观察窗口验证。</p>
+<h2>五、商业化价值判断</h2>
+<h3>5.1 综合价值定位</h3>
+<p><strong>综合评分 56.0/100（B 级，中等商业化潜力）</strong> ，公共价值分 7.1/10，价值画像判定为 <strong>🏛️ 公共产品型</strong>（处于临界区间）。</p>
+<p>astra-advisor 当前处于 <strong>MVP/原型阶段</strong>（项目创建仅 4 天、无任何 release、821 行代码），其商业化价值主要体现在以下三个层面：</p>
+<p><strong>第一层：功能价值的即时性（D10 = 7.1）</strong> 。项目解决的是 Codex/GPT-6 复杂任务下的真实痛点——动态子代理编排、独立验收与成本透明。开源版即全部功能（MIT），无付费墙隔离，对目标用户有明显效率提升。但需注意，该价值属「易被替代的辅助工具」而非「命脉基础设施」，效用强度（1.8/3）与可持续性（1.2/2）均非顶级。</p>
+<p><strong>第二层：商业潜力的早期信号（D4 = 5.1、D5 = 5.2）</strong> 。MIT 协议不限制任何主流变现路径（D4.1 满分），README 中已出现 Substack 订阅引导这一变现信号。在直接竞品对比中，astra-advisor 以 146 stars 显著领先于唯一验证到的竞品（Buffarete/astra-advisor，2 stars），差异化定位明确。然而，赛道验证不足、商业模式尚未验证、技术护城河薄弱（821 行代码 + MIT 协议）构成明显短板。</p>
+<p><strong>第三层：公共产品属性的隐性价值（公共价值分 7.1）</strong> 。项目以 MIT 协议完全开放，免费可得性高（D10.3 = 2.0/2），无付费墙、无企业版功能隔离。在当前 AI 编排工具尚处早期、缺乏开放标准的背景下，这类项目对行业探索具有公共价值。</p>
+<h3>5.2 商业化价值的核心矛盾</h3>
+<p>astra-advisor 的商业化价值面临一个 <strong>根本性矛盾</strong>：其价值高度依赖 GPT-6/Codex 平台演进（D5 明确提示「平台若原生支持 model/effort 控制即可能吞并该中间层」），而项目自身代码量仅 821 行、复刻难度低，同主题竞品在项目创建后约 2 天内即出现。这意味着 <strong>时间窗口极短</strong>——要么在平台吞并前快速建立用户基础与品牌认知，要么被平台原生功能或竞品取代。</p>
+<h3>5.3 商业化价值结论</h3>
+<p><strong>当前阶段，astra-advisor 的商业化价值主要体现在「期权价值」而非「现金流价值」</strong> 。项目具备清晰的差异化定位与良好的协议基础（MIT），但缺乏验证的商业模式、规模化的用户基础与可持续的技术壁垒。作为 B 级项目，其商业化潜力中等，需较多投入补齐短板后方可进入实质性商业化阶段。</p>
+<h2>六、商业路径分析</h2>
+<h3>6.1 价值画像对路径的修正</h3>
+<p>根据价值画像判定（🏛️ 公共产品型，临界状态），astra-advisor 的推荐路径为 <strong>「影响力变现」</strong> ：不建议直接售卖软件本身，而应通过赞助/基金会托管/大厂雇佣维护者/围绕生态做服务与培训等方式实现价值回收。</p>
+<p><strong>画像临界提示</strong>：综合评分 56.0 距「明星资产」阈值（≥65）差 9 分，公共价值分 7.1 距「纯商业工具」阈值（&lt;7）仅差 0.1 分。若项目在未来 1-2 个月内补齐 D3（社区生态）与 D2（产品成熟度）短板，综合评分有望突破 65，届时画像将切换为「明星资产」，可正常商业化并同时经营社区声誉；若公共价值分因平台吞并而下降至 7 以下，画像将切换为「长尾项目」，仅建议技术借鉴或人才引进。</p>
+<h3>6.2 路径一：影响力变现（当前画像下的首选）</h3>
+<p><strong>核心逻辑</strong>：项目处于极早期（4 天、1 人、821 行代码），直接商业化条件不成熟，但 MIT 协议 + 清晰定位 + 良好易用性（D9 = 8.0）使其具备成为社区基础设施的潜力。</p>
+<p><strong>具体路径</strong>：
+- <strong>围绕生态做服务与培训</strong>：利用 D9 高易用性优势（2 条命令完成安装、10 分钟首体验），制作教程、最佳实践指南，通过 Substack（README 已有订阅引导）建立内容变现通道；
+- <strong>大厂雇佣维护者</strong>：项目核心价值在于对 Codex/GPT-6 编排模式的探索，OpenAI 或 Codex 生态相关企业可能雇佣维护者将模式内化；
+- <strong>基金会托管</strong>：若项目获得社区认可，可考虑移交 Linux 基金会等第三方托管，维护者以受薪方式继续贡献。</p>
+<p><strong>适用条件</strong>：项目保持当前「公共产品型」画像，综合评分未突破 65。</p>
+<h3>6.3 路径二：正常商业化（画像切换后的备选）</h3>
+<p><strong>核心逻辑</strong>：若项目在短期内实现社区增长与产品成熟度提升，画像切换为「明星资产」，可考虑正常商业化。</p>
+<p><strong>具体路径</strong>：
+- <strong>SaaS/托管服务</strong>：将子代理编排能力封装为云端服务，用户无需自行配置 Codex 环境即可使用；
+- <strong>企业版功能</strong>：在 MIT 开源版基础上，提供企业级功能（团队协作、权限管理、审计日志等），需注意避免「竭泽而渔」——参照 Elastic 改协议的反噬教训，社区声誉是当前最核心的资产；
+- <strong>市场places 分发</strong>：利用 Codex marketplace 渠道优势，通过插件市场分发获取曝光与潜在付费用户。</p>
+<p><strong>适用条件</strong>：综合评分提升至 ≥65（需 D3 社区健康度显著改善、D2 产品成熟度提升），且公共价值分保持 ≥7。</p>
+<h3>6.4 路径三：技术借鉴/人才引进（画像降级后的兜底）</h3>
+<p>若平台原生支持 model/effort 控制导致项目价值被吞并，或竞品快速复制导致差异化消失，画像将降级为「长尾项目」。此时不建议继续投入商业化，而应将项目作为技术验证样本，通过人才引进方式将编排经验内化到其他产品中。</p>
+<h3>6.5 路径优先级建议</h3>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>时间窗口</th>
+<th>推荐路径</th>
+<th>关键动作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>当前</td>
+<td>0-3 个月</td>
+<td>影响力变现为主，同时积累商业化资本</td>
+<td>完善社区治理（CONTRIBUTING/CLA）、扩充示例与文档、积极回应用户 Issue</td>
+</tr>
+<tr>
+<td>中期</td>
+<td>3-12 个月</td>
+<td>视社区增长情况切换至正常商业化</td>
+<td>若 stars 突破 1k、贡献者 ≥5 人，启动企业版/SaaS 探索</td>
+</tr>
+<tr>
+<td>长期</td>
+<td>12 个月+</td>
+<td>平台吞并风险下的转型</td>
+<td>关注 Codex 平台演进，提前布局差异化能力</td>
+</tr>
+</tbody>
+</table>
+<h2>七、能力评估：能做什么 &amp; 最适合做什么</h2>
+<h3>7.1 核心能力清单</h3>
+<p>基于各维度评分卡，astra-advisor 当前具备以下核心能力：</p>
+<table>
+<thead>
+<tr>
+<th>能力项</th>
+<th>证据</th>
+<th>强度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>极低的安装与使用门槛</strong></td>
+<td>D9 = 8.0/10，2 条 codex plugin 命令完成安装，无第三方依赖、无 Dockerfile、无需编译，10 分钟内完成首体验</td>
+<td>⭐⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td><strong>清晰的差异化定位</strong></td>
+<td>D5.1 = 2.4/3，动态子代理编排 + 成本透明，在直接竞品中 stars 领先（146 vs 2）</td>
+<td>⭐⭐⭐</td>
+</tr>
+<tr>
+<td><strong>良好的协议基础</strong></td>
+<td>D6 = 7.8/10，MIT 协议无商业限制，无传染性依赖，版权归属清晰</td>
+<td>⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td><strong>基础工程质量</strong></td>
+<td>D2 = 5.4/10，有 CI（verify.yml）、测试占比 36.2%，代码结构清晰（2 文件 821 行）</td>
+<td>⭐⭐⭐</td>
+</tr>
+<tr>
+<td><strong>成本透明化能力</strong></td>
+<td>D4.3 识别到「成本收据/子代理费用对比」为潜在价值点</td>
+<td>⭐⭐⭐</td>
+</tr>
+<tr>
+<td><strong>自然语言交互设计</strong></td>
+<td>D9.3 = 2.0/2.5，日常使用以自然语言技能调用为主，失败策略明确无静默降级</td>
+<td>⭐⭐⭐⭐</td>
+</tr>
+</tbody>
+</table>
+<h3>7.2 最适合做什么</h3>
+<p>基于当前能力与画像判定，astra-advisor <strong>最适合作为 Codex/GPT-6 生态中的「最佳实践参考实现」与「社区教育工具」</strong> ：</p>
+<ol>
+<li><strong>AI 编排模式的活文档</strong>：项目以极简代码（821 行）展示了动态子代理编排的完整模式，是开发者学习 Sol/Terra/Luna 子代理协作机制的理想参考；</li>
+<li><strong>Codex 插件开发的示范项目</strong>：2 条命令即可安装、无依赖、即插即用，可作为 Codex marketplace 插件开发的模板；</li>
+<li><strong>成本透明化的探索样本</strong>：子代理费用对比与成本收据功能，为 AI 工具成本治理提供了可参考的实现路径；</li>
+<li><strong>社区内容创作的素材源</strong>：围绕项目的教程、评测、最佳实践内容，可支撑 Substack 等内容变现通道。</li>
+</ol>
+<h3>7.3 不适合做什么</h3>
+<ul>
+<li><strong>不适合作为独立 SaaS 产品直接售卖</strong>：项目处于 MVP 阶段，无 release、无生产案例、功能完整性低（D2.6 = 0.6/1.5）；</li>
+<li><strong>不适合作为高壁垒商业产品</strong>：821 行代码 + MIT 协议，复刻成本极低，无法形成持久技术护城河；</li>
+<li><strong>不适合面向企业级市场</strong>：D7 企业就绪度分析失败（无法确认运维、安全、权限管理能力），且无企业背书。</li>
+</ul>
+<h2>八、短板识别：还缺少什么</h2>
+<h3>8.1 关键短板清单</h3>
+<table>
+<thead>
+<tr>
+<th>短板项</th>
+<th>当前状态</th>
+<th>影响</th>
+<th>优先级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>社区生态完全空白</strong></td>
+<td>D3 = 3.5/10，贡献者 1 人、Topics 为空、无第三方插件/集成/教程、近 90 天 Issue/PR 仅 2 个</td>
+<td>无法形成网络效应与社区驱动的增长</td>
+<td>🔴 高</td>
+</tr>
+<tr>
+<td><strong>产品成熟度不足</strong></td>
+<td>D2 = 5.4/10，无 release、无覆盖率与静态分析、无安全扫描、功能完整性低</td>
+<td>无法支撑企业级采用与付费转化</td>
+<td>🔴 高</td>
+</tr>
+<tr>
+<td><strong>技术护城河薄弱</strong></td>
+<td>D5.2 = 1.2/3，821 行代码、MIT 协议、无专利/数据/网络效应</td>
+<td>竞品可快速复制，差异化易被侵蚀</td>
+<td>🔴 高</td>
+</tr>
+<tr>
+<td><strong>商业模式未验证</strong></td>
+<td>D4.2 = 1.4/3.5，无付费层、无企业版/捐赠入口，仅 Substack 订阅引导</td>
+<td>无法判断付费转化逻辑是否成立</td>
+<td>🟡 中</td>
+</tr>
+<tr>
+<td><strong>治理机制缺失</strong></td>
+<td>D6.4 = 0.8/2，无 CONTRIBUTING.md、无 CLA/DCO、无 CODEOWNERS</td>
+<td>贡献者版权收口机制未建立，阻碍社区扩展</td>
+<td>🟡 中</td>
+</tr>
+<tr>
+<td><strong>平台依赖风险</strong></td>
+<td>D5.4 = 0.8/3，核心编排强依赖 Codex 在线工具与 OpenAI 专有模型</td>
+<td>平台原生支持即可能吞并中间层价值</td>
+<td>🟡 中</td>
+</tr>
+<tr>
+<td><strong>商标与专利未核查</strong></td>
+<td>D6.3 = 1.5/2.5（默认档），项目名及描述含第三方标识</td>
+<td>商业化前需做 clearance，存在潜在法律风险</td>
+<td>🟡 中</td>
+</tr>
+<tr>
+<td><strong>示例与文档不足</strong></td>
+<td>D9.4 提示仅 1 个示例文件与 2-3 份文档</td>
+<td>影响用户上手体验与传播效率</td>
+<td>🟢 低</td>
+</tr>
+</tbody>
+</table>
+<h3>8.2 短板补齐的优先级建议</h3>
+<p><strong>第一阶段（0-1 个月）—— 夯实基础</strong>：
+- 补齐 CONTRIBUTING.md、CLA/DCO 与 CODEOWNERS，建立贡献者治理框架；
+- 增加示例文件与文档，提升 D9 维度表现；
+- 添加安全扫描配置与覆盖率工具，提升 D2 维度表现。</p>
+<p><strong>第二阶段（1-3 个月）—— 激活社区</strong>：
+- 主动邀请贡献者参与，目标贡献者从 1 人提升至 3-5 人；
+- 完善 Topics 标签，提升项目可发现性；
+- 发布首个 release，建立版本节奏。</p>
+<p><strong>第三阶段（3-6 个月）—— 验证商业</strong>：
+- 基于 Substack 订阅数据验证内容变现逻辑；
+- 探索企业版功能（团队协作、权限管理等）的付费意愿；
+- 关注 Codex 平台演进，提前布局差异化能力。</p>
+<h2>九、风险提示</h2>
+<h3>9.1 高风险项</h3>
+<table>
+<thead>
+<tr>
+<th>风险</th>
+<th>说明</th>
+<th>等级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>平台吞并风险</strong></td>
+<td>项目核心价值在于 Codex/GPT-6 的 model/effort 控制与子代理编排，若平台原生支持该能力，项目价值将被大幅削弱。D5.4 明确提示此风险</td>
+<td>🔴 高</td>
+</tr>
+<tr>
+<td><strong>竞品快速复制风险</strong></td>
+<td>同主题竞品在项目创建后约 2 天内即出现（Buffarete/astra-advisor），821 行代码 + MIT 协议使复制门槛极低</td>
+<td>🔴 高</td>
+</tr>
+<tr>
+<td><strong>社区不可持续风险</strong></td>
+<td>单人项目、无组织多样性、近 90 天 Issue/PR 仅 2 个，若维护者失去兴趣，项目将迅速停滞。D8.4 因分析失败未能完成一票否决检查</td>
+<td>🔴 高</td>
+</tr>
+</tbody>
+</table>
+<h3>9.2 中风险项</h3>
+<table>
+<thead>
+<tr>
+<th>风险</th>
+<th>说明</th>
+<th>等级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>商业模式验证失败</strong></td>
+<td>项目极早期（4 天），无付费层、无企业版，Substack 订阅引导尚未验证转化逻辑</td>
+<td>🟡 中</td>
+</tr>
+<tr>
+<td><strong>商标与专利风险</strong></td>
+<td>项目名及描述含第三方标识（GPT-6、Codex、Astra 等），商业化前需做 clearance，当前按默认档计分，置信度低</td>
+<td>🟡 中</td>
+</tr>
+<tr>
+<td><strong>安全风险</strong></td>
+<td>无安全扫描配置，未体现对 AI 编排特有安全问题的防护（D2.4 = 0.4/1），若涉及敏感代码或数据可能存在安全隐患</td>
+<td>🟡 中</td>
+</tr>
+<tr>
+<td><strong>分析完整性风险</strong></td>
+<td>D1（市场需求）、D7（企业就绪度）、D8（团队治理）三个维度分析失败，D8.4 一票否决检查不完整，综合评分可能无法完全反映项目真实状况</td>
+<td>🟡 中</td>
+</tr>
+</tbody>
+</table>
+<h3>9.3 低风险项</h3>
+<table>
+<thead>
+<tr>
+<th>风险</th>
+<th>说明</th>
+<th>等级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>法律合规风险</strong></td>
+<td>MIT 协议无商业限制，无传染性依赖，版权归属清晰（D6 = 7.8/10），法律风险总体可控</td>
+<td>🟢 低</td>
+</tr>
+<tr>
+<td><strong>用户迁移风险</strong></td>
+<td>作为 Codex marketplace 插件可快速安装/卸载，无数据锁定，切换成本低——对用户是优势，对项目是留存风险</td>
+<td>🟢 低</td>
+</tr>
+</tbody>
+</table>
+<h2>十、结论与建议</h2>
+<h3>10.1 综合结论</h3>
+<p><strong>astra-advisor 是一个处于 MVP 阶段的 AI 编排工具，综合评分 56.0/100（B 级，中等商业化潜力），价值画像判定为「公共产品型」（临界状态）。</strong></p>
+<p>项目当前的核心价值在于：<strong>以极简代码（821 行）验证了 Codex/GPT-6 动态子代理编排的可行模式</strong>，具备清晰的差异化定位（D5.1 = 2.4/3）、极低的安装使用门槛（D9 = 8.0/10）与良好的协议基础（D6 = 7.8/10）。然而，社区生态空白（D3 = 3.5/10）、产品成熟度不足（D2 = 5.4/10）、技术护城河薄弱（D5.2 = 1.2/3）构成商业化三大瓶颈。</p>
+<p><strong>核心判断</strong>：项目当前不具备直接商业化的条件，但具备成为 Codex 生态中「最佳实践参考实现」的潜力。其商业化价值以「期权价值」为主——若能在平台吞并前快速建立社区与品牌认知，价值有望显著提升；反之则可能被平台原生功能或竞品取代。</p>
+<h3>10.2 建议行动</h3>
+<h4>对维护者（Daniel McAteer）</h4>
+<ol>
+<li><strong>短期（0-1 个月）</strong> ：优先补齐治理框架（CONTRIBUTING/CLA/CODEOWNERS）与安全配置，发布首个 release，建立版本节奏；</li>
+<li><strong>中期（1-3 个月）</strong> ：将重心从代码开发转向社区运营——主动邀请贡献者、完善 Topics 与文档、通过 Substack 输出教程与最佳实践，验证内容变现逻辑；</li>
+<li><strong>长期（3-12 个月）</strong> ：若社区增长达标（stars &gt; 1k、贡献者 ≥5），可探索企业版/SaaS 路径；同时密切关注 Codex 平台演进，提前布局差异化能力。</li>
+</ol>
+<h4>对潜在投资者/合作伙伴</h4>
+<ol>
+<li>当前阶段建议以 <strong>「人才引进」或「生态合作」</strong> 方式介入，而非直接财务投资；</li>
+<li>可考虑以 <strong>「赞助维护者」</strong> 方式支持项目发展，换取对 AI 编排模式演进的早期洞察；</li>
+<li>若项目在 3 个月内实现社区健康度显著改善（D3 提升至 ≥6），可重新评估商业化潜力。</li>
+</ol>
+<h4>对社区用户</h4>
+<ol>
+<li>项目当前处于极早期，建议将其作为 <strong>学习参考</strong> 而非生产依赖；</li>
+<li>可通过提交 Issue/PR 参与项目演进，影响其发展方向；</li>
+<li>关注 Codex 平台原生能力的演进，评估长期使用风险。</li>
+</ol>
+<h3>10.3 最终评级</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>综合评分</td>
+<td>56.0/100</td>
+</tr>
+<tr>
+<td>商业化等级</td>
+<td>B（中等商业化潜力）</td>
+</tr>
+<tr>
+<td>价值画像</td>
+<td>🏛️ 公共产品型（临界状态）</td>
+</tr>
+<tr>
+<td>一票否决</td>
+<td>未触发（D8.4 检查不完整）</td>
+</tr>
+<tr>
+<td>建议行动</td>
+<td>以影响力变现为主，补齐社区与产品短板，视增长情况切换商业化路径</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>【注意】一票否决检查不完整: D8.4</p>
+</blockquote>
+<h2>十一、项目地址</h2>
+<p><svg class="ri ri-muted" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.001 2C6.47598 2 2.00098 6.475 2.00098 12C2.00098 16.425 4.86348 20.1625 8.83848 21.4875C9.33848 21.575 9.52598 21.275 9.52598 21.0125C9.52598 20.775 9.51348 19.9875 9.51348 19.15C7.00098 19.6125 6.35098 18.5375 6.15098 17.975C6.03848 17.6875 5.55098 16.8 5.12598 16.5625C4.77598 16.375 4.27598 15.9125 5.11348 15.9C5.90098 15.8875 6.46348 16.625 6.65098 16.925C7.55098 18.4375 8.98848 18.0125 9.56348 17.75C9.65098 17.1 9.91348 16.6625 10.201 16.4125C7.97598 16.1625 5.65098 15.3 5.65098 11.475C5.65098 10.3875 6.03848 9.4875 6.67598 8.7875C6.57598 8.5375 6.22598 7.5125 6.77598 6.1375C6.77598 6.1375 7.61348 5.875 9.52598 7.1625C10.326 6.9375 11.176 6.825 12.026 6.825C12.876 6.825 13.726 6.9375 14.526 7.1625C16.4385 5.8625 17.276 6.1375 17.276 6.1375C17.826 7.5125 17.476 8.5375 17.376 8.7875C18.0135 9.4875 18.401 10.375 18.401 11.475C18.401 15.3125 16.0635 16.1625 13.8385 16.4125C14.201 16.725 14.5135 17.325 14.5135 18.2625C14.5135 19.6 14.501 20.675 14.501 21.0125C14.501 21.275 14.6885 21.5875 15.1885 21.4875C19.259 20.1133 21.9999 16.2963 22.001 12C22.001 6.475 17.526 2 12.001 2Z"/></svg> <a href="https://github.com/DannyMac180/astra-advisor">https://github.com/DannyMac180/astra-advisor</a></p>
+<hr />
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+</blockquote>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家　<a href="https://www.mova.work">www.mova.work</a></p></body></html>

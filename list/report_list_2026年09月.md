@@ -24,25 +24,25 @@
 | 17 | [useagenthq/useagent](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/05/useagent/report.html) | 60.5 | B | 技术质量显著高于阶段预期但外部验证为零的极早期项目，精准卡位+深护城河值得技术借鉴或人才引进，暂不投入直接商业化。 |
 | 18 | [deeplethe/utopia](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/05/utopia/report.html) | 76.8 | A | 技术底座与市场卡位俱佳的明星资产，但商业验证为零——先跑通 v1.0 + 首个付费客户，再谈规模化。 |
 | 19 | [debpalash/VoiceStudio](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/05/voicestudio/report.html) | 66.6 | A | 社区爆发力与工程底子俱佳，双许可通道已铺好，但 Active beta 与 Bus Factor=1 需先补课再商业化。 |
-| 20 | [Qiushen-first/cn-investment-banking-skills](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/06/cn-investment-banking-skills/) | 56.5 | B | 领域知识值钱但项目疑似停更、零社区参与、零商业设计，当前不建议投入，建议fork自用或观望。 |
-| 21 | [siggifly/ipod-emulator](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/06/ipod-emulator/) | 44.9 | C | 技术卓越但商业价值极低的Alpha期长尾项目，市场极小、变现路径缺失、企业就绪度1.3/10，建议技术借鉴而非商业化投入。 |
-| 22 | [DogParty/iPodClickWheelRecomps](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/06/ipodclickwheelrecomps/) | 49.6 | C | 技术世界首创但版权死结+单人维护+零商业模式，仅适合技术借鉴与人才引进，不建议商业投入。 |
-| 23 | [tailscale/tailcat](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/06/tailcat/) | 73.6 | A | tailcat 是 A 级明星资产，最优路径是作为 Tailscale 商业体系的技术引流入口，而非独立变现；需补齐企业级功能与治理短板。 |
-| 24 | [google-research/timesfm](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/06/timesfm/) | 76.4 | A | TSFM赛道技术标杆，Google云托管已验证变现，但3.0权重非商业许可封死第三方直接商用，仅推荐绕开权重限制的垂直场景路径。 |
-| 25 | [Imbad0202/academic-research-skills](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/07/academic-research-skills/) | 63.5 | D | 技术顶级、社区头部，但 CC BY-NC 4.0 一票否决商业化可能——先解决许可问题，再谈变现。 |
-| 26 | [ChromeDevTools/chrome-devtools-mcp](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/07/chrome-devtools-mcp/) | 74.5 | A | Google 用免费工具锁死 AI 时代浏览器入口的生态核武器——商业价值巨大但归 Google 所有，第三方只能做生态互补。 |
-| 27 | [magnitudedev/magnitude](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/07/magnitude/) | 72.0 | A | 工程与定位俱佳但采用远落后于关注度，6个月内需完成真实用户验证与付费设计，否则窗口期关闭。 |
-| 28 | [every-app/open-seo](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/07/open-seo/) | 74.6 | A | 技术强、模式清晰、热度现象级的AI原生SEO开源明星，但单点维护与收入未验证是6-12个月内必须跨越的两道坎。 |
-| 29 | [anthropics/skills](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/07/skills/) | 70.9 | A | 生态位顶级、工程质量垫底——标准定义权与官方身份构成护城河，补齐 License 与工程短板后商业化空间巨大。 |
-| 30 | [multica-ai/andrej-karpathy-skills](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/08/andrej-karpathy-skills/) | 55.3 | B | 21万Star的顶级流量入口与行业教科书，但0代码0License0维护，只可作影响力杠杆不可作产品变现。 |
-| 31 | [fmtlib/fmt](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/08/fmt/) | 76.7 | A | {fmt} 是 C++ 格式化基础设施的明星资产，技术满分但直接变现路径缺失，建议走基金会托管+大厂雇佣模式而非直接商业化。 |
-| 32 | [heygen-com/hyperframes](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/08/hyperframes/) | 80.0 | S | S级明星资产，立即投入商业化——首选云渲染托管路径，维持Apache-2.0内核开放，3个月内锁定v1.0接口。 |
-| 33 | [DannyMac180/astra-advisor](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/09/astra-advisor/) | 56.0 | B | 极早期 AI 编排插件，易用性出色但社区空白、护城河薄弱，当前价值是期权而非现金流，建议影响力变现为主。 |
-| 34 | [coreyhaines31/marketingskills](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/09/marketingskills/) | 78.5 | A | AI营销技能赛道绝对霸主，流量碾压竞品71倍；但0测试+无安全机制是商业化命门，变现须靠生态而非直接付费。 |
-| 35 | [handsomestWei/patent-disclosure-skill](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/09/patent-disclosure-skill/) | 70.4 | A | 精准卡位中国专利AI空白赛道，8.7k Star验证需求，MIT加持变现自由；但工程治理与商业模式未落地，需补齐SaaS化能力方可将势能转化为收入。 |
-| 36 | [openai/skills](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/09/skills/) | 59.7 | B | OpenAI 官方已弃用的技能目录，26.5K Star 品牌资产救不了零工程化、零护城河的底子——只可借内容做技术参考，不可投入直接商业化。 |
-| 37 | [obra/superpowers](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/09/superpowers/) | 80.6 | S | AI编码技能层事实标准候选者，S级潜力明星资产；当务之急是把283k Star势能转化为收入流，以MIT底线走服务变现之路。 |
-| 38 | [XiaoDuoYa/codex-with-chatgpt](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/10/codex-with-chatgpt/) | 63.8 | B | 需求真实、产品力强，但MIT+免费即完整+卖点即省钱，变现路径结构性封死，价值前提全握在OpenAI手里。 |
+| 20 | [Qiushen-first/cn-investment-banking-skills](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/06/cn-investment-banking-skills/report.html) | 56.5 | B | 领域知识值钱但项目疑似停更、零社区参与、零商业设计，当前不建议投入，建议fork自用或观望。 |
+| 21 | [siggifly/ipod-emulator](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/06/ipod-emulator/report.html) | 44.9 | C | 技术卓越但商业价值极低的Alpha期长尾项目，市场极小、变现路径缺失、企业就绪度1.3/10，建议技术借鉴而非商业化投入。 |
+| 22 | [DogParty/iPodClickWheelRecomps](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/06/ipodclickwheelrecomps/report.html) | 49.6 | C | 技术世界首创但版权死结+单人维护+零商业模式，仅适合技术借鉴与人才引进，不建议商业投入。 |
+| 23 | [tailscale/tailcat](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/06/tailcat/report.html) | 73.6 | A | tailcat 是 A 级明星资产，最优路径是作为 Tailscale 商业体系的技术引流入口，而非独立变现；需补齐企业级功能与治理短板。 |
+| 24 | [google-research/timesfm](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/06/timesfm/report.html) | 76.4 | A | TSFM赛道技术标杆，Google云托管已验证变现，但3.0权重非商业许可封死第三方直接商用，仅推荐绕开权重限制的垂直场景路径。 |
+| 25 | [Imbad0202/academic-research-skills](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/07/academic-research-skills/report.html) | 63.5 | D | 技术顶级、社区头部，但 CC BY-NC 4.0 一票否决商业化可能——先解决许可问题，再谈变现。 |
+| 26 | [ChromeDevTools/chrome-devtools-mcp](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/07/chrome-devtools-mcp/report.html) | 74.5 | A | Google 用免费工具锁死 AI 时代浏览器入口的生态核武器——商业价值巨大但归 Google 所有，第三方只能做生态互补。 |
+| 27 | [magnitudedev/magnitude](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/07/magnitude/report.html) | 72.0 | A | 工程与定位俱佳但采用远落后于关注度，6个月内需完成真实用户验证与付费设计，否则窗口期关闭。 |
+| 28 | [every-app/open-seo](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/07/open-seo/report.html) | 74.6 | A | 技术强、模式清晰、热度现象级的AI原生SEO开源明星，但单点维护与收入未验证是6-12个月内必须跨越的两道坎。 |
+| 29 | [anthropics/skills](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/07/skills/report.html) | 70.9 | A | 生态位顶级、工程质量垫底——标准定义权与官方身份构成护城河，补齐 License 与工程短板后商业化空间巨大。 |
+| 30 | [multica-ai/andrej-karpathy-skills](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/08/andrej-karpathy-skills/report.html) | 55.3 | B | 21万Star的顶级流量入口与行业教科书，但0代码0License0维护，只可作影响力杠杆不可作产品变现。 |
+| 31 | [fmtlib/fmt](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/08/fmt/report.html) | 76.7 | A | {fmt} 是 C++ 格式化基础设施的明星资产，技术满分但直接变现路径缺失，建议走基金会托管+大厂雇佣模式而非直接商业化。 |
+| 32 | [heygen-com/hyperframes](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/08/hyperframes/report.html) | 80.0 | S | S级明星资产，立即投入商业化——首选云渲染托管路径，维持Apache-2.0内核开放，3个月内锁定v1.0接口。 |
+| 33 | [DannyMac180/astra-advisor](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/09/astra-advisor/report.html) | 56.0 | B | 极早期 AI 编排插件，易用性出色但社区空白、护城河薄弱，当前价值是期权而非现金流，建议影响力变现为主。 |
+| 34 | [coreyhaines31/marketingskills](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/09/marketingskills/report.html) | 78.5 | A | AI营销技能赛道绝对霸主，流量碾压竞品71倍；但0测试+无安全机制是商业化命门，变现须靠生态而非直接付费。 |
+| 35 | [handsomestWei/patent-disclosure-skill](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/09/patent-disclosure-skill/report.html) | 70.4 | A | 精准卡位中国专利AI空白赛道，8.7k Star验证需求，MIT加持变现自由；但工程治理与商业模式未落地，需补齐SaaS化能力方可将势能转化为收入。 |
+| 36 | [openai/skills](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/09/skills/report.html) | 59.7 | B | OpenAI 官方已弃用的技能目录，26.5K Star 品牌资产救不了零工程化、零护城河的底子——只可借内容做技术参考，不可投入直接商业化。 |
+| 37 | [obra/superpowers](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/09/superpowers/report.html) | 80.6 | S | AI编码技能层事实标准候选者，S级潜力明星资产；当务之急是把283k Star势能转化为收入流，以MIT底线走服务变现之路。 |
+| 38 | [XiaoDuoYa/codex-with-chatgpt](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/10/codex-with-chatgpt/report.html) | 63.8 | B | 需求真实、产品力强，但MIT+免费即完整+卖点即省钱，变现路径结构性封死，价值前提全握在OpenAI手里。 |
 | 39 | [anthropics/commerce-agents](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/10/commerce-agents/) | 68.8 | A | A 级评的是 Anthropic 的技术质量与官方背书，不是本仓库的变现能力——借势而非占有。 |
 | 40 | [ayghri/i-have-adhd](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/10/i-have-adhd/) | 66.0 | A | 34,592 Star 验证真痛点，但 2,498 行代码无付费触发点，宜走影响力变现而非 Open Core。 |
 | 41 | [microsoft/markitdown](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/10/markitdown/) | 80.2 | S | 微软背书+18万Star验证刚需，Azure导流变现路径清晰，治理与AGPL风险可控，S级明星资产值得立即布局。 |

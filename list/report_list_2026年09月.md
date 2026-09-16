@@ -1,7 +1,7 @@
 # 报告清单 · 2026年09月
 
 > 本文件由 github_anyliasis 自动维护，每次发布报告时更新。
-> 本月共收录 66 条报告记录。
+> 本月共收录 67 条报告记录。
 
 | 序号 | 项目 | 综合得分 | 等级 | 一句话结论 |
 |------|------|----------|------|-----------|
@@ -68,9 +68,10 @@
 | 61 | [decolua/9router](../reports/2026/09/16/9router/) | 67.7 | A | 需求侧头部明星、变现侧彻底空白，核心卖点依赖正在被上游收回的免费额度，先补治理合规再谈企业版。 |
 | 62 | [elie222/botdirectory.ai](../reports/2026/09/16/botdirectory.ai/) | 62.5 | B | 值得借鉴其贡献工作流与 feed 设计，不值得投入商业化资源。 |
 | 63 | [hoangann2000/figma-mcp-console](../reports/2026/09/16/figma-mcp-console/) | 61.1 | B | 方向对、上手优秀，但需求验证、变现入口、竞争壁垒三缺，只宜技术借鉴不宜投资。 |
-| 64 | [petergyang/no-ai-slop](../reports/2026/09/16/no-ai-slop/) | 59.5 | B | 127行代码换9862 Star的注意力资产，护城河近零、无付费触发点，不建议投入直接商业化资源。 |
-| 65 | [max-sixty/worktrunk](../reports/2026/09/16/worktrunk/) | 67.0 | A | 痛点真、迭代猛、上手快，但变现载体为零且上游随时可能内化这一层，买的是窗口期权不是生意。 |
-| 66 | [jadenzhangrobot/zrcs](../reports/2026/09/16/zrcs/report.html) | 42.1 | D | 技术底子不差，但法律上不可用、社区上无人用、商业上无设计，当前不具备商业化起步条件。 |
+| 64 | [op7418/guizang-ppt-skill](../reports/2026/09/16/guizang-ppt-skill/report.html) | 60.9 | B | 26k Star 的 Agent Skill 范本，但 AGPL 加零付费触发点锁死变现，只宜走赞助与生态服务路线。 |
+| 65 | [petergyang/no-ai-slop](../reports/2026/09/16/no-ai-slop/) | 59.5 | B | 127行代码换9862 Star的注意力资产，护城河近零、无付费触发点，不建议投入直接商业化资源。 |
+| 66 | [max-sixty/worktrunk](../reports/2026/09/16/worktrunk/) | 67.0 | A | 痛点真、迭代猛、上手快，但变现载体为零且上游随时可能内化这一层，买的是窗口期权不是生意。 |
+| 67 | [jadenzhangrobot/zrcs](../reports/2026/09/16/zrcs/report.html) | 42.1 | D | 技术底子不差，但法律上不可用、社区上无人用、商业上无设计，当前不具备商业化起步条件。 |
 
 ---
 

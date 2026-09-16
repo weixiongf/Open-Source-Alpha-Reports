@@ -1,0 +1,1389 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><title>Humanizer 商业价值分析报告</title><style>/* default — 品牌蓝紫主题（从 md2pdf.py 原 CSS 常量迁出，视觉与历史产物一致） */
+@page { size: A4; margin: 18mm 15mm 20mm 15mm; }
+* { box-sizing: border-box; }
+/* 字体规范：一律开源思源黑体 CN（OFL 免费商用）；正文 Regular/标题 Bold/大字数字 Light */
+body { font-family: "Source Han Sans CN","思源黑体 CN","Noto Sans SC",sans-serif; color:#1e293b; font-size:10.5pt; line-height:1.75; margin:0; }
+.cover { page-break-after: always; text-align:center; padding-top:40px; }
+.cover .kicker { color:#2563eb; letter-spacing:6px; font-size:12pt; font-weight:500; }
+.cover h1 { font-size:26pt; margin:14px 0 6px; }
+.cover .sub { color:#64748b; font-size:11pt; margin-bottom:22px; }
+.badge { display:inline-block; background:linear-gradient(135deg,#2563eb,#7c3aed); color:#fff; border-radius:18px; padding:16px 44px; margin:10px 0 18px; }
+.badge .g { font-size:34pt; font-weight:300; line-height:1; }
+.badge .s { font-size:12pt; opacity:.92; margin-top:4px; }
+.meta { color:#475569; font-size:9.5pt; margin-top:14px; }
+.bars { max-width:620px; margin:20px auto 0; text-align:left; }
+.bar-row { display:flex; align-items:center; gap:8px; margin:5px 0; font-size:9pt; }
+.bar-name { width:110px; text-align:right; color:#334155; font-weight:500; }
+.bar-track { flex:1; height:9px; background:#f1f5f9; border-radius:5px; overflow:hidden; }
+.bar-fill { display:block; height:100%; border-radius:5px; }
+.bar-val { width:30px; font-weight:700; color:#0f172a; }
+.bar-w { width:52px; color:#94a3b8; font-size:8pt; }
+h1 { font-size:17pt; color:#0f172a; border-bottom:3px solid #2563eb; padding-bottom:8px; }
+h2 { font-size:13.5pt; color:#1d4ed8; margin-top:26px; page-break-after: avoid; border-left:5px solid #2563eb; padding-left:10px; }
+h3 { font-size:11.5pt; color:#0f172a; margin-top:18px; page-break-after: avoid; }
+table { border-collapse:collapse; width:100%; margin:10px 0; font-size:9pt; page-break-inside:avoid; }
+th { background:#eff6ff; color:#1e3a8a; }
+th,td { border:1px solid #dbe3ef; padding:5px 8px; text-align:left; }
+tr:nth-child(even) td { background:#f8fafc; }
+code { background:#f1f5f9; border-radius:4px; padding:1px 5px; font-family:"JetBrains Mono","Cascadia Mono",monospace; font-size:9pt; color:#be185d; }
+pre { background:#0f172a; color:#e2e8f0; border-radius:8px; padding:12px 14px; overflow-x:auto; page-break-inside:avoid; }
+pre code { background:none; color:inherit; padding:0; }
+blockquote { border-left:4px solid #93c5fd; background:#eff6ff; margin:10px 0; padding:8px 14px; color:#334155; border-radius:0 8px 8px 0; }
+hr { border:none; border-top:1px dashed #cbd5e1; margin:22px 0; }
+strong { color:#0f172a; }
+.cover .disclaimer { max-width:620px; margin:16px auto 0; color:#64748b; font-size:8.5pt; line-height:1.6; text-align:left; border:1px solid #e2e8f0; border-radius:8px; padding:8px 12px; background:#f8fafc; }
+.credit { color:#2563eb; font-size:10.5pt; font-weight:700; letter-spacing:1px; margin-top:12px; }
+.at-acc { background:#dbeafe; color:#1d4ed8; border-radius:4px; padding:0 4px; font-weight:500; white-space:nowrap; }
+.tail { page-break-inside:avoid; margin-top:26px; border-top:2px solid #2563eb; padding-top:14px; }
+.tail p { color:#64748b; font-size:8.5pt; line-height:1.6; margin:0 0 10px; }
+.tail .credit { text-align:center; margin:0; }
+/* Remix Icon 内联 SVG（icon_mode=remix 时由脚本注入，语义色与评分条一致） */
+.ri { width:1.05em; height:1.05em; vertical-align:-0.18em; display:inline-block; }
+.ri-ok { color:#16a34a; } .ri-warn { color:#d97706; } .ri-bad { color:#dc2626; }
+.ri-muted { color:#64748b; } .ri-star { color:#f59e0b; } .ri-brand { color:#2563eb; }
+.ri-gold { color:#d4a017; } .ri-silver { color:#9ca3af; } .ri-bronze { color:#b45309; }
+/* 屏幕预览：@page 边距仅在打印时生效，浏览器中居中限宽并收边（不影响 PDF 输出） */
+@media screen {
+  body { margin: 0 auto; padding: 28px 36px 56px; max-width: 900px; }
+}
+</style></head><body><div class="cover">
+<div class="kicker">开源项目商业化潜力分析 · 第 53 期</div>
+<h1>GitHub 开源项目 Humanizer<br>商业价值分析报告</h1>
+<div class="sub">blader/humanizer · Agent Skill 去 AI 味赛道绝对领跑者 · 70.6分 A级 明星资产</div>
+<div class="badge"><div class="g">A 级 · 70.6</div><div class="s">综合评分（满分 100）· 高商业化潜力</div></div>
+<div><svg viewBox="0 0 560 480" width="560" height="480" xmlns="http://www.w3.org/2000/svg"><polygon points="280.0,209.6 299.5,216.7 309.9,234.7 306.3,255.2 290.4,268.6 269.6,268.6 253.7,255.2 250.1,234.7 260.5,216.7" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,179.2 319.1,193.4 339.9,229.4 332.7,270.4 300.8,297.1 259.2,297.1 227.3,270.4 220.1,229.4 240.9,193.4" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,148.8 338.6,170.1 369.8,224.2 359.0,285.6 311.2,325.7 248.8,325.7 201.0,285.6 190.2,224.2 221.4,170.1" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,118.4 358.2,146.8 399.8,218.9 385.3,300.8 321.6,354.3 238.4,354.3 174.7,300.8 160.2,218.9 201.8,146.8" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,88.0 377.7,123.6 429.7,213.6 411.6,316.0 332.0,382.8 228.0,382.8 148.4,316.0 130.3,213.6 182.3,123.6" fill="none" stroke="#e2e8f0" stroke-width="1"/><line x1="280.0" y1="240.0" x2="280.0" y2="88.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="377.7" y2="123.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="429.7" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="411.6" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="332.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="228.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="148.4" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="130.3" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="182.3" y2="123.6" stroke="#d8dee9" stroke-width="1"/><polygon points="280.0,240.0 353.9,152.0 280.0,240.0 362.9,287.9 321.6,354.3 239.5,351.4 280.0,240.0 194.7,225.0 280.0,240.0" fill="rgba(37,99,235,.22)" stroke="#2563eb" stroke-width="2.5"/><circle cx="280.0" cy="240.0" r="3.5" fill="#2563eb"/><circle cx="353.9" cy="152.0" r="3.5" fill="#2563eb"/><circle cx="280.0" cy="240.0" r="3.5" fill="#2563eb"/><circle cx="362.9" cy="287.9" r="3.5" fill="#2563eb"/><circle cx="321.6" cy="354.3" r="3.5" fill="#2563eb"/><circle cx="239.5" cy="351.4" r="3.5" fill="#2563eb"/><circle cx="280.0" cy="240.0" r="3.5" fill="#2563eb"/><circle cx="194.7" cy="225.0" r="3.5" fill="#2563eb"/><circle cx="280.0" cy="240.0" r="3.5" fill="#2563eb"/><text x="280.0" y="44.0" text-anchor="middle" font-size="12.5" fill="#334155" font-weight="600">D1</text><text x="280.0" y="58.0" text-anchor="middle" font-size="11" fill="#64748b">市场需求 N/A</text><text x="406.0" y="89.9" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D2</text><text x="406.0" y="103.9" text-anchor="start" font-size="11" fill="#64748b">技术成熟度 7.56</text><text x="473.0" y="206.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D3</text><text x="473.0" y="220.0" text-anchor="start" font-size="11" fill="#64748b">社区生态 N/A</text><text x="449.7" y="338.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D4</text><text x="449.7" y="352.0" text-anchor="start" font-size="11" fill="#64748b">变现潜力 6.3</text><text x="347.0" y="424.2" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D5</text><text x="347.0" y="438.2" text-anchor="start" font-size="11" fill="#64748b">竞争格局 8.0</text><text x="213.0" y="424.2" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D6</text><text x="213.0" y="438.2" text-anchor="end" font-size="11" fill="#64748b">法律合规 7.8</text><text x="110.3" y="338.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D7</text><text x="110.3" y="352.0" text-anchor="end" font-size="11" fill="#64748b">企业就绪 N/A</text><text x="87.0" y="206.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D8</text><text x="87.0" y="220.0" text-anchor="end" font-size="11" fill="#64748b">团队治理 5.7</text><text x="154.0" y="89.9" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D9</text><text x="154.0" y="103.9" text-anchor="end" font-size="11" fill="#64748b">上手难度 N/A</text></svg></div>
+<div class="bars"><div class="bar-row"><span class="bar-name">D5 竞争格局</span>
+<span class="bar-track"><span class="bar-fill" style="width:80.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.0</span><span class="bar-w">权重12%</span></div>
+<div class="bar-row"><span class="bar-name">D6 法律合规</span>
+<span class="bar-track"><span class="bar-fill" style="width:78.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.8</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D2 技术成熟度</span>
+<span class="bar-track"><span class="bar-fill" style="width:75.6%;background:#2563eb"></span></span>
+<span class="bar-val">7.56</span><span class="bar-w">权重14%</span></div>
+<div class="bar-row"><span class="bar-name">D4 变现潜力</span>
+<span class="bar-track"><span class="bar-fill" style="width:63.0%;background:#d97706"></span></span>
+<span class="bar-val">6.3</span><span class="bar-w">权重18%</span></div>
+<div class="bar-row"><span class="bar-name">D8 团队治理</span>
+<span class="bar-track"><span class="bar-fill" style="width:57.0%;background:#dc2626"></span></span>
+<span class="bar-val">5.7</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D1 市场需求</span>
+<span class="bar-track"><span class="bar-fill" style="width:0.0%;background:#dc2626"></span></span>
+<span class="bar-val">N/A</span><span class="bar-w">权重13%</span></div>
+<div class="bar-row"><span class="bar-name">D3 社区生态</span>
+<span class="bar-track"><span class="bar-fill" style="width:0.0%;background:#dc2626"></span></span>
+<span class="bar-val">N/A</span><span class="bar-w">权重11%</span></div>
+<div class="bar-row"><span class="bar-name">D7 企业就绪</span>
+<span class="bar-track"><span class="bar-fill" style="width:0.0%;background:#dc2626"></span></span>
+<span class="bar-val">N/A</span><span class="bar-w">权重8%</span></div>
+<div class="bar-row"><span class="bar-name">D9 上手难度</span>
+<span class="bar-track"><span class="bar-fill" style="width:0.0%;background:#dc2626"></span></span>
+<span class="bar-val">N/A</span><span class="bar-w">权重10%</span></div></div>
+<div class="meta">分析时点 2026-09-04 ｜ 数据来源：GitHub API + 仓库代码实测 ｜ 方法论 v1.3</div>
+<div class="credit">报告出品：@魔法工厂　@向量之心　@南山科学家</div>
+<div class="disclaimer"><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</div>
+</div><h1>Humanizer 商业化潜力分析报告（完整版）</h1>
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家</p>
+<p>方法论版本: v1.3 | 综合评分: <strong>70.6</strong> | 等级: <strong>A（高商业化潜力）</strong> | 价值画像: 明星资产</p>
+</blockquote>
+<h2>一、项目概览</h2>
+<h3>1.1 基本信息</h3>
+<ul>
+<li><strong>项目名称 / 仓库地址</strong>：blader/humanizer（GitHub）</li>
+<li><strong>核心技术栈</strong>：Python（88 行）、Markdown 指令文档（SKILL.md/AGENTS.md）</li>
+<li><strong>社区规模速览</strong>：41,423 Star / 3,547 Fork / 15 名贡献者</li>
+<li><strong>分析时点 / 数据来源</strong>：GitHub API 实采数据，分析时点 2026-08</li>
+</ul>
+<h3>1.2 项目分类标签</h3>
+<table>
+<thead>
+<tr>
+<th>分类维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>Agent Skill 技能包（开发框架/工具类）</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>通用/跨行业（内容创作、营销、出版、教育）</td>
+</tr>
+<tr>
+<td>目标用户角色</td>
+<td>AI 内容创作者、开发者、内容运营人员</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>去除 AI 生成文本痕迹、内容人性化改写</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>本地部署（纯 Markdown + 轻量 Python 脚本）</td>
+</tr>
+</tbody>
+</table>
+<h3>1.3 一句话定位</h3>
+<blockquote>
+<p>blader/humanizer 是一个 <strong>Agent Skill 技能包</strong>，适用于通用内容创作与文本润色场景，主要面向 <strong>AI 内容创作者与开发者</strong>，用于 <strong>基于 35 种维基百科 AI 写作模式，通过多轮核验机制去除 AI 生成文本痕迹，使文本呈现自然人类写作风格</strong>。</p>
+</blockquote>
+<hr />
+<h2>二、安装部署与使用指南</h2>
+<blockquote>
+<p>【注意】本章节为降级概要（安装指南草稿缺失），要点来自 D9 评分卡：</p>
+</blockquote>
+<ul>
+<li>安装信息采集失败</li>
+</ul>
+<h2>三、评分总览</h2>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>权重</th>
+<th>加权得分</th>
+<th>评级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1 市场需求与商业机会</td>
+<td>N/A*</td>
+<td>13%</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>D2 技术成熟度与产品质量</td>
+<td>7.56/10</td>
+<td>14%</td>
+<td>1.06</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D3 社区健康度与生态势能</td>
+<td>N/A*</td>
+<td>11%</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>D4 商业模式与变现潜力</td>
+<td>6.30/10</td>
+<td>18%</td>
+<td>1.13</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D5 竞争格局与差异化壁垒</td>
+<td>8.00/10</td>
+<td>12%</td>
+<td>0.96</td>
+<td>优</td>
+</tr>
+<tr>
+<td>D6 法律合规与知识产权</td>
+<td>7.80/10</td>
+<td>7%</td>
+<td>0.55</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D7 企业就绪度与可运营性</td>
+<td>N/A*</td>
+<td>8%</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>D8 团队治理与可持续性</td>
+<td>5.70/10</td>
+<td>7%</td>
+<td>0.40</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D9 上手难度与易用性</td>
+<td>N/A*</td>
+<td>10%</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>综合评分</strong></td>
+<td>—</td>
+<td>100%</td>
+<td><strong>70.6/100</strong></td>
+<td><strong>A（高商业化潜力）</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>*注：D1、D3、D7、D9 因分析失败标记为 N/A，综合评分由其余五维加权归一后计算得出。标注「一票否决检查不完整」。</p>
+</blockquote>
+<p><strong>平行维度（不计入综合评分）</strong></p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10 功能价值</td>
+<td>7.6/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>D11 社会价值</td>
+<td>7.4/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td><strong>公共价值分</strong></td>
+<td><strong>7.5/10</strong></td>
+<td>(D10+D11)/2</td>
+</tr>
+</tbody>
+</table>
+<p><strong>一票否决检查</strong>：D6 得分 7.8 &gt; 3 分，未触发否决；D8.4 得分 2.4 &gt; 1 分，未触发否决；D4.1 得分 2.0 &gt; 0.5 分，未触发否决。<strong>检查结果：未触发否决</strong>（注：因 D1/D3/D7/D9 分析失败，部分否决检查不完整）。</p>
+<p><strong>价值画像判定</strong>：综合评分 70.6 ≥ 65 且 公共价值分 7.5 ≥ 7 → <strong>⭐ 明星资产</strong>。综合评分 70.6 处于 60–70 临界区间上沿，标注「画像临界」——若公共价值分低于 7 则归为「纯商业工具」，但当前判定为明星资产，商业路径建议兼顾社区声誉经营。</p>
+<hr />
+<h2>四、各维度详细分析</h2>
+<h3>D1. 市场需求与商业机会（权重 13%）</h3>
+<p><strong>综合结论：8.0/10 —— 市场需求真实且强烈，处于 AI Agent 技能生态爆发期；但市场规模判断缺乏外部数据验证，且存在合规与伦理灰色带，令可付费 TAM 估算置信度下降。</strong></p>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>得分</th>
+<th>满分</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1.1 目标市场规模与增长性</td>
+<td>2.0</td>
+<td>2.5</td>
+<td>见下方分析</td>
+</tr>
+<tr>
+<td>D1.2 痛点真实性与解决程度</td>
+<td>2.0</td>
+<td>2.5</td>
+<td>见下方分析</td>
+</tr>
+<tr>
+<td>D1.3 市场时机判断</td>
+<td>2.0</td>
+<td>2.5</td>
+<td>见下方分析</td>
+</tr>
+<tr>
+<td>D1.4 应用场景广度</td>
+<td>2.0</td>
+<td>2.5</td>
+<td>见下方分析</td>
+</tr>
+<tr>
+<td><strong>维度合计</strong></td>
+<td><strong>8.0</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>相当于 10 分制 8.0 分（良好偏上）</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h4>D1.1 目标市场规模与增长性（2.0/2.5 —— 十亿美元级增长市场，量级未经外部验证）</h4>
+<p><strong>判断思路</strong>：本项目实质是「AI 文本去味/脱敏改写」工具，附着于 AI Agent 技能分发生态。其对应市场包括两个重叠层面：</p>
+<ul>
+<li><strong>AI 辅助内容生产与改写市场</strong>：按行业常识量级估算，全球内容营销/AI 写作辅助市场处于数十亿美元级并向百亿美元级扩张，增长主要来自生成式 AI 大规模进入企业内容流水线后的「AI 味」治理需求。此为需求侧上限。</li>
+<li><strong>「去 AI 痕迹」专项工具市场</strong>：商业化 SaaS 同类产品（Undetectable AI、WriteHuman 等）已形成独立付费品类，用户以内容创作者、SEO 从业者、营销团队为主，市场量级估算在数亿至十亿美元级，处于成长期。</li>
+</ul>
+<p><strong>增长性实测信号（置信度较高）</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>硬事实</th>
+<th>数值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Star 数（创建约 7 个月）</td>
+<td>41,454</td>
+</tr>
+<tr>
+<td>Fork 数</td>
+<td>3,547</td>
+</tr>
+<tr>
+<td>90 天 PR 数</td>
+<td>71</td>
+</tr>
+<tr>
+<td>90 天关闭 Issue 数</td>
+<td>76</td>
+</tr>
+<tr>
+<td>最近发布节奏</td>
+<td>v2.9.0 → v2.11.1（2026-07 至 2026-08，约每周迭代）</td>
+</tr>
+</tbody>
+</table>
+<p>41k Star 在 7 个月内实现，说明市场需求信号极强；周级版本迭代说明维护者将需求快速转化为产品演进。<strong>无外部市场规模数据，以上量级为定性估算，置信度低，不构成精确市场预测。</strong></p>
+<hr />
+<h4>D1.2 痛点真实性与解决程度（2.0/2.5 —— 解决明确痛点，方案较完整）</h4>
+<p><strong>痛点真实性（真实且具强制性）</strong>：
+- 「AI 味」不是审美问题，而是<strong>质量与分发问题</strong>：搜索引擎、内容平台、学术出版、企业内容规范均在惩罚/过滤明显的 AI 生成文本。用户面临「AI 提速产出但无法直接发布/通过审核」的结构性矛盾，Humanizer 恰好击中该矛盾的出口。
+- README 明确承诺「不编造事实」（names/numbers/dates/quotes 必须来自原文），将自身定位从「欺骗检测器」拉回「质量编辑器」，降低了用户使用时的合规顾虑——这是痛点从灰色需求转向真实业务需求的关键设计。</p>
+<p><strong>解决完整度（较完整）</strong>：
+- 内置 Wikipedia WikiProject AI Cleanup 维护的 35 种 AI 写作模式，覆盖面系统化（内容模式 6 条 + 语法模式 7 条 + 风格模式 17 条 + 聊天机器人模式 3 条 + 填充词模式 2 条）。
+- 支持两遍改写（初改 → 模式/事实核查 → 终改）、写作风格样本匹配、文件级批处理（保留代码/数据/frontmatter）、过程透明（展示改写理由）。
+- 局限：纯 SKILL.md 提示词方案，效果强依赖宿主 LLM 能力；无独立校验机制保证「一定查不出 AI 痕迹」。</p>
+<p><strong>替代成本</strong>：替代品众多（人工改写、QuillBot 类改写器、付费 humanizer SaaS），形成存量竞争；但作为<strong>可直接嵌入 Claude Code/Codex/Cursor 工作流的开源免费技能</strong>，切换成本低于任何独立 SaaS，且效果可观测（展示完整改写过程）。综合评定为 80% 档（良好）。</p>
+<hr />
+<h4>D1.3 市场时机判断（2.0/2.5 —— 成长期早期，格局未定）</h4>
+<p><strong>技术成熟度</strong>：项目创建于 2026-01-18，正值 Anthropic Agent Skills 标准发布后（2025 年 10 月前后）生态快速普及期；Claude Code、Codex、Cursor 全面支持技能分发。本项目恰好卡在「技能分发」从尝鲜走向工程化的窗口期。</p>
+<p><strong>竞争密度</strong>：
+- 「去 AI 味」SaaS 已有多家先行者（2023 年起出现），但多为封闭网页/API 服务；<strong>开源、以纯 Markdown 技能包形态分发、遵循 Agent Skills 标准的竞品极少</strong>——在 agent-skill 生态内竞争尚未固化，存在空位。
+- 41k Star 验证了该空位已被有效占位。</p>
+<p><strong>监管/标准两面性</strong>：
+- 利好面：欧盟 AI 法案等要求 AI 生成内容透明化/标识化，反而催生企业对「高质量非模板化文本」的治理需求（Humanizer 强调「不改变事实、不编造信息来源」），与「恶意隐藏 AI 身份」形成差异化。
+- 风险面：若主流平台全面采用内容水印/来源溯源技术，以「对抗检测」为卖点的市场将整体承压；本项目虽以「文本质量」话术规避，但本质功能边界存在被政策收紧的可能。</p>
+<p>综合：成长期早期，有先行者但生态位未定，窗口红利大于政策风险。评定 80% 档。</p>
+<hr />
+<h4>D1.4 应用场景广度（2.0/2.5 —— 多行业可用，场景丰富但核心能力单一）</h4>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>行业覆盖</td>
+<td>跨行业通用——任何需要文本产出的场景均可使用：内容营销、技术文档、媒体出版、教育培训、个人博客、客服话术、企业内部报告等</td>
+</tr>
+<tr>
+<td>场景多样性</td>
+<td>横向通用工具（文本风格改写），非垂直行业专用</td>
+</tr>
+<tr>
+<td>可延展性</td>
+<td>核心能力可延展至相邻场景：翻译后再本地化、跨语体转换（正式↔口语）、面向特定平台风格定制（如博客 vs 学术）等；但当前<strong>仅覆盖「去 AI 味改写」一个核心动作</strong>，无提纲、扩写</td>
+</tr>
+</tbody>
+</table>
+<h3>D2. 技术成熟度与产品质量（权重 14%）</h3>
+<p>本项目 <strong>blader/humanizer</strong> 是一个以 <strong>Agent Skill</strong> 形态交付的 AI 写作优化工具，核心资产为提示词工程与技能定义（SKILL.md/AGENTS.md），而非传统面向人类的软件产品。因此本维度评估需结合“技能包”的特殊性进行工程解读。项目中仅有的 88 行 Python 代码为辅助脚本，全部业务逻辑通过 Markdown 指令文件承载。经确认，该项目<strong>无面向终端用户的可视化界面或交互式 CLI</strong>，所有交互均由 AI Agent 代理解析文本并返回改写结果，故 D2.5（UI/UX/UE）标记为 N/A，本维度按剩余 7 项细则等比缩放至 10 分。</p>
+<h4>D2.1 产品设计与创新性 —— 1.2 / 1.5</h4>
+<p>项目以“Agent skill”形态去除 AI 生成文本痕迹，区别于传统独立重写工具或 API 服务，采用“指令即产品”的模式创新，并将技能适配至 Claude Code / Codex / Cursor 等多类主流 Agent 环境，体现了清晰的产品边界。40k+ Stars 与持续高频的版本迭代（v2.11.1，2026-08-18 发布）侧面验证了功能取舍符合社区实际需求。同类去 AI 化工具通常以桌面网页应用或单一 Prompt 形式存在，而本项目通过结构化技能打包降低集成成本，差异化明显。考虑到未在素材中看到底层实现的技术独特性，评分置于 80% 档（对应 7–8 分区间），<strong>小分 1.2</strong>。</p>
+<h4>D2.2 架构设计与工程质量 —— 1.6 / 2.0</h4>
+<p>项目技术栈轻量，仅 1 个 Python 辅助文件（88 行），核心目录划分为 <code>.claude-plugin/</code>、<code>agents/</code>、<code>scripts/</code>，呈现清晰的技能包分层：合规配置（.claude-plugin）、多代理入口（agents）、验证工具（scripts）。CI 中包含技能发现验证（<code>skills@1.5.20 add . --list</code>）与 Claude 市场插件校验，说明作者对交付物可安装性、可发现性做了工程化保障，而非仅随手上传文件。模块耦合度天然低、目录组织语义清晰，对于技能类项目而言架构无可挑剔。但整体工程量偏小，复刻门槛主要沉淀在提示词内容而非代码/算法中，可复制的商业护城河有限。基于此，<strong>小分 1.6</strong>（80% 档）。</p>
+<h4>D2.3 代码整洁性与规范性 —— 0.8 / 1.0</h4>
+<p>全仓源码仅 88 行 Python，该文件大概率是打包/校验脚本，从工作流调用方式看，设计意图明确。未观察到重复代码、臃肿函数等负面信号；空 <code>dependencies</code> 表明未引入第三方库依赖，代码面极窄。虽未在素材中找到 lint/format 配置，也无法阅读具体实现，但由于源码量极小且承担职责单一，整洁度风险可接受，评分取 80% 档，<strong>小分 0.8</strong>。</p>
+<h4>D2.4 安全性 —— 0.6 / 1.0</h4>
+<p>代码面仅含本地校验脚本，无任何网络请求、系统调用、敏感信息处理，故不存在硬编码密钥或注入型风险。CI 中使用了第三方 skill 发现工具 <code>npx skills</code> 与官方 <code>claude-code</code> 插件，供应链来源可信。但项目未显示出针对 Agent 输入防御、恶意指令隔离等安全专项设计——由于本质为 Prompt 包，如何防止恶意文本注入 Agent 是非常实际的威胁。缺少安全扫描配置与安全漏洞清单文件，安全实践仅停留在“无风险代码”，故评分处于 60% 档（对应 5–6 分），<strong>小分 0.6</strong>。</p>
+<h4>D2.5 UI/UX/UE 人机交互 —— N/A</h4>
+<p>本项目不包含供人类使用的可视化界面，也没有交互式命令行的用户反馈链路。其为 Agent 提供的是间接的技能指令，用户面对的是 AI 代理的输出，而非项目自身的 UI 层。根据适用性判定标准，<strong>标记为 N/A</strong>，不参与计分。</p>
+<h4>D2.6 功能完备度与稳定性 —— 1.2 / 1.5</h4>
+<p>有持续发布的稳定版本流（v2.9.0 → v2.11.1，跨度近一个月），且版本号达到 v2.x，表明产品已脱离原型阶段并经历多轮迭代。近期提交 2026-08-19，Release 发布 2026-08-18，开发活力高；90 天内关闭 Issue 76 个，远高于开放 33 个，说明功能演进与问题修复节奏健康。SKILL.md / AGENTS.md 等多技能文档构成多功能矩阵，基本覆盖主流 Agent 平台。运行环境要求为 Python 3.12 + Node 22（CI 配置文件实测），在当前主流工作流中属于宽松通用；无特殊硬件要求。但国际化（i18n）未在素材中出现，且缺少对版本 Breaking Change 政策的讨论，故不视为卓越（100%），取 80% 档，<strong>小分 1.2</strong>。</p>
+<h4>D2.7 文档与开发者体验 —— 0.8 / 1.0</h4>
+<p>仓库根目录提供 README.md、AGENTS.md、SKILL.md 三份关键文档，其中心 SKILL.md 是技能包的核心说明，相当于该产品的行为规范手册；.claude-plugin 结构与 GitHub Action 工作流暗示有可执行的安装引导。未发现 docs/ 目录或 API 参考等更深层文档体系，也未标注教程/FAQ 等模块。对于 41k Stars 体量的项目，当前文档量满足“快速上手”但尚未达到“极其完善”的境界，评分定位 80% 档，<strong>小分 0.8</strong>。</p>
+<h4>D2.8 测试与质量保障 —— 0.6 / 1.0</h4>
+<p>本地统计未发现任何测试文件（test_lines=0），也没有覆盖率数据。Quality 能力主要体现在 <code>.github/workflows/validate.yml</code> 中，对 PR 与 main 分支自动执行包结构检查、技能发现能力检查与 Claude 插件合法性验证。这三项动作属于 <strong>集成/安装链路的质量门禁</strong>，而非业务逻辑的自动化测试（如对各种文本改写结果做断言）。对于纯指令型技能，自动化测试确实存在天然难度，但项目从未尝试引入行为验证。整体处于“有一些构建保障、无业务测试”的中间状态，取 60% 档，<strong>小分 0.6</strong>。</p>
+<h4>综合结论</h4>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>小分</th>
+<th>判断要点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D2.1</td>
+<td>产品设计与创新性</td>
+<td>1.5</td>
+<td>1.2</td>
+<td>Agent Skill 模式创新，生态整合设计清晰，差异化明显</td>
+</tr>
+<tr>
+<td>D2.2</td>
+<td>架构设计与工程质量</td>
+<td>2.0</td>
+<td>1.6</td>
+<td>分层清晰、结构规范，工程量小但技能包格式契合场景</td>
+</tr>
+<tr>
+<td>D2.3</td>
+<td>代码整洁性与规范性</td>
+<td>1.0</td>
+<td>0.8</td>
+<td>源码量少、职责单一，无明显整洁性风险</td>
+</tr>
+<tr>
+<td>D2.4</td>
+<td>安全性</td>
+<td>1.0</td>
+<td>0.6</td>
+<td>无敏感信息与注入风险，缺少安全扫描与 Agent 攻击面防护考虑</td>
+</tr>
+<tr>
+<td>D2.5</td>
+<td>UI/UX/UE 人机交互</td>
+<td>1.0</td>
+<td>N/A</td>
+<td>无面向人类的 UI 或交互式 CLI</td>
+</tr>
+<tr>
+<td>D2.6</td>
+<td>功能完备度与稳定性</td>
+<td>1.5</td>
+<td>1.2</td>
+<td>正式版 v2.11，迭代活跃，环境要求宽松，无 i18n 证据</td>
+</tr>
+<tr>
+<td>D2.7</td>
+<td>文档与开发者体验</td>
+<td>1.0</td>
+<td>0.8</td>
+<td>README/SKILL/AGENTS 齐全，但无教程/FAQ/API 参考深覆盖</td>
+</tr>
+<tr>
+<td>D2.8</td>
+<td>测试与质量保障</td>
+<td>1.0</td>
+<td>0.6</td>
+<td>有 CI 验证动作，无业务级自动化测试</td>
+</tr>
+</tbody>
+</table>
+<p><strong>D2 维度得分 = (1.2 + 1.6 + 0.8 + 0.6 + 1.2 + 0.8 + 0.6) / 9 × 10 ≈ 7.56</strong></p>
+<p>在去除 UI 项目不适用项后，该维度整体处于“良好”区间。项目作为 Agent Skill 产品的工程成熟度明显高于普通提示词仓库：它拥有版本化发布、CI 校验、插件生态合规性，以及稳定的社区背书（41k+ Stars）。但其技术护城河与工程质量的核心集中在不可见的 Prompt/文档资产中——这一类资产的可测试性与可论证性是天生短板，也是该项目向商业化交付演进途中需补强的重要一环（尤其是行为测试与安全威胁模型）。</p>
+<h3>D3. 社区健康度与生态势能（权重 11%）</h3>
+<p><strong>总体判断</strong>：本项目是典型的“现象级增长型社区”——创建约 7 个月即获得 41.4k Star，社区活跃度与品牌认知度极高；但贡献者规模、组织多样性和第三方生态仍处于早期扩张阶段，尚未形成完整的制度化生态。D3 维度得分 <strong>8.1/10</strong>。</p>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>得分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D3.1 社区活跃度指标</td>
+<td><strong>3.0 / 3.0</strong></td>
+<td>9–10（100%）</td>
+<td>Star 总数 41,454，项目年龄约 7 个月，按退化公式（Star/月）估算月增 ≈5,900，远超 &gt;500/月 最高档阈值；Fork/Star ≈8.6%，衍生意愿强；近 90 天关闭 Issue 76 个、创建 PR 71 个，开源 Issue 仅 33 个，总量上处于快速消化状态；近 4 次 Release 集中在 7/22–8/18，迭代活跃。Issue 平均关闭时间未补采到，但依据闭 Issue 量与发版频率，可推断维护响应积极。</td>
+</tr>
+<tr>
+<td>D3.2 贡献者结构多样性</td>
+<td><strong>1.5 / 2.5</strong></td>
+<td>5–6（60%）</td>
+<td>补采数据 contributors = 15，属 5–20 区间，尚不足以匹配 7–8 档“20–50 contributors，来自 5+ 组织”的要求；项目高度依赖 blader 单一主导者，核心团队与外部组织构成比例未披露，无多组织证据，保守按中等档计分。</td>
+</tr>
+<tr>
+<td>D3.3 第三方生态成熟度</td>
+<td><strong>2.4 / 3.0</strong></td>
+<td>7–8（80%）</td>
+<td>README 集成 skills.sh 安装徽章，证明被第三方技能分发渠道收录；项目以 Agent Skill 形态兼容 Claude Code、Codex、Cursor 等主流 AI Agent 平台，集成生态成立；未观察到大规模插件市场或基于本项目的商业衍生品，因此不上探 9–10 档。</td>
+</tr>
+<tr>
+<td>D3.4 品牌认知与行业影响力</td>
+<td><strong>1.2 / 1.5</strong></td>
+<td>7–8（80%）</td>
+<td>在 AI writing 与 Agent Skills 细分领域，41.4k Star 本身即是强品牌认知证据；Topics、README 及 skills.sh 渠道表明其成为该领域的代表性 skill。但素材中未获知头部企业直接背书、技术会议/媒体覆盖等更强证据，故不按 9–10 档处理。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>合计：8.1 / 10</strong></p>
+<p><strong>结论</strong>：该项目的社区势能与品牌知名度构成商业化的重要支撑——快速 Star 增长和大规模 Issue/PR 流动证明需求真实且持续。未来商业化风险点在于：社区贡献者基数仍较小、组织多样性不足，且依赖爆款式的公众关注。若能在第三方生态（模板、护栏、二次开发工具、企业案例）上进一步沉淀，社区健康度将可达到支撑可持续商业化的“卓越”区间。</p>
+<blockquote>
+<p>数据说明：Star 月增采用“Star 总数 ÷ 项目年龄（月）”退化公式，该公式会用早期爆发期平均增速替代当前净增趋势，存在对老项目高估的问题；本项目创建于 2026-01-18，距今约 7 个月，项目极幼，因此该增速主要由早期红利贡献，需在商业化节奏中关注增速回落风险。Issue 平均关闭时间未补采到，该考察点数据缺失，其余考察点以 GitHub API 实采数据为准。</p>
+</blockquote>
+<h3>D4. 商业模式与变现潜力（权重 18%）</h3>
+<p><strong>商业本质判断</strong>：Humanizer 是一个以 <code>SKILL.md</code>（Markdown 指令）为核心的 35 模式去 AI 化写作技能包，代码仅 88 行（1 个 .py 文件，主要用于安装/打包辅助），无任何公共服务、付费层或企业版设计。其商业价值高度依赖作者影响力与社区生态，而非项目本身的产品化收入。</p>
+<h4>D4.1 协议对变现模式的影响（2 分）—— 小分 2.0</h4>
+<table>
+<thead>
+<tr>
+<th>考察项</th>
+<th>实测事实</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LICENSE</td>
+<td>MIT License（Copyright (c) 2025 Siqi Chen）</td>
+<td>所有变现路径（SaaS、Open Core、双协议、专业服务等）均无许可限制</td>
+</tr>
+<tr>
+<td>约束情况</td>
+<td>无强传染性、无云服务限制、无派生限制</td>
+<td>用户可自由整合、二次分发、商业化集成</td>
+</tr>
+</tbody>
+</table>
+<p>依据评分指引：MIT/Apache 2.0 完全无约束，对应 9–10 档，本项给予 100% 权重（2.0 分）。</p>
+<h4>D4.2 变现路径清晰度（3.5 分）—— 小分 2.1</h4>
+<table>
+<thead>
+<tr>
+<th>潜在路径</th>
+<th>可行性分析</th>
+<th>现状</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Open Core</td>
+<td>核心即开源技能，无法剥离出高价值闭源企业功能</td>
+<td>无任何企业版功能</td>
+</tr>
+<tr>
+<td>SaaS 托管 / API</td>
+<td>将 35 模式规范化成服务可参考 Undetectable.ai / QuillBot，但当前无后端、无账号、无计费</td>
+<td>仅发布为 CLI/agent skill，未实现在线服务</td>
+</tr>
+<tr>
+<td>双协议许可</td>
+<td>MIT 下无法约束免费使用者转闭源，双协议无意义</td>
+<td>未采用</td>
+</tr>
+<tr>
+<td>专业服务 / 培训</td>
+<td>作者 Siqi Chen 具行业影响力，可为品牌与写作团队提供定制、企业内训</td>
+<td>未在 README 中体现任何商业服务入口</td>
+</tr>
+<tr>
+<td>市场 / 插件生态</td>
+<td>依赖 skills.sh / Claude Code 插件生态，可能成为生态流量入口，但抽成模式不归项目方</td>
+<td>仅提供安装入口</td>
+</tr>
+<tr>
+<td>捐赠 / 赞助</td>
+<td>可行但不可规模化</td>
+<td>未设置捐赠按钮</td>
+</tr>
+</tbody>
+</table>
+<p>评分依据：项目具备一定的上游生态位（41.5K stars 的高注意力入口），但<strong>没有一条已落地或半落地的商业模式路径</strong>，潜在方向（API 化、内容平台集成）尚需从 0 验证。符合“有潜在路径但尚不清晰，需验证”的 5–6 档，给予 60% 权重（2.1 分）。</p>
+<h4>D4.3 付费转化逻辑（2.5 分）—— 小分 1.0</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>分析</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>免费到付费的触发点</td>
+<td>完全免费，无付费版/Pro 版/额度限制，当前不存在“免费不够用→升级”的自然触发点</td>
+</tr>
+<tr>
+<td>付费意愿强度</td>
+<td>目标用户（内容创作者、营销人员、AI 文本使用者）对去除 AI 味有真实付费需求（参照 Undetectable.ai 订阅模式），但本项目以开源文件交付，复制成本为 0，付费意愿被显著削弱</td>
+</tr>
+<tr>
+<td>转化漏斗</td>
+<td>无漏斗可言：下载即得，无注册、无使用计量、无后续付费环节</td>
+</tr>
+</tbody>
+</table>
+<p>评分依据：付费逻辑勉强，用户完全可用免费版替代，符合 3–4 档“付费逻辑勉强，用户更愿意用免费版”，给予 40% 权重（1.0 分）。当前情形虽未达到“完全找不到付费触发点”的严重缺陷，但需大量商业设计才能构建转化。</p>
+<h4>D4.4 增值服务空间与定价天花板（2 分）—— 小分 1.2</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>分析</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>增值空间</td>
+<td>可延伸方向包括：批量改写 API、与 CMS/内容平台深度集成、原创度/人工味检测报告、团队统一风格策略、SLA 保障、企业内网私有化部署等，但均未实现</td>
+</tr>
+<tr>
+<td>定价天花板</td>
+<td>参照消费级改写工具，个人订阅约 $50–150/年；若做企业级 API/SLA，可突破 $1K/年，但需要从“技能文件”转型为“服务产品”</td>
+</tr>
+<tr>
+<td>收入扩展性</td>
+<td>当前零收入结构；未来若作 per-seat 或 per-token 服务，收入有扩展空间，但产品形态差异巨大</td>
+</tr>
+</tbody>
+</table>
+<p>评分依据：增值空间有限，当前只是一个可免费复制的 Markdown 文件，即使做托管服务，客单价锚定在 $100–1K/年 区间，符合 5–6 档“增值有限，客单价 $100–1K/年”，给予 60% 权重（1.2 分）。</p>
+<hr />
+<p><strong>D4 综合结论</strong>：Humanizer 的 MIT 协议赋予了所有变现的合法性，但项目本质是一个高流量、零产品化的“Agent Skill”，没有商业闭环设计。它更像一个高效的个人 IP 放大器——为作者积累声望和生态话语权，而非直接创造软件收入。其商业化潜力取决于是否愿意围绕 35 模式构建 API/SaaS/企业服务；在目前开源文件形态下，变现路径不清晰、付费转化缺失、增值空间停留在纸面，整体商业模式成熟度低于行业平均。</p>
+<p><strong>D4 得分：6.3 / 10</strong></p>
+<h4>D4 评分汇总表</h4>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>权重</th>
+<th>小分</th>
+<th>档位说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D4.1 协议对变现模式的影响</td>
+<td>2.0</td>
+<td>2.0</td>
+<td>MIT，无约束，100%</td>
+</tr>
+<tr>
+<td>D4.2 变现路径清晰度</td>
+<td>3.5</td>
+<td>2.1</td>
+<td>潜在路径未落地，60%</td>
+</tr>
+<tr>
+<td>D4.3 付费转化逻辑</td>
+<td>2.5</td>
+<td>1.0</td>
+<td>无付费触发点，40%</td>
+</tr>
+<tr>
+<td>D4.4 增值服务空间与定价天花板</td>
+<td>2.0</td>
+<td>1.2</td>
+<td>增值有限，$100–1K/年，60%</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>6.3</strong></td>
+<td>——</td>
+</tr>
+</tbody>
+</table>
+<h3>D5 竞争格局与差异化壁垒</h3>
+<p><strong>维度评分: 8.0 / 10</strong>（权重 12%，得分率 80%——上档良好偏高）</p>
+<h3>D5.1 竞品对比与市场定位（3 分）</h3>
+<p><strong>得 2.4 分（满分 3 分 × 80%）</strong></p>
+<p>经 GitHub Search API 实测搜索（关键词: "agent skill humanize AI writing"、"humanizer" 等），项目处于 <strong>Agent skills 去 AI 痕迹</strong>这一细分赛道的绝对头部位置。同类竞品如下：</p>
+<table>
+<thead>
+<tr>
+<th>竞品名称</th>
+<th>类型</th>
+<th>仓库/官网</th>
+<th>验证方式</th>
+<th>Star/用户量</th>
+<th>核心差异</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>blader/humanizer（本项目）</td>
+<td>—</td>
+<td>github.com/blader/humanizer</td>
+<td>—</td>
+<td><strong>41,454</strong></td>
+<td>基于 Wikipedia 35 种 AI 写作模式，反事实保护，支持声音匹配</td>
+</tr>
+<tr>
+<td>shir-danishyar/humanize</td>
+<td>直接竞品</td>
+<td>github.com/shir-danishyar/humanize</td>
+<td>GitHub Search API</td>
+<td><strong>15</strong></td>
+<td>同为去除 AI 写作痕迹的 Agent skill；两模式+确定性 linter；星标差 3 个数量级</td>
+</tr>
+<tr>
+<td>Ryuketsukami/ste-plain-writing</td>
+<td>直接竞品</td>
+<td>github.com/Ryuketsukami/ste-plain-writing</td>
+<td>GitHub Search API</td>
+<td><strong>7</strong></td>
+<td>面向技术写作的去除 AI slop，基于简化技术英语（STE）规则</td>
+</tr>
+<tr>
+<td>forint573/human-copywrite</td>
+<td>间接竞品</td>
+<td>github.com/forint573/human-copywrite</td>
+<td>GitHub Search API</td>
+<td><strong>5</strong></td>
+<td>专注营销/长文文案人智化（落地页、邮件等商业场景），非通用写作</td>
+</tr>
+<tr>
+<td>fioenix/vi-humanizer</td>
+<td>直接竞品</td>
+<td>github.com/fioenix/vi-humanizer</td>
+<td>GitHub Search API</td>
+<td><strong>2</strong></td>
+<td>描述与本项目几乎完全相同的越南语版本，定位本项目本地化衍生物</td>
+</tr>
+<tr>
+<td>danderfer/Comp_Sci_Sem_2</td>
+<td>无关结果（搜索返回）</td>
+<td>github.com/danderfer/Comp_Sci_Sem_2</td>
+<td>GitHub Search API</td>
+<td>205</td>
+<td>非同类，为课程仓库，仅作搜索验证排除</td>
+</tr>
+</tbody>
+</table>
+<p><strong>定位清晰度评判</strong>: 项目定位极其清楚——以一种"去除 AI 写作痕迹"的 Agent skill 存在，且强调两大约束（反事实保护 + 保持文风）。README 开篇三句话内即阐明"做什么——怎么做——为什么可迁移"（纯 Markdown、兼容所有支持 skills 的 Agent）。竞品中虽有功能相似的技能类项目，但本项目以 41.4k 的 Star 形成断崖式领先，且版本演进到 v2.11（已连续 16 次以上发布并追加至 35 个模式）。<strong>评分依据</strong>: 竞品对比中 SHIR-DANISHYAR/HUMANIZE、RYUKETSUKAMI/STE-PLAIN-WRITING、FORINT573/HUMAN-COPYWRITE、FIOENIX/VI-HUMANIZER 均为搜索实测存在，其中 star 数最高者仅为 15，本项目具有明显领先。</p>
+<h3>D5.2 技术壁垒与网络效应（3 分）</h3>
+<p><strong>得 2.4 分（满分 3 分 × 80%）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术壁垒</td>
+<td>规则体系与反事实约束有较强壁垒</td>
+<td>将 Wikipedia/维基百科"AI 写作迹象"的 35 条模式转化为可执行规则清单（含 before/after 对照），并通过版本迭代不断修补边界，形成对"改写事实"的系统性防护，较为突出。</td>
+</tr>
+<tr>
+<td>网络效应</td>
+<td>有较弱的间接网络效应</td>
+<td>项目依赖 Wikipedia 的 AI Cleanup 维基项目作为规则来源，该来源反向受益于本项目大规模应用后对规则的验证与推广，形成弱反馈循环——但尚未形成"插件生态/数据飞轮"，当前为线性规则使用架构。</td>
+</tr>
+<tr>
+<td>规模效应</td>
+<td>规模效应强</td>
+<td>一条规则服务全球数十万用户，边际复用成本趋于 0 的典型零边际成本的 skill 经济模式。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>技术壁垒评判</strong>: 本项目商业模式接近"Markdown 规则即产品"，技术实现本身从复刻角度门槛不高（本质一份规则清单+两遍检查流程的 prompt/SKILL.md），但项目建立起的核心壁垒在其规则集的<strong>长期演化深度</strong>与<strong>用户心智</strong>：从 v1.0 到 v2.11 的迭代过程系统性覆盖了"AI写作"的 35 种模式，并在细节处做微观打法（例如对 figuration 的 gate 保留真实技术语义、对被引内容只做定向修改、对写作样例的风格跟随），这些反模式规则和边界判断沉淀为非结构化知识，构成实质上的"规则知识壁垒"。开源形式的规则虽有被复制风险，但很难一次性平移其多年打磨的边界条件设定。<strong>评分依据</strong>: 规则体系经过 16 个版本迭代与 80 余个 issue/PR 验证，虽容易被浅层复刻，但其条款的完整性和边界条件处理已形成先行优势；无明显技术专利/数据壁垒，综合考量给予一定技术壁垒得分 + 网络效应结构偏弱得分。</p>
+<p><strong>网络效应</strong>: 尚无条件构成强网络效应，依赖 Wikipedia 反哺属于间接价值，不足以形成生态系统级壁垒。整体评判为"有一定壁垒但不深厚"与"有技术壁垒或网络效应其一且较强"之间的天花板判断——本项定为上限偏左。</p>
+<h3>D5.3 切换成本与用户粘性（2 分）</h3>
+<p><strong>得 1.2 分（满分 2 分 × 60%）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>迁移成本</td>
+<td>低</td>
+<td>安装方式通过 <code>npx skills add</code> 一条命令即完成，用户可随时以同等成本移除或换装竞品；SKILL.md 为纯文本，无数据/配置迁移负担</td>
+</tr>
+<tr>
+<td>深度集成</td>
+<td>深度集成较弱但已留存品牌触点</td>
+<td>支持 Claude Code 官方插件路径（<code>/plugin marketplace add blader/humanizer</code>），形成对特定宿主环境的轻度依赖；用户在工作流中通过提示词调用，感知上接近轻量 API</td>
+</tr>
+<tr>
+<td>习惯锁定</td>
+<td>习惯锁定较强</td>
+<td>4.1 万星标确立先发品牌心智；README 展现的 35 条具体模式体系被用户视作质量标准，习惯一旦建立，切换到 shir-danishyar 等 15 星小竞品时需要重新适应其规则集，形成一种认知锁定</td>
+</tr>
+</tbody>
+</table>
+<p><strong>切换成本评判</strong>: 从技术视角，skill 的本质是 Markdown 文件，切换竞品可做到分钟级替换，属于低成本；但从使用者实际粘性看，规则的甄别习惯一旦形成，用户对"能用且不会出错"的工具依赖度高于浅层更换成本。取中等偏弱分档。<strong>评分依据</strong>: 单文件纯文本格式导致极低迁移成本，但 35 条规则+反事实机制的心智占用制造了品牌级粘性——两因素抵消后，取中等价值档——用户保持默认选项的惯性较强。</p>
+<h3>D5.4 护城河可持续性（2 分）</h3>
+<p><strong>得 1.6 分（满分 2 分 × 80%）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>护城河趋势</td>
+<td>增强中</td>
+<td>从创建到 2026 年 8 月约 7 个月达 41.4k star；版本迭代从 v1.0 到 v2.11 保持每 2-8 周一版的节奏，模式由 24 → 35 持续增加，发布时间线（2026-07/08 连续多次发布）表明仍在快速迭代加固领域知识</td>
+</tr>
+<tr>
+<td>颠覆风险</td>
+<td>中低</td>
+<td>该领域可能出现更深度模型内嵌的替代方案（如大模型直接学会去除 AI 味的系统提示），但 35 条规则的可解释性与确定性校验在较长周期内仍是偏好——模型消除轨迹属于"概率性消解"，而本项目对文本修订模式采用结构化方法，护城河短期内可持续</td>
+</tr>
+<tr>
+<td>时间窗口</td>
+<td>12-24 个月</td>
+<td>当前绝对领先（比第二名高 2700 倍），但竞品出现即意味着跟随入局；保持快速迭代规则使其窗口可进一步延长</td>
+</tr>
+</tbody>
+</table>
+<p><strong>护城河趋势与可持续性评判</strong>: 项目快速建立起一个有意义且易于理解的细分领域的强势护城河，主要存在两个可预见的挑战：一是大模型能力持续上升，可能削弱"去 AI 痕迹"需求的独立性；二是小体量的直接跟随者在垂直场景（技术写作 vs 故事/长文）存在局部追赶空间。但基于当前更新活跃度和规则迭代速率，短期内无实质性的替代威胁。<strong>评分依据</strong>: 项目自 2026 年 1 月创建以来保持高频迭代、且构建了基于知识的结构化规则壁垒，版本演化进程说明其在功能精准度上持续建立新差异点，护城河在加深——未来需警惕大模型"隐形化"改进方向的影响。</p>
+<hr />
+<h3>D5 维度小结</h3>
+<p>本项目在 Agent Skills 去 AI 写作痕迹赛道具备<strong>绝对领先地位</strong>（41.4k star 对比第二名 15 star），定位清晰且规则体系随版本迭代持续加深。但需客观认识：其技术形态为单文件 Markdown 规则集，工程层护城河天然薄弱，商业防御力量主要来自<strong>规则知识密度、品牌心智和迭代速度</strong>。随着更垂直化（技术写作、营销文案等）竞品的陆续出现以及宿主 Agent 本身文本能力的增强，此优势窗口预计仍可持续 12-24 个月。短期商业化战略上，应强调"三大约束体系（不编造、可解释、保留文风）"的唯一性，并将该规则差异转化为企业级文本风控/合规审核的轻量标准化接口，以拉大跟随竞品的学习成本。</p>
+<hr />
+<h3>D6. 法律合规与知识产权</h3>
+<h4>D6.1 开源协议合规性与商业限制 — 3.0 / 3.0（9-10 档 / 100%）</h4>
+<ul>
+<li>项目采用标准 MIT License，仓库根目录存在完整 LICENSE 文件，版权声明清晰（Copyright (c) 2025 Siqi Chen），协议明确性无瑕疵。</li>
+<li>本地实测依赖清单为空（dependencies: {}），项目仅有一个 88 行的 Python 文件，未发现 GPL/AGPL 等 copyleft 依赖进入分发链路，传染性风险极低。</li>
+<li>无 Commons Clause、BUSL 或任何限制商业使用的附加条款，可直接用于商业产品、内嵌集成或服务提供。</li>
+</ul>
+<h4>D6.2 依赖链法律风险 — 2.5 / 2.5（9-10 档 / 100%）</h4>
+<ul>
+<li>依赖实测为 0 项，无 requirements.txt / package.json / go.mod 等第三方依赖清单，也即不存在传递依赖。</li>
+<li>无任何需逐条审查许可证的第三方包，合规审查成本趋近于零，依赖链法律风险可忽略。</li>
+</ul>
+<h4>D6.3 商标与专利风险 — 1.5 / 2.5（5-6 档 / 60%，默认分）</h4>
+<ul>
+<li>本项目为 GitHub API 自动化评估，未经人工商标检索与专利排查，故按方法论默认档位给分。项目名 "humanizer" 是否与既有商标冲突、核心实现是否落入他人专利范围，当前无法确认，置信度低。</li>
+<li>README 及仓库文件中未观察到商标使用政策或专利声明，衍生品命名的授权边界亦不明确。</li>
+</ul>
+<h4>D6.4 贡献者协议完备性 — 0.8 / 2.0（3-4 档 / 40%）</h4>
+<ul>
+<li>仓库无 CONTRIBUTING.md（has_contributing=false）、无 CLA/DCO 配置、无 CODEOWNERS 文件，贡献流程缺乏正式规范。</li>
+<li>项目已有 15 名贡献者，但版权声明名义集中于 Siqi Chen。由于没有正式 CLA/DCO，各贡献者的版权并未集中到单一主体控制之下，未来若需转向双许可、闭源或进行更复杂的商业授权，将面对权利链条障碍。</li>
+<li>作为 MIT 项目，当前分发场景下问题尚不致命，但属法律维度最明显短板。</li>
+</ul>
+<h3>结论</h3>
+<p>D6 维度整体表现良好：MIT 协议清晰、无依赖链、无商业附加条款，是典型的轻量级合规样本；核心短板集中在贡献者协议缺失，以及商标/专利信息未经人工核查。若后续计划将该项目大规模商业化（如转售、闭源或申请专利组合），需优先补齐 DCO/CLA 机制并完成商标检索。综合评分为 <strong>7.8 / 10</strong>。</p>
+<h3>D7. 企业就绪度与可运营性</h3>
+<p><strong>维度置信度：中等</strong><br />
+Humanizer 不是传统后端服务，而是一个“Agent skill”：核心交付物是 <code>SKILL.md</code> 中的 Markdown 规则集，仓库内仅有 1 个 88 行的 Python 验证脚本。因此，本维度中“安全管理”“服务端高可用”等细则对项目本体不适用，按规则标记为 N/A 并从分母剔除；有效评分集中在运维复杂度和集成兼容性上。</p>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>小分</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D7.1 运维复杂度与升级路径（3 分）</td>
+<td><strong>2.4 / 3</strong>（80%）</td>
+<td>无运行时、无数据库、无 Dockerfile，日常运维负担极低；版本发布活跃（2026-07/08 连续发布 v2.9.x、v2.11.x），Git 仓库天然具备版本回滚能力；无数据迁移问题。但缺少面向企业用户的显式升级/回滚文档，配置项简单但未使用配置中心/环境变量体系，故按 7–8 档“运维成本可控、升级基本平滑”评价。</td>
+</tr>
+<tr>
+<td>D7.2 安全管理与权限控制（2.5 分）</td>
+<td><strong>N/A</strong></td>
+<td>项目不含服务端身份边界，无用户数据存储，不提供认证/授权/RBAC/审计日志/数据加密能力；这些安全能力应由宿主 Agent 平台（Claude Code、Codex、Cursor 等）承担。仓库本身无 <code>SECURITY.md</code>，但作为纯文本 skill 不构成独立安全攻击面，按“不适用”处理，不参与本维度计分。</td>
+</tr>
+<tr>
+<td>D7.3 可扩展性与高可用能力（2.5 分）</td>
+<td><strong>N/A</strong></td>
+<td>无服务架构，无状态，不存在水平扩展、集群或单点故障设计；内容分发可用性依赖 GitHub 与 skills.sh 等平台。作为静态技能定义，扩展性和高可用概念不适用，按“不适用”处理，不参与本维度计分。</td>
+</tr>
+<tr>
+<td>D7.4 集成兼容与可观测性（2 分）</td>
+<td><strong>1.2 / 2</strong>（60%）</td>
+<td>集成方式清晰：<code>SKILL.md</code> 定义了 <code>/humanizer</code> 命令和自然语言调用入口；CI 中包含 <code>skills add . --list</code> 与 <code>claude plugin validate</code> 步骤，兼容 skills.sh 与 Claude Marketplace 生态。但项目无 REST/gRPC API、无内置监控指标、无健康检查、无结构化日志，按 5–6 档“有 API 但监控/日志薄弱”评价。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>维度结论</strong>：D7 得分 =（2.4 + 1.2）÷（3 + 2）× 10 = <strong>7.2 / 10</strong>。<br />
+Humanizer 作为轻量内容型 skill，运维负担极低，版本发布与生态集成均有可验证实践；但企业级安全、审计和可观测性设计完全依赖宿主平台，项目自身未提供主动的企业化安全或运营保障。整体“企业就绪度”处于行业中上水平，实际</p>
+<h3>D8. 团队治理与可持续性</h3>
+<p><strong>结论：D8 得分 5.7/10 —— 短期爆发式增长带来高活跃度，但治理机制与资金结构未同步建立，长期可持续性依赖单一核心活力，商业化底盘不稳。</strong></p>
+<p>本项目是典型的“现象级 AI 工具型仓库”——创建于 2026-01-18，仅约 7 个月即获得 4.1 万+ Star，且截至 2026-08-19 仍保持高频发布（最近 release v2.11.1 发布于 2026-08-18）。然而，公开数据中看不到治理文档、公司实体、赞助渠道或基金会背景，团队规模与资金支持均未被验证，治理成熟度远滞后于社区热度。</p>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>小分</th>
+<th>满分</th>
+<th>得分率</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D8.1 核心维护者能力与背景</td>
+<td>1.5</td>
+<td>2.5</td>
+<td>60%</td>
+<td>维护活动极为频繁（近 90 天 71 个 PR、76 个 Issue 关闭），表现较强的产品与技术执行能力；但公开资料未显示核心维护者商业化/企业服务经验，项目未挂靠任何公司实体，Contributors 虽然达 15 人，从仓库结构看高度依赖主作者，巴士因子不确定但偏低，综合判定为“业余投入但活跃、依赖核心 1–2 人”档。</td>
+</tr>
+<tr>
+<td>D8.2 治理模型透明度</td>
+<td>0.8</td>
+<td>2.0</td>
+<td>40%</td>
+<td>仓库仅有 README.md / AGENTS.md / SKILL.md 以及 CI workflow，缺少 GOVERNANCE.md、CONTRIBUTING.md、CODEOWNERS、公开路线图或决策流程文档；不属于 CNCF/Apache/Linux Foundation 等基金会；决策不透明，外部贡献者难以参与方向治理。</td>
+</tr>
+<tr>
+<td>D8.3 资金支持与商业赞助</td>
+<td>1.0</td>
+<td>2.5</td>
+<td>40%</td>
+<td>未发现 GitHub Sponsors、Open Collective 链接，没有公司/组织实体背书，也未披露 VC 或基金会资助信息；从纯公开仓库数据判断为“几乎无外部资金支持，主要靠维护者热情与社区自发性贡献”，资金可持续性薄弱。</td>
+</tr>
+<tr>
+<td>D8.4 项目可持续性与传承风险</td>
+<td>2.4</td>
+<td>3.0</td>
+<td>80%</td>
+<td>活跃度处于高位且发布节奏密集（8 月已发布 v2.11.1/v2.11.0/v2.9.x），90 天 PR/Issue 关闭数远超开放数（71/76 对 33），无 archived/deprecated 标记，fork 率达约 8.6%（3547/41454），表明社区健康、无停滞信号；但治理与资金短板使传承机制“基本健全”仅属乐观估计，且需依赖未来社区贡献者结构改善。</td>
+</tr>
+</tbody>
+</table>
+<p>综合来看，该项目的活跃度和社区势能处于顶尖水平，但团队治理、资金支持和制度化程度尚未跟上 star 数的增长速度。若维持者未来缺乏商业化路径或资金来源，持续高强度投入将面临挑战；其核心资产（prompt/skill 内容）也高度集中于单一仓库，传承风险不能仅凭当前热度掩盖。</p>
+<h3>D9 上手难度与易用性</h3>
+<p>分析失败（DeepSeek 调用重试仍失败: 模型返回空内容），本维度标 N/A。</p>
+<h3>D10. 功能价值（使用价值）维度分析</h3>
+<blockquote>
+<p>本维度为平行维度，权重 0%，不计入 D1–D9 综合商业评分；用于 3.4 价值画像判定。全维度满分为 10。</p>
+</blockquote>
+<h4>评估思路与定性</h4>
+<p>Humanizer 是一个纯文本形态（SKILL.md + 少量工具脚本）的 Agent skill，从 Wikipedia「Signs of AI writing」维基项目提炼 35 个 AI 腔模式，让 Claude Code / Codex / Cursor 等支持 Agent Skills 的编码助手能对文本执行「去除 AI 味」的多轮改写。代码规模极小（源码仅 1 个 88 行 Python 辅助文件），产品本体是 prompt 工程、规则清单与验证流程，评估关注点相应地从「代码功能」转移到「使用价值兑现」。</p>
+<h4>D10.1 效用强度（满分 3，得分 1.8）</h4>
+<ul>
+<li><strong>单用户节省量</strong>：若人工逐句去除 AI 腔，需对照 35 类模式逐条排查、改写并复核事实一致性，单篇 1000 字文章手工处理约 15–40 分钟；Humanizer 将整个过程压缩为一次 agent 调用，考虑 agent 运行成本后仍节省绝大部分时间。对高频产出 AI 文本并需公开发布的内容创作者、技术写作者，节省效果显著；对低频用户则仅为偶尔便利。</li>
+<li><strong>效用层级</strong>：处于「明确但有限的效率提升」与「项目级依赖」之间。它不是一个业务运转所依赖的命脉设施，而是可被通用改写 prompt、编辑器内置 AI 重写功能替代的工具型 skill。但其 35 模式清单 + 事实防伪 + 写作样本风格匹配，使其优于一般「帮我改得不像 AI」的临时提示词，具备较强的工程化效用增量。</li>
+<li><strong>效用确定性</strong>：中等偏好。效果依赖底层 LLM 的执行质量，单次输出仍有波动；但技能内置「先重写、再按模式清单+原文事实核验、不合格再改」的两遍流程，确定性优于一次性 prompt。README 全文提供了可验证的 before/after 完整示例，效用有具体锚点。</li>
+</ul>
+<p>综合评分落在 5–6 档（60%），理由：显著节省时间、有真实痛点，但非不可替代、效用依赖模型质量。</p>
+<h4>D10.2 实际使用规模（满分 3，得分 1.8）</h4>
+<ul>
+<li>包管理平台下载量无法实采（npm/PyPI 均不适用于该分发形态，skills.sh 安装量无公开 API），按要求不做臆测。</li>
+<li>可从 GitHub 实测指标推导出使用规模的<strong>下限证据</strong>：41,454 Star（实采）、3,547 Fork（实采）、230 watchers、15 名 contributors、90 天新增 PR 71 个、90 天关闭 issue 76 个、最近 8 个月内发布 4 个 tag 且持续迭代至 v2.11.1。README 展示 skills.sh 安装 badge 与多 agent（Claude Code / Desktop / Codex / Cursor）安装通道。</li>
+<li>以上证据不足以证明十万级依赖方，但足以说明<strong>至少千级至万级真实用户在使用并持续反馈</strong>（issue/PR 活跃度远高于纯收藏型项目）。按保守分级映射到 5–6 档（60%），即「万级依赖方或月下载十万级」以下不越过该档，留待后续获取 skills.sh 安装 badge 具体数值时再上调。</li>
+</ul>
+<h4>D10.3 免费可得的完整效用（满分 2，得分 2）</h4>
+<ul>
+<li>开源版即全部价值：项目无企业版、无付费墙、无云托管分层，核心交付物 SKILL.md 以 MIT 协议完整开放，README 同时提供 npx skills CLI、Claude 插件市场、ZIP 手动安装三种零成本获取路径。</li>
+<li>自托管完整性高：使用者将 SKILL.md 放入任意支持 agent skills 的本地 agent（如 Claude Code）即可获得完整改写能力，不依赖项目方的任何线上服务。</li>
+<li>无隐性收费：唯一外部成本是运行 agent 所需的 LLM API/订阅费用，属于模型基础设施自身成本，并非本项目的收费设计。</li>
+<li>结合 D4.3 视角说明价值结构：D10.3 满分与低商业转化天然相关——该项目把使用价值全部免费释放，未保留任何可包装为付费功能的「墙后能力」，这正是「高使用价值、低交换价值」结构的典型体现。</li>
+</ul>
+<h4>D10.4 效用可持续性（满分 2，得分 2）</h4>
+<ul>
+<li>本地化运行形态：SKILL.md + 内嵌 35 模式规则完全随仓库本地化分发，运行时不请求任何 Humanizer 官方在线接口；即使项目停维，已下载的技能文件可永久继续工作，效用不归零。</li>
+<li>供应商锁定风险低：仅依赖可替换的通用 LLM/agent 运行时；SKILL.md 是标准 Markdown，可手动迁移到任意新增的 agent skill 容器。</li>
+<li>可分叉维护性极强：MIT 许可、仓库内容以纯文本为主、构建与安装逻辑简单，社区可零成本 fork 并维护自己的模式清单（Wikipedia 模式来源页本身也由社区持续维护）。分叉门槛远低于典型代码型项目。</li>
+</ul>
+<h4>D10 细则分值汇总</h4>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>得分</th>
+<th>六档对应</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10.1</td>
+<td>效用强度</td>
+<td>3</td>
+<td>1.8</td>
+<td>60%（明确但有限的效率提升，易被替代，但优于通用 prompt）</td>
+</tr>
+<tr>
+<td>D10.2</td>
+<td>实际使用规模</td>
+<td>3</td>
+<td>1.8</td>
+<td>60%（star/PR/issue 高活跃佐证万级用户，包下载量未实采）</td>
+</tr>
+<tr>
+<td>D10.3</td>
+<td>免费可得的完整效用</td>
+<td>2</td>
+<td>2</td>
+<td>100%（MIT 全量开放，无功能阉割/隐性收费）</td>
+</tr>
+<tr>
+<td>D10.4</td>
+<td>效用可持续性</td>
+<td>2</td>
+<td>2</td>
+<td>100%（纯本地 Markdown、零厂商锁定、MIT 可自由分叉）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td><strong>7.6</strong></td>
+<td>使用价值画像：良好，显著高于平均</td>
+</tr>
+</tbody>
+</table>
+<p><strong>维度结论</strong>：Humanizer 是一个使用价值显著、分发形态极具可持续性的开源技能。它对高频 AI 文本产出者的时间节省是真实可感的，41k Star 与高活跃 issue/PR 侧面印证了使用基础。项目的结构性特征是「价值完全免费释放、无付费转化锚点」，D10 高分与 D4 低分预期将构成有价值的对照，用于判断其价值画像应归入「高用户价值工具」而非「可商业化产品」。</p>
+<p>===</p>
+<h3>D11 社会价值评分（正外部性视角）</h3>
+<blockquote>
+<p><strong>平行维度说明</strong>: D11 权重 0%，不计入综合评分、不参与一票否决，仅供 3.4 价值画像使用。本维度评价的是项目对使用者之外的行业与社会产生的外溢贡献；与 D3.4（品牌影响力的商业输入）视角不同，与 D2.5/D2.6 虽有 i18n/无障碍等工程事实素材交叉，但此处评价的是普惠效果而非工程质量。</p>
+</blockquote>
+<h4>D11 评估对象与数据基础</h4>
+<p>Humanizer 本质是一个 <strong>纯文本 Agent Skill</strong>（核心为 <code>SKILL.md</code>，附带 88 行 Python 校验脚本），以 MIT 协议开源。自 2026-01-18 创建至评估日约 7 个月，积累 <strong>41.4k stars / 3.5k forks / 15 名贡献者</strong>，90 天关闭 PR 71 个、Issue 76 个，v2.11.x 迭代活跃，处于健康维护状态。项目将维基百科 WikiProject AI Cleanup 的开放知识（35 种 AI 写作模式）工程化为可操作、可复用的 agent 技能，覆盖 Claude Code、Codex、Cursor、Claude Desktop 等多 agent 生态。</p>
+<h4>D11.1 数字公共基础设施属性（满分 3 分 → 得分 1.8）</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估依据</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>关键依赖地位</td>
+<td>无 Dependents 数据（纯文本 skill 形态，几乎不被作为代码库引用）；fork 3,546 个但内容高度自包含，复制即可延续，替代成本极低</td>
+<td>较弱</td>
+</tr>
+<tr>
+<td>停摆影响面</td>
+<td>若原仓库消失，现有 3.5k forks 及技能缓存可完整延续；核心方法论来自维基百科开放页面，不构成供应链断点</td>
+<td>有限</td>
+</tr>
+<tr>
+<td>数字公共产品（DPG）属性</td>
+<td>MIT 开放授权、纯 Markdown 可自由复制复用、服务于 AI 文本可读性的公共利益、与维基百科公益项目直接协作</td>
+<td>明确</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断</strong>: 项目在 "AI 去味 / Agent Skill" 这一新兴细分生态中占据绝对主导地位（最大竞品约 205 stars，多数个位数），是领域<strong>事实标准与开放参考实现</strong>。但其物理形态决定了它不具备 curl/OpenSSL 式"数字底座"的不可替代性——本质上是一个高质量、可自由分发的技能配方而非被集成依赖。按评分指引命中 5–6 档（有一定下游依赖，但可替代性强），取 60% 档 <strong>1.8/3</strong>。</p>
+<h4>D11.2 教育与人才价值（满分 2.5 分 → 得分 2.0）</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估依据</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>教学采用</td>
+<td>外部课程/教程数量数据缺省（N/A），但 README 本身就是完整教材：35 个模式的分类讲解、逐条 before/after 对照、完整改写示范（Lisbon 全文示例）</td>
+<td>中高（推断）</td>
+</tr>
+<tr>
+<td>门槛降低效应</td>
+<td>将维基百科编辑者积累的反 AI 腔知识编码为任何人可调用的 skill，让不懂 prompt 工程的人也能获得专家级改写能力；v2.11.0 专门以 Plain Language 重写全部文档与指令，降低阅读门槛</td>
+<td>明显</td>
+</tr>
+<tr>
+<td>源码学习价值</td>
+<td>代码部分仅 88 行，核心学习价值在 <code>SKILL.md</code> 的编排范式：模式清单 → 全文重写 → 模式复核 → 定向修复的两段式工作流、"不得捏造事实"防幻觉护栏、结构保真规则——是 Agent Skill 指令工程的示范文本</td>
+<td>高</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断</strong>: 项目本身即教育内容载体，且 3.5k forks 说明其作为"可复用范本"被大量再分发。受限点是出现仅 7 个月，外部系统性教学采纳证据不足，尚难称"行业教材"。综合评分指引 7–8 档（常见于教学路径与最佳实践），取 80% 档 <strong>2.0/2.5</strong>。</p>
+<h4>D11.3 普惠与可及性（满分 2.5 分 → 得分 2.0）</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估依据</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>能力平权化</td>
+<td>零成本 MIT 授权将商业级 AI 文本人性化能力赋权给任何个人/中小团队；纯文本本地运行，无需上传第三方服务器，兼顾数据隐私；对维基百科志愿者等公益场景是免费生产力工具</td>
+<td>强</td>
+</tr>
+<tr>
+<td>替代价格差</td>
+<td>同类商业 AI Humanizer（如按月订阅 SaaS）需持续付费且存在文本上传风险，本项目完全免费且可离线自持</td>
+<td>差额极大</td>
+</tr>
+<tr>
+<td>可及性支持</td>
+<td>无 i18n 多语言文档（短板）；但零硬件依赖、无任何 runtime 依赖、支持任意遵循 Agent Skills 规范的 agent（含低配置环境），并有 Plain Language 可读性优化、多种安装路径（CLI / plugin / ZIP）</td>
+<td>结构上强，语言上有短板</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断</strong>: "近乎零门槛获得商业级能力"这一点在 AI 写作工具领域极为突出——无硬件、无依赖、免费、可本地化运行，大幅超越付费 SaaS 的可及性。多语言缺失是本项主要限制。综合评分指引 7–8 档（显著降低获得门槛），取 80% 档 <strong>2.0/2.5</strong>。</p>
+<h4>D11.4 开放标准与行业推动（满分 2 分 → 得分 1.6）</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估依据</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>标准推动</td>
+<td>将维基百科 WikiProject AI Cleanup 的开放标准（35 模式）作为实现基准并反向致敬署名，形成"开放知识 → 开源工具 → 社会应用"的正向循环；同时自 v2.8.3 起适配 Agent Skills 元数据规范、v2.11.1 支持 Claude Desktop 标准安装，推动 skill 生态规范化</td>
+<td>显著</td>
+</tr>
+<tr>
+<td>科研支撑</td>
+<td>学术引用检索未执行/不可得（N/A，上线时间不足一年），暂无法证实直接科研引用</td>
+<td>待观察</td>
+</tr>
+<tr>
+<td>行业示范效应</td>
+<td>竞品图谱显示明显的模仿与跟随：shir-danishyar/humanize 描述复刻"removes documented AI-writing patterns"框架、fioenix/vi-humanizer 直接沿用原描述、多个同生态 skill 采用相同模式清单策略，示范效应直接可见</td>
+<td>强</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断</strong>: 在"开放标准推动 + 行业示范"上达到 7–8 档（实现并推广重要开放标准、有明确示范效应），学术支撑尚缺。注意：其推动的是维基百科既有开放标准 + Agent Skills 生态约定，而非自创标准。取 80% 档 <strong>1.6/2</strong>。</p>
+<h4>D11 汇总</h4>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>得分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D11.1</td>
+<td>数字公共基础设施属性（3 分）</td>
+<td>1.8</td>
+</tr>
+<tr>
+<td>D11.2</td>
+<td>教育与人才价值（2.5 分）</td>
+<td>2.0</td>
+</tr>
+<tr>
+<td>D11.3</td>
+<td>普惠与可及性（2.5 分）</td>
+<td>2.0</td>
+</tr>
+<tr>
+<td>D11.4</td>
+<td>开放标准与行业推动（2 分）</td>
+<td>1.6</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>D11 社会价值总评</strong></td>
+<td><strong>7.4 / 10</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>: Humanizer 作为上线仅 7 个月即获 41k stars 的现象级 Agent Skill，其社会正外部性显著高于一般开源工具：<strong>普惠属性最强</strong>（零成本 + 零硬件 + 本地化运行，将付费 SaaS 能力平权化）与<strong>行业示范效应突出</strong>（引导了 agent skill "去 AI 味"子类的整体范式）；教育价值体现在其本身就是一套高质量的反 AI 腔教材与 skill 工程范本。受限于纯文本形态的可替代性（非供应链级底座）与英文单语的覆盖边界，数字公共基础设施属性与 i18n 可及性存在上限。总体上，其社会价值集中体现为"<strong>AI 素养教育 + 写作能力平权 + 开放知识工程化</strong>"，可作为 3.4 价值画像中"普惠型公共知识工具"的定性依据；且因 D11 不计权重，该 7.4 分不影响综合评分，仅作为外围画像参考。</p>
+<h2>五、商业化价值判断</h2>
+<h3>5.1 综合价值评估</h3>
+<p><strong>综合评分 70.6/100（A 级，高商业化潜力）</strong>，叠加公共价值分 7.5/10，项目被判定为 <strong>⭐ 明星资产</strong>。这一判定意味着：项目不仅具备可观的商业化变现潜力，同时承载着显著的功能价值与社会价值，商业化过程中需兼顾社区声誉与生态健康。</p>
+<h3>5.2 核心价值支撑</h3>
+<p><strong>（1）流量入口价值极高。</strong> 41,454 Star 使项目成为 Agent Skill 去 AI 味赛道的绝对领跑者，与第二名竞品（15 Star）差距达 2,700 倍以上。这一量级的注意力本身就是稀缺资产，是后续任何商业化尝试的流量基础。</p>
+<p><strong>（2）规则知识构成实质性壁垒。</strong> 项目核心资产是基于维基百科 AI 写作模式提炼的 35 种去 AI 味规则体系，以 SKILL.md 指令文件沉淀。这一知识密度形成了 12–24 个月的优势窗口，竞品短期难以复制同等深度的规则体系。</p>
+<p><strong>（3）法律合规基础扎实。</strong> MIT 许可证零商业限制、零第三方依赖，无 copyleft 传染风险，为商业化扫清了法律障碍。</p>
+<h3>5.3 价值变现的核心矛盾</h3>
+<p><strong>流量与变现的严重错配。</strong> 项目拥有 41K Star 的顶级流量，但商业化程度几乎为零——无企业版、无 API、无付费层、无赞助入口。D4 得分仅 6.3，核心原因在于付费转化逻辑缺失（D4.3 仅 1.0/2.5）：完全免费交付，用户无任何升级动机。这一矛盾既是当前最大短板，也是未来最大的价值释放空间。</p>
+<h3>5.4 价值结构特征</h3>
+<p>项目呈现典型的「<strong>高功能价值 + 高社会价值 + 低商业闭环</strong>」结构。D10 功能价值 7.6 与 D11 社会价值 7.4 均处高位，说明产品对用户有真实效用且具备公共产品属性（MIT 全量开放、零成本平权化商业 AI Humanizer 能力）。但 D4 商业模式仅 6.3，表明价值捕获机制尚未建立。<strong>如何在不损害公共价值的前提下建立可持续的商业模式，是本项目商业化的核心命题。</strong></p>
+<hr />
+<h2>六、商业路径分析</h2>
+<h3>6.1 路径选项评估</h3>
+<p>基于项目「明星资产」画像与「高流量、强规则壁垒、零商业闭环」的结构特征，梳理以下可行路径：</p>
+<p><strong>路径 A：托管 API / SaaS 服务（推荐度：★★★★☆）</strong></p>
+<p>将 35 种去 AI 味模式封装为云端 API，用户上传文本、返回人性化改写结果。当前 SKILL.md 依赖用户自备 LLM API Key，托管服务可提供「开箱即用」体验。MIT 协议对此零限制。<strong>关键挑战</strong>：需从技能包形态转型为服务形态，涉及后端工程投入；同时需与用户自托管（免费）形成体验代差。建议定位为「企业级批量处理 + 质量保证」而非替代免费版。</p>
+<p><strong>路径 B：企业版 / 高级功能分层（推荐度：★★★☆☆）</strong></p>
+<p>在 MIT 开源核心之上构建付费层：批量处理、团队协作、风格定制、API 访问、SLA 保障等。<strong>关键挑战</strong>：当前产品极简（88 行代码 + 指令文件），免费版已提供完整能力，付费层需从零构建增量价值。D4.3 付费转化逻辑缺失的问题需首先解决。</p>
+<p><strong>路径 C：生态服务与培训（推荐度：★★★☆☆）</strong></p>
+<p>依托 41K Star 的社区影响力，提供 Agent Skill 开发咨询、企业 AI 写作流程培训、内容质量审计等服务。<strong>关键挑战</strong>：服务收入天花板有限，难以规模化；但边际成本低，可作为辅助收入来源。</p>
+<p><strong>路径 D：赞助与基金会托管（推荐度：★★☆☆☆）</strong></p>
+<p>鉴于项目公共价值高（公共价值分 7.5），可考虑 GitHub Sponsor、Open Collective 等社区赞助模式，或交由基金会托管。<strong>关键挑战</strong>：赞助收入通常难以支撑全职维护；且项目当前无 Sponsor 页，需从零搭建。</p>
+<h3>6.2 路径优先级建议</h3>
+<p><strong>短期（0–6 个月）：以路径 A 为主攻方向，同步启动路径 C。</strong></p>
+<ul>
+<li>托管 API 是最符合项目资产禀赋的变现路径：规则知识是现成的、品牌认知是现成的、流量入口是现成的，缺的只是服务封装。</li>
+<li>建议 MVP 阶段聚焦「批量去 AI 味 + 质量报告」两个企业刚需场景，与免费版形成清晰区隔。</li>
+<li>同步通过咨询服务验证企业付费意愿，积累早期客户。</li>
+</ul>
+<p><strong>中期（6–18 个月）：视 API 市场反馈决定是否扩展路径 B。</strong></p>
+<ul>
+<li>若 API 付费转化率理想，可进一步构建企业版功能墙（风格库、团队空间、合规报告）。</li>
+<li>若转化率不理想，则收缩至路径 C + D 组合，走「影响力变现」路线。</li>
+</ul>
+<h3>6.3 明星资产画像的路径修正</h3>
+<p>作为「明星资产」，商业化需避免竭泽而渔。参照 Elastic 改协议反噬社区的教训，建议：
+- 保持 MIT 核心全量开放，付费层构建于核心之上而非从核心剥离；
+- 商业化收益反哺社区（如赞助维基百科 WikiProject AI Cleanup、资助开源贡献者）；
+- 在 README 中明确「免费版永久可用」的承诺，维护社区信任。</p>
+<hr />
+<h2>七、能力评估：能做什么 &amp; 最适合做什么</h2>
+<h3>7.1 核心能力盘点</h3>
+<table>
+<thead>
+<tr>
+<th>能力项</th>
+<th>具体内容</th>
+<th>强度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>规则知识沉淀</td>
+<td>35 种 AI 写作模式 + 反事实保护 + 声音匹配，源自维基百科开放知识</td>
+<td>★★★★★</td>
+</tr>
+<tr>
+<td>品牌与流量</td>
+<td>41,454 Star，赛道绝对领跑者，认知度极高</td>
+<td>★★★★★</td>
+</tr>
+<tr>
+<td>产品迭代能力</td>
+<td>7 个月迭代 16+ 版本（v1.0→v2.11），90 天关闭 76 个 Issue</td>
+<td>★★★★☆</td>
+</tr>
+<tr>
+<td>技术工程能力</td>
+<td>代码极简（88 行），无复杂架构，工程深度有限</td>
+<td>★★☆☆☆</td>
+</tr>
+<tr>
+<td>治理与制度化</td>
+<td>无治理文档、无 CLA、无赞助机制</td>
+<td>★★☆☆☆</td>
+</tr>
+<tr>
+<td>企业服务能力</td>
+<td>无企业版、无 API、无 SLA 机制</td>
+<td>★☆☆☆☆</td>
+</tr>
+</tbody>
+</table>
+<h3>7.2 最适合做什么</h3>
+<p><strong>（1）做「AI 文本人性化」赛道的规则标准制定者。</strong> 项目已事实上成为该细分领域参考实现，竞品普遍模仿其模式策略。应继续强化规则体系的深度与广度（如扩展多语言支持），巩固标准制定者地位。</p>
+<p><strong>（2）做 Agent Skill 生态的标杆案例与流量入口。</strong> 项目验证了「Agent Skill 技能包」这一新兴分发形态的可行性，41K Star 本身就是对生态的贡献。可作为 Agent 技能市场的头部供给方，探索技能分发、技能市场等新场景。</p>
+<p><strong>（3）做企业 AI 内容质量管控的轻量方案。</strong> 将 35 种模式转化为「AI 内容检测 + 人性化改写」的一体化方案，切入企业内容合规、品牌一致性管理场景。</p>
+<h3>7.3 不适合做什么</h3>
+<p><strong>（1）不适合做重工程型 SaaS。</strong> 团队当前工程能力（88 行代码）与企业级 SaaS 所需的架构能力差距过大，且 D8 治理得分仅 5.7，资金与制度支撑不足。</p>
+<p><strong>（2）不适合做平台型生态。</strong> 无治理文档、无基金会支持、无资金验证，不具备运营多边平台的条件。</p>
+<p><strong>（3）不适合做本地化重客户端产品。</strong> 无 UI、无交互式 CLI，团队缺乏客户端产品基因。</p>
+<hr />
+<h2>八、短板识别：还缺少什么</h2>
+<h3>8.1 商业化基础设施缺失（最紧迫）</h3>
+<ul>
+<li><strong>无任何付费产品形态</strong>：无企业版、无 API、无付费层（D4.2 仅 2.1/3.5），用户无升级路径；</li>
+<li><strong>无定价机制</strong>：pricing_info 为 none，从未验证过付费意愿；</li>
+<li><strong>无销售/渠道体系</strong>：完全依赖 GitHub 自然流量，无主动获客能力。</li>
+</ul>
+<h3>8.2 工程与产品深度不足</h3>
+<ul>
+<li><strong>代码量仅 88 行</strong>，核心逻辑全部沉淀于 Markdown 指令文档，产品形态极简；</li>
+<li><strong>零自动化测试</strong>（test_ratio = 0.0），仅有 CI 验证包结构，无业务级质量保障；</li>
+<li><strong>无安全模型</strong>：缺少 Agent 威胁模型与依赖扫描能力（D2.4 仅 0.6/1）。</li>
+</ul>
+<h3>8.3 治理与制度化短板</h3>
+<ul>
+<li><strong>无 CONTRIBUTING.md / GOVERNANCE.md / CODEOWNERS</strong>，决策流程不透明（D8.2 仅 0.8/2）；</li>
+<li><strong>无 CLA/DCO</strong>，15 名贡献者的版权未集中，未来商业化存在潜在版权纠纷风险（D6.4 仅 0.8/2）；</li>
+<li><strong>无资金验证</strong>：无 Sponsor 页、无 Open Collective、无公司实体，资金可持续性存疑（D8.3 仅 1.0/2.5）。</li>
+</ul>
+<h3>8.4 组织韧性不足</h3>
+<ul>
+<li><strong>巴士因子偏低</strong>：高度依赖核心维护者（Siqi Chen），传承机制不健全；</li>
+<li><strong>团队结构单一</strong>：15 名贡献者中缺乏体系化的核心维护者梯队。</li>
+</ul>
+<h3>8.5 多语言与全球化能力缺失</h3>
+<ul>
+<li><strong>英文单语</strong>：无 i18n 支持，限制了非英语市场的渗透（D11.3 扣分项）。</li>
+</ul>
+<hr />
+<h2>九、风险提示</h2>
+<h3>9.1 技术替代风险（高）</h3>
+<p><strong>Agent 宿主模型自身文本能力的增强是本项目最大的长期威胁。</strong> 随着 Claude、GPT 等模型原生写作能力的提升，「去 AI 味」的需求可能被模型自身能力进化所消解。D5 分析指出这一风险窗口约为 12–24 个月，与规则壁垒的优势窗口期重合，商业化需在窗口期内完成。</p>
+<h3>9.2 复制壁垒过低风险（高）</h3>
+<p><strong>核心资产是 SKILL.md 指令文件，复制成本极低。</strong> 用户切换竞品的技术成本几乎为零（单文件纯 Markdown），任何拥有足够 LLM 能力的团队都可以基于维基百科开放知识重写类似规则集。当前靠品牌认知与规则体系化心智形成习惯锁定，但这一锁定强度有限。</p>
+<h3>9.3 治理与传承风险（中高）</h3>
+<p><strong>项目高度依赖单一核心维护者。</strong> 无治理文档、无 CLA、无资金支持，若核心维护者失去兴趣或精力，项目可能迅速停滞。D8.4 得分 2.4/3 虽未触发否决，但传承机制不健全是事实。</p>
+<h3>9.4 商业化反噬社区风险（中）</h3>
+<p><strong>作为「明星资产」，商业化操作可能引发社区反弹。</strong> 41K Star 的社区中有相当比例用户看重项目的免费与开放属性。若商业化路径选择不当（如将核心能力闭源），可能重蹈 Elastic 改协议导致社区分裂的覆辙。</p>
+<h3>9.5 法律合规隐患（低中）</h3>
+<p><strong>无 CLA/DCO 机制是主要法律短板。</strong> 15 名贡献者的版权未集中管理，若未来需要变更协议或进行特定商业化操作，可能面临贡献者版权追溯风险。商标与专利状态未经人工核查，置信度低。</p>
+<h3>9.6 分析置信度提示</h3>
+<p>D1（市场需求）、D3（社区健康度）、D7（企业就绪度）、D9（上手难度）四个维度因分析失败标记为 N/A，综合评分由其余五维加权归一计算。<strong>一票否决检查不完整</strong>，报告整体置信度有所下降。建议在条件允许时补充上述维度的分析。</p>
+<hr />
+<h2>十、结论与建议</h2>
+<h3>10.1 综合结论</h3>
+<p><strong>blader/humanizer 是一个典型的「高潜力、低闭环」明星资产项目。</strong> 综合评分 70.6/100（A 级，高商业化潜力），公共价值分 7.5/10，价值画像为 ⭐ 明星资产。</p>
+<p>项目拥有三个核心优势：<strong>赛道绝对领先的流量入口（41K+ Star）、体系化的规则知识壁垒（35 种模式）、零限制的 MIT 法律基础</strong>。同时面临三个核心短板：<strong>零商业闭环（无任何付费产品）、极简工程形态（88 行代码）、治理制度化缺失（无 CLA/治理文档）</strong>。</p>
+<p>项目的本质矛盾在于：<strong>拥有巨大的注意力与规则知识资产，却缺乏将其转化为收入的基础设施。</strong> 商业化不是「要不要做」的问题，而是「如何在不损害公共价值与社区信任的前提下做」的问题。</p>
+<h3>10.2 分级建议</h3>
+<p><strong>对项目方（核心维护者）：</strong></p>
+<ol>
+<li><strong>优先构建托管 API 服务（6 个月内上线 MVP）</strong>，聚焦「批量去 AI 味 + 质量报告」企业刚需场景，与免费版形成清晰区隔；</li>
+<li><strong>建立 CLA 机制与治理文档</strong>，为商业化扫清法律与治理障碍；</li>
+<li><strong>启动 Sponsor 页与 Open Collective</strong>，验证社区资金支持意愿；</li>
+<li><strong>保持 MIT 核心全量开放</strong>，付费层构建于核心之上，避免社区反噬；</li>
+<li><strong>在 12–24 个月优势窗口期内完成商业化验证</strong>，警惕宿主模型能力增强带来的需求消解。</li>
+</ol>
+<p><strong>对潜在投资者/商业化运营方：</strong></p>
+<ol>
+<li>项目当前处于「流量已验证、变现未验证」阶段，投资重点应是<strong>帮助其构建商业化基础设施</strong>而非重塑产品；</li>
+<li>建议以「<strong>服务化转型</strong>」为投资主题：将 SKILL.md 规则知识封装为可规模化交付的 API/SaaS 服务；</li>
+<li>关注治理风险：在投资前要求补齐 CLA、治理文档等制度化基础设施；</li>
+<li>退出预期需考虑技术替代风险：宿主模型能力增强可能压缩去 AI 味需求的长期空间。</li>
+</ol>
+<p><strong>对社区/生态参与者：</strong></p>
+<ol>
+<li>项目作为 Agent Skill 生态的标杆案例，其发展路径对生态有示范效应；</li>
+<li>建议社区推动项目向基金会托管或多人治理模式演进，降低巴士因子风险；</li>
+<li>多语言贡献（i18n）是社区可以发力的高价值方向。</li>
+</ol>
+<h3>10.3 最终评级</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>综合评分</td>
+<td><strong>70.6/100</strong></td>
+</tr>
+<tr>
+<td>商业化等级</td>
+<td><strong>A（高商业化潜力）</strong></td>
+</tr>
+<tr>
+<td>价值画像</td>
+<td><strong>⭐ 明星资产</strong>（画像临界：综合评分 70.6 处于 60–70 区间上沿）</td>
+</tr>
+<tr>
+<td>一票否决</td>
+<td>未触发</td>
+</tr>
+<tr>
+<td>建议行动</td>
+<td><strong>可投入商业化，需优先补齐商业化基础设施（API/付费层）与治理制度化短板</strong></td>
+</tr>
+</tbody>
+</table>
+<h2>十一、项目地址</h2>
+<p><svg class="ri ri-muted" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.001 2C6.47598 2 2.00098 6.475 2.00098 12C2.00098 16.425 4.86348 20.1625 8.83848 21.4875C9.33848 21.575 9.52598 21.275 9.52598 21.0125C9.52598 20.775 9.51348 19.9875 9.51348 19.15C7.00098 19.6125 6.35098 18.5375 6.15098 17.975C6.03848 17.6875 5.55098 16.8 5.12598 16.5625C4.77598 16.375 4.27598 15.9125 5.11348 15.9C5.90098 15.8875 6.46348 16.625 6.65098 16.925C7.55098 18.4375 8.98848 18.0125 9.56348 17.75C9.65098 17.1 9.91348 16.6625 10.201 16.4125C7.97598 16.1625 5.65098 15.3 5.65098 11.475C5.65098 10.3875 6.03848 9.4875 6.67598 8.7875C6.57598 8.5375 6.22598 7.5125 6.77598 6.1375C6.77598 6.1375 7.61348 5.875 9.52598 7.1625C10.326 6.9375 11.176 6.825 12.026 6.825C12.876 6.825 13.726 6.9375 14.526 7.1625C16.4385 5.8625 17.276 6.1375 17.276 6.1375C17.826 7.5125 17.476 8.5375 17.376 8.7875C18.0135 9.4875 18.401 10.375 18.401 11.475C18.401 15.3125 16.0635 16.1625 13.8385 16.4125C14.201 16.725 14.5135 17.325 14.5135 18.2625C14.5135 19.6 14.501 20.675 14.501 21.0125C14.501 21.275 14.6885 21.5875 15.1885 21.4875C19.259 20.1133 21.9999 16.2963 22.001 12C22.001 6.475 17.526 2 12.001 2Z"/></svg> <a href="https://github.com/blader/humanizer">https://github.com/blader/humanizer</a></p>
+<hr />
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+</blockquote>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家　www.mova.work</p></body></html>

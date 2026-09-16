@@ -1,0 +1,1961 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><title>OpenMAIC 商业价值分析报告</title><style>/* default — 品牌蓝紫主题（从 md2pdf.py 原 CSS 常量迁出，视觉与历史产物一致） */
+@page { size: A4; margin: 18mm 15mm 20mm 15mm; }
+* { box-sizing: border-box; }
+/* 字体规范：一律开源思源黑体 CN（OFL 免费商用）；正文 Regular/标题 Bold/大字数字 Light */
+body { font-family: "Source Han Sans CN","思源黑体 CN","Noto Sans SC",sans-serif; color:#1e293b; font-size:10.5pt; line-height:1.75; margin:0; }
+.cover { page-break-after: always; text-align:center; padding-top:40px; }
+.cover .kicker { color:#2563eb; letter-spacing:6px; font-size:12pt; font-weight:500; }
+.cover h1 { font-size:26pt; margin:14px 0 6px; }
+.cover .sub { color:#64748b; font-size:11pt; margin-bottom:22px; }
+.badge { display:inline-block; background:linear-gradient(135deg,#2563eb,#7c3aed); color:#fff; border-radius:18px; padding:16px 44px; margin:10px 0 18px; }
+.badge .g { font-size:34pt; font-weight:300; line-height:1; }
+.badge .s { font-size:12pt; opacity:.92; margin-top:4px; }
+.meta { color:#475569; font-size:9.5pt; margin-top:14px; }
+.bars { max-width:620px; margin:20px auto 0; text-align:left; }
+.bar-row { display:flex; align-items:center; gap:8px; margin:5px 0; font-size:9pt; }
+.bar-name { width:110px; text-align:right; color:#334155; font-weight:500; }
+.bar-track { flex:1; height:9px; background:#f1f5f9; border-radius:5px; overflow:hidden; }
+.bar-fill { display:block; height:100%; border-radius:5px; }
+.bar-val { width:30px; font-weight:700; color:#0f172a; }
+.bar-w { width:52px; color:#94a3b8; font-size:8pt; }
+h1 { font-size:17pt; color:#0f172a; border-bottom:3px solid #2563eb; padding-bottom:8px; }
+h2 { font-size:13.5pt; color:#1d4ed8; margin-top:26px; page-break-after: avoid; border-left:5px solid #2563eb; padding-left:10px; }
+h3 { font-size:11.5pt; color:#0f172a; margin-top:18px; page-break-after: avoid; }
+table { border-collapse:collapse; width:100%; margin:10px 0; font-size:9pt; page-break-inside:avoid; }
+th { background:#eff6ff; color:#1e3a8a; }
+th,td { border:1px solid #dbe3ef; padding:5px 8px; text-align:left; }
+tr:nth-child(even) td { background:#f8fafc; }
+code { background:#f1f5f9; border-radius:4px; padding:1px 5px; font-family:"JetBrains Mono","Cascadia Mono",monospace; font-size:9pt; color:#be185d; }
+pre { background:#0f172a; color:#e2e8f0; border-radius:8px; padding:12px 14px; overflow-x:auto; page-break-inside:avoid; }
+pre code { background:none; color:inherit; padding:0; }
+blockquote { border-left:4px solid #93c5fd; background:#eff6ff; margin:10px 0; padding:8px 14px; color:#334155; border-radius:0 8px 8px 0; }
+hr { border:none; border-top:1px dashed #cbd5e1; margin:22px 0; }
+strong { color:#0f172a; }
+.cover .disclaimer { max-width:620px; margin:16px auto 0; color:#64748b; font-size:8.5pt; line-height:1.6; text-align:left; border:1px solid #e2e8f0; border-radius:8px; padding:8px 12px; background:#f8fafc; }
+.credit { color:#2563eb; font-size:10.5pt; font-weight:700; letter-spacing:1px; margin-top:12px; }
+.at-acc { background:#dbeafe; color:#1d4ed8; border-radius:4px; padding:0 4px; font-weight:500; white-space:nowrap; }
+.tail { page-break-inside:avoid; margin-top:26px; border-top:2px solid #2563eb; padding-top:14px; }
+.tail p { color:#64748b; font-size:8.5pt; line-height:1.6; margin:0 0 10px; }
+.tail .credit { text-align:center; margin:0; }
+/* Remix Icon 内联 SVG（icon_mode=remix 时由脚本注入，语义色与评分条一致） */
+.ri { width:1.05em; height:1.05em; vertical-align:-0.18em; display:inline-block; }
+.ri-ok { color:#16a34a; } .ri-warn { color:#d97706; } .ri-bad { color:#dc2626; }
+.ri-muted { color:#64748b; } .ri-star { color:#f59e0b; } .ri-brand { color:#2563eb; }
+.ri-gold { color:#d4a017; } .ri-silver { color:#9ca3af; } .ri-bronze { color:#b45309; }
+/* 屏幕预览：@page 边距仅在打印时生效，浏览器中居中限宽并收边（不影响 PDF 输出） */
+@media screen {
+  body { margin: 0 auto; padding: 28px 36px 56px; max-width: 900px; }
+}
+</style></head><body><div class="cover">
+<div class="kicker">开源项目商业化潜力分析 · 第 41 期</div>
+<h1>GitHub 开源项目 OpenMAIC<br>商业价值分析报告</h1>
+<div class="sub">THU-MAIC/OpenMAIC · 多智能体AI课堂生成平台 · 75.4分高商业化潜力</div>
+<div class="badge"><div class="g">A 级 · 75.4</div><div class="s">综合评分（满分 100）· 高商业化潜力</div></div>
+<div><svg viewBox="0 0 560 480" width="560" height="480" xmlns="http://www.w3.org/2000/svg"><polygon points="280.0,209.6 299.5,216.7 309.9,234.7 306.3,255.2 290.4,268.6 269.6,268.6 253.7,255.2 250.1,234.7 260.5,216.7" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,179.2 319.1,193.4 339.9,229.4 332.7,270.4 300.8,297.1 259.2,297.1 227.3,270.4 220.1,229.4 240.9,193.4" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,148.8 338.6,170.1 369.8,224.2 359.0,285.6 311.2,325.7 248.8,325.7 201.0,285.6 190.2,224.2 221.4,170.1" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,118.4 358.2,146.8 399.8,218.9 385.3,300.8 321.6,354.3 238.4,354.3 174.7,300.8 160.2,218.9 201.8,146.8" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,88.0 377.7,123.6 429.7,213.6 411.6,316.0 332.0,382.8 228.0,382.8 148.4,316.0 130.3,213.6 182.3,123.6" fill="none" stroke="#e2e8f0" stroke-width="1"/><line x1="280.0" y1="240.0" x2="280.0" y2="88.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="377.7" y2="123.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="429.7" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="411.6" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="332.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="228.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="148.4" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="130.3" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="182.3" y2="123.6" stroke="#d8dee9" stroke-width="1"/><polygon points="280.0,141.2 363.0,141.0 399.8,218.9 390.6,303.8 280.0,240.0 246.7,331.4 186.5,294.0 175.2,221.5 211.6,158.5" fill="rgba(37,99,235,.22)" stroke="#2563eb" stroke-width="2.5"/><circle cx="280.0" cy="141.2" r="3.5" fill="#2563eb"/><circle cx="363.0" cy="141.0" r="3.5" fill="#2563eb"/><circle cx="399.8" cy="218.9" r="3.5" fill="#2563eb"/><circle cx="390.6" cy="303.8" r="3.5" fill="#2563eb"/><circle cx="280.0" cy="240.0" r="3.5" fill="#2563eb"/><circle cx="246.7" cy="331.4" r="3.5" fill="#2563eb"/><circle cx="186.5" cy="294.0" r="3.5" fill="#2563eb"/><circle cx="175.2" cy="221.5" r="3.5" fill="#2563eb"/><circle cx="211.6" cy="158.5" r="3.5" fill="#2563eb"/><text x="280.0" y="44.0" text-anchor="middle" font-size="12.5" fill="#334155" font-weight="600">D1</text><text x="280.0" y="58.0" text-anchor="middle" font-size="11" fill="#64748b">市场需求 6.5</text><text x="406.0" y="89.9" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D2</text><text x="406.0" y="103.9" text-anchor="start" font-size="11" fill="#64748b">技术成熟度 8.5</text><text x="473.0" y="206.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D3</text><text x="473.0" y="220.0" text-anchor="start" font-size="11" fill="#64748b">社区生态 8.0</text><text x="449.7" y="338.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D4</text><text x="449.7" y="352.0" text-anchor="start" font-size="11" fill="#64748b">变现潜力 8.4</text><text x="347.0" y="424.2" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D5</text><text x="347.0" y="438.2" text-anchor="start" font-size="11" fill="#64748b">竞争格局 N/A</text><text x="213.0" y="424.2" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D6</text><text x="213.0" y="438.2" text-anchor="end" font-size="11" fill="#64748b">法律合规 6.4</text><text x="110.3" y="338.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D7</text><text x="110.3" y="352.0" text-anchor="end" font-size="11" fill="#64748b">企业就绪 7.1</text><text x="87.0" y="206.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D8</text><text x="87.0" y="220.0" text-anchor="end" font-size="11" fill="#64748b">团队治理 7.0</text><text x="154.0" y="89.9" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D9</text><text x="154.0" y="103.9" text-anchor="end" font-size="11" fill="#64748b">上手难度 7.0</text></svg></div>
+<div class="bars"><div class="bar-row"><span class="bar-name">D2 技术成熟度</span>
+<span class="bar-track"><span class="bar-fill" style="width:85.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.5</span><span class="bar-w">权重14%</span></div>
+<div class="bar-row"><span class="bar-name">D4 变现潜力</span>
+<span class="bar-track"><span class="bar-fill" style="width:84.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.4</span><span class="bar-w">权重18%</span></div>
+<div class="bar-row"><span class="bar-name">D3 社区生态</span>
+<span class="bar-track"><span class="bar-fill" style="width:80.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.0</span><span class="bar-w">权重11%</span></div>
+<div class="bar-row"><span class="bar-name">D7 企业就绪</span>
+<span class="bar-track"><span class="bar-fill" style="width:71.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.1</span><span class="bar-w">权重8%</span></div>
+<div class="bar-row"><span class="bar-name">D8 团队治理</span>
+<span class="bar-track"><span class="bar-fill" style="width:70.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.0</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D9 上手难度</span>
+<span class="bar-track"><span class="bar-fill" style="width:70.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.0</span><span class="bar-w">权重10%</span></div>
+<div class="bar-row"><span class="bar-name">D1 市场需求</span>
+<span class="bar-track"><span class="bar-fill" style="width:65.0%;background:#d97706"></span></span>
+<span class="bar-val">6.5</span><span class="bar-w">权重13%</span></div>
+<div class="bar-row"><span class="bar-name">D6 法律合规</span>
+<span class="bar-track"><span class="bar-fill" style="width:64.0%;background:#d97706"></span></span>
+<span class="bar-val">6.4</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D5 竞争格局</span>
+<span class="bar-track"><span class="bar-fill" style="width:0.0%;background:#dc2626"></span></span>
+<span class="bar-val">N/A</span><span class="bar-w">权重12%</span></div></div>
+<div class="meta">分析时点 2026-08-31 ｜ 数据来源：GitHub API + 仓库代码实测 ｜ 方法论 v1.3</div>
+<div class="credit">报告出品：@魔法工厂　@向量之心　@南山科学家</div>
+<div class="disclaimer"><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</div>
+</div><h1>OpenMAIC 商业化潜力分析报告（完整版）</h1>
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家</p>
+<p>方法论版本: v1.3 | 综合评分: <strong>75.4</strong> | 等级: <strong>A（高商业化潜力）</strong> | 价值画像: 明星资产</p>
+</blockquote>
+<h2>一、项目概览</h2>
+<h3>1.1 基本信息</h3>
+<ul>
+<li><strong>项目名称</strong>：OpenMAIC（THU-MAIC/OpenMAIC）</li>
+<li><strong>仓库地址</strong>：https://github.com/THU-MAIC/OpenMAIC</li>
+<li><strong>核心技术栈</strong>：TypeScript（42.1 万行）、Next.js 16、React 19、Node.js 22、PostgreSQL</li>
+<li><strong>社区规模速览</strong>：Star 23,865 / Fork 4,479 / 贡献者 62 人</li>
+<li><strong>分析时点</strong>：2026-08-30 / 数据来源：GitHub API、仓库文件分析</li>
+</ul>
+<h3>1.2 项目分类标签</h3>
+<table>
+<thead>
+<tr>
+<th>分类维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>应用软件 + 数据与AI</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>教育培训 / 通用跨行业</td>
+</tr>
+<tr>
+<td>目标用户角色</td>
+<td>教育工作者 / 内容创作者 / 企业培训人员</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>AI交互式课堂生成、课程自动化制作、知识传播</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>混合部署（本地 + Docker + Vercel云 + PostgreSQL）</td>
+</tr>
+</tbody>
+</table>
+<h3>1.3 一句话定位</h3>
+<blockquote>
+<p>OpenMAIC 是一个基于多智能体编排的 AI 交互式课堂生成平台，适用于教育培训、企业培训和知识传播场景，主要面向教师、课程设计者和内容创作者，用于将任意主题或文档一键生成包含课件、测验、互动模拟和项目式学习内容的沉浸式课堂体验。</p>
+</blockquote>
+<h2>二、安装部署与使用指南</h2>
+<h3>快速开始（开发模式）</h3>
+<p><strong>环境要求</strong>: Node.js &gt;= 20.9.0、pnpm &gt;= 10</p>
+<pre><code class="language-bash">git clone https://github.com/THU-MAIC/OpenMAIC.git
+cd OpenMAIC
+pnpm install
+</code></pre>
+<p>安装完成后配置环境变量（至少一个 LLM provider key）：</p>
+<pre><code class="language-bash">cp .env.example .env.local
+</code></pre>
+<p>编辑 <code>.env.local</code>，填入至少一个 LLM 提供商密钥：</p>
+<pre><code class="language-env">OPENAI_API_KEY=sk-...
+ANTHROPIC_API_KEY=sk-ant-...
+GOOGLE_API_KEY=...
+</code></pre>
+<p>启动开发服务器：</p>
+<pre><code class="language-bash">pnpm dev
+</code></pre>
+<p>打开 <strong>http://localhost:3000</strong> 即可开始使用。</p>
+<h3>Docker 部署</h3>
+<pre><code class="language-bash">cp .env.example .env.local
+# 编辑 .env.local 填入 API keys，然后：
+docker compose up --build
+</code></pre>
+<h3>生产构建</h3>
+<pre><code class="language-bash">pnpm build &amp;&amp; pnpm start
+</code></pre>
+<h3>可选组件</h3>
+<table>
+<thead>
+<tr>
+<th>组件</th>
+<th>启用方式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PostgreSQL 持久化</td>
+<td><code>NEXT_PUBLIC_PERSISTENCE=1 NEXT_PUBLIC_PERSISTENCE_TOKEN=... docker compose --profile server-persistence up --build</code></td>
+<td>运行 app + PostgreSQL 两个容器</td>
+</tr>
+<tr>
+<td>Agent 工作台</td>
+<td>需设置 <code>NEXT_PUBLIC_PRO_WORKBENCH_ENABLED=true</code> 等环境变量 + PostgreSQL</td>
+<td>默认关闭，需构建时启用</td>
+</tr>
+<tr>
+<td>MP4 视频导出</td>
+<td><code>docker compose --profile video-export up --build</code></td>
+<td>附带 Chromium + FFmpeg 的重型服务，内存要求 ≥8 GiB</td>
+</tr>
+<tr>
+<td>本地 ASR（FunASR）</td>
+<td><code>python -m pip install "funasr==1.4.0" fastapi uvicorn python-multipart</code></td>
+<td>需 Python 环境</td>
+</tr>
+<tr>
+<td>本地音视频提取</td>
+<td>系统安装 <code>ffmpeg</code> 并保证 <code>ffprobe</code> 在 PATH 中</td>
+<td>可选，缺失时自动跳过</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>注意</strong>: <code>postinstall</code> 脚本会自动构建 workspace 内 8 个内部包（mathml2omml、pptxgenjs、@openmaic/dsl 等），首次安装耗时较长。</p>
+</blockquote>
+<h2>三、评分总览</h2>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>权重</th>
+<th>加权得分</th>
+<th>评级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1 市场需求与商业机会</td>
+<td>6.5/10</td>
+<td>13%</td>
+<td>0.85</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D2 技术成熟度与产品质量</td>
+<td>8.5/10</td>
+<td>14%</td>
+<td>1.19</td>
+<td>优</td>
+</tr>
+<tr>
+<td>D3 社区健康度与生态势能</td>
+<td>8.0/10</td>
+<td>11%</td>
+<td>0.88</td>
+<td>优</td>
+</tr>
+<tr>
+<td>D4 商业模式与变现潜力</td>
+<td>8.4/10</td>
+<td>18%</td>
+<td>1.51</td>
+<td>优</td>
+</tr>
+<tr>
+<td>D5 竞争格局与差异化壁垒</td>
+<td>N/A</td>
+<td>12%</td>
+<td>—</td>
+<td>分析失败</td>
+</tr>
+<tr>
+<td>D6 法律合规与知识产权</td>
+<td>6.4/10</td>
+<td>7%</td>
+<td>0.45</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D7 企业就绪度与可运营性</td>
+<td>7.1/10</td>
+<td>8%</td>
+<td>0.57</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D8 团队治理与可持续性</td>
+<td>7.0/10</td>
+<td>7%</td>
+<td>0.49</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D9 上手难度与易用性</td>
+<td>7.0/10</td>
+<td>10%</td>
+<td>0.70</td>
+<td>良</td>
+</tr>
+<tr>
+<td><strong>综合评分</strong></td>
+<td>—</td>
+<td>100%</td>
+<td><strong>75.4/100</strong></td>
+<td><strong>A（高商业化潜力）</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>注</strong>：D5 竞争格局维度因分析失败被标 N/A，综合评分按其余八维加权归一化计算（权重按比例重新分配）。一票否决检查不完整（D5 不涉及否决项，其余否决项均正常通过）。</p>
+</blockquote>
+<p><strong>平行维度（不计入综合评分）</strong></p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10 功能价值</td>
+<td>8.2/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>D11 社会价值</td>
+<td>7.4/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>公共价值分</td>
+<td>7.8/10</td>
+<td>(D10+D11)/2</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>各维度细则分值构成详见「四、各维度详细分析」。</p>
+</blockquote>
+<h2>四、各维度详细分析</h2>
+<h1>D1 市场需求与商业机会评估（权重 13%）</h1>
+<h3>项目分类标签</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>项目类型</strong></td>
+<td>应用软件（教育内容生成）+ 数据与AI（多智能体编排）</td>
+</tr>
+<tr>
+<td><strong>适用行业</strong></td>
+<td>教育培训（核心）、通用/跨行业（内容生成能力可外溢到企业培训、知识管理）</td>
+</tr>
+<tr>
+<td><strong>目标用户角色</strong></td>
+<td>教育工作者（教师/课程设计者）、企业培训人员、内容创作者、非技术用户</td>
+</tr>
+<tr>
+<td><strong>适用场景</strong></td>
+<td>课程内容自动生成、交互式教学、企业培训、知识传播</td>
+</tr>
+<tr>
+<td><strong>部署形态</strong></td>
+<td>混合部署（本地部署 + Docker + Vercel 云部署 + PostgreSQL 服务端持久化）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>一句话定位</strong>: OpenMAIC 是一个基于多智能体编排的 AI 交互式课堂生成平台，适用于教育培训、企业培训和知识传播场景，主要面向教师、课程设计者和内容创作者，用于将任意主题或文档一键生成包含课件、测验、互动模拟和项目式学习内容的沉浸式课堂体验。</p>
+<blockquote>
+<p>说明：项目 topics 为空，以上分类基于 README 功能描述、依赖包构成（Next.js、LangGraph、AI SDK、ProseMirror 等）及代码结构推断。</p>
+</blockquote>
+<hr />
+<h3>D1.1 目标市场规模与增长性（2.5 分）— <strong>1.5 分</strong></h3>
+<h3>判断依据</h3>
+<p><strong>TAM 估算</strong>：OpenMAIC 所解决的问题——"AI 生成交互式教学内容"——对应的是 AI 教育科技（EdTech + AI）市场。可触达市场分三层：① 狭义市场为 AI 驱动的在线教育内容生成工具，处于萌芽期；② 中层市场为全球在线教育市场（约 2000–4000 亿美元量级）；③ 广义市场为企业培训与知识管理（全球企业培训市场约 4000 亿美元量级）。作为 AI 教育应用层产品，其可触达市场为百亿美元级。</p>
+<p><strong>增长趋势</strong>：AI+教育是当前增长最快的科技细分赛道之一。生成式 AI 于 2024–2026 年持续向教育场景渗透，全球政府对 AI 教育投入加大（如中国"AI+教育"政策、美国教育科技融资回暖），市场处于扩张期。</p>
+<p><strong>市场层级</strong>：AI 原生教育内容生成工具仍属<strong>新兴蓝海市场</strong>——传统 EdTech 巨头（Coursera、Udemy、Canvas）主要提供内容分发/学习管理系统而非 AI 内容生成；大模型厂商（OpenAI、Anthropic）提供底层能力但不做垂直应用。OpenMAIC 所处赛道处于"技术已成熟、应用未固化"的窗口期。</p>
+<p><strong>数据支撑</strong>：
+- 项目创建于 2026-03-11，仅 5 个月即获得 23.8k stars、4.4k forks、62 位贡献者，反映出市场对该方向的高度关注；
+- v0.1.0 → v1.0.0 共 9 个 release，迭代节奏密集（约每 2–4 周一个版本），说明开发投入大、方向明确；
+- 论文发表于 JCST'26（《From MOOC to MAIC: Reimagine Online Teaching and Learning through LLM-driven Agents》），有学术背书，验证了"MAIC（Multi-Agent Interactive Classroom）"概念的前沿性。</p>
+<p><strong>扣分原因</strong>：无外部权威市场数据支撑精确 TAM 数字，本评估为基于行业类比的量级估算（置信度中低）；项目尚未证明其面向付费市场的差异化定位（教育机构预算主要流向 LMS/学习平台，而非内容生成工具）。</p>
+<h3>评分：1.5 / 2.5（对应 60% 档位）</h3>
+<hr />
+<h3>D1.2 痛点真实性与解决程度（2.5 分）— <strong>1.5 分</strong></h3>
+<h3>判断依据</h3>
+<p><strong>痛点真实性</strong>：
+- 课程内容制作是教育行业公认的高成本环节——教师制作一门在线课程平均耗时 100+ 小时，OpenMAIC 以"一句提示词生成完整课程"直接切中这一痛点，属于<strong>真实且高频</strong>的需求。
+- "多媒体互动内容生成"（课件 + 测验 + 互动模拟 + PBL + TTS语音 + 白板）覆盖了在线课程制作的完整链路，不是单一功能点。
+- 从 218 个开放 Issue、165 个 90 天内关闭的 Issue 来看，用户和贡献者在大量反馈功能问题和使用体验，说明并非自嗨型项目，确有真实用户在使用。</p>
+<p><strong>解决完整度</strong>：
+- 功能完整性较高：支持 12 种界面语言、20+ 种 LLM 提供商、PPTX 导入/导出、HTML 离线导出、视频导出、语音克隆、本地 ASR/TTS 等，是一个准生产级完整方案。
+- 从 v0.1.0 到 v1.0.0 的演进路径（基础生成 → 交互模式 → PBL → 编辑器 → Agent 工作台 → 持久化）表明产品在持续补齐完整度。</p>
+<p><strong>替代成本</strong>：
+- 替代选择包括：传统课件工具（PowerPoint + 手动制作，费时费力）、其他 AI 课件生成工具（如 ClassPoint AI、SlidesAI、Tome，但大多只生成静态 PPT，不做沉浸式多智能体课堂）、通用 LLM + 手动组装（需要技术能力）。
+- OpenMAIC 的差异化在于"多智能体交互课堂"这一形态，市场上直接竞品稀缺，但<strong>简单 AI 课件生成工具已较多</strong>，用户在"只做 PPT"的需求上替代品充分。</p>
+<p><strong>扣分原因</strong>：① "沉浸式多智能体课堂"是否是教育市场的刚需尚无充分验证——它更可能是"锦上添花"的体验升级，而非"非用不可"的刚需（教育机构的核心刚需是课程效果与完成率，而非课堂形式）；② 项目处于快速发展期，218 个开放 Issue 也暗示产品稳定性/易用性仍有提升空间；③ MIT 协议下难以通过软件授权本身收费，变现路径依赖托管服务/企业版，而当前 README 中未见明确的商业服务入口。</p>
+<h3>评分：1.5 / 2.5（对应 60% 档位）</h3>
+<hr />
+<h3>D1.3 市场时机判断（2.5 分）— <strong>2.0 分</strong></h3>
+<h3>判断依据</h3>
+<p><strong>技术成熟度曲线</strong>：
+- 多智能体编排（LangGraph、AutoGen 等）在 2025–2026 年已从概念验证进入实质生产期，OpenMAIC 使用的 LangGraph 1.1 已是成熟框架。
+- 生成式 AI 用于教育内容的底层技术（LLM + TTS + 图像生成）均已跨过"期望膨胀期"，进入大规模可用阶段。
+- 2026 年正值"AI Agent"从技术热点向商业落地过渡的关键时期，项目创建时间（2026-03）恰逢市场爆发前夜。</p>
+<p><strong>竞争密度</strong>：
+- 直接竞品稀缺：没有找到同量级（20k+ stars）的"多智能体交互课堂生成"开源项目；现有 AI 课件工具多为简单的"PPT 生成器"，未做多智能体课堂形态。
+- 潜在竞争威胁来自：① 大模型平台官方教育功能（如 ChatGPT 的定制 GPT、Claude 的 Projects）；② 传统 EdTech 巨头引入 AI 功能；③ 其他开源项目追赶。
+- 当前窗口期：<strong>竞争尚未固化，有机会建立品牌和社区壁垒</strong>。</p>
+<p><strong>监管/标准</strong>：
+- 中国"AI+教育"政策导向积极（2025 年教育部推进 AI 教育应用），高校 MOOC 转型需求明确（论文从 MOOC 到 MAIC 的叙事）。
+- 全球 AI 教育监管处于"鼓励创新 + 合规规范"并行阶段，暂无阻碍性监管。
+- 数据隐私（学生数据）和教育内容合规是潜在风险，但属可管理范畴。</p>
+<p><strong>数据支撑</strong>：
+- 5 个月 23.8k stars 的增长速度（远超同类教育项目）验证了市场时机正确；
+- 从 AGPL-3.0 转为 MIT（v0.3.0 时）是一个聪明的时机选择——降低了用户使用门槛，加速社区扩散；
+- 90 天内 447 个 PR 创建，社区活跃度极高，说明项目恰逢技术红利期。</p>
+<h3>评分：2.0 / 2.5（对应 80% 档位）</h3>
+<hr />
+<h3>D1.4 应用场景广度（2.5 分）— <strong>1.5 分</strong></h3>
+<h3>判断依据</h3>
+<p><strong>行业覆盖</strong>：
+- 核心行业：教育培训（K12、高等教育、职业培训、MOOC）；
+- 可延伸行业：企业培训（员工 onboarding、技能提升）、知识管理（文档转互动课程）、内容创作（自媒体教育内容）；
+- README 明确提到"vocational-learning task engine"（职业技能学习引擎），说明已在向职业教育场景延伸。</p>
+<p><strong>场景多样性</strong>：
+- 产品形态上是<strong>横向通用工具</strong>（任意主题 → 课程），而非纵向专用（如只做数学或编程教育）；
+- 场景覆盖：课堂教学、自学、企业培训、在线课程制作、演示内容创作、项目式学习（PBL）；
+- 支持飞书、Slack、Telegram 等 20+ 消息应用接入（通过 OpenClaw），显著拓宽了使用场景——用户可以在日常聊天工具中直接生成课程。</p>
+<p><strong>可延展性</strong>：
+- 核心能力（多智能体编排 + 富媒体课程生成 DSL + 跨提供商抽象）可迁移方向：
+  - 企业培训内容自动化生成；
+  - 产品帮助文档/教程的互动化；
+  - 知识库 → 互动学习路径；
+  - 会议纪要/文档 → 培训材料（已有 docx/pdf/audio/video 材料导入能力）。
+- <code>@openmaic/*</code> SDK 家族（dsl/renderer/editor/importer/generation/storage）已发布 npm，提供了生态化延伸的基础。</p>
+<p><strong>扣分原因</strong>：虽然理论上可跨行业，但<strong>教育行业仍是绝对核心</strong>，企业培训和知识管理场景需要额外的行业适配（如与企业 LMS 集成、合规要求、定制工作流）；当前产品在非教育场景的证据不足。</p>
+<h3>评分：1.5 / 2.5（对应 60% 档位）</h3>
+<hr />
+<h3>D1 维度小结</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>得分</th>
+<th>权重</th>
+<th>加权得分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1.1 目标市场规模与增长性</td>
+<td>1.5 / 2.5</td>
+<td>25%</td>
+<td>0.375</td>
+</tr>
+<tr>
+<td>D1.2 痛点真实性与解决程度</td>
+<td>1.5 / 2.5</td>
+<td>25%</td>
+<td>0.375</td>
+</tr>
+<tr>
+<td>D1.3 市场时机判断</td>
+<td>2.0 / 2.5</td>
+<td>25%</td>
+<td>0.500</td>
+</tr>
+<tr>
+<td>D1.4 应用场景广度</td>
+<td>1.5 / 2.5</td>
+<td>25%</td>
+<td>0.375</td>
+</tr>
+<tr>
+<td><strong>D1 合计</strong></td>
+<td><strong>6.5 / 10</strong></td>
+<td>—</td>
+<td><strong>1.625</strong></td>
+</tr>
+</tbody>
+</table>
+<h3>核心结论</h3>
+<p>OpenMAIC 处在 AI 教育内容生成这一<strong>真实且高速增长的市场</strong>上，市场时机判断为"恰当"（技术成熟 + 竞争未固化 + 政策利好），这是其最大的商业机会点。项目以 5 个月 23.8k stars 的速度成为该细分领域的头部开源项目，证明了需求的真实性和产品的吸引力。</p>
+<p><strong>主要商业风险</strong>：
+1. <strong>付费意愿未验证</strong>：开源社区热度 ≠ 付费意愿。教育市场的采购决策链长（学校/培训机构预算流程），"多智能体课堂"这一新形态尚未进入主流教育采购目录；
+2. <strong>替代威胁</strong>：大模型平台自带的教育功能（定制 GPT、Projects）、以及传统 PPT 生成工具的快速 AI 化，可能挤压中间层生存空间；
+3. <strong>变现路径不明</strong>：MIT 协议 + 免费托管服务（open.maic.chat），未见明确的商业版/企业版规划，短期变现通道主要依赖托管服务收费或企业定制。</p>
+<p><strong>总体判断</strong>：市场需求真实、赛道增长强劲、时机恰当，但"多智能体交互课堂"作为一个新品类，其市场接受度和付费转化存在不确定性——属于"高潜力、待验证"的早期市场机会。</p>
+<blockquote>
+<p>⚠️ 置信度说明：TAM 估算基于行业类比（AI EdTech 市场），未经外部权威数据源验证，置信度为中低。其余判断均基于仓库硬数据（stars、issue 活跃度、release 节奏、功能清单、依赖构成）。</p>
+</blockquote>
+<h3>D2. 技术成熟度与产品质量</h3>
+<p><strong>总分: 8.50 / 10</strong>（权重 14%）</p>
+<h3>维度综述</h3>
+<p>OpenMAIC 是一个从产品设计到工程实现均达到高成熟度的开源项目。项目在 2026 年 3 月 11 日创建、同年 8 月 27 日发布 v1.0.0，不到 6 个月内完成 9 个版本的密集迭代，展现出极强的工程执行力。52.5 万行 TypeScript/TSX 代码组织在清晰的 monorepo 多包架构中，测试代码占比达 37.4%，5 个 CI Workflow 覆盖 lint、单测、E2E、PostgreSQL 契约测试与带供应链安全验证的 npm 发布管道。产品定位（"一键获取沉浸式多智能体学习体验"）清晰且差异化明显，已具备支撑商业化交付的技术底座。</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>分值</th>
+<th>得分</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D2.1</td>
+<td>产品设计与创新性</td>
+<td>1.5</td>
+<td><strong>1.35</strong></td>
+<td>产品理念清晰（多智能体交互式课堂 + 一键生成教学体验），功能围绕核心场景完整展开：AI 内容生成、课堂交付、PBL 项目式学习、PPTX 导入导出、工作台、白板、多角色圆桌讨论、语音交互（TTS/ASR/语音克隆）。在同类 AI 教育工具中，以"多智能体课堂编排 + 演示交付 + 创作者工具链"的组合形成明显差异化，23.8k stars 验证了市场认可度。相比简单复制现有方案，项目在技术（DSL 驱动的场景编排、分布式渲染服务）与体验（沉浸式课堂、交互式静态导出）上均有创新。</td>
+</tr>
+<tr>
+<td>D2.2</td>
+<td>架构设计与工程质量</td>
+<td>2</td>
+<td><strong>1.60</strong></td>
+<td>monorepo 多包架构（@openmaic/dsl、generation、storage、renderer、editor、importer 六个独立包 + render-service 独立渲染服务），包边界清晰且可独立发布到 npm。前端按功能域组织（agent/chat/classroom/workbench/scene-renderers 等），lib/ 下按能力域划分（agent-runtime、playback、orchestration、pbl、video-export 等）。设计模式运用成熟：注册表模式（AI 提供商/工具）、租约模式（多进程 Agent 会话协调）、事件溯源模式（工作台会话折叠）、乐观更新 + 回滚等。复刻门槛极高：PPTX 导入导出（OOXML 解析/序列化、SVG 路径生成、主题继承链）、AI 多智能体编排、PostgreSQL 存储层、Chromium 分布式渲染、PBL 引擎均为深度领域工程。扣分点：部分前端组件臃肿（roundtable/index.tsx ~1500 行、settings.ts ~2000 行、tts-settings.tsx ~1000+ 行），存在少量历史 JavaScript 遗留代码（importer/src1/），构成轻微技术债。</td>
+</tr>
+<tr>
+<td>D2.3</td>
+<td>代码整洁性与规范性</td>
+<td>1</td>
+<td><strong>0.80</strong></td>
+<td>整体代码整洁度高。命名一致且有意义，TypeScript 类型系统使用充分（readonly、联合类型、泛型接口）。注释质量突出——几乎每个核心文件的注释都解释了设计决策与边界情况（如 runner.ts 的租约机制、chat-storage.ts 的并发控制、stage-storage.ts 的删除围栏）。CI 强制 Prettier + ESLint + TypeScript + i18n 键检查。扣分点：存在重复代码模式（多个星形路径生成器、各 TTS 提供商的重复配置结构、模型定义重复），部分函数过长（createExcelWorksheet 超 500 行、startGeneration 超 300 行），pptxgenjs fork 与 importer/src1 为无类型约束的旧 JS 代码。</td>
+</tr>
+<tr>
+<td>D2.4</td>
+<td>安全性</td>
+<td>1</td>
+<td><strong>0.80</strong></td>
+<td>安全编码实践成熟：PostgreSQL 存储层全程参数化查询 + quoteIdentifier 正则校验；PPTX 导出端 encodeXmlEntities 转义所有用户内容；外部 URL 通过 isAllowedExternalUrl 白名单校验；Agent 运行时对不可信数据做提示注入防护（untrustedElementDataBlock、sanitizePromptData）；视频导出的 iframe 使用 sandbox="allow-scripts" 限制权限；文件上传有类型/大小双重校验（5MB/2MB cap）。API 密钥通过密码输入框 + 禁用自动填充管理，并有 purgeLegacyPersistKey 清理旧明文存储。扣分点：CI 中未集成 Dependabot/Snyk/Trivy 等自动化依赖漏洞扫描，依赖安全依赖人工更新。</td>
+</tr>
+<tr>
+<td>D2.5</td>
+<td>UI/UX/UE 人机交互</td>
+<td>1</td>
+<td><strong>0.80</strong></td>
+<td>有完整 Web 界面（Next.js 16 + React 19 + Tailwind + shadcn/ui + Radix UI）。界面设计专业：引入 10+ 字体族覆盖中英日韩阿多语言排版，使用 motion 动画库、lucide 图标、emoji 符号库。交互功能丰富且实现精致：拖拽式大纲编辑、HTML5 拖拽排序、流式渲染自动滚动、录音波形动画、键盘快捷键系统、画布缩放/拖拽、TTS 预览控制。信息架构清晰（首页/app/工作台/课堂/生成预览等独立路由模块）。OutlinesEditor 等组件有良好 aria 无障碍标注。扣分点：部分组件交互复杂度超出必要（如 WorkbenchChat props 过多），无障碍系统性验证证据不足（未设置 axe 等自动化测试）。</td>
+</tr>
+<tr>
+<td>D2.6</td>
+<td>功能完备度与稳定性</td>
+<td>1.5</td>
+<td><strong>1.35</strong></td>
+<td>功能覆盖度高：AI 场景生成（幻灯片/测验/交互组件/PBL）、课堂交付（播放引擎、动作编排、TTS/ASR）、创作者工具（讲义编辑器、白板、PPTX 双向转换）、视频导出（Hyperframes 项目生成）、工作台（Agent 技能、课程管理）。v1.0.0 稳定版已于 2026-08-27 发布，从 v0.1.0 到 v1.0.0 共 9 个 release 快速演进。向后兼容处理到位：代码中多处兼容旧版交互配置（convertInteractiveConfigToWidget）、legacy speech action、@deprecated 标记与版本化存储迁移（v1→v4）。国际化完善：i18next + react-i18next、i18n 键检查 CI、中英文 README、多语言字体（含 Noto Sans SC/JP/KR/Arabic、LXGW WenKai）。运行环境要求合理（Node.js 22 + PostgreSQL，AI 功能依赖外部 API Keys）。扣分点：开放 issue 218 个（高 star 项目正常水平），部分边缘场景仍待打磨。</td>
+</tr>
+<tr>
+<td>D2.7</td>
+<td>文档与开发者体验</td>
+<td>1</td>
+<td><strong>0.90</strong></td>
+<td>文档体系完善：中英文 README（README.md + README-zh.md）、CONTRIBUTING.md、SECURITY.md、CHANGELOG.md、独立 docs 站点（packages/docs，有专用构建 workflow）、ComfyUI 安装指导、社区文档（community/feishu.md）、PR 模板、Issue 模板。文档文件 178 个。代码内注释级文档丰富（核心模块均有详尽设计说明）。版本同步良好：发布工作流要求版本 bump 落在 main 且通过完整 CI。</td>
+</tr>
+<tr>
+<td>D2.8</td>
+<td>测试与质量保障</td>
+<td>1</td>
+<td><strong>0.90</strong></td>
+<td>测试体系在开源项目中属顶级水平：847 个测试文件、19.5 万行测试代码、测试占比 37.4%，覆盖单元测试、集成测试、E2E（Playwright）、PostgreSQL 契约测试（storage-pg-contract.yml 带基线比对）、浏览器渲染测试（cover-card layout、interactive static HTML Chromium smoke）、Hyperframes lint 样本验证。CI/CD 有 5 条 workflow：ci.yml 含 Prettier/ESLint/tsc/i18n 四重检查 + 5 个包测试 + render-service 独立流水线 + E2E；publish-packages.yml 实现供应链安全发布（构建产物 SHA-256 校验、发布前 CI green 强制、npm provenance、token 与构建隔离）；publish-openmaic-skill.yml 含 macOS Bash 3.2 兼容性验证。发布时还强制 PostgreSQL 契约套件必须真实执行。扣分点：具体行覆盖率数字未提供。</td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<p>OpenMAIC 在技术成熟度与产品质量维度表现优异（8.50/10）。其最突出的优势在于：一是工程体系完整度极高——从 monorepo 多包架构、37.4% 测试占比、5 条 CI 流水线到带供应链安全验证的 npm 发布机制，已达到商业化软件交付标准；二是产品设计差异化清晰——多智能体课堂编排 + 沉浸式交付 + 创作者工具链的组合在 AI 教育赛道中辨识度高；三是国际化与本地化准备充分，为全球市场商业化奠定了产品基础。主要改进空间在于：部分前端组件规模过大需要重构拆分、依赖漏洞自动扫描（Dependabot/Snyk）尚未接入、旧 JS 代码（importer/src1、pptxgenjs fork）的类型化迁移。整体而言，该项目的技术底座能够支撑商业化尝试，D2 维度不存在阻碍商业化的根本性短板。</p>
+<h3>D3. 社区健康度与生态势能（权重 11%）</h3>
+<h3>评估概览</h3>
+<p>OpenMAIC 作为清华大学 THU-MAIC 团队发起的开源项目，在短短 5.7 个月内获得了 23,863 Star（历史月均增速约 4,200 / 月），社区响应极其活跃，展现了极强的生态势能。但项目成立时间尚短，第三方生态仍在早期构建阶段，组织多样性数据缺失，最终得分为 <strong>8.0 / 10</strong>。</p>
+<h3>细则打分</h3>
+<h4>D3.1 社区活跃度指标（满分 3 分）→ <strong>3.0 分</strong></h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测数据</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Star 增速</td>
+<td>历史月均 ≈ 4,200+（23,863 Star ÷ 5.7 月）</td>
+<td>远超“月增 &gt;500”阈值；注意此为历史均值，可能高估早期爆发，但项目仍处于高速增长期</td>
+</tr>
+<tr>
+<td>Fork 比率</td>
+<td>4,479 / 23,863 ≈ 18.8%</td>
+<td>衍生/二次开发意愿强，处于开源项目较高水平</td>
+</tr>
+<tr>
+<td>Issue 活跃度</td>
+<td>近 90 天 PR 447 个、Issue 关闭 165 个，开放 218</td>
+<td>社区参与度极高，日均 PR/Issue 合计约 6.8 个</td>
+</tr>
+<tr>
+<td>响应速度</td>
+<td>平均关闭时间未补采到，但 90 天关闭 165 个 Issue，且发版周期密集（9 个 release）</td>
+<td>依据关闭量与迭代节奏推断维护者响应积极</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：Star 增速远高于 500/月阈值；PR 数量 447、Issue 关闭 165，社区极度活跃；Fork 比率接近 19% 表明用户基于此二次开发的意愿强烈。唯一缺憾是 Issue 平均关闭时间未实测，但综合关闭量与发版频率（3 个月内 5 个版本）判断，响应能力处于极高水平。故给予 100% 档位。</p>
+<h4>D3.2 贡献者结构多样性（满分 2.5 分）→ <strong>2.0 分</strong></h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测数据</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>贡献者数量</td>
+<td>62 人（GitHub API 实采）</td>
+<td>满足“50+ 活跃贡献者”标准；近 90 天 PR 447 个，活跃度高</td>
+</tr>
+<tr>
+<td>组织多样性</td>
+<td>未补采到具体组织分布</td>
+<td>项目由清华 THU-MAIC 主导，推测核心贡献者以高校为主，外部组织参与度无法量化</td>
+</tr>
+<tr>
+<td>核心团队占比</td>
+<td>无精确数据</td>
+<td>外部 PR 数量大，但无法确认外部/核心团队 PR 比例</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：贡献者数量 62 人，超过 50 人，且近 90 天 PR 数量高达 447 个，社区参与热情高。但组织多样性数据缺失，无法确认是否来自 10+ 组织；考虑到高校背景项目可能以校内贡献为主，降一档按“20–50 贡献者、5+ 组织”的 7–8 档评估。给予 80% 档位。</p>
+<h4>D3.3 第三方生态成熟度（满分 3 分）→ <strong>1.8 分</strong></h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测数据</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>插件/扩展</td>
+<td>内置 20+ Skills（PPT/Quiz/PBL/视频等），但未见第三方插件市场</td>
+<td>已有可扩展机制，但外部插件生态尚未形成</td>
+</tr>
+<tr>
+<td>集成生态</td>
+<td>支持 Vercel 一键部署、OpenClaw 集成、Lemonade Local AI、ComfyUI、FunASR、AliDocMind、MinerU、SearXNG 等</td>
+<td>集成范围较广，主流平台（Vercel）与多类 AI 工具均已完成对接</td>
+</tr>
+<tr>
+<td>衍生项目</td>
+<td>未发现基于 OpenMAIC 的商业产品/二次开发项目</td>
+<td>暂无充分证据</td>
+</tr>
+<tr>
+<td>教程/课程</td>
+<td>README 含中英文用户指南、论文（JCST'26）、飞书/社区文档</td>
+<td>官方教程较完善，但外部教程/课程数量未知</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：项目已具备一定集成生态（Vercel、OpenClaw、多模型提供商等），但第三方插件市场和衍生项目仍处于早期。按评分指引“有少量第三方扩展”的 5–6 档评估，给予 60% 档位。</p>
+<h4>D3.4 品牌认知与行业影响力（满分 1.5 分）→ <strong>1.2 分</strong></h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测数据</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>品牌辨识度</td>
+<td>23,863 Star、中文名"多智能体交互课堂"，领域内认知度较高</td>
+<td>在 AI 教育/多智能体学习赛道快速出圈</td>
+</tr>
+<tr>
+<td>行业采用</td>
+<td>清华 THU-MAIC 团队背书、论文发表于 JCST'26</td>
+<td>高校权威机构背书，但头部企业采用证据不足</td>
+</tr>
+<tr>
+<td>媒体覆盖</td>
+<td>Discord 社区 + 飞书社区，Vercel 官方按钮</td>
+<td>未检索到技术大会/主流媒体覆盖数据</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：项目名称 OpenMAIC 在 AI 教育领域已具备辨识度，清华机构背景与论文发表构成学术背书，短期获星量巨大。但缺乏头部企业商业采用和媒体会议曝光记录，按 7–8 档评估，给予 80% 档位。</p>
+<h3>综合结论</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D3.1 社区活跃度指标</td>
+<td>3.0</td>
+<td>3.0</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>D3.2 贡献者结构多样性</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>80%</td>
+</tr>
+<tr>
+<td>D3.3 第三方生态成熟度</td>
+<td>3.0</td>
+<td>1.8</td>
+<td>60%</td>
+</tr>
+<tr>
+<td>D3.4 品牌认知与行业影响力</td>
+<td>1.5</td>
+<td>1.2</td>
+<td>80%</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>8.0</strong></td>
+<td><strong>80%</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>综合评述</strong>：OpenMAIC 呈现典型的“明星级”开源项目早期形态——Star 爆发力极强、社区参与度极高、版本迭代周期短，具备强劲的社区势能作为商业化客户池基础。需要补强的是：①组织多样性需拓展更多外部企业/开发者贡献者，降低单一机构依赖；②第三方插件生态和衍生项目尚属空白，建议通过开放 API、Skill 市场等方式培育生态；③品牌影响需从“学术圈层”走向“产业层”，争取头部企业案例背书。</p>
+<p><strong>置信度说明</strong>：Issue 平均关闭时间、贡献者组织分布、外部教程/媒体覆盖等数据未补采到，相关判断基于可获得的量化指标与合理推断，置信度中等。</p>
+<h3>D4. 商业模式与变现潜力（权重 18%）</h3>
+<h4>核心结论</h4>
+<p>OpenMAIC 采用 <strong>MIT 协议</strong>，所有变现路径在许可层面均无障碍；项目已实际搭建 <strong>SaaS 托管（open.maic.chat + Hosted mode）</strong> 与 <strong>Pro 工作台（Open Core 雏形）</strong> 两条清晰路径，并保留专业服务/合作渠道。但受限于项目上线仅 5 个月、v1.0.0 刚发布（2026-08-27），尚无公开定价与收入数据验证，付费转化依赖"托管省心 + 企业级需求"而非功能裁剪，属于典型的 <strong>MIT 开源 + 托管服务</strong>模式（参照 Supabase/Vercel）。本维度加权得分 <strong>8.4/10</strong>，商业潜质良好，处于"路径已打通、变现待验证"阶段。</p>
+<h4>D4.1 协议对变现模式的影响（2 分）</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+<th>数据依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>根协议</td>
+<td>MIT License，所有变现路径（SaaS/Open Core/双协议/服务）均无许可约束</td>
+<td>根 LICENSE + 各 @openmaic 包 LICENSE 均为 MIT</td>
+</tr>
+<tr>
+<td>历史变更</td>
+<td>v0.3.0 变更日志明确记录 "relicensing from AGPL-3.0 to MIT"（2026-06-28），主动解除 AGPL 对 SaaS 的限制</td>
+<td>CHANGELOG</td>
+</tr>
+<tr>
+<td>第三方包</td>
+<td>工作区内 <code>packages/mathml2omml</code> 为 LGPL-3.0-or-later，<code>packages/pptxgenjs</code> 为 MIT；仅限该包自身，不影响主项目商业路径</td>
+<td>README License 章节、包内 LICENSE</td>
+</tr>
+<tr>
+<td>商业声明</td>
+<td>README 明确 "commercial use is permitted free of charge"，并有对外合作邮箱</td>
+<td>README Partnerships 章节</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分：2.0 / 2.0（100%）</strong> — MIT 协议不构成任何变现约束，LGPL 第三方包仅作模块隔离即可，本细则满分。</p>
+<h4>D4.2 变现路径清晰度（3.5 分）</h4>
+<table>
+<thead>
+<tr>
+<th>变现模式</th>
+<th>可行性评估</th>
+<th>证据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SaaS 托管（主路径）</td>
+<td>官方 Live Demo <code>open.maic.chat</code> 已运行，OpenClaw 集成中提供 "Hosted mode — Get an access code"，即已有付费接入点</td>
+<td>README OpenClaw 章节、README 顶部 Demo 徽章</td>
+</tr>
+<tr>
+<td>Open Core（备选路径）</td>
+<td>v1.0.0 发布 "Pro workbench"（Agent 工作台），命名含 Pro 倾向，可作企业/高级功能付费点；代码中通过 <code>NEXT_PUBLIC_PRO_WORKBENCH_ENABLED</code> 构建开关隔离</td>
+<td>README v1.0.0 发布说明、架构说明</td>
+</tr>
+<tr>
+<td>专业服务/合作</td>
+<td>设有 <code>thu_maic@mail.tsinghua.edu.cn</code> 合作渠道，清华团队背景可支撑教育机构定制部署与咨询</td>
+<td>README Partnerships</td>
+</tr>
+<tr>
+<td>插件/技能生态</td>
+<td>20+ 内置 skills、OpenClaw skill（<code>clawhub install openmaic</code>），具备插件市场抽成潜力</td>
+<td>README、skills/ 目录</td>
+</tr>
+<tr>
+<td>社区/捐赠</td>
+<td>Discord + 飞书社区已建立，但仅作辅助，不具备规模化</td>
+<td>README 社区徽章</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分：2.8 / 3.5（80%）</strong> — 已有 1 条主路径（SaaS 托管）实际运营、1 条备选路径（Pro/Open Core）功能落地，参照 Supabase（MIT+托管）、Vercel（MIT+托管）均有成功先例；但尚无公开定价、无付费功能清单、无收入数据，路径"可行"仍未验证，故按 7–8 档（良好）评定。</p>
+<h4>D4.3 付费转化逻辑（2.5 分）</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>免费到付费触发点</td>
+<td>免费版（MIT 自托管）功能完整，用户自带 LLM API key 即可使用全部能力；付费触发点是"官方托管省心"（免配置、免维护、免自备 key）与"企业级需求"（持久化、SLA、私有化部署支持），而非功能不够用</td>
+</tr>
+<tr>
+<td>付费意愿强度</td>
+<td>目标客户以教育机构/教师/企业培训为主，教育机构预算有限但企业培训（职业教育、内部培训）付费能力中等偏上；清华学术背书 + JCST 论文提升可信度</td>
+</tr>
+<tr>
+<td>转化漏斗</td>
+<td>自托管试用 → 官方 Demo 体验 → Hosted mode（access code）→ 企业合作，漏斗自然；README 中 Vercel 一键部署大幅降低自托管门槛，反而可能延迟付费转化，但也是引流入口</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分：2.0 / 2.5（80%）</strong> — 升级触发点合理（托管与合规需求），付费意愿中等偏上；但 MIT 下"免费版完全够用"导致触发点不够刚性，按 7–8 档评定（高于"有升级逻辑但触发点不够自然"的 5–6 档，低于"免费不够用→自然升级"的 9–10 档）。</p>
+<h4>D4.4 增值服务空间与定价天花板（2 分）</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>增值空间</td>
+<td>明确方向：托管服务（access code）、企业私有化部署（Postgres/S3 持久化）、安全加固（SSRF 防护、ACCESS_CODE 已有技术基础）、教育合规（数据隔离/审计）、技术支持与 SLA、定制开发（PPTX 导入/导出、LMS 集成）、技能/插件市场抽成、学习行为分析报表</td>
+</tr>
+<tr>
+<td>定价天花板</td>
+<td>教育 SaaS 类客单价常规区间 $1K–10K/年（参照 Canvas、Kahoot 等）；企业培训/定制部署可突破 $10K/年，但无实际定价数据验证</td>
+</tr>
+<tr>
+<td>收入扩展性</td>
+<td>可从 per-seat（教师版）向 per-usage（LLM token 消耗分成）或 enterprise flat fee 扩展；LLM 成本目前由用户自带 key 承担，托管模式下存在代管 key 与 usage 计费的扩展空间</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分：1.6 / 2.0（80%）</strong> — 增值方向明确、收入模型可拓展，定价天花板落在 $1K–10K/年区间，按 7–8 档评定；未达 9–10 档（$10K+/年、指数增长）因无实证数据支撑。</p>
+<hr />
+<p><strong>维度加权小结</strong></p>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D4.1 协议对变现模式的影响</td>
+<td>2.0</td>
+<td>2.0</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>D4.2 变现路径清晰度</td>
+<td>3.5</td>
+<td>2.8</td>
+<td>80%</td>
+</tr>
+<tr>
+<td>D4.3 付费转化逻辑</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>80%</td>
+</tr>
+<tr>
+<td>D4.4 增值服务空间与定价天花板</td>
+<td>2.0</td>
+<td>1.6</td>
+<td>80%</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>8.4</strong></td>
+<td><strong>84%</strong></td>
+</tr>
+</tbody>
+</table>
+<p>OpenMAIC 商业模式呈现"MIT 开源 + 官方托管 + Pro 功能分层"的典型组合，路径清晰、许可无约束、增值空间充足；主要不确定因素在于：项目上线时间短（2026-03 创建）、v1.0.0 刚发布（2026-08-27）、无任何公开定价与商业收入信号，变现能力尚待市场验证。若托管服务（access code）与 Pro 工作台能按预期转化为付费产品，商业前景乐观；当前阶段兑现值取决于执行层。</p>
+<h3>D5 竞争格局与差异化壁垒</h3>
+<p>分析失败（DeepSeek 调用重试仍失败: 模型返回空内容），本维度标 N/A。</p>
+<h3>D6. 法律合规与知识产权（权重 7%）— 得分 6.4/10</h3>
+<p><strong>评估概述</strong></p>
+<p>本维度基于本地仓库实测（LICENSE 文件、package.json、CONTRIBUTING.md）与 GitHub API 元数据评估。总体判断：项目许可协议明确、以 MIT 为主，商业化基本无障碍；但存在一处 LGPL-3.0 内嵌包、依赖数量庞大、无正式 CLA/DCO 三个主要合规关注点。商标与专利因无法自动检索，按方法论默认档位计分并标注置信度低。</p>
+<h4>D6.1 开源协议合规性与商业限制（满分 3 分 → 小分 1.8）</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>协议明确性</td>
+<td>根 LICENSE 为 MIT，SPDX 标识明确（package.json <code>"license": "MIT"</code>）；<code>@openmaic/dsl/editor/generation/importer/renderer/storage</code> 等 6 个子包均有独立 MIT LICENSE，归属统一为 THU-MAIC</td>
+</tr>
+<tr>
+<td>copyleft 传染性</td>
+<td><code>packages/mathml2omml</code> 为 LGPL-3.0-or-later（上游 fiduswriter/mathml2omml vendored 进 monorepo），是仓库内唯一的 copyleft 组件</td>
+</tr>
+<tr>
+<td>商业附加条款</td>
+<td>未发现 Commons Clause、BUSL 等限制性附加条款</td>
+</tr>
+</tbody>
+</table>
+<p>判分说明：根项目与核心子包均为纯净 MIT，无商业使用限制条款，协议文件齐全；但 LGPL-3.0 组件被整体复制进仓库并参与构建分发，构成弱 copyleft 传染源，需在发布物中隔离该库、保留 LGPL 声明并提供相应源代码，属于「需法律审查但可管理」档位，故给 6/10。</p>
+<h4>D6.2 依赖链法律风险（满分 2.5 分 → 小分 1.5）</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>依赖协议审查</td>
+<td>根 package.json 直接依赖约 130 项，另有 6 个 workspace 子包及 render-service 的独立依赖；已明确发现 LGPL-3.0 依赖 <code>mathml2omml</code>，<code>jszip</code> 为 MIT OR GPLv3 双许可（通常按 MIT 使用），其余主流依赖多为 MIT/Apache-2.0/BSD</td>
+</tr>
+<tr>
+<td>依赖数量</td>
+<td>直接依赖数量庞大（根约 130 项 + 子包额外项），传递依赖规模更大，合规审查成本较高</td>
+</tr>
+<tr>
+<td>依赖来源</td>
+<td>主要来自 npm 官方源，来源可靠；<code>mathml2omml</code>、<code>pptxgenjs</code> 为仓库内 vendored 上游项目</td>
+</tr>
+</tbody>
+</table>
+<p>判分说明：整体依赖生态健康，无 AGPL 级高风险依赖，但存在明确的 LGPL 传染性组件且依赖总量大、需逐包核查双许可与传递依赖，达不到「少量需注意、整体可控」的良好档，故给 6/10。</p>
+<h4>D6.3 商标与专利风险（满分 2.5 分 → 小分 1.5）</h4>
+<p><strong>未经人工商标检索与专利排查，置信度低。</strong></p>
+<p>本项目名称 "OpenMAIC" 及组织 "THU-MAIC" 的商标可注册性、是否与第三方商标冲突、核心多智能体交互与文档生成技术是否落入他人专利范围，均无法由 AI 自动确认。按方法论，本细则默认按 5–6 档计 1.5/2.5，需人工补充商标检索（USPTO/CNIPA/EUIPO）与技术自由实施分析（FTO）后方可修正。</p>
+<h4>D6.4 贡献者协议完备性（满分 2 分 → 小分 1.6）</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CLA/DCO</td>
+<td>未发现独立 CLA 或 DCO 配置；CONTRIBUTING.md 明确声明「By contributing to OpenMAIC, you agree that your contributions will be licensed under the MIT License」，构成 inbound=outbound 的轻量许可协议</td>
+</tr>
+<tr>
+<td>版权归属</td>
+<td>贡献者按 MIT 授权，但版权分散在 62 名贡献者手中；若未来需切换双许可（MIT + 商业授权）需逐人追认，存在阻碍</td>
+</tr>
+<tr>
+<td>贡献流程</td>
+<td>CONTRIBUTING.md 非常完善：分支命名、PR 必链 issue、Conventional Commits、CI 检查、AI 辅助 PR 政策、发布包版本号强制提升规则、安全漏洞上报通道均有明确规定</td>
+</tr>
+</tbody>
+</table>
+<p>判分说明：拥有远超平均的贡献流程规范，且有明确的 inbound 许可声明，但缺正式 CLA/DCO，版权集中度不足，故给 7/10（有基本贡献协议和流程，但未达完备 CLA 档）。</p>
+<p><strong>结论</strong></p>
+<p>OpenMAIC 的法律合规状况整体健康：MIT 主协议清晰、无商业附加条款、贡献流程规范，商业化（含 SaaS 与销售）在 MIT 框架下法律障碍低。需优先处理的合规事项为：① <code>mathml2omml</code> 的 LGPL-3.0 组件须在发行物中做隔离处理并履行 LGPL 义务；② 依赖清单庞大，建议引入自动化 license 扫描（如 license-checker/OSV）纳入 CI；③ 若拟采用双许可或专有授权模式，需尽快引入 CLA 以便版权集中；④ 商标与专利状态须人工核查后方可降低风险结论。</p>
+<h3>D7 企业就绪度与可运营性（权重 8%）</h3>
+<p><strong>维度均分：7.1/10</strong></p>
+<p>OpenMAIC 在企业可运营性方面呈现"工程严谨、架构有前瞻、企业级功能未闭环"的中间态。项目具备高水准的发布工程（CI 门禁、npm 发布校验、版本标记）、较完善的配置管理体系（环境变量 + YAML + 构建参数）以及面向多进程的分布式架构设计（Agent 租约协调），但缺少企业客户部署所必需的身份认证体系（SSO/LDAP）、审计日志与开箱即用的高可用编排，可观测性也停留在健康检查与结构化日志层面。</p>
+<h3>D7.1 运维复杂度与升级路径（3 分）—— 2.4 分</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>配置管理</td>
+<td>良好</td>
+<td><code>.env.example</code> 覆盖 LLM/TTS/ASR/图像/视频/搜索全部提供商，支持 <code>server-providers.yml</code>（<code>lib/server/provider-config.ts</code> 实现 YAML 加载）与 Docker 构建参数（<code>NEXT_PUBLIC_*</code> 等 11 项 ARG）</td>
+</tr>
+<tr>
+<td>运维负担</td>
+<td>可控</td>
+<td>docker-compose 三服务编排，Postgres 与 render-service 均设可选 profile，默认部署仅启动应用；render-service 含健康检查与资源上限（<code>mem_limit</code> 8g、<code>shm_size</code> 2gb），Postgres 带 <code>pg_isready</code> healthcheck</td>
+</tr>
+<tr>
+<td>升级路径</td>
+<td>良好</td>
+<td>9 个版本（v0.1.0→v1.0.0），CHANGELOG 完善；<code>publish-packages.yml</code> 具备严格的发布门禁（CI 结论等待、tarball SHA-256 校验、first-parent 检查），版本号以 git tag 标记；但未发现显式回滚机制文档</td>
+</tr>
+<tr>
+<td>数据迁移</td>
+<td>基本平滑</td>
+<td>存储层 schema 自动创建（<code>ensureAgentSessionSchema</code>/<code>ensureDocumentSchema</code>），客户端 Dexie 有 <code>migrate</code> 版本化迁移，设置层存在 v1→v4 迁移器；未见复杂数据迁移说明</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：配置管理清晰度高，环境变量/配置文件/构建参数三层体系完备；CI 与发布流程自动化程度在同类开源项目中属上游水平，版本发布 8 次/5 个月，升级节奏快且有 changelog 支撑；Postgres 与 render-service 的可选 profile 设计降低了默认部署负担。扣分项是无显式回滚机制，且 Next.js 构建期变量（<code>NEXT_PUBLIC_*</code>）变更需完整重建镜像。</p>
+<h3>D7.2 安全管理与权限控制（2.5 分）—— 1.5 分</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>认证授权</td>
+<td>薄弱</td>
+<td>生产级仅 <code>ACCESS_CODE</code> 单密码；<code>PERSISTENCE_DEV_TOKEN</code> 文档明确标注"dev-only、不得用于生产认证"；无 SSO/OAuth/LDAP/SAML</td>
+</tr>
+<tr>
+<td>权限模型</td>
+<td>粗粒度</td>
+<td>存储层有 <code>requireLearner</code>/<code>forbiddenAdmin</code> 等 principal 接口（<code>storage/src/server/index.ts</code>），但无用户体系，实际权限控制停留在"管理员/学习者"二元概念</td>
+</tr>
+<tr>
+<td>审计日志</td>
+<td>缺失</td>
+<td>未发现操作审计/安全日志模块</td>
+</tr>
+<tr>
+<td>数据安全</td>
+<td>良好</td>
+<td>SSRF 防护完善（<code>isAllowedExternalUrl</code>、<code>ALLOW_LOCAL_NETWORKS</code> 开关、v0.3.1 release 明确提及 SSRF hardening）；render-service 采用 iptables 网络隔离（isolated network + CAP_NET_ADMIN）；SQL 全部参数化查询 + <code>quoteIdentifier</code> 标识符校验；客户端 API 密钥明文持久化于 KVStore 是隐患</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：安全工程实践（SSRF 防护、容器网络隔离、注入防护）体现了较强安全意识，但企业客户核心诉求的 SSO/LDAP、RBAC 与审计日志全部缺失，<code>ACCESS_CODE</code> 单密码无法支撑企业级多租户或多部门使用。整体处于"有简单认证、权限粗粒度"档位（5–6 分档），考虑安全编码实践加分，给 6 分当量。</p>
+<h3>D7.3 可扩展性与高可用能力（2.5 分）—— 2.0 分</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>水平扩展</td>
+<td>架构支持、需额外配置</td>
+<td>Agent runtime 采用租约模式（lease + heartbeat + TTL，Postgres 协调多进程，<code>lib/server/agent-runtime/runner.ts</code>）；Next.js standalone 无状态；资产支持 S3 外置；render-service 独立可扩展</td>
+</tr>
+<tr>
+<td>高可用</td>
+<td>基本支持</td>
+<td>应用层无状态 + 健康检查（<code>/health</code>）可接入 LB；但 docker-compose 默认单实例，无 K8s/编排/故障转移配置，Postgres 为单点</td>
+</tr>
+<tr>
+<td>性能瓶颈</td>
+<td>局部明确</td>
+<td>render-service 默认 <code>RENDER_MAX_CONCURRENCY=1</code>、需 8GiB 内存，视频导出为吞吐瓶颈；未发现负载均衡或队列化部署配置</td>
+</tr>
+<tr>
+<td>数据一致性</td>
+<td>强</td>
+<td>行锁（<code>SELECT ... FOR UPDATE</code>）+ 乐观锁实现会话认领；SAVEPOINT 部分回滚；事件顺序完整性 tripwire 校验；跨进程租约续期机制完整</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：架构设计层面为水平扩展预留了良好基础（租约协调、无状态应用、存储外置），PostgreSQL 契约测试（<code>storage-pg-contract.yml</code>）保障了分布式语义的正确性——这明显高于"单机可接受、扩展需改造"的档位。但高可用能力未被部署物化：无编排文件、Postgres 单点、render 单并发，客户需自行构建 K8s/HA 架构，属"可扩展但需额外配置，高可用基本支持"（7–8 分档）。</p>
+<h3>D7.4 集成兼容与可观测性（2 分）—— 1.2 分</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>API 完备性</td>
+<td>优秀</td>
+<td>丰富的 REST 路由（<code>/api/generate/scene-outlines-stream</code>、<code>/api/extract-document</code>、<code>/api/pbl/v2/*</code>、<code>/api/agent/*</code>）；6 个 <code>@openmaic/*</code> npm 包形成 SDK 生态；<code>@modelcontextprotocol/sdk</code> 集成 MCP；OpenClaw 集成；但无 OpenAPI/Swagger 文档</td>
+</tr>
+<tr>
+<td>标准协议</td>
+<td>部分支持</td>
+<td>SSE 流式广泛应用、MCP 支持；无 OpenTelemetry/Prometheus/Webhook 协议</td>
+</tr>
+<tr>
+<td>监控告警</td>
+<td>薄弱</td>
+<td>仅 render-service <code>/health</code> 与 CI 健康检查；无内置监控指标、无告警配置</td>
+</tr>
+<tr>
+<td>日志体系</td>
+<td>良好</td>
+<td><code>createLogger</code> 结构化日志、<code>LOG_LEVEL</code>/<code>LOG_FORMAT</code> 可配置、代码中日志粒度区分清晰（error/warn/info/debug）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：API/SDK 生态在开源 AI 应用层项目中相当突出（REST + 6 包 SDK + MCP + 平台集成），但企业可观测性的核心支柱——指标、追踪、告警——基本空缺，没有任何 Prometheus/OpenTelemetry 暴露端点。API 强度与可观测性短板互抵，综合落在"有 API 但监控薄弱"（5–6 分档）。</p>
+<h3>维度结论</h3>
+<p>OpenMAIC 的企业就绪度处于<strong>中上水平但未达可售状态</strong>。最强的三项资产是：① 发布与 CI 工程严谨度（npm 发布校验、CI 门禁、版本标记机制在开源项目中罕见地接近商业软件标准）；② 配置管理的清晰与完整（三层次配置体系）；③ 存储与运行时架构的分布式前瞻（租约协调 + Postgres 契约测试 + S3 外置）。最短的三块板是：① 无企业身份认证（SSO/OAuth/LDAP 全缺）与审计日志；② 高可用停留在架构层、未物化为部署产物；③ 可观测性仅覆盖健康检查与日志。对教育机构/企业培训类付费客户，<strong>SSO + 审计 + 部署编排</strong>是进入 PoC 名单的前提条件，建议优先补齐。</p>
+<h3>D8. 团队治理与可持续性（权重 7%）</h3>
+<h4>D8.1 核心维护者能力与背景（2.5 分）—— 2.0 分</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术能力</td>
+<td>强。项目由 THU-MAIC（清华大学）主导，5.5 个月产出 52.5 万行代码、37.4% 测试覆盖率、5 套 CI 工作流，多包架构（@openmaic/dsl/storage/renderer/importer）设计规范，工程能力处于同类项目上游</td>
+</tr>
+<tr>
+<td>商业经验</td>
+<td>无公开数据。团队可能依托清华学术背景，但未发现商业化/创业/企业服务履历披露</td>
+</tr>
+<tr>
+<td>投入度</td>
+<td>极高。2026-03-11 创建至 08-30 共发布 9 个版本（含 v1.0.0），90 天 PR 447 个，日均合并约 5 个 PR，非业余投入所能达到</td>
+</tr>
+<tr>
+<td>巴士因子</td>
+<td>中等偏上。62 位贡献者，CONTRIBUTING.md 明确多人认领机制，核心维护者具体人数不透明但 ≥3 较为可信</td>
+</tr>
+</tbody>
+</table>
+<p><strong>小分：2.0/2.5（80%，7–8 档：团队投入度高、技术能力强，有一定商业经验但未证实）</strong></p>
+<h4>D8.2 治理模型透明度（2 分）—— 1.6 分</h4>
+<p>已有较完善的治理基础设施：<code>CONTRIBUTING.md</code> 覆盖分支命名、Conventional Commits、PR 链接 Issue 强制要求、AI 辅助 PR 审查规范、发布包版本 bump 规则（CI 强制校验）；<code>SECURITY.md</code> 定义漏洞披露流程与支持版本；<code>CHANGELOG.md</code> 记录版本演进。新功能/架构变更要求先经 GitHub Discussions 或 Discord 讨论，决策公开度较高。<strong>短板</strong>：未发现独立的 GOVERNANCE.md / 路线图文档，决策权集中于核心团队，未加入 CNCF/Apache/Linux Foundation 等基金会背书。</p>
+<p><strong>小分：1.6/2.0（80%，7–8 档：有基本治理结构，决策较透明）</strong></p>
+<h4>D8.3 资金支持与商业赞助（2.5 分）—— 1.0 分</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>现有资金</td>
+<td>未发现公司/基金会/VC 资金支持的公开信息</td>
+</tr>
+<tr>
+<td>赞助收入</td>
+<td>未发现 GitHub Sponsors、Open Collective 等公开赞助渠道</td>
+</tr>
+<tr>
+<td>商业实体</td>
+<td>无运营此项目的公司实体信息，组织名 THU-MAIC 表明为清华大学相关组织</td>
+</tr>
+<tr>
+<td>资金可持续性</td>
+<td>依赖学术机构资源或志愿贡献，未形成可持续商业资金链</td>
+</tr>
+</tbody>
+</table>
+<p>项目虽由清华机构背书、短期爆发力强，但资金空白是长期商业化可持续性的明显短板。</p>
+<p><strong>小分：1.0/2.5（40%，3–4 档：几乎无公开资金支持，主要靠学术机构与社区热情）</strong></p>
+<h4>D8.4 项目可持续性与传承风险（3 分）—— 2.4 分</h4>
+<ul>
+<li><strong>活跃趋势</strong>：清晰上升。发布节奏从 v0.1.0（03-26）到 v1.0.0（08-27）持续加密，90 天 PR 447 个、关闭 Issue 165 个，最近 push 为 2026-08-30，无停滞迹象。</li>
+<li><strong>维护延续性</strong>：62 位贡献者 + 详尽贡献指南 + 自动化发布流程（publish-packages.yml），社区可承接方向明确。</li>
+<li><strong>历史信号</strong>：<code>archived=false</code>，无 deprecated/unmaintained 标记。</li>
+<li><strong>分叉风险</strong>：4,479 个 fork 主要为部署/使用型 fork，未见社区分裂信号；开放 Issue 218 个但关闭速率（165/90 天）健康。</li>
+</ul>
+<p><strong>小分：2.4/3.0（80%，7–8 档：活跃度上升趋势明确，传承机制基本健全）</strong></p>
+<h4>D8 结论</h4>
+<p><strong>总分 = 2.0 + 1.6 + 1.0 + 2.4 = 7.0 / 10（权重 7%）</strong></p>
+<p>OpenMAIC 作为仅 5.5 个月的新项目，团队投入度、工程能力和治理文档建设均远超同类项目平均水平：快速迭代、高贡献者参与、社区流程规范，形成较强传承韧性。主要风险集中在资金维度——无公开赞助/融资记录、无商业实体运营，一旦学术资源倾斜变化，长期资金可持续性存疑。综合来看，团队治理与可持续性构成<strong>良好</strong>水平，是商业化推进的有力支撑面，但需尽快补足资金与商业化实体安排的可见度。</p>
+<h3>D9 上手难度与易用性</h3>
+<h3>D9 评分总览</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D9.1 安装难度</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>60%</td>
+</tr>
+<tr>
+<td>D9.2 部署与配置难度</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>60%</td>
+</tr>
+<tr>
+<td>D9.3 易用性与操作门槛</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>80%</td>
+</tr>
+<tr>
+<td>D9.4 学习曲线与首体验</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>80%</td>
+</tr>
+<tr>
+<td><strong>D9 合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>7.0</strong></td>
+<td><strong>70% — 🟡 中等难度</strong></td>
+</tr>
+</tbody>
+</table>
+<h3>D9.1 安装难度（1.5 / 2.5）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>安装方式</td>
+<td>支持 git clone + <code>pnpm install</code> 三步安装；有 Dockerfile/docker-compose 一键构建；另有 Vercel 一键部署按钮</td>
+</tr>
+<tr>
+<td>依赖管理</td>
+<td>部分自包含。核心为 Node.js + pnpm；Docker 版内置 Alpine + native 构建工具（python3/build-base/cairo-dev 等用于 sharp 和 @napi-rs/canvas）。本地运行需系统级 <code>ffmpeg</code>（仅音视频提取场景，非必需）</td>
+</tr>
+<tr>
+<td>环境要求</td>
+<td>Node.js &gt;= 20.9.0、pnpm &gt;= 10；Docker 版基于 <code>node:22-alpine</code>。对操作系统无特殊要求，但 <code>postinstall</code> 需编译多个 workspace 包，需构建工具链</td>
+</tr>
+<tr>
+<td>平台覆盖</td>
+<td>跨平台（macOS/Linux/Windows），但本地开发依赖 <code>postinstall</code> 中携带 <code>sync-maic-importer</code> 等脚本；Windows 上 <code>rm -rf</code> 类脚本由 pnpm 跨平台处理</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>:
+- 安装非单条命令完成，<code>pnpm install</code> 会触发 <code>postinstall</code> 依次构建 8 个 workspace 包（mathml2omml、pptxgenjs、dsl、generation、storage、importer、renderer、editor）并运行同步脚本，首次安装涉及多步骤原生构建，耗时较长。
+- Docker 方式解决依赖编译问题（<code>docker compose up --build</code>），但构建阶段需要拉取基础镜像 + 安装 native 工具链。
+- README 提供清晰的安装步骤和环境变量说明，Vercel 一键部署按钮降低门槛。
+- 综合评分：处于「有容器化/包管理器安装，需少量配置/构建」区间偏下，因 postinstall 构建链较复杂，扣 1 分。</p>
+<h3>D9.2 部署与配置难度（1.5 / 2.5）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>部署方式</td>
+<td>支持 Docker Compose（默认单容器 + 可选 server-persistence 双容器 + 可选 video-export 三容器）、Vercel 一键部署、裸机 <code>pnpm build &amp;&amp; pnpm start</code></td>
+</tr>
+<tr>
+<td>配置复杂度</td>
+<td>初始配置需至少一个 LLM API key；支持 15+ 家云厂商 Provider（OpenAI/Anthropic/Bedrock/Gemini/DeepSeek/Qwen/Ollama 等）和本地模型（Lemonade/FunASR/Ollama），配置项多但均有文档示例</td>
+</tr>
+<tr>
+<td>外部依赖初始化</td>
+<td>默认浏览器持久化（IndexedDB），<strong>无需外部数据库</strong>；可选 PostgreSQL（docker compose profile 一键拉起）；可选 video-export 渲染服务（自带 Chromium+FFmpeg）</td>
+</tr>
+<tr>
+<td>快速验证</td>
+<td>有 Live Demo（open.maic.chat 在线体验）；本地跑通 demo 需要配置 LLM key，10 分钟内可完成（若 API key 就绪）；OpenClaw 集成路径零配置（<code>clawhub install openmaic</code> + hosted mode）</td>
+</tr>
+<tr>
+<td>面向人群</td>
+<td>非开发人员可通过 Vercel 按钮 + Live Demo + OpenClaw hosted mode 使用；自托管路径需开发者操作</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>:
+- 默认部署形态（无外部依赖）对非技术用户友好；但完整功能（Agents 工作台、MP4 导出、PostgreSQL 持久化）需启用 profile + 多个 <code>NEXT_PUBLIC_*</code> 构建时环境变量，配置面广且涉及构建开关，复杂度显著上升。
+- README 对高级配置有详尽文档（如 persistence token 的安全边界说明、render-service 的资源参数），说明该配置面向开发者而非普通用户。
+- 有 docker-compose 且 <code>docker compose up --build</code> 可一键启动核心功能，默认 browser-only 部署无外部依赖，达到「有容器化部署，需少量配置」区间；因高级 profile 配置复杂、构建时大量 <code>NEXT_PUBLIC_*</code> 开关，不给 7-8 分档，定 6 分档。</p>
+<h3>D9.3 易用性与操作门槛（2.0 / 2.5）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>操作便捷度</td>
+<td>产品核心为「One prompt in, a whole course out」——用户通过自然语言输入主题即可生成完整课程，无需命令操作；日常使用以 Web UI 为主</td>
+</tr>
+<tr>
+<td>交互设计</td>
+<td>提供完整 Web 管理界面（课堂播放、画布编辑、白板、聊天）；无 CLI 工具（CLI 仅用于开发）；编辑器支持拖拽、缩放、旋转、多选（v0.3.1）；12 种界面语言（i18n）</td>
+</tr>
+<tr>
+<td>错误处理</td>
+<td>有针对性错误处理设计（如 ffmpeg 缺失时「actionable setup message」而非挂起；持久化未启用时显示 toast 提示并保留课程列表），README 对常见失败场景有明确说明</td>
+</tr>
+<tr>
+<td>默认合理性</td>
+<td>默认配置可开箱即用（browser-only 持久化 + 任意一个 LLM key 即可跑通）；推荐模型（Gemini 3 Flash）有明确建议；但高级功能需手动开启</td>
+</tr>
+<tr>
+<td>非专家可用性</td>
+<td>非 AI/编程专家可通过自然语言生成课程；OpenClaw 集成允许从飞书/Slack/Telegram 等聊天应用直接生成课堂，零设置</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>:
+- Web UI 是主要交互面，非专家友好；产品形态天然面向教育场景而非开发者工具，操作门槛低。
+- 无 CLI 管理面，API 面向开发者但普通用户无需接触；错误处理设计考虑周到（从 README 中「mark failed with an actionable setup message instead of hanging」等描述可见）。
+- 有 Live Demo 但未在素材中发现交互式 onboarding 或教程流程（User Guide 为飞书文档链接，非嵌入引导）。
+- 综合评 8 分档：操作便捷、有清晰错误处理、默认配置即用，非专家可上手。</p>
+<h3>D9.4 学习曲线与首体验（2.0 / 2.5）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>上手时间</td>
+<td>有 API key 前提下：安装（几分钟）+ 配置（2 分钟）+ <code>pnpm dev</code>（秒级）≈ 10-15 分钟；Live Demo 路径<strong>零安装</strong>秒级体验；OpenClaw hosted 模式免本地部署</td>
+</tr>
+<tr>
+<td>学习曲线</td>
+<td>一键生成课程的核心路径极平缓（「One prompt in, a whole course out」）；高级功能（Agent workbench、PBL、视频导出）有学习成本</td>
+</tr>
+<tr>
+<td>入门引导</td>
+<td>README Quick Start 四步走 + 环境变量文档；v1.0.0 配套中英文 User Guide（飞书 wiki 链接）；Live Demo 即时可体验</td>
+</tr>
+<tr>
+<td>概念门槛</td>
+<td>需要理解「LLM API key」概念（首次配置的硬性前置）；多 Agent 课堂/场景类型（slides/quiz/PBL）等产品概念有学习成本；但使用层面无需编程知识</td>
+</tr>
+<tr>
+<td>示例丰富度</td>
+<td>代码规模 52 万行，含大量组件和场景类型实现；但<strong>示例文件数为 0</strong>，未提供开箱即用的示例课程/模板项目；CI 中有 e2e 测试可参照</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>:
+- Live Demo + Vercel 一键部署 + OpenClaw 零设置路径使「首体验」门槛极低，符合项目口号「in just one click」。
+- 自托管路径需要配置 LLM key，这是通用 AI 应用的合理前置；如果用户完全没有 API key，可走 Lemonade/Ollama 本地模型路径（但需 GPU/更多配置）。
+- 素材中 <code>examples</code> 目录文件数为 0（本地实测「示例: 0 文件」），缺乏可下载的演示课程/模板，扣分点。
+- 综合评 8 分档：30 分钟内可首次成功，有 quickstart 和 Live Demo 引导，学习曲线平缓。</p>
+<h3>D9 维度结论</h3>
+<p><strong>上手难度等级: 🟡 中等（7.0/10）</strong>——面向有技术基础者，但产品的终端用户（学习者/教育者）可通过 <strong>Live Demo（open.maic.chat）</strong> 或 <strong>OpenClaw 集成（hosted mode）</strong> 实现零安装、零配置的直接体验，这是该维度最大的商业化优势。自托管/自部署路径需要 Node.js 20+ 环境、配置至少一个 LLM API key，且 postinstall 构建链较长，属于开发者范畴的操作。</p>
+<p><strong>商业化建议</strong>:
+1. <strong>强化「免部署」推广路径</strong>——Live Demo 和 OpenClaw hosted mode 已实现「one click」承诺，建议在官网/README 首位突出这两条零门槛入口，将对非技术用户的首体验成本降到最低。
+2. <strong>降低自托管配置摩擦</strong>——将「至少一个 LLM key」的前置条件进一步弱化：内置本地模型（Lemonade）可免 key，但当前需单独部署；建议提供「一键全部本地」的 docker compose profile（含 Ollama + FunASR + ffmpeg），让无 API key 用户也能开箱体验。
+3. <strong>补充示例课程资产</strong>——当前仓库示例文件为 0，建议在 README 或应用内提供可一键导入的示例课程（如「量子物理入门」「Python 基础」），让新用户无需从零 prompt 即可看到完整的多 Agent 课堂教学效果，缩短「Aha Moment」。
+4. <strong>提供一键脚本安装</strong>——当前安装依赖构建链较长，建议新增 <code>curl -fsSL https://get.openmaic.dev | sh</code> 或 <code>npx openmaic</code> 等一键脚本，将 git clone + pnpm install + postinstall 构建封装为单条命令。</p>
+<h3>D10. 功能价值——使用价值视角（平行维度，权重 0%，不计入综合评分）</h3>
+<blockquote>
+<p><strong>维度属性</strong>：本维度与 D11 参与逐维度分析与报告输出，权重为 0，不计入百分制综合评分，不参与一票否决。目的为补齐「功能价值极高但商业价值平平」项目的画像信息，与 D1.2（商业输入）、D2.6（工程事实）各自独立成立，不属于重复计分。</p>
+</blockquote>
+<h4>D10.1 效用强度（3 分）—— 2.4 分（80%）</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>单用户节省量</td>
+<td><strong>极高</strong>。README 宣称 "One prompt in, a whole course out"——将「某一主题或文档 → 完整交互式课程」的制作从数小时/数天的课程设计工作量压缩至分钟级。产出物含幻灯片、测验、交互式模拟、PBL 项目、AI 教师/同学实时课堂，并可直接导出可编辑 <code>.pptx</code> 与交互式 <code>.html</code>，形成从生成到交付的完整闭环。对教师、培训师、课程内容创作者而言，节省的是课程设计与多媒体开发的全链路成本。</td>
+</tr>
+<tr>
+<td>效用层级</td>
+<td><strong>项目级依赖偏上</strong>。对在线教育/培训内容生产场景，OpenMAIC 不是「锦上添花」的便利工具，而是可直接替代传统 PPT 课件制作+测验开发+互动内容编程的组合方案。v1.0.0 新增的 Agent workbench（课程规划、逐页构建与修订、材料上传）进一步将工具从「一次性生成器」升级为「可迭代的课程生产工作台」，深度介入用户的核心生产流程。</td>
+</tr>
+<tr>
+<td>效用确定性</td>
+<td><strong>较高</strong>。生成流程为两阶段管线（大纲生成 → 场景内容生成），并配有 20+ 内置技能（slides/quizzes/interactives/PBL/images/video/voices/pptx 导入），效用稳定可预期；用户可自带材料（文档/音频/视频/网页搜索）驱动生成，不依赖运气或特定场景。风险点仅在于生成质量受所选 LLM 能力影响，但模型供应商全家桶（OpenAI/Anthropic/Bedrock/Gemini/Ollama 等 18+ 家）缓解了单点依赖。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断</strong>：效用层级显著高于「明确但有限的效率提升」（5–6 档），单用户节省量以「数倍成本替代」计，但尚未达到「业务命脉级基础设施」（9–10 档）——项目不承载用户业务的存续性，仅承载课程内容的生产环节。定档 <strong>7–8 档（80%）</strong>。</p>
+<h4>D10.2 实际使用规模（3 分）—— 1.8 分（60%）</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实采数据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GitHub Dependents</td>
+<td><strong>N/A（未实采到，禁止估算）</strong></td>
+</tr>
+<tr>
+<td>下载/拉取量</td>
+<td><strong>npm_weekly_downloads: N/A；pypi_monthly_downloads: N/A</strong>。README 明确 @openmaic/* SDK 家族（DSL/renderer/importer）已发布至 npm（v0.3.0 起），且仓库含 <code>publish-packages.yml</code> CI workflow，但具体下载量未实采到。</td>
+</tr>
+<tr>
+<td>生产采用证据</td>
+<td>① Star 23,865 / Fork 4,479（实采），为强使用关注度信号；② 官方 Live Demo（open.maic.chat）在线运行；③ 与 OpenClaw 集成，支持从飞书/Slack/Telegram 等 20+ 消息应用调用（<code>clawhub install openmaic</code>）；④ 学术论文发表于 JCST'26（From MOOC to MAIC），有高校研究背书；⑤ 12 种界面语言本地化、Discord/飞书双社区、62 名贡献者、90 天 447 个 PR，生态活跃度高。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断</strong>：使用规模直接计量数据（下载量/Dependents 计数）缺失，按防幻觉规则不得凭记忆填充。以 Star 23.8k 为间接代理指标——该量级在同类 TypeScript 开源项目中已属头部（通常对应万级以上的真实使用/部署者），且存在公开 Demo 与消息应用集成入口，可合理判定达到「万级依赖方或月下载十万级」区间。定档 <strong>5–6 档（60%）</strong>，置信度中等（受限于 npm 数据缺失）。</p>
+<h4>D10.3 免费可得的完整效用（2 分）—— 2.0 分（100%）</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>开源版完整性</td>
+<td><strong>开源版即完整价值</strong>。仓库未发现任何企业版/付费版功能分层；v1.0.0 的 Pro workbench（agent workbench）、durable sessions、session materials、20+ 内置技能全部位于开源代码内（<code>lib/server/agent-runtime/</code>、<code>skills/</code> 等目录）。README 明确声明 "licensed under the MIT License, so commercial use is permitted free of charge"。</td>
+</tr>
+<tr>
+<td>自托管完整性</td>
+<td><strong>自托管可获得与官方托管同等能力</strong>。提供 Vercel 一键部署、Docker Compose 部署（含中国网络加速构建参数）、PostgreSQL server-backed persistence 完整部署文档与契约（HTTP contract 文档），本地 <code>pnpm dev</code> 即可跑通全功能。官方 Demo（open.maic.chat）仅提供 ACCESS_CODE 访问，未设置功能墙。</td>
+</tr>
+<tr>
+<td>无隐性收费</td>
+<td><strong>无。</strong> 唯一外部成本为 LLM API 调用费，属用户自带密钥（BYO key，18+ 供应商任选），且 Ollama/Lemonade/FunASR 提供完全本地免费路径，不构成「不付费不可用」设计。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断</strong>：开源版与完整价值完全等价，无功能阉割、无付费墙、无隐性收费。按评分指引定档 <strong>9–10 档（100%）</strong>。本项与 D4.3 付费转化逻辑天然反相关——这正是「使用价值 vs 交换价值」张力的典型样本：项目将全部效用免费释放，商业变现只能依靠周边生态（托管/支持/集成），而非功能分层。</p>
+<h4>D10.4 效用可持续性（2 分）—— 2.0 分（100%）</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>停维后效用存续</td>
+<td><strong>强存续</strong>。应用为本地可构建运行的 Next.js 全栈应用（Node ≥ 20 + pnpm install 即用），课堂数据默认存于浏览器（Dexie/IndexedDB）或自托管 PostgreSQL，不依赖项目方运营的在线服务。项目停更后，已部署实例可长期正常工作。</td>
+</tr>
+<tr>
+<td>供应商锁定</td>
+<td><strong>几乎无锁定</strong>。架构明确 "Neutral by design — bring your own models, media, search providers, and storage backend"：LLM 供应商 18+ 家可互换；存储层抽象出 Browser/HTTP/PostgreSQL/S3 四种可替换后端；TTS/ASR/图片/视频生成均有多个 provider 及本地路径（Lemonade/FunASR）。不依赖任何单一厂商闭源组件。</td>
+</tr>
+<tr>
+<td>可分叉维护性</td>
+<td><strong>极强</strong>。MIT 许可证（v0.3.0 从 AGPL-3.0 重授权为 MIT），代码完整（52.5 万行 TS，测试占比 37.4%，CI 5 条 workflow），pnpm workspace + Dockerfile 构建可重现，发布频率高（9 个 release / 5 个月）。社区分叉无需法律与工程障碍。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断</strong>：完全本地化运行、无供应商锁定、MIT 许可可分叉，停维后效用可长期存续。定档 <strong>9–10 档（100%）</strong>。</p>
+<h4>D10 细则分值汇总</h4>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>分值</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10.1</td>
+<td>效用强度</td>
+<td>2.4 / 3</td>
+<td>7–8 档（80%）</td>
+</tr>
+<tr>
+<td>D10.2</td>
+<td>实际使用规模</td>
+<td>1.8 / 3</td>
+<td>5–6 档（60%）</td>
+</tr>
+<tr>
+<td>D10.3</td>
+<td>免费可得的完整效用</td>
+<td>2.0 / 2</td>
+<td>9–10 档（100%）</td>
+</tr>
+<tr>
+<td>D10.4</td>
+<td>效用可持续性</td>
+<td>2.0 / 2</td>
+<td>9–10 档（100%）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>8.2 / 10</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>维度结论</strong>：OpenMAIC 在功能价值（使用价值）维度得分 <strong>8.2/10</strong>，属「高功能价值」区间。其核心效用在于将课程生产这一传统高人力成本环节压缩至分钟级，且全部效用免费、完全本地可部署、无供应商锁定，功能价值结构极为健康。实际使用规模因 npm 下载量与 Dependents 计数未实采而仅凭 Star/生态证据保守定档（5–6 档），若后续补采到包管理器下载量，D10.2 存在上修空间。<strong>价值画像判定</strong>：本项目为「使用价值显著高于商业变现」的典型开源产品——D10.3 满分与商业维度付费转化天然反相关，其商业化潜力需依赖周边生态（托管服务、企业支持、OpenClaw 集成分发）而非功能付费墙来实现，建议在 D11 维度结合该价值结构综合判定画像。</p>
+<h3>D11. 社会价值——正外部性视角（平行维度，权重 0%）</h3>
+<blockquote>
+<p><strong>维度定位</strong>：本维度评估 OpenMAIC 对使用者之外的行业与社会产生的正外部性——数字公共产品属性、教育价值、普惠性与开放标准推动。作为平行维度，不计入综合评分，仅用于 3.4 价值画像。</p>
+</blockquote>
+<h4>D11 打分总览</h4>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D11.1</td>
+<td>数字公共基础设施属性</td>
+<td>3</td>
+<td>1.8</td>
+<td>60%（一般）</td>
+</tr>
+<tr>
+<td>D11.2</td>
+<td>教育与人才价值</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>80%（良好）</td>
+</tr>
+<tr>
+<td>D11.3</td>
+<td>普惠与可及性</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>80%（良好）</td>
+</tr>
+<tr>
+<td>D11.4</td>
+<td>开放标准与行业推动</td>
+<td>2</td>
+<td>1.6</td>
+<td>80%（良好）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td><strong>7.4</strong></td>
+<td><strong>良好偏上</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h4>D11.1 数字公共基础设施属性 —— 1.8 / 3</h4>
+<p><strong>判断依据</strong>：</p>
+<ul>
+<li><strong>下游依赖广度</strong>：项目拥有 4,479 forks（实采），@openmaic/dsl、renderer、importer、generation、storage 五个 SDK 包已发布至 npm（v0.3.0 起），构成可复用的软件包生态；但竞品清单中出现的同名/衍生项目均为 0–1 star 的轻量 fork，未见真实生态级下游，npm 下载量亦为 N/A，尚无法验证实际依赖规模。</li>
+<li><strong>停摆影响面</strong>：项目创建于 2026-03-11，至评估时仅约 5.5 个月，虽然 stars 爆发至 2.38 万，但尚未沉淀为行业关键路径。若项目消失，主要影响集中于 AI 教育应用层参考者，而不致波及底层软件供应链。</li>
+<li><strong>数字公共产品属性</strong>：MIT 许可（v0.3.0 由 AGPL-3.0 转为 MIT）、开放可复用、面向公共教育场景，完全符合 DPG（数字公共产品）特征；作为"多智能体课堂"细分领域的事实标杆，具备准公共品属性。</li>
+</ul>
+<p><strong>评定</strong>：属于"有一定下游依赖，但可替代性强"区间——AI 教育赛道仍有 Moodle/ClassCompanion 等替代路径，尚未达到"领域重要基础依赖"级别，故取 60% 档。</p>
+<hr />
+<h4>D11.2 教育与人才价值 —— 2.0 / 2.5</h4>
+<p><strong>判断依据</strong>：</p>
+<ul>
+<li><strong>教学采用与学理支撑</strong>：项目发表 JCST'26 论文《From MOOC to MAIC: Reimagine Online Teaching and Learning through LLM-driven Agents》（DOI: 10.1007/s11390-025-6000-0），并在 README 提供标准 BibTeX 引用，构成学术圈可引用的教学范式定义；清华团队背景（THU-MAIC）天然具备高校教学辐射力。</li>
+<li><strong>门槛降低效应</strong>：产品核心定位即"一键将任意主题/文档转化为沉浸式互动课堂"，显著降低了构建 AI 多智能体教学体验的技术与内容门槛；提供 v1.0.0 中英文体验指南，社区覆盖飞书与 Discord，降低了上手成本。</li>
+<li><strong>源码学习价值</strong>：52.47 万行 TypeScript 工程，测试覆盖 37.4%（19.6 万行测试），62 位贡献者、447 个 90 天 PR 表明工程活跃度与规范性；<code>@openmaic/*</code> 分层包结构（DSL/renderer/editor/generation/storage）是 AI 教育应用架构的良好范本。</li>
+</ul>
+<p><strong>评定</strong>：外部教程数量数据暂缺（N/A），但项目自身即教育产品、拥有正式论文与高质量工程代码，教学与学习场景明确，符合"常见于教学与入门路径，教程丰富"的 80% 档。</p>
+<hr />
+<h4>D11.3 普惠与可及性 —— 2.0 / 2.5</h4>
+<p><strong>判断依据</strong>：</p>
+<ul>
+<li><strong>能力平权化</strong>：将"多智能体 AI 课堂"从需要专业团队与高成本订阅的商业方案（同类 AI 课程制作平台通常按席/按月收费）变为 MIT 免费开源 + 可自托管；成本差额为全额（免费 vs 数百至数千美元/年）。</li>
+<li><strong>可及性支持</strong>：i18n 覆盖 12 种语言（zh-CN、zh-TW、en-US、ja-JP、ko-KR、ru-RU、ar-SA、pt-BR、es-MX、fr-FR、vi-VN、de-DE），包含阿拉伯语、越南语等欠发达地区语言；支持 Ollama、Lemonade 本地 LLM/TTS/ASR 与 FunASR CPU-only 模式，意味着无云端 API 预算或网络受限地区仍可离线使用核心功能。</li>
+<li><strong>硬件友好</strong>：README 明确 FunASR 支持 <code>--device cpu</code> 运行，无需 GPU，缓解了欠发达地区硬件壁垒。</li>
+</ul>
+<p><strong>评定</strong>：免费授权 + 本地化 + 低配运行三重保障，将昂贵能力显著平权，符合"显著降低获得门槛，覆盖主要人群"的 80% 档；距"覆盖所有人"的 100% 档尚有技术门槛（需 Node.js 20+、基础部署能力）差距。</p>
+<hr />
+<h4>D11.4 开放标准与行业推动 —— 1.6 / 2</h4>
+<p><strong>判断依据</strong>：</p>
+<ul>
+<li><strong>标准遵循与实现</strong>：依赖中引入 <code>@modelcontextprotocol/sdk</code>（MCP 协议），支持 OpenAI/Anthropic/Azure/Bedrock 等开放 API 规范；<code>mathml2omml</code> 实现 MathML→Office Math 开放格式转换，<code>.pptx</code> 导出遵循 OXML 开放标准；<code>@openmaic/dsl</code> 定义版本化课程数据契约并以 npm 公开发布，具备行业数据交换标准潜质。</li>
+<li><strong>科研支撑</strong>：JCST 论文明确提供 BibTeX 引用，支撑 AI 教育领域科学可重现性，这一条为硬性加分项。</li>
+<li><strong>行业示范效应</strong>：2026-06 从 AGPL-3.0 转 MIT、构建可插拔存储/模型/媒体 Provider 层，展示了对商业友好的开放工程范式；2.38 万 stars 与 4,479 forks 对 AI 教育开源赛道构成显著示范。</li>
+</ul>
+<p><strong>评定</strong>：项目实现了 MCP 等重要开放协议并有论文支撑，SDK 公开与许可转向具有一定行业推动力，但尚不足以称为"定义行业标准"，取 80% 档。</p>
+<hr />
+<h4>D11 结论</h4>
+<p>OpenMAIC 的正外部性集中于<strong>教育普惠</strong>与<strong>学术共享</strong>两个支柱：作为 MIT 许可的免费开源产品，它把多智能体 AI 课堂能力从商业付费方案中释放出来，配合 12 语言、本地模型支持与 CPU 低配可达，在欠发达地区与教育公平场景具有真实的社会价值；JCST 正式论文与可引用格式赋予其学术公共品属性。工程上，52 万行高质量 TypeScript 与 <code>@openmaic/*</code> SDK 发布为 AI 教育应用提供了可借鉴的架构范本。但考虑到项目仅诞生约 5 个月，下游生态尚未形成规模（npm 下载量 N/A、无实质依赖方证据），"数字基础设施"地位尚处早期。总体社会正外部性评为 <strong>7.4/10（良好偏上）</strong>，在价值画像中应标注为"教育普惠型公共品 + 新兴领域标杆"，适合作为学术与公益场景的品牌叙事资产。</p>
+<h2>五、商业化价值判断</h2>
+<h3>5.1 综合价值定位</h3>
+<p>OpenMAIC 综合评分 <strong>75.4/100</strong>，等级 <strong>A（高商业化潜力）</strong>，公共价值分 <strong>7.8/10</strong>，价值画像判定为 <strong>⭐ 明星资产</strong>。项目处于「高商业潜力 × 高公共价值」的最优象限，既具备直接商业化的能力，又承载显著的教育普惠与学术公共品属性。</p>
+<h3>5.2 核心价值支撑</h3>
+<p><strong>商业价值侧</strong>：
+- <strong>市场时机精准</strong>：2026 年正值 AI Agent 技术红利期，多智能体框架（LangGraph 等）已成熟，项目 5 个月获 23.8k stars 印证市场需求真实且增长强劲（D1）
+- <strong>技术壁垒极高</strong>：52.5 万行代码、37.4% 测试覆盖率、monorepo 多包架构（6 个独立 npm 包），复刻门槛极高（OOXML 处理、AI 编排、PG 存储、分布式渲染）（D2）
+- <strong>变现路径已搭建</strong>：MIT 协议无变现约束，SaaS 托管主路径已实际运营（open.maic.chat），Pro 工作台构成 Open Core 备选路径（D4）
+- <strong>社区势能强劲</strong>：Star 月均增速超 4200/月，近 90 天 PR 447 个，Fork 比率 18.8%（D3）</p>
+<p><strong>公共价值侧</strong>：
+- <strong>教育普惠</strong>：MIT 许可 + 免费开源将昂贵的多智能体 AI 课堂能力平权化，12 种语言 i18n 与本地模型支持显著降低欠发达地区获得门槛（D11）
+- <strong>学术公共品</strong>：JCST'26 正式论文提供标准 BibTeX 引用，52 万行 TypeScript 与 37.4% 测试覆盖构成高质量工程范本（D11）
+- <strong>功能效用强</strong>：一句话/一份材料生成完整交互式课程，将课程制作从小时级压缩至分钟级（D10）</p>
+<h3>5.3 价值张力与商业化距离</h3>
+<p>项目当前处于「已搭建、未验证」阶段：MIT 协议 + 免费托管服务的模式下付费意愿尚未验证，变现路径清晰但无公开定价与收入数据（D1/D4）。商业化距离评估为「中远」，需验证教育市场与企业培训市场的付费意愿。</p>
+<h2>六、商业路径分析</h2>
+<h3>6.1 路径总览</h3>
+<p>基于 D4 评分卡（8.4/10）与价值画像「⭐ 明星资产」，推荐以下三条路径按优先级排序：</p>
+<h3>6.2 路径一：SaaS 托管服务（主路径，已实际运营）</h3>
+<p><strong>现状</strong>：open.maic.chat 已提供 Hosted mode/access code 机制，Pro 工作台（v1.0.0 发布）构成 Open Core 备选路径。</p>
+<p><strong>商业化逻辑</strong>：
+- 付费触发点：「托管省心 + 企业级需求」而非功能裁剪，触发点合理但非刚性
+- 增值空间：私有化部署、合规、SLA、技能市场、usage 计费
+- 定价天花板：$1K–10K/年区间（未达 $10K+/年量级）</p>
+<p><strong>关键动作</strong>：
+1. 验证付费意愿：推出 Pro 付费层，以「托管省心 + 企业级需求」为核心卖点
+2. 补齐企业级能力：SSO/OAuth、审计日志、可观测性（Prometheus/OpenTelemetry）
+3. 建立定价体系：基于 usage 计费 + 订阅制组合</p>
+<h3>6.3 路径二：Open Core + 企业版（备选路径）</h3>
+<p><strong>现状</strong>：v0.3.0 从 AGPL-3.0 改 MIT 主动解除 SaaS 限制，核心包可独立发布复用。</p>
+<p><strong>商业化逻辑</strong>：
+- 开源版（MIT）保留全部核心功能，企业版提供私有化部署、合规、SLA 等增值
+- 6 个 @openmaic 独立 npm 包可形成 SDK 生态，吸引开发者集成</p>
+<p><strong>关键动作</strong>：
+1. 明确企业版功能边界（避免与开源版过度重叠）
+2. 建立企业销售渠道（清华学术背书强化教育市场信任）
+3. 发展技能市场/插件生态，形成网络效应</p>
+<h3>6.4 路径三：生态服务与影响力变现（辅助路径）</h3>
+<p><strong>现状</strong>：已有 Vercel/OpenClaw/ComfyUI 等集成，OpenClaw hosted mode 提供零安装入口。</p>
+<p><strong>商业化逻辑</strong>：
+- 培训与认证：面向教师/课程设计者的 AI 课堂制作培训
+- 内容市场：课程模板/技能市场交易抽成
+- 大厂合作：技术授权或联合解决方案</p>
+<p><strong>关键动作</strong>：
+1. 丰富示例课程/模板资产（当前示例文件数为 0，是明显短板）
+2. 建立创作者激励计划，吸引内容生产者
+3. 探索与教育机构/企业培训平台的合作</p>
+<h3>6.5 路径建议总结</h3>
+<table>
+<thead>
+<tr>
+<th>路径</th>
+<th>优先级</th>
+<th>时间窗口</th>
+<th>关键前提</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SaaS 托管服务</td>
+<td>⭐⭐⭐</td>
+<td>立即启动</td>
+<td>验证付费意愿、补齐企业级能力</td>
+</tr>
+<tr>
+<td>Open Core + 企业版</td>
+<td>⭐⭐</td>
+<td>6-12 个月</td>
+<td>明确功能边界、建立销售渠道</td>
+</tr>
+<tr>
+<td>生态服务与影响力变现</td>
+<td>⭐</td>
+<td>12 个月+</td>
+<td>丰富模板资产、建立创作者生态</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>画像修正</strong>：作为「⭐ 明星资产」，商业化过程中须同时经营社区声誉，避免竭泽而渔（参照 Elastic 改协议的反噬教训）。MIT 协议是社区信任的基石，不应轻易变更。</p>
+</blockquote>
+<h2>七、能力评估：能做什么 &amp; 最适合做什么</h2>
+<h3>7.1 核心能力清单</h3>
+<table>
+<thead>
+<tr>
+<th>能力域</th>
+<th>具体能力</th>
+<th>证据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>产品能力</strong></td>
+<td>一句话/文档生成完整交互式课程（课件/测验/PBL/AI课堂/PPTX导出）</td>
+<td>D10.1：课程制作从小时级压缩至分钟级</td>
+</tr>
+<tr>
+<td><strong>技术能力</strong></td>
+<td>多智能体编排、OOXML 处理、分布式渲染、PostgreSQL 存储</td>
+<td>D2.2：52.5 万行代码，复刻门槛极高</td>
+</tr>
+<tr>
+<td><strong>工程质量</strong></td>
+<td>37.4% 测试覆盖率、5 条 CI 流水线、npm provenance 安全发布</td>
+<td>D2.8：847 测试文件/19.5 万行测试</td>
+</tr>
+<tr>
+<td><strong>国际化</strong></td>
+<td>12 种界面语言、中英双语 README、i18n CI 检查</td>
+<td>D2.7：i18next 框架 + 多语言字体</td>
+</tr>
+<tr>
+<td><strong>生态集成</strong></td>
+<td>19+ 家 LLM/TTS/ASR 供应商接入、MCP/OpenClaw 集成</td>
+<td>D7.4：REST + 6 npm 包 + MCP + OpenClaw</td>
+</tr>
+<tr>
+<td><strong>部署灵活性</strong></td>
+<td>本地/Docker/Vercel/裸机四种模式，PostgreSQL/S3/IndexedDB 多存储</td>
+<td>D9.2：docker compose 3 种 profile</td>
+</tr>
+<tr>
+<td><strong>学术背书</strong></td>
+<td>清华机构背书、JCST 论文发表</td>
+<td>D3.4/D11.2：学术影响力 + 标准 BibTeX 引用</td>
+</tr>
+</tbody>
+</table>
+<h3>7.2 最适合做什么</h3>
+<p>基于能力矩阵与市场时机，OpenMAIC 最适合的定位是：</p>
+<p><strong>「AI 教育内容生成领域的开源基础设施 + 托管服务平台」</strong></p>
+<p>具体而言：
+1. <strong>教育行业</strong>：作为教师/课程设计者的 AI 课堂生成工具，替代传统课件制作流程
+2. <strong>企业培训</strong>：将培训材料一键转化为交互式课程，降低企业培训内容生产成本
+3. <strong>内容创作者</strong>：为知识付费/在线教育创作者提供课程生产工具
+4. <strong>开发者生态</strong>：通过 6 个 @openmaic npm 包 + MCP 协议，嵌入第三方教育产品</p>
+<h3>7.3 不适合做什么</h3>
+<ul>
+<li><strong>不适合做通用型 AI 内容生成平台</strong>：与 ChatGPT/Claude 等通用工具正面竞争</li>
+<li><strong>不适合做重资产 SaaS</strong>：当前无 K8s/HA 编排物化，Postgres 单点、render 单并发，难以支撑大规模企业级 SLA</li>
+<li><strong>不适合做低代码/无代码平台</strong>：核心价值在多智能体编排与教育内容生成，而非通用应用搭建</li>
+</ul>
+<h2>八、短板识别：还缺少什么</h2>
+<h3>8.1 商业化验证短板（高优先级）</h3>
+<table>
+<thead>
+<tr>
+<th>短板</th>
+<th>现状</th>
+<th>影响</th>
+<th>补齐路径</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>付费意愿未验证</strong></td>
+<td>MIT + 免费托管，无公开定价与收入数据</td>
+<td>商业化路径「已搭建、未验证」</td>
+<td>推出 Pro 付费层，小范围试点验证</td>
+</tr>
+<tr>
+<td><strong>示例内容缺失</strong></td>
+<td>本地实测仓库示例文件为 0</td>
+<td>新用户需自行输入 prompt 才能看到效果，Aha Moment 链路断裂</td>
+<td>内置 5-10 个高质量示例课程</td>
+</tr>
+<tr>
+<td><strong>企业级能力缺失</strong></td>
+<td>仅 ACCESS_CODE 单密码认证，无 SSO/OAuth/LDAP/SAML，无审计日志</td>
+<td>无法进入中大型企业采购流程</td>
+<td>优先补齐 SSO + 审计日志</td>
+</tr>
+</tbody>
+</table>
+<h3>8.2 法律合规短板（中优先级）</h3>
+<table>
+<thead>
+<tr>
+<th>短板</th>
+<th>现状</th>
+<th>影响</th>
+<th>补齐路径</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>LGPL 传染源</strong></td>
+<td>packages/mathml2omml 为 LGPL-3.0-or-later</td>
+<td>需隔离分发并履行 LGPL 义务</td>
+<td>系统性依赖协议扫描，隔离分发</td>
+</tr>
+<tr>
+<td><strong>无 CLA/DCO</strong></td>
+<td>版权分散于 62 名贡献者</td>
+<td>限制未来转为双许可模式</td>
+<td>引入 CLA 或确认 inbound=outbound 策略</td>
+</tr>
+<tr>
+<td><strong>商标/专利未核查</strong></td>
+<td>未经人工核查，置信度低</td>
+<td>潜在商标/专利风险</td>
+<td>补充商标检索与 FTO 分析</td>
+</tr>
+</tbody>
+</table>
+<h3>8.3 运营与治理短板（中优先级）</h3>
+<table>
+<thead>
+<tr>
+<th>短板</th>
+<th>现状</th>
+<th>影响</th>
+<th>补齐路径</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>资金可持续性</strong></td>
+<td>无公开赞助/VC/商业实体信息</td>
+<td>团队投入可持续性存疑</td>
+<td>探索 Sponsors/基金会/商业实体</td>
+</tr>
+<tr>
+<td><strong>治理透明度</strong></td>
+<td>无 GOVERNANCE.md，未加入基金会</td>
+<td>企业客户信任度受限</td>
+<td>发布治理文档，明确决策机制</td>
+</tr>
+<tr>
+<td><strong>可观测性</strong></td>
+<td>仅 /health 健康检查，无 Prometheus/OTel</td>
+<td>无法支撑企业级运维 SLA</td>
+<td>接入 Prometheus/OpenTelemetry</td>
+</tr>
+</tbody>
+</table>
+<h3>8.4 竞争分析短板（低优先级）</h3>
+<p>D5 竞争格局维度分析失败（dimension_failed），竞品对比与差异化壁垒评估缺失。需补充：
+- 直接竞品（AI 课件生成工具）与间接竞品（通用 AI 内容平台）的系统对比
+- 技术壁垒与网络效应的量化评估</p>
+<h2>九、风险提示</h2>
+<h3>9.1 高风险项</h3>
+<table>
+<thead>
+<tr>
+<th>风险</th>
+<th>等级</th>
+<th>说明</th>
+<th>缓解措施</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>付费意愿验证失败</strong></td>
+<td>🔴 高</td>
+<td>教育市场对免费工具付费意愿普遍偏低，MIT + 免费托管模式下用户可能无付费动力</td>
+<td>小范围试点验证，聚焦企业培训等付费意愿更强的细分市场</td>
+</tr>
+<tr>
+<td><strong>资金断供导致项目停滞</strong></td>
+<td>🔴 高</td>
+<td>无公开资金支持，团队投入可持续性存疑；若核心维护者离开，项目可能停滞</td>
+<td>尽快探索 Sponsors/基金会托管/商业实体</td>
+</tr>
+<tr>
+<td><strong>LGPL 传染风险</strong></td>
+<td>🟡 中</td>
+<td>mathml2omml 为 LGPL-3.0-or-later，若分发不当可能引发法律纠纷</td>
+<td>隔离分发、履行 LGPL 义务、系统性依赖扫描</td>
+</tr>
+</tbody>
+</table>
+<h3>9.2 中风险项</h3>
+<table>
+<thead>
+<tr>
+<th>风险</th>
+<th>等级</th>
+<th>说明</th>
+<th>缓解措施</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>竞品替代</strong></td>
+<td>🟡 中</td>
+<td>AI 课件生成工具替代品众多，多智能体交互课堂形态虽差异化但易被复制</td>
+<td>强化技术壁垒（OOXML/AI编排/分布式渲染），建立品牌认知</td>
+</tr>
+<tr>
+<td><strong>社区治理风险</strong></td>
+<td>🟡 中</td>
+<td>贡献者 62 人但组织多样性数据缺失，主要依赖清华背景；无 CLA 限制未来许可变更</td>
+<td>引入 CLA，扩大贡献者多样性</td>
+</tr>
+<tr>
+<td><strong>企业安全事件</strong></td>
+<td>🟡 中</td>
+<td>仅 ACCESS_CODE 单密码认证，无审计日志，若发生安全事件将损害企业客户信任</td>
+<td>优先补齐 SSO + 审计日志</td>
+</tr>
+</tbody>
+</table>
+<h3>9.3 低风险项</h3>
+<table>
+<thead>
+<tr>
+<th>风险</th>
+<th>等级</th>
+<th>说明</th>
+<th>缓解措施</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>技术过时</strong></td>
+<td>🟢 低</td>
+<td>多智能体框架已成熟，技术栈（Next.js 16/React 19/Node 22）为当前主流</td>
+<td>持续跟进框架升级</td>
+</tr>
+<tr>
+<td><strong>社区衰退</strong></td>
+<td>🟢 低</td>
+<td>当前活动趋势强劲上升（90 天 447 PR/165 Issue 关闭），传承风险较低</td>
+<td>维持迭代节奏，扩大维护者团队</td>
+</tr>
+</tbody>
+</table>
+<h2>十、结论与建议</h2>
+<h3>10.1 综合结论</h3>
+<p>OpenMAIC 是一个 <strong>A 级（高商业化潜力）</strong> 的 <strong>⭐ 明星资产</strong>，综合评分 <strong>75.4/100</strong>，公共价值分 <strong>7.8/10</strong>。项目在技术成熟度（8.5）、商业模式（8.4）、社区健康度（8.0）三个维度表现优异，具备直接商业化的基础条件。核心价值在于：<strong>将昂贵的多智能体 AI 课堂能力以 MIT 协议平权化，同时以极高的工程质量和清华学术背书构建了显著的复刻门槛</strong>。</p>
+<h3>10.2 关键建议</h3>
+<p><strong>立即行动（0-3 个月）</strong>：
+1. <strong>验证付费意愿</strong>：推出 Pro 付费层（托管省心 + 企业级需求），小范围试点
+2. <strong>补齐示例内容</strong>：内置 5-10 个高质量示例课程，优化 Aha Moment 链路
+3. <strong>启动资金探索</strong>：申请 Sponsors/联系基金会/探索商业实体</p>
+<p><strong>短期行动（3-6 个月）</strong>：
+4. <strong>补齐企业级能力</strong>：SSO/OAuth、审计日志、Prometheus/OpenTelemetry
+5. <strong>系统性依赖协议扫描</strong>：隔离 LGPL 传染源，明确分发策略
+6. <strong>引入 CLA</strong>：为未来可能的许可策略调整留出空间</p>
+<p><strong>中期行动（6-12 个月）</strong>：
+7. <strong>明确 Open Core 边界</strong>：定义企业版功能范围，建立销售渠道
+8. <strong>发展技能市场/插件生态</strong>：吸引第三方开发者，形成网络效应
+9. <strong>补充竞争分析</strong>：完成 D5 维度评估，明确差异化壁垒</p>
+<h3>10.3 最终判断</h3>
+<p>OpenMAIC 具备「立即投入商业化」的条件，但需注意：<strong>商业化过程中须同时经营社区声誉，避免竭泽而渔</strong>。MIT 协议是社区信任的基石，不应轻易变更。建议以 SaaS 托管服务为主路径，以 Open Core + 企业版为备选，以生态服务为辅助，在 6-12 个月内完成付费意愿验证并建立可持续的商业模式。</p>
+<h2>十一、项目地址</h2>
+<p><svg class="ri ri-muted" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.001 2C6.47598 2 2.00098 6.475 2.00098 12C2.00098 16.425 4.86348 20.1625 8.83848 21.4875C9.33848 21.575 9.52598 21.275 9.52598 21.0125C9.52598 20.775 9.51348 19.9875 9.51348 19.15C7.00098 19.6125 6.35098 18.5375 6.15098 17.975C6.03848 17.6875 5.55098 16.8 5.12598 16.5625C4.77598 16.375 4.27598 15.9125 5.11348 15.9C5.90098 15.8875 6.46348 16.625 6.65098 16.925C7.55098 18.4375 8.98848 18.0125 9.56348 17.75C9.65098 17.1 9.91348 16.6625 10.201 16.4125C7.97598 16.1625 5.65098 15.3 5.65098 11.475C5.65098 10.3875 6.03848 9.4875 6.67598 8.7875C6.57598 8.5375 6.22598 7.5125 6.77598 6.1375C6.77598 6.1375 7.61348 5.875 9.52598 7.1625C10.326 6.9375 11.176 6.825 12.026 6.825C12.876 6.825 13.726 6.9375 14.526 7.1625C16.4385 5.8625 17.276 6.1375 17.276 6.1375C17.826 7.5125 17.476 8.5375 17.376 8.7875C18.0135 9.4875 18.401 10.375 18.401 11.475C18.401 15.3125 16.0635 16.1625 13.8385 16.4125C14.201 16.725 14.5135 17.325 14.5135 18.2625C14.5135 19.6 14.501 20.675 14.501 21.0125C14.501 21.275 14.6885 21.5875 15.1885 21.4875C19.259 20.1133 21.9999 16.2963 22.001 12C22.001 6.475 17.526 2 12.001 2Z"/></svg> <a href="https://github.com/THU-MAIC/OpenMAIC">https://github.com/THU-MAIC/OpenMAIC</a></p>
+<hr />
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+</blockquote>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家　<a href="https://www.mova.work">www.mova.work</a></p></body></html>

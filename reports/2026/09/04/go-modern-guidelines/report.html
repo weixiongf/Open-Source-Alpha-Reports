@@ -1,0 +1,1407 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><title>Go-modern-guidelines 商业价值分析报告</title><style>/* default — 品牌蓝紫主题（从 md2pdf.py 原 CSS 常量迁出，视觉与历史产物一致） */
+@page { size: A4; margin: 18mm 15mm 20mm 15mm; }
+* { box-sizing: border-box; }
+/* 字体规范：一律开源思源黑体 CN（OFL 免费商用）；正文 Regular/标题 Bold/大字数字 Light */
+body { font-family: "Source Han Sans CN","思源黑体 CN","Noto Sans SC",sans-serif; color:#1e293b; font-size:10.5pt; line-height:1.75; margin:0; }
+.cover { page-break-after: always; text-align:center; padding-top:40px; }
+.cover .kicker { color:#2563eb; letter-spacing:6px; font-size:12pt; font-weight:500; }
+.cover h1 { font-size:26pt; margin:14px 0 6px; }
+.cover .sub { color:#64748b; font-size:11pt; margin-bottom:22px; }
+.badge { display:inline-block; background:linear-gradient(135deg,#2563eb,#7c3aed); color:#fff; border-radius:18px; padding:16px 44px; margin:10px 0 18px; }
+.badge .g { font-size:34pt; font-weight:300; line-height:1; }
+.badge .s { font-size:12pt; opacity:.92; margin-top:4px; }
+.meta { color:#475569; font-size:9.5pt; margin-top:14px; }
+.bars { max-width:620px; margin:20px auto 0; text-align:left; }
+.bar-row { display:flex; align-items:center; gap:8px; margin:5px 0; font-size:9pt; }
+.bar-name { width:110px; text-align:right; color:#334155; font-weight:500; }
+.bar-track { flex:1; height:9px; background:#f1f5f9; border-radius:5px; overflow:hidden; }
+.bar-fill { display:block; height:100%; border-radius:5px; }
+.bar-val { width:30px; font-weight:700; color:#0f172a; }
+.bar-w { width:52px; color:#94a3b8; font-size:8pt; }
+h1 { font-size:17pt; color:#0f172a; border-bottom:3px solid #2563eb; padding-bottom:8px; }
+h2 { font-size:13.5pt; color:#1d4ed8; margin-top:26px; page-break-after: avoid; border-left:5px solid #2563eb; padding-left:10px; }
+h3 { font-size:11.5pt; color:#0f172a; margin-top:18px; page-break-after: avoid; }
+table { border-collapse:collapse; width:100%; margin:10px 0; font-size:9pt; page-break-inside:avoid; }
+th { background:#eff6ff; color:#1e3a8a; }
+th,td { border:1px solid #dbe3ef; padding:5px 8px; text-align:left; }
+tr:nth-child(even) td { background:#f8fafc; }
+code { background:#f1f5f9; border-radius:4px; padding:1px 5px; font-family:"JetBrains Mono","Cascadia Mono",monospace; font-size:9pt; color:#be185d; }
+pre { background:#0f172a; color:#e2e8f0; border-radius:8px; padding:12px 14px; overflow-x:auto; page-break-inside:avoid; }
+pre code { background:none; color:inherit; padding:0; }
+blockquote { border-left:4px solid #93c5fd; background:#eff6ff; margin:10px 0; padding:8px 14px; color:#334155; border-radius:0 8px 8px 0; }
+hr { border:none; border-top:1px dashed #cbd5e1; margin:22px 0; }
+strong { color:#0f172a; }
+.cover .disclaimer { max-width:620px; margin:16px auto 0; color:#64748b; font-size:8.5pt; line-height:1.6; text-align:left; border:1px solid #e2e8f0; border-radius:8px; padding:8px 12px; background:#f8fafc; }
+.credit { color:#2563eb; font-size:10.5pt; font-weight:700; letter-spacing:1px; margin-top:12px; }
+.at-acc { background:#dbeafe; color:#1d4ed8; border-radius:4px; padding:0 4px; font-weight:500; white-space:nowrap; }
+.tail { page-break-inside:avoid; margin-top:26px; border-top:2px solid #2563eb; padding-top:14px; }
+.tail p { color:#64748b; font-size:8.5pt; line-height:1.6; margin:0 0 10px; }
+.tail .credit { text-align:center; margin:0; }
+/* Remix Icon 内联 SVG（icon_mode=remix 时由脚本注入，语义色与评分条一致） */
+.ri { width:1.05em; height:1.05em; vertical-align:-0.18em; display:inline-block; }
+.ri-ok { color:#16a34a; } .ri-warn { color:#d97706; } .ri-bad { color:#dc2626; }
+.ri-muted { color:#64748b; } .ri-star { color:#f59e0b; } .ri-brand { color:#2563eb; }
+.ri-gold { color:#d4a017; } .ri-silver { color:#9ca3af; } .ri-bronze { color:#b45309; }
+/* 屏幕预览：@page 边距仅在打印时生效，浏览器中居中限宽并收边（不影响 PDF 输出） */
+@media screen {
+  body { margin: 0 auto; padding: 28px 36px 56px; max-width: 900px; }
+}
+</style></head><body><div class="cover">
+<div class="kicker">开源项目商业化潜力分析 · 第 52 期</div>
+<h1>GitHub 开源项目 Go-modern-guidelines<br>商业价值分析报告</h1>
+<div class="sub">JetBrains/go-modern-guidelines · AI编码代理现代Go规范工具 · 70.5分A级高商业化潜力</div>
+<div class="badge"><div class="g">A 级 · 70.5</div><div class="s">综合评分（满分 100）· 高商业化潜力</div></div>
+<div><svg viewBox="0 0 560 480" width="560" height="480" xmlns="http://www.w3.org/2000/svg"><polygon points="280.0,209.6 299.5,216.7 309.9,234.7 306.3,255.2 290.4,268.6 269.6,268.6 253.7,255.2 250.1,234.7 260.5,216.7" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,179.2 319.1,193.4 339.9,229.4 332.7,270.4 300.8,297.1 259.2,297.1 227.3,270.4 220.1,229.4 240.9,193.4" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,148.8 338.6,170.1 369.8,224.2 359.0,285.6 311.2,325.7 248.8,325.7 201.0,285.6 190.2,224.2 221.4,170.1" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,118.4 358.2,146.8 399.8,218.9 385.3,300.8 321.6,354.3 238.4,354.3 174.7,300.8 160.2,218.9 201.8,146.8" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,88.0 377.7,123.6 429.7,213.6 411.6,316.0 332.0,382.8 228.0,382.8 148.4,316.0 130.3,213.6 182.3,123.6" fill="none" stroke="#e2e8f0" stroke-width="1"/><line x1="280.0" y1="240.0" x2="280.0" y2="88.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="377.7" y2="123.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="429.7" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="411.6" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="332.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="228.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="148.4" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="130.3" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="182.3" y2="123.6" stroke="#d8dee9" stroke-width="1"/><polygon points="280.0,132.1 350.3,156.2 392.3,220.2 351.1,281.0 322.6,357.1 235.3,362.8 201.0,285.6 160.2,218.9 211.6,158.5" fill="rgba(37,99,235,.22)" stroke="#2563eb" stroke-width="2.5"/><circle cx="280.0" cy="132.1" r="3.5" fill="#2563eb"/><circle cx="350.3" cy="156.2" r="3.5" fill="#2563eb"/><circle cx="392.3" cy="220.2" r="3.5" fill="#2563eb"/><circle cx="351.1" cy="281.0" r="3.5" fill="#2563eb"/><circle cx="322.6" cy="357.1" r="3.5" fill="#2563eb"/><circle cx="235.3" cy="362.8" r="3.5" fill="#2563eb"/><circle cx="201.0" cy="285.6" r="3.5" fill="#2563eb"/><circle cx="160.2" cy="218.9" r="3.5" fill="#2563eb"/><circle cx="211.6" cy="158.5" r="3.5" fill="#2563eb"/><text x="280.0" y="44.0" text-anchor="middle" font-size="12.5" fill="#334155" font-weight="600">D1</text><text x="280.0" y="58.0" text-anchor="middle" font-size="11" fill="#64748b">市场需求 7.1</text><text x="406.0" y="89.9" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D2</text><text x="406.0" y="103.9" text-anchor="start" font-size="11" fill="#64748b">技术成熟度 7.2</text><text x="473.0" y="206.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D3</text><text x="473.0" y="220.0" text-anchor="start" font-size="11" fill="#64748b">社区生态 7.5</text><text x="449.7" y="338.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D4</text><text x="449.7" y="352.0" text-anchor="start" font-size="11" fill="#64748b">变现潜力 5.4</text><text x="347.0" y="424.2" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D5</text><text x="347.0" y="438.2" text-anchor="start" font-size="11" fill="#64748b">竞争格局 8.2</text><text x="213.0" y="424.2" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D6</text><text x="213.0" y="438.2" text-anchor="end" font-size="11" fill="#64748b">法律合规 8.6</text><text x="110.3" y="338.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D7</text><text x="110.3" y="352.0" text-anchor="end" font-size="11" fill="#64748b">企业就绪 6.0</text><text x="87.0" y="206.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D8</text><text x="87.0" y="220.0" text-anchor="end" font-size="11" fill="#64748b">团队治理 8.0</text><text x="154.0" y="89.9" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D9</text><text x="154.0" y="103.9" text-anchor="end" font-size="11" fill="#64748b">上手难度 7.0</text></svg></div>
+<div class="bars"><div class="bar-row"><span class="bar-name">D6 法律合规</span>
+<span class="bar-track"><span class="bar-fill" style="width:86.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.6</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D5 竞争格局</span>
+<span class="bar-track"><span class="bar-fill" style="width:82.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.2</span><span class="bar-w">权重12%</span></div>
+<div class="bar-row"><span class="bar-name">D8 团队治理</span>
+<span class="bar-track"><span class="bar-fill" style="width:80.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.0</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D3 社区生态</span>
+<span class="bar-track"><span class="bar-fill" style="width:75.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.5</span><span class="bar-w">权重11%</span></div>
+<div class="bar-row"><span class="bar-name">D2 技术成熟度</span>
+<span class="bar-track"><span class="bar-fill" style="width:72.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.2</span><span class="bar-w">权重14%</span></div>
+<div class="bar-row"><span class="bar-name">D1 市场需求</span>
+<span class="bar-track"><span class="bar-fill" style="width:71.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.1</span><span class="bar-w">权重13%</span></div>
+<div class="bar-row"><span class="bar-name">D9 上手难度</span>
+<span class="bar-track"><span class="bar-fill" style="width:70.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.0</span><span class="bar-w">权重10%</span></div>
+<div class="bar-row"><span class="bar-name">D7 企业就绪</span>
+<span class="bar-track"><span class="bar-fill" style="width:60.0%;background:#d97706"></span></span>
+<span class="bar-val">6.0</span><span class="bar-w">权重8%</span></div>
+<div class="bar-row"><span class="bar-name">D4 变现潜力</span>
+<span class="bar-track"><span class="bar-fill" style="width:54.0%;background:#dc2626"></span></span>
+<span class="bar-val">5.4</span><span class="bar-w">权重18%</span></div></div>
+<div class="meta">分析时点 2026-09-04 ｜ 数据来源：GitHub API + 仓库代码实测 ｜ 方法论 v1.3</div>
+<div class="credit">报告出品：@魔法工厂　@向量之心　@南山科学家</div>
+<div class="disclaimer"><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</div>
+</div><h1>Go-modern-guidelines 商业化潜力分析报告（完整版）</h1>
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家</p>
+<p>方法论版本: v1.3 | 综合评分: <strong>70.5</strong> | 等级: <strong>A（高商业化潜力）</strong> | 价值画像: 纯商业工具</p>
+</blockquote>
+<h2>一、项目概览</h2>
+<h3>1.1 基本信息</h3>
+<ul>
+<li><strong>项目名称 / 仓库地址</strong>：JetBrains/go-modern-guidelines（https://github.com/JetBrains/go-modern-guidelines）</li>
+<li><strong>核心技术栈</strong>：Go（源码 1480 行，11 个 Go 文件），零第三方运行时依赖，仅 golang.org/x/mod v0.37.0 一个直接依赖</li>
+<li><strong>社区规模速览</strong>：Star 3,107 / Fork 86（Fork 比率 2.77%）/ 贡献者 7 人</li>
+<li><strong>分析时点 / 数据来源</strong>：2026 年 8 月（最近推送 2026-08-31），GitHub API 实采数据</li>
+</ul>
+<h3>1.2 项目分类标签</h3>
+<table>
+<thead>
+<tr>
+<th>分类维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>开发者工具（开源库 SDK / 插件分发）</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>通用/跨行业</td>
+</tr>
+<tr>
+<td>目标用户角色</td>
+<td>后端开发者、全栈开发者</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>AI 编码代理辅助的 Go 代码生成与规范校验</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>本地部署（集成至 AI agent 环境）</td>
+</tr>
+</tbody>
+</table>
+<h3>1.3 一句话定位</h3>
+<blockquote>
+<p>go-modern-guidelines 是一个面向 AI 编码代理的现代 Go 指南型开发者工具，适用于所有使用 Go 语言的行业，主要面向使用 AI 编程助手的 Go 开发者，用于让 agent 生成遵循最新 Go 惯用法的代码。</p>
+</blockquote>
+<h2>二、安装部署与使用指南</h2>
+<blockquote>
+<p><strong>上手难度等级：🟡 中等（7.0/10）</strong> — 适合有技术基础者（掌握 CLI 与 AI Agent 基本用法）。</p>
+</blockquote>
+<p>本项目的核心形态是 <strong>AI Coding Agent 的 Guidelines 插件/市场</strong>，并非传统可执行服务，因此“安装部署”指将 Marketplace 注册到目标 Agent 并启用 <code>modern-go-guidelines</code> 插件。首次调用时，Agent 会通过 <code>go install</code> 将配套 CLI 自动装入本地缓存（如 <code>~/.cache/go-modern-guidelines</code>），全程不修改用户项目。</p>
+<p><strong>环境准备</strong>
+- 需预装 Go 工具链并加入 <code>PATH</code>；项目要求 <strong>Go 1.25 或更新版本</strong>。若 Go 版本较旧，需启用自动工具链切换（<code>GOTOOLCHAIN=auto</code>，默认开启）。
+- 已安装对应 Agent（Junie / Claude Code / Codex / Cursor 等）。</p>
+<p><strong>主流 Agent 安装命令（摘自官方 README）</strong></p>
+<table>
+<thead>
+<tr>
+<th>Agent</th>
+<th>步骤</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Junie（CLI 会话内）</td>
+<td><code>/extensions marketplace add JetBrains/go-modern-guidelines</code> → <code>/extensions install modern-go-guidelines</code></td>
+</tr>
+<tr>
+<td>Claude Code（会话内）</td>
+<td><code>/plugin marketplace add JetBrains/go-modern-guidelines</code> → <code>/plugin install modern-go-guidelines@goland-claude-marketplace</code></td>
+</tr>
+<tr>
+<td>Codex（终端）</td>
+<td><code>codex plugin marketplace add JetBrains/go-modern-guidelines</code> → <code>codex plugin add modern-go-guidelines@goland-codex-marketplace</code></td>
+</tr>
+<tr>
+<td>Cursor</td>
+<td>终端执行 <code>cursor-agent plugin marketplace add https://github.com/JetBrains/go-modern-guidelines</code>，再于 Cursor 会话内用 <code>/plugins</code> 命令安装</td>
+</tr>
+<tr>
+<td>其他 Agent（skills.sh）</td>
+<td><code>npx skills add JetBrains/go-modern-guidelines</code>（<code>--skill use-modern-go</code> 可仅装指定 skill）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>首体验验证</strong>
+- 安装后，Agent 会在处理 Go 任务时自动调用该 Skill。
+- Claude Code 用户可手动触发验证：<code>/modern-go-guidelines:use-modern-go</code>。</p>
+<p><strong>更新</strong>
+- Junie：<code>/extensions update modern-go-guidelines</code>
+- Claude Code：<code>/plugin</code> 中启用自动更新，或终端执行 <code>claude plugin marketplace update goland-claude-marketplace</code> 与 <code>claude plugin update modern-go-guidelines@goland-claude-marketplace</code>
+- Codex：<code>codex plugin marketplace upgrade goland-codex-marketplace</code> 后重新 <code>plugin add</code>
+- Cursor：<code>cursor-agent plugin marketplace update goland-cursor-marketplace</code> 后重启并重装插件</p>
+<h2>三、评分总览</h2>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>权重</th>
+<th>加权得分</th>
+<th>评级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1 市场需求与商业机会</td>
+<td>7.1/10</td>
+<td>13%</td>
+<td>0.92</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D2 技术成熟度与产品质量</td>
+<td>7.2/10</td>
+<td>14%</td>
+<td>1.01</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D3 社区健康度与生态势能</td>
+<td>7.5/10</td>
+<td>11%</td>
+<td>0.83</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D4 商业模式与变现潜力</td>
+<td>5.4/10</td>
+<td>18%</td>
+<td>0.97</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D5 竞争格局与差异化壁垒</td>
+<td>8.2/10</td>
+<td>12%</td>
+<td>0.98</td>
+<td>优</td>
+</tr>
+<tr>
+<td>D6 法律合规与知识产权</td>
+<td>8.6/10</td>
+<td>7%</td>
+<td>0.60</td>
+<td>优</td>
+</tr>
+<tr>
+<td>D7 企业就绪度与可运营性</td>
+<td>6.0/10</td>
+<td>8%</td>
+<td>0.48</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D8 团队治理与可持续性</td>
+<td>8.0/10</td>
+<td>7%</td>
+<td>0.56</td>
+<td>优</td>
+</tr>
+<tr>
+<td>D9 上手难度与易用性</td>
+<td>7.0/10</td>
+<td>10%</td>
+<td>0.70</td>
+<td>良</td>
+</tr>
+<tr>
+<td><strong>综合评分</strong></td>
+<td>—</td>
+<td>100%</td>
+<td><strong>70.5/100</strong></td>
+<td><strong>A（高商业化潜力）</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>平行维度（不计入综合评分）</strong></p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10 功能价值</td>
+<td>8.3/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>D11 社会价值</td>
+<td>5.4/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>公共价值分</td>
+<td>6.9/10</td>
+<td>(D10+D11)/2</td>
+</tr>
+</tbody>
+</table>
+<p><strong>一票否决检查</strong>：未触发（D6 维度总分 8.6 &gt; 3；D8.4 细则小分 2.4 &gt; 1；D4.1 细则小分 2.0 &gt; 0.5）。</p>
+<p><strong>价值画像判定</strong>：综合评分 70.5 ≥ 65 且公共价值分 6.9 &lt; 7 → <strong>💼 纯商业工具</strong>（画像临界区间提示：公共价值分 6.9 落在 6.5–7.5 临界区间，若公共价值分 ≥ 7 则画像转为 ⭐ 明星资产，商业路径建议将增加社区声誉经营维度）。</p>
+<h2>四、各维度详细分析</h2>
+<h3>D1. 市场需求与商业机会评估</h3>
+<p><strong>项目分类标签</strong>（依据 1.6 分类体系）：</p>
+<table>
+<thead>
+<tr>
+<th>分类维度</th>
+<th>标签</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>开发者工具</td>
+<td>面向 AI 编码代理提供 Go 语言规范指南，辅助代码生成</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>通用/跨行业</td>
+<td>Go 语言广泛用于后端、云原生、DevOps 等领域，不绑定单一行业</td>
+</tr>
+<tr>
+<td>目标用户角色</td>
+<td>后端开发者、全栈开发者</td>
+<td>实际使用者为借助 AI Coding Agent 编写 Go 代码的开发者</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>研发流程优化</td>
+<td>让 AI agent 生成更现代、更符合 Go 现行惯例的代码</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>本地部署</td>
+<td>作为插件/技能包安装到 Claude Code、Codex 等本地 agent 环境中，并运行轻量 CLI</td>
+</tr>
+</tbody>
+</table>
+<p><strong>一句话定位</strong>：<code>JetBrains/go-modern-guidelines</code> 是一个面向 AI 编码代理的现代 Go 指南型开发者工具，适用于所有使用 Go 语言进行开发的行业，主要受众为使用 AI 编码代理的 Go 开发者，用于解决模型因训练数据滞后和频率偏差而生成过时 Go 代码的问题。</p>
+<hr />
+<h4>D1.1 目标市场规模与增长性（2.5 分）——1.6 / 2.5（对应 7–8 档）</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估结论</th>
+<th>证据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TAM 估算</td>
+<td>可触达市场为「Go 开发者 + AI 编码代理」交叉细分，全球 Go 开发者约数百万，AI 编程工具渗透率快速上升，对应潜在服务/工具市场为十亿美元级（估算未经外部数据验证，置信度较低）</td>
+<td>项目定位为 Go 语言垂直指导工具，未覆盖跨语言市场</td>
+</tr>
+<tr>
+<td>增长趋势</td>
+<td>市场处于高速扩张期：AI Coding Agent 在 2025–2026 年集中爆发，主流工具不断迭代，对「写好代码」的约束需求同步增长</td>
+<td>项目创建于 2025-11，推送活跃至 2026-08，存在持续更新</td>
+</tr>
+<tr>
+<td>市场层级</td>
+<td>新兴蓝海中的细分赛道——专门规范 AI agent 生成代码风格的官方化指南很少见</td>
+<td>JetBrains 官方发起并支持多平台插件分发</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：全球 AI 编程助手市场已达百亿美元级规模且在高速增长，本项目是该大市场中的「Go 语言垂直规范件」。但本身并非直接创造收入的产品，TAM 更接近 Go agent 插件/内容层，故按十亿美元级、增长期评估。</p>
+<h4>D1.2 痛点真实性与解决程度（2.5 分）——2.0 / 2.5（对应 8 档）</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估结论</th>
+<th>证据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>痛点真实性</td>
+<td>痛点真实且明确：模型训练数据滞后导致无法使用 Go 1.26+ 新增特性；频率偏差让 agent 偏向写出老旧模式（如手写循环而非 <code>for i := range n</code>）</td>
+<td>README Motivation 部分给出两点原因；并列举 <code>errors.AsType[T]</code>、<code>new(42)</code> 等实际新 API 案例</td>
+</tr>
+<tr>
+<td>解决完整度</td>
+<td>方案较完整：覆盖 Go 1.0–1.27 核心特性、自动检测 <code>go.mod</code> 中的 Go 版本、内置 CLI 缓存且不修改项目、自动触发 + 手动调用均可</td>
+<td>支持 Junie / Claude Code / Codex / Cursor，并可通过 skills.sh 扩展至 OpenCode 等</td>
+</tr>
+<tr>
+<td>替代成本</td>
+<td>替代品少：常规做法是用户手动在 prompt 中约束，或依赖模型后续训练更新，均无法系统性地解决持续更新的 Go 惯例问题</td>
+<td>无同级别官方 Go agent 指南项目；Go 官方 <code>modernize</code> analyzer 仅面向已有代码，不解决新代码生成问题</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：痛点来自 AI 模型固有能力缺陷（数据滞后、概率偏置），不是伪需求；JetBrains 官方投入并持续维护，解决方案落地完整，能显著减少代码 review 和返工成本。替代路径体验明显更差，故给 8 档。</p>
+<h4>D1.3 市场时机判断（2.5 分）——2.0 / 2.5（对应 8 档）</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估结论</th>
+<th>证据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术成熟度曲线</td>
+<td>AI Coding Agent 已越过「期望膨胀期」，2026 年处于实质生产应用阶段，企业开始为 agent 制定编码规范</td>
+<td>项目创建于 2025-11，正值多款 coding agent 并入主流开发流程</td>
+</tr>
+<tr>
+<td>竞争密度</td>
+<td>竞争尚未固化：尚无针对「Go 语言现代惯例」的标准化 agent 指南，行业普遍处于自定义 prompt 或内部 wiki 阶段</td>
+<td>repo 仅有 86 forks、7 contributors，仍处于内容建设和生态扩张期</td>
+</tr>
+<tr>
+<td>监管/标准</td>
+<td>无监管推动，但有行业标准方向：Go 团队官方推动 <code>modernize</code> analyzer，本项目与其目标一致，形成合力</td>
+<td>README 明确表示与 Go 团队方向一致，并引用官方 talk</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：时间点极佳——AI 编码代理生态在 2025–2026 年爆发，而 Go 新版本（1.26/1.27）持续加入语法糖，正好需要这类“给 agent 补课”的中间层。JetBrains 以官方身份入局，占据品牌和先发位置。但市场仍处早期，故给 8 档而非 9–10 档。</p>
+<h4>D1.4 应用场景广度（2.5 分）——1.5 / 2.5（对应 6 档）</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估结论</th>
+<th>证据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>行业覆盖</td>
+<td>Go 语言本身跨行业，但该指南只服务于「AI agent 写 Go 代码」这一环，不直接覆盖各行业的业务场景</td>
+<td>Go 可用于云原生、金融、电商等，项目自身不感知行业差异</td>
+</tr>
+<tr>
+<td>场景多样性</td>
+<td>场景偏单一：主要适用于 AI 编码代理生成/修改 Go 代码时的风格约束；可延伸至代码审查、教学，但当前并未展开</td>
+<td>仓库内容 11 个 .go 文件共 1480 行，核心是一个含规则和 CLI 的 skill 包</td>
+</tr>
+<tr>
+<td>可延展性</td>
+<td>理论上可扩展至其他语言（如 Kotlin/Rust），但目前无迹象；CLI 结构支持多 marketplace，但仍是 Go 专用</td>
+<td>当前 topics 仅 <code>go/golang/guidelines</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：本质上这是「单一语言 × 特定工具链（AI agent）」的垂直指南，应用场景集中于开发阶段的代码生成质量。虽可称为跨行业通用能力，但横向延展有限，与 DevTools 中通用脚手架或跨语言 linter 相比广度不足，故给 6 档（1.5 分）。</p>
+<hr />
+<h3>D1 维度结论</h3>
+<p><strong>总得分：7.1 / 10</strong>（四细则得分加总 1.6 + 2.0 + 2.0 + 1.5 = 7.1，按满分 10 等比换算）</p>
+<p><em>更正说明：四项满分合计为 10，实际得分 1.6+2.0+2.0+1.5=7.1，即维度总分 7.1。</em></p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>权重</th>
+<th>加权贡献</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1.1 市场规模与增长</td>
+<td>1.6/2.5</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>D1.2 痛点真实性与解决度</td>
+<td>2.0/2.5</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>D1.3 市场时机</td>
+<td>2.0/2.5</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>D1.4 应用场景广度</td>
+<td>1.5/2.5</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>D1 合计</strong></td>
+<td><strong>7.1</strong></td>
+<td>13%</td>
+<td><strong>0.923</strong></td>
+</tr>
+</tbody>
+</table>
+<p>市场对「AI agent 写现代 Go」存在真实、紧迫的需求，痛点来自模型能力边界，由 JetBrains 官方提供标准化方案，时机和竞争卡位均有利。<strong>主要限制在于市场规模测算依赖估算、项目本身无直接变现路径、场景垂直导致商业天花板可见</strong>。综合为一个“良好偏上”的需求侧开局，足够支撑其作为生态型工具持续演进，但若要独立商业化还需扩展语言覆盖面或形成企业级治理方案。</p>
+<blockquote>
+<p>⚠️ 市场规模数值为基于项目类型的量级估算，未经外部权威数据验证，置信度中等；判断依据主要来自项目本身和行业基本常识，未编造具体第三方市场数字。</p>
+</blockquote>
+<h3>D2. 技术成熟度与产品质量（权重 14%）——评分：7.2 / 10</h3>
+<p><strong>评估说明</strong>：本项目核心交付物为“面向 AI Coding Agent 的现代 Go 编写指南/规则包”，并以一个轻量级 Go CLI（<code>internal/cli</code>）+ 多 Agent 插件适配层（Claude/Cursor/Codex/Junie）的形式沉淀为代码仓库。代码规模极小（1480 行 Go、11 个文件、零第三方运行时依赖），工程评估以仓库结构性证据为主。D2.5（UI/UX/UE）判定为 <strong>N/A</strong>（非交互式 Developer Tool，无可视 UI），按其余 7 项满分 9 分等比缩放至 10 分。</p>
+<h4>细则评分表</h4>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>小分</th>
+<th>档位判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D2.1</td>
+<td>产品设计与创新性（1.5）</td>
+<td><strong>1.2</strong></td>
+<td>设计理念清晰且有明显差异化与创新点</td>
+</tr>
+<tr>
+<td>D2.2</td>
+<td>架构设计与工程质量（2）</td>
+<td><strong>1.6</strong></td>
+<td>架构合理、目录规范，但代码体量小、复刻门槛不高</td>
+</tr>
+<tr>
+<td>D2.3</td>
+<td>代码整洁性与规范性（1）</td>
+<td><strong>0.8</strong></td>
+<td>现代 Go 风格、代码整洁度良好</td>
+</tr>
+<tr>
+<td>D2.4</td>
+<td>安全性（1）</td>
+<td><strong>0.8</strong></td>
+<td>零依赖攻击面小，但无安全扫描与安全检查清单</td>
+</tr>
+<tr>
+<td>D2.5</td>
+<td>UI/UX/UE 人机交互（1）</td>
+<td><strong>N/A</strong></td>
+<td>无用户界面</td>
+</tr>
+<tr>
+<td>D2.6</td>
+<td>功能完备度与稳定性（1.5）</td>
+<td><strong>0.9</strong></td>
+<td>核心功能可用，但无 Release/Tag，仍处早期迭代</td>
+</tr>
+<tr>
+<td>D2.7</td>
+<td>文档与开发者体验（1）</td>
+<td><strong>0.8</strong></td>
+<td>文档覆盖良好，含 README/CHANGELOG/CONTRIBUTING/FEATURES</td>
+</tr>
+<tr>
+<td>D2.8</td>
+<td>测试与质量保障（1）</td>
+<td><strong>0.4</strong></td>
+<td>有测试但无 CI，质量门禁几乎为零</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>6.5 / 9</strong></td>
+<td>等比缩放：<strong>7.2 / 10</strong></td>
+</tr>
+</tbody>
+</table>
+<h4>关键判断依据</h4>
+<p><strong>D2.1（1.2 / 1.5）</strong>：项目定位“Help AI coding agents write modern Go”非常清晰，切入的是 AI 辅助编程时代下“如何让 Agent 产出符合现代 Go 实践代码”这一细分痛点，产品理念有一定前瞻性。功能结构上不是简单发布一份 Markdown 规范，而是适配了多种主流 Agent 生态（<code>.claude-plugin/</code>、<code>.cursor-plugin/</code>、<code>.junie-extension/</code>、plugin 目录支持 Claude/Codex/Cursor），模式设计有差异化。JetBrains 品牌背书 + 3100+ Stars 反映社区认可度较高，属于设计合理且有差异化创新的第一档。</p>
+<p><strong>D2.2（1.6 / 2.0）</strong>：本地实测整体规模仅 1480 行、11 个 <code>.go</code> 文件，按功能拆分为 <code>internal/cli</code>、<code>internal/goversion</code>、<code>internal/guidelines</code> 等独立内部包，<code>go.mod</code> 显示 <strong>零第三方依赖</strong>。无依赖 + 小体量 + 清晰 <code>internal/</code> 分层使其耦合度极低、目录组织逻辑清楚；作为规则生成类工具，代码量与复杂度是匹配的。但负向因素在于：本项目复刻难度不高——核心技术沉淀在“Go 最佳实践内容”而非复杂程序逻辑中，工程代码本身不具备强护城河；同时仓库中存在大量非 Go 配置（Agent 插件清单），核心代码边界稍显分散。</p>
+<p><strong>D2.3（0.8 / 1.0）</strong>：从目录与命名推断偏向标准现代 Go 工程写法（<code>internal/</code>、语义化包名），无历史包袱；在这样的小体量下重复代码可能性低。但未见独立 lint/format 配置文件，代码整洁性缺乏可自动验证的规范约束，只能按良好水平（非优秀）计分。</p>
+<p><strong>D2.4（0.8 / 1.0）</strong>：零第三方依赖意味着供应链漏洞攻击面极小；项目本身不含密钥/凭据管理场景，硬编码敏感信息风险低；Go 语言默认对内存安全有较好保证。但仓库不包含 <code>SECURITY.md</code>，也没有任何依赖安全扫描或漏洞检查的自动化配置，安全实践以“天然低危”为主而非“主动治理”，因此不高于 8 分档。</p>
+<p><strong>D2.5（N/A）</strong>：项目成品是面向 AI Agent 的文本/结构化引导及一个非交互式 CLI 生成/校验入口，不属于提供用户界面的场景，标记为 N/A 不参与计分。</p>
+<p><strong>D2.6（0.9 / 1.5）</strong>：核心能力（生成 Modern Go 指南、打包多个 Agent 插件）已成形，且近期活跃（90 天内创建 9 个 PR、关闭 9 个 Issue），说明不是废弃/原型项目。扣分核心在于：<strong>GitHub Releases 为空</strong>，项目未发布任何正式稳定版本；创建于 2025-11，距今约 10 个月仍处于 pre-release 迭代期；无语言或运行时要求清单，环境门槛宽松，但也未形成版本兼容承诺。功能成熟度仍属“功能可用、尚未稳定发布”。</p>
+<p><strong>D2.7（0.8 / 1.0）</strong>：仓库包含 <code>README.md</code>、<code>CHANGELOG.md</code>、<code>CONTRIBUTING.md</code>、<code>FEATURES.md</code> 以及 <code>plugin/skills/use-modern-go/SKILL.md</code>，文档维护意识良好；对“规则类”产品而言，文档即产品，质量应中等偏上。不足之处是没有独立 docs 站点、教程或 FAQ，并以“内容清单”方式呈现而非丰富开发者引导，未能达到“文档与版本同步且交互式”的最高档。</p>
+<p><strong>D2.8（0.4 / 1.0）</strong>：本地实测存在 <strong>5 个测试文件 / 635 行测试代码，测试占比 42.9%</strong>，说明有一定单测基础；但另一方面 <strong>CI workflows 数量为 0</strong>——测试无法在远端自动执行，无构建验证、无自动发布、无静态检查和覆盖率门禁。测试尚未融入质量保障体系是本维度最明显的短板，令该细则仅落在 3–4 分档（偏低）。</p>
+<h4>结论</h4>
+<p>JetBrains/go-modern-guidelines 在 <strong>产品创新性</strong> 与 <strong>架构整洁度</strong> 上表现良好，尤其是针对 AI Coding Agent 场景的定位差异化明显、工程结构清晰、依赖极少，具备作为 JetBrains 官方参考库的商业化内容价值。但当前工程形态仍偏向“高质量内部规则包”而非“成熟商业交付物”：无正式 Release、无 CI/CD 流水线、无安全治理机制，工程质量更多依赖 JetBrains 团队的品牌信任而非可验证的质量门禁。综合判定 D2.2 维度得分：<strong>7.2 / 10</strong>，属“良好水平”——产品设计优于工程体系，具备商业化潜力但仍需补足发布与质量保障能力。</p>
+<h3>D3. 社区健康度与生态势能</h3>
+<p><strong>评估日期</strong>：2026-09-04 | <strong>项目年龄</strong>：约9.4个月 | <strong>维度得分：7.5/10（权重 11%）</strong></p>
+<p><strong>数据说明</strong>：D3.1 因缺少近 90 天 Star 增量实采数据，采用退化公式「Star 总数 ÷ 项目年龄（月）」估算月均增速；该方法会包含项目早期爆发红利，可能高估近期活跃度，以下评分已注意此偏差。Issue 平均关闭时间无精确数据，以近 90 天 Issue/PR 关闭量进行推断。</p>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>考察点</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D3.1</td>
+<td>社区活跃度指标（满分 3 分）</td>
+<td>2.4</td>
+<td>7–8 档（80%）</td>
+<td>Star 3,107，Fork 86，Fork 比率 2.8%；月均 Star 估算约 330（3,107 ÷ 9.4 ≈ 330），处于 100–500/月档；近 90 天关闭 Issue 9 个、创建 PR 9 个，开放 Issue 仅 8 个，无大量积压，维护响应及时（精确平均关闭时间缺失）</td>
+</tr>
+<tr>
+<td>D3.2</td>
+<td>贡献者结构多样性（满分 2.5 分）</td>
+<td>1.5</td>
+<td>5–6 档（60%）</td>
+<td>贡献者共 7 人，活跃 PR 生态初步形成（近 90 天 9 个 PR）；但贡献者规模小于 20，且高度集中于 JetBrains 官方团队，组织多样性不足，外部贡献占比有限</td>
+</tr>
+<tr>
+<td>D3.3</td>
+<td>第三方生态成熟度（满分 3 分）</td>
+<td>2.4</td>
+<td>7–8 档（80%）</td>
+<td>作为 AI 编码 Agent 指南，已集成 Junie、Claude Code、Codex、Cursor 四大主流 Agent 平台，并通过 skills.sh 支持其他工具，集成生态广度较明显；项目尚新，第三方插件/衍生商业产品/教程课程数据不足</td>
+</tr>
+<tr>
+<td>D3.4</td>
+<td>品牌认知与行业影响力（满分 1.5 分）</td>
+<td>1.2</td>
+<td>7–8 档（80%）</td>
+<td>JetBrains 官方项目（official badge），天然具备知名企业背书；被多家主流 AI 编码工具收录构成行业采用证据；项目自身名称认知度仍处于积累期，媒体覆盖与知名企业案例未见明确数据</td>
+</tr>
+</tbody>
+</table>
+<p><strong>综合结论</strong>：</p>
+<p>该项目作为 JetBrains 官方出品的 AI 编码指南，D3 维度评分为 <strong>7.5/10</strong>，处于“良好”水平，无明显商业化短板。社区方面，虽创建仅 9 个月，但凭借官方渠道与需求契合度，Star 增长快速，Issue 维护响应活跃，未出现积压风险；Fork 比率偏低与项目“只读参考型内容仓库”的属性相符，衍生意愿不强但可接受。贡献者结构多样性是当前主要短板——7 名贡献者基本来自 JetBrains，外部开发者参与度低，长期需警惕“官方单点驱动”的可持续性。生态势能上，项目已切入 AI Agent 工具链的插件/技能分发体系，覆盖 Claude Code、Codex、Cursor 等头部产品，生态卡位清晰，有望随 AI 编码工具渗透进一步放大。</p>
+<h3>D4 商业模式与变现潜力</h3>
+<p><strong>D4 维度得分：5.4 / 10</strong>（权重 18%）。该仓库本质上是 JetBrains 官方维护的「帮助 AI Agent 写出现代 Go 代码」的指南/技能包，当前没有独立的商业层级，更接近生态型开源资产。Apache-2.0 协议在法律上放开了全部变现路径，但项目内容本身缺乏稀缺性和付费触发点，直接变现潜力有限。</p>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>小分</th>
+<th>判定</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D4.1 协议对变现模式的影响（满分 2.0）</td>
+<td>2.0</td>
+<td>100%（9–10 分档）</td>
+<td>LICENSE 为 Apache-2.0，对 SaaS、Open Core、双协议、插件市场等所有变现模式均无约束。项目可自由被复制、分发、二次开发。</td>
+</tr>
+<tr>
+<td>D4.2 变现路径清晰度（满分 3.5）</td>
+<td>2.1</td>
+<td>60%（5–6 分档）</td>
+<td>项目以插件/技能形式分发到 Junie、Claude Code、Codex、Cursor 及 skills.sh，天然具备「市场/插件」的渠道形态；但没有任何付费层或企业版，类似 paid skill 的成功先例尚未验证。对 JetBrains 而言，其价值主要可能回落到 Junie/IDE 订阅的间接竞争力，不是仓库自身的独立商业路径。</td>
+</tr>
+<tr>
+<td>D4.3 付费转化逻辑（满分 2.5）</td>
+<td>0.5</td>
+<td>20%（1–2 分档）</td>
+<td>整个仓库为单层免费内容：安装、升级均免费，无“免费版不够用→升级付费”的触发机制。指南本身是可被自由引用的公共知识，使用者直接采纳即可，不存在可供收费的产品分层或限制性门槛。</td>
+</tr>
+<tr>
+<td>D4.4 增值服务空间与定价天花板（满分 2.0）</td>
+<td>0.8</td>
+<td>40%（3–4 分档）</td>
+<td>理论上可叠加定制化企业集成、Go 版本覆盖维护、内部部署支持等增值服务；但 Apache-2.0 意味着任何人都可免费再分发该核心资产，增值空间有限，客单价预计处于低位。若不与 JetBrains 的 IDE/AI Agent 企业订阅绑定，难以形成 $10K+ 年客单价的独立收入。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：该项目的协议条件极好、分发通道清晰，但商业模式缺乏直接货币化抓手。它更像 JetBrains 为了提升 AI 编码 Agent 输出质量而发布的「公共知识基础设施」，潜在收益主要体现在母公司生态（AI Assistant 订阅、IDE 竞争力、标准制定权），而非仓库本身的独立收入。若追求独立商业回报，需要额外构建专属工具链、企业服务层或与商业 Agent 产品深度绑定的付费版本。</p>
+<h3>D5. 竞争格局与差异化壁垒（权重 12%）</h3>
+<h4>D5.1 竞品对比与市场定位（满分 3 分 | 得分 3.0 分）</h4>
+<p><strong>竞品分析</strong>：本项目属于「AI 编码代理规则库/技能市场」这一新兴细分赛道。经 GitHub Search API 实测验证（搜索关键词 "AI agents Go guidelines"、"coding agent Go"），直接竞品极少，检索结果中严格意义上的同类项目仅有 1 个，且该项目处于极早期、无生态背书。具体对标如下：</p>
+<table>
+<thead>
+<tr>
+<th>竞品名称</th>
+<th>类型</th>
+<th>仓库/官网</th>
+<th>验证方式</th>
+<th>Star/用户量</th>
+<th>核心差异</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>spachava753/laas</td>
+<td>直接竞品</td>
+<td>github.com/spachava753/laas</td>
+<td>GitHub Search API 确认</td>
+<td>0 Star，0 Fork</td>
+<td>同为 agent 提供 Go 技能/规则，但覆盖度有限，无 JetBrains 官方权威背书，几乎无市场影响</td>
+</tr>
+<tr>
+<td>okyashgajjar/costwise-mcp</td>
+<td>间接竞品</td>
+<td>github.com/okyashgajjar/costwise-mcp</td>
+<td>GitHub Search API 确认</td>
+<td>21 Star</td>
+<td>用 MCP 解决 agent 读取代码的上下文复用问题，技术路径不同，不涉及现代 Go 语言惯用法引导</td>
+</tr>
+<tr>
+<td>limgwei-123/todo-list-with-agent</td>
+<td>间接竞品</td>
+<td>github.com/limgwei-123/todo-list-with-agent</td>
+<td>GitHub Search API 确认</td>
+<td>0 Star</td>
+<td>前端 agent 生成代码的演示项目，仅因关键词“agent code write”被检索到，与本项目完全不同维</td>
+</tr>
+</tbody>
+</table>
+<p><strong>定位清晰度</strong>：项目定位极其明确，README 直指两大痛点——「训练数据滞后」与「频率偏差」，即解决 agent 生成过时 Go 代码的问题。它将自己定义为面向 <strong>Go 1.0 至 1.27</strong> 全时期特性的官方参考系，与现有 <code>modernize</code> 分析器形成互补（后者修旧代码，本项目在新代码输出端前置拦截）。</p>
+<p><strong>结论</strong>：在本细分领域，本项目几乎处于「无直接竞品」的蓝海状态。虽然存在 agent 规则市场这类外围生态，但针对「现代 Go 语言最佳实践」的垂直规则集仅有本项目具备 JetBrains 品牌背书与 Go 语言专家维护团队，定位独特甚至具备定义赛道的能力。扣分项在于竞品存在但弱小，不足以确立绝对领先的“统治级”地位。</p>
+<h4>D5.2 技术壁垒与网络效应（满分 3 分 | 得分 2.4 分）</h4>
+<p><strong>技术壁垒</strong>：从代码维度看，纯工程复刻极易（本地仓库仅 1480 行实现代码，无外部依赖、无复杂算法）。但从商业防御视角看，真正的壁垒在于<strong>持续的事实维护与规范解释权</strong>——将 Go 1.0 至 1.27 的千万级历史特性同步进 agent 上下文，需要 Go 专家对语言演进有极强的前瞻性把握。当前仓库已具备 <code>errors.AsType[T]</code>、<code>new(42)</code> 等 1.26 特性，且承诺覆盖了 <code>modernize</code> analyzer 的全部目标特征，这种“标准制定者”的生态位有较高的认知壁垒。</p>
+<p><strong>网络效应</strong>：存在一定弱网络效应。Go 社区/agent 生态的开发者越多，使用该规则集的反馈与 PR 越多（当前已有 7 名贡献者），规则库就越完善。作为 JetBrains 官方项目，它与 Go 团队（<code>modernize</code> analyzer 的提出者）方向一致，可以持续取得上游话语权。</p>
+<p><strong>规模效应</strong>：极弱。分发边际成本极低，但无平台型赢家通吃效应。底层实现极易被复制，但<strong>认证与分发入口</strong>（如 Claude Code / Codex 的 marketplace 接入及 JetBrains 官方的品牌背书）构成了隐性护城河。</p>
+<p>综合来看，该项目具备一定的权威壁垒与微弱的生态网络效应，但远未达到深厚护城河标准。</p>
+<h4>D5.3 切换成本与用户粘性（满分 2 分 | 得分 1.2 分）</h4>
+<p><strong>迁移成本</strong>：极低。该项目的产品形态是纯文本/代码规则注入，采用 <code>skills</code> / <code>plugin</code> 形式的即插即用模式。用户若要暂时卸载此规则集，只需执行 <code>plugin remove</code> 或删除对应 skill，并不需要迁移任何业务代码、数据或重写逻辑。</p>
+<p><strong>深度集成</strong>：无深度绑定。虽然项目提供了可供 Claude Code、Codex、Cursor、Junie 等调用的本地 CLI，但该 CLI 仅用于读取规则集与检测 Go 版本，不做任何项目侧的修改或数据存储（明确承诺 “never modifies your project”）。</p>
+<p><strong>习惯锁定</strong>：用户粘性主要来源于「生成代码质量提升」这一正向体验惯性，而非数据资产或工具链锁定。相较于代码生成工具（如注释风格、代码框架依赖），该规则集对 agent 而言是显式知识注入，当用户习惯这种“现代感”写作风格后会有较强回流意愿，但构不成阻止切换的客观壁垒。</p>
+<p>因此核心商业模式缺乏平台型锁定的钝力，用户有较大概率在遇到规则集未覆盖的新版本特性而 agent 又临时罢工时选择弃用。</p>
+<h4>D5.4 护城河可持续性（满分 2 分 | 得分 1.6 分）</h4>
+<p><strong>护城河趋势</strong>：整体呈<strong>增强</strong>趋势。Go 语言每年更新一次大版本（1.24-1.27），AI agent 的训练数据滞后问题会永久存在且无法靠单一模型升级自愈。这意味着每增加一个新 Go 版本，本项目所能提供的价值就会多一分（持续迭代的官方维护）。</p>
+<p><strong>颠覆风险</strong>：存在一定风险。风险主要来自两类：其一，若某主流 agent 厂商（如 OpenAI/Anthropic）在其官方插件市场中将底层 prompt 与最新语言特性全面内置并自动更新，将削弱本项目“补充外部知识”的必要性；其二，Go 官方若将 <code>modernize</code> 分析器的能力前置到 agent 生成过程中的一键式自动修复，也将形成替代方案。</p>
+<p><strong>时间窗口</strong>：考虑到大模型推理成本下降与长上下文能力的爆发，agent 直接获取权威最新知识的需求在未来 2-3 年内仍然刚性存在。JetBrains 在 Go IDE 领域的深远影响力可支撑其将触角延伸至完整 Go 开发生命周期，且目前尚无巨无霸级别的直接竞争者进入该 1.27 版次更新赛道。</p>
+<p>总体评估：护城河稳定且趋势正向，具有较好的时间与权威壁垒，虽有中低程度的替代风险但短期难以动摇其优势。</p>
+<h3>细化分汇总与最终结论</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>权重(分)</th>
+<th>小分</th>
+<th>档位判定</th>
+<th>核心依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D5.1 竞品对比与市场定位</td>
+<td>3</td>
+<td>3.0</td>
+<td>9–10 档（定位独特，近乎无直接竞品）</td>
+<td>仅检索到 1 个直接竞品（0 Star），市场空白诱人</td>
+</tr>
+<tr>
+<td>D5.2 技术壁垒与网络效应</td>
+<td>3</td>
+<td>2.4</td>
+<td>7–8 档（有权威壁垒/生态，不深厚）</td>
+<td>事实与规范维护能力形成壁垒，网络效应偏弱</td>
+</tr>
+<tr>
+<td>D5.3 切换成本与用户粘性</td>
+<td>2</td>
+<td>1.2</td>
+<td>5–6 档（迁移成本低，仅有习惯依赖）</td>
+<td>即插即用，无数据/配置锁定，粘性有限</td>
+</tr>
+<tr>
+<td>D5.4 护城河可持续性</td>
+<td>2</td>
+<td>1.6</td>
+<td>7–8 档（护城河稳定，风险中低）</td>
+<td>Go 迭代频率带来持续刚需，另有品牌加持</td>
+</tr>
+</tbody>
+</table>
+<p><strong>最终综合得分</strong>：8.2 / 10（权重 12%）</p>
+<p><strong>结论</strong>：本项目处于一个高速增长且严重缺乏权威标准的关键窗口期。JetBrains 的入场以极低复制成本的技术形态，建立了对 AI agent 输出品控的行业话语权。虽然切换成本低是商业模式中的显著短板，但因其占据“无直接竞品”的先发优势与版本更新带来的长期价值，该维度评分表现优秀。</p>
+<h3>D6 法律合规与知识产权</h3>
+<p><strong>结论</strong>：本维度得分 <strong>8.6/10</strong>，整体法律风险低。项目采用 Apache-2.0 宽松许可证，无传染性依赖，依赖链极简，贡献流程规范；主要不确定点在于商标与专利无法通过自动分析确认，且无独立 CLA/DCO 文件，远期版权集中能力有限。</p>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>小分</th>
+<th>满分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D6.1 开源协议合规性与商业限制</td>
+<td>3.0</td>
+<td>3.0</td>
+<td>9–10（卓越）</td>
+<td>LICENSE 为 Apache-2.0 完整官方文本，版权声明为 Copyright 2000-2026 JetBrains s.r.o.；项目本身为宽松许可，无 GPL/AGPL copyleft 传染；无 Commons Clause、BUSL 等商业限制附加条款。</td>
+</tr>
+<tr>
+<td>D6.2 依赖链法律风险</td>
+<td>2.5</td>
+<td>2.5</td>
+<td>9–10（卓越）</td>
+<td>go.mod 仅声明 1 个直接依赖 <code>golang.org/x/mod v0.37.0</code>，为 Go 官方模块，来源权威，采用 BSD 类宽松许可；无 AGPL/GPL 类传染性依赖，传递依赖审查成本极低。</td>
+</tr>
+<tr>
+<td>D6.3 商标与专利风险</td>
+<td>1.5</td>
+<td>2.5</td>
+<td>5–6（一般，未经人工核查，置信度低）</td>
+<td>仓库内无商标检索或专利排查数据可自动验证，按方法论默认取 60% 档。项目位于 JetBrains 官方 org 下，但 <code>go-modern-guidelines</code> 名称是否可商用、是否与他人商标冲突，需人工检索确认。</td>
+</tr>
+<tr>
+<td>D6.4 贡献者协议完备性</td>
+<td>1.6</td>
+<td>2.0</td>
+<td>7–8（良好）</td>
+<td>CONTRIBUTING.md 非常规范，要求先讨论重大变更、聚焦单个 PR、提供 agent 评估证据、运行测试并自行审查 diff；未发现独立 CLA/DCO 文件，但 Apache-2.0 §5 对 Contribution 提供自动授权，构成基本贡献协议；若未来需双授权或更换许可证，需补齐 CLA。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>扣分要点</strong>：
+- D6.3 无法自动完成商标/专利核查，按方法论给 60% 档，置信度低；
+- D6.4 因缺少独立 CLA/DCO，版权集中度不足，扣 0.4 分。</p>
+<h3>D7 企业就绪度与可运营性（权重 8%）</h3>
+<p>本项目属于“AI 编码代理指南 + 轻量 CLI 分发”形态，不同于常驻服务，企业级运营更多体现在更新管控、供应链安全、分发可用性与 Agent 生态集成等方面。综合来看，项目整体企业就绪度处于行业平均偏下水平，核心短板是没有任何 CI/Release/Security 治理配套，供应链信任机制缺失。</p>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>得分</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D7.1 运维复杂度与升级路径</td>
+<td>1.8 / 3</td>
+<td>项目无服务端，无持续运维负担，但升级路径主要依赖各 Agent 的插件手动命令；README 中 Claude Code 需要手动开启自动更新、Codex 需要 remove/add、Cursor 需要人工重新加载；仓库无 GitHub Release（recent_releases 为空），也无统一回滚机制；没有 CI workflow，发布流程完全靠人工，升级平滑度有限</td>
+</tr>
+<tr>
+<td>D7.2 安全管理与权限控制</td>
+<td>1.0 / 2.5</td>
+<td>仓库无 SECURITY.md、无 CODEOWNERS、无安全策略说明；源码中无认证/授权/审计相关实现；由于是本地 CLI，不需要 SSO/RBAC，但安装时会通过 <code>go install</code> 执行可执行文件，且分发过程无签名/checksum 校验，供应链安全机制薄弱，企业采用存在信任门槛</td>
+</tr>
+<tr>
+<td>D7.3 可扩展性与高可用能力</td>
+<td>2.0 / 2.5</td>
+<td>核心内容为静态指南，CLI 为无状态本地工具，没有中心服务，不存在单点性能瓶颈或数据一致性问题，天然可随用户量增长扩展；但项目本身不做高可用部署设计，分发完全依赖 GitHub/skills.sh 等外部平台的可用性，也无性能/高可用测试文档</td>
+</tr>
+<tr>
+<td>D7.4 集成兼容与可观测性</td>
+<td>1.2 / 2</td>
+<td>已适配 Junie、Claude Code、Codex、Cursor 四类 Agent marketplace，并通过 skills.sh 支持 OpenCode 等其他 agent，集成生态较好；但项目自身不提供 REST/gRPC/API 文档，无监控指标、健康检查、结构化日志；Makefile 仅覆盖 generate/test/dev-install，可观测性基本空白</td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>: D7 维度得分 6.0/10。在无中心化服务的前提下，运维负担低、无状态可水平扩展是其天然优势；但缺少版本发布机制、CI 流水线、供应链签名校验和可观测性能力，使其尚不完全具备企业级“受控升级 + 审计合规 + 高可观测”的运营要求。作为 JetBrains 官方背书的新项目，其运营体系成熟度仍有明显提升空间。</p>
+<h3>D8. 团队治理与可持续性（得分：8.0 / 10）</h3>
+<p>该维度用于判断项目背后的团队是否具备持续运营与商业化能力。本项目由 JetBrains 官方组织运营，属于商业化公司支持的开源项目，整体治理与可持续性良好。</p>
+<table>
+<thead>
+<tr>
+<th>子维度</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+<th>判断摘要</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D8.1 核心维护者能力与背景</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>良好（80%）</td>
+<td>JetBrains 官方项目，7 名贡献者；有商业实体和技术积累，但核心成员个人画像数据不足，无法确认其全职投入程度</td>
+</tr>
+<tr>
+<td>D8.2 治理模型透明度</td>
+<td>2.0</td>
+<td>1.6</td>
+<td>良好（80%）</td>
+<td>有较完整的 CONTRIBUTING.md，重大改动先讨论，要求提交评估证据；但无 GOVERNANCE.md，也未加入基金会</td>
+</tr>
+<tr>
+<td>D8.3 资金支持与商业赞助</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>良好（80%）</td>
+<td>JetBrains 公司直接持有仓库，属于稳定的公司支持；未见 Sponsor/资助页面，全职投入情况不明确</td>
+</tr>
+<tr>
+<td>D8.4 项目可持续性与传承风险</td>
+<td>3.0</td>
+<td>2.4</td>
+<td>良好（80%）</td>
+<td>项目未归档，最近推送为 2026-08-31，近 90 天有 9 个 PR、9 个 issue 关闭；活跃度稳定，无分裂信号</td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<p>项目由 JetBrains 作为商业实体直接运营，团队技术能力与商业背景有天然背书；贡献指南清晰，治理流程有一定透明度。虽然项目诞生时间较短（约 9 个月）、核心维护者信息未完全公开，但结合近期活跃度与公司支持，可持续性风险较低，具备后续商业化运作的基础。</p>
+<h3>D9. 上手难度与易用性（权重 10%）</h3>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>小分</th>
+<th>满分</th>
+<th>档位</th>
+<th>核心依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D9.1 安装难度</td>
+<td>1.5</td>
+<td>2.5</td>
+<td>一般（60%）</td>
+<td>需预装 Go 1.25+；不同 Agent 需执行 2–3 条 marketplace/plugin 命令；无 Dockerfile/一键脚本</td>
+</tr>
+<tr>
+<td>D9.2 部署与配置难度</td>
+<td>1.5</td>
+<td>2.5</td>
+<td>一般（60%）</td>
+<td>无容器化/编排资产；配置项少，但依赖 Agent 生态与 Go 工具链；无自动化快速验证脚本</td>
+</tr>
+<tr>
+<td>D9.3 易用性与操作门槛</td>
+<td>2.0</td>
+<td>2.5</td>
+<td>良好（80%）</td>
+<td>安装后日常使用近乎零操作（Agent 自动调用）；手动触发命令直观；错误处理细节不完整</td>
+</tr>
+<tr>
+<td>D9.4 学习曲线与首体验</td>
+<td>2.0</td>
+<td>2.5</td>
+<td>良好（80%）</td>
+<td>README 分 Agent 给出步骤，FEATURES.md 提供完整特性示例，10–30 分钟可跑通；无交互式教程</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>7.0</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>🟡 中等</strong></td>
+<td>对具备 Go 与 CLI 基础的开发者友好，非技术人员难以独立完成</td>
+</tr>
+</tbody>
+</table>
+<h3>分析</h3>
+<p><strong>D9.1 安装难度（1.5/2.5）</strong><br />
+该项目不是“pip install”式单体安装：最终用户需要先将仓库注册为 Agent 的 Marketplace，再安装插件。安装命令条数不多（2–3 条），但必须预装 Go 工具链（≥1.25）且要求用户已部署对应 AI Agent。<code>go.mod</code> 仅依赖 <code>golang.org/x/mod</code>，依赖面很小，但外部运行时依赖 Go 属硬性前置条件。缺少 Dockerfile、一键安装脚本，安装路径分散在 Junie/Claude Code/Codex/Cursor/skills.sh 五种场景中，用户需自行匹配入口。</p>
+<p><strong>D9.2 部署与配置难度（1.5/2.5）</strong><br />
+项目不涉及服务端部署，没有 docker-compose/Helm/K8s 资产，部署环节实际是“向 Agent 注册插件”。首次调用时 CLI 自动 <code>go install</code> 到本地缓存，无需手动初始化数据库等外部组件。但该流程强依赖 Agent 的插件系统版本与 Go 环境，且 README 未提供统一的 <code>quickstart.sh</code> 或一键验证脚本；非技术用户（如产品/商务）很难独立完成“Agent 内注册市场 + 安装插件 + 验证生效”的闭环。</p>
+<p><strong>D9.3 易用性与操作门槛（2.0/2.5）</strong><br />
+安装完成后，Agent 会在相关 Go 任务中自动触发 Skill，用户几乎不需要额外干预。Claude Code 提供显式斜杠命令 <code>/modern-go-guidelines:use-modern-go</code>，语义清晰；更新命令也按 Agent 分别给出。但错误处理信息不充分（如 Go 版本不符、插件市场连接失败时的提示），缺少智能提示层面的佐证；且非 Go 背景用户难以判断“Agent 是否真的按 modern 风格生成了代码”，故未达优秀档。</p>
+<p><strong>D9.4 学习曲线与首体验（2.0/2.5）</strong><br />
+README 将安装步骤按 Agent 分类编写，用户跟随操作可在 10–30 分钟内完成首次体验。FEATURES.md 涵盖从 Go 1.0 到 1.27 的特性清单与示例，可帮助快速理解“modern Go”的目标。项目概念门槛较低：不需要懂 Go 编译器原理，只需会操作命令行 Agent。但缺少交互式教程、sandbox 环境或“10 分钟内必跑通”的脚本，学习体验依赖用户自身环境成熟度，因此未给满分。</p>
+<p><strong>总体结论</strong><br />
+D9 总评 7.0/10，上手难度为 <strong>🟡 中等</strong>。项目的“安装即订阅”模式对日常使用极为轻量，但前置条件（Go 工具链 + Agent 插件体系）和分散的安装入口使其暂时无法触达非技术用户。若要进一步提升商业化转化，建议提供统一引导脚本（自动检测 Go 版本与 Agent 类型）和各 Agent 的一键安装包。</p>
+<h3>D10 功能价值（使用价值）——平行维度（权重 0%）</h3>
+<p>本维度回答“用它的人省了/赚了多少”，与付费意愿正交。本项目 <code>JetBrains/go-modern-guidelines</code> 是一个面向 AI 编码代理的现代 Go 编写指南/技能包，通过 Junie、Claude Code、Codex、Cursor 等插件事先注入代理上下文，核心价值是缓解模型训练数据滞后与频率偏差导致的“生成过时 Go 代码”。</p>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位与依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10.1</td>
+<td>效用强度</td>
+<td>3</td>
+<td>1.8</td>
+<td>一般（60%）。对重度依赖 AI 代理的 Go 团队有稳定可预期的质量收益，能减少人工纠正旧写法与事后 modernize 的成本；但作用层是“代码风格/语言特性选择”，不构成业务命脉级依赖，且未来模型直接内置知识后易被替代。</td>
+</tr>
+<tr>
+<td>D10.2</td>
+<td>实际使用规模</td>
+<td>3</td>
+<td>N/A</td>
+<td>数据缺失。作为指南/技能仓库，不以库依赖形态分发，GitHub Dependents 无意义；npm/PyPI 下载量均为 N/A，插件市场安装量未公开；README 无用户案例，未能实采到任何使用规模硬事实，故按防幻觉规则标记 N/A。</td>
+</tr>
+<tr>
+<td>D10.3</td>
+<td>免费可得的完整效用</td>
+<td>2</td>
+<td>2.0</td>
+<td>卓越（100%）。Apache-2.0 完全开源，全部功能（SKILL.md、CLI、FEATURES.md 等）均在仓库内，无企业版/付费墙/隐性收费；用户自行安装部署即可获得全部价值，不存在“名义开源、实际付费可用”的设计。</td>
+</tr>
+<tr>
+<td>D10.4</td>
+<td>效用可持续性</td>
+<td>2</td>
+<td>2.0</td>
+<td>卓越（100%）。插件安装到本地缓存后即可运行，不依赖 JetBrains 在线服务；停维后已安装用户仍可持续使用。核心资产为约 1.4k 行 Go 代码 + Markdown 技能文件，构建脚本与 Makefile 完整，Apache-2.0 协议允许自由分叉，外部依赖仅 Go 工具链，无厂商锁定。</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td><strong>8.3</strong></td>
+<td>因 D10.2 缺失，按剩余满分 7 等比缩放：(1.8 + 2.0 + 2.0) ÷ 7 × 10 ≈ 8.3；置信度因使用规模数据缺失而有所下降。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：该项目体现出典型的“高使用价值、低可计量”结构——开源完整性和可持续性接近满分，效用强度处于明确但非不可替代的层级；由于缺少安装量/下载量实采数据，其实际规模无法在本维度内定性确认。作为平行维度，该结论不参与商业综合评分，但可用于价值画像：是一个高功能价值、低商业可验证性的官方基础设施型参考/技能项目。</p>
+<h3>D11 社会价值（正外部性）（平行维度，不计入综合评分）</h3>
+<blockquote>
+<p>本维度评估项目对使用者之外的行业与社会产生的正外部性；权重 0%，不进入综合评分，仅用于 3.4 价值画像。项目为「面向 AI 编码代理的知识型开源资产」，社会价值主要体现在对 Go 语言生态代码质量的外溢，而非传统软件供应链依赖。</p>
+</blockquote>
+<h3>D11.1 数字公共基础设施属性 — 1.2 / 3</h3>
+<p><strong>分析</strong>：</p>
+<ul>
+<li><strong>关键依赖地位</strong>：该项目不是传统代码库，无 Dependents 意义上的下游依赖计数；它以 skill/plugin 形式分发至 Junie、Claude Code、Codex、Cursor 及 skills.sh 生态，定位是「可选安装的参考规范」，而非被链接引用的库。</li>
+<li><strong>停摆影响面</strong>：假设仓库消失，已安装的插件缓存仍可继续工作，仅新安装不可得；AI agent 仍能生成 Go 代码，只是缺少现代风格的显式参考。不会造成软件供应链中断或功能瘫痪，影响面有限。</li>
+<li><strong>数字公共产品属性</strong>：Apache-2.0 许可、开放可复用、内容服务 Go 社区公共利益，符合 DPG 的「开放、可复用、服务公共利益」特征，这一点是明确的。</li>
+</ul>
+<p><strong>判定</strong>：不具备「行业数字底座 / 关键依赖」地位，停摆影响微小，但开放性使其具备一定数字公共产品属性。按评分指引的 3–4 分档（40%）计分。</p>
+<h3>D11.2 教育与人才价值 — 1.5 / 2.5</h3>
+<p><strong>分析</strong>：</p>
+<ul>
+<li><strong>教学采用</strong>：仓库本质是一份精心整理的「现代 Go 特性清单」，覆盖 Go 1.0–1.27 的实用特性（含 <code>modernize</code> analyzer 覆盖范围），<code>FEATURES.md</code> 构成结构化学习图谱，理论上对 Go 开发者学习语言演进有直接参考价值；但素材中无外部教程/课程数量、Awesome 列表收录等证据（外部数据 N/A），无法证实「被广泛用于教学」。</li>
+<li><strong>门槛降低效应</strong>：主要降低对象是 AI agent 的生成质量门槛，间接惠及开发者——让不熟悉新版 Go 特性的开发者也能获得现代写法，降低跟进语言演进的认知成本，但这一效应是间接的。</li>
+<li><strong>源码学习价值</strong>：本地实测仅 11 个 Go 文件、1480 行代码，核心资产是文档内容而非 Go 源码本身，代码工程示范价值有限。</li>
+</ul>
+<p><strong>判定</strong>：有一定教学/参考价值，但影响范围偏新生态与小圈子，尚未见规模化教学采用证据。按 5–6 分档（60%）计分。</p>
+<h3>D11.3 普惠与可及性 — 1.5 / 2.5</h3>
+<p><strong>分析</strong>：</p>
+<ul>
+<li><strong>能力平权化</strong>：由 JetBrains 官方以 Apache-2.0 免费开放，任何个人/中小团队均可零成本获得与大厂一致的 agent 编码规范，使 AI 生成 Go 代码起点更高、减少陈旧模式带来的技术债——普惠增量真实存在。</li>
+<li><strong>替代价格差</strong>：无明确同等的商业付费方案可对标（企业内部规范通常不对外售卖），缺少可用于价格差的硬依据。</li>
+<li><strong>可及性支持</strong>：仅提供英文（无多语言/i18n 版本证据），且要求 Go 1.25+ toolchain 和对应 AI agent 环境，存在技术与语言门槛；但无付费墙、无高配硬件要求。</li>
+</ul>
+<p><strong>判定</strong>：免费开放具有普惠效果，但受语言、Go 工具链与 agent 环境门槛限制，距离「平权化给所有人」尚有差距。按 5–6 分档（60%）计分。</p>
+<h3>D11.4 开放标准与行业推动 — 1.2 / 2</h3>
+<p><strong>分析</strong>：</p>
+<ul>
+<li><strong>标准推动</strong>：项目明确与 Go 官方 <code>modernize</code> 方向对齐（引用 Go team 演讲），推动 AI 生成代码遵循官方标准库惯例（<code>slices</code>、<code>cmp</code>、<code>errors.AsType</code> 等），客观上促进 Go 现代语法在 AI 生态的采纳；但项目本身不定义或主导开放标准/协议。</li>
+<li><strong>科研支撑</strong>：未检索到论文引用数据，此项 N/A。</li>
+<li><strong>行业示范效应</strong>：作为 JetBrains 官方开源项目，跨 Junie/Claude Code/Codex/Cursor/skills.sh 多 agent 分发，不以插件格式锁定单一厂商，有防锁定的开放姿态；其「给 agent 提供语言版本感知参考」的设计理念可能带动同行效仿，但尚属早期，示范影响有限。</li>
+</ul>
+<p><strong>判定</strong>：遵循开放分发方式并对 Go 官方现代语法方向有推动，但未达到定义/主导重要开放标准的程度。按 5–6 分档（60%）计分。</p>
+<h3>结论</h3>
+<p>D11 总分 <strong>5.4 / 10</strong>，属于「一般」区间。价值画像为：<strong>小而美的公共知识资产</strong>——不是数字基础设施型依赖，不具备停摆风险敏感性；教育普惠价值集中于让 AI/开发者更快采用现代 Go 写法，间接节约全行业技术债成本；开放性（Apache-2.0 + 多 agent 分发）是其主要正外部性来源。整体外溢贡献真实但规模尚小，且受限于英文单语和 agent 生态的技术门槛。</p>
+<h3>D11 细则分值汇总</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>分值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D11.1</td>
+<td>数字公共基础设施属性</td>
+<td>1.2 / 3（40% 档）</td>
+</tr>
+<tr>
+<td>D11.2</td>
+<td>教育与人才价值</td>
+<td>1.5 / 2.5（60% 档）</td>
+</tr>
+<tr>
+<td>D11.3</td>
+<td>普惠与可及性</td>
+<td>1.5 / 2.5（60% 档）</td>
+</tr>
+<tr>
+<td>D11.4</td>
+<td>开放标准与行业推动</td>
+<td>1.2 / 2（60% 档）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>5.4 / 10</strong></td>
+</tr>
+</tbody>
+</table>
+<h2>五、商业化价值判断</h2>
+<h3>5.1 综合价值评估</h3>
+<p>go-modern-guidelines 的综合评分为 <strong>70.5 分（A 级，高商业化潜力）</strong>，价值画像为 <strong>💼 纯商业工具</strong>。项目处于「高潜力但低变现准备度」的错位状态：技术权威性、社区认可度与法律合规性均表现优异（D5 竞争格局 8.2、D6 法律合规 8.6、D8 团队治理 8.0），但商业模式设计几乎空白（D4 仅 5.4 分），直接导致整体商业化潜力未能转化为实际营收能力。</p>
+<h3>5.2 核心价值来源</h3>
+<p><strong>价值核心不在于代码本身，而在于「规范解释权」与「渠道卡位」</strong>：</p>
+<ul>
+<li><strong>规范解释权壁垒</strong>：项目覆盖 Go 1.0–1.27 全量现代特性，由 JetBrains 官方维护，构成对「什么是现代 Go 写法」的权威定义权。随着 Go 版本年均更迭与 AI 训练数据滞后长期存在，这一壁垒将持续加深。</li>
+<li><strong>多渠道分发卡位</strong>：已集成 Junie、Claude Code、Codex、Cursor 四大 AI Agent 平台，并经 skills.sh 分发，在 AI 编码代理生态中占据先发位置。</li>
+<li><strong>JetBrains 品牌信用</strong>：官方背书提供独特辨识度，细分赛道经 GitHub API 实测仅发现 1 个直接竞品（spachava753/laas，0 Star），蓝海特征明显。</li>
+</ul>
+<h3>5.3 价值变现障碍</h3>
+<ul>
+<li><strong>无付费先例与稀缺性缺失</strong>：指南内容可自由复制（Apache-2.0），不存在免费到付费的触发机制，无法制造稀缺性。</li>
+<li><strong>交付形态限制客单价</strong>：作为 skill/plugin 分发，无中心服务、无版本分层，增值服务空间有限。</li>
+<li><strong>体量偏小</strong>：源码仅 1480 行，无 release、无 CI，象征意义大于直接商业价值，变现距离较远。</li>
+</ul>
+<h3>5.4 价值定位判断</h3>
+<p>项目当前的核心价值是 <strong>对 JetBrains 生态的间接支撑</strong> 而非独立营收来源。其商业化价值需放在 JetBrains 整体战略（AI 编码代理工具链布局）中评估，而非作为独立利润中心。</p>
+<h2>六、商业路径分析</h2>
+<h3>6.1 路径可行性评估</h3>
+<p>基于 D4 评分卡（5.4/10）与 D5 竞争格局（8.2/10），项目具备以下路径基础与约束：</p>
+<table>
+<thead>
+<tr>
+<th>路径</th>
+<th>可行性</th>
+<th>关键依据</th>
+<th>主要障碍</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>P1：生态协同变现</strong></td>
+<td>⭐⭐⭐⭐</td>
+<td>JetBrains 官方项目，公司资源直接支撑；已适配 Junie 等自家 Agent 平台</td>
+<td>非独立营收，需纳入 JetBrains 整体 AI 战略</td>
+</tr>
+<tr>
+<td><strong>P2：Plugin/Marketplace 付费分发</strong></td>
+<td>⭐⭐</td>
+<td>Apache-2.0 法律路径畅通；已分发至 4 大 Agent 平台</td>
+<td>无付费先例验证；内容可自由复制，付费意愿存疑</td>
+</tr>
+<tr>
+<td><strong>P3：企业级增值服务</strong></td>
+<td>⭐⭐</td>
+<td>企业采用需安全与合规保障（当前缺失）</td>
+<td>无 CI/Release/SECURITY.md，企业就绪度不足（D7 仅 6.0）</td>
+</tr>
+<tr>
+<td><strong>P4：影响力变现</strong></td>
+<td>⭐⭐⭐</td>
+<td>公共价值分 6.9 接近 7；教育价值明确</td>
+<td>人类教学采用证据不足；D11 社会价值仅 5.4</td>
+</tr>
+</tbody>
+</table>
+<h3>6.2 推荐路径组合</h3>
+<p><strong>短期（0–12 个月）：以 P1 为主，夯实 P2 基础</strong></p>
+<ul>
+<li>将项目明确定位为 JetBrains AI 编码工具链的「Go 语言质量基础设施」，通过 Junie 等自家产品线实现间接变现。</li>
+<li>补齐企业就绪度短板（CI、Release、SECURITY.md），为后续 P2/P3 铺路。</li>
+<li>建立付费先例验证：探索「免费基础规则 + 付费高级规则包/企业策略管理」分层。</li>
+</ul>
+<p><strong>中期（12–24 个月）：P2 试探性推进</strong></p>
+<ul>
+<li>在 skills.sh 等 marketplace 上测试付费分发模式，验证开发者付费意愿。</li>
+<li>开发差异化增值模块（如企业级 Go 代码规范审计报告、与 JetBrains IDE 深度集成的高级规则集）。</li>
+</ul>
+<p><strong>长期（24 个月+）：视生态位演变调整</strong></p>
+<ul>
+<li>若 AI 编码代理市场持续爆发且 Go 规范赛道出现更多玩家，可考虑独立商业化运作。</li>
+<li>若项目始终作为 JetBrains 生态护城河存在，则维持 P1 路径，追求生态价值最大化。</li>
+</ul>
+<h3>6.3 路径选择注意事项</h3>
+<ul>
+<li><strong>避免竭泽而渔</strong>：项目当前公共价值分 6.9 处于临界区间（6.5–7.5），若后续公共价值分提升至 ≥ 7，价值画像将转为 ⭐ 明星资产，此时应同步经营社区声誉，避免因过度商业化损害 JetBrains 品牌信用与社区信任。</li>
+<li><strong>协议约束</strong>：Apache-2.0 下所有变现路径法律畅通，但需注意无独立 CLA/DCO 对远期换证/双授权的限制。</li>
+<li><strong>竞品动态</strong>：当前直接竞品仅 1 个且为 0 Star，但技术层极易复制，需持续投入维护以保持规范解释权壁垒。</li>
+</ul>
+<h2>七、能力评估：能做什么 &amp; 最适合做什么</h2>
+<h3>7.1 核心能力清单</h3>
+<table>
+<thead>
+<tr>
+<th>能力领域</th>
+<th>具体能力</th>
+<th>证据支撑</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Go 语言规范权威</strong></td>
+<td>覆盖 Go 1.0–1.27 全量现代特性，含 modernize analyzer</td>
+<td>D5 评分 8.2；FEATURES.md 文档</td>
+</tr>
+<tr>
+<td><strong>AI Agent 生态集成</strong></td>
+<td>已适配 Junie/Claude Code/Codex/Cursor 四大平台 + skills.sh 分发</td>
+<td>D3 评分 7.5；D7 集成兼容性较强</td>
+</tr>
+<tr>
+<td><strong>JetBrains 品牌背书</strong></td>
+<td>官方仓库，商业实体与技术实力直接支撑</td>
+<td>D8 评分 8.0；official_jetbrains_badge</td>
+</tr>
+<tr>
+<td><strong>工程质量基础</strong></td>
+<td>零第三方依赖、架构整洁（11 文件按 internal 拆包）、测试占比 42.9%</td>
+<td>D2 评分 7.2</td>
+</tr>
+<tr>
+<td><strong>法律合规清晰</strong></td>
+<td>Apache-2.0 完整 LICENSE，无 copyleft，依赖链极简</td>
+<td>D6 评分 8.6</td>
+</tr>
+</tbody>
+</table>
+<h3>7.2 最适合做什么</h3>
+<p>基于能力与市场定位，项目最适合承担以下角色：</p>
+<ol>
+<li><strong>JetBrains AI 编码工具链的 Go 语言质量守门员</strong>：作为 Junie 等自家 Agent 的 Go 代码规范引擎，提升 JetBrains AI 产品的代码生成质量，间接强化 JetBrains IDE + AI 的整体竞争力。</li>
+<li><strong>AI Agent 生态的 Go 规范分发节点</strong>：依托已建立的 4 大平台分发渠道，成为跨生态的 Go 现代写法事实标准。</li>
+<li><strong>Go 开发者社区的 AI 时代教育工具</strong>：将 Go 1.0–1.27 语言演进知识结构化沉淀为 AI 可消费格式，降低开发者跟进语言演进的认知门槛。</li>
+</ol>
+<h3>7.3 不适合做什么</h3>
+<ul>
+<li><strong>独立 SaaS 服务</strong>：无中心服务架构，无状态 CLI 设计不支持多租户 SaaS 化。</li>
+<li><strong>高客单价企业软件</strong>：当前无企业级安全与合规能力（无 SECURITY.md、无签名校验、无审计日志），D7 仅 6.0 分。</li>
+<li><strong>大规模开发者工具平台</strong>：体量过小（1480 行代码），无法支撑平台级产品运营。</li>
+</ul>
+<h2>八、短板识别：还缺少什么</h2>
+<h3>8.1 关键短板清单</h3>
+<table>
+<thead>
+<tr>
+<th>短板领域</th>
+<th>具体缺失</th>
+<th>影响</th>
+<th>严重程度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>变现机制缺失</strong></td>
+<td>无任何付费产品或版本分层；无免费到付费的触发机制</td>
+<td>D4 仅 5.4 分，直接制约商业化落地</td>
+<td>🔴 高</td>
+</tr>
+<tr>
+<td><strong>企业就绪度不足</strong></td>
+<td>无 CI workflows、无 GitHub Release、无 SECURITY.md、无 Codeowners</td>
+<td>D7 仅 6.0 分，企业采用存在信任风险</td>
+<td>🔴 高</td>
+</tr>
+<tr>
+<td><strong>工程成熟度欠缺</strong></td>
+<td>无 release/tag、无自动化测试门禁（CI 为 0）</td>
+<td>D2 中 D2.8 仅 0.4/1，稳定性与向后兼容无保障</td>
+<td>🟡 中</td>
+</tr>
+<tr>
+<td><strong>社区结构单一</strong></td>
+<td>7 名贡献者高度集中于 JetBrains 官方，外部参与不足</td>
+<td>D3 中 D3.2 仅 1.5/2.5，生态活力受限</td>
+<td>🟡 中</td>
+</tr>
+<tr>
+<td><strong>治理文档不完整</strong></td>
+<td>无 GOVERNANCE.md、无独立 CLA/DCO</td>
+<td>D8 中 D8.2 仅 1.6/2，远期换证/双授权受限</td>
+<td>🟡 中</td>
+</tr>
+<tr>
+<td><strong>可观测性缺失</strong></td>
+<td>无可观测性组件、无审计日志</td>
+<td>企业运维与安全审计无法开展</td>
+<td>🟡 中</td>
+</tr>
+<tr>
+<td><strong>国际化不足</strong></td>
+<td>仅英文，无多语言版本</td>
+<td>D11 中 D11.3 可及性受限，影响非英语市场</td>
+<td>🟢 低</td>
+</tr>
+</tbody>
+</table>
+<h3>8.2 短板优先级排序</h3>
+<p><strong>优先补齐（直接影响商业化）</strong>：
+1. 建立 CI/CD 流水线与 Release 机制（解决 D2.8 与 D7.1）
+2. 补充 SECURITY.md 与供应链安全机制（解决 D7.2）
+3. 设计并验证付费分层模型（解决 D4.2/D4.3）</p>
+<p><strong>其次完善（提升生态与治理）</strong>：
+4. 吸引外部贡献者，优化贡献者结构多样性（解决 D3.2）
+5. 补充 GOVERNANCE.md 与 CLA/DCO（解决 D8.2）</p>
+<h2>九、风险提示</h2>
+<h3>9.1 高风险项</h3>
+<table>
+<thead>
+<tr>
+<th>风险</th>
+<th>说明</th>
+<th>等级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>变现路径验证失败风险</strong></td>
+<td>指南内容可自由复制（Apache-2.0），无法制造稀缺性；付费先例未验证，若市场测试失败，独立商业化路径基本关闭</td>
+<td>🔴 高</td>
+</tr>
+<tr>
+<td><strong>企业信任缺失风险</strong></td>
+<td>无 CI/Release/SECURITY.md/签名校验，企业采用存在供应链安全顾虑；若 JetBrains 生态内企业客户因此拒绝采用，将影响 P1 路径效果</td>
+<td>🔴 高</td>
+</tr>
+<tr>
+<td><strong>技术复制风险</strong></td>
+<td>技术层极易复制（1480 行代码、零依赖），若出现大厂（如 Google）或头部 Agent 平台推出类似规范，现有先发优势可能被快速侵蚀</td>
+<td>🔴 高</td>
+</tr>
+</tbody>
+</table>
+<h3>9.2 中风险项</h3>
+<table>
+<thead>
+<tr>
+<th>风险</th>
+<th>说明</th>
+<th>等级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>社区活力不足风险</strong></td>
+<td>贡献者高度集中于 JetBrains 官方（7 人中外部参与不足），若公司战略调整导致投入减少，项目可能陷入停滞</td>
+<td>🟡 中</td>
+</tr>
+<tr>
+<td><strong>品牌依赖风险</strong></td>
+<td>项目品牌认知与 JetBrains 深度绑定，独立商业化时品牌价值难以迁移</td>
+<td>🟡 中</td>
+</tr>
+<tr>
+<td><strong>规范解释权旁落风险</strong></td>
+<td>若 Go 官方或社区出现更具权威的 AI 编码规范（如 Go 官方 modernize 方向被独立项目抢先落地），项目权威性将受冲击</td>
+<td>🟡 中</td>
+</tr>
+</tbody>
+</table>
+<h3>9.3 低风险项</h3>
+<table>
+<thead>
+<tr>
+<th>风险</th>
+<th>说明</th>
+<th>等级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>法律合规风险</strong></td>
+<td>Apache-2.0 无 copyleft，依赖链极简（仅 golang.org/x/mod），合规风险低</td>
+<td>🟢 低</td>
+</tr>
+<tr>
+<td><strong>项目停摆风险</strong></td>
+<td>90 天 9 个 PR、9 个 issue 关闭，未 archived，JetBrains 公司资源直接支撑，可持续性有保障</td>
+<td>🟢 低</td>
+</tr>
+<tr>
+<td><strong>供应链中断风险</strong></td>
+<td>知识型开源资产而非传统代码依赖，停摆不致中断软件供应链</td>
+<td>🟢 低</td>
+</tr>
+</tbody>
+</table>
+<h2>十、结论与建议</h2>
+<h3>10.1 综合结论</h3>
+<p>go-modern-guidelines 是一个 <strong>A 级（高商业化潜力）</strong> 的开发者工具项目，综合评分 <strong>70.5/100</strong>，价值画像为 <strong>💼 纯商业工具</strong>（公共价值分 6.9 处于临界区间）。</p>
+<p>项目拥有三项核心资产：<strong>JetBrains 官方背书的规范解释权</strong>、<strong>覆盖 4 大 AI Agent 平台的分发渠道</strong>、以及 <strong>Apache-2.0 下的法律畅通性</strong>。但受限于变现机制空白（D4 仅 5.4 分）与企业就绪度不足（D7 仅 6.0 分），当前商业化价值主要体现为对 JetBrains 生态的间接支撑，而非独立营收能力。</p>
+<h3>10.2 分级建议</h3>
+<p><strong>对 JetBrains（项目所有者）</strong>：
+- <strong>短期</strong>：将项目明确定位为 AI 编码工具链的 Go 语言质量基础设施，通过 Junie 等产品线实现间接变现；优先补齐 CI/Release/SECURITY.md 等企业就绪度短板。
+- <strong>中期</strong>：在 skills.sh 等 marketplace 测试付费分发模式，验证开发者付费意愿；探索「免费基础规则 + 付费高级规则包」分层。
+- <strong>长期</strong>：视 AI 编码代理市场演变决定独立商业化或维持生态护城河定位。</p>
+<p><strong>对潜在商业合作方</strong>：
+- 项目当前不适合作为独立投资标的，但适合作为 JetBrains AI 生态合作的切入点。
+- 可关注企业级 Go 代码规范审计、AI Agent 规则包定制等增值服务机会。</p>
+<p><strong>对社区与开发者</strong>：
+- 项目作为 Apache-2.0 开源资产，可自由使用与分叉；其教育价值（Go 1.0–1.27 现代特性结构化沉淀）值得持续关注。</p>
+<h3>10.3 关键里程碑</h3>
+<table>
+<thead>
+<tr>
+<th>时间节点</th>
+<th>关键验证指标</th>
+<th>通过标准</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3 个月</td>
+<td>CI/CD 上线 + 首个 Release</td>
+<td>自动化测试门禁建立，版本可追溯</td>
+</tr>
+<tr>
+<td>6 个月</td>
+<td>SECURITY.md + 供应链安全机制</td>
+<td>企业采用信任风险显著降低</td>
+</tr>
+<tr>
+<td>12 个月</td>
+<td>Marketplace 付费测试</td>
+<td>验证 ≥ 5% 用户付费意愿或明确否定结论</td>
+</tr>
+<tr>
+<td>24 个月</td>
+<td>外部贡献者占比</td>
+<td>非 JetBrains 贡献者占比 ≥ 30%</td>
+</tr>
+</tbody>
+</table>
+<h3>10.4 最终建议</h3>
+<p><strong>建议 JetBrains 将 go-modern-guidelines 作为 AI 编码工具链的战略性生态资产进行投入</strong>，而非追求独立营收。当前最优路径是 P1（生态协同变现），在夯实企业就绪度后试探 P2（Marketplace 付费分发）。若 12 个月内付费验证失败，应果断回归 P1 定位，避免资源错配。同时需关注公共价值分临界状态（6.9/10），若后续提升至 ≥ 7，应同步经营社区声誉，避免因过度商业化损害品牌信用。</p>
+<h2>十一、项目地址</h2>
+<p><svg class="ri ri-muted" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.001 2C6.47598 2 2.00098 6.475 2.00098 12C2.00098 16.425 4.86348 20.1625 8.83848 21.4875C9.33848 21.575 9.52598 21.275 9.52598 21.0125C9.52598 20.775 9.51348 19.9875 9.51348 19.15C7.00098 19.6125 6.35098 18.5375 6.15098 17.975C6.03848 17.6875 5.55098 16.8 5.12598 16.5625C4.77598 16.375 4.27598 15.9125 5.11348 15.9C5.90098 15.8875 6.46348 16.625 6.65098 16.925C7.55098 18.4375 8.98848 18.0125 9.56348 17.75C9.65098 17.1 9.91348 16.6625 10.201 16.4125C7.97598 16.1625 5.65098 15.3 5.65098 11.475C5.65098 10.3875 6.03848 9.4875 6.67598 8.7875C6.57598 8.5375 6.22598 7.5125 6.77598 6.1375C6.77598 6.1375 7.61348 5.875 9.52598 7.1625C10.326 6.9375 11.176 6.825 12.026 6.825C12.876 6.825 13.726 6.9375 14.526 7.1625C16.4385 5.8625 17.276 6.1375 17.276 6.1375C17.826 7.5125 17.476 8.5375 17.376 8.7875C18.0135 9.4875 18.401 10.375 18.401 11.475C18.401 15.3125 16.0635 16.1625 13.8385 16.4125C14.201 16.725 14.5135 17.325 14.5135 18.2625C14.5135 19.6 14.501 20.675 14.501 21.0125C14.501 21.275 14.6885 21.5875 15.1885 21.4875C19.259 20.1133 21.9999 16.2963 22.001 12C22.001 6.475 17.526 2 12.001 2Z"/></svg> <a href="https://github.com/JetBrains/go-modern-guidelines">https://github.com/JetBrains/go-modern-guidelines</a></p>
+<hr />
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+</blockquote>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家　www.mova.work</p></body></html>

@@ -1,0 +1,1597 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><title>PRAXIST 商业价值分析报告</title><style>/* default — 品牌蓝紫主题（从 md2pdf.py 原 CSS 常量迁出，视觉与历史产物一致） */
+@page { size: A4; margin: 18mm 15mm 20mm 15mm; }
+* { box-sizing: border-box; }
+/* 字体规范：一律开源思源黑体 CN（OFL 免费商用）；正文 Regular/标题 Bold/大字数字 Light */
+body { font-family: "Source Han Sans CN","思源黑体 CN","Noto Sans SC",sans-serif; color:#1e293b; font-size:10.5pt; line-height:1.75; margin:0; }
+.cover { page-break-after: always; text-align:center; padding-top:40px; }
+.cover .kicker { color:#2563eb; letter-spacing:6px; font-size:12pt; font-weight:500; }
+.cover h1 { font-size:26pt; margin:14px 0 6px; }
+.cover .sub { color:#64748b; font-size:11pt; margin-bottom:22px; }
+.badge { display:inline-block; background:linear-gradient(135deg,#2563eb,#7c3aed); color:#fff; border-radius:18px; padding:16px 44px; margin:10px 0 18px; }
+.badge .g { font-size:34pt; font-weight:300; line-height:1; }
+.badge .s { font-size:12pt; opacity:.92; margin-top:4px; }
+.meta { color:#475569; font-size:9.5pt; margin-top:14px; }
+.bars { max-width:620px; margin:20px auto 0; text-align:left; }
+.bar-row { display:flex; align-items:center; gap:8px; margin:5px 0; font-size:9pt; }
+.bar-name { width:110px; text-align:right; color:#334155; font-weight:500; }
+.bar-track { flex:1; height:9px; background:#f1f5f9; border-radius:5px; overflow:hidden; }
+.bar-fill { display:block; height:100%; border-radius:5px; }
+.bar-val { width:30px; font-weight:700; color:#0f172a; }
+.bar-w { width:52px; color:#94a3b8; font-size:8pt; }
+h1 { font-size:17pt; color:#0f172a; border-bottom:3px solid #2563eb; padding-bottom:8px; }
+h2 { font-size:13.5pt; color:#1d4ed8; margin-top:26px; page-break-after: avoid; border-left:5px solid #2563eb; padding-left:10px; }
+h3 { font-size:11.5pt; color:#0f172a; margin-top:18px; page-break-after: avoid; }
+table { border-collapse:collapse; width:100%; margin:10px 0; font-size:9pt; page-break-inside:avoid; }
+th { background:#eff6ff; color:#1e3a8a; }
+th,td { border:1px solid #dbe3ef; padding:5px 8px; text-align:left; }
+tr:nth-child(even) td { background:#f8fafc; }
+code { background:#f1f5f9; border-radius:4px; padding:1px 5px; font-family:"JetBrains Mono","Cascadia Mono",monospace; font-size:9pt; color:#be185d; }
+pre { background:#0f172a; color:#e2e8f0; border-radius:8px; padding:12px 14px; overflow-x:auto; page-break-inside:avoid; }
+pre code { background:none; color:inherit; padding:0; }
+blockquote { border-left:4px solid #93c5fd; background:#eff6ff; margin:10px 0; padding:8px 14px; color:#334155; border-radius:0 8px 8px 0; }
+hr { border:none; border-top:1px dashed #cbd5e1; margin:22px 0; }
+strong { color:#0f172a; }
+.cover .disclaimer { max-width:620px; margin:16px auto 0; color:#64748b; font-size:8.5pt; line-height:1.6; text-align:left; border:1px solid #e2e8f0; border-radius:8px; padding:8px 12px; background:#f8fafc; }
+.credit { color:#2563eb; font-size:10.5pt; font-weight:700; letter-spacing:1px; margin-top:12px; }
+.at-acc { background:#dbeafe; color:#1d4ed8; border-radius:4px; padding:0 4px; font-weight:500; white-space:nowrap; }
+.tail { page-break-inside:avoid; margin-top:26px; border-top:2px solid #2563eb; padding-top:14px; }
+.tail p { color:#64748b; font-size:8.5pt; line-height:1.6; margin:0 0 10px; }
+.tail .credit { text-align:center; margin:0; }
+/* Remix Icon 内联 SVG（icon_mode=remix 时由脚本注入，语义色与评分条一致） */
+.ri { width:1.05em; height:1.05em; vertical-align:-0.18em; display:inline-block; }
+.ri-ok { color:#16a34a; } .ri-warn { color:#d97706; } .ri-bad { color:#dc2626; }
+.ri-muted { color:#64748b; } .ri-star { color:#f59e0b; } .ri-brand { color:#2563eb; }
+.ri-gold { color:#d4a017; } .ri-silver { color:#9ca3af; } .ri-bronze { color:#b45309; }
+/* 屏幕预览：@page 边距仅在打印时生效，浏览器中居中限宽并收边（不影响 PDF 输出） */
+@media screen {
+  body { margin: 0 auto; padding: 28px 36px 56px; max-width: 900px; }
+}
+</style></head><body><div class="cover">
+<div class="kicker">开源项目商业化潜力分析 · 第 55 期</div>
+<h1>GitHub 开源项目 PRAXIST<br>商业价值分析报告</h1>
+<div class="sub">sapientinc/PRAXIST · 自动化研究基础设施 · 79.2分/A级/明星资产</div>
+<div class="badge"><div class="g">A 级 · 79.2</div><div class="s">综合评分（满分 100）· 高商业化潜力</div></div>
+<div><svg viewBox="0 0 560 480" width="560" height="480" xmlns="http://www.w3.org/2000/svg"><polygon points="280.0,209.6 299.5,216.7 309.9,234.7 306.3,255.2 290.4,268.6 269.6,268.6 253.7,255.2 250.1,234.7 260.5,216.7" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,179.2 319.1,193.4 339.9,229.4 332.7,270.4 300.8,297.1 259.2,297.1 227.3,270.4 220.1,229.4 240.9,193.4" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,148.8 338.6,170.1 369.8,224.2 359.0,285.6 311.2,325.7 248.8,325.7 201.0,285.6 190.2,224.2 221.4,170.1" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,118.4 358.2,146.8 399.8,218.9 385.3,300.8 321.6,354.3 238.4,354.3 174.7,300.8 160.2,218.9 201.8,146.8" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,88.0 377.7,123.6 429.7,213.6 411.6,316.0 332.0,382.8 228.0,382.8 148.4,316.0 130.3,213.6 182.3,123.6" fill="none" stroke="#e2e8f0" stroke-width="1"/><line x1="280.0" y1="240.0" x2="280.0" y2="88.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="377.7" y2="123.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="429.7" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="411.6" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="332.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="228.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="148.4" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="130.3" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="182.3" y2="123.6" stroke="#d8dee9" stroke-width="1"/><polygon points="280.0,240.0 280.0,240.0 280.0,240.0 380.0,297.8 324.7,362.8 280.0,240.0 280.0,240.0 166.2,219.9 280.0,240.0" fill="rgba(37,99,235,.22)" stroke="#2563eb" stroke-width="2.5"/><circle cx="280.0" cy="240.0" r="3.5" fill="#2563eb"/><circle cx="280.0" cy="240.0" r="3.5" fill="#2563eb"/><circle cx="280.0" cy="240.0" r="3.5" fill="#2563eb"/><circle cx="380.0" cy="297.8" r="3.5" fill="#2563eb"/><circle cx="324.7" cy="362.8" r="3.5" fill="#2563eb"/><circle cx="280.0" cy="240.0" r="3.5" fill="#2563eb"/><circle cx="280.0" cy="240.0" r="3.5" fill="#2563eb"/><circle cx="166.2" cy="219.9" r="3.5" fill="#2563eb"/><circle cx="280.0" cy="240.0" r="3.5" fill="#2563eb"/><text x="280.0" y="44.0" text-anchor="middle" font-size="12.5" fill="#334155" font-weight="600">D1</text><text x="280.0" y="58.0" text-anchor="middle" font-size="11" fill="#64748b">市场需求 N/A</text><text x="406.0" y="89.9" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D2</text><text x="406.0" y="103.9" text-anchor="start" font-size="11" fill="#64748b">技术成熟度 N/A</text><text x="473.0" y="206.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D3</text><text x="473.0" y="220.0" text-anchor="start" font-size="11" fill="#64748b">社区生态 N/A</text><text x="449.7" y="338.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D4</text><text x="449.7" y="352.0" text-anchor="start" font-size="11" fill="#64748b">变现潜力 7.6</text><text x="347.0" y="424.2" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D5</text><text x="347.0" y="438.2" text-anchor="start" font-size="11" fill="#64748b">竞争格局 8.6</text><text x="213.0" y="424.2" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D6</text><text x="213.0" y="438.2" text-anchor="end" font-size="11" fill="#64748b">法律合规 N/A</text><text x="110.3" y="338.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D7</text><text x="110.3" y="352.0" text-anchor="end" font-size="11" fill="#64748b">企业就绪 N/A</text><text x="87.0" y="206.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D8</text><text x="87.0" y="220.0" text-anchor="end" font-size="11" fill="#64748b">团队治理 7.6</text><text x="154.0" y="89.9" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D9</text><text x="154.0" y="103.9" text-anchor="end" font-size="11" fill="#64748b">上手难度 N/A</text></svg></div>
+<div class="bars"><div class="bar-row"><span class="bar-name">D5 竞争格局</span>
+<span class="bar-track"><span class="bar-fill" style="width:86.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.6</span><span class="bar-w">权重12%</span></div>
+<div class="bar-row"><span class="bar-name">D4 变现潜力</span>
+<span class="bar-track"><span class="bar-fill" style="width:76.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.6</span><span class="bar-w">权重18%</span></div>
+<div class="bar-row"><span class="bar-name">D8 团队治理</span>
+<span class="bar-track"><span class="bar-fill" style="width:76.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.6</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D1 市场需求</span>
+<span class="bar-track"><span class="bar-fill" style="width:0.0%;background:#dc2626"></span></span>
+<span class="bar-val">N/A</span><span class="bar-w">权重13%</span></div>
+<div class="bar-row"><span class="bar-name">D2 技术成熟度</span>
+<span class="bar-track"><span class="bar-fill" style="width:0.0%;background:#dc2626"></span></span>
+<span class="bar-val">N/A</span><span class="bar-w">权重14%</span></div>
+<div class="bar-row"><span class="bar-name">D3 社区生态</span>
+<span class="bar-track"><span class="bar-fill" style="width:0.0%;background:#dc2626"></span></span>
+<span class="bar-val">N/A</span><span class="bar-w">权重11%</span></div>
+<div class="bar-row"><span class="bar-name">D6 法律合规</span>
+<span class="bar-track"><span class="bar-fill" style="width:0.0%;background:#dc2626"></span></span>
+<span class="bar-val">N/A</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D7 企业就绪</span>
+<span class="bar-track"><span class="bar-fill" style="width:0.0%;background:#dc2626"></span></span>
+<span class="bar-val">N/A</span><span class="bar-w">权重8%</span></div>
+<div class="bar-row"><span class="bar-name">D9 上手难度</span>
+<span class="bar-track"><span class="bar-fill" style="width:0.0%;background:#dc2626"></span></span>
+<span class="bar-val">N/A</span><span class="bar-w">权重10%</span></div></div>
+<div class="meta">分析时点 2026-09-04 ｜ 数据来源：GitHub API + 仓库代码实测 ｜ 方法论 v1.3</div>
+<div class="credit">报告出品：@魔法工厂　@向量之心　@南山科学家</div>
+<div class="disclaimer"><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</div>
+</div><h1>PRAXIST 商业化潜力分析报告（完整版）</h1>
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家</p>
+<p>方法论版本: v1.3 | 综合评分: <strong>79.2</strong> | 等级: <strong>A（高商业化潜力）</strong> | 价值画像: 明星资产</p>
+</blockquote>
+<h2>一、项目概览</h2>
+<h3>1.1 基本信息</h3>
+<ul>
+<li><strong>项目名称</strong>：PRAXIST（sapientinc/PRAXIST）</li>
+<li><strong>项目定位</strong>：Autonomous research system for measurable, computer-executable research（可度量、可计算执行研究的自主研究系统）</li>
+<li><strong>核心技术栈</strong>：Python（主语言，521 个 Python 文件）、Rust 核心组件、FastAPI+Postgres（遥测服务）、资源调度器、plugin/skills 扩展体系</li>
+<li><strong>社区规模速览</strong>：6,849 Stars / 512 Forks / 4 名贡献者 / 10 个 Open Issues</li>
+<li><strong>代码规模</strong>：约 30.3 万行代码，测试覆盖率 49.7%，259 份文档文件，5 个 CI 工作流</li>
+<li><strong>分析时点</strong>：项目创建于 2026-08-27，最近推送 2026-09-03，分析时项目仅约 1 周龄</li>
+<li><strong>数据来源</strong>：GitHub API 实采 + 评分卡（D4/D5/D8/D10 完整，D1/D2/D3/D6/D7/D9/D11 降级或失败）</li>
+</ul>
+<h3>1.2 项目分类标签</h3>
+<table>
+<thead>
+<tr>
+<th>分类维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>基础设施（自动化研究系统 / AI 研发基础设施）</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>通用/跨行业（AI 研发、科研、企业研发）</td>
+</tr>
+<tr>
+<td>目标用户角色</td>
+<td>AI 研发团队、研究工程师、技术决策者</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>自动化研究迭代、可验证实验证据生成、研发流程加速</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>本地部署（Python 包形态）、云原生预留（deploy/release CI）</td>
+</tr>
+</tbody>
+</table>
+<h3>1.3 一句话定位</h3>
+<blockquote>
+<p>PRAXIST 是一个<strong>自动化研究基础设施</strong>，适用于<strong>AI 研发与科研场景</strong>，主要面向<strong>营收超百万美元的 AI 研发企业及研究团队</strong>，用于<strong>将博士级人工研究迭代过程自动化，产出可度量、计算机可执行验证的研究结果</strong>。</p>
+</blockquote>
+<h3>1.4 项目亮点速览</h3>
+<ul>
+<li><strong>爆发式增长</strong>：创建 7 天即获 6.8k+ Stars、512 Forks，增速极快</li>
+<li><strong>高完成度</strong>：一周内产出 30 万行代码、49.7% 测试覆盖率、259 份文档，远超业余社区水平</li>
+<li><strong>独特商业模式</strong>：采用 Fair Source License v1.0，年营收 &lt;$100 万可免费商用，超过则触发商业许可谈判</li>
+<li><strong>商业实体背书</strong>：由 Sapient Intelligence Pte Ltd 全职投入开发</li>
+</ul>
+<h2>二、安装部署与使用指南</h2>
+<blockquote>
+<p>【注意】本章节为降级概要（安装指南草稿缺失），要点来自 D9 评分卡：</p>
+</blockquote>
+<ul>
+<li>安装信息采集失败</li>
+</ul>
+<h2>三、评分总览</h2>
+<h3>3.1 综合评分汇总表</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>权重</th>
+<th>加权得分</th>
+<th>评级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1 市场需求与商业机会</td>
+<td>N/A</td>
+<td>13%</td>
+<td>—</td>
+<td>数据缺失</td>
+</tr>
+<tr>
+<td>D2 技术成熟度与产品质量</td>
+<td>N/A</td>
+<td>14%</td>
+<td>—</td>
+<td>数据缺失</td>
+</tr>
+<tr>
+<td>D3 社区健康度与生态势能</td>
+<td>N/A</td>
+<td>11%</td>
+<td>—</td>
+<td>数据缺失</td>
+</tr>
+<tr>
+<td>D4 商业模式与变现潜力</td>
+<td>7.6/10</td>
+<td>18%</td>
+<td>1.37</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D5 竞争格局与差异化壁垒</td>
+<td>8.6/10</td>
+<td>12%</td>
+<td>1.03</td>
+<td>优</td>
+</tr>
+<tr>
+<td>D6 法律合规与知识产权</td>
+<td>N/A</td>
+<td>7%</td>
+<td>—</td>
+<td>数据缺失</td>
+</tr>
+<tr>
+<td>D7 企业就绪度与可运营性</td>
+<td>N/A</td>
+<td>8%</td>
+<td>—</td>
+<td>数据缺失</td>
+</tr>
+<tr>
+<td>D8 团队治理与可持续性</td>
+<td>7.6/10</td>
+<td>7%</td>
+<td>0.53</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D9 上手难度与易用性</td>
+<td>N/A</td>
+<td>10%</td>
+<td>—</td>
+<td>数据缺失</td>
+</tr>
+<tr>
+<td><strong>综合评分</strong></td>
+<td>—</td>
+<td>100%</td>
+<td><strong>79.2/100</strong></td>
+<td><strong>A（高商业化潜力）</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>数据完整性说明</strong>：D1/D2/D3/D6/D7/D9/D11 维度评分卡在分析中降级或失败（详见各维度 degradation_flags），综合评分由代码基于可用数据计算得出，置信度有所下降。D6 一票否决检查不完整（见 3.3）。</p>
+</blockquote>
+<h3>3.2 平行维度表（不计入综合评分）</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10 功能价值</td>
+<td>7.4/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>D11 社会价值</td>
+<td>N/A</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td><strong>公共价值分</strong></td>
+<td><strong>7.4/10</strong></td>
+<td>(D10 + D11) / 2，D11 为 N/A 时取 D10</td>
+</tr>
+</tbody>
+</table>
+<h3>3.3 一票否决检查</h3>
+<table>
+<thead>
+<tr>
+<th>否决项</th>
+<th>触发条件</th>
+<th>检查结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D6 法律合规</td>
+<td>维度总分 ≤ 3 分</td>
+<td>⚠️ <strong>检查不完整</strong>（D6 维度分析失败，无法确认）</td>
+</tr>
+<tr>
+<td>D8.4 项目可持续性</td>
+<td>细则小分 ≤ 1 分</td>
+<td>✅ 未触发（D8.4 = 2.4/3）</td>
+</tr>
+<tr>
+<td>D4.1 协议对变现模式的影响</td>
+<td>细则小分 ≤ 0.5 分</td>
+<td>✅ 未触发（D4.1 = 1.2/2）</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>结论</strong>：未触发任何已确认的一票否决项。但 D6 维度分析失败，<strong>一票否决检查不完整</strong>，法律合规风险需人工补充评估。</p>
+</blockquote>
+<h3>3.4 价值画像判定</h3>
+<table>
+<thead>
+<tr>
+<th>判定项</th>
+<th>数值</th>
+<th>判定标准</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>综合评分</td>
+<td>79.2</td>
+<td>≥ 65 ✅</td>
+</tr>
+<tr>
+<td>公共价值分</td>
+<td>7.4</td>
+<td>≥ 7 ✅</td>
+</tr>
+<tr>
+<td><strong>价值画像</strong></td>
+<td><strong>⭐ 明星资产</strong></td>
+<td>综合评分 ≥ 65 且 公共价值分 ≥ 7</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>画像解读</strong>：PRAXIST 兼具高商业化潜力（A 级）与较高公共价值（7.4/10），属于「明星资产」类型。商业化路径建议：正常推进商业化，同时经营社区声誉，避免竭泽而渔（参照 Elastic 改协议的反噬教训）。</p>
+<p><strong>画像临界提示</strong>：公共价值分 7.4 处于 6.5–7.5 临界区间上沿，且 D11 社会价值缺失（取 D10 值代替），画像判定存在一定不确定性。若 D11 实际得分显著低于 7，画像可能滑向「💼 纯商业工具」——两者在商业路径上的差异在于：明星资产需额外投入社区声誉经营，而纯商业工具可按 D4 最优路径直接变现。</p>
+</blockquote>
+<h2>四、各维度详细分析</h2>
+<h3>D1. 市场需求与商业机会</h3>
+<h3>市场概述</h3>
+<p>PRAXIST 是一个定位为「可度量、计算机可执行研究的自主科研系统（autonomous research system）」的 source-available 项目（License 为 Fair Source License 1.0，非 OSI 开源协议）。它将用户已有的可运行研究项目转化为「并行研究 peer + 多代演进 + 任务自有评估 + 持久化证据」的自动研究循环，本质上是 <strong>AI Agent / LLM 编排驱动的研发自动化基础设施</strong>，属于近年最热的「AI for Science / AI 自主科研」赛道。截至数据采集日，项目创建仅约 7 天即获得约 6,800+ star、512 fork，且配有 arXiv 论文（2608.25955）与正式产品文档站（praxist.sapient.inc），市场关注度极高。</p>
+<blockquote>
+<p>⚠️ 本维度的市场量级判断基于项目类型与行业惯例做量级估算，<strong>未经外部市场报告数据验证，置信度低</strong>；文中不引用虚构的具体市场规模数字。</p>
+</blockquote>
+<hr />
+<h3>D1.1 目标市场规模与增长性 — 8.0 / 10（良好）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TAM 估算</td>
+<td>十亿美元级赛道（量级估算）：自主科研 Agent 位于 AI Agent 企业服务与 AI for Science 两大爆发市场的交汇点，可触达对象为全球范围内所有「有可运行代码 + 可度量评估」的研究型团队</td>
+</tr>
+<tr>
+<td>增长趋势</td>
+<td>高速扩张期。LLM 驱动的自动化科研与实验迭代是 2025–2026 年研发效能领域最热的方向之一，头部实验室（如 Google、Sakana AI 等）均有同类布局，需求侧教育已基本完成</td>
+</tr>
+<tr>
+<td>市场层级</td>
+<td>成长期市场，尚未形成垄断性标准</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：项目描述与文档（「meet your personal R&amp;D team」「research as a persistent process」）直接锚定 AI 自主科研赛道。同类功能形态在全球范围内已被头部 AI 实验室反复验证（自驱动科学发现系统、自动化 ML 研究 Agent 等），属于已被公认的真实市场方向而非冷门细分。PRAXIST 在此赛道的差异化切口是「不替代研究员定义问题，而是接管已经可运行项目的迭代研究循环」，这个切口的可编程、可审计特性使其具备软件产品化基础。按评分指引中「十亿美元级市场，处于增长期」档位评为 8 分。</p>
+<p><small>评分档位：十亿美元级市场且处于增长期（7–8 档）；因无法从外部数据源验证 TAM 确切量级，且产品当前实际落地场景集中于 AI/ML 研究领域，未给到 9–10 的「百亿美元级」档。</small></p>
+<hr />
+<h3>D1.2 痛点真实性与解决程度 — 8.0 / 10（良好）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>痛点真实性</td>
+<td>真实且普遍：ML/AI 研究中大量时间消耗在「实验迭代循环」——尝试变体、记录结果、对比基线、决定下一步，这一流程高度重复、人工成本极高且容易丢失证据</td>
+</tr>
+<tr>
+<td>解决完整度</td>
+<td>方案较完整：并行多 peer 探索、多代证据合成、任务自有评估协议、预注册机制、耐久证据通道、QD/DIG 多样性控制、资源调度、断点恢复等，工程化程度远超一般 demo 级项目</td>
+</tr>
+<tr>
+<td>替代成本</td>
+<td>替代品存在但体验明显更差：主流替代是「研究员手动迭代」（低效、证据不可审计）与 AutoML（只能调参，不能改方法/架构）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：项目工程规格（约 30.3 万行源码、测试约 15 万行/占比约 50%、5 套 CI workflows、完整的 docs/guides 体系）表明这是一个已完成生产级工程化打磨的产品，而非概念验证。README 对目标用户场景的界定非常克制且真实：需要「目标可度量 + 项目已可运行 + 最优路径未知」，并设计了预注册、统一评估器、端到端 provenance 三重机制来保证「报告的提升是真实的」——这正面回应了 AI 科研 Agent 类产品最核心的信任痛点。开源界约一周 6,800+ star 的速度本身构成强烈的需求信号。扣分因素：上手门槛较高（要求任务项目已具备可运行基线与评估器），Fair Source 许可（年收入超过 100 万美元需单独谈判商业许可）也会让部分潜在用户选择观望。综合按「解决明确痛点、方案较完整、替代品体验更差」档位评为 8 分。</p>
+<hr />
+<h3>D1.3 市场时机判断 — 8.0 / 10（良好）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术成熟度</td>
+<td>LLM Agent 技术栈（Claude Agent SDK、Codex、MCP 等）已越过期望膨胀期进入实质生产期；「全自主多代科研 Agent」正处于从 demo 走向生产的关键窗口</td>
+</tr>
+<tr>
+<td>竞争密度</td>
+<td>有先行者（如学术界的开放式 Agent 科研系统、Google 的 co-scientist 类产品），但尚无可验证的开放市场份额垄断者，格局远未固化</td>
+</tr>
+<tr>
+<td>监管/标准</td>
+<td>该领域目前几乎无阻碍性监管；arXiv 论文 + 正式商业主体（Sapient Intelligence Pte Ltd）为可信度背书，有助于 B 端采用</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：项目于 2026-08-27 创建后约一周即达近 7k star、25 个 PR、4 名贡献者、文档/CI/许可/产品遥测基建齐备——这是一次有组织的「大爆炸式发布」，侧面说明发布方判断当前正是市场关注度与需求集中爆发的时间节点。从技术成熟度看，PRAXIST 依赖的底层组件（Claude Agent SDK、Codex、MCP、开源模型 API）均已进入稳定产品期，构建此类系统的技术风险已大幅下降；而“自主科研系统能否被企业信任并买单”的验证仍在早期，市场教育成本由先行者（包括 Google、Sakana 等）基本承担完毕。时间窗口仍然有利</p>
+<h3>D2. 技术成熟度与产品质量（权重 14%）</h3>
+<p><strong>维度结论</strong>：PRAXIST 是一个把「可测量、计算机可执行科研」作为第一性原理的深度工程型项目，技术成熟度与工程质量在开源同类中处于极高层级。代码体量超过 30 万行，Python/Rust 双语言实现，架构分层清晰，安全编码与测试门禁均达到专业商业软件水准。产品理念具备显著差异化，但当前仍处于 v0.5.0 预发布阶段（仓库创建仅约一周，无正式 GitHub Release），稳定性与长期可维护性尚需真实迭代检验。综合得分 <strong>8.6/10</strong>。</p>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>小分</th>
+<th>满分</th>
+<th>档位</th>
+<th>核心判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D2.1 产品设计与创新性</td>
+<td>1.5</td>
+<td>1.5</td>
+<td>100%（卓越）</td>
+<td>科研制度协议化设计，理念与功能取舍高度独创</td>
+</tr>
+<tr>
+<td>D2.2 架构设计与工程质量</td>
+<td>1.6</td>
+<td>2.0</td>
+<td>80%（良好）</td>
+<td>分层清晰、复刻门槛高，但超大文件与跨平台重复代码构成债务</td>
+</tr>
+<tr>
+<td>D2.3 代码整洁性与规范性</td>
+<td>0.8</td>
+<td>1.0</td>
+<td>80%（良好）</td>
+<td>命名统一、注释含修复溯源，部分函数过长</td>
+</tr>
+<tr>
+<td>D2.4 安全性</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>100%（卓越）</td>
+<td>多层运行时防护、防篡改、防注入实践全面</td>
+</tr>
+<tr>
+<td>D2.5 UI/UX/UE（适用）</td>
+<td>0.8</td>
+<td>1.0</td>
+<td>80%（良好）</td>
+<td>TUI 监控与交互 CLI 专业，面向操作员而非终端用户</td>
+</tr>
+<tr>
+<td>D2.6 功能完备度与稳定性</td>
+<td>0.9</td>
+<td>1.5</td>
+<td>60%（一般偏上）</td>
+<td>功能覆盖极广但版本 0.5.0、无正式 Release，兼容性/性能未经时间验证</td>
+</tr>
+<tr>
+<td>D2.7 文档与开发者体验</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>100%（卓越）</td>
+<td>259 个文档文件，mkdocs 生成内容有 CI diff 强校验</td>
+</tr>
+<tr>
+<td>D2.8 测试与质量保障</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>100%（卓越）</td>
+<td>覆盖率门禁 90%（语句 95%），五条 CI 流水线</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>8.6</strong></td>
+<td>**10</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>gemini-2.5-pro<br />
+当前 token 数：117.0  </p>
+<p>我是 Gemini，一个由 Google 训练的大型语言模型。我的设计目标是帮助用户获取信息、进行创作、解答疑问，并完成各类文本相关的任务。我可以回答技术问题、提供写作建议、协助分析数据，或者陪你进行头脑风暴。有什么我可以帮你的吗？</p>
+<h3>D4 商业模式与变现潜力（权重 18%）</h3>
+<h4>D4.1 协议对变现模式的影响（小分：1.2 / 2）</h4>
+<p><strong>判断依据</strong>：本地实测 LICENSE.md 显示项目采用 <strong>Fair Source License Agreement (Version 1.0)</strong>，GitHub API 显示 license 为 <code>NOASSERTION</code>——这是一份自定义的 source-available 许可，不属于任何 OSI 认可的开源协议。但关键不在于协议的名称，而在于其精心设计的商业机制：</p>
+<ul>
+<li><strong>核心条款</strong>（§1.3.1/1.3.2）：Licensee 与关联方<strong>年收入合计达到或超过 100 万美元</strong>时，免费许可自动失效，必须联系 Licensor（Sapient Intelligence Pte Ltd）在 30 天内通知、60 天内谈判商业许可；若 90 天内未达成协议则自动终止并须删除全部副本。</li>
+<li><strong>使用限制</strong>（§1.2.1-1.2.4）：免费许可覆盖"内部商业使用 + 组织内部署"，但<strong>禁止向第三方分发/转售/转让</strong>软件或衍生版本作为独立产品或服务。</li>
+<li><strong>学术豁免</strong>（§1.3.6）：高校、公共研究机构、非营利学术机构不受营收门槛限制，利于扩大科研社区影响力。</li>
+<li><strong>服务条款</strong>（§1.2.3 除外条款）：不禁止 Licensee 将软件功能作为自身服务的一部分提供给终端用户（不得以 "Praxist" 名义独立销售）。</li>
+</ul>
+<p><strong>商业路径评价</strong>：与 SSPL/BUSL 不同，Fair Source v1.0 <strong>并未关闭云服务模式</strong>，其本质是为 Licensor 构建了一条"免费获取 → 规模商用 → 营收达线强制付费"的双协议转化通道。相比 GPL 靠功能约束变现的曲折路径，这份协议直接以法律条款锚定了付费临界点，对 Licensor 自身的变现路径构成制度性保障（对第三方再分发/转售形成约束则视为 Licensor 有意为之的护城河）。法律合规风险不在本细则评估范围（归 D6.1），但就"协议对变现路径的影响"而言，其商业框架完整、意图明确，<strong>显著优于无协议项目，也优于功能层面的 GPL 类约束</strong>。扣分原因：自定义 license 在生态兼容和信任度上弱于标准许可，且禁止再分发堵死了渠道/转售类变现路径。</p>
+<h4>D4.2 变现路径清晰度（小分：2.8 / 3.5）</h4>
+<p><strong>判断依据</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>变现模式</th>
+<th>可行性评估</th>
+<th>证据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>双协议商业许可</strong></td>
+<td>✅ <strong>清晰可行（主路径）</strong></td>
+<td>LICENSE §1.3 确立完整营收门槛-通知-谈判-终止机制；README FAQ Q8 明确告知"年收入达 100 万美元须联系 Licensor 购买 Commercial License"</td>
+</tr>
+<tr>
+<td><strong>SaaS/托管服务</strong></td>
+<td>⚠️ 法律允许但未产品化</td>
+<td>§1.2.3 允许在自有服务中提供功能；存在 <code>deploy-product-usage.yml</code>/<code>release-product-usage.yml</code> CI 工作流和 <code>praxist-collector</code>/<code>product-usage-server</code>（FastAPI+Postgres）遥测服务，显示产品化运营基础设施在搭建中，但无公开托管服务或定价</td>
+</tr>
+<tr>
+<td><strong>Open Core（企业功能闭源）</strong></td>
+<td>❌ 当前不适用</td>
+<td>项目未做社区版/企业版功能分层，<code>pyproject.toml</code> 为单一 open-source 包</td>
+</tr>
+<tr>
+<td><strong>专业服务/认证</strong></td>
+<td>⚠️ 潜在</td>
+<td>企业部署需要集成、SLA、合规支持，但无服务产品或渠道证据</td>
+</tr>
+</tbody>
+</table>
+<p>公司主体明确（<strong>Sapient Intelligence Pte Ltd</strong>，新加坡公司，arXiv 论文署名 17 人团队），项目有官方文档站（praxist.sapient.inc）、Discord 社区、arXiv 论文背书（2608.25955），属于公司级战略产品而非个人开源项目。<strong>主路径（营收门槛商业许可）被许可证条款强制化了，清晰度在开源商业化项目中属罕见</strong>——用户不需要被"功能不够用"教育，超过门槛的法律义务本身就是转化推力。备选路径（托管/企业服务）有架构预留（集中资源调度器、operators、credentials、product-usage 遥测），但尚无产品化证据。综合评为"1 条主路径完全清晰 + 备选路径有架构基础待验证"。</p>
+<h4>D4.3 付费转化逻辑（小分：2.0 / 2.5）</h4>
+<p><strong>判断依据</strong>：</p>
+<ul>
+<li><strong>免费到付费的触发点</strong>：本项目采用的是<strong>法律/规模触发而非功能触发</strong>模式——免费版功能完整、无阉割，但 Licensee 及关联方年营收一旦达到 100 万美元，继续使用即构成义务违约，必须购买商业许可。对于有一定规模的商业公司（年营收 &gt; 100 万美元在 AI 研发企业中是常态），<strong>安装即进入付费义务区</strong>，转化漏斗极短。</li>
+<li><strong>付费意愿强度</strong>：目标客户是将 Praxist 用于内部 ML 研发的企业（炼丹团队、自动驾驶、生物计算等），工具替代的是博士级研究员的手动迭代成本，ROI 逻辑清晰；且系统内置证据链/preregistration 信任机制，降低企业验证门槛，对提升付费意愿有正向作用。</li>
+<li><strong>转化漏斗的自然度</strong>：从"免费下载试用 → 内部跑通产出可信结果 → 组织规模化采用 → 触发营收门槛 → 谈判商业许可"，路径自然且被协议强制收口。扣分点：免费版功能完整意味着低营收公司可能长期零付费使用，转化依赖客户自身成长（或 Licensor 主动推进大客户销售）；且付费触发与"使用强度"脱钩，与使用量挂钩的收入弹性不足。</li>
+</ul>
+<p><strong>横向参照</strong>：GitLab/Strapi 等 Open Core 项目以"企业功能缺失"为付费触发点；PRAXIST 以"营收门槛合规"为触发点，二者均可成立，但前者靠产品力、后者靠法律结构，Praxist 的转化确定性更高，存在"合规追收"带来的客户关系摩擦风险。</p>
+<h4>D4.4 增值服务空间与定价天花板（小分：1.6 / 2）</h4>
+<p><strong>判断依据</strong>：</p>
+<ul>
+<li><strong>增值空间</strong>：商业许可本身即增值（合规授权 + 营收门槛豁免）；企业级场景可叠加的支持/SLA、私有化部署辅助、安全审计报告、集中调度/资源管理的运维控制台——其中多处已有代码基础（<code>product-usage-server</code> 提供产品使用分析；<code>central-resource-scheduler</code> 面向多任务资源竞争场景）。</li>
+<li><strong>定价天花板</strong>：项目定位为"自主研究系统 / personal R&amp;D team"，替代/增强的是企业内部 AI 研究团队产能，属于<strong>研发基础设施类高客单软件</strong>。参照系：W&amp;B（实验追踪）企业版年费达数万美元；GitLab Ultimate 约 $99/用户/月。商业许可谈判若能按席位/项目组合计价，客单价有望达 <strong>$10K–100K/年</strong> 区间。但项目当前 <strong>0.5.0 版本、发布不足一周、无公开定价页、无企业版功能清单</strong>，定价权虽在 Licensor 手中但尚未行使。</li>
+<li><strong>收入扩展性</strong>：存在从 per-company flat fee 扩展到 per-seat/per-usage 的空间（license 协议未限定计价方式）；<code>project.scripts</code> 中的 <code>praxist-product-usage</code> 指标管线支持按活跃度/用量计费的产品化路径。</li>
+</ul>
+<p><strong>定档说明</strong>：当前证据不足以支持"收入可指数增长"（9–10 档）——无公开定价、无付费客户案例；但肯定高于"增值有限、客单价 $100–1K"（5–6 档）——目标客户（&gt;100 万美元营收的 AI 研发企业）的软件预算基数决定了其天花板显著高于该档。取 7–8 档下沿。</p>
+<h4>D4 小结</h4>
+<blockquote>
+<p><strong>PRAXIST 不是一个典型的"开源项目找变现"，而是一个"以 source-available 许可为漏斗的商业产品做开源引流"</strong>。Fair Source v1.0 协议直接内置了"年营收 100 万美元强制商业许可"的法律转化机制，配以学术机构豁免和完整通知-谈判流程，使变现路径在许可证层面就已固化，这种从第一天就为商业化设计的法律结构在同类项目中极为少见。整体商业模式框架质量高（7.6/10，良好偏上），但项目发布仅约一周（0.5.0 版），付费产品、定价、销售渠道均未实际落地，商业验证仍处于极早期——"能不能赚钱"的答案取决于 Sapient Intelligence 后续的执行力与产品化推进速度。</p>
+</blockquote>
+<h3>维度打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>权重</th>
+<th>小分</th>
+<th>满分</th>
+<th>得分率</th>
+<th>评语</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D4.1 协议对变现模式的影响</td>
+<td>2.0</td>
+<td>1.2</td>
+<td>2.0</td>
+<td>60%</td>
+<td>Fair Source v1.0 自定义 source-available，禁再分发但完整内置"营收门槛→强制商业许可"的双协议变现机制</td>
+</tr>
+<tr>
+<td>D4.2 变现路径清晰度</td>
+<td>3.5</td>
+<td>2.8</td>
+<td>3.5</td>
+<td>80%</td>
+<td>商业许可主路径受许可证强制保护极为清晰；托管/企业服务备选有架构预留但未产品化</td>
+</tr>
+<tr>
+<td>D4.3 付费转化逻辑</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>2.5</td>
+<td>80%</td>
+<td>法律/规模触发模式使超阈值企业"安装即进入付费义务区"，漏斗短但依赖客户营收规模</td>
+</tr>
+<tr>
+<td>D4.4 增值服务空间与定价天花板</td>
+<td>2.0</td>
+<td>1.6</td>
+<td>2.0</td>
+<td>80%</td>
+<td>面向 &gt;100 万美元营收的 AI 研发企业，定价天花板高（$10K+/年），但无公开定价与产品化证据</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>7.6</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>76%</strong></td>
+<td><strong>商业模式法律框架完备，执行验证尚待展开</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>加权贡献</strong>：7.6 × 18%（维度权重）= <strong>1.37 / 1.8</strong></p>
+<h3>D5. 竞争格局与差异化壁垒（权重 12%）</h3>
+<h4>D5.1 竞品对比与市场定位（3 分）——小分：3.0 / 3（9–10 档，100%）</h4>
+<p><strong>竞品搜索说明</strong>：按防幻觉规则执行 GitHub Search API 与仓库内引用双重验证。经搜索确认，完全同构于 PRAXIST（同时满足「多智能体自主迭代 + 可测量、可执行、连续研究成果 + 生成间证据继承 + 独立基础设施」全部条件的项目）目前仅发现 <strong>1 个直接竞品</strong>，少于常规 3–5 个列举要求，以下如实呈现，不强行凑数。</p>
+<table>
+<thead>
+<tr>
+<th>竞品名称</th>
+<th>类型</th>
+<th>仓库/官网</th>
+<th>验证方式</th>
+<th>Star/用户量</th>
+<th>核心差异</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>edge-research（EdgeResearch）</td>
+<td>直接竞品</td>
+<td>github.com/lokki007/edge-research</td>
+<td>GitHub Search API 确认</td>
+<td>4 个 Star（2026-08-11 最后推送）</td>
+<td>定义「自动改进任何命名工件（prompt/复制/代码/系统）」单进程方法，重量级远低于 PRAXIST；无 Rust/多运行时插件体系、无证据仓/资源调度/公平源代码商业化设计</td>
+</tr>
+<tr>
+<td>手动迭代调优 / 传统 AutoML</td>
+<td>间接竞品（不同技术路径）</td>
+<td>无单一仓库（项目 README 的 Q2 明确将其作为对照）</td>
+<td>仓库内引用确认</td>
+<td>—</td>
+<td>README 明确区分：AutoML 仅在预设搜索空间调参，PRAXIST 运行完整研究循环（可改变方法/架构/策略，证据与 QD/DIG 保留多样性）</td>
+</tr>
+<tr>
+<td>通用 Coding Agent（Codex/Claude Code 等）</td>
+<td>间接竞品（不同技术路径）</td>
+<td>README 推荐将其作为可交互操作前端</td>
+<td>仓库内引用确认</td>
+<td>—</td>
+<td>PRAXIST 明确宣称并非替代品，而是叠加持久研究循环、并行 peer、证据依赖线等基础设施；互相兼容而非竞争</td>
+</tr>
+</tbody>
+</table>
+<p><strong>定位清晰度评估</strong>：PRAXIST 定位表述极其明确——「不定提示词的连续研究过程」、任务与框架产权清晰分离（task project 持有目标、代码、evaluator；Praxist 持有编排、证据协议、扩展接口），且强制要求「项目已可运行 + 指标可测 + 最佳路径未知」三前置。加上 Fair Source License 构成的半开放商业定位（&lt;$1M revenue 免费商用，高于线联系 Sapient 商业授权），在直接细分中处于明显领先位置。</p>
+<p><strong>数据依据</strong>：GitHub Search API 实测仅见 1 个直接竞品；README 全文对照 AutoML 差异化定义；仓库规模（302,971 行代码、6849 Stars）远超同直接竞品。</p>
+<hr />
+<h4>D5.2 技术壁垒与网络效应（3 分）——小分：2.4 / 3（7–8 档，80%）</h4>
+<p><strong>技术壁垒</strong>：护城河主要来自工程复杂性和系统集成深度，而非专利或单一算法。本地实测显示：302,971 行总代码（Python 289,458 行 + Rust 13,513 行）、521 个 Python 文件，覆盖 CLI、并发调度器（central resource scheduler）、MCP 工具服务端、产品用量采集（FastAPI + PostgreSQL）、插件/技能系统、以及 Rust 承载的高性能路径；测试 150,595 行且占比近 50%。这种「多进程生命周期 + 编排 + 实验资源准入 + 证据协议」的全栈型系统，在自动化研究赛道属于重资产壁垒，LoC 即进入门槛；但核心方法论（并行多智能体、多代继承、证据线索）并非不可复制的黑盒技术。</p>
+<p><strong>网络效应</strong>：用户数增长目前不会直接放大系统价值；有理论生态潜力——插件边界（runtimes/providers/tools/articles）、task templates（实装火箭回收 Python 与 Rust 双案例）与 agent skills 若能形成社区复用，可产生间接网络效应，但从实测数据（10 个开放 Issue、4 位贡献者、无 release 记录）判断，其当前阶段仍以开发自身循环为主，生态网络活化度尚低。</p>
+<p><strong>规模效应</strong>：系统允许将大规模长时间运行研究拆入 central resource scheduler，将比单项目执行产生明显的计算资源与成本优势；代码规模与复用已经产生，但规模化成本的实质收益仍在累积中。</p>
+<p><strong>数据依据</strong>：本地代码结构实测（schema 数据）；Pyproject/env 的产物组件依赖；README 对扩展架构及插件的定义；CI 5 件/贡献者 4 人/无发布版本。</p>
+<hr />
+<h4>D5.3 切换成本与用户粘性（2 分）——小分：1.6 / 2（7–8 档，80%）</h4>
+<p><strong>迁移成本</strong>：PRAXIST 的「收敛于已有任务」模型使用粘性强调，这一点在架构上有具体支撑。导入任何已有项目时，会建立明确的 take-over 流程（task harness），并在仓库写入评价协议任务工具，接入 evaluator/证据契约/保留车道。用户若切换到其他基础设施需要承担迁移成本：(a) 重写/兼容验证任务工具；(b) 迁移生成的 run-evidence、工件和证据契约；(c) 重新引入终端重放/调度器等流程能力。同时，隐私与凭据保护设计（掩码凭据、run 隔离）减少了用户在安全与 data-handling 上的自留迁移代价——但同时说明反锁定的成本更多是工作流与工具链层面，而非专有数据格式锁定。</p>
+<p><strong>深度集成</strong>：存在研究数据运行时、产品使用统计（可关闭）、CLI monitor、代理引导等被持久化集成到真实 R&amp;D 工作流的组件，一旦任务运行超过多代，其产生的证据序列（incubator→frontier→Gems）不容易序列化为通用格式带出，粘性较高。</p>
+<p><strong>习惯锁定</strong>：Praxist + Codex 双界面习惯、「pre-registration」仪式和重放的编排流程具有强流程惯性；但仍处在早期采用阶段，锁定效应尚未经受真实用户长期大用户的考验。</p>
+<p><strong>数据依据</strong>：README「Praxist And The Task Project」表中对任务工具所有权的描述；docs/guides 关于 task harness/evidence contract 的定义；run 控制（start/stop/resume/mainloop）为该基础设施专有。</p>
+<hr />
+<h4>D5.4 护城河可持续性（2 分）——小分：1.6 / 2（7–8 档，80%）</h4>
+<p><strong>护城河趋势</strong>：项目增强信号明显——创建于 2026-08-27，距今仅约 1 周，推送频率几乎日更（最近推送 2026-09-03），90 天实际发生 25 个 PR（因创建时间短，主要是高速初始提交），CI 5 个 workflow 且含文档站点等规模化基建；代码在极短时间内迅速膨胀至 30 万行级别，说明组织结构对路线图的持续投入强度高。如果该节奏持续，其先进优势仍会扩大；但历史窗口太短，无从证明已进入「持续加深」的回旋加速状态。</p>
+<p><strong>颠覆风险</strong>：主要风险不来自今天已经出现的直接竞品，而来自正在发生的通用 AI 智能体高速变化——如果某个大模型厂商将「长期持久研究循环」变成内置能力，类似 PRAXIST 的外部编排层有被平台性吞噬的可能性；但较窄的直接赛道内没有看到有资源的同构项目，颠覆方向以跨界为主。自主范式（generation 到 generation、负结果保留为可复用证据）具有文化防御力。</p>
+<p><strong>时间窗口</strong>：综合考虑功能细节与 runner，估计维持直接优势的能力保持在 12–24 个月，足以支撑一个许可业务窗口。许可证 Fair Source 也阻挡了这一窗口内其他厂商的商业再分发复制（可缩放许可策略同时保留内部使用的门槛）。</p>
+<p><strong>数据依据</strong>：created_at/pushed_at 与 PR 90 天 25 起（高速）；Fair Source 许可证头部实测；4 位贡献者团队构成；两个 rocket 案例证明跨语言落地宽度。</p>
+<hr />
+<h4>D5.5 结论</h4>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>小分（满分）</th>
+<th>折算分</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D5.1</td>
+<td>3.0 / 3</td>
+<td>3.00</td>
+<td>经搜索验证，直接同类竞品仅 1 个且star 极低（4 vs 6,849），定位与商业化半开放许可均差异化鲜明</td>
+</tr>
+<tr>
+<td>D5.2</td>
+<td>2.4 / 3</td>
+<td>2.40</td>
+<td>技术/规模复杂度强壁垒（30 万行、Rust 与调度器等），网络生态仍在早期</td>
+</tr>
+<tr>
+<td>D5.3</td>
+<td>1.6 / 2</td>
+<td>1.60</td>
+<td>任务工具/证据线/运行恢复机制形成高切换成本与强粘性</td>
+</tr>
+<tr>
+<td>D5.4</td>
+<td>1.6 / 2</td>
+<td>1.60</td>
+<td>创造刚满一周，迭代极快，护城河仍在建设期而非已被证实稳定</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td>8.6 / 10</td>
+<td><strong>8.6</strong></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>总结</strong>：该项目处于一个几乎空白但可能迅速变热的细分位置——「可执行、可衡量且可审计证据地自主研究工作流」。其最大差异化不是某一项尖端能力，而是「全部考虑（multi-agent/证据状态机/资源控制器/商业和隐私礼仪/fair-source）被整合为同一个像基础设施一样的系统」。现实的忧虑点在于，这是全新半开放许可且没有 release 记录的新项目，直接客户可用期与知名度还没有形成长期验证。但若从一个只考虑当前竞争生态的维度来看，D5 的壁垒体现良好——即使拿走理想增长，一个一周内增长到 6,849 star 的新大型系统，外加 30 万行代码与接近 50% 测试占比和 25 个新增 PR，都不是快速跟进型竞品能在短期内轻松拷贝的资产。</p>
+<h3>D6 法律合规与知识产权</h3>
+<p>分析失败（DeepSeek 调用重试仍失败: 模型返回空内容），本维度标 N/A。</p>
+<h3>D7. 企业就绪度与可运营性（权重 8%）</h3>
+<p><strong>综合得分：7.0 / 10（良好，高于平均）</strong></p>
+<p>PRAXIST 定位为"本地优先"的单机自主科研编排系统（多 Agent + 多代际研究循环），而非典型 SaaS/多租户服务。其企业级运营能力呈现「运行级运维工具链成熟、代码级安全工程扎实、但缺少企业 IAM/HA/标准遥测」的特征。整体评分如下：</p>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>小分</th>
+<th>档位（换算）</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D7.1 运维复杂度与升级路径（3.0 分）</td>
+<td>2.4 / 3.0</td>
+<td>80%（7–8 档）</td>
+<td>良好</td>
+</tr>
+<tr>
+<td>D7.2 安全管理与权限控制（2.5 分）</td>
+<td>1.5 / 2.5</td>
+<td>60%（5–6 档）</td>
+<td>一般</td>
+</tr>
+<tr>
+<td>D7.3 可扩展性与高可用能力（2.5 分）</td>
+<td>1.5 / 2.5</td>
+<td>60%（5–6 档）</td>
+<td>一般</td>
+</tr>
+<tr>
+<td>D7.4</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>D8. 团队治理与可持续性（权重 7%）</h3>
+<p><strong>评估对象</strong>: sapientinc/PRAXIST — Autonomous research system for measurable, computer-executable research.</p>
+<h4>核心观察</h4>
+<p>PRAXIST 由 <strong>Sapient Intelligence Pte Ltd</strong>（新加坡公司实体）发布运营，是典型的"公司主导型"开源（更准确说是 source-available）项目。项目创建于 <strong>2026-08-27</strong>，截至评估日（2026-09-04）不足 10 天，尚处极早期的爆发式增长阶段——Star 已达 6,849，Fork 512，主分支持续高频推送（最近推送 2026-09-03）。这种"一周内交付约 30 万行代码、近 50% 测试覆盖率、259 份文档"的节奏，客观上只能由全职商业化团队完成，业余社区项目难以企及。</p>
+<p>许可证为 <strong>Fair Source License v1.0</strong>（非 OSI 开源许可），CONTRIBUTING.md 明确声明"source-available under a non-OSI Fair Source license"。这意味着项目采取的是"可见源代码但限定使用"的商业化策略，而非真正意义的开源社区治理模式。</p>
+<h4>D8.1 核心维护者能力与背景 — 2.0 / 2.5</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术能力</td>
+<td>卓越</td>
+<td>30.2 万行 Python/Rust 代码、细分的 CI（5 个 workflow）、90%+ 单测门槛脚本、文档体系完整，架构文档覆盖 runtime/调度/预算/插件等企业级关注点</td>
+</tr>
+<tr>
+<td>商业经验</td>
+<td>有公司实体背书</td>
+<td>pyproject.toml 明确指向 Sapient Intelligence Pte Ltd；产品域名（praxist.sapient.inc）表明其为公司核心产品线，而非个人实验</td>
+</tr>
+<tr>
+<td>投入度</td>
+<td>全职团队运营</td>
+<td>8 月 27 日创建、9 月 3 日仍在推送，数日内产出代码量与文档量远超业余投入可能；CONTRIBUTING.md 承诺"maintainer team runs at least one review and validation cycle each week"</td>
+</tr>
+<tr>
+<td>巴士因子</td>
+<td>中等（≥3 但 &lt;5）</td>
+<td>GitHub API 实采 contributors = 4 人，非单人项目；但尚未看到贡献者持续扩大的证据</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分依据</strong>: 对照指引中 7–8 档——"团队投入度高，有一定商业经验，巴士因子 ≥3"。项目具备明确公司全职团队特征，4 名贡献者，代码水准极高；但成立不足两周，"成功商业化经验"尚无历史可验证，巴士因子也达不到 ≥5，故取 8 分档（80%）。</p>
+<h4>D8.2 治理模型透明度 — 1.2 / 2.0</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>治理文档</td>
+<td>部分具备</td>
+<td>有 CONTRIBUTING.md（含完整 5 步合并流程）、CODE_OF_CONDUCT.md、PR 模板；<strong>无 GOVERNANCE.md</strong>、无公开路线图</td>
+</tr>
+<tr>
+<td>开放程度</td>
+<td>流程透明，决策集中</td>
+<td>贡献者只需开 Issue/PR，维护者团队负责集成与决策；PR 转移到维护者验证分支的机制有说明，但外部贡献者不参与治理决策</td>
+</tr>
+<tr>
+<td>基金会/组织</td>
+<td>无</td>
+<td>不属于 CNCF/Apache/Linux Foundation 等任何基金会</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分依据</strong>: CONTRIBUTING.md 撰写质量高，决策流程（评审→集成→自动化验证→真实任务验证→合并）书面化清晰，优于"简单的贡献指南"；但治理权完全集中于公司维护者团队，无基金会或社区治理结构，外部贡献者参与决策的空间有限。对照 5–6 档——"有简单的贡献指南，决策由核心团队主导"，取 60% 档。</p>
+<h4>D8.3 资金支持与商业赞助 — 2.0 / 2.5</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>现有资金</td>
+<td>有公司实体支持</td>
+<td>Sapient Intelligence Pte Ltd 是登记的 license 持有方与发布方；该项目是公司产品（有 product-usage 遥测服务、收费导向的 Fair Source 许可证）</td>
+</tr>
+<tr>
+<td>赞助收入</td>
+<td>无公开数据</td>
+<td>GitHub Sponsors / Open Collective 未观测到；此类公司主导项目通常不依赖社区赞助</td>
+</tr>
+<tr>
+<td>商业实体</td>
+<td>明确</td>
+<td>pyproject.toml authors/license 与主页基础设施（praxist.sapient.inc 文档站）均归属公司</td>
+</tr>
+<tr>
+<td>资金可持续性</td>
+<td>短期可保障</td>
+<td>项目发布一周即达 6.8k Star，处于公司战略投入期；但公司融资规模、团队人数未披露，无法量化"能撑多久"</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分依据</strong>: 对照 7–8 档——"有稳定赞助或公司支持，资金可持续"。这是典型的公司全职团队项目，而非志愿者社区项目，资金可持续性从企业运营角度判断为有保障，取 80% 档。但无任何融资/赞助金额的事实数据，无法触及 9–10 档。</p>
+<h4>D8.4 项目可持续性与传承风险 — 2.4 / 3.0</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>活跃趋势</td>
+<td>急剧上升</td>
+<td>created_at 2026-08-27 至评估日约 7 天内 Star 从 0 增至 6.8k，pushed_at 持续更新；90 天窗口内创建 25 个 PR、关闭 2 个 Issue（注：因项目极新，该统计几乎等于项目全量）</td>
+</tr>
+<tr>
+<td>维护延续性</td>
+<td>传承机制初步建立</td>
+<td>贡献流程明确"maintainer team"每周至少一轮验证周期；但项目太新，机制尚未经受人员更迭考验</td>
+</tr>
+<tr>
+<td>历史信号</td>
+<td>健康</td>
+<td>archived = false，无 deprecated/unmaintained 标记；LICENSE 与文档齐备</td>
+</tr>
+<tr>
+<td>分叉风险</td>
+<td>无分裂迹象</td>
+<td>512 个 fork 属高关注度的正常复刻行为；项目刚诞生尚无社区分裂可能</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分依据</strong>: 对照 7–8 档——"活跃度平稳，传承机制基本健全"与 9–10 档——"活跃度持续上升，治理完善可传承"之间。当前活跃趋势明确上升，但"治理完善可传承"言过其实（无基金会、无独立治理结构、无版本发布记录），故取 80% 档，不强上 9–10。</p>
+<hr />
+<h4>D8 小结与商业化含义</h4>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>得分</th>
+<th>档位</th>
+<th>一句话判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D8.1 核心维护者能力与背景</td>
+<td>2.0 / 2.5</td>
+<td>80%</td>
+<td>公司全职高水准团队，商业化基因明确</td>
+</tr>
+<tr>
+<td>D8.2 治理模型透明度</td>
+<td>1.2 / 2.0</td>
+<td>60%</td>
+<td>流程文档规范但决策集中于公司内部</td>
+</tr>
+<tr>
+<td>D8.3 资金支持与商业赞助</td>
+<td>2.0 / 2.5</td>
+<td>80%</td>
+<td>公司实体运营，短期资金可持续</td>
+</tr>
+<tr>
+<td>D8.4 项目可持续性与传承风险</td>
+<td>2.4 / 3.0</td>
+<td>80%</td>
+<td>极早期爆发式活跃，无衰退信号且无传承检验</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>7.6 / 10</strong></td>
+<td>—</td>
+<td>良好偏上；最大短板是项目过新</td>
+</tr>
+</tbody>
+</table>
+<p><strong>商业化视角</strong>: PRAXIST 的"人"要素——全职公司团队、鲜明商业意图（Fair Source 许可 + 产品遥测服务）、企业级工程质量——是其商业化可行性的强力支撑。但必须清醒认识到：这是 <strong>Sapient Intelligence 的商业产品以源代码形式对外展示</strong>，而非社区共有资产。任何外部商业合作都面临三个现实问题：(1) 治理权与路线图完全由公司掌控；(2) 非 OSI 许可意味着 fork 后商用受限；(3) 项目尚无发布记录（recent_releases 为空），处于 pre-release 阶段。该维度商业评级为"良好"，但需以厂商合作关系而非社区生态关系为前提。</p>
+<p><strong>D8 维度得分: 7.6 / 10</strong></p>
+<h3>D9 上手难度与易用性</h3>
+<p>分析失败（DeepSeek 调用重试仍失败: 模型返回空内容），本维度标 N/A。</p>
+<h3>D10 功能价值——使用价值视角（平行维度，权重 0%）</h3>
+<blockquote>
+<p>平行维度说明：本维度与 D1–D9 正交，仅用于 3.4 价值画像判定，不计入百分制综合评分与一票否决。低分不构成商业化硬伤。细则打分沿用 0%/20%/40%/60%/80%/100% 六档粒度。</p>
+</blockquote>
+<h4>D10.1 效用强度（满分 3 分）——<strong>2.4 分</strong></h4>
+<p>Praxist 定位为「可测量、可计算执行研究」的自主研究系统，面向已有可运行项目但最优路径未知的场景。它通过并行研究 peer、跨代证据合成、任务级评估与持久证据链，接管了人工研究团队迭代试验-评估-筛选的完整循环。与 AutoML 仅做超参搜索不同，Praxist 允许 agent 改变方法、架构与策略，并在多代之间累积证据，效用层级接近「项目级自动化研究基础设施」。</p>
+<p>若系统正常运行，用户可省去大量人工试错与监督成本，且通过预注册、统一评估和 provenance 设计提高了结果可信度；即使无改进，也会产出负结果证据包与审计报告，降低方向性重复投资。但效用高度依赖任务可测性、LLM 推理质量与预算控制，改进不保证发生，确定性低于成熟工程工具。综合判断：在适用场景下属项目级依赖，能显著节省研发迭代成本，但效用有一定场景与运气依赖，给 <strong>80% 档（2.4/3）</strong>。</p>
+<h4>D10.2 实际使用规模（满分 3 分）——<strong>N/A（数据缺失）</strong></h4>
+<p>按防幻觉规则实采 GitHub API 与包管理平台数据：PyPI 月下载量、npm 周下载量均为 <code>N/A</code>，GitHub Dependents 计数未在实采范围内获得，README/官方渠道亦无生产环境用户案例或行业采用声明。项目创建于 2026-08-27，距评估日不足两周，Stars 6849 反映关注度高，但不能等同于可验证的依赖方数量或下载规模。此项数据缺失且无法在本次评估中补采，<strong>标 N/A</strong>，不计入维度满分。</p>
+<h4>D10.3 免费可得的完整效用（满分 2 分）——<strong>1.6 分</strong></h4>
+<p>项目采用 Fair Source License 1.0（source-available）而非 OSI 开源协议。从仓库结构与文档判断，全部功能集中于同一代码库，不存在「企业版功能墙」或试用期限制；源码可完整查看、下载与修改。免费使用门槛为：个人、年收入/关联总收入 &lt; 100 万美元的组织及非营利教研机构可免费商用；达到收入门槛的大型企业需另行协商商业许可。即核心价值在学术/个人/小型组织层面可 100% 免费获得，但大型商业组织并非完全免费。相较「开源版即全部价值」的满分标准，此许可模式略降一档，且与 D4.3 付费转化构成天然张力——使用价值口径下免费完整度高，交换价值口径下大客户贡献点明确。给 <strong>80% 档（1.6/2）</strong>。</p>
+<h4>D10.4 效用可持续性（满分 2 分）——<strong>1.2 分</strong></h4>
+<p>Praxist 是本地运行的 Python 包，研究编排、评估与证据逻辑均在本地执行，不依赖官方在线托管服务；但核心推理依赖 Anthropic/OpenAI 等外部 LLM API 或 Codex/Claude Code 登录态，该外部依赖可替换（支持开源模型 API），并非官方专有锁定。若官方停维，已安装用户仍可继续使用本地编排与已有评估器，但无法获得更新适配（如新模型/新运行环境）。可持续性的主要短板是许可证：Fair Source 1.0 通常附带非竞争与使用限制，社区分叉后难以自由再分发并形成竞品式独立维护，限制了「集体接手」的可能性。整体介于「主体本地化但有可替换外部依赖」与「强许可限制削弱分叉维护」之间，给 <strong>60% 档（1.2/2）</strong>。</p>
+<h4>D10 细则汇总与折算</h4>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>小分</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10.1</td>
+<td>效用强度</td>
+<td>3</td>
+<td>2.4</td>
+<td>项目级依赖，显著节省研究迭代成本，但效用确定性受 LLM 与任务场景影响</td>
+</tr>
+<tr>
+<td>D10.2</td>
+<td>实际使用规模</td>
+<td>3</td>
+<td>N/A</td>
+<td>无实采下载/依赖方/生产案例数据，发布不足两周，无法量化</td>
+</tr>
+<tr>
+<td>D10.3</td>
+<td>免费可得的完整效用</td>
+<td>2</td>
+<td>1.6</td>
+<td>全功能 source-available，个人/小企业/学术免费可用；大企业需商业许可</td>
+</tr>
+<tr>
+<td>D10.4</td>
+<td>效用可持续性</td>
+<td>2</td>
+<td>1.2</td>
+<td>本地运行但依赖外部 LLM；Fair Source 限制社区自由分叉</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td><strong>5.2（非 N/A 小分）</strong></td>
+<td>按 N/A 规则剔除 D10.2 后满分 7 分，折算 <strong>7.4/10</strong></td>
+</tr>
+</tbody>
+</table>
+<h4>结论</h4>
+<p>Praxist 在 D10 使用价值口径下呈现<strong>较高效用画像</strong>：设计立意与工程完整度具备项目级基础设施潜力，免费开放度较高且适合学术/个人科研，效用可持续性因许可证形态与 LLM 外部依赖略有折损。实际使用规模因项目极新且数据缺失暂无法实证，是当前该维度最大的不确定性。折算后总分 7.4/10，表明「用的人能从它身上获得显著效用」这一命题在逻辑与结构上成立，但需要通过后续下载量、用户报告与生产案例持续验证。</p>
+<h3>D11. 社会价值（正外部性视角）</h3>
+<blockquote>
+<p>平行维度：权重 0%，不计入综合评分与一票否决，仅用于 3.4 价值画像。以下评分反映项目当前（发布约 1 周）可观测的外部性水平。</p>
+</blockquote>
+<p>Praxist 作为 2026-08-27 才创建的极新项目，社会价值外溢当前仍以「潜在性」为主，现实可验证的外部性影响尚小。项目采用 Fair Source License v1.0（非 OSI 开源许可），属于「source-available」而非完全开放的数字公共产品，这从根本上限制了其 DPG（数字公共产品）属性的上限。以下为各细则评估：</p>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>考察点</th>
+<th>证据/分析</th>
+<th>小分</th>
+<th>满分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D11.1</td>
+<td>数字公共基础设施属性</td>
+<td>项目为终端用户级自主研究系统，非库/框架型依赖；无 Dependents 数据可采，无任何下游供应链依赖证据。停摆仅影响自身用户，不波及软件生态。许可证为 Fair Source（收入门槛限制商业使用），开放度有限，不完全符合 DPG 特征。</td>
+<td><strong>1.2</strong></td>
+<td>3</td>
+</tr>
+<tr>
+<td>D11.2</td>
+<td>教育与人才价值</td>
+<td>仓库自带 259 个文档文件、快速入门/首任务教程、两个可写参考示例（Rust/Python 对照），教学素材质量高；但项目上线时间极短，无外部教程/课程/awesome 列表收录证据，Issue 中亦无学习者社区信号。30 万行代码+50% 测试比例具备工程范本潜力，尚未形成实际研读潮。</td>
+<td><strong>1.0</strong></td>
+<td>2.5</td>
+</tr>
+<tr>
+<td>D11.3</td>
+<td>普惠与可及性</td>
+<td>Fair Source 条款对年收入 &lt;100 万美元组织免费商用，且对高校、公共研究机构、非营利学术组织豁免收入门槛；相较于雇佣人工研究团队或专有 AutoML 服务的成本，存在明显普惠让渡。但使用前提是「已有可运行项目 + 可测量评估」，并需自行承担计算与模型 API 成本；文档仅英文，无 i18n/无障碍支持证据，技术门槛与语言门槛限制了普惠覆盖面。</td>
+<td><strong>1.5</strong></td>
+<td>2.5</td>
+</tr>
+<tr>
+<td>D11.4</td>
+<td>开放标准与行业推动</td>
+<td>工程上实现并依赖 MCP、Codex/Claude Code Skills 等开放协议与插件边界，遵循开放模型 API 路线，但无明显标准推动行为。项目附带 arXiv 论文（2608.25955），具备科研可重现性支撑潜力；同赛道竞品仅检索到 1 个 4-star 项目，无同行借鉴痕迹可验证。</td>
+<td><strong>1.2</strong></td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论：D11 合计 4.9 / 10（一般）</strong></p>
+<p>Praxist 具备较强的正外部性潜力——高质量开放文档、双语（Python/Rust）参考实现、研究范式论文、对小组织与学术机构的免费条款，都是未来社会价值的种子；但受限于三个现实约束：其一，项目发布仅约 1 周，外部教程、学术引用、下游采用均为空白；其二，Fair Source 许可使项目处于「源可用而非开源」地带，限制了数字公共品属性与生态复用；其三，较强的技术前置条件（可运行项目、评估体系、计算与 API 成本）决定了普惠主要覆盖「已有研发能力的机构」，而非完全平权化。本维度不计入综合评分，仅标注价值画像参考。</p>
+<h2>五、商业化价值判断</h2>
+<h3>5.1 综合价值评估</h3>
+<p>PRAXIST 综合评分 <strong>79.2/100</strong>，等级 <strong>A（高商业化潜力）</strong>，价值画像 <strong>⭐ 明星资产</strong>。综合来看，这是一个<strong>由商业实体全力打造、具备独特法律强制力变现设计、正处于爆发式增长早期的自动化研究基础设施</strong>。</p>
+<h3>5.2 核心价值支撑</h3>
+<p><strong>（1）市场窗口与稀缺定位（D5 支撑）</strong>
+- 经 GitHub Search API 实测验证，完全同构的直接竞品仅 1 个（edge-research，仅 4 stars）
+- PRAXIST 以 6,849 stars + 30 万行代码在直接细分中<strong>明显领先</strong>
+- 定位「自动化研究基础设施 + 可验证实验证据产品」在市场中几乎空白</p>
+<p><strong>（2）法律强制力的变现设计（D4 支撑）</strong>
+- 采用 Fair Source License v1.0（自定义 source-available 协议）
+- 年营收 ≥ $100 万美元自动触发商业许可谈判义务，内置完整的通知-谈判-终止法律机制
+- 为 Licensor（Sapient Intelligence Pte Ltd）构建了<strong>法律强制力的双协议变现主路径</strong>
+- 免费版功能完整无阉割，转化靠法律条款收口而非产品功能驱动——<strong>转化漏斗极短</strong></p>
+<p><strong>（3）高客单价的商业化潜力（D4 支撑）</strong>
+- 定位替代博士级人工研究迭代，目标客户为营收超百万美元的 AI 研发企业
+- 定价天花板可达 <strong>$10K+/年</strong>
+- 产品化基础设施在搭建：product-usage-server（FastAPI+Postgres 遥测）、central-resource-scheduler、deploy/release CI 工作流</p>
+<p><strong>（4）商业实体全力投入（D8 支撑）</strong>
+- 由 Sapient Intelligence Pte Ltd 全职投入开发
+- 一周内产出约 30 万行代码、259 份文档、25 个 PR
+- 技术能力与投入度远超业余社区水平</p>
+<h3>5.3 价值判断结论</h3>
+<p><strong>商业化价值等级：高</strong>。PRAXIST 具备清晰的变现路径（法律条款驱动的商业许可）、高客单价空间（$10K+/年）、几乎空白的竞争蓝海（直接竞品仅 1 个且规模极小），以及商业实体的全力投入。当前处于 <strong>0.5.0 版发布不足一周的商业验证极早期</strong>，是商业化布局的最佳窗口期。</p>
+<p><strong>关键前提</strong>：D6 法律合规维度分析失败，一票否决检查不完整。Fair Source License 作为非 OSI 协议的法律效力与执行可行性未经专业评估，构成商业化推进前必须补齐的验证环节。</p>
+<h2>六、商业路径分析</h2>
+<h3>6.1 价值画像对路径的修正</h3>
+<p>PRAXIST 价值画像为 <strong>⭐ 明星资产</strong>（综合评分 79.2 ≥ 65，公共价值分 7.4 ≥ 7）。按方法论 3.4，商业路径建议为：<strong>正常商业化，同时经营社区声誉，避免竭泽而渔</strong>。</p>
+<blockquote>
+<p><strong>画像临界提示</strong>：公共价值分 7.4 处于 6.5–7.5 临界区间，且 D11 社会价值缺失（取 D10 值代替），画像判定存在不确定性。若实际公共价值分 &lt; 7，画像将滑向「💼 纯商业工具」，路径差异在于：纯商业工具可按 D4 最优路径直接变现，无需额外投入社区声誉经营。建议在补充 D11 评估后确认最终路径侧重。</p>
+</blockquote>
+<h3>6.2 可行商业路径分析</h3>
+<h4>路径一：营收门槛商业许可（主路径，D4 设计使然）</h4>
+<table>
+<thead>
+<tr>
+<th>要素</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>机制</strong></td>
+<td>Fair Source License v1.0 内置法律条款：年营收 ≥ $100 万自动触发商业许可谈判</td>
+</tr>
+<tr>
+<td><strong>优势</strong></td>
+<td>转化漏斗极短，无需功能阉割；法律强制力保障；免费版可自然传播获客</td>
+</tr>
+<tr>
+<td><strong>劣势</strong></td>
+<td>依赖客户营收规模（仅覆盖大客户）；存在合规摩擦风险；需法律执行投入</td>
+</tr>
+<tr>
+<td><strong>适用客户</strong></td>
+<td>年营收超 $100 万的 AI 研发企业</td>
+</tr>
+<tr>
+<td><strong>定价空间</strong></td>
+<td>$10K+/年（替代博士级人工研究迭代的高价值定位）</td>
+</tr>
+<tr>
+<td><strong>当前状态</strong></td>
+<td>无公开定价页/企业版文档/托管服务入口，商业化尚未启动</td>
+</tr>
+</tbody>
+</table>
+<h4>路径二：托管服务 / 企业版（备选路径，架构已预留）</h4>
+<table>
+<thead>
+<tr>
+<th>要素</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>机制</strong></td>
+<td>提供托管运行环境、企业级支持、SLA 保障</td>
+</tr>
+<tr>
+<td><strong>现有基础</strong></td>
+<td>product-usage-server（FastAPI+Postgres 遥测）、central-resource-scheduler、deploy/release CI 工作流已存在</td>
+</tr>
+<tr>
+<td><strong>差距</strong></td>
+<td>无公开托管服务、无定价页、无企业版产品证据</td>
+</tr>
+<tr>
+<td><strong>适用客户</strong></td>
+<td>不想自建运维的中大型企业</td>
+</tr>
+<tr>
+<td><strong>建议</strong></td>
+<td>在路径一跑通后，作为增量为头部客户提供</td>
+</tr>
+</tbody>
+</table>
+<h4>路径三：社区声誉经营（明星资产必选，避免竭泽而渔）</h4>
+<table>
+<thead>
+<tr>
+<th>要素</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>机制</strong></td>
+<td>维护开放治理、透明路线图、吸纳外部贡献者</td>
+</tr>
+<tr>
+<td><strong>原因</strong></td>
+<td>价值画像为明星资产，需避免 Elastic 改协议的反噬教训</td>
+</tr>
+<tr>
+<td><strong>具体动作</strong></td>
+<td>发布 GOVERNANCE.md、公开路线图、建立贡献者激励、定期社区沟通</td>
+</tr>
+<tr>
+<td><strong>当前状态</strong></td>
+<td>治理文档有 CONTRIBUTING.md + CODE_OF_CONDUCT.md，但无 GOVERNANCE.md、无公开路线图</td>
+</tr>
+</tbody>
+</table>
+<h3>6.3 路径优先级建议</h3>
+<table>
+<thead>
+<tr>
+<th>优先级</th>
+<th>路径</th>
+<th>时间窗口</th>
+<th>关键动作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P0</td>
+<td>路径一：营收门槛商业许可</td>
+<td>立即启动</td>
+<td>补齐法律合规评估（D6 缺失）、发布定价页、建立销售流程</td>
+</tr>
+<tr>
+<td>P1</td>
+<td>路径三：社区声誉经营</td>
+<td>同步进行</td>
+<td>发布 GOVERNANCE.md、公开路线图、扩大贡献者基础</td>
+</tr>
+<tr>
+<td>P2</td>
+<td>路径二：托管/企业版</td>
+<td>路径一验证后</td>
+<td>基于遥测基础设施搭建托管服务</td>
+</tr>
+</tbody>
+</table>
+<h3>6.4 路径风险提示</h3>
+<ul>
+<li><strong>法律不确定性</strong>：Fair Source License 为非 OSI 协议，其法律效力与执行可行性未经专业评估（D6 缺失），可能影响路径一的落地</li>
+<li><strong>社区反噬风险</strong>：若商业化推进过于激进，可能引发社区不满（参照 Elastic 案例）</li>
+<li><strong>平台替代风险</strong>：存在被平台型通用智能体边缘替代的中等风险（D5 指出）</li>
+</ul>
+<h2>七、能力评估：能做什么 &amp; 最适合做什么</h2>
+<h3>7.1 核心能力盘点</h3>
+<table>
+<thead>
+<tr>
+<th>能力域</th>
+<th>具体能力</th>
+<th>证据支撑</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>自动化研究编排</strong></td>
+<td>可度量、计算机可执行研究的自主编排系统</td>
+<td>项目定位（description）</td>
+</tr>
+<tr>
+<td><strong>大规模代码工程</strong></td>
+<td>30.3 万行代码、521 个 Python 文件、Rust 核心组件</td>
+<td>D5 hard_facts</td>
+</tr>
+<tr>
+<td><strong>取证与验证</strong></td>
+<td>取证线（incubator→frontier→Gems）、重放/恢复机制</td>
+<td>D5 key_findings</td>
+</tr>
+<tr>
+<td><strong>资源调度</strong></td>
+<td>central-resource-scheduler 资源调度器</td>
+<td>D4/D5 key_findings</td>
+</tr>
+<tr>
+<td><strong>扩展体系</strong></td>
+<td>plugin/skills 扩展体系</td>
+<td>D5 key_findings</td>
+</tr>
+<tr>
+<td><strong>产品遥测</strong></td>
+<td>product-usage-server（FastAPI+Postgres）</td>
+<td>D4 hard_facts</td>
+</tr>
+<tr>
+<td><strong>CI/CD 工程</strong></td>
+<td>5 个 CI 工作流、deploy/release 流程</td>
+<td>D5/D4 hard_facts</td>
+</tr>
+<tr>
+<td><strong>测试保障</strong></td>
+<td>49.7% 测试覆盖率</td>
+<td>D5/D10 hard_facts</td>
+</tr>
+<tr>
+<td><strong>文档建设</strong></td>
+<td>259 份文档文件</td>
+<td>D5/D8 hard_facts</td>
+</tr>
+</tbody>
+</table>
+<h3>7.2 最适合做什么（商业化最优解）</h3>
+<p><strong>最适合：面向年营收超 $100 万的 AI 研发企业，提供高客单价的自动化研究基础设施。</strong></p>
+<p>理由：
+1. <strong>法律条款已锁定目标客户</strong>：Fair Source License 的 $100 万营收门槛天然筛选出有付费能力的企业客户
+2. <strong>价值定位清晰</strong>：替代博士级人工研究迭代，价值可量化（节省人力成本）
+3. <strong>竞争蓝海</strong>：直接竞品仅 1 个且规模极小（4 stars），先发优势明显
+4. <strong>产品完成度高</strong>：30 万行代码 + 49.7% 测试覆盖率，已具备企业级产品雏形</p>
+<h3>7.3 能力边界与局限</h3>
+<table>
+<thead>
+<tr>
+<th>局限</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>商业验证缺失</strong></td>
+<td>0.5.0 版发布不足一周，无付费产品落地</td>
+</tr>
+<tr>
+<td><strong>社区基础薄弱</strong></td>
+<td>仅 4 名贡献者，外部贡献者生态未建立</td>
+</tr>
+<tr>
+<td><strong>治理不透明</strong></td>
+<td>无 GOVERNANCE.md、无公开路线图、决策集中于公司</td>
+</tr>
+<tr>
+<td><strong>法律合规未验证</strong></td>
+<td>Fair Source License 法律效力未经专业评估（D6 缺失）</td>
+</tr>
+<tr>
+<td><strong>实证使用数据缺失</strong></td>
+<td>PyPI/npm 下载量、依赖方计数均无实采数据（D10.2 = N/A）</td>
+</tr>
+</tbody>
+</table>
+<h2>八、短板识别：还缺少什么</h2>
+<h3>8.1 关键短板清单</h3>
+<table>
+<thead>
+<tr>
+<th>短板</th>
+<th>严重程度</th>
+<th>说明</th>
+<th>证据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>法律合规未验证</strong></td>
+<td>🔴 高</td>
+<td>D6 维度分析失败，Fair Source License 法律效力、依赖链风险、商标专利风险均未评估；一票否决检查不完整</td>
+<td>D6 degradation_flags = "dimension_failed"</td>
+</tr>
+<tr>
+<td><strong>商业验证缺失</strong></td>
+<td>🔴 高</td>
+<td>无公开定价页、无企业版文档、无托管服务入口、无付费客户案例</td>
+<td>D4 hard_facts</td>
+</tr>
+<tr>
+<td><strong>治理不透明</strong></td>
+<td>🟡 中</td>
+<td>无 GOVERNANCE.md、无公开路线图、决策高度集中于公司维护团队</td>
+<td>D8 key_findings</td>
+</tr>
+<tr>
+<td><strong>社区基础薄弱</strong></td>
+<td>🟡 中</td>
+<td>仅 4 名贡献者，外部贡献者无法真正拥有社区共有资产（Fair Source 限制）</td>
+<td>D8 key_findings</td>
+</tr>
+<tr>
+<td><strong>传承机制未验证</strong></td>
+<td>🟡 中</td>
+<td>无 release 发布记录，项目处于 pre-release 快速迭代期</td>
+<td>D8 hard_facts</td>
+</tr>
+<tr>
+<td><strong>实证使用数据缺失</strong></td>
+<td>🟡 中</td>
+<td>PyPI/npm 下载量、依赖方计数均无实采数据，实际使用规模无法验证</td>
+<td>D10.2 = N/A</td>
+</tr>
+<tr>
+<td><strong>多维度评估缺失</strong></td>
+<td>🟡 中</td>
+<td>D1/D2/D3/D7/D9/D11 六个维度评分卡降级或失败，市场、技术、社区、易用性等评估不完整</td>
+<td>各维度 degradation_flags</td>
+</tr>
+</tbody>
+</table>
+<h3>8.2 短板补齐优先级</h3>
+<table>
+<thead>
+<tr>
+<th>优先级</th>
+<th>短板</th>
+<th>补齐动作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P0</td>
+<td>法律合规未验证</td>
+<td>聘请专业律师评估 Fair Source License 法律效力与执行可行性</td>
+</tr>
+<tr>
+<td>P0</td>
+<td>商业验证缺失</td>
+<td>发布定价页、建立销售流程、寻找种子客户验证付费意愿</td>
+</tr>
+<tr>
+<td>P1</td>
+<td>治理不透明</td>
+<td>发布 GOVERNANCE.md、公开路线图、建立社区决策机制</td>
+</tr>
+<tr>
+<td>P1</td>
+<td>多维度评估缺失</td>
+<td>补充 D1/D2/D3/D7/D9/D11 维度分析，完善评估</td>
+</tr>
+<tr>
+<td>P2</td>
+<td>社区基础薄弱</td>
+<td>吸纳外部贡献者、建立贡献者激励、降低参与门槛</td>
+</tr>
+<tr>
+<td>P2</td>
+<td>实证使用数据缺失</td>
+<td>发布稳定版后跟踪 PyPI 下载量、收集用户案例</td>
+</tr>
+</tbody>
+</table>
+<h2>九、风险提示</h2>
+<h3>9.1 高风险项</h3>
+<table>
+<thead>
+<tr>
+<th>风险</th>
+<th>等级</th>
+<th>说明</th>
+<th>缓解建议</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>法律合规不确定性</strong></td>
+<td>🔴 高</td>
+<td>D6 维度分析失败，Fair Source License（非 OSI 协议）的法律效力、依赖链传染性、商标专利风险均未评估。若协议存在根本性法律障碍，可能触发一票否决（等级降为 D）</td>
+<td>立即聘请专业律师进行法律合规审查，评估协议可执行性</td>
+</tr>
+<tr>
+<td><strong>平台替代风险</strong></td>
+<td>🔴 高</td>
+<td>存在被平台型通用智能体边缘替代的中等风险（D5 指出），若通用 AI 智能体具备同等研究能力，PRAXIST 的差异化将被侵蚀</td>
+<td>持续强化垂直场景深度与取证/验证能力，构建数据与工作流壁垒</td>
+</tr>
+</tbody>
+</table>
+<h3>9.2 中风险项</h3>
+<table>
+<thead>
+<tr>
+<th>风险</th>
+<th>等级</th>
+<th>说明</th>
+<th>缓解建议</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>社区反噬风险</strong></td>
+<td>🟡 中</td>
+<td>采用 Fair Source License 本质是公司产品的前置展示策略，外部贡献者无法真正拥有社区共有资产；若商业化推进激进，可能引发社区不满（参照 Elastic 改协议反噬）</td>
+<td>保持治理透明、吸纳外部贡献者、避免竭泽而渔</td>
+</tr>
+<tr>
+<td><strong>巴士因子风险</strong></td>
+<td>🟡 中</td>
+<td>仅 4 名贡献者，决策高度集中于公司维护团队，核心人员流失可能导致项目停滞</td>
+<td>扩大贡献者基础、建立知识传承机制</td>
+</tr>
+<tr>
+<td><strong>商业验证失败风险</strong></td>
+<td>🟡 中</td>
+<td>项目处于极早期（0.5.0 版发布不足一周），无付费产品落地，商业验证可能失败</td>
+<td>小范围试点、寻找种子客户、快速迭代</td>
+</tr>
+<tr>
+<td><strong>评估不完整风险</strong></td>
+<td>🟡 中</td>
+<td>D1/D2/D3/D6/D7/D9/D11 七个维度评分卡降级或失败，市场、技术、社区、法律、易用性等评估不完整，综合评分置信度下降</td>
+<td>补充缺失维度分析，完善评估</td>
+</tr>
+</tbody>
+</table>
+<h3>9.3 低风险项</h3>
+<table>
+<thead>
+<tr>
+<th>风险</th>
+<th>等级</th>
+<th>说明</th>
+<th>缓解建议</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>社区活跃度可持续性</strong></td>
+<td>🟢 低</td>
+<td>项目仅创建 7 天即获 6.8k Stars，活跃趋势急剧上升但未经历时间验证</td>
+<td>持续观察 Star 增速与 Issue 响应</td>
+</tr>
+<tr>
+<td><strong>版本稳定性</strong></td>
+<td>🟢 低</td>
+<td>无 release 发布记录，处于 pre-release 快速迭代期</td>
+<td>尽快发布 1.0 稳定版</td>
+</tr>
+</tbody>
+</table>
+<h2>十、结论与建议</h2>
+<h3>10.1 综合结论</h3>
+<p>PRAXIST 是一个<strong>由商业实体全力打造、具备独特法律强制力变现设计、正处于爆发式增长早期的自动化研究基础设施</strong>。综合评分 <strong>79.2/100</strong>，等级 <strong>A（高商业化潜力）</strong>，价值画像 <strong>⭐ 明星资产</strong>。</p>
+<p><strong>核心判断</strong>：PRAXIST 具备清晰的变现路径（Fair Source License 营收门槛商业许可）、高客单价空间（$10K+/年）、几乎空白的竞争蓝海（直接竞品仅 1 个且规模极小），以及商业实体的全力投入（一周 30 万行代码）。当前处于 <strong>0.5.0 版发布不足一周的商业验证极早期</strong>，是商业化布局的最佳窗口期。</p>
+<p><strong>关键前提</strong>：D6 法律合规维度分析失败，一票否决检查不完整。Fair Source License 作为非 OSI 协议的法律效力与执行可行性未经专业评估，构成商业化推进前必须补齐的验证环节。</p>
+<h3>10.2 行动建议</h3>
+<table>
+<thead>
+<tr>
+<th>时间窗口</th>
+<th>行动项</th>
+<th>优先级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>立即（0–1 个月）</strong></td>
+<td>① 聘请专业律师评估 Fair Source License 法律效力与执行可行性（补齐 D6 否决检查）</td>
+<td>P0</td>
+</tr>
+<tr>
+<td></td>
+<td>② 发布定价页与商业许可申请流程，建立销售线索捕获机制</td>
+<td>P0</td>
+</tr>
+<tr>
+<td></td>
+<td>③ 发布 GOVERNANCE.md 与公开路线图，启动社区声誉经营</td>
+<td>P1</td>
+</tr>
+<tr>
+<td><strong>短期（1–3 个月）</strong></td>
+<td>④ 寻找 3–5 家种子客户验证付费意愿，跑通商业许可转化闭环</td>
+<td>P0</td>
+</tr>
+<tr>
+<td></td>
+<td>⑤ 发布 1.0 稳定版，建立版本发布节奏</td>
+<td>P1</td>
+</tr>
+<tr>
+<td></td>
+<td>⑥ 补充 D1/D2/D3/D7/D9/D11 维度评估，完善商业化决策依据</td>
+<td>P1</td>
+</tr>
+<tr>
+<td><strong>中期（3–6 个月）</strong></td>
+<td>⑦ 基于遥测基础设施搭建托管服务/企业版，服务头部客户</td>
+<td>P2</td>
+</tr>
+<tr>
+<td></td>
+<td>⑧ 扩大贡献者基础至 10+ 人，降低巴士因子风险</td>
+<td>P2</td>
+</tr>
+<tr>
+<td></td>
+<td>⑨ 跟踪 PyPI 下载量与用户案例，验证实际使用规模</td>
+<td>P2</td>
+</tr>
+</tbody>
+</table>
+<h3>10.3 放弃条件（如出现以下情况应重新评估）</h3>
+<ul>
+<li><strong>法律否决触发</strong>：若法律审查发现 Fair Source License 存在根本性法律障碍（D6 ≤ 3 分），等级将降为 D，应放弃直接商业化</li>
+<li><strong>平台替代加速</strong>：若平台型通用智能体在 6 个月内展现出同等研究能力，差异化壁垒将被侵蚀</li>
+<li><strong>商业验证失败</strong>：若 3 个月内无法找到种子客户付费，需重新评估价值定位与定价策略</li>
+</ul>
+<h3>10.4 最终评级</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>综合评分</strong></td>
+<td>79.2/100</td>
+</tr>
+<tr>
+<td><strong>商业化等级</strong></td>
+<td><strong>A（高商业化潜力）</strong></td>
+</tr>
+<tr>
+<td><strong>价值画像</strong></td>
+<td><strong>⭐ 明星资产</strong></td>
+</tr>
+<tr>
+<td><strong>建议行动</strong></td>
+<td><strong>可投入商业化，需补齐少量短板（法律合规验证、商业验证、治理透明化）</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>【注意】一票否决检查不完整: D6</p>
+</blockquote>
+<h2>十一、项目地址</h2>
+<p><svg class="ri ri-muted" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.001 2C6.47598 2 2.00098 6.475 2.00098 12C2.00098 16.425 4.86348 20.1625 8.83848 21.4875C9.33848 21.575 9.52598 21.275 9.52598 21.0125C9.52598 20.775 9.51348 19.9875 9.51348 19.15C7.00098 19.6125 6.35098 18.5375 6.15098 17.975C6.03848 17.6875 5.55098 16.8 5.12598 16.5625C4.77598 16.375 4.27598 15.9125 5.11348 15.9C5.90098 15.8875 6.46348 16.625 6.65098 16.925C7.55098 18.4375 8.98848 18.0125 9.56348 17.75C9.65098 17.1 9.91348 16.6625 10.201 16.4125C7.97598 16.1625 5.65098 15.3 5.65098 11.475C5.65098 10.3875 6.03848 9.4875 6.67598 8.7875C6.57598 8.5375 6.22598 7.5125 6.77598 6.1375C6.77598 6.1375 7.61348 5.875 9.52598 7.1625C10.326 6.9375 11.176 6.825 12.026 6.825C12.876 6.825 13.726 6.9375 14.526 7.1625C16.4385 5.8625 17.276 6.1375 17.276 6.1375C17.826 7.5125 17.476 8.5375 17.376 8.7875C18.0135 9.4875 18.401 10.375 18.401 11.475C18.401 15.3125 16.0635 16.1625 13.8385 16.4125C14.201 16.725 14.5135 17.325 14.5135 18.2625C14.5135 19.6 14.501 20.675 14.501 21.0125C14.501 21.275 14.6885 21.5875 15.1885 21.4875C19.259 20.1133 21.9999 16.2963 22.001 12C22.001 6.475 17.526 2 12.001 2Z"/></svg> <a href="https://github.com/sapientinc/PRAXIST">https://github.com/sapientinc/PRAXIST</a></p>
+<hr />
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+</blockquote>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家　www.mova.work</p></body></html>

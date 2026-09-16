@@ -1,0 +1,1278 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><title>Cumora 商业价值分析报告</title><style>/* default — 品牌蓝紫主题（从 md2pdf.py 原 CSS 常量迁出，视觉与历史产物一致） */
+@page { size: A4; margin: 18mm 15mm 20mm 15mm; }
+* { box-sizing: border-box; }
+/* 字体规范：一律开源思源黑体 CN（OFL 免费商用）；正文 Regular/标题 Bold/大字数字 Light */
+body { font-family: "Source Han Sans CN","思源黑体 CN","Noto Sans SC",sans-serif; color:#1e293b; font-size:10.5pt; line-height:1.75; margin:0; }
+.cover { page-break-after: always; text-align:center; padding-top:40px; }
+.cover .kicker { color:#2563eb; letter-spacing:6px; font-size:12pt; font-weight:500; }
+.cover h1 { font-size:26pt; margin:14px 0 6px; }
+.cover .sub { color:#64748b; font-size:11pt; margin-bottom:22px; }
+.badge { display:inline-block; background:linear-gradient(135deg,#2563eb,#7c3aed); color:#fff; border-radius:18px; padding:16px 44px; margin:10px 0 18px; }
+.badge .g { font-size:34pt; font-weight:300; line-height:1; }
+.badge .s { font-size:12pt; opacity:.92; margin-top:4px; }
+.meta { color:#475569; font-size:9.5pt; margin-top:14px; }
+.bars { max-width:620px; margin:20px auto 0; text-align:left; }
+.bar-row { display:flex; align-items:center; gap:8px; margin:5px 0; font-size:9pt; }
+.bar-name { width:110px; text-align:right; color:#334155; font-weight:500; }
+.bar-track { flex:1; height:9px; background:#f1f5f9; border-radius:5px; overflow:hidden; }
+.bar-fill { display:block; height:100%; border-radius:5px; }
+.bar-val { width:30px; font-weight:700; color:#0f172a; }
+.bar-w { width:52px; color:#94a3b8; font-size:8pt; }
+h1 { font-size:17pt; color:#0f172a; border-bottom:3px solid #2563eb; padding-bottom:8px; }
+h2 { font-size:13.5pt; color:#1d4ed8; margin-top:26px; page-break-after: avoid; border-left:5px solid #2563eb; padding-left:10px; }
+h3 { font-size:11.5pt; color:#0f172a; margin-top:18px; page-break-after: avoid; }
+table { border-collapse:collapse; width:100%; margin:10px 0; font-size:9pt; page-break-inside:avoid; }
+th { background:#eff6ff; color:#1e3a8a; }
+th,td { border:1px solid #dbe3ef; padding:5px 8px; text-align:left; }
+tr:nth-child(even) td { background:#f8fafc; }
+code { background:#f1f5f9; border-radius:4px; padding:1px 5px; font-family:"JetBrains Mono","Cascadia Mono",monospace; font-size:9pt; color:#be185d; }
+pre { background:#0f172a; color:#e2e8f0; border-radius:8px; padding:12px 14px; overflow-x:auto; page-break-inside:avoid; }
+pre code { background:none; color:inherit; padding:0; }
+blockquote { border-left:4px solid #93c5fd; background:#eff6ff; margin:10px 0; padding:8px 14px; color:#334155; border-radius:0 8px 8px 0; }
+hr { border:none; border-top:1px dashed #cbd5e1; margin:22px 0; }
+strong { color:#0f172a; }
+.cover .disclaimer { max-width:620px; margin:16px auto 0; color:#64748b; font-size:8.5pt; line-height:1.6; text-align:left; border:1px solid #e2e8f0; border-radius:8px; padding:8px 12px; background:#f8fafc; }
+.credit { color:#2563eb; font-size:10.5pt; font-weight:700; letter-spacing:1px; margin-top:12px; }
+.at-acc { background:#dbeafe; color:#1d4ed8; border-radius:4px; padding:0 4px; font-weight:500; white-space:nowrap; }
+.tail { page-break-inside:avoid; margin-top:26px; border-top:2px solid #2563eb; padding-top:14px; }
+.tail p { color:#64748b; font-size:8.5pt; line-height:1.6; margin:0 0 10px; }
+.tail .credit { text-align:center; margin:0; }
+/* Remix Icon 内联 SVG（icon_mode=remix 时由脚本注入，语义色与评分条一致） */
+.ri { width:1.05em; height:1.05em; vertical-align:-0.18em; display:inline-block; }
+.ri-ok { color:#16a34a; } .ri-warn { color:#d97706; } .ri-bad { color:#dc2626; }
+.ri-muted { color:#64748b; } .ri-star { color:#f59e0b; } .ri-brand { color:#2563eb; }
+.ri-gold { color:#d4a017; } .ri-silver { color:#9ca3af; } .ri-bronze { color:#b45309; }
+/* 屏幕预览：@page 边距仅在打印时生效，浏览器中居中限宽并收边（不影响 PDF 输出） */
+@media screen {
+  body { margin: 0 auto; padding: 28px 36px 56px; max-width: 900px; }
+}
+</style></head><body><div class="cover">
+<div class="kicker">开源项目商业化潜力分析 · 第 46 期</div>
+<h1>GitHub 开源项目 Cumora<br>商业价值分析报告</h1>
+<div class="sub">yetone/cumora · AI Agent 团队协作平台 · 九维度加权评估 76.2/100</div>
+<div class="badge"><div class="g">A 级 · 76.2</div><div class="s">综合评分（满分 100）· 高商业化潜力</div></div>
+<div><svg viewBox="0 0 560 480" width="560" height="480" xmlns="http://www.w3.org/2000/svg"><polygon points="280.0,209.6 299.5,216.7 309.9,234.7 306.3,255.2 290.4,268.6 269.6,268.6 253.7,255.2 250.1,234.7 260.5,216.7" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,179.2 319.1,193.4 339.9,229.4 332.7,270.4 300.8,297.1 259.2,297.1 227.3,270.4 220.1,229.4 240.9,193.4" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,148.8 338.6,170.1 369.8,224.2 359.0,285.6 311.2,325.7 248.8,325.7 201.0,285.6 190.2,224.2 221.4,170.1" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,118.4 358.2,146.8 399.8,218.9 385.3,300.8 321.6,354.3 238.4,354.3 174.7,300.8 160.2,218.9 201.8,146.8" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,88.0 377.7,123.6 429.7,213.6 411.6,316.0 332.0,382.8 228.0,382.8 148.4,316.0 130.3,213.6 182.3,123.6" fill="none" stroke="#e2e8f0" stroke-width="1"/><line x1="280.0" y1="240.0" x2="280.0" y2="88.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="377.7" y2="123.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="429.7" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="411.6" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="332.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="228.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="148.4" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="130.3" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="182.3" y2="123.6" stroke="#d8dee9" stroke-width="1"/><polygon points="280.0,110.8 280.0,240.0 377.3,222.8 390.6,303.8 280.0,240.0 280.0,240.0 280.0,240.0 181.2,222.6 211.6,158.5" fill="rgba(37,99,235,.22)" stroke="#2563eb" stroke-width="2.5"/><circle cx="280.0" cy="110.8" r="3.5" fill="#2563eb"/><circle cx="280.0" cy="240.0" r="3.5" fill="#2563eb"/><circle cx="377.3" cy="222.8" r="3.5" fill="#2563eb"/><circle cx="390.6" cy="303.8" r="3.5" fill="#2563eb"/><circle cx="280.0" cy="240.0" r="3.5" fill="#2563eb"/><circle cx="280.0" cy="240.0" r="3.5" fill="#2563eb"/><circle cx="280.0" cy="240.0" r="3.5" fill="#2563eb"/><circle cx="181.2" cy="222.6" r="3.5" fill="#2563eb"/><circle cx="211.6" cy="158.5" r="3.5" fill="#2563eb"/><text x="280.0" y="44.0" text-anchor="middle" font-size="12.5" fill="#334155" font-weight="600">D1</text><text x="280.0" y="58.0" text-anchor="middle" font-size="11" fill="#64748b">市场需求 8.5</text><text x="406.0" y="89.9" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D2</text><text x="406.0" y="103.9" text-anchor="start" font-size="11" fill="#64748b">技术成熟度 N/A</text><text x="473.0" y="206.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D3</text><text x="473.0" y="220.0" text-anchor="start" font-size="11" fill="#64748b">社区生态 6.5</text><text x="449.7" y="338.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D4</text><text x="449.7" y="352.0" text-anchor="start" font-size="11" fill="#64748b">变现潜力 8.4</text><text x="347.0" y="424.2" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D5</text><text x="347.0" y="438.2" text-anchor="start" font-size="11" fill="#64748b">竞争格局 N/A</text><text x="213.0" y="424.2" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D6</text><text x="213.0" y="438.2" text-anchor="end" font-size="11" fill="#64748b">法律合规 N/A</text><text x="110.3" y="338.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D7</text><text x="110.3" y="352.0" text-anchor="end" font-size="11" fill="#64748b">企业就绪 N/A</text><text x="87.0" y="206.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D8</text><text x="87.0" y="220.0" text-anchor="end" font-size="11" fill="#64748b">团队治理 6.6</text><text x="154.0" y="89.9" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D9</text><text x="154.0" y="103.9" text-anchor="end" font-size="11" fill="#64748b">上手难度 7.0</text></svg></div>
+<div class="bars"><div class="bar-row"><span class="bar-name">D1 市场需求</span>
+<span class="bar-track"><span class="bar-fill" style="width:85.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.5</span><span class="bar-w">权重13%</span></div>
+<div class="bar-row"><span class="bar-name">D4 变现潜力</span>
+<span class="bar-track"><span class="bar-fill" style="width:84.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.4</span><span class="bar-w">权重18%</span></div>
+<div class="bar-row"><span class="bar-name">D9 上手难度</span>
+<span class="bar-track"><span class="bar-fill" style="width:70.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.0</span><span class="bar-w">权重10%</span></div>
+<div class="bar-row"><span class="bar-name">D8 团队治理</span>
+<span class="bar-track"><span class="bar-fill" style="width:66.0%;background:#d97706"></span></span>
+<span class="bar-val">6.6</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D3 社区生态</span>
+<span class="bar-track"><span class="bar-fill" style="width:65.0%;background:#d97706"></span></span>
+<span class="bar-val">6.5</span><span class="bar-w">权重11%</span></div>
+<div class="bar-row"><span class="bar-name">D2 技术成熟度</span>
+<span class="bar-track"><span class="bar-fill" style="width:0.0%;background:#dc2626"></span></span>
+<span class="bar-val">N/A</span><span class="bar-w">权重14%</span></div>
+<div class="bar-row"><span class="bar-name">D5 竞争格局</span>
+<span class="bar-track"><span class="bar-fill" style="width:0.0%;background:#dc2626"></span></span>
+<span class="bar-val">N/A</span><span class="bar-w">权重12%</span></div>
+<div class="bar-row"><span class="bar-name">D6 法律合规</span>
+<span class="bar-track"><span class="bar-fill" style="width:0.0%;background:#dc2626"></span></span>
+<span class="bar-val">N/A</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D7 企业就绪</span>
+<span class="bar-track"><span class="bar-fill" style="width:0.0%;background:#dc2626"></span></span>
+<span class="bar-val">N/A</span><span class="bar-w">权重8%</span></div></div>
+<div class="meta">分析时点 2026-09-02 ｜ 数据来源：GitHub API + 仓库代码实测 ｜ 方法论 v1.3</div>
+<div class="credit">报告出品：@魔法工厂　@向量之心　@南山科学家</div>
+<div class="disclaimer"><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</div>
+</div><h1>Cumora 商业化潜力分析报告（完整版）</h1>
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家</p>
+<p>方法论版本: v1.3 | 综合评分: <strong>76.2</strong> | 等级: <strong>A（高商业化潜力）</strong> | 价值画像: 纯商业工具</p>
+</blockquote>
+<h2>一、项目概览</h2>
+<h3>1.1 基本信息</h3>
+<ul>
+<li><strong>项目名称</strong>：yetone/cumora</li>
+<li><strong>仓库地址</strong>：https://github.com/yetone/cumora</li>
+<li><strong>核心技术栈</strong>：TypeScript（全栈）、Electron、React/Vite、Node.js、PostgreSQL、Redis、K8s、WebSocket、Yjs、FUSE</li>
+<li><strong>社区规模速览</strong>：Star 3,386 / Fork 419（Fork 比率 12.4%）/ 贡献者 24 人</li>
+<li><strong>分析时点</strong>：2026-09-01（项目创建于 2026-08-17，上线仅 15 天）</li>
+<li><strong>数据来源</strong>：GitHub API 实采、npm 下载量实采、仓库文档与代码分析</li>
+</ul>
+<h3>1.2 项目分类标签</h3>
+<table>
+<thead>
+<tr>
+<th>分类维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>应用软件（AI Agent 团队协作平台）</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>通用/跨行业（技术团队优先）</td>
+</tr>
+<tr>
+<td>目标用户角色</td>
+<td>技术管理者/CTO、后端开发者、全栈开发者、企业决策者</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>AI Agent 多代理协作、实时团队沟通、大模型编排、任务管理</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>混合部署（托管云 / BYOA 本地 / Electron 桌面 / iOS / Android / PWA）</td>
+</tr>
+</tbody>
+</table>
+<h3>1.3 一句话定位</h3>
+<blockquote>
+<p>Cumora 是一个 AI 原生的跨平台团队协作应用软件，适用于通用/跨行业的技术团队，主要面向技术管理者和开发者，用于在统一的聊天、看板、日历工作空间中实现人类与多个 AI agent 的混合协作与任务执行。</p>
+</blockquote>
+<hr />
+<h2>二、安装部署与使用指南</h2>
+<blockquote>
+<p>上手难度：🟡 中等（7.0/10）——需要具备 Node.js、PostgreSQL 与 Redis 基础，非纯点击式部署。</p>
+</blockquote>
+<p><strong>本地运行（来自 README「Run locally」）</strong></p>
+<p>前提：需要 Postgres 和 Redis（Homebrew 服务即可），以及 OpenAI API Key。</p>
+<pre><code class="language-bash">createdb -h localhost cumora
+export OPENAI_API_KEY=sk-...
+
+npm run setup          # install root + Email Worker dependencies
+npm run dev:all       # Vite renderer on :5180 + API server on :5181
+</code></pre>
+<p>然后打开 http://localhost:5180（PWA 模式）或运行 <code>npm run electron:dev</code> 打开桌面窗口。空数据库会在启动时自动建表，并自动播种一个 starter team（6 个 agent、3 个人类、9 个会话，零消息），所有聊天内容均为实时生成。</p>
+<p><strong>环境变量</strong>：<code>OPENAI_API_KEY</code> 是唯一硬性必需变量，其余均有合理本地默认值（未设置时自动软禁用）：</p>
+<table>
+<thead>
+<tr>
+<th>变量</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DATABASE_URL</code></td>
+<td><code>postgres://$USER@localhost:5432/cumora</code></td>
+</tr>
+<tr>
+<td><code>REDIS_URL</code></td>
+<td><code>redis://localhost:6379</code></td>
+</tr>
+<tr>
+<td><code>PORT</code></td>
+<td><code>5181</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>生产/扩展部署</strong>：仓库未提供 Dockerfile/docker-compose，生产部署参考 <code>server/k8s/</code>（GKE manifests 与部署说明），涉及 Postgres、Redis、Cloudflare Workers（email-gate/r2-gate）、K8s agent pods 等组件；BYOA 本地 agent 节点可用 <code>npx cumora agent computer</code> 启动（详见 <code>docs/BYOA.md</code>）。</p>
+<h2>三、评分总览</h2>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>权重</th>
+<th>加权得分</th>
+<th>评级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1 市场需求与商业机会</td>
+<td>8.5/10</td>
+<td>13%</td>
+<td>1.105</td>
+<td>优</td>
+</tr>
+<tr>
+<td>D2 技术成熟度与产品质量</td>
+<td>N/A</td>
+<td>14%</td>
+<td>—</td>
+<td>分析失败</td>
+</tr>
+<tr>
+<td>D3 社区健康度与生态势能</td>
+<td>6.5/10</td>
+<td>11%</td>
+<td>0.715</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D4 商业模式与变现潜力</td>
+<td>8.4/10</td>
+<td>18%</td>
+<td>1.512</td>
+<td>优</td>
+</tr>
+<tr>
+<td>D5 竞争格局与差异化壁垒</td>
+<td>N/A</td>
+<td>12%</td>
+<td>—</td>
+<td>分析失败</td>
+</tr>
+<tr>
+<td>D6 法律合规与知识产权</td>
+<td>N/A</td>
+<td>7%</td>
+<td>—</td>
+<td>分析失败</td>
+</tr>
+<tr>
+<td>D7 企业就绪度与可运营性</td>
+<td>N/A</td>
+<td>8%</td>
+<td>—</td>
+<td>分析失败</td>
+</tr>
+<tr>
+<td>D8 团队治理与可持续性</td>
+<td>6.6/10</td>
+<td>7%</td>
+<td>0.462</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D9 上手难度与易用性</td>
+<td>7.0/10</td>
+<td>10%</td>
+<td>0.700</td>
+<td>良</td>
+</tr>
+<tr>
+<td><strong>综合评分</strong></td>
+<td>—</td>
+<td>100%</td>
+<td><strong>76.2/100</strong></td>
+<td><strong>A（高商业化潜力）</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>注</strong>：D2/D5/D6/D7 四个维度因分析失败标记为 N/A，综合评分基于其余五个维度计算得出。一票否决检查不完整（D6 缺失），详见第九章风险提示。</p>
+</blockquote>
+<p><strong>平行维度（不计入综合评分）</strong></p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10 功能价值</td>
+<td>7.2/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>D11 社会价值</td>
+<td>5.4/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>公共价值分</td>
+<td>6.3/10</td>
+<td>(D10+D11)/2</td>
+</tr>
+</tbody>
+</table>
+<p><strong>价值画像判定</strong>：综合评分 76.2 ≥ 65 且 公共价值分 6.3 &lt; 7 → <strong>💼 纯商业工具</strong>（按 D4 最优路径直接变现）</p>
+<hr />
+<h2>四、各维度详细分析</h2>
+<h3>D1. 市场需求与商业机会（权重 13%）</h3>
+<h3>分类定位</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>标签</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>项目类型</strong></td>
+<td>应用软件（+ 开发者工具属性）</td>
+<td>核心是团队协作 SaaS 产品，同时 <code>agent-cli</code> 以 npm 包形式发布（BYOA 模式带开发者工具属性）</td>
+</tr>
+<tr>
+<td><strong>适用行业</strong></td>
+<td>通用/跨行业</td>
+<td>不限定行业，面向所有需要人机协作团队的组织</td>
+</tr>
+<tr>
+<td><strong>目标用户</strong></td>
+<td>技术管理者/CTO、后端开发者、全栈开发者、企业决策者</td>
+<td>产品定位为"AI agent 是一等公民的团队聊天"，核心采购者和使用者均为技术团队</td>
+</tr>
+<tr>
+<td><strong>适用场景</strong></td>
+<td>团队协作、研发流程优化、跨工具任务协调</td>
+<td>聊天/看板/日历/邮件多场景融合</td>
+</tr>
+<tr>
+<td><strong>部署形态</strong></td>
+<td>混合部署</td>
+<td>官方托管云（cumora.ai + K8s agent pods）、BYOA（本地 daemon + 用户自己的 Claude Code/Codex）、Electron 桌面端、iOS/Android 移动端、PWA</td>
+</tr>
+</tbody>
+</table>
+<p><strong>一句话定位</strong>：Cumora 是一个 AI 原生的跨平台团队协作应用软件，适用于通用/跨行业的技术团队，主要面向技术管理者和开发者，用于在统一的聊天、看板、日历工作空间中实现人类与多个 AI agent 的混合协作与任务执行。</p>
+<h3>D1.1 目标市场规模与增长性 — 2.0 / 2.5（8.0/10）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TAM 估算</td>
+<td>团队协作软件（Slack/Teams 所在的赛道）本身为百亿美元级存量市场；叠加 AI Agent 平台新赛道，可触达市场（TAM）定位在<strong>百亿美元级增长赛道</strong>。但 Cumora 当前对应的是其中"多 agent 团队协作"这一细分，SAM 按十亿美元级估计较为稳妥</td>
+</tr>
+<tr>
+<td>增长趋势</td>
+<td>强增长。AI agent 从 2025 年的单 agent 工具走向 2026 年的多 agent 协作，正处于需求爆发早期；repo 创建仅两周即获 3.4k star、24 位贡献者、90 天内 132 个 PR，间接印证赛道热度</td>
+</tr>
+<tr>
+<td>市场层级</td>
+<td>新兴蓝海（agent 协作层尚未有占据心智的垄断产品）</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>市场规模数字为基于行业类别的量级估算（未引用外部数据源，置信度中低）。判断依据：项目是"团队沟通 + AI agent 平台"双属性叠加，且当前 AI agent 平台赛道处于爆发初期，累计融资额与行业热度位于所有软件品类前列。</p>
+</blockquote>
+<h3>D1.2 痛点真实性与解决程度 — 2.0 / 2.5（8.0/10）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>痛点真实性</td>
+<td>真实。多 agent 并行执行任务时，<strong>上下文隔离、任务抢占、重复劳动、结果不可追溯</strong>是团队落地 agent 时的硬障碍；Cumora 的 seen-cursor 新鲜度仲裁、原子任务认领、llm_calls 成本台账直击这些痛点</td>
+</tr>
+<tr>
+<td>解决完整度</td>
+<td>较完整。不仅提供聊天，还包含看板、日历、邮件收发（进来/发出）、记忆/persona、多脑模型分级（big-brain 防护）、BYOA 沙箱边界；14 万行代码 + 28,735 行测试（测试占比 20.5%），8 个 CI workflow（含 benchmark 真实 LLM 协调基准），工程完成度达到产品级而非 demo</td>
+</tr>
+<tr>
+<td>替代成本</td>
+<td>有替代品但体验更差。用户可组合"Slack + AutoGen/CrewAI + 自建脚本"实现部分功能，但需要自己解决 agent 协作时的消息仲裁、工作认领、邮箱、成本记账等问题，集成成本高</td>
+</tr>
+</tbody>
+</table>
+<p><strong>数据依据</strong>：README 描述的功能广度和架构深度；<code>docs/COORDINATION.md</code>（详细描述 agent 冲突防护设计）；<code>benchmarks/</code>（真实 LLM 多 agent 协调基准，含 werewolf、kanban 等场景）；<code>llm_calls</code> 成本台账机制；<code>agent-fuse</code>（Go FUSE 文件系统挂载 agent 工作区）属高成本系统性投入，非自嗨型项目。</p>
+<h3>D1.3 市场时机判断 — 2.5 / 2.5（9.0/10）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术成熟度曲线</td>
+<td>AI agent 已越过"期望膨胀期"进入"实质生产期"（Claude Code、Codex、OpenAI Responses API 均已在生产环境广泛使用），但<strong>多 agent 团队级协作</strong>仍处于"爆发前夜"——工具的普及（agent 已经能干实事）已就绪，组织级协作编排层刚起步</td>
+</tr>
+<tr>
+<td>竞争密度</td>
+<td>极低。Slack/Teams 尚未将该能力深度原生内置（2026 年仍以"添加单 bot"为主）；主流开源项目多为单 agent 编排框架（Agent 框架）或单 agent CLI 工具，尚未出现占据"agent 团队空间"心智的高星项目。Cumora 在 2 周内获得 3.4k star，反映市场对"agent 协作空间"的饥渴</td>
+</tr>
+<tr>
+<td>监管/标准</td>
+<td>无明显阻碍性监管；BYOA 的 fail-closed 文件系统、命令网络、子进程凭据边界等设计提前响应了企业安全合规诉求，有助于企业采购</td>
+</tr>
+</tbody>
+</table>
+<p><strong>数据依据</strong>：项目创建于 2026-08-17，两周内 10 个 release，star 增速极快；<code>docs/BYOA.md</code> 明确的沙箱边界设计；PR 90 天 132 个，issue 关闭 23 个，社区活跃度处于爆发期。此时机窗口是最大加分项。</p>
+<h3>D1.4 应用场景广度 — 2.0 / 2.5（8.0/10）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>行业覆盖</td>
+<td>跨行业通用，不受行业属性限制（所有知识型团队均适用），且天然适配远程/分布式团队</td>
+</tr>
+<tr>
+<td>场景多样性</td>
+<td>横向 + 纵向结合：聊天/看板/日历/邮件覆盖通用协作场景；BYOA（Claude Code/Codex）深度绑定开发者场景；文档还支持 I18N 多语言及 push notifications，具备泛行业传播的基础</td>
+</tr>
+<tr>
+<td>可延展性</td>
+<td>核心能力（多 agent 协调、成本台账、记忆、邮件网关、沙箱运行时）可自然迁移至客服工单、研发管理、销售运营等相邻场景；架构上 Electron/PWA/iOS/Android 四端已就绪，新平台接入成本低</td>
+</tr>
+</tbody>
+</table>
+<p><strong>数据依据</strong>：README 中"same Kanban board and calendar"、"send and receive real email"等功能说明；Electron/桌面/PWA/Capacitor iOS/Android 全平台覆盖；<code>server/k8s/gke.md</code> 与 Cloudflare Workers（email-gate/r2-gate）说明部署已支持云原生大型集群，非单一场景玩具项目。</p>
+<h3>结论</h3>
+<p><strong>D1 维度评分：8.5 / 10</strong></p>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>小分（满分2.5）</th>
+<th>10分制</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1.1 目标市场规模与增长性</td>
+<td>2.0</td>
+<td>8.0</td>
+</tr>
+<tr>
+<td>D1.2 痛点真实性与解决程度</td>
+<td>2.0</td>
+<td>8.0</td>
+</tr>
+<tr>
+<td>D1.3 市场时机判断</td>
+<td>2.5</td>
+<td>9.0</td>
+</tr>
+<tr>
+<td>D1.4 应用场景广度</td>
+<td>2.0</td>
+<td>8.0</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>8.5</strong></td>
+<td><strong>8.5</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Cumora 所解决的"多 agent 团队级协作"问题正处于技术成熟度与市场需求交叉的最佳窗口：agent 单点能力已成熟（Claude Code/Codex 已被大量开发者使用），但组织级 agent 编排与协作仍属空白赛道。项目在产品完整性上已远超同类早期项目（工程成熟度接近商业产品），且两周 3.4k star 的增速印证了需求的真实性。主要风险在于：AI agent 协作市场仍处于早期教育阶段，实际付费意愿尚未验证；市场规模估算置信度中低（无外部数据源支撑）。总体为"高增长 + 好时机 + 强产品"组合，市场需求维度表现优秀。</p>
+<h3>D2. 技术成熟度与产品质量（权重 14%）</h3>
+<p><strong>结论</strong>：Cumora 在技术成熟度与产品质量维度表现优秀，综合得分 <strong>8.0/10</strong>。项目虽然诞生仅两周、版本仍处于 v0.9 预发布期，但工程实现深度与生产化程度显著高于同类早期项目：全栈 TypeScript Monorepo 架构清晰，服务端/客户端/移动端/代理运行时均有良好抽象；安全编码实践尤为突出；CI/CD 体系完整且带生产级自动回滚。主要短板集中在超长单文件技术债、预发布版本稳定性承诺尚未建立、依赖漏洞扫描缺失三方面。</p>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D2.1 产品设计与创新性</td>
+<td>1.5</td>
+<td>1.2</td>
+<td>产品理念新颖：将 AI Agent 作为一等公民的团队聊天，支持云脑与 BYOA（Claude Code / Codex）双模式，与 Slack/Discord 等传统聊天工具有明确差异化。功能围绕 Agent 协作场景展开（文档协同、看板、日历、邮件网关、可观测性、发布管理），信息架构具有原创性；但整体仍处 v0.9，部分功能（如 Convene）仍为 ComingSoon，未达到满分档</td>
+</tr>
+<tr>
+<td>D2.2 架构设计与工程质量</td>
+<td>2.0</td>
+<td>1.6</td>
+<td>Monorepo 分层清晰：<code>server/src/agents</code>（代理运行时）、<code>src/desktop</code> / <code>src/mobile</code>（双端 UI）、<code>agent-fuse</code>（Go FUSE）、<code>workers</code>、<code>docs</code> 划分合理。大量优秀抽象（<code>AgentRuntimeClient</code> 的 in-proc/HTTP 双实现、OAuth ProviderConfig 策略模式、<code>FEATURE_TRANSITIONS</code> 状态机、进程树终止/自适应限速等算法）；复刻门槛高。但 <code>server/src/api/router.ts</code>（约 6000 行）、<code>agents/cli.ts</code>（约 6000</td>
+</tr>
+</tbody>
+</table>
+<h3>D3. 社区健康度与生态势能（权重 11%）</h3>
+<p>当前评估时点距项目创建（2026-08-17）仅约半月，社区数据处于早期爆发阶段。整体来看，<strong>社区活跃度极高，但第三方生态与品牌沉淀尚处于起步状态</strong>，社区势能高度集中于项目本身的增长动能，外部生态闭环尚未形成。</p>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D3.1 社区活跃度指标（3 分）</td>
+<td>2.4</td>
+<td>7–8 良好</td>
+<td>90 天窗口折算 Star 月增约 1,129（3386÷3），远超 500/月阈值；Fork/Star 比率 12.4%，衍生意愿强；近 90 天 PR 132 个、Issue 关闭 23 个，开放仅 8 个；8 天内发布 10 个 Release（v0.2.0→v0.9.0）。Issue 平均关闭时间未精确取到，未能确认 &lt;2 天，故不打满档</td>
+</tr>
+<tr>
+<td>D3.2 贡献者结构多样性（2.5 分）</td>
+<td>2.0</td>
+<td>7–8 良好</td>
+<td>贡献者共 24 人，处于 20–50 人活跃区间；项目成立不足 1 个月即有 132 个 PR，参与意愿强。组织分布数据未核验，不能确认 5+ 组织，故取良好档而非卓越</td>
+</tr>
+<tr>
+<td>D3.3 第三方生态成熟度（3 分）</td>
+<td>1.2</td>
+<td>3–4 较弱</td>
+<td>Topics 为空，无插件市场、无第三方集成列表、无衍生项目或教程证据；官方已形成 releases 仓库、网站、iOS beta、BYOA CLI 等自有生态闭环，但尚未出现外部生态，故未落入“完全孤立”</td>
+</tr>
+<tr>
+<td>D3.4 品牌认知与行业影响力（1.5 分）</td>
+<td>0.9</td>
+<td>5–6 一般</td>
+<td>项目有独立产品名“Cumora”、官网与多端产品，半个月内聚集 3,386 Star，说明小圈子内已有认知；但无知名企业采用背书、无媒体/会议覆盖证据，品牌影响力仍局限早期用户群</td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：D3 维度总分 <strong>6.5/10</strong>，处于一般偏上。社区活跃度是当前最突出优势——Star 增速、PR 量、Release 节奏均达到活跃开源项目水平，这些用户即为潜在客户池；但第三方生态和行业背书尚未建立，社区势能仍高度依赖项目自身增长。商业化上应尽快将高活跃社区转化为插件/集成生态和可验证的行业案例，否则早期热度可能随项目迭代放缓而回落。</p>
+<h3>D4. 商业模式与变现潜力（权重 18%）</h3>
+<h4>维度总览</h4>
+<p>Cumora 定位为「AI agent 团队协作平台」，商业化基础设施铺设远超同阶段开源项目：服务端具备完整的云托管架构（K8s agent pods、Postgres/Redis、llm_calls 成本账本），客户端已发布桌面/Web/iOS/Android 四端，并内置 posthog-js 分析、admin 管理壳、waitlist/invites 邀请机制。MIT 协议对变现路径零约束，BYOA + Cloud 双路径天然形成「免费自托管 → 付费托管」的分层。本维度得分 <strong>8.4/10</strong>，在全部维度中表现突出，反映项目具有清晰的商业化潜力和可扩展的定价空间。</p>
+<h4>细则评分表</h4>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>关键判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D4.1 协议对变现模式的影响</td>
+<td>2.0</td>
+<td>2.0</td>
+<td>100%（卓越）</td>
+<td>MIT 协议，所有变现路径无障碍</td>
+</tr>
+<tr>
+<td>D4.2 变现路径清晰度</td>
+<td>3.5</td>
+<td>2.8</td>
+<td>80%（良好）</td>
+<td>SaaS 托管主路径 + Open Core 备选路径</td>
+</tr>
+<tr>
+<td>D4.3 付费转化逻辑</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>80%（良好）</td>
+<td>BYOA/Cloud 双路径转化触发点自然</td>
+</tr>
+<tr>
+<td>D4.4 增值服务空间与定价天花板</td>
+<td>2.0</td>
+<td>1.6</td>
+<td>80%（良好）</td>
+<td>多维增值方向，客单价 $1K–10K/年</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>8.4</strong></td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h4>D4.1 协议对变现模式的影响（2.0/2.0）</h4>
+<p><strong>数据依据</strong>: LICENSE 文件为 MIT License（Copyright (c) 2026 yetone），package.json 及仓库元数据一致确认。</p>
+<p>MIT 协议是商业化约束最小的开源协议。Cumora 因此可自由选择任意变现路径：
+- <strong>SaaS 托管</strong>：直接面向终端用户运营 Cumora Cloud，无 AGPL/SSPL 类协议对云服务提供商的限制；
+- <strong>Open Core</strong>：可将 admin、企业级安全/合规功能设为闭源付费层，MIT 核心代码无传染性义务；
+- <strong>双协议</strong>：作者保留对核心代码的另行商业授权权利（MIT 下版权方不受自身授权限制）；
+- <strong>第三方托管竞品风险</strong>：MIT 同时允许第三方直接托管 Cumora 提供竞品服务，这是唯一需要关注的竞争性风险，但不影响版权方自身的商业路径。</p>
+<p><strong>判定理由</strong>: 协议类型为最高自由度档位（MIT/Apache 2.0），所有变现路径均无障碍，给予满分区间上限（100%）。</p>
+<h4>D4.2 变现路径清晰度（2.8/3.5）</h4>
+<p><strong>数据依据</strong>: README 明确「Cumora Cloud — each agent runs in a managed per-agent pod」；代码中 <code>server/</code> 为无状态 Node 服务 + K8s 编排；<code>.env.example</code> 提及 waitlist/invites、metrics、sub2api per-user LLM gateway；存在 <code>src/admin</code> 壳层；接入 posthog-js 用户分析。</p>
+<p>项目已具备两条可辨识的变现路径：</p>
+<ol>
+<li><strong>主路径：SaaS 托管（Cumora Cloud）</strong>。基础设施为按用量计费已完全就位：<code>llm_calls</code> 成本账本记录每一笔 LLM 调用（README 原文：<em>"every LLM call — cloud or BYOA — lands in one llm_calls cost ledger"</em>）；agent 运行在按 agent 隔离的 K8s pod 中（per-agent pod），天然形成按 agent 席位 + 算力用量的计费单元。这一路径有大量成功先例参照（GitLab/Supabase/Linear）。宿主服务 cumora.ai 已上线，桌面端通过 <code>cumora-releases</code> 仓库分发，iOS TestFlight beta 已开放，显示产品已进入可运营状态。</li>
+<li><strong>备选路径：Open Core 企业版</strong>。admin 壳层 + waitlist/invites 邀请管理 + metrics 监控 + sub2api 组织级 LLM 网关，均为典型企业版功能边界，可闭源化为付费层。</li>
+</ol>
+<p><strong>判定理由</strong>: 「有 1 条主路径清晰可行，有 1 条备选路径」，落于 7–8 分档。项目仅上线 2 周（首个 release v0.2.0 于 8 月 22 日），尚无公开定价或付费用户数据，因此未到 9–10 档（需 2+ 条已获验证的路径）。</p>
+<h4>D4.3 付费转化逻辑（2.0/2.5）</h4>
+<p><strong>数据依据</strong>: README 的 BYOA 说明（用户以 <code>npx cumora agent computer</code> 在本地运行 agent，服务器永不见用户 provider keys）与 Cloud 托管形成功能分层；<code>llm_calls</code> 账本构成用量计费的数据基础。</p>
+<p>付费转化设计在架构层面已有机嵌入：</p>
+<ul>
+<li><strong>免费到付费的触发点</strong>：BYOA 模式——用户自带 OpenAI/Claude 等 API key、自行运行 agent daemon——零平台成本，可视为免费层级；当用户需要跨平台同步、免运维、团队多端接入时，自然升级至 Cumora Cloud 托管。触发点符合「免费不够用 → 自然升级付费」的模式，且不牺牲用户数据隐私（BYOA 下服务器不掌握密钥）。</li>
+<li><strong>付费意愿强度</strong>：目标用户群体为 AI agent 重度使用者与团队（企业/开发者），此类群体对可节省算力管理成本、提升 agent 协作效率的工具型产品付费习惯已成熟（参照 Cursor、GitHub Copilot 的付费渗透率）。当前处于 AI 协作工具的早期增长市场，付费意愿整体偏强。</li>
+<li><strong>转化漏斗</strong>：开源 GitHub 用户（3386 stars）→ 本地自托管/ BYOA 使用者 → 团队协作需求 → Cumora Cloud。漏斗路径自然且无强制卡点。</li>
+</ul>
+<p><strong>判定理由</strong>: 有合理的升级触发点（本地 → 托管便利性），付费意愿中等偏上，落于 7–8 分档。减分因素：转化逻辑中「便利性」驱动相比功能阉割驱动（如限量/限流）强度偏弱，且 MIT 协议下第三方托管可能分流付费转化。</p>
+<h4>D4.4 增值服务空间与定价天花板（1.6/2.0）</h4>
+<p><strong>数据依据</strong>: 功能矩阵包括 Kanban 看板、日历、真实邮件收发（Resend + Cloudflare Email Worker）、推送通知（APNs/FCM）、R2 存储/CDN、Failed-closed 沙箱边界（BYOA）；<code>server/k8s/gke.md</code> 提供 GKE 企业部署指南。</p>
+<p>增值服务空间评估：</p>
+<table>
+<thead>
+<tr>
+<th>增值方向</th>
+<th>变现方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Agent 托管算力</td>
+<td>按 agent 席位 + LLM token 用量计费（llm_calls 账本已就位）</td>
+</tr>
+<tr>
+<td>团队/企业管理</td>
+<td>admin 面板、邀请管理、metrics 监控、组织级 LLM 网关（sub2api）</td>
+</tr>
+<tr>
+<td>邮件/推送配额</td>
+<td>按量收费（每 agent 独立邮箱、推送通道）</td>
+</tr>
+<tr>
+<td>企业合规与 SLA</td>
+<td>专属 K8s 部署、SLA 保障、SSO/审计（admin 壳层已预留）</td>
+</tr>
+<tr>
+<td>Agent 技能生态</td>
+<td>skills 机制已出现在 agent runtime，可扩展为市场/插件抽成</td>
+</tr>
+</tbody>
+</table>
+<p>定价天花板参照：AI 原生协作工具（Cursor 团队版 $40/人/月、GitHub Copilot $19/人/月）+ 团队聊天（Slack Pro ~$8.75/席/月）。Cumora 以 agent 为计费单元，10–50 人 + 10–50 agent 的小型团队年客单价可达 <strong>$2K–30K</strong>，中位 $1K–10K 区间。收入扩展性良好：可从 per-seat/per-agent 扩展至 per-token 用量加价 + 企业固定年费（enterprise flat fee），且 LLM 用量随 agent 活跃度增长具备自然增长飞轮。</p>
+<p><strong>判定理由</strong>: 「有明确增值方向，客单价 $1K–10K/年」，落于 7–8 分档。项目早期无实际定价可验证，且自托管替代选项会压低托管付费上限，暂不构成 9–10 档的「$10K+ 客单价」显著优势。</p>
+<h4>综合结论</h4>
+<p>Cumora 在商业模式维度展现出<strong>高潜力的早期商业化结构</strong>，主要优势在于：<strong>(1)</strong> MIT 协议零约束、双向路径（Cloud/BYOA）构成天然的免费-付费分层；<strong>(2)</strong> 计费与产品化基础设施（llm_calls 账本、posthog、admin 壳、waitlist）显示作者已系统性地为变现铺路，而非纯社区项目；<strong>(3)</strong> 增值扩展维度丰富，收入模型可从席位订阅扩展到用量加价与生态抽成。</p>
+<p>主要不确定性：项目上线仅 2 周，无公开定价、无付费用户或收入证据，商业模式尚处于「路径已铺设、验证未启动」阶段。此外，MIT 协议下第三方托管竞品是潜在威胁，需要以品牌、持续迭代速度和企业功能壁垒应对。综合评分 <strong>8.4/10</strong>，构成较强的投资/商业化加分项。</p>
+<h3>D5 竞争格局与差异化壁垒</h3>
+<p>分析失败（DeepSeek 调用重试仍失败: 模型返回空内容），本维度标 N/A。</p>
+<h3>D6. 法律合规与知识产权</h3>
+<p><strong>维度得分：8.1/10（权重 7%）｜风险等级：低</strong></p>
+<p>本项目法律合规状况优良。项目采用标准 MIT License——开源协议中商业限制最小的形态，无 copyleft 传染、无附加商业限制条款；依赖链整体为宽松许可证，未发现 GPL/AGPL 高风险依赖；贡献者协议层面有明确的入站许可声明。主要风险敞口在于商标与专利状态未经人工核查（该环节无法由 AI 自动化完成），以及无正式 CLA/DCO 工具对未来协议变更的潜在制约。</p>
+<h4>细则打分表</h4>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D6.1 开源协议合规性与商业限制</td>
+<td>3</td>
+<td>3.0</td>
+<td>9–10</td>
+<td>LICENSE 为标准 MIT 模板，package.json license 字段 = MIT，SPDX 标识规范；无 copyleft、无 Commons Clause/BUSL 等附加条款</td>
+</tr>
+<tr>
+<td>D6.2 依赖链法律风险</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8</td>
+<td>54 个直接依赖均为 MIT/Apache-2.0/BSD 等宽松许可，未发现传染性依赖；依赖数中等，合规成本可控</td>
+</tr>
+<tr>
+<td>D6.3 商标与专利风险</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6</td>
+<td>未经人工核查，按方法论默认档位计分，置信度低</td>
+</tr>
+<tr>
+<td>D6.4 贡献者协议完备性</td>
+<td>2</td>
+<td>1.6</td>
+<td>7–8</td>
+<td>CONTRIBUTING.md 声明贡献即同意 MIT 许可，流程规范；但无正式 CLA/DCO 工具及 CODEOWNERS</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>8.1</strong></td>
+<td>—</td>
+<td>法律层面无实质性商业化障碍</td>
+</tr>
+</tbody>
+</table>
+<h4>D6.1 开源协议合规性与商业限制 — 3.0/3（档位：9–10）</h4>
+<p><strong>协议形态</strong>：标准 MIT License，版权人 yetone（Copyright (c) 2026）。LICENSE 文件完整规范，package.json 中 license 字段标为 <code>"MIT"</code>，与 LICENSE 文件一致，SPDX 标识合规。</p>
+<p><strong>传染性审查</strong>：项目自身为 MIT 协议，无 copyleft 条款。直接依赖中未发现 GPL/AGPL 传染性协议（详见 D6.2），依赖链不会对下游产生许可传染。</p>
+<p><strong>商业附加条款</strong>：无 Commons Clause、BUSL、SSPL 等限制商业使用的附加条款。MIT 协议允许任意商业使用、闭源分发、SaaS 托管及付费服务，对变现模式（含云服务、桌面/移动端分发、企业版）零法律障碍。</p>
+<p><strong>合规可管理性</strong>：MIT 唯一义务为保留版权声明，合规成本极低。综合评估为法律合规风险最友好的协议形态。</p>
+<h4>D6.2 依赖链法律风险 — 2.0/2.5（档位：7–8）</h4>
+<p>对根目录 <code>package.json</code> 的 54 个直接依赖及其子项目依赖进行了逐项许可审查：</p>
+<ul>
+<li><strong>全部直接依赖均为主流宽松许可证</strong>：AWS SDK（Apache-2.0）、Capacitor 全家桶（MIT/Apache-2.0）、Tiptap 编辑器生态（MIT）、yjs 协同生态（MIT）、Express（MIT）、React（MIT）、OpenAI SDK（Apache-2.0）、drizzle-orm（Apache-2.0）、ioredis（MIT）、pg（MIT）等，均为来源可靠的高知名度开源包。</li>
+<li><strong>无传染性依赖</strong>：未发现 GPL/AGPL/LGPL 直接依赖。子项目 <code>agent-fuse/go.mod</code> 中的 go-fuse 为 MIT/Apache-2.0 双许可，同样安全。</li>
+<li><strong>依赖数量处于中等规模</strong>：根包 54 个直接依赖，另有 agent-cli、benchmarks、email-gate、r2-gate 等独立子项目依赖。传递依赖的完整逐层审查需工具辅助（如 FOSSA、ScanCode），但直接依赖层面的合规状态高度健康，整体可控。</li>
+</ul>
+<h4>D6.3 商标与专利风险 — 1.5/2.5（档位：5–6）</h4>
+<blockquote>
+<p><strong>自动化限制声明</strong>：商标检索与专利排查无法由 AI 自动完成，本评估无人工核查数据，按方法论默认档位（5–6）计分，<strong>置信度低</strong>。以下判断不构成法律意见。</p>
+</blockquote>
+<ul>
+<li><strong>商标可用性</strong>："Cumora" 项目名称的商标注册状态、是否与现有商标冲突，未进行检索。项目主页为 cumora.ai，应用标识为 <code>io.cumora.app</code>，若该名称已在软件/通信服务类别被他人注册，将影响品牌使用。</li>
+<li><strong>专利风险</strong>：项目核心涉及 AI 多智能体协作、实时协同通信技术，该领域专利布局密集，未进行自由实施（FTO）分析。</li>
+<li><strong>商标政策</strong>：仓库内未发现 TRADEMARK 文件或 README 中的商标使用声明，衍生品使用 "Cumora" 名称的边界不明确。</li>
+</ul>
+<p><strong>建议</strong>：在融资、企业级销售或大规模市场推广前，委托专业机构完成商标检索和 FTO 分析。</p>
+<h4>D6.4 贡献者协议完备性 — 1.6/2（档位：7–8）</h4>
+<p><strong>贡献许可机制</strong>：CONTRIBUTING.md 明确声明 <em>"By contributing you agree that your contributions are licensed under the project's MIT License"</em>——贡献者一旦提交即自动授予 MIT 许可，入站许可（inbound license）法律效力清晰。这构成基本的贡献许可协议，但未配置 CLA Assistant、DCO Bot 等正式工具，也无 signed-off-by 机制。</p>
+<p><strong>版权归属</strong>：当前代码库版权集中于原始作者 yetone（LICENSE 声明 Copyright (c) 2026 yetone），在现有 MIT 框架下版权可控。但若未来采用 open-core 双协议模式，因无 CLA，已接受的社区贡献版权分散于各贡献者，换用商业协议需逐一取得许可，存在迁移成本。</p>
+<p><strong>贡献流程</strong>：CONTRIBUTING.md 内容规范——明确的本地检查门禁（lint/typecheck/test/integration）、CI 强制架构不变量（big-brain 模型路由、LLM 成本追踪）、commit/PR 卫生要求、安全漏洞报告路径（SECURITY.md），达到规范的贡献流程标准。</p>
+<h4>关键风险与建议</h4>
+<ol>
+<li><strong>商标/专利是唯一未验证环节</strong>：本维度当前得分因 D6.3 未经人工核查被拉低，若完成检索确认无冲突，维度得分可升至约 9.3/10。建议列入商业化前必办清单。</li>
+<li><strong>无 CLA 对未来协议演进构成潜在制约</strong>：若计划转向 open-core 双协议，应在贡献者规模扩大前启用 CLA 归档，避免社区贡献版权碎片化。</li>
+<li><strong>依赖合规管理宜自动化</strong>：当前直接依赖合规无忧，但随着项目演进，建议引入自动依赖许可扫描（如 FOSSA/license-checker）纳入 CI，持续维护合规基线。</li>
+</ol>
+<h3>D7. 企业就绪度与可运营性（权重 8%）</h3>
+<p>Cumora 在企业级运营能力上展现出显著高于同类开源项目的成熟度：完整的构建—部署—回滚流水线、幂等自动迁移、多租户 RBAC + 多提供商 OAuth SSO、SSRF/CSRF/XSS 多层安全防护、无状态水平扩展架构以及 LLM 成本级可观测性。综合得分 <strong>8.0/10</strong>（良好档，高于行业平均，无明显短板）。</p>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>小分</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D7.1 运维复杂度与升级路径（3.0 分）</td>
+<td><strong>2.4</strong>（80%）</td>
+<td>环境变量配置清晰（<code>OPENAI_API_KEY</code> 为唯一硬性必填，其余均有默认值与软降级）；迁移幂等自动执行；生产部署有自动回滚机制。</td>
+</tr>
+<tr>
+<td>D7.2 安全管理与权限控制（2.5 分）</td>
+<td><strong>2.0</strong>（80%）</td>
+<td>OAuth SSO（Google/GitHub/GitLab/Apple）+ 多租户 RBAC + 多层安全加固；缺 SAML/LDAP 与静态加密说明。</td>
+</tr>
+<tr>
+<td>D7.3 可扩展性与高可用能力（2.5 分）</td>
+<td><strong>2.0</strong>（80%）</td>
+<td>无状态后端 + Redis 总线，原生水平扩展设计；K8s 部署</td>
+</tr>
+</tbody>
+</table>
+<h3>D8. 团队治理与可持续性（权重 7%）</h3>
+<p><strong>维度得分：6.6/10</strong></p>
+<h4>D8.1 核心维护者能力与背景（2.5 分）— 2.0/2.5</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术能力</td>
+<td>代码库呈现极高工程水准：TypeScript 严格模式（~10.5 万行）、跨端架构（Web/Electron/iOS/Android）、CI 内置架构守卫（成本模型、LLM 调用追踪）、详细 CONTRIBUTING 规范，表明核心维护者具备全栈 + AI 基础设施的综合技术能力</td>
+</tr>
+<tr>
+<td>商业经验</td>
+<td>未发现维护者公司/创业背景公开信息；项目域名 cumora.ai 及隐私邮箱 hint 可能有商业实体，但无披露，无法验证</td>
+</tr>
+<tr>
+<td>投入度</td>
+<td>极高：项目建仓 15 天内发布 10 个版本（v0.2.0→v0.9.0），PR 90 天 132 个（实际运行期仅约 15 天），呈现全职级投入强度</td>
+</tr>
+<tr>
+<td>巴士因子</td>
+<td>仓库共 24 名贡献者，但无 CODEOWNERS 与核心团队名单，核心维护者身份不透明；按贡献者规模估计 ≥3，但高度依赖少数核心成员</td>
+</tr>
+</tbody>
+</table>
+<p><strong>依据</strong>：GitHub 贡献者 24 人、recent_releases 10 个、代码规模与架构质量。此细项给 80% 档。</p>
+<h4>D8.2 治理模型透明度（2 分）— 1.2/2.0</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>治理文档</td>
+<td>无 GOVERNANCE.md、无路线图/决策流程文档；CONTRIBUTING.md 详尽（开发环境、CI 门禁、架构不变量、提交规范），SECURITY.md 定义安全信任模型</td>
+</tr>
+<tr>
+<td>开放程度</td>
+<td>外部贡献者可提交 PR 并参与讨论，但决策由核心团队主导；无公开 RFC / 决策记录</td>
+</tr>
+<tr>
+<td>基金会/组织</td>
+<td>不隶属于 CNCF/Apache/Linux Foundation 等基金会，也无 GitHub Organization</td>
+</tr>
+</tbody>
+</table>
+<p><strong>依据</strong>：仓库内 doc_files 仅列出 CONTRIBUTING.md、SECURITY.md，无 governance 文件；CODECOVERS 缺省。此细项介于“基本治理结构”与“简单贡献指南”之间，给 60% 档。</p>
+<h4>D8.3 资金支持与商业赞助（2.5 分）— 1.0/2.5</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>现有资金</td>
+<td>无公开融资/基金支持信息；基础设施依赖 AWS S3、Postgres、Redis、APNs/FCM 等，暗示可能由某公司承担成本，但未披露</td>
+</tr>
+<tr>
+<td>赞助收入</td>
+<td>GitHub 页面未显示 Sponsors/Open Collective 配置，无公开赞助渠道</td>
+</tr>
+<tr>
+<td>商业实体</td>
+<td>出现 cumora.ai 域名邮箱（privacy@cumora.ai），疑似有商业实体，但仓库未标明所属组织</td>
+</tr>
+<tr>
+<td>资金可持续性</td>
+<td>项目刚创建 2 周，资金可持续性无法判断，当前主要靠理想/热情驱动</td>
+</tr>
+</tbody>
+</table>
+<p><strong>依据</strong>：补采数据无 sponsors 字段、无组织信息、无融资公告。此细项按“几乎无资金支持，纯靠热情”的 40% 档。</p>
+<h4>D8.4 项目可持续性与传承风险（3 分）— 2.4/3.0</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>活跃趋势</td>
+<td>上升趋势极陡：创建于 2026-08-17，pushed_at 仅 2 周后，期间 10 个 release；Star 3.4k、Fork 419、PR 132 个，处于爆发期</td>
+</tr>
+<tr>
+<td>维护延续性</td>
+<td>有完整 CONTRIBUTING + CI 门禁 + 架构文档，基础结构具备传承条件；但项目过新，社区治理模式未经验证</td>
+</tr>
+<tr>
+<td>历史信号</td>
+<td>archived=false，无 deprecation 标记，无关闭风险信号</td>
+</tr>
+<tr>
+<td>分叉风险</td>
+<td>fork 419 与 star 比例正常，未见分裂迹象，无替代社区</td>
+</tr>
+</tbody>
+</table>
+<p><strong>依据</strong>：recent_releases 密集、open_issues 仅 8 个、CI 配置 8 个 workflow。活跃度持续性极强但传承机制未成熟，给 80% 档。</p>
+<h4>结论</h4>
+<p>项目处于极高强度的早期爆发期，核心维护者技术实力与投入度突出，工程规范远超同类开源项目；但治理文档、资金渠道、组织形式均未建立，项目可持续性高度依赖当前核心团队的状态。当前阶段商业化团队若引入，需重点关注<strong>核心团队稳定性和治理制度化</strong>两大风险。</p>
+<h1>D9 上手难度与易用性分析</h1>
+<p><strong>总分：7.0 / 10</strong>（🟡 中等）</p>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>小分</th>
+<th>满分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D9.1 安装难度</td>
+<td>1.5</td>
+<td>2.5</td>
+<td>5–6 档（60%）</td>
+<td>无 Dockerfile，需要手动安装并启动 Postgres/Redis 两个外部系统级依赖；Node 依赖可通过 <code>npm run setup</code> 一条命令安装；README 步骤清晰，但不支持一键安装</td>
+</tr>
+<tr>
+<td>D9.2 部署与配置难度</td>
+<td>1.5</td>
+<td>2.5</td>
+<td>5–6 档（60%）</td>
+<td>本地运行需手动 <code>createdb</code> 并启动两个外部服务；生产部署组件多（K8s、Cloudflare Workers、Postgres、Redis 等），无容器化一键编排；schema 自动创建、seed 数据到位、环境变量默认值合理是加分项</td>
+</tr>
+<tr>
+<td>D9.3 易用性与操作门槛</td>
+<td>2.0</td>
+<td>2.5</td>
+<td>7–8 档（80%）</td>
+<td>产品形态为 GUI（Web/Electron/iOS/Android），最终用户日常操作直观；默认配置开箱即用（soft-disable 机制）；BYOA CLI 面向开发者；错误提示细节未见资料，未给满分</td>
+</tr>
+<tr>
+<td>D9.4 学习曲线与首体验</td>
+<td>2.0</td>
+<td>2.5</td>
+<td>7–8 档（80%）</td>
+<td>README quickstart 仅 3 步（createdb + 环境变量 + npm run setup/dev:all），环境就绪后 10 分钟内可跑通 Demo；空库自动 seed 团队与对话，快速产生「Aha Moment」；无交互式教程，需一定的 Node/数据库基础</td>
+</tr>
+</tbody>
+</table>
+<p><strong>逐项分析</strong></p>
+<ul>
+<li><strong>D9.1 安装难度</strong>：项目属于「需要自备 Postgres + Redis」的安装模式，且无容器化封装，对非技术用户不友好；但 Node 依赖管理集中、README 给出了直接可复制的命令，开发者安装成本较低。综合按 5–6 档计 1.5 分。</li>
+<li><strong>D9.2 部署与配置</strong>：本地开发配置极简（仅 <code>OPENAI_API_KEY</code> 为硬性要求），schema 自动迁移和种子数据大大降低了验证成本；但生产部署涉及 K8s/Cloudflare Workers 等多种外部组件，且无 docker-compose/Helm 一键方案，非开发人员无法独立完成。按 5–6 档计 1.5 分。</li>
+<li><strong>D9.3 易用性</strong>：项目最终用户通过聊天 GUI 交互，操作直观；默认配置安全合理；CLI（<code>cumora</code>）主要为 BYOA 代理服务。作为商业化产品，日常使用门槛不高；但自托管/自定义配置仍属于开发者范畴。按 7–8 档计 2.0 分。</li>
+<li><strong>D9.4 学习曲线</strong>：对具备 Node/数据库基础的开发者，从 clone 到首次看到 agent 实时对话可在 30 分钟内完成，且 seed 数据让首体验很有冲击力；对无技术背景用户，官方提供 app.cumora.ai 与桌面下载、iOS TestFlight，可直接使用托管服务。按 7–8 档计 2.0 分。</li>
+</ul>
+<p><strong>结论</strong>：Cumora 的整体上手难度为<strong>中等</strong>。其「开源自托管 + 官方托管服务」双路径策略有效互补：普通用户可通过托管 Web/桌面/iOS 应用零门槛体验，开发者可按 README 快速本地起一个带 seed 数据的 Demo。主要的商业化障碍在于自托管路径缺少 Docker 一键化交付，Postgres/Redis 前置依赖与多组件生产架构显著抬高了非技术用户的自部署门槛——但这部分用户实际可由托管服务覆盖。建议优先补充 docker-compose 开发环境与更详尽的 GUI 内 onboarding，可进一步提升试用转化率。</p>
+<h3>D10 功能价值——使用价值视角（平行维度）</h3>
+<blockquote>
+<p><strong>维度定位</strong>：本维度与商业评分正交，评估项目为使用者创造的效用总量——只问「用它的人省了/赚了多少」，不问「有没有人愿意付钱」。权重 0%，不计入综合评分，仅用于价值画像判定。</p>
+</blockquote>
+<p>Cumora 定位为「AI agent 作为一等公民的跨平台团队聊天工具」，其使用价值不是简单的效率小工具，而是试图成为「agent 团队运转的协调基础设施」。项目创建仅三周（2026-08-17 创建，评估日约两周半），正处于 v0.x 高频迭代期，效用强度与使用规模均处于早期验证阶段，但免费可得性与效用可持续性表现突出。</p>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>分值</th>
+<th>得分</th>
+<th>档位判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10.1</td>
+<td>效用强度</td>
+<td>3</td>
+<td>1.8</td>
+<td>5–6 档：明确但有限的效率提升，易被替代</td>
+</tr>
+<tr>
+<td>D10.2</td>
+<td>实际使用规模</td>
+<td>3</td>
+<td>1.8</td>
+<td>5–6 档：万级依赖方/月下载近十万级</td>
+</tr>
+<tr>
+<td>D10.3</td>
+<td>免费可得的完整效用</td>
+<td>2</td>
+<td>2.0</td>
+<td>9–10 档：开源版即全部价值，无功能阉割</td>
+</tr>
+<tr>
+<td>D10.4</td>
+<td>效用可持续性</td>
+<td>2</td>
+<td>1.6</td>
+<td>7–8 档：主体本地化，少量可替换外部依赖</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td><strong>7.2</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>D10.1 效用强度（1.8/3）</strong>：Cumora 的核心效用在于解决「agent 团队如何协作不冲突」这一真实痛点——服务端通过 seen-cursor freshness gate（过期回复被 HELD 并重投）、原子认领（atomic claims）、小脑分诊门控（small-brain triage）三道机制防止 agent 互相踩踏，配合共享看板、日历、DM/群聊、真实收发邮件，构成了一个完整的 agent 工作现场。对已在生产中使用 Claude Code / Codex 等 agent 的团队，其替代的是人工调度多个 agent 的大量隐性协调成本，效用显著。但项目仅三周龄，v0.9 仍在快速演进，效用稳定可预期性尚未被时间验证；同赛道替代方案（多 agent 编排框架 + 现有聊天工具拼装）虽然笨重但存在，故落在「明确但有限、易被替代」的档位。</p>
+<p><strong>D10.2 实际使用规模（1.8/3）</strong>：实采数据方面，npm 包 <code>cumora</code>（BYOA daemon）周下载量 17,461，月化约 7.5 万，处于「万级依赖方/月下载十万级」的边缘；GitHub star 3,386、fork 419，对一个两周龄项目表现突出；贡献者 24 人、PR 90 天 132 个，生态活跃度高。但注意：npm 下载量包含 <code>npx cumora agent computer</code> 的重复拉取，不代表安装即深度使用；依赖方（Dependents）计数未取到、公开生产案例/用户证言在 README 与文档中缺席，iOS 仍处于 TestFlight beta，Android 需自行构建。综合判断为「早期高热度但生产采用证据不足」，不满足 7–8 档的「十万级依赖方」硬指标。</p>
+<p><strong>D10.3 免费可得的完整效用（2.0/2）</strong>：MIT 协议下仓库包含全部核心代码——React 前端（含 desktop/mobile/web/admin 四壳）、Express + ws 后端、agent runtime（含 Go FUSE 驱动）、BYOA CLI、Cloudflare Workers、iOS/Android 壳与 K8s 部署清单。自托管只需 Postgres + Redis + 一个 <code>OPENAI_API_KEY</code>，README 明确「schema 幂等创建、空库自动种子 6 代理 3 人 9 会话」，本地跑起来即是完整产品。BYOA 模式下 provider key 不经过 Cumora 服务端（fail-closed 沙箱默认开启），核心能力没有任何付费墙隔断；官方云托管只是省去自建 K8s 的便利选项，不构成功能阉割。属于「开源版即全部价值」，满分。</p>
+<p><strong>D10.4 效用可持续性（1.6/2）</strong>：架构上主体完全本地化——chat 与 agent 协调的状态在自托管的 Postgres/Redis 中，BYOA daemon 跑在用户自己的机器上，即使 Cumora 官方停维，现有自托管部署仍可长期运行（LLM 调用走用户自己的 OpenAI key）。外部依赖有三类且均可替换：LLM API（agent 脑，本身就该用户自备）、Cloudflare Workers 邮件网关/R2 存储/APNs-FCM 推送（README 声明「soft-disables when unset」）、以及可选的企业组件（Electron 自动更新指向 cumora-releases 仓库）。MIT 协议 + 完整 CI（8 个 workflow）+ 24 名贡献者 + 测试覆盖 20.5%，社区可分叉维护的技术门槛不高。判断为「主体本地化、少量可替换外部依赖」，扣分项是云托管 agent pods 依赖官方 K8s 运维体系，以及部分能力（email/push）在纯离线下无法发挥。</p>
+<p><strong>D10 结论</strong>：Cumora 的功能使用价值综合 7.2/10，处于「使用价值良好、高于平均」水平。其价值结构特征鲜明：<strong>免费完整度高 + 效用可持续性强 + 实际规模仍在早期爬坡</strong>。这是一个「高使用价值潜力尚未充分兑现」的项目——它的效用强度设计（agent 协调机制）远超普通聊天工具，但两周龄的验证期决定了其稳定性和规模数据都还在积累；同时，开源版即完整价值的特性预示其商业变现路径不可能走「功能阉割付费墙」模式，而更可能走向托管服务 / 企业合规增值方向。在价值画像上，Cumora 属于「使用价值显著、交换价值待验证」的典型早期项目，与 Gin 类「高使用价值低商业价值」项目不同的是，其使用价值本身尚需时间证明。</p>
+<h3>D11 社会价值（正外部性视角）</h3>
+<blockquote>
+<p>平行维度（权重 0%，不计入综合评分与一票否决），仅用于 3.4 价值画像。<strong>归属说明</strong>：本维度评估对行业/社会的外溢贡献本身，与 D3.4（品牌影响力对商业势能的助力，商业输入）区分；与 D2.5/D2.6 共用 i18n/跨平台等工程事实，但评价视角为普惠效果而非工程质量。</p>
+</blockquote>
+<h3>D11.1 数字公共基础设施属性 — 1.2 / 3（40%）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>关键依赖地位</td>
+<td>端到端应用型项目，非库/框架。虽发布 npm CLI 包 <code>cumora</code>（周下载 17,461），但属终端分发而非软件供应链依赖，无 Dependents 生态</td>
+</tr>
+<tr>
+<td>停摆影响面</td>
+<td>仅影响自身用户（当前 3.4k star、两周龄项目），不波及其他软件供应链节点</td>
+</tr>
+<tr>
+<td>数字公共产品属性</td>
+<td>MIT 开源 + 可完全自托管（本地 Postgres/Redis 即可运行全部功能），具备开放、可复用的 DPG 部分特征，但服务领域垂直（AI agent 团队协作），非普遍性公共品</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：项目定位是"团队聊天 + agent 运行时"的应用产品，不是 curl/OpenSSL 式的底层数字底座。其开源与自托管属性带来正外部性，但未进入任何下游项目的依赖链；停摆影响面严格限定在使用者群体内部。综合判定低于行业平均，处于"几乎无下游依赖"档位。</p>
+<h3>D11.2 教育与人才价值 — 1.5 / 2.5（60%）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>教学采用</td>
+<td>外部教程/课程数据不可得（N/A）；但仓库内 <code>benchmarks/</code>（chain/counting/werewolf/kanban 真实 LLM 多智能体协调基准）与 <code>docs/COORDINATION.md</code>（防冲突协作设计：seen-cursor freshness gate、atomic claims、small-brain triage）构成稀缺的教学级案例素材</td>
+</tr>
+<tr>
+<td>门槛降低效应</td>
+<td>一个仓库覆盖完整全栈 AI 应用范式：Electron + PWA + Capacitor 跨端、Express/Postgres/Redis 后端、Go FUSE 驱动、Cloudflare Workers、agent 编排，对想学习构建 agent 基础设施的开发者有明显入门价值</td>
+</tr>
+<tr>
+<td>源码学习价值</td>
+<td>14 万行 TypeScript（.ts 105,549 行 + .tsx 32,816 行），测试 28,735 行（覆盖率 20.5%），8 个 CI workflow，10 个文档文件 + CONTRIBUTING/SECURITY；multi-agent 冲突规避机制是当前行业稀缺的工程范式，具备较高被借鉴潜力</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：代码组织、文档体系与协调机制设计体现出高于平均的工程范本价值，但项目发布仅两周（2026-08-17 创建），教学采用广度尚未建立，影响力目前局限于 AI agent 开发小圈子。达不到"常见于教学与入门路径"的 7–8 档，且外部教程证据缺失，定档 60%。</p>
+<h3>D11.3 普惠与可及性 — 1.5 / 2.5（60%）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>能力平权化</td>
+<td>MIT + 可自托管使个人/中小团队以"自有服务器 + LLM API 费用"获得完整 AI agent 协作平台；BYOA 模式支持 Claude Code/Codex 自带 key，服务端不接触密钥，进一步降低使用成本</td>
+</tr>
+<tr>
+<td>替代价格差</td>
+<td>同类商业 AI agent 团队协作 SaaS 多为订阅制（未取得具体定价，定性判断），本方案免费 + 自托管，价格差显著；<code>npm_weekly_downloads</code> 17,461 佐证了实际使用规模</td>
+</tr>
+<tr>
+<td>可及性支持</td>
+<td>有 <code>docs/I18N.md</code> 多语言层设计；跨平台覆盖 Electron 桌面 / iOS（TestFlight beta）/ Android（源码可自建）/ PWA；但 Android 未正式发布、iOS 尚在 beta，且自托管要求 Postgres/Redis + OpenAI API key，技术门槛限制向非技术用户扩散</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：普惠方向明确（将原本企业级的 agent 协作能力平权给个人开发者），且 BYOA 设计（用自己账号的 key）是从用户成本角度的主动平权。但受平台成熟度（Android 未发布）与部署技术门槛制约，尚未达到"覆盖主要人群"的 7–8 档；i18n 实际支持语言范围无实测数据。定档 60%。</p>
+<h3>D11.4 开放标准与行业推动 — 1.2 / 2（60%）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>标准推动</td>
+<td>遵循开放技术栈（WebSocket、FUSE、SMTP 邮件、Yjs CRDT 协作协议），但未定义或主导行业标准；agent 间协作采用自研 <code>cumora</code> CLI 协议，暂无外部采用证据</td>
+</tr>
+<tr>
+<td>科研支撑</td>
+<td>论文引用数据不可得（N/A）；但 <code>benchmarks/</code> 提供了可复现的真实 LLM 多智能体协调基准（真实调用成本记账于 <code>llm_calls</code> 台账），具备支撑科学可重现性的潜力</td>
+</tr>
+<tr>
+<td>行业示范效应</td>
+<td><code>docs/COORDINATION.md</code> 以"防御层 + 反模式"形式公开多 agent 防冲突设计，<code>docs/SHIPPING.md</code> 提出 evidence-backed feature lifecycle，此类理念对同行有示范价值；但项目过新，被模仿痕迹暂不可验证</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：项目遵循开放标准但无推动性贡献；最大外溢价值在于将多 agent 协作中的冲突规避机制以开源文档 + 基准测试形式公开，为行业提供了可借鉴的设计参考。因无主导标准、无学术引用实证，未达 7–8 档。定档 60%。</p>
+<h3>结论</h3>
+<p>Cumora 处于"有真实正外部性但范围受限"的阶段：<strong>数字基础设施属性弱</strong>——它是应用型产品而非行业底座，停摆不影响软件供应链；<strong>教育与普惠价值初步体现</strong>——全栈工程范本 + 可自托管 + BYOA 自带 key 的平权设计是亮点，但受两周龄、平台未全量发布、部署门槛限制；<strong>开放标准层面无主导地位</strong>——遵循开放技术栈，以设计文档与基准测试的形式释放行业外溢。综合正外部性 <strong>5.4/10</strong>，属于行业平均偏上水平，主要外溢潜力在 AI agent 协作模式的教学示范与开源平权方向，需随生态成熟度提升而重估。</p>
+<h2>五、商业化价值判断</h2>
+<h3>5.1 综合价值评估</h3>
+<p>Cumora 的综合评分为 <strong>76.2/100</strong>，等级为 <strong>A（高商业化潜力）</strong>，价值画像为 <strong>💼 纯商业工具</strong>。这一判断建立在以下核心事实之上：</p>
+<p><strong>优势侧（支撑高评分）</strong>：</p>
+<ul>
+<li><strong>市场窗口极佳</strong>：AI agent 团队级协作正处于爆发前夜，技术成熟度与竞争空白窗口重叠，时间窗口判断为最大加分项（D1 得分 8.5/10）。</li>
+<li><strong>产品完成度远超同期项目</strong>：14 万行 TypeScript 代码、20.5% 测试覆盖率、8 个 CI workflow（含真实 LLM 多 agent 基准），非 demo 级产品（D1 关键发现）。</li>
+<li><strong>变现路径清晰且基础设施完备</strong>：MIT 协议对变现零约束；SaaS 托管（Cumora Cloud）为主路径，已具备 llm_calls 成本账本、per-agent K8s pod、admin 壳层、PostHog 分析等商业化基础设施（D4 得分 8.4/10）。</li>
+<li><strong>免费→付费转化逻辑自然</strong>：BYOA（自带 API key）与 Cloud 托管形成天然分层，转化触发点自然且不牺牲用户隐私（D4 关键发现）。</li>
+</ul>
+<p><strong>劣势侧（制约因素）</strong>：</p>
+<ul>
+<li><strong>项目仅 15 天龄</strong>：无公开定价、无付费用户验证、无生产案例，商业模式处于"路径铺设完成、验证未启动"阶段（D4 硬事实）。</li>
+<li><strong>第三方生态空白</strong>：无插件/扩展、无第三方集成与衍生项目证据（D3 得分 6.5/10，D3.3 仅 1.2/3）。</li>
+<li><strong>治理与资金不透明</strong>：无 GOVERNANCE.md、无公开资金或赞助来源，可持续性风险高（D8 得分 6.6/10）。</li>
+</ul>
+<h3>5.2 商业化价值定位</h3>
+<p>Cumora 的价值结构呈典型 <strong>"使用价值 &gt; 交换价值"</strong> 张力：MIT 协议下开源仓库包含全部核心代码，自托管只需 Postgres+Redis+OpenAI key，开源版即完整价值，无付费墙（D10 关键发现）。这排除了功能阉割型变现，商业化更可能走 <strong>托管服务/企业增值路径</strong>。</p>
+<p><strong>核心商业化价值主张</strong>：为技术团队提供"人类 + 多个 AI agent"的混合协作平台，以托管云服务降低部署门槛，以 BYOA 模式保护用户隐私与成本可控，以企业级功能（合规、SLA、席位管理）实现增值变现。</p>
+<h3>5.3 商业化时机判断</h3>
+<p><strong>当前处于"路径铺设完成、验证未启动"阶段</strong>。项目仅 2 周（v0.9.0），托管云与 iOS beta 已上线，但无公开定价/付费用户验证。商业化时机属于 <strong>近中期（1-2 年）</strong>：基础设施已就绪，但需要先完成产品稳定性验证与首批付费用户获取。</p>
+<hr />
+<h2>六、商业路径分析</h2>
+<h3>6.1 最优路径：SaaS 托管（Cumora Cloud）为主航道</h3>
+<p><strong>依据</strong>（D4 关键发现）：
+- 托管云基础设施完备：llm_calls 成本账本、per-agent K8s pod、PostHog 分析、admin 壳层、waitlist 均已就绪。
+- BYOA 与 Cloud 形成天然免费→付费分层，转化触发点自然。
+- 托管服务显著降低商业化首体验门槛（D9 关键发现：托管服务 app.cumora.ai 已上线）。</p>
+<p><strong>执行要点</strong>：
+1. <strong>尽快启动付费验证</strong>：当前无公开定价，需在 1-2 个季度内推出 beta 定价并获取首批付费用户，验证付费意愿。
+2. <strong>以 BYOA 为获客漏斗</strong>：利用 MIT 开源 + BYOA 模式吸引开发者自托管，再通过托管服务的便捷性（免运维、免自备基础设施）转化为 Cloud 付费用户。
+3. <strong>定价锚定企业团队</strong>：增值空间多维——agent 席位、LLM 用量、邮件/推送配额、企业合规/SLA，客单价预判 $1K–10K/年（D4 关键发现）。</p>
+<h3>6.2 备选路径：Open Core 双轨</h3>
+<p><strong>依据</strong>（D4 关键发现）：
+- admin 壳层 + waitlist + metrics + LLM 网关构成 Open Core 备选路径。
+- MIT 协议下所有变现路径均可选，无协议约束。</p>
+<p><strong>执行要点</strong>：
+- 将企业级功能（SSO、审计日志、高级权限管理、SLA 保障）置于付费层。
+- 保持核心协作功能开源免费，以维持社区势能。</p>
+<h3>6.3 暂不建议的路径</h3>
+<ul>
+<li><strong>功能阉割型变现</strong>：MIT 协议下开源版已包含完整功能，且 D10 显示"免费完整度高排除了功能阉割型变现"。</li>
+<li><strong>双协议/协议变更</strong>：当前 MIT 协议是社区快速增长的重要推动力，变更协议可能引发社区反噬（参照 Elastic 改协议教训）。</li>
+</ul>
+<h3>6.4 路径优先级与时间表</h3>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>时间</th>
+<th>关键动作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>验证期</td>
+<td>0-6 个月</td>
+<td>推出 beta 定价，获取 10-20 个付费团队；完善企业级功能</td>
+</tr>
+<tr>
+<td>增长期</td>
+<td>6-18 个月</td>
+<td>扩大 Cloud 付费用户规模；启动企业销售；建立第三方生态</td>
+</tr>
+<tr>
+<td>规模期</td>
+<td>18 个月+</td>
+<td>形成平台效应；探索更多增值服务</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>七、能力评估：能做什么 &amp; 最适合做什么</h2>
+<h3>7.1 核心能力清单</h3>
+<p><strong>产品与技术能力</strong>：
+- <strong>全栈工程能力极强</strong>：14 万行 TypeScript 代码、8 个 CI workflow、20.5% 测试覆盖率，含真实 LLM 多 agent 基准测试（D1 关键发现）。
+- <strong>多端覆盖能力</strong>：Electron 桌面 / iOS（beta）/ Android（源码）/ PWA / Web 全平台覆盖（D11 硬事实）。
+- <strong>AI Agent 编排能力</strong>：freshness gate / 原子认领 / 小脑分诊机制构成明确效用（D10 关键发现）。
+- <strong>混合部署能力</strong>：支持托管云 / BYOA 本地 / 自托管（Postgres+Redis）多种部署形态（D9 硬事实）。</p>
+<p><strong>社区与生态能力</strong>：
+- <strong>社区动员能力突出</strong>：上线 16 天 Star 达 3,386，90 天折算月增约 1,129；24 名贡献者、132 个 PR（D3 硬事实）。
+- <strong>快速迭代能力</strong>：15 天 10 个 release，8 天内 7 个 release（D4/D8 硬事实）。</p>
+<p><strong>商业化基础设施能力</strong>：
+- <strong>成本核算能力</strong>：llm_calls 成本账本已内置（D4 硬事实）。
+- <strong>运维能力</strong>：per-agent K8s pod 部署方案已具备（D4 硬事实）。
+- <strong>数据分析能力</strong>：PostHog 分析已接入（D4 硬事实）。</p>
+<h3>7.2 最适合做什么</h3>
+<p>基于能力评估与市场定位，Cumora 最适合：</p>
+<ol>
+<li><strong>做 AI Agent 团队协作的"操作系统"</strong>：以聊天/看板/日历统一工作空间为核心，成为人类与多个 AI agent 混合协作的默认平台。</li>
+<li><strong>做技术团队的 AI 生产力工具</strong>：面向技术管理者和开发者，解决"多个 agent 协同工作时的冲突与协调"这一真实痛点。</li>
+<li><strong>做 BYOA 模式的标杆</strong>：自带 API key 的模式保护用户隐私与成本可控，是差异化竞争的关键。</li>
+</ol>
+<h3>7.3 不适合做什么</h3>
+<ul>
+<li><strong>不适合做通用聊天工具</strong>：与 Slack/Discord 等成熟产品正面竞争。</li>
+<li><strong>不适合做纯开源社区项目</strong>：公共价值分 6.3 &lt; 7，价值画像为纯商业工具，应直接商业化而非依赖社区捐赠。</li>
+</ul>
+<hr />
+<h2>八、短板识别：还缺少什么</h2>
+<h3>8.1 关键短板（按优先级排序）</h3>
+<p><strong>短板一：付费验证缺失（最紧迫）</strong>
+- 现状：无公开定价、无付费用户、无收入数据（D4 硬事实：public_pricing_found: false）。
+- 影响：商业模式停留在"路径铺设"阶段，付费转化逻辑未经验证。
+- 建议：1-2 个季度内推出 beta 定价并获取首批付费用户。</p>
+<p><strong>短板二：第三方生态空白</strong>
+- 现状：无插件/扩展、无第三方集成与衍生项目证据（D3.3 得分 1.2/3）。
+- 影响：生态势能不足，用户粘性与网络效应难以形成。
+- 建议：开放 API/插件机制，鼓励第三方集成。</p>
+<p><strong>短板三：治理与资金不透明</strong>
+- 现状：无 GOVERNANCE.md、无公开资金或赞助来源、无 CODEOWNERS（D8 硬事实）。
+- 影响：企业客户对项目可持续性存疑，影响商业化信任基础。
+- 建议：发布治理文档、披露商业实体与资金来源。</p>
+<p><strong>短板四：自托管部署门槛</strong>
+- 现状：无 Dockerfile/docker-compose，需手动安装 Postgres 与 Redis（D9 硬事实）。
+- 影响：自托管用户上手门槛高，限制长尾用户转化。
+- 建议：补充容器化一键部署方案。</p>
+<p><strong>短板五：生产采用证据不足</strong>
+- 现状：无公开生产案例、无 Dependents 计数（D10 关键发现）。
+- 影响：企业客户决策缺乏参考。
+- 建议：获取 2-3 个灯塔客户并发布案例研究。</p>
+<h3>8.2 分析缺口说明</h3>
+<p>D2（技术成熟度）、D5（竞争格局）、D6（法律合规）、D7（企业就绪度）四个维度因分析失败标记为 N/A。这意味着：
+- 技术质量、竞品对比、法律风险、企业级能力四个方面的评估缺失。
+- 一票否决检查不完整（D6 缺失），无法确认是否存在法律合规方面的根本性障碍。
+- 综合评分 76.2 基于五个维度计算，实际分数可能因缺失维度而有所偏差。</p>
+<hr />
+<h2>九、风险提示</h2>
+<h3>9.1 一票否决风险（未完全排除）</h3>
+<p><strong>⚠️ 一票否决检查不完整</strong>：D6（法律合规）维度分析失败，无法确认是否存在根本性法律障碍。虽然项目使用 MIT 协议（D4 硬事实），但依赖链法律风险、商标与专利风险、贡献者协议完备性均未评估。<strong>建议在商业化推进前优先完成 D6 维度的补充分析。</strong></p>
+<h3>9.2 关键风险清单</h3>
+<p><strong>风险一：项目年龄过短，可持续性未验证（高风险）</strong>
+- 项目仅 15 天龄，虽活跃度极高（15 天 10 个 release），但传承机制未经时间检验（D8 关键发现）。
+- 无公开资金或赞助来源，疑似有商业实体但未披露（D8 关键发现）。
+- 若核心维护者因商业压力或兴趣转移停止维护，项目可能迅速停滞。</p>
+<p><strong>风险二：付费意愿未验证（高风险）</strong>
+- 市场规模按量级估算为百亿美元级增长赛道，但未经外部数据验证，置信度中低（D1 关键发现）。
+- 无公开定价、无付费用户验证（D4 硬事实）。
+- MIT 协议下开源版功能完整，用户可能缺乏付费动力（D10 关键发现）。</p>
+<p><strong>风险三：竞争窗口可能快速关闭（中高风险）</strong>
+- AI agent 团队级协作正处于爆发前夜，技术成熟度与竞争空白窗口重叠（D1 关键发现）。
+- 但大型厂商（OpenAI、Anthropic、Google）可能快速进入该领域。
+- D5（竞争格局）分析失败，竞品威胁未充分评估。</p>
+<p><strong>风险四：第三方托管竞品风险（中风险）</strong>
+- MIT 协议允许任何人托管 Cumora 并提供商业服务（D4 关键发现）。
+- 若出现低价第三方托管商，可能侵蚀 Cumora Cloud 的付费用户。</p>
+<p><strong>风险五：社区热度可能回落（中风险）</strong>
+- 两周 3.4k star 的热度可能包含"新品效应"成分。
+- 第三方生态空白（D3.3 仅 1.2/3），若热度回落且生态未建立，社区势能将快速衰减。</p>
+<p><strong>风险六：治理不透明影响企业采用（中风险）</strong>
+- 无 GOVERNANCE.md、无 CODEOWNERS（D8 硬事实）。
+- 企业客户在采购决策时可能因治理不透明而犹豫。</p>
+<h3>9.3 风险缓释建议</h3>
+<ol>
+<li><strong>优先完成 D6 法律合规补充分析</strong>，排除一票否决风险。</li>
+<li><strong>尽快启动付费验证</strong>，用真实数据检验商业模式。</li>
+<li><strong>发布治理文档与商业实体信息</strong>，增强企业客户信任。</li>
+<li><strong>补充 Docker 化部署方案</strong>，降低自托管门槛。</li>
+<li><strong>在竞争窗口期内加速产品迭代与市场推广</strong>，建立先发优势。</li>
+</ol>
+<hr />
+<h2>十、结论与建议</h2>
+<h3>10.1 综合结论</h3>
+<p>Cumora 是一个 <strong>A 级（高商业化潜力）</strong> 的 AI Agent 团队协作平台，综合评分 <strong>76.2/100</strong>，价值画像为 <strong>💼 纯商业工具</strong>。项目在市场需求、产品完成度、变现路径设计三个维度表现优异（D1 8.5、D4 8.4），社区热度极高（16 天 3.4k star），商业化基础设施（成本账本、K8s 部署、admin 壳层）已铺设完成。</p>
+<p>然而，项目仅 15 天龄，<strong>付费验证、第三方生态、治理透明度、生产案例</strong>四个关键短板尚未补齐。商业化时机属于"近中期（1-2 年）"：基础设施已就绪，但需先完成产品稳定性验证与首批付费用户获取。</p>
+<h3>10.2 行动建议</h3>
+<p><strong>立即行动（0-3 个月）</strong>：
+1. <strong>补充 D6 法律合规分析</strong>，排除一票否决风险（最高优先级）。
+2. <strong>推出 beta 定价</strong>，在现有 waitlist 用户中招募 10-20 个付费试点团队。
+3. <strong>发布 GOVERNANCE.md 与商业实体信息</strong>，增强透明度。</p>
+<p><strong>短期行动（3-12 个月）</strong>：
+4. <strong>获取 2-3 个灯塔客户</strong>，发布案例研究，建立生产采用证据。
+5. <strong>开放插件/API 机制</strong>，启动第三方生态建设。
+6. <strong>补充 Docker 化部署方案</strong>，降低自托管门槛。</p>
+<p><strong>中期行动（12-24 个月）</strong>：
+7. <strong>扩大 Cloud 付费用户规模</strong>，验证客单价 $1K–10K/年的假设。
+8. <strong>启动企业销售</strong>，针对技术管理者和 CTO 开展定向推广。
+9. <strong>持续投入社区运营</strong>，维持 star 增长与贡献者活跃度。</p>
+<h3>10.3 放弃条件</h3>
+<p>若出现以下情况，应重新评估商业化可行性：
+- 付费试点 6 个月内转化率低于预期（如 &lt;5%）。
+- 大型厂商推出同类产品且功能覆盖度超过 Cumora。
+- 核心维护者停止活跃或项目进入停滞状态。</p>
+<hr />
+<blockquote>
+<p><strong>报告置信度说明</strong>：本报告基于 5 个成功分析的维度（D1/D3/D4/D8/D9）与 2 个平行维度（D10/D11）生成。D2/D5/D6/D7 四个维度分析失败，综合评分可能因缺失维度而有所偏差；一票否决检查不完整（D6 缺失）。建议在补充完成缺失维度分析后，重新评估综合结论。</p>
+<p>【注意】一票否决检查不完整: D6</p>
+</blockquote>
+<h2>十一、项目地址</h2>
+<p><svg class="ri ri-muted" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.001 2C6.47598 2 2.00098 6.475 2.00098 12C2.00098 16.425 4.86348 20.1625 8.83848 21.4875C9.33848 21.575 9.52598 21.275 9.52598 21.0125C9.52598 20.775 9.51348 19.9875 9.51348 19.15C7.00098 19.6125 6.35098 18.5375 6.15098 17.975C6.03848 17.6875 5.55098 16.8 5.12598 16.5625C4.77598 16.375 4.27598 15.9125 5.11348 15.9C5.90098 15.8875 6.46348 16.625 6.65098 16.925C7.55098 18.4375 8.98848 18.0125 9.56348 17.75C9.65098 17.1 9.91348 16.6625 10.201 16.4125C7.97598 16.1625 5.65098 15.3 5.65098 11.475C5.65098 10.3875 6.03848 9.4875 6.67598 8.7875C6.57598 8.5375 6.22598 7.5125 6.77598 6.1375C6.77598 6.1375 7.61348 5.875 9.52598 7.1625C10.326 6.9375 11.176 6.825 12.026 6.825C12.876 6.825 13.726 6.9375 14.526 7.1625C16.4385 5.8625 17.276 6.1375 17.276 6.1375C17.826 7.5125 17.476 8.5375 17.376 8.7875C18.0135 9.4875 18.401 10.375 18.401 11.475C18.401 15.3125 16.0635 16.1625 13.8385 16.4125C14.201 16.725 14.5135 17.325 14.5135 18.2625C14.5135 19.6 14.501 20.675 14.501 21.0125C14.501 21.275 14.6885 21.5875 15.1885 21.4875C19.259 20.1133 21.9999 16.2963 22.001 12C22.001 6.475 17.526 2 12.001 2Z"/></svg> <a href="https://github.com/yetone/cumora">https://github.com/yetone/cumora</a></p>
+<hr />
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+</blockquote>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家　<a href="https://www.mova.work">www.mova.work</a></p></body></html>

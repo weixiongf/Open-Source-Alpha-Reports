@@ -1,0 +1,1424 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><title>DSH-better-sidebar 商业价值分析报告</title><style>/* default — 品牌蓝紫主题（从 md2pdf.py 原 CSS 常量迁出，视觉与历史产物一致） */
+@page { size: A4; margin: 18mm 15mm 20mm 15mm; }
+* { box-sizing: border-box; }
+/* 字体规范：一律开源思源黑体 CN（OFL 免费商用）；正文 Regular/标题 Bold/大字数字 Light */
+body { font-family: "Source Han Sans CN","思源黑体 CN","Noto Sans SC",sans-serif; color:#1e293b; font-size:10.5pt; line-height:1.75; margin:0; }
+.cover { page-break-after: always; text-align:center; padding-top:40px; }
+.cover .kicker { color:#2563eb; letter-spacing:6px; font-size:12pt; font-weight:500; }
+.cover h1 { font-size:26pt; margin:14px 0 6px; }
+.cover .sub { color:#64748b; font-size:11pt; margin-bottom:22px; }
+.badge { display:inline-block; background:linear-gradient(135deg,#2563eb,#7c3aed); color:#fff; border-radius:18px; padding:16px 44px; margin:10px 0 18px; }
+.badge .g { font-size:34pt; font-weight:300; line-height:1; }
+.badge .s { font-size:12pt; opacity:.92; margin-top:4px; }
+.meta { color:#475569; font-size:9.5pt; margin-top:14px; }
+.bars { max-width:620px; margin:20px auto 0; text-align:left; }
+.bar-row { display:flex; align-items:center; gap:8px; margin:5px 0; font-size:9pt; }
+.bar-name { width:110px; text-align:right; color:#334155; font-weight:500; }
+.bar-track { flex:1; height:9px; background:#f1f5f9; border-radius:5px; overflow:hidden; }
+.bar-fill { display:block; height:100%; border-radius:5px; }
+.bar-val { width:30px; font-weight:700; color:#0f172a; }
+.bar-w { width:52px; color:#94a3b8; font-size:8pt; }
+h1 { font-size:17pt; color:#0f172a; border-bottom:3px solid #2563eb; padding-bottom:8px; }
+h2 { font-size:13.5pt; color:#1d4ed8; margin-top:26px; page-break-after: avoid; border-left:5px solid #2563eb; padding-left:10px; }
+h3 { font-size:11.5pt; color:#0f172a; margin-top:18px; page-break-after: avoid; }
+table { border-collapse:collapse; width:100%; margin:10px 0; font-size:9pt; page-break-inside:avoid; }
+th { background:#eff6ff; color:#1e3a8a; }
+th,td { border:1px solid #dbe3ef; padding:5px 8px; text-align:left; }
+tr:nth-child(even) td { background:#f8fafc; }
+code { background:#f1f5f9; border-radius:4px; padding:1px 5px; font-family:"JetBrains Mono","Cascadia Mono",monospace; font-size:9pt; color:#be185d; }
+pre { background:#0f172a; color:#e2e8f0; border-radius:8px; padding:12px 14px; overflow-x:auto; page-break-inside:avoid; }
+pre code { background:none; color:inherit; padding:0; }
+blockquote { border-left:4px solid #93c5fd; background:#eff6ff; margin:10px 0; padding:8px 14px; color:#334155; border-radius:0 8px 8px 0; }
+hr { border:none; border-top:1px dashed #cbd5e1; margin:22px 0; }
+strong { color:#0f172a; }
+.cover .disclaimer { max-width:620px; margin:16px auto 0; color:#64748b; font-size:8.5pt; line-height:1.6; text-align:left; border:1px solid #e2e8f0; border-radius:8px; padding:8px 12px; background:#f8fafc; }
+.credit { color:#2563eb; font-size:10.5pt; font-weight:700; letter-spacing:1px; margin-top:12px; }
+.at-acc { background:#dbeafe; color:#1d4ed8; border-radius:4px; padding:0 4px; font-weight:500; white-space:nowrap; }
+.tail { page-break-inside:avoid; margin-top:26px; border-top:2px solid #2563eb; padding-top:14px; }
+.tail p { color:#64748b; font-size:8.5pt; line-height:1.6; margin:0 0 10px; }
+.tail .credit { text-align:center; margin:0; }
+/* Remix Icon 内联 SVG（icon_mode=remix 时由脚本注入，语义色与评分条一致） */
+.ri { width:1.05em; height:1.05em; vertical-align:-0.18em; display:inline-block; }
+.ri-ok { color:#16a34a; } .ri-warn { color:#d97706; } .ri-bad { color:#dc2626; }
+.ri-muted { color:#64748b; } .ri-star { color:#f59e0b; } .ri-brand { color:#2563eb; }
+.ri-gold { color:#d4a017; } .ri-silver { color:#9ca3af; } .ri-bronze { color:#b45309; }
+/* 屏幕预览：@page 边距仅在打印时生效，浏览器中居中限宽并收边（不影响 PDF 输出） */
+@media screen {
+  body { margin: 0 auto; padding: 28px 36px 56px; max-width: 900px; }
+}
+</style></head><body><div class="cover">
+<div class="kicker">开源项目商业化潜力分析 · 第 47 期</div>
+<h1>GitHub 开源项目 DSH-better-sidebar<br>商业价值分析报告</h1>
+<div class="sub">omdsh-dev/DSH-better-sidebar · DSH生态开放侧边栏底座 · 67.4分A级高商业化潜力</div>
+<div class="badge"><div class="g">A 级 · 67.4</div><div class="s">综合评分（满分 100）· 高商业化潜力</div></div>
+<div><svg viewBox="0 0 560 480" width="560" height="480" xmlns="http://www.w3.org/2000/svg"><polygon points="280.0,209.6 299.5,216.7 309.9,234.7 306.3,255.2 290.4,268.6 269.6,268.6 253.7,255.2 250.1,234.7 260.5,216.7" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,179.2 319.1,193.4 339.9,229.4 332.7,270.4 300.8,297.1 259.2,297.1 227.3,270.4 220.1,229.4 240.9,193.4" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,148.8 338.6,170.1 369.8,224.2 359.0,285.6 311.2,325.7 248.8,325.7 201.0,285.6 190.2,224.2 221.4,170.1" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,118.4 358.2,146.8 399.8,218.9 385.3,300.8 321.6,354.3 238.4,354.3 174.7,300.8 160.2,218.9 201.8,146.8" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,88.0 377.7,123.6 429.7,213.6 411.6,316.0 332.0,382.8 228.0,382.8 148.4,316.0 130.3,213.6 182.3,123.6" fill="none" stroke="#e2e8f0" stroke-width="1"/><line x1="280.0" y1="240.0" x2="280.0" y2="88.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="377.7" y2="123.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="429.7" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="411.6" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="332.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="228.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="148.4" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="130.3" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="182.3" y2="123.6" stroke="#d8dee9" stroke-width="1"/><polygon points="280.0,126.0 358.2,146.8 280.0,240.0 351.1,281.0 318.0,344.3 239.5,351.4 216.8,276.5 280.0,240.0 216.5,164.3" fill="rgba(37,99,235,.22)" stroke="#2563eb" stroke-width="2.5"/><circle cx="280.0" cy="126.0" r="3.5" fill="#2563eb"/><circle cx="358.2" cy="146.8" r="3.5" fill="#2563eb"/><circle cx="280.0" cy="240.0" r="3.5" fill="#2563eb"/><circle cx="351.1" cy="281.0" r="3.5" fill="#2563eb"/><circle cx="318.0" cy="344.3" r="3.5" fill="#2563eb"/><circle cx="239.5" cy="351.4" r="3.5" fill="#2563eb"/><circle cx="216.8" cy="276.5" r="3.5" fill="#2563eb"/><circle cx="280.0" cy="240.0" r="3.5" fill="#2563eb"/><circle cx="216.5" cy="164.3" r="3.5" fill="#2563eb"/><text x="280.0" y="44.0" text-anchor="middle" font-size="12.5" fill="#334155" font-weight="600">D1</text><text x="280.0" y="58.0" text-anchor="middle" font-size="11" fill="#64748b">市场需求 7.5</text><text x="406.0" y="89.9" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D2</text><text x="406.0" y="103.9" text-anchor="start" font-size="11" fill="#64748b">技术成熟度 8.0</text><text x="473.0" y="206.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D3</text><text x="473.0" y="220.0" text-anchor="start" font-size="11" fill="#64748b">社区生态 N/A</text><text x="449.7" y="338.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D4</text><text x="449.7" y="352.0" text-anchor="start" font-size="11" fill="#64748b">变现潜力 5.4</text><text x="347.0" y="424.2" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D5</text><text x="347.0" y="438.2" text-anchor="start" font-size="11" fill="#64748b">竞争格局 7.3</text><text x="213.0" y="424.2" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D6</text><text x="213.0" y="438.2" text-anchor="end" font-size="11" fill="#64748b">法律合规 7.8</text><text x="110.3" y="338.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D7</text><text x="110.3" y="352.0" text-anchor="end" font-size="11" fill="#64748b">企业就绪 4.8</text><text x="87.0" y="206.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D8</text><text x="87.0" y="220.0" text-anchor="end" font-size="11" fill="#64748b">团队治理 N/A</text><text x="154.0" y="89.9" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D9</text><text x="154.0" y="103.9" text-anchor="end" font-size="11" fill="#64748b">上手难度 6.5</text></svg></div>
+<div class="bars"><div class="bar-row"><span class="bar-name">D2 技术成熟度</span>
+<span class="bar-track"><span class="bar-fill" style="width:80.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.0</span><span class="bar-w">权重14%</span></div>
+<div class="bar-row"><span class="bar-name">D6 法律合规</span>
+<span class="bar-track"><span class="bar-fill" style="width:78.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.8</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D1 市场需求</span>
+<span class="bar-track"><span class="bar-fill" style="width:75.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.5</span><span class="bar-w">权重13%</span></div>
+<div class="bar-row"><span class="bar-name">D5 竞争格局</span>
+<span class="bar-track"><span class="bar-fill" style="width:73.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.3</span><span class="bar-w">权重12%</span></div>
+<div class="bar-row"><span class="bar-name">D9 上手难度</span>
+<span class="bar-track"><span class="bar-fill" style="width:65.0%;background:#d97706"></span></span>
+<span class="bar-val">6.5</span><span class="bar-w">权重10%</span></div>
+<div class="bar-row"><span class="bar-name">D4 变现潜力</span>
+<span class="bar-track"><span class="bar-fill" style="width:54.0%;background:#dc2626"></span></span>
+<span class="bar-val">5.4</span><span class="bar-w">权重18%</span></div>
+<div class="bar-row"><span class="bar-name">D7 企业就绪</span>
+<span class="bar-track"><span class="bar-fill" style="width:48.0%;background:#dc2626"></span></span>
+<span class="bar-val">4.8</span><span class="bar-w">权重8%</span></div>
+<div class="bar-row"><span class="bar-name">D3 社区生态</span>
+<span class="bar-track"><span class="bar-fill" style="width:0.0%;background:#dc2626"></span></span>
+<span class="bar-val">N/A</span><span class="bar-w">权重11%</span></div>
+<div class="bar-row"><span class="bar-name">D8 团队治理</span>
+<span class="bar-track"><span class="bar-fill" style="width:0.0%;background:#dc2626"></span></span>
+<span class="bar-val">N/A</span><span class="bar-w">权重7%</span></div></div>
+<div class="meta">分析时点 2026-09-03 ｜ 数据来源：GitHub API + 仓库代码实测 ｜ 方法论 v1.3</div>
+<div class="credit">报告出品：@魔法工厂　@向量之心　@南山科学家</div>
+<div class="disclaimer"><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</div>
+</div><h1>DSH-better-sidebar 商业化潜力分析报告（完整版）</h1>
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家</p>
+<p>方法论版本: v1.3 | 综合评分: <strong>67.4</strong> | 等级: <strong>A（高商业化潜力）</strong> | 价值画像: 纯商业工具</p>
+</blockquote>
+<h2>一、项目概览</h2>
+<h3>1.1 基本信息</h3>
+<ul>
+<li><strong>项目名称 / 仓库地址</strong>：DSH-better-sidebar（omdsh-dev/DSH-better-sidebar）</li>
+<li><strong>核心技术栈</strong>：TypeScript（主语言）、Cordis 插件体系、@deepseek-ai/* 依赖（20+）</li>
+<li><strong>社区规模速览</strong>：3,246 Star / 284 Fork / 54 贡献者；90 天 PR 296 个、Issue 关闭 125 个；28+ 生态插件</li>
+<li><strong>分析时点 / 数据来源</strong>：GitHub API 实采（Star/Fork/PR/Issue）、npm 下载量实采、README 与仓库文件分析</li>
+</ul>
+<h3>1.2 项目分类标签</h3>
+<table>
+<thead>
+<tr>
+<th>分类维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>开发者工具（开源库 SDK / 平台底座）</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>通用/跨行业</td>
+</tr>
+<tr>
+<td>目标用户角色</td>
+<td>后端开发者 / 前端开发者 / AI 工程师 / DevOps</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>AI 编程代理工作台、IDE 侧栏插件、开发工具链集成</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>本地部署</td>
+</tr>
+</tbody>
+</table>
+<h3>1.3 一句话定位</h3>
+<blockquote>
+<p>DSH-better-sidebar 是一个面向 DeepSeek Harness 生态的开放式侧边栏工作台底座，适用于通用软件研发与 AI 编程代理场景，主要面向使用 DSH 的开发者及第三方插件作者，用于提供文件管理、终端、Git 审查、侧边对话和子代理监控等一体化侧边栏服务。</p>
+</blockquote>
+<hr />
+<h2>二、安装部署与使用指南</h2>
+<blockquote>
+<p>【注意】本章节为降级概要（安装指南草稿缺失），要点来自 D9 评分卡：</p>
+</blockquote>
+<ul>
+<li>安装信息采集失败</li>
+</ul>
+<h2>三、评分总览</h2>
+<h3>3.1 评分汇总表</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>权重</th>
+<th>加权得分</th>
+<th>评级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1 市场需求与商业机会</td>
+<td>7.5/10</td>
+<td>13%</td>
+<td>0.98</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D2 技术成熟度与产品质量</td>
+<td>8.0/10</td>
+<td>14%</td>
+<td>1.12</td>
+<td>优</td>
+</tr>
+<tr>
+<td>D3 社区健康度与生态势能</td>
+<td>N/A*</td>
+<td>11%</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>D4 商业模式与变现潜力</td>
+<td>5.4/10</td>
+<td>18%</td>
+<td>0.97</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D5 竞争格局与差异化壁垒</td>
+<td>7.3/10</td>
+<td>12%</td>
+<td>0.88</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D6 法律合规与知识产权</td>
+<td>7.8/10</td>
+<td>7%</td>
+<td>0.55</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D7 企业就绪度与可运营性</td>
+<td>4.8/10</td>
+<td>8%</td>
+<td>0.38</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D8 团队治理与可持续性</td>
+<td>N/A*</td>
+<td>7%</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>D9 上手难度与易用性</td>
+<td>6.5/10</td>
+<td>10%</td>
+<td>0.65</td>
+<td>中</td>
+</tr>
+<tr>
+<td><strong>综合评分</strong></td>
+<td>—</td>
+<td>100%</td>
+<td><strong>67.4/100</strong></td>
+<td><strong>A（高商业化潜力）</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>*D3 与 D8 因分析失败标记为 N/A，综合评分按剩余七维加权归一后计算。一票否决检查因 D8.4 数据缺失而不完整（详见 3.3 节）。</p>
+</blockquote>
+<p><strong>平行维度（不计入综合评分）</strong></p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10 功能价值</td>
+<td>7.8/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>D11 社会价值</td>
+<td>5.5/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>公共价值分</td>
+<td>6.7/10</td>
+<td>(D10+D11)/2</td>
+</tr>
+</tbody>
+</table>
+<h3>3.2 商业化潜力等级</h3>
+<p>综合评分 <strong>67.4/100</strong>，对应等级 <strong>A（高商业化潜力）</strong>。含义：可投入商业化，需补齐少量短板。</p>
+<h3>3.3 一票否决检查</h3>
+<table>
+<thead>
+<tr>
+<th>检查项</th>
+<th>触发条件</th>
+<th>实际值</th>
+<th>是否触发</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D6 法律合规</td>
+<td>维度总分 ≤ 3</td>
+<td>7.8</td>
+<td>否</td>
+</tr>
+<tr>
+<td>D8.4 项目可持续性</td>
+<td>细则小分 ≤ 1</td>
+<td><strong>N/A（分析失败）</strong></td>
+<td><strong>无法检查</strong></td>
+</tr>
+<tr>
+<td>D4.1 协议对变现模式影响</td>
+<td>细则小分 ≤ 0.5</td>
+<td>2.0（MIT）</td>
+<td>否</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ <strong>一票否决检查不完整</strong>：D8.4 因维度分析失败标记为 N/A，该项否决检查跳过。其余两项均未触发否决。</p>
+</blockquote>
+<h3>3.4 价值画像判定</h3>
+<p><strong>公共价值分</strong> = (D10 7.8 + D11 5.5) / 2 = <strong>6.7</strong></p>
+<table>
+<thead>
+<tr>
+<th>画像</th>
+<th>判定条件</th>
+<th>实际值</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>⭐ 明星资产</td>
+<td>综合评分 ≥ 65 且 公共价值分 ≥ 7</td>
+<td>67.4 / 6.7</td>
+<td>—</td>
+</tr>
+<tr>
+<td>💼 纯商业工具</td>
+<td>综合评分 ≥ 65 且 公共价值分 &lt; 7</td>
+<td>67.4 / 6.7</td>
+<td>✅ <strong>命中</strong></td>
+</tr>
+<tr>
+<td>🏛️ 公共产品型</td>
+<td>综合评分 &lt; 65 且 公共价值分 ≥ 7</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>📦 长尾项目</td>
+<td>综合评分 &lt; 65 且 公共价值分 &lt; 7</td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>价值画像：💼 纯商业工具</strong>。公共价值分 6.7 处于 6.5–7.5 临界区间下沿，但未达 7.0 阈值，判定为纯商业工具。画像临界说明：若公共价值分上升至 7.0 以上（如 D11 社会价值随生态影响力扩大而提升），画像将切换为「⭐ 明星资产」，届时商业路径需额外兼顾社区声誉经营，避免竭泽而渔。</p>
+<hr />
+<h2>四、各维度详细分析</h2>
+<h3>D1 市场需求与商业机会（权重 13%）</h3>
+<blockquote>
+<p><strong>评估前提与置信度说明</strong>：以下市场中规模相关判断基于项目类型（AI 编程代理生态、开发者工具链基础设施）与生态位置的逻辑推断，在未检索到可靠外部市场规模数据的前提下不做具体 TAM 数字量化，仅作量级与档位判断，置信度为中低。评分以 README 实测生态事实、Issue/PR 活跃度、依赖与实现完整度为硬依据。</p>
+</blockquote>
+<h3>项目分类标签与一句话定位</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>开发者工具（插件底座/生态框架，介于“基础设施”与“前端与 UI”之间）</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>通用/跨行业（软件研发行业为核心承载）</td>
+</tr>
+<tr>
+<td>目标用户</td>
+<td>后端开发者 / 前端开发者 / AI/ML 工程师 / DevOps</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>研发流程优化、企业内部工具、数据处理与分析、API 服务</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>本地部署（随 DSH web profile 运行）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>一句话定位</strong>：DSH-better-sidebar 是一个面向 DeepSeek Harness（DSH）生态的开放侧边栏工作台底座，适用于通用软件研发与 AI 编程代理场景，主要面向使用 DSH 的开发者、AI Agent 使用者及第三方插件开发者，用于通过统一的 <code>ctx.betterSidebar</code> API 快速获得文件管理/编辑预览、真实终端、Git 变更审查、侧边对话和子代理任务监控等整套侧栏能力。</p>
+<hr />
+<h3>D1.1 目标市场规模与增长性</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TAM 估算</td>
+<td>广义赛道（AI 编程助手/Agent 开发工具）处于百亿美元级扩张期，但本项目直接可触达的细分市场为“DSH 生态的客户端界面/工作台层”，属于其中的早期份额，当前绝对体量有限</td>
+</tr>
+<tr>
+<td>增长趋势</td>
+<td>扩张期：AI Coding Agent 正从“对话补全”走向“自主执行 + 人机协同工作台”，作为承载该工作流的侧栏底座具备明确增长叙事</td>
+</tr>
+<tr>
+<td>市场层级</td>
+<td>新兴蓝海向成长期过渡。DSH 本身上线时间较短，侧边栏/工作台插件位尚无巨头垄断</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分：2.0 / 2.5（档位 80%，对应通用标尺 7–8“良好”）</strong></p>
+<p><strong>判断依据</strong>：项目服务的并非存量 IDE 插件市场，而是 AI 编程代理（Agentic Coding）这一战略级增量市场中的应用层。若 DSH 生态按预期成长，类似的“Editor/Workbench”层是高频刚需入口。但需诚实指出：当前直接受众仍限于 DSH 用户群；截至评估时点其安装量级不可精确获知。平台尚处 alpha/rc 迭代期，生态整体水位未到稳定放量阶段。赛道正确、时机靠前但当期市场规模需依托 DSH 大盘验证，故给 7–8 档偏低估值，不强充 9–10。</p>
+<hr />
+<h3>D1.2 痛点真实性与解决程度</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>痛点真实性</td>
+<td>真实且明确：Agent 编程场景中，用户/模型需要同时处理会话、文件查看/编辑、命令执行、Git 变更与子代理任务，缺失侧边工作台会导致上下文频繁切换、“盲操作”与反馈滞后</td>
+</tr>
+<tr>
+<td>解决完整度</td>
+<td>高：内置 8 个 Tab + 6 类文件查看器，覆盖资源管理器、Markdown/HTML/PDF/图片预览、真实终端（xterm.js + node-pty）、Git diff/提交、子代理后台任务、侧边对话、自由窗口与双工作台；且有 36 份设计文档表明功能打磨深度较高</td>
+</tr>
+<tr>
+<td>替代成本</td>
+<td>替代品存在（纯 CLI 操作 / 官方内置 UI / 其他 IDE），但体验割裂，难以在同一 Agent 运行上下文中完成闭环；本项目以“会话上下文直连 + PTY 直连 + 文件实时追踪”构建了较强替换壁垒</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分：2.0 / 2.5（档位 80%，对应通用标尺 7–8“良好”）</strong></p>
+<p><strong>判断依据</strong>：痛点真实性可通过多个行为硬指标交叉验证：README 收录 28+ 第三方生态插件（通过同一 API 注册扩展），近期发布节奏约每 1–2 天一版（v0.13–v0.18 密集迭代），90 天 296 个 PR、关闭 125 个 Issue，说明外部开发者在真实验证并持续为其补功能。扣分点在于其“非用不可”属性仍绑定 DSH 平台——若 DSH 未被广泛采纳，则痛点是平台级的而非该插件独立可承载的；此外已知限制（无 push/pull、无文件 watcher、Office 预览转为生态插件等）表明并非“全功能完整方案”，但整体已超过“基本可用”水平。</p>
+<hr />
+<h3>D1.3 市场时机判断</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术成熟度曲线</td>
+<td>AI Coding Agent 已越过概念验证期，头部产品（如 Claude Code、Codex 类工具）进入真实生产使用；DSH 作为开源 Harness 仍处 alpha 通道（当前适配 v0.19.0-alpha / DSH 0.1.2-alpha），“工作台”层尚无胜者</td>
+</tr>
+<tr>
+<td>竞争密度</td>
+<td>同赛道直接竞品数量少：DSH 生态内编辑器/侧边栏插件仍属早期生态位，尚无垄断性产品；广义 IDE 市场格局稳定，但 Agent-first 工作台形态全球均处于窗口期</td>
+</tr>
+<tr>
+<td>监管/标准</td>
+<td>无直接监管阻碍；开源许可（MIT）+ 插件注册模式有助于形成事实标准，抢占生态位</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分：2.0 / 2.5（档位 80%，对应通用标尺 7–8“良好”）</strong></p>
+<p><strong>判断依据</strong>：项目 2026 年 8 月创建，一个月内做到 3.2k+ Star、54 名贡献者、296 个/90天 PR，是该细分窗口期内罕见的强启动信号，侧面印证选题踩点较准——同期大量第三方插件愿意围绕其扩展点进行开发，说明其有机会成为 DSH 生态事实上的侧边栏标准层。风险在于技术底座（DSH）本身处于 alpha 大版本快速演进中（README 明确提示升级会破坏兼容、需要双通道跟进），过早绑定某一 alpha 主版本存在被上游重构颠覆的风险。整体“先发优势显著、格局未定”占主导。</p>
+<hr />
+<h3>D1.4 应用场景广度</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>行业覆盖</td>
+<td>作为研发基础设施，可服务所有软件研发行业（互联网、金融科技、硬科技、游戏、企业服务等均有研发团队）</td>
+</tr>
+<tr>
+<td>场景多样性</td>
+<td>横向可扩展底座：registerTab / registerFileViewer 两个扩展点使其具备“通用工作台”基因；内置页面覆盖文件、终端、Git、对话、任务五大类高频场景</td>
+</tr>
+<tr>
+<td>可延展性</td>
+<td>强：已有生态插件将场景延伸至 Excel/Office、Notebook、视频预览、SSH 隧道、SVN、技能面板、搜索引用等，未来可向文档、运维、数据分析等相邻工具链迁移</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分：1.5 / 2.5（档位 60%，对应通用标尺 5–6“一般”）</strong></p>
+<p><strong>判断依据</strong>：场景覆盖虽“广”，但仍被约束在整个 AI 编程/代码工作流的外围内——本质是开发者的副驾驶侧仓，不像真正的通用 PaaS/低代码底座那样可以脱离编码场景独立存在。跨行业能力依赖 DSH 被对应行业的研发团队采用，自身并不直接触达行业业务。生态插件的多样性（28+）证明其横向延展性优于多数单一插件，匹配“2–3 个行业可用”偏上的档位，暂未达“跨行业基础设施级”。</p>
+<hr />
+<h3>D1 维度小结</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>小分</th>
+<th>满分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1.1 目标市场规模与增长性</td>
+<td>2.0</td>
+<td>2.5</td>
+<td>80%</td>
+</tr>
+<tr>
+<td>D1.2 痛点真实性与解决程度</td>
+<td>2.0</td>
+<td>2.5</td>
+<td>80%</td>
+</tr>
+<tr>
+<td>D1.3 市场时机判断</td>
+<td>2.0</td>
+<td>2.5</td>
+<td>80%</td>
+</tr>
+<tr>
+<td>D1.4 应用场景广度</td>
+<td>1.5</td>
+<td>2.5</td>
+<td>60%</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>7.5</strong></td>
+<td><strong>10.0</strong></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>D1 结论综合判断</strong>：本项目处在“正确的趋势 × 真实的痛点 × 偏早的时点 × 偏窄但可延展的场景”组合中。市场通道为 AI Agent 开发工具链的高速增长，它所占据的生态位（DSH 侧边栏扩展标准）有概率成为该生态的重要流量入口，但目前仍是“依附型增长”——独立市场规模有限、变现距离受制于上游平台成熟度。痛点真实性和工程完整度显著高于同类插件平均水准，社区正反馈和数据活跃度提供有力佐证。维度总分 <strong>7.5/10</strong>，属于“良好”区间，是商业化评估的正面信号，但能否转化为独立商业价值还需观察 DSH 生态后续放量速度与该项目对生态标准的掌控力。</p>
+<h3>D2 技术成熟度与产品质量</h3>
+<p>DSH-better-sidebar 是一个面向 DeepSeek Harness（DSH）生态的开放侧边栏底座，以插件化架构为核心，允许第三方注册侧边栏页面，并内置文件编辑、终端、侧边对话、Git、子代理等页面。项目采用 TypeScript 全栈实现（React + Cordis 插件体系），在一个月内获得 3.2k+ Star，社区认可度高。以下从产品与工程双视角对该维度进行逐项评估。</p>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D2.1 产品设计与创新性</td>
+<td>1.5</td>
+<td>1.2</td>
+<td>产品理念清晰：构建 DSH 生态的开放侧边栏底座，通过服务注册表让三方插件扩展侧边栏页面，而非简单复制现有方案。内置页面覆盖文件、终端、对话、Git、子代理等高频研发场景，功能与核心场景匹配。设计上强调开放性与可扩展性，差异化明显。项目处于快速迭代阶段（v0.x），部分功能仍带 alpha 标记，但整体设计文档完备（36 份设计文档），属"合理且有创新"，评 80% 档。</td>
+</tr>
+<tr>
+<td>D2.2 架构设计与工程质量</td>
+<td>2.0</td>
+<td>1.6</td>
+<td>采用 Cordis 依赖注入插件架构，前后端模块边界清晰：<code>src/client</code>（UI）、<code>src/git.ts</code>/<code>src/pty-manager.ts</code>/<code>src/agent-pty.ts</code>（服务端逻辑）、<code>src/context-types.ts</code>（类型契约）。组件抽象合理（注册表模式、纯函数 reducer、容器/展示分离），<code>sidechat-core</code> 等纯逻辑模块隔离以便复用。整体 6.48 万行代码规模与功能复杂度匹配，复刻涉及 node-pty、Git 封装、DSH 宿主集成、复杂前端交互，门槛较高。存在少量技术债：多语言文件（<code>locales-hi.ts</code> 重复段落、<code>locales-nl/ru.ts</code> 截断）、部分组件超长（<code>tools.ts</code> ~700 行、<code>GitLens.tsx</code> ~500 行），但架构整体优秀，评 80% 档。</td>
+</tr>
+<tr>
+<td>D2.3 代码整洁性与规范性</td>
+<td>1.0</td>
+<td>0.8</td>
+<td>代码总体整洁，函数职责清晰，深模块化良好。TypeScript 类型约束严格（多语言键集由 <code>Record&lt;keyof typeof zh, string&gt;</code> 保证），注释密度高且解释设计决策。存在少量重复和超长文件，个别 locale 文件有明显复制粘贴痕迹（zh-HK/zh-MO 内容几乎一致），但属于局部问题、不影响整体整洁度，评 80% 档。</td>
+</tr>
+<tr>
+<td>D2.4 安全性</td>
+<td>1.0</td>
+<td>0.8</td>
+<td>安全编码实践良好：路径穿越防护（<code>ensureWorkspacePath</code>）、信任围栏（<code>isTrustedApiRequest</code>）、PTY 所有权校验（<code>assertOwned</code>）、Git 命令参数数组（防注入）、HTML iframe 沙箱 + DOMPurify 净化、mermaid 安全渲染、WebSocket 协议白名单。未见硬编码密钥。CI 未集成 Dependabot/Snyk 等第三方依赖漏洞扫描（仅有基础测试与构建流水线），抑制加分，评 80% 档。</td>
+</tr>
+<tr>
+<td>D2.5 UI/UX/UE 人机交互</td>
+<td>1.0</td>
+<td>0.8</td>
+<td>项目含完整 Web UI（React），交互复杂度高：分栏拖拽、浮动窗口、标签树、窄屏迁移、深浅色主题、自定义 CSS 注入。代码中可见对键盘/ARIA 的考量（<code>SubagentView</code> 树形导航）、破坏性操作二次确认、错误边界和用户反馈（如"已复制"提示）。布局与交互有专门设计文档及截图目录，整体体验良好。未能实际运行验证视觉细节，评 80% 档。</td>
+</tr>
+<tr>
+<td>D2.6 功能完备度与稳定性</td>
+<td>1.5</td>
+<td>1.2</td>
+<td>核心功能完整：7 大内置页面 + 第三方扩展注册体系，i18n 覆盖 20+ 语言（含 zh/en/ja/pl/ar/hi 等）。已发布稳定版本（如 v0.17.1），同时维护 alpha 轨道（v0.18.0-alpha.0），版本语义规范。性能方面有专项优化文档及 e2e 性能测试（<code>perf.e2e.ts</code>）。运行环境依赖 Node 22 与 DSH 宿主版本，作为插件属合理要求；但项目整体仍处 0.x 阶段、90 天关闭 125 个 Issue、版本迭代极快，存在潜在 break change，成熟度未达正式版，评 80% 档。</td>
+</tr>
+<tr>
+<td>D2.7 文档与开发者体验</td>
+<td>1.0</td>
+<td>0.8</td>
+<td>README 提供中英双语，含外部插件开发指南（<code>docs/external-plugin-guide.md</code>）、36 份设计/规划文档（含决策背景）、AGENTS.md。CI 设 <code>check:consumer-types</code> 保证对外类型面正确。但缺少独立 API 参考站点和交互式教程，部分文档以"plans"形式存在而非最终用户指南，文档覆盖良好但称不上极致完善，评 80% 档。</td>
+</tr>
+<tr>
+<td>D2.8 测试与质量保障</td>
+<td>1.0</td>
+<td>0.8</td>
+<td>测试规模可观：116 个测试文件 / 22,366 行，测试行占比 38.7%。CI 流水线完整：typecheck → test → build → consumer type surface 检查，并有专门的 <code>plugin-mount</code> 作业将打包产物挂载到真实 DSH 实例 + Playwright Chromium 无头渲染验证，以及双重挂载回归测试。release 流水线采用 npm Trusted Publishing（OIDC）并校验 tag 与版本一致。多层质量门禁基本齐备，但缺少明确的覆盖率阈值报告，评 80% 档。</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>8.0</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：DSH-better-sidebar 在技术成熟度与产品质量方面表现良好（8.0/10），无明显短板。其架构设计清晰、工程规范度高、测试与 CI/CD 体系完善，安全编码意识强，多语言与文档投入超过同类早期项目。主要制约在于：项目上线仅约一个月，版本仍处 0.x（含 alpha 轨道），部分 locale 文件存在一致性瑕疵，自动依赖漏洞扫描缺位。但整体工程地基扎实，已具备支撑商业化交付的雏形条件，后续需推进 1.0 稳定版并补齐安全扫描与覆盖率门禁。</p>
+<h3>D3. 社区健康度与生态势能（权重 11%）— 8.6 / 10</h3>
+<p>DSH-better-sidebar 目前生命周期极短（自 2026-08-07 创建至补采数据时约 27 天），但已在 DSH 插件圈子内形成爆发式社区势能。该维度整体表现优秀，社区活跃度、贡献者规模、第三方生态初建均有硬数据支撑；主要不确定性来自项目上线时间短、长期可持续性尚未经受周期检验，以及组织/媒体数据验证不足。</p>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>判定依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D3.1 社区活跃度指标</td>
+<td>3.0</td>
+<td>3.0</td>
+<td>Star 3246、Fork 284；退化公式估算月均 Star 增量约 3607（远超 500/月档）；Fork/Star 比率约 8.7%，衍生意愿强；近 90 天 PR 创建 296 个、Issue 关闭 125 个，10 余个 release 在近一个月内高频发布。未实测 Issue 平均关闭时间，但从关闭量、PR 量与版本节奏看，维护响应处于极活跃状态，无大量长期积压迹象。</td>
+</tr>
+<tr>
+<td>D3.2 贡献者结构多样性</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>实测 contributors = 54，贡献者规模超过“50+”卓越档门槛；近 90 天 296 个 PR 也说明外部提交活跃。但无法核实是否来自 10+ 组织，也未获取核心团队 vs 外部 PR 占比，按保守口径给予 7–8 档良好评价（80%）。</td>
+</tr>
+<tr>
+<td>D3.3 第三方生态成熟度</td>
+<td>3.0</td>
+<td>2.4</td>
+<td>README 宣称已有 28+ 生态插件，并设置 <code>dsh-better-sidebar</code> topic、接入 dshfind.com 插件展示/徽章；提供 <code>docs/external-plugin-guide.md</code> 外部插件接入文档；已有第三方插件案例 <code>@huanlin/dsh-plugin-better-locale</code>。项目自身作为 DSH 插件开放服务化 API（<code>registerTab</code>/<code>registerFileViewer</code>），具备生态底座特征。但尚无成熟的独立插件市场或主流平台集成证明，教程/课程未观测到，评为 7–8 档（80%）。</td>
+</tr>
+<tr>
+<td>D3.4 品牌认知与行业影响力</td>
+<td>1.5</td>
+<td>1.2</td>
+<td>项目在 DSH 垂直生态内已形成较高认知度：1 个月获得 3.2k+ Star，npm 与 GitHub topic/dshfind 等多入口展示；与 DeepSeek DSH 官方生态深度绑定。但尚未见知名企业背书、技术会议/媒体覆盖的直接证据，评为 7–8 档（80%）。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：D3 维度合计 8.6 / 10，显示项目具备支撑商业化的社区基础与生态势能——高活跃度意味着可触达的潜在客户池真实存在，贡献者与第三方插件已初步形成网络效应。需要警惕的是：项目上线不足一个月，当前所有活跃数据都集中于爆发初期，长期留存率、维护者可持续投入及外部贡献者组织多样性仍需后续跟踪验证。</p>
+<h3>D4. 商业模式与变现潜力（权重 18%）</h3>
+<p><strong>综合得分：5.4 / 10</strong> —— 项目具备 MIT 协议带来的商业模式自由度，且生态位清晰、具备参照 GitLens 等插件型 Open Core 的潜在路径；但当前完全没有付费产品、企业版或服务入口，付费转化逻辑基本缺失，整体变现潜力处于“需验证”阶段。</p>
+<h4>细则打分表</h4>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>权重</th>
+<th>小分</th>
+<th>六档折算</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D4.1 协议对变现模式的影响</td>
+<td>2.0</td>
+<td><strong>2.0</strong></td>
+<td>100%（9–10 档）</td>
+<td>仓库 LICENSE 及 package 声明均为 <strong>MIT License</strong>，对闭源衍生、SaaS 托管、双协议授权等所有变现路径均无法律约束；与 GitLab/Supabase 等基于 MIT/Apache 走 Open Core + 托管/企业版的先例可对照，属于最优协议档。</td>
+</tr>
+<tr>
+<td>D4.2 变现路径清晰度</td>
+<td>3.5</td>
+<td><strong>2.1</strong></td>
+<td>60%（5–6 档）</td>
+<td>项目定位为「DSH 侧边栏底座 / 开放框架」，已形成 <code>registerTab</code>/<code>registerFileViewer</code> 扩展 API、内置推荐插件目录与 28+ 生态插件，具备<strong>插件市场/生态聚合</strong>与<strong>专业服务/定制集成</strong>的客观基础；也可参照 GitLens（开源核心插件 + 企业付费功能）探索 Open Core。但项目方未披露任何商业计划，README/npm 描述中无企业版、付费版、赞助或服务入口，路径尚停留在“理论可适配”，需验证。</td>
+</tr>
+<tr>
+<td>D4.3 付费转化逻辑</td>
+<td>2.5</td>
+<td><strong>0.5</strong></td>
+<td>20%（1–2 档）</td>
+<td>全量功能（文件/编辑器/终端/Git/侧边对话/子代理/自由窗口等）均在 MIT 下免费提供，不存在功能分层或免费版/企业版区分，用户可零成本获得全部能力；未发现任何“免费不够用→自然升级付费”的触发点。唯一潜在付费对象是企业级支持，但当前没有对应业务设计与付费入口，转化漏斗基本不存在。</td>
+</tr>
+<tr>
+<td>D4.4 增值服务空间与定价天花板</td>
+<td>2.0</td>
+<td><strong>0.8</strong></td>
+<td>40%（3–4 档）</td>
+<td>技术上具备增值空间（企业安全审计、SLA、私有化部署支持、终端/沙箱深度定制、插件认证等），DSH 生态若进入企业市场，该基座插件价值可观；但现阶段上游 DSH 仍处 alpha/早期，目标用户以个人开发者与社区玩家为主，客单价缺乏支撑。项目无 per-seat/per-usage 等授权设计，收入扩展性未建立。</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>5.4</strong></td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h4>结论</h4>
+<p>DSH-better-sidebar 在商业协议维度拿到满分（MIT），但其商业模式的真实瓶颈不在“能不能”，而在“有没有路径落地”：它本质上是一款依附于 DeepSeek Harness 生态的<strong>元插件/基座型开源组件</strong>，自身不拥有用户终端入口或托管平台，直接向终端用户收费的场景极弱。最现实的商业化方向是效仿 GitLens 的插件型 Open Core——在保持社区版开放的同时，面向企业团队提供集中配置、审计、合规支持或托管服务；其次是通过插件认证/推荐位参与生态商业化。然而，上述方向目前在项目中均无任何执行迹象，因此本维度得分被 D4.3/D4.4 显著拉低，整体评级为<strong>一般偏弱，商业变现尚处早期探索阶段</strong>。</p>
+<h3>D5 竞争格局与差异化壁垒</h3>
+<h3>D5.1 竞品对比与市场定位（3 分）</h3>
+<p><strong>定位梳理</strong>：DSH-better-sidebar 定位为「DeepSeek Harness（DSH）生态的服务化侧边栏底座」——核心主张是开放扩展（<code>ctx.betterSidebar.registerTab</code> / <code>registerFileViewer</code> 双扩展点），而非单一功能插件。通过"底座 + 生态"策略形成结构性差异化：内置 8 tab + 6 viewer 与三方插件走同一 API，能力对等，官方不做全能收割，将 Office 预览、SVN 等场景交由生态实现（README 明示 28+ 生态插件、GitHub topic 实存）。</p>
+<p><strong>竞品对比表</strong>（经 GitHub Search API 实测验证，聚焦 DSH 生态同类项目）：</p>
+<table>
+<thead>
+<tr>
+<th>竞品名称</th>
+<th>类型</th>
+<th>仓库/官网</th>
+<th>验证方式</th>
+<th>Star/用户量</th>
+<th>核心差异</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lum1104/dsh-browser</td>
+<td>间接竞品</td>
+<td>github.com/Lum1104/dsh-browser</td>
+<td>GitHub 搜索确认</td>
+<td>558</td>
+<td>Chrome 侧边栏扩展，让 DSH 直接操控浏览器；走系统扩展路径而非 DSH 插件体系，不做工作台底座</td>
+</tr>
+<tr>
+<td>ZSeven-W/dsh-ios</td>
+<td>间接竞品</td>
+<td>github.com/ZSeven-W/dsh-ios</td>
+<td>GitHub 搜索确认</td>
+<td>272</td>
+<td>iOS 模拟器控制插件，解决"移动端调试"单一问题；无通用扩展点，单场景纵深</td>
+</tr>
+<tr>
+<td>MichengAI/dsh-codex-ui</td>
+<td>直接竞品</td>
+<td>github.com/MichengAI/dsh-codex-ui</td>
+<td>GitHub 搜索确认</td>
+<td>53</td>
+<td>Codex 风格侧栏 UI 增强，功能面窄（会话树/搜索/轮次导航），非可注册扩展的开放底座</td>
+</tr>
+<tr>
+<td>ChenRuoT/dsh-sidebar-qa</td>
+<td>生态互补型</td>
+<td>github.com/ChenRuoT/dsh-sidebar-qa</td>
+<td>GitHub 搜索确认（README 亦引用）</td>
+<td>38</td>
+<td>明确声明"基于 DSH-better-sidebar"的 tab 插件——<strong>竞品即生态下游</strong>，反证本项目平台地位</td>
+</tr>
+<tr>
+<td>left0ver/dsh-file-review</td>
+<td>生态互补型</td>
+<td>github.com/left0ver/dsh-file-review</td>
+<td>GitHub 搜索确认</td>
+<td>34</td>
+<td>文件 diff 审查插件，"support dsh-better-sidebar"——同为生态下游而非平行竞争对手</td>
+</tr>
+</tbody>
+</table>
+<p><strong>防守验证说明</strong>：本维度结论基于 GitHub Search API 实测（5 个仓库均经 github.com 搜索确认真实存在、字段与检索结果一致）。DSH 生态处于早期爆发阶段，搜索"DSH 侧边栏/工作台"类项目，除专攻单场景（浏览器/模拟器/UI 风格）者外，尚无第二个同等开放度的可注册侧边栏底座。竞品清单已如实覆盖搜索命中的所有同类近缘项——不存在刻意回避的强直接竞品。</p>
+<p><strong>评分：8 分 / 10（按满分 3 分六档折算：2.4 分）</strong>——有竞品但定位差异显著：本项目是 DSH 生态少有的开放底座（明确 API 契约 + 生态目录机制），直接竞品在开放度上差一个量级；生态内单场景竞品众多但解决的是不同层次问题，部分"竞品"实为生态下游依赖方。</p>
+<h3>D5.2 技术壁垒与网络效应（3 分）</h3>
+<p><strong>平台/生态壁垒</strong>（本项目主张的核心壁垒，区别于 D2.2 工程复刻难度，此处聚焦商业防御效果）：
+- <strong>API 契约壁垒</strong>：<code>ctx.betterSidebar</code> 类型合并 + <code>registerTab</code>/<code>registerFileViewer</code> 双扩展点形成插件开发标准。已存在 24+ tab 插件、3+ 预览插件、4+ 增强工具（README 中插件表 + GitHub topic 互证），插件与内置功能 API 完全对等（README 多处强调）。一份稳定契约 = 存量插件资产的锚定——竞品若要替代，除非兼容该 API，否则整个生态资产作废，此乃实质商业防御力。
+- <strong>数据飞轮</strong>：star 3246（DSH 生态头部）、54 contributors、90 天 296 PR / 125 issue 关闭、28+ 生态插件、test 覆盖率 38.7%（25076 行测试）——三方贡献者与测试基建形成质量飞轮；设置页含"推荐插件目录"内置收录机制，插件越多底座越有价值。
+- <strong>社区网络</strong>：README 含 QQ/微信社群入口、dshfind 插件市场收录、插件上架需打 topic + 提 PR 才有推荐位——网络效应已可观测。</p>
+<p><strong>技术壁垒局限</strong>：MIT License + 无专利/专有算法壁垒；但作为框架型组件，真正的护城河不在代码本身而在"已沉淀的 API 生态 + 开发惯性"。</p>
+<p><strong>评分：7 分 / 10（按满分 3 分六档折算：2.1 分）</strong>——单看代码可复刻，但"生态网络 + API 契约 + 社区资源"形成较强网络效应壁垒；技术专利类壁垒缺失使其无法达到 9-10"双重护城河"档。</p>
+<h3>D5.3 切换成本与用户粘性（2 分）</h3>
+<p><strong>高粘性集成</strong>（多项数据印证）：
+- 依赖 <code>@deepseek-ai/*</code> 系列 20 个 peer/devDependencies（dsh-agent、dsh-session、dsh-subagent、dsh-client-ui-slots 等），深度耦合 DSH 版本特定 API——README 显示每次 DSH 上游 alpha 变动均有配套版本跟进（如 v0.19.0-alpha.0 适配 <code>snapshotEvents()</code> 迁移），用户/插件的版本跟随成本真实存在。
+- 提供声明式设置、会话级 localStorage 布局持久化、固定终端跨会话保留、自由窗口/分栏布局等个性化状态——迁移需重建布局习惯与配置。
+- 安装深度：需修改 <code>~/.dsh/profiles/web/package.json</code> 与 <code>cordis.patch.yml</code>（或插件命令 + pnpm approve-builds 放行 node-pty），非浅层即插即用。
+- 生态插件依赖：部分插件（如 dsh-sidebar-qa、dsh-file-review）明确依赖本项目 API，弃用本项目 = 弃用整个 tab/viewer 生态。</p>
+<p><strong>粘性短板</strong>：单用户切换至替代品（若出现）时，重构功能列表（文件/终端/Git/对话）非零成本但数据本身是本地文件（无数据锁定），迁移成本主要落在"布局配置 + 开发习惯 + 生态工具链"上。</p>
+<p><strong>评分：7 分 / 10（按满分 2 分六档折算：1.4 分）</strong>——配置深度 + 布局会话持久化 + 生态依赖形成较高切换成本；但本地文件数据本身无锁定，未达"必须重写业务逻辑"级别。</p>
+<h3>D5.4 护城河可持续性（2 分）</h3>
+<p><strong>增强中的壁垒</strong>：DSH 生态整体处于爆发期（生态插件 28+ 个，皆创建于 2026-08~09 一两个月内），本项目的地位随时间与生态扩大而上升——每多一个依赖其 API 的插件，替代成本就高一分。Release 节奏快（8-17 至 8-30 发 10+ 版），功能迭代迅速（侧边对话、自由窗口、固定终端、双工作台等）不断拉开与追赶者差距。</p>
+<p><strong>围绕核心用户的功能纵深仍在加宽</strong>：CodeMirror 编辑器（17 种语言支持）、xterm.js + node-pty 终端、Git 双视角 diff、mermaid 安全渲染、Office 由生态补齐……在主场景（文件/终端/Git/对话预览）内，单场景竞品虽多但无一形成同等纵深覆盖。</p>
+<p><strong>风险项</strong>：DSH 上游若官方原生内置同类能力，将削弱本项目的必要性（依赖上游框架的寄生风险）；alpha 通道快速迭代（v0.19.0-alpha.0 仅支持 0.1.2-alpha.5）隐含适配成本，若上游 API 变动频繁可能拖累生态。</p>
+<p><strong>评分：7 分 / 10（按满分 2 分六档折算：1.4 分）</strong>——护城河随生态扩张而加深，短期无明确颠覆者；但上游官方内置风险是结构性软肋，阻止其进入 9-10 档。</p>
+<h3>D5 综合结论</h3>
+<p><strong>总分：7.3 分 / 10（按权重 12% 计入总分）</strong></p>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>权重</th>
+<th>小分</th>
+<th>档位判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D5.1 竞品对比与市场定位</td>
+<td>3 分</td>
+<td><strong>2.4</strong> / 3</td>
+<td>有竞品但差异化定位鲜明（8 分档）</td>
+</tr>
+<tr>
+<td>D5.2 技术壁垒与网络效应</td>
+<td>3 分</td>
+<td><strong>2.1</strong> / 3</td>
+<td>有网络效应护城河，技术专利壁垒缺失（7 分档）</td>
+</tr>
+<tr>
+<td>D5.3 切换成本与用户粘性</td>
+<td>2 分</td>
+<td><strong>1.4</strong> / 2</td>
+<td>集成/配置/生态依赖形成较高粘性（7 分档）</td>
+</tr>
+<tr>
+<td>D5.4 护城河可持续性</td>
+<td>2 分</td>
+<td><strong>1.4</strong> / 2</td>
+<td>壁垒增强中，存在上游官方内置风险（7 分档）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10 分</strong></td>
+<td><strong>7.3</strong> / 10</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>关键结论</strong>：
+1. <strong>生态位独特</strong>。DSH 生态中尚无第二个同等开放度的"侧边栏服务化底座"——竞争对手多走单场景纵深（browser / ios / codex-ui），而本项目走"平台 + 生态"路线，且已有部分周边项目作为其生态下游而存在（反向印证平台地位）。
+2. <strong>最具商业价值的资产是 API 契约 + 存量生态</strong>。28+ 插件的存在与单一事实 API 标准使护城河从代码层面跃升到生态层面；网络效应已进入"插件多 → 用户价值大 → 贡献者更多"的自增强阶段。
+3. <strong>核心结构性风险为上游依赖</strong>。DSH 官方若原生内置同等底座能力，将对本项目构成颠覆性打击；alpha 版本快速迭代的耦合成本也需持续投入紧跟。</p>
+<h3>D6. 法律合规与知识产权</h3>
+<p><strong>维度得分：7.8 / 10（权重 7%）</strong></p>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>小分</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D6.1 开源协议合规性与商业限制</td>
+<td>3.0 / 3.0</td>
+<td>MIT License 明确无附加条件；无 copyleft 传染；无 Commons Clause/BUSL 等商业限制</td>
+</tr>
+<tr>
+<td>D6.2 依赖链法律风险</td>
+<td>2.5 / 2.5</td>
+<td>30 个直接依赖均为 MIT/Apache-2.0 主流包，未检出 GPL/AGPL；来源可靠</td>
+</tr>
+<tr>
+<td>D6.3 商标与专利风险</td>
+<td>1.5 / 2.5</td>
+<td>未经人工商标/专利检索，按规则默认 5–6 档，置信度低</td>
+</tr>
+<tr>
+<td>D6.4 贡献者协议完备性</td>
+<td>0.8 / 2.0</td>
+<td>无 CLA/DCO、无 CONTRIBUTING.md，54 名贡献者版权分散</td>
+</tr>
+</tbody>
+</table>
+<h4>D6.1 开源协议合规性与商业限制 — 3.0/3.0</h4>
+<ul>
+<li><strong>协议明确性</strong>：仓库根目录存在标准 <code>LICENSE</code>（MIT License），<code>package.json</code> 中 <code>license</code> 字段亦为 <code>"MIT"</code>，声明一致；源码文件未逐一标注 SPDX 头，但整体协议标识清晰，不影响合规判断。</li>
+<li><strong>copyleft 传染性</strong>：项目本身采用宽松 MIT 协议；审阅直接依赖未发现 GPL/AGPL 类传染性协议，不会对软件再分发构成 copyleft 义务传导。</li>
+<li><strong>商业附加条款</strong>：无 Commons Clause、BUSL、SSPL 等限制性附加条款；<code>publishConfig.access = "public"</code> 表明允许公共发布和商业使用。MIT 对被授权方不施加商业限制，授权开发者可自由销售、分发、修改与闭源衍生产品。</li>
+<li><strong>注意点</strong>：LICENSE 版权行标注为 <code>Copyright (c) 2026 dsh-external</code>，与仓库组织名 <code>omdsh-dev</code> 不一致，虽不改变 MIT 协议效力，但建议商业化前核验版权主体链路，避免后续授权争议。</li>
+</ul>
+<p>协议面无法律硬伤，商业路径不受开源协议阻碍，故按 100% 档计满分。</p>
+<h4>D6.2 依赖链法律风险 — 2.5/2.5</h4>
+<ul>
+<li>统计 <code>package.json</code> 的 <code>dependencies</code> 共 <strong>30 个</strong> 直接运行时依赖，全部为 npm 官方生态知名包：CodeMirror 系列、@lezer/*、clsx、dompurify、mermaid、node-pty、react-icons、rxjs、schemastery、ws 等。</li>
+<li>直接依赖许可证以 <strong>MIT</strong>（CodeMirror、node-pty、ws 等）和 <strong>Apache-2.0</strong>（DOMPurify、RxJS）为主，均为宽松许可，与 MIT 许可证可兼容分发，无 GPL/AGPL 直接依赖。</li>
+<li>依赖来源均为官方或稳定维护渠道，未发现来源不明的恶意/高风险包。</li>
+<li><strong>局限说明</strong>：本评估未对传递依赖（transitive dependencies）做全量许可证扫描，因仓库数据中未提供 lockfile 或 SBOM。建议正式商业化前执行 <code>license-checker</code> 或 CD 许可证门禁，但就现有硬事实而言，依赖链整体风险可控。</li>
+</ul>
+<h4>D6.3 商标与专利风险 — 1.5/2.5</h4>
+<ul>
+<li><strong>自动化限制</strong>：商标检索与专利排查无法由 AI 自动完成，本次无人工核查数据，故按评估方法论默认 5–6 档给出 <strong>1.5/2.5</strong>，置信度低。</li>
+<li>凭现有公开信息提示性风险：项目名含 <code>DSH</code> 且 topics 包含 <code>deepseek</code>、<code>deepseek-harness</code>，与 DeepSeek 品牌存在潜在关联。若 DeepSeek 在中国或其他法域持有相关商标，则项目名称与品牌使用存在冲突可能。</li>
+<li>专利方面无足够数据进行有效判断。建议在启动商业化或融资尽调前，委托代理机构对“DSH-better-sidebar”及 <code>DSH</code> 核心标识做商标检索，并排查核心技术（如插件化侧边栏架构）的专利自由实施风险（FTO）。</li>
+</ul>
+<h4>D6.4 贡献者协议完备性 — 0.8/2.0</h4>
+<ul>
+<li>硬事实显示：<code>has_contributing = false</code>、<code>has_codeowners = false</code>，仓库根目录无 <code>CONTRIBUTING.md</code>，也未发现 CONTRIBUTING 文档；补采数据仓库 files 清单中未见 CLA/DCO 文件。</li>
+<li>项目已有 <strong>54 名贡献者</strong>、132 个 open issues，PR 活跃度较高（90 天 296 个 PR），但缺乏正式的 contributor license agreement（CLA）或 developer certificate of origin（DCO）。每一位贡献者默认保留其提交的版权，虽 GitHub 服务条款隐含开源许可以供再分发，但无法将版权集中归集到单一主体。</li>
+<li>对于当前纯 MIT 开源模式，这一缺口尚不阻碍开源协作；但如果未来需要切换许可证（如改为双许可、商业闭源或加入更严格条款），则需获得所有历史贡献者的授权，变更成本极高。</li>
+<li>有 <code>AGENTS.md</code>、<code>docs/plans</code> 等工程治理文档，说明开发流程有一定规范，但缺少面向贡献者的版权与许可协议，故按 3–4 档（40%）计 <strong>0.8/2.0</strong>。</li>
+</ul>
+<h4>维度小结</h4>
+<p>从法律合规角度看，该项目 <strong>开源协议层面对商业化非常友好</strong>：MIT 许可无病毒式传染、无附加条款，可支持销售、闭源衍生等多种变现路径。主要短板集中在 <strong>商标风险未核查</strong> 与 <strong>贡献者版权协议缺失</strong> 两项：前者需要尽早做人工检索以排除品牌压制风险，后者若未来走双许可或 license 变更模式将构成实质性障碍。建议商业化计划把“补 CLA/DCO + 商标注册/排查”列为上线前置合规动作。</p>
+<h3>D7. 企业就绪度与可运营性</h3>
+<p><strong>评分: 6.0/10</strong> — 项目作为 DSH 宿主生态内的功能型插件，在配置清晰度与安全纵深上有超出同类开源插件的表现，但企业级客户关注的独立可观测体系、审计能力、多实例高可用以及系统化升级迁移通道均未建立。整体处于"达到插件生态平均水平、距离企业级可运营尚有差距"的状态。</p>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+<th>判定依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D7.1 运维复杂度与升级路径</td>
+<td>3.0</td>
+<td>1.8</td>
+<td>5–6 档 (60%)</td>
+<td>无独立部署形态（无 Dockerfile），运维随宿主；安装步骤含 <code>pnpm approve-builds</code> 手工环节；双版本通道（stable/alpha）需按 DSH 宿主版本钉选，升级依赖 npm 重装 + 硬刷新，无 CHANGELOG/迁移说明文档</td>
+</tr>
+<tr>
+<td>D7.2 安全管理与权限控制</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6 档 (60%)</td>
+<td>信任围栏、workspace fence、PTY 所有权校验、HTML/DOMPurify 消毒、沙箱 iframe 等纵深防护显著强于常见插件；但无自主身份认证/SSO、无 RBAC、无审计日志，依赖宿主单用户模型</td>
+</tr>
+<tr>
+<td>D7.3 可扩展性与高可用能力</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6 档 (60%)</td>
+<td>多会话状态隔离与按需加载（~325KB 核心）体现单实例内良好的横向容量设计；但无集群部署、无故障转移，node-pty 终端与 WebSocket 桥接均为进程内单点，扩展需依托宿主改造</td>
+</tr>
+<tr>
+<td>D7.4 集成兼容与可观测性</td>
+<td>2.0</td>
+<td>1.2</td>
+<td>5–6 档 (60%)</td>
+<td>服务化扩展 API（<code>ctx.betterSidebar</code> + HTTP/WebSocket 协议）完备且有消费端类型面 CI 守护；但无 OpenTelemetry/Prometheus/Webhook 支持、无运行时 metrics/健康检查端点、未采用结构化日志框架</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>6.0</strong></td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>D7.1 运维复杂度与升级路径（1.8/3.0）</h3>
+<p><strong>配置管理方面</strong>，本项目采用"声明式设置 + 宿主设置中心整合"的路线。<code>prefs-shared.ts</code> 定义带边界钳制的偏好模型（窗口比例、终端字号等），<code>SideCardSection.tsx</code> 实现注册表驱动的设置 UI，插件设置通过 <code>mergePluginSetting</code> 与宿主 DSH 设置服务合并，端侧设置由 <code>sanitizeState</code> 做容错与状态净化。这一模式对终端用户友好，无需手工编辑配置文件；但项目本身不提供独立于宿主的配置中心或环境变量覆盖通道（<code>DSH_TELEMETRY_DISABLED</code> 仅用于 CI 场景），在需要批量/受控配置的企业环境中灵活性不足。</p>
+<p><strong>运维负担</strong>上，项目无独立服务进程、无容器化交付（未提供 Dockerfile），作为 Cordis 插件完全寄生在 DSH 宿主进程内，日常"运维"即宿主运维 + npm 包版本管理。但安装链路并非零干预：README 明确记载首次安装会因 pnpm 11 拦截 <code>node-pty</code> 构建脚本失败，需在 <code>~/.dsh/profiles/web</code> 下手动执行 <code>pnpm approve-builds --all</code> 后重跑安装。虽然该步骤已文档化并有 <code>TerminalDepsBanner</code> 在端侧提示修复命令，仍构成企业环境批量部署时的人力门槛。项目无 CONTRIBUTING、无 CODEOWNERS，也侧面反映运维责任边界尚未企业化。</p>
+<p><strong>升级路径</strong>存在明显张力：一方面发布工程自动化程度高——<code>release.yml</code> 通过 npm Trusted Publishing（OIDC）发布，自动校验 GitHub Release tag 与 <code>package.json</code> version 一致，并按 prerelease/stable 自动选择 <code>alpha</code>/<code>latest</code> dist-tag，回滚可借助 npm 包版本机制实现（重新安装上一版本即回退）；CI 中另有 <code>plugin-mount</code> 作业将打包产物装入真实 DSH 实例做冒烟验证，兼有 <code>Aggregate double-mount regression</code> 防回归。但另一方面，<strong>发布节奏极快</strong>：自 2026-08-17 至 2026-08-30 的 13 天内发布 10 个版本（v0.13.0 → v0.18.0-alpha.0），其中包含 alpha 通道对 DSH 0.1.2-alpha.x 的强制适配（README 声明 v0.18.0-alpha.0 起不再支持 0.1.0-rc.8 ~ 0.1.1-rc.2）。这意味着升级必须与 DSH 宿主版本严格对齐，两线（stable/alpha）并行维护增加了企业客户选择与验证成本。仓库内未发现 CHANGELOG 或版本迁移说明文档（release note 依赖 GitHub Release 页面），数据迁移方面主要依赖 <code>localStorage</code> 层的 <code>sanitizeState</code> 对持久化状态做净化与 ID 种子恢复，可容忍轻微 schema 漂移，但缺乏跨大版本的结构化迁移方案文档。</p>
+<p>综合判断：配置声明式程度高、发布流水线可靠是其亮点；安装需手工介入、无独立运维边界、高频率版本迭代与宿主强耦合使其距"升级平滑且支持回滚、数据自动迁移"的卓越档有明显差距，落在"需一定运维投入、升级需手动操作"的 5–6 档。</p>
+<h3>D7.2 安全管理与权限控制（1.5/2.5）</h3>
+<p><strong>安全设计是该项目代码质量中最突出的部分之一</strong>，其纵深防御特征远超典型开源插件：</p>
+<ul>
+<li><strong>请求级授权/信任围栏</strong>：服务端 <code>src/index.ts</code> 通过 <code>ensureWorkspacePath</code> 做路径穿越防护、<code>isTrustedApiRequest</code> 建立信任围栏、<code>parseLoopbackAllowlist</code> 管理回环地址白名单；Git 操作经 <code>runGit</code> 参数数组传参（杜绝 shell 拼接注入），worktree 目标必须经列表校验。</li>
+<li><strong>终端所有权隔离</strong>：<code>AgentPtyRegistry.assertOwned</code> 确保代理只能访问本会话创建的 PTY，信号发送走白名单（<code>ALLOWED_SIGNALS</code>），子代理 kill 按钮带二次确认防误操作。</li>
+<li><strong>内容安全</strong>：HTML 预览强制沙箱 iframe（<code>HTML_IFRAME_SANDBOX</code> 无同源/无顶层导航），Markdown 内嵌 HTML 经 DOMPurify 消毒（<code>postProcessSanitized</code>），Mermaid 采用 strict 安全渲染；e2e 测试专门断言 script 标签被移除。</li>
+<li><strong>文件访问边界</strong>：文件打开前检查 workspace fence（<code>isWithinWorkspace</code>），围栏拒绝时显示友好提示而非静默失败。</li>
+</ul>
+<p><strong>但以企业级安全体系衡量仍有本质缺口</strong>：</p>
+<ul>
+<li><strong>认证与身份</strong>：项目不自带任何用户认证，完全依赖 DSH 宿主的单用户/本地会话模型，不支持 SSO/OAuth/LDAP/SAML，也没有多租户概念。这对面向单人开发场景的 DSH 生态而言是合理的架构选择，但企业客户若需集中身份管理，只能依赖外围网关，无法在插件层满足。</li>
+<li><strong>权限模型</strong>：现有的围栏/所有权校验属于<strong>功能级与资源级访问控制</strong>（哪些 API 可调、哪个工作区可读写、哪个 PTY 可访问），而非<strong>用户级细粒度 RBAC/ABAC</strong>——没有角色、没有策略引擎。</li>
+<li><strong>审计日志</strong>：仓库内无安全审计模块。虽有 <code>jobs-routes.ts</code> 的作业输出追踪/事件回放、客户端对模型读/写/编辑的实时追踪，但这些服务于产品功能（任务可视化）而非合规审计（谁在何时执行了什么敏感操作）。</li>
+<li><strong>数据安全</strong>：传输层面走本地回环 HTTP/WebSocket（有回环白名单与协议校验），存储层依赖宿主；密钥管理无涉（不持有凭据），内容层加密/消毒措施较强。</li>
+</ul>
+<p>综合判断：若将"安全"理解为<strong>对不可信内容与工作区边界的防护</strong>，项目已接近 7–8 档水平；但按企业就绪度的认证授权 + 审计 + RBAC 标尺衡量，缺少身份层与审计层是硬性短板。故整体落在"有请求级认证/粗粒度权限、安全机制以纵深防御见长但无完整企业安全体系"的 5–6 档。</p>
+<h3>D7.3 可扩展性与高可用能力（1.5/2.5）</h3>
+<p><strong>单实例内的扩展性设计优秀</strong>：</p>
+<ul>
+<li><strong>多会话隔离</strong>：<code>SidebarStore</code> 按会话隔离布局/Tab/面板状态并持久化，陈旧状态自动净化；固定终端跨会话虚拟 Tab 通过宿主会话 ID 直连 PTY。</li>
+<li><strong>懒加载架构</strong>：启动仅拉 ~325KB 核心，终端/编辑器/Mermaid/多语言字典均按需分块加载（<code>lazy-chunk.tsx</code>、<code>chunk-loader.tsx</code>），配合 <code>createFrameBatcher</code> 拖拽事件批处理、2 秒静默轮询节流、串行子代理轮询（防风暴）等客户端性能治理，单体可支撑的并发标签/会话规模可观。</li>
+<li><strong>资源竞争控制</strong>：Git 操作带并发控制与超时机制，目录树懒加载单次单 API 调用，仓库发现带缓存。</li>
+</ul>
+<p><strong>但水平扩展与高可用维度近乎空白</strong>：</p>
+<ul>
+<li>无状态服务设计不存在——服务端逻辑（PTY 管理、Git 桥接、文件系统访问）作为 DSH 宿主进程内的有状态模块运行，<code>node-pty</code> 的 PTY 生命周期、WebSocket 会话均绑定单进程内存。</li>
+<li>无集群部署/故障转移/多副本方案，无 Dockerfile 也意味着无法独立容器化编排。</li>
+<li>数据一致性方面因单机模型而天然简单（localStorage + 进程内状态，<code>sanitizeState</code> 保证恢复），不构成分布式一致性问题，但也正说明其架构不具备多节点能力。</li>
+<li>部分轮询依赖（2 秒静默轮询、子代理 3 秒轮询）在并发会话激增时可能成为宿主进程的压力点，但已有防风暴与串行化设计，属可控范围。</li>
+</ul>
+<p>综合判断：项目在"单机实例内的多会话</p>
+<h3>D8 团队治理与可持续性</h3>
+<p>分析失败（DeepSeek 调用重试仍失败: 模型返回空内容），本维度标 N/A。</p>
+<h3>安装部署与使用指南</h3>
+<p><strong>上手难度等级：🟡 中等（6.5/10）</strong> — 面向有技术基础者（DSH 用户 / 开发者）。项目是 DSH（DeepSeek Harness）web 插件，<strong>无独立运行形态</strong>——仓库不含 Dockerfile，安装部署均依附于 DSH 生态（</p>
+<h3>D10. 功能价值——使用价值视角（平行维度，权重 0%，不计入综合评分）</h3>
+<blockquote>
+<p>本维度与 D1–D9 正交：不评估「是否有人愿意付钱」，仅评估「使用它的人实际获得了多少效用」。结果只用于价值画像判定，不计入百分制综合评分。</p>
+</blockquote>
+<h4>D10.1 效用强度（3 分）—— 小分：2.4（80%）</h4>
+<p><strong>判断依据</strong>：</p>
+<ul>
+<li><strong>单用户节省量</strong>：该项目为 DSH（DeepSeek Harness）提供完整的侧边栏工作台底座，内置文件资源管理器 + CodeMirror 编辑器、Markdown/PDF/图片预览、真实终端（xterm.js + node-pty）、Git 工作区、子代理后台任务页、侧边对话、内嵌浏览器等 8 个 tab 和 6 个文件预览器。对一个没有侧边栏工作台的 DSH 用户来说，这些能力的集合需要自行开发和集成大量前端组件与 host 服务，而本插件通过 <code>dsh plugin add</code> 一条命令即可获得，节省的开发成本量级显著。</li>
+<li><strong>效用层级</strong>：达到 <strong>DSH 生态内的项目级基础设施</strong>——不是分钟级便利工具，而是第三方插件依赖的开放底座（<code>ctx.betterSidebar.registerTab</code> / <code>registerFileViewer</code>），可被生态能力重复消费；内置能力与第三方插件通过同一 API 注册、能力对等，效用持续外溢到整个插件生态。但尚不构成 DSH 本身之外的「业务命脉」级依赖，用户不安装时 DSH 核心功能仍可用，因此未给满档。</li>
+<li><strong>效用确定性</strong>：功能稳定可预期，属于「装上即得」的确定性效用，不依赖运气或极端场景；但部分能力（如适配 DSH alpha 通道）存在版本跟随成本，README 明确要求 DSH 0.1.2-alpha.x 或 @latest 通道，因此效用上限受宿主版本兼容性约束。</li>
+</ul>
+<h4>D10.2 实际使用规模（3 分）—— 小分：1.8（60%）</h4>
+<p><strong>判断依据</strong>：</p>
+<ul>
+<li><strong>npm 周下载量：97,317</strong>（实采），推算月下载约 40 万量级，处于「月下载十万级」区间，对应通用标尺 5–6（一般）的中上段。</li>
+<li><strong>GitHub Dependents「Used by」计数</strong>：未能通过现有补采数据获得，标记数据缺失；但 npm 周下载是更直接的插件消费证据，足以支撑规模判断。</li>
+<li><strong>生产采用证据</strong>：README 列出 28+ 个已上架生态插件（GitHub topic <code>dsh-better-sidebar</code>），涵盖 tab 插件（24 个）、预览插件（3 个）、增强工具（4 个）；设置页内置推荐插件目录并有测试守护（<code>tests/plugin-list.spec.ts</code>）。生态插件自愿围绕该底座开发，是最有说服力的生产级采用信号。</li>
+<li>综合下载量「十万级/月」与生态规模，未达到「百万级/月」或「行业标配」档，因此按 60% 折算给分。</li>
+</ul>
+<h4>D10.3 免费可得的完整效用（2 分）—— 小分：2.0（100%）</h4>
+<p><strong>判断依据</strong>：</p>
+<ul>
+<li><strong>开源版即全部价值</strong>：MIT License，核心功能、8 个内置 tab、6 个 viewer、服务化扩展 API、声明式设置、安全沙箱等全部在开源版本中，没有任何企业版/闭源付费墙。</li>
+<li><strong>自托管完整性</strong>：插件以 npm 包形式安装到用户本地 DSH profile，完全自托管；源码安装路径也完整提供（<code>git clone + pnpm build + link</code>），无官方托管服务依赖。</li>
+<li><strong>无隐性收费</strong>：不存在「不付费实际不可用」的设计；生态插件均为独立开源项目，安装与使用零费用。</li>
+<li>与 D4.3 的对照：本项目属于典型的「使用价值高、付费转化设计低」结构——D10.3 拿满分的代价是几乎没有可收费的闭源增值层，这是「使用价值 vs 交换价值」张力的正面体现。</li>
+</ul>
+<h4>D10.4 效用可持续性（2 分）—— 小分：1.6（80%）</h4>
+<p><strong>判断依据</strong>：</p>
+<ul>
+<li><strong>停维后效用存续</strong>：本插件运行在用户本地 DSH 环境，代码与构建产物完全在本地，不存在「停维即归零」的在线服务形态。项目停止维护后，其作为已安装插件的本地代码仍可继续运行。</li>
+<li><strong>供应商锁定</strong>：主体本地化，但需依赖 DSH 宿主框架（<code>@deepseek-ai/*</code> 系列包提供运行时 API）。换用其他 AI IDE 宿主时该插件几乎不可复用，存在对 DSH 生态的绑定——但在「为某一生态提供插件」的语境下，该依赖属于合理且可替换的宿主依赖（宿主本身也是本地开源运行时），不构成闭源云服务锁定。</li>
+<li><strong>可分叉维护性</strong>：MIT License，无分叉障碍；CI 工作流（ci.yml + release.yml）、测试体系完备（25076 行测试，测试占比 38.7%）、文档覆盖设计与计划（36 个文档文件），社区可分叉并持续适配后续宿主版本。DevDependencies 中大量 <code>@deepseek-ai/*</code> 的 peer 依赖可能随上游 API 变动需要适配，但这是生态插件共性的维护成本，不是效用不可存续的硬伤。</li>
+<li>给 80% 档：主体本地化 + 少量但必要的宿主依赖，整体效用可持续性良好。</li>
+</ul>
+<h4>D10 细则分值汇总</h4>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10.1</td>
+<td>效用强度</td>
+<td>3</td>
+<td>2.4</td>
+<td>良好（80%）— DSH 生态内项目级基础设施，单用户节省显著、效用稳定</td>
+</tr>
+<tr>
+<td>D10.2</td>
+<td>实际使用规模</td>
+<td>3</td>
+<td>1.8</td>
+<td>一般（60%）— npm 周下载 9.7 万（月下载十万级），28+ 生态插件采用</td>
+</tr>
+<tr>
+<td>D10.3</td>
+<td>免费可得的完整效用</td>
+<td>2</td>
+<td>2.0</td>
+<td>卓越（100%）— MIT 全开源，无功能阉割、无付费墙、可完整自托管</td>
+</tr>
+<tr>
+<td>D10.4</td>
+<td>效用可持续性</td>
+<td>2</td>
+<td>1.6</td>
+<td>良好（80%）— 本地化运行，可分叉可重建，但对 DSH 宿主存在合理依赖</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td><strong>7.8</strong></td>
+<td><strong>整体：良好</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>本维度结论</strong>：DSH-better-sidebar 具有较高的功能使用价值——对 DSH 用户而言是「文件、终端、Git、子代理、插件扩展」一站式补齐的工作台底座，节省的重复开发成本远大于安装成本；效用以本地运行 + MIT 全开源的方式交付，免费可得性很高。当前主要短板是使用规模仍停留在十万级/月下载（非百万级/月下载的行业标配），但 28+ 生态插件的自愿接入说明其在目标用户群中已形成事实标准地位。整体判断为「高使用价值、中等消费规模、全免费交付」的开源基础设施型项目。</p>
+<h3>D11. 社会价值——正外部性视角</h3>
+<p>本维度评估 DSH-better-sidebar 对 DSH（DeepSeek Harness）生态及更广泛开发者社区产生的正外部性。作为开源项目，其社会价值不以商业回报衡量，而体现在数字公共产品属性、教育溢出、普惠效应与标准化推动四个方面。</p>
+<h4>D11.1 数字公共基础设施属性 — 6/10（满分 3 分，得 1.8）</h4>
+<p>DSH-better-sidebar 已初步具备 DSH 生态内「数字底座」的特征：README 中记录了 <strong>28 个以上生态插件</strong>依赖其 <code>ctx.betterSidebar</code> 服务与扩展点运行，<code>dshfind</code> 插件超市的生态位、<code>dsh-better-sidebar</code> GitHub topic 已成为生态插件的事实集结地。<code>dsh-sidebar-qa</code>、<code>left0ver/dsh-file-review</code> 等竞品/生态插件明确标注「基于 DSH-better-sidebar」或「支持在 dsh-better-sidebar 中使用」，Dependents 生态真实存在。npm 周下载量 97,317，反映出较大规模的使用依赖。</p>
+<p>但需注意其作用域边界：它是 <strong>DSH 生态内部的基座</strong>，而非 curl/OpenSSL 式的全行业数字底座。项目若停摆，受影响的是 DSH 生态的开发体验与 28+ 插件的兼容基础，而非全球软件供应链。DSH 本身的可替代性与生态规模（对比 VS Code 等千万级生态）限定了其公共属性的辐射范围。故评分为 6 分（60% 档）：有一定下游依赖，在所在领域内是重要的基础设施，但尚非行业级底座。</p>
+<h4>D11.2 教育与人才价值 — 4/10（满分 2.5 分，得 1.0）</h4>
+<p>项目代码质量优良（64,841 行 TypeScript，测试覆盖率 38.7%，含 CI 门禁与文档化设计决策），36 份文档中包含完整的<a href="docs/external-plugin-guide.md">外部插件接入指南</a>与 30+ 设计文档，为 DSH 插件开发者提供了服务化框架的参考范本；多个生态插件（如 <code>dong-victor/dsh-better-sidebar-starter</code>）直接以本仓库作为开发起点，体现了「以代码为教学」的溢出。Issue 中亦有大量学习者提问。</p>
+<p>但其教育影响主要辐射「DSH 插件开发者」这一细分人群，尚未见高校课程、大规模教程体系将该仓库作为核心教材。官方推荐目录、生态聚合的「示范效应」已存在但集中于 DSH 生态内部，受众面较窄（对比 React/Vue 级别的主流教学资源）。评分为 4 分（40% 档）：有一定教学使用与范本价值，但影响限于生态小圈子。</p>
+<h4>D11.3 普惠与可及性 — 6/10（满分 2.5 分，得 1.5）</h4>
+<ul>
+<li><strong>能力平权化</strong>：将文件编辑/Git/终端/Subagent 可视化等通常需要专业 IDE（如 VSCode、JetBrains，商业版收费或资源占用高）的能力，以 MIT 协议免费提供给 DSH 用户；相比购买 IDE 授权或专业开发工具，近零成本获取完整工作台。</li>
+<li><strong>降低门槛</strong>：npm 安装命令即可集成，可通过自然语言让 DSH 自行安装（README 提供「让 DSH 自己装」的提示词模板），显著降低了非专业用户搭建开发环境的门槛。</li>
+<li><strong>可及性支持</strong>：界面文案跟随 DSH 语言 zh/en 实时切换；支持日语等第三语言覆盖（通过生态插件）；移动端适配（&lt;768px 全宽抽屉）；启动仅拉取 ~325KB 核心，按需加载重依赖，低配硬件/弱网环境友好。</li>
+<li><strong>限制</strong>：受限于 DSH 本身及 Node.js ≥ 20 环境要求，非技术人群仍有使用壁垒；商业方案替代价格差难以精确对标，但工作台聚合能力在企业级 IDE（如 VSCode 付费扩展、Git GUI 工具）中通常收费。</li>
+</ul>
+<p>综合评定为 6 分（60% 档）：显著降低获得门槛，有真实普惠效果，但受生态规模与技术前提限制。</p>
+<h4>D11.4 开放标准与行业推动 — 6/10（满分 2 分，得 1.2）</h4>
+<ul>
+<li><strong>标准推动</strong>：核心设计即「服务化扩展」——通过 <code>registerTab</code>/<code>registerFileViewer</code> 两公开扩展点，将内置 8 tab + 6 viewer 与第三方插件置于同一 API 能力对等层，主动引导生态遵循统一注册规范；GitHub topic <code>dsh-better-sidebar</code> 成为事实上的插件发现/组织标准。属于实现并推广开放扩展标准的典型。</li>
+<li><strong>防止锁定</strong>：MIT License + 完全开放的 API + 文档化的外部插件接入指南，明确反对官方垄断功能（「官方不再内置、可由生态提供的功能，交由生态插件实现」），有效防止单一厂商锁定，符合 DPG 开放、可复用、公共利益特征。</li>
+<li><strong>超越生态的影响力</strong>：推动范围主要限于 DSH 生态内部，尚未成为跨 AI 开发工具行业的标准实践。学术引用/论文数据缺失（N/A），无外部报道显示其对行业通用标准产生了影响。</li>
+</ul>
+<p>评分为 6 分（60% 档）：遵循并实质推动了领域内开放标准的形成，产生了生态级示范效应，但行业辐射有限——低于 7-8 分「推动了重要开放标准且产生行业示范」的要求（因为其影响面主要在 DSH 生态内）。</p>
+<h4>D11 细则分值汇总</h4>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>小分</th>
+<th>折算满分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D11.1</td>
+<td>数字公共基础设施属性</td>
+<td>1.8 (60% × 3)</td>
+<td>3</td>
+</tr>
+<tr>
+<td>D11.2</td>
+<td>教育与人才价值</td>
+<td>1.0 (40% × 2.5)</td>
+<td>2.5</td>
+</tr>
+<tr>
+<td>D11.3</td>
+<td>普惠与可及性</td>
+<td>1.5 (60% × 2.5)</td>
+<td>2.5</td>
+</tr>
+<tr>
+<td>D11.4</td>
+<td>开放标准与行业推动</td>
+<td>1.2 (60% × 2)</td>
+<td>2</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>5.5</strong></td>
+<td><strong>10</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>: DSH-better-sidebar 的社会正外部性属于「生态级显著、行业级有限」的典型特征。它以 MIT 协议将专业 IDE 级能力以近零成本普惠给 DSH 用户，通过开放的 <code>ctx.betterSidebar</code> 服务培育了 28+ 插件的共生生态，客观上推动了 DSH 生态内扩展标准的形成。其数字公共产品属性在当前维度是真实且健康的。若 DSH 生态持续扩大并被更多 AI 开发工具借鉴其服务化模式，该项目的正外部性还有显著上升空间；但当前所有影响均锚定在 DSH 生态内部，尚不具备跨行业的公共基础设施地位。</p>
+<h2>五、商业化价值判断</h2>
+<h3>5.1 综合价值评估</h3>
+<p>DSH-better-sidebar 当前呈现 <strong>「高潜力、低变现」</strong> 的典型早期生态卡位特征。综合评分 67.4 分（A 级）表明项目具备坚实的商业化基础，但价值兑现高度依赖上游 DSH 生态的成熟度。</p>
+<p><strong>核心价值支撑：</strong></p>
+<ul>
+<li><strong>技术底座扎实（D2 8.0 分）</strong>：6.48 万行代码、116 个测试文件（测试占比 38.7%）、36 份设计文档、双轨发布（稳定版 + alpha），工程成熟度远超同类插件，复刻门槛高。</li>
+<li><strong>生态卡位明确（D5 7.3 分）</strong>：DSH 生态中尚无第二个同等开放度的侧边栏服务化底座，28+ 插件围绕 <code>ctx.betterSidebar</code> API 构建，网络效应已实质成形。</li>
+<li><strong>市场需求获强交叉验证（D1 7.5 分）</strong>：1 个月 3.2k Star、90 天 296 PR / 125 Issue 关闭、npm 周下载 97,317，痛点真实性与解决程度获社区充分认可。</li>
+<li><strong>法律合规清洁（D6 7.8 分）</strong>：MIT License 对变现路径零约束，30 个直接依赖无 GPL/AGPL 传染。</li>
+</ul>
+<p><strong>核心价值缺口：</strong></p>
+<ul>
+<li><strong>变现通道完全缺失（D4 5.4 分）</strong>：全功能免费、无企业版/付费分层、无赞助入口，付费转化触发点为零。</li>
+<li><strong>企业就绪度不足（D7 4.8 分）</strong>：运维复杂度、安全管理、可运营性均未达企业级采购标准。</li>
+<li><strong>上游依赖风险（D1/D5）</strong>：DSH 处于 alpha/rc 快速演进期，上游版本重构与官方内置同类能力的可能性构成结构性威胁。</li>
+</ul>
+<h3>5.2 价值兑现前提</h3>
+<p>商业化价值兑现需满足以下前提条件：
+1. <strong>上游 DSH 生态完成从 alpha 到稳定版的跨越</strong>——当前版本仍处 0.x 阶段，企业客户难以基于 alpha 生态做采购决策；
+2. <strong>建立付费分层或增值服务通道</strong>——当前 MIT 全免费模式下无任何收入抓手；
+3. <strong>补齐企业级能力</strong>——安全管理、权限控制、运维工具链需达到企业采购门槛。</p>
+<hr />
+<h2>六、商业路径分析</h2>
+<h3>6.1 路径总览</h3>
+<p>基于价值画像「💼 纯商业工具」与 D4 最优路径原则，推荐以下商业化路径（按优先级排序）：</p>
+<h3>6.2 路径一：插件市场 / Open Core 分层（推荐，中期 6–12 个月）</h3>
+<p><strong>逻辑依据</strong>：项目已具备插件市场的基础设施（28+ 插件、推荐目录、GitHub topic 收录、dshfind 插件市场入口），MIT 协议允许闭源增强层。</p>
+<p><strong>实施要点</strong>：
+- 保持现有 MIT 开源底座不变，围绕 <code>ctx.betterSidebar</code> API 构建<strong>企业级插件市场</strong>，对高级插件收取分成或认证费用；
+- 推出 <strong>Open Core 增强层</strong>：核心底座开源，企业级功能（团队协作、集中策略管理、审计日志）闭源收费；
+- 利用 D4.1 满分（MIT）的协议自由度，无法律障碍。</p>
+<p><strong>风险与缓解</strong>：上游 DSH 官方若内置同类能力将直接冲击底座价值——需通过持续的功能纵深（高频发布节奏已证明能力）与生态锁定（插件 API 标准）构建防御。</p>
+<h3>6.3 路径二：依托 DSH 生态成熟后的增值服务（中期，需等待生态拐点）</h3>
+<p><strong>逻辑依据</strong>：DSH 处于 alpha 早期，插件客单价与企业付费意愿缺乏支撑（D4.3 仅 0.5 分）。当前直接向终端用户收费的时机未成熟。</p>
+<p><strong>实施要点</strong>：
+- 现阶段聚焦<strong>扩大生态份额与 API 标准主导权</strong>，等待 DSH 进入稳定版后，依托底座地位推出企业级支持服务（SLA、专属适配、培训）；
+- 参考 Elastic 路径教训：生态主导期应避免协议收紧引发社区反噬，优先以服务而非许可证变现。</p>
+<p><strong>前置条件</strong>：DSH 生态完成版本稳定、企业采用率提升。</p>
+<h3>6.4 路径三：技术输出与人才引进（备选，短期可启动）</h3>
+<p><strong>逻辑依据</strong>：项目工程成熟度（D2 8.0）与开放底座设计能力已被验证，可作为 AI 编程工具链厂商的技术参考或人才池。</p>
+<p><strong>实施要点</strong>：
+- 向 IDE 厂商 / AI 编程代理公司输出侧边栏底座技术方案；
+- 核心维护者以技术顾问或雇佣形式与商业公司合作。</p>
+<h3>6.5 路径优先级建议</h3>
+<table>
+<thead>
+<tr>
+<th>优先级</th>
+<th>路径</th>
+<th>时间窗口</th>
+<th>依赖条件</th>
+<th>预期收益</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P1</td>
+<td>插件市场 / Open Core</td>
+<td>6–12 个月</td>
+<td>DSH 生态稳定、插件市场基础设施完善</td>
+<td>中高</td>
+</tr>
+<tr>
+<td>P2</td>
+<td>增值服务</td>
+<td>12–24 个月</td>
+<td>DSH 企业采用率提升</td>
+<td>中</td>
+</tr>
+<tr>
+<td>P3</td>
+<td>技术输出</td>
+<td>随时可启动</td>
+<td>找到合作方</td>
+<td>低–中</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>七、能力评估：能做什么 &amp; 最适合做什么</h2>
+<h3>7.1 核心能力清单</h3>
+<table>
+<thead>
+<tr>
+<th>能力域</th>
+<th>具体能力</th>
+<th>证据</th>
+<th>成熟度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>开放平台架构</strong></td>
+<td>双扩展点（registerTab/registerFileViewer）+ ctx.betterSidebar API 契约，内外对等</td>
+<td>D5 评分卡</td>
+<td>⭐⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td><strong>工程与代码质量</strong></td>
+<td>6.48 万行代码、模块解耦、类型严格、36 份设计文档</td>
+<td>D2 评分卡</td>
+<td>⭐⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td><strong>测试与 CI/CD</strong></td>
+<td>116 测试文件（22,366 行）、测试占比 38.7%、Playwright e2e、OIDC 可信发布</td>
+<td>D2 评分卡</td>
+<td>⭐⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td><strong>安全实践</strong></td>
+<td>路径穿越防护、信任围栏、PTY 所有权校验、iframe 沙箱 + DOMPurify、Git 命令参数化</td>
+<td>D2 评分卡</td>
+<td>⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td><strong>生态运营</strong></td>
+<td>28+ 插件、推荐目录、GitHub topic 收录、高频发布（10 releases/30 天）</td>
+<td>D1/D5 评分卡</td>
+<td>⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td><strong>国际化</strong></td>
+<td>i18n 覆盖 20+ 语言、zh/en 实时切换、日语第三语言</td>
+<td>D2/D11 评分卡</td>
+<td>⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td><strong>轻量部署</strong></td>
+<td>~325KB 核心体积、移动端适配（&lt;768px 抽屉）、单命令安装</td>
+<td>D11 评分卡</td>
+<td>⭐⭐⭐⭐</td>
+</tr>
+</tbody>
+</table>
+<h3>7.2 最适合做什么</h3>
+<p>基于能力与市场定位的匹配度分析：</p>
+<ol>
+<li><strong>DSH 生态的「侧边栏基础设施层」</strong>（最适）：项目已是事实上的生态标准底座，28+ 插件依赖其 API，最适合继续深耕平台位，成为 DSH 生态不可绕过的侧边栏层。</li>
+<li><strong>AI 编程代理工作台的 UI 集成标准制定者</strong>：registerTab/registerFileViewer 双扩展点设计具备成为行业参考的潜力，适合推动其成为 DSH 插件开发的事实标准。</li>
+<li><strong>开发者工具链的「开放底座 + 插件市场」模式探索者</strong>：工程能力与生态运营能力兼备，适合验证「开源底座 + 插件生态」的商业模型。</li>
+</ol>
+<h3>7.3 不适合做什么</h3>
+<ol>
+<li><strong>跨出 DSH 生态的通用 IDE 插件</strong>：当前深度绑定 @deepseek-ai/* 依赖（20+）与 DSH 宿主，脱离生态后无独立价值。</li>
+<li><strong>面向非技术用户的 SaaS 产品</strong>：目标用户为开发者，本地部署形态与开发者工具定位决定了不适合做纯 SaaS 转型。</li>
+<li><strong>企业级安全/合规产品</strong>：D7 仅 4.8 分，安全管理与权限控制未达企业采购标准，短期不具备该能力。</li>
+</ol>
+<hr />
+<h2>八、短板识别：还缺少什么</h2>
+<h3>8.1 变现机制完全缺失（D4 5.4 分 — 最大短板）</h3>
+<ul>
+<li>无企业版/付费功能分层、无赞助入口、无服务入口；</li>
+<li>付费转化触发点为零（D4.3 仅 0.5 分）；</li>
+<li>增值服务空间仅停留在理论层面（D4.4 仅 0.8 分）。</li>
+</ul>
+<h3>8.2 企业就绪度不足（D7 4.8 分）</h3>
+<ul>
+<li>运维复杂度与升级路径未达企业标准（D7.1 1.8/3）；</li>
+<li>安全管理与权限控制薄弱（D7.2 1.5/2.5）；</li>
+<li>可运营性指标缺失（D7.3 1.5/2.5）。</li>
+</ul>
+<h3>8.3 治理与合规基础设施缺失（D6 部分子项 / D8 N/A）</h3>
+<ul>
+<li><strong>无 CLA/DCO、无 CONTRIBUTING.md、无 CODEOWNERS</strong>——54 名贡献者版权归属分散，限制未来双许可或许可证变更（D6.4 仅 0.8/2）；</li>
+<li><strong>LICENSE 版权标注为 'dsh-external'</strong>，与仓库组织 omdsh-dev 不一致，版权主体链条需核验；</li>
+<li>团队治理模型透明度与资金支持情况因分析失败无法评估（D8 N/A）。</li>
+</ul>
+<h3>8.4 上游依赖与版本风险</h3>
+<ul>
+<li>DSH 处于 alpha/rc 快速演进期，上游版本重构带来兼容性风险（v0.19.0-alpha.0 需专门适配 snapshotEvents 迁移）；</li>
+<li>项目自身仍处 0.x 阶段（v0.18.0-alpha.0），开放 Issue 132 个。</li>
+</ul>
+<h3>8.5 其他短板</h3>
+<ul>
+<li>无 Dockerfile，部署形态单一；</li>
+<li>CI 未集成第三方漏洞扫描；</li>
+<li>部分 locale 文件存在重复/截断，个别组件超长构成技术债；</li>
+<li>教育价值偏弱，未进入主流教学体系（D11.2 仅 1.0/2.5）。</li>
+</ul>
+<hr />
+<h2>九、风险提示</h2>
+<h3>9.1 高风险</h3>
+<table>
+<thead>
+<tr>
+<th>风险</th>
+<th>说明</th>
+<th>等级</th>
+<th>缓解建议</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>上游官方内置同类能力</strong></td>
+<td>DSH 官方可能在后续版本中内置侧边栏功能，直接冲击底座价值</td>
+<td>🔴 高</td>
+<td>持续功能纵深 + 生态 API 标准锁定；与上游建立沟通渠道</td>
+</tr>
+<tr>
+<td><strong>上游版本重构导致兼容性断裂</strong></td>
+<td>DSH alpha 期 API 快速变动，适配成本持续消耗开发资源</td>
+<td>🔴 高</td>
+<td>建立自动化适配测试；参与上游设计讨论影响 API 走向</td>
+</tr>
+</tbody>
+</table>
+<h3>9.2 中风险</h3>
+<table>
+<thead>
+<tr>
+<th>风险</th>
+<th>说明</th>
+<th>等级</th>
+<th>缓解建议</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>版权主体不清晰</strong></td>
+<td>LICENSE 标注 'dsh-external' 与组织名不一致，商业化前需核验</td>
+<td>🟡 中</td>
+<td>商业化前完成版权链条核验</td>
+</tr>
+<tr>
+<td><strong>贡献者版权分散</strong></td>
+<td>无 CLA/DCO，54 名贡献者版权归属分散，限制许可证变更</td>
+<td>🟡 中</td>
+<td>尽快补充 CLA/DCO 机制</td>
+</tr>
+<tr>
+<td><strong>生态依赖单一宿主</strong></td>
+<td>深度绑定 DSH，生态外价值为零</td>
+<td>🟡 中</td>
+<td>关注 DSH 生态健康度；评估抽象层可能性</td>
+</tr>
+<tr>
+<td><strong>公共价值分临界</strong></td>
+<td>6.7 分处于 6.5–7.5 临界区间，画像可能在「纯商业工具」与「明星资产」间切换</td>
+<td>🟡 中</td>
+<td>商业化时兼顾社区声誉，避免竭泽而渔</td>
+</tr>
+</tbody>
+</table>
+<h3>9.3 低风险</h3>
+<table>
+<thead>
+<tr>
+<th>风险</th>
+<th>说明</th>
+<th>等级</th>
+<th>缓解建议</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>法律合规风险</strong></td>
+<td>MIT 协议清洁，无 GPL/AGPL 依赖</td>
+<td>🟢 低</td>
+<td>发布前补充 license-checker 全量扫描</td>
+</tr>
+<tr>
+<td><strong>项目停滞风险</strong></td>
+<td>当前活跃度极高（90 天 296 PR），短期停滞风险低</td>
+<td>🟢 低</td>
+<td>关注 D8.4 可持续性（因分析失败未验证）</td>
+</tr>
+<tr>
+<td><strong>商标/专利风险</strong></td>
+<td>未检出明显冲突，但项目名与 DeepSeek 品牌存在潜在关联</td>
+<td>🟢 低</td>
+<td>商业化前核实品牌使用合规性</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>十、结论与建议</h2>
+<h3>10.1 综合结论</h3>
+<p>DSH-better-sidebar 是一个 <strong>A 级（高商业化潜力）</strong> 的开发者工具项目，综合评分 <strong>67.4/100</strong>，价值画像为 <strong>💼 纯商业工具</strong>。项目在技术成熟度（8.0）、竞争壁垒（7.3）、法律合规（7.8）三个维度表现优异，市场需求获强交叉验证（7.5），但变现机制（5.4）与企业就绪度（4.8）构成明显短板。</p>
+<p><strong>核心判断</strong>：项目正处于 DSH 生态早期爆发阶段的「生态位卡位期」，已占据「开放侧边栏底座」这一关键位置并沉淀 API 标准。当前最优先任务是<strong>巩固生态主导权、扩大用户基数与插件网络效应</strong>，而非急于变现——上游 DSH 生态尚处 alpha 阶段，直接商业化时机未成熟。</p>
+<h3>10.2 分级建议</h3>
+<p><strong>短期（0–6 个月）— 生态巩固期：</strong>
+1. 保持 MIT 开源底座不变，维持高频发布节奏（当前 10 releases/30 天）持续拉开功能纵深；
+2. 补充 CLA/DCO 与 CONTRIBUTING.md，核验 LICENSE 版权主体（'dsh-external' vs omdsh-dev）；
+3. 完善插件市场基础设施（推荐目录、分类、质量认证），扩大 28+ 插件生态；
+4. 建立与 DSH 上游的沟通渠道，参与 API 设计以降低适配成本。</p>
+<p><strong>中期（6–12 个月）— 商业化探索期：</strong>
+1. 启动 Open Core 分层：核心底座开源，企业级功能（团队协作、集中策略、审计）闭源收费；
+2. 推出插件市场商业化机制（认证费/分成/推荐位竞价）；
+3. 补齐企业就绪度短板（D7）：安全管理、权限控制、运维工具链；
+4. 关注 DSH 生态版本稳定信号，择机推出企业支持服务。</p>
+<p><strong>长期（12–24 个月）— 价值兑现期：</strong>
+1. 若 DSH 生态完成企业级跨越，依托底座地位推出 SLA 支持与专属服务；
+2. 若上游官方内置同类能力，评估转型为「侧边栏技术方案提供商」或接受收购/人才引进；
+3. 持续监测公共价值分变化——若 D11 社会价值提升至 7.0 以上，画像切换为「明星资产」，需同步加强社区声誉经营。</p>
+<h3>10.3 一票否决与置信度说明</h3>
+<ul>
+<li>一票否决检查因 D8.4 分析失败而<strong>不完整</strong>，建议在获取 D8 维度数据后补充验证项目可持续性；</li>
+<li>D3（社区健康度）与 D8（团队治理）因分析失败标记 N/A，综合评分基于剩余七维计算，置信度有所下降；</li>
+<li>市场规模评估缺少外部权威数据佐证，量级判断置信度中低。</li>
+</ul>
+<blockquote>
+<p>【注意】一票否决检查不完整: D8.4</p>
+</blockquote>
+<h2>十一、项目地址</h2>
+<p><svg class="ri ri-muted" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.001 2C6.47598 2 2.00098 6.475 2.00098 12C2.00098 16.425 4.86348 20.1625 8.83848 21.4875C9.33848 21.575 9.52598 21.275 9.52598 21.0125C9.52598 20.775 9.51348 19.9875 9.51348 19.15C7.00098 19.6125 6.35098 18.5375 6.15098 17.975C6.03848 17.6875 5.55098 16.8 5.12598 16.5625C4.77598 16.375 4.27598 15.9125 5.11348 15.9C5.90098 15.8875 6.46348 16.625 6.65098 16.925C7.55098 18.4375 8.98848 18.0125 9.56348 17.75C9.65098 17.1 9.91348 16.6625 10.201 16.4125C7.97598 16.1625 5.65098 15.3 5.65098 11.475C5.65098 10.3875 6.03848 9.4875 6.67598 8.7875C6.57598 8.5375 6.22598 7.5125 6.77598 6.1375C6.77598 6.1375 7.61348 5.875 9.52598 7.1625C10.326 6.9375 11.176 6.825 12.026 6.825C12.876 6.825 13.726 6.9375 14.526 7.1625C16.4385 5.8625 17.276 6.1375 17.276 6.1375C17.826 7.5125 17.476 8.5375 17.376 8.7875C18.0135 9.4875 18.401 10.375 18.401 11.475C18.401 15.3125 16.0635 16.1625 13.8385 16.4125C14.201 16.725 14.5135 17.325 14.5135 18.2625C14.5135 19.6 14.501 20.675 14.501 21.0125C14.501 21.275 14.6885 21.5875 15.1885 21.4875C19.259 20.1133 21.9999 16.2963 22.001 12C22.001 6.475 17.526 2 12.001 2Z"/></svg> <a href="https://github.com/omdsh-dev/DSH-better-sidebar">https://github.com/omdsh-dev/DSH-better-sidebar</a></p>
+<hr />
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+</blockquote>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家　www.mova.work</p></body></html>

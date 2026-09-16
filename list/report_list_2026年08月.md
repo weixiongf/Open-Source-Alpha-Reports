@@ -45,7 +45,7 @@
 | 38 | [K-Dense-AI/scientific-agent-skills](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/30/scientific-agent-skills/report.html) | 77.2 | A | AI for Science 明星资产，需求真实产品成熟，建议立即商业化但须先解决混合许可冲突。 |
 | 39 | [dmmulroy/anti-slop](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/31/anti-slop/report.html) | 61.7 | B | 理念验证成功但商业化远未成熟：19天3905星证明市场共鸣，但单人维护、零参与、无Release，当前仅适合技术借鉴与人才引进。 |
 | 40 | [tashfeenahmed/freellmapi](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/31/freellmapi/report.html) | 75.1 | A | 技术过硬、卡位精准但自设个人实验天花板，单点维护风险高，建议Open Core深化并补齐企业级能力后再放大投入。 |
-| 41 | [THU-MAIC/OpenMAIC](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/31/openmaic/) | 75.4 | A | A级明星资产，技术壁垒与社区势能俱佳，但付费意愿零验证、示例内容缺失，需6-12个月验证商业化闭环。 |
+| 41 | [THU-MAIC/OpenMAIC](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/31/openmaic/report.html) | 75.4 | A | A级明星资产，技术壁垒与社区势能俱佳，但付费意愿零验证、示例内容缺失，需6-12个月验证商业化闭环。 |
 
 ---
 

@@ -5,8 +5,8 @@
 
 | 序号 | 项目 | 综合得分 | 等级 | 一句话结论 |
 |------|------|----------|------|-----------|
-| 1 | [gin](../reports/2026/07/30/gin/) | ? | ? |  |
-| 2 | [pelican](../reports/2026/07/30/pelican/) | ? | ? |  |
+| 1 | [gin](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/07/30/gin/) | ? | ? |  |
+| 2 | [pelican](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/07/30/pelican/) | ? | ? |  |
 
 ---
 

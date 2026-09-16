@@ -1,0 +1,1611 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><title>Diagram-design 商业价值分析报告</title><style>/* default — 品牌蓝紫主题（从 md2pdf.py 原 CSS 常量迁出，视觉与历史产物一致） */
+@page { size: A4; margin: 18mm 15mm 20mm 15mm; }
+* { box-sizing: border-box; }
+/* 字体规范：一律开源思源黑体 CN（OFL 免费商用）；正文 Regular/标题 Bold/大字数字 Light */
+body { font-family: "Source Han Sans CN","思源黑体 CN","Noto Sans SC",sans-serif; color:#1e293b; font-size:10.5pt; line-height:1.75; margin:0; }
+.cover { page-break-after: always; text-align:center; padding-top:40px; }
+.cover .kicker { color:#2563eb; letter-spacing:6px; font-size:12pt; font-weight:500; }
+.cover h1 { font-size:26pt; margin:14px 0 6px; }
+.cover .sub { color:#64748b; font-size:11pt; margin-bottom:22px; }
+.badge { display:inline-block; background:linear-gradient(135deg,#2563eb,#7c3aed); color:#fff; border-radius:18px; padding:16px 44px; margin:10px 0 18px; }
+.badge .g { font-size:34pt; font-weight:300; line-height:1; }
+.badge .s { font-size:12pt; opacity:.92; margin-top:4px; }
+.meta { color:#475569; font-size:9.5pt; margin-top:14px; }
+.bars { max-width:620px; margin:20px auto 0; text-align:left; }
+.bar-row { display:flex; align-items:center; gap:8px; margin:5px 0; font-size:9pt; }
+.bar-name { width:110px; text-align:right; color:#334155; font-weight:500; }
+.bar-track { flex:1; height:9px; background:#f1f5f9; border-radius:5px; overflow:hidden; }
+.bar-fill { display:block; height:100%; border-radius:5px; }
+.bar-val { width:30px; font-weight:700; color:#0f172a; }
+.bar-w { width:52px; color:#94a3b8; font-size:8pt; }
+h1 { font-size:17pt; color:#0f172a; border-bottom:3px solid #2563eb; padding-bottom:8px; }
+h2 { font-size:13.5pt; color:#1d4ed8; margin-top:26px; page-break-after: avoid; border-left:5px solid #2563eb; padding-left:10px; }
+h3 { font-size:11.5pt; color:#0f172a; margin-top:18px; page-break-after: avoid; }
+table { border-collapse:collapse; width:100%; margin:10px 0; font-size:9pt; page-break-inside:avoid; }
+th { background:#eff6ff; color:#1e3a8a; }
+th,td { border:1px solid #dbe3ef; padding:5px 8px; text-align:left; }
+tr:nth-child(even) td { background:#f8fafc; }
+code { background:#f1f5f9; border-radius:4px; padding:1px 5px; font-family:"JetBrains Mono","Cascadia Mono",monospace; font-size:9pt; color:#be185d; }
+pre { background:#0f172a; color:#e2e8f0; border-radius:8px; padding:12px 14px; overflow-x:auto; page-break-inside:avoid; }
+pre code { background:none; color:inherit; padding:0; }
+blockquote { border-left:4px solid #93c5fd; background:#eff6ff; margin:10px 0; padding:8px 14px; color:#334155; border-radius:0 8px 8px 0; }
+hr { border:none; border-top:1px dashed #cbd5e1; margin:22px 0; }
+strong { color:#0f172a; }
+.cover .disclaimer { max-width:620px; margin:16px auto 0; color:#64748b; font-size:8.5pt; line-height:1.6; text-align:left; border:1px solid #e2e8f0; border-radius:8px; padding:8px 12px; background:#f8fafc; }
+.credit { color:#2563eb; font-size:10.5pt; font-weight:700; letter-spacing:1px; margin-top:12px; }
+.at-acc { background:#dbeafe; color:#1d4ed8; border-radius:4px; padding:0 4px; font-weight:500; white-space:nowrap; }
+.tail { page-break-inside:avoid; margin-top:26px; border-top:2px solid #2563eb; padding-top:14px; }
+.tail p { color:#64748b; font-size:8.5pt; line-height:1.6; margin:0 0 10px; }
+.tail .credit { text-align:center; margin:0; }
+/* Remix Icon 内联 SVG（icon_mode=remix 时由脚本注入，语义色与评分条一致） */
+.ri { width:1.05em; height:1.05em; vertical-align:-0.18em; display:inline-block; }
+.ri-ok { color:#16a34a; } .ri-warn { color:#d97706; } .ri-bad { color:#dc2626; }
+.ri-muted { color:#64748b; } .ri-star { color:#f59e0b; } .ri-brand { color:#2563eb; }
+.ri-gold { color:#d4a017; } .ri-silver { color:#9ca3af; } .ri-bronze { color:#b45309; }
+/* 屏幕预览：@page 边距仅在打印时生效，浏览器中居中限宽并收边（不影响 PDF 输出） */
+@media screen {
+  body { margin: 0 auto; padding: 28px 36px 56px; max-width: 900px; }
+}
+</style></head><body><div class="cover">
+<div class="kicker">开源项目商业化潜力分析 · 第 3 期</div>
+<h1>GitHub 开源项目 Diagram-design<br>商业价值分析报告</h1>
+<div class="sub">cathrynlavery/diagram-design · AI代理图表设计技能包 · 76.6分/A级/明星资产</div>
+<div class="badge"><div class="g">A 级 · 76.6</div><div class="s">综合评分（满分 100）· 高商业化潜力</div></div>
+<div><svg viewBox="0 0 560 480" width="560" height="480" xmlns="http://www.w3.org/2000/svg"><polygon points="280.0,209.6 299.5,216.7 309.9,234.7 306.3,255.2 290.4,268.6 269.6,268.6 253.7,255.2 250.1,234.7 260.5,216.7" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,179.2 319.1,193.4 339.9,229.4 332.7,270.4 300.8,297.1 259.2,297.1 227.3,270.4 220.1,229.4 240.9,193.4" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,148.8 338.6,170.1 369.8,224.2 359.0,285.6 311.2,325.7 248.8,325.7 201.0,285.6 190.2,224.2 221.4,170.1" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,118.4 358.2,146.8 399.8,218.9 385.3,300.8 321.6,354.3 238.4,354.3 174.7,300.8 160.2,218.9 201.8,146.8" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,88.0 377.7,123.6 429.7,213.6 411.6,316.0 332.0,382.8 228.0,382.8 148.4,316.0 130.3,213.6 182.3,123.6" fill="none" stroke="#e2e8f0" stroke-width="1"/><line x1="280.0" y1="240.0" x2="280.0" y2="88.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="377.7" y2="123.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="429.7" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="411.6" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="332.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="228.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="148.4" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="130.3" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="182.3" y2="123.6" stroke="#d8dee9" stroke-width="1"/><polygon points="280.0,110.8 352.3,153.8 399.8,218.9 384.0,300.0 314.3,334.3 235.3,362.8 186.5,294.0 175.2,221.5 280.0,240.0" fill="rgba(37,99,235,.22)" stroke="#2563eb" stroke-width="2.5"/><circle cx="280.0" cy="110.8" r="3.5" fill="#2563eb"/><circle cx="352.3" cy="153.8" r="3.5" fill="#2563eb"/><circle cx="399.8" cy="218.9" r="3.5" fill="#2563eb"/><circle cx="384.0" cy="300.0" r="3.5" fill="#2563eb"/><circle cx="314.3" cy="334.3" r="3.5" fill="#2563eb"/><circle cx="235.3" cy="362.8" r="3.5" fill="#2563eb"/><circle cx="186.5" cy="294.0" r="3.5" fill="#2563eb"/><circle cx="175.2" cy="221.5" r="3.5" fill="#2563eb"/><circle cx="280.0" cy="240.0" r="3.5" fill="#2563eb"/><text x="280.0" y="44.0" text-anchor="middle" font-size="12.5" fill="#334155" font-weight="600">D1</text><text x="280.0" y="58.0" text-anchor="middle" font-size="11" fill="#64748b">市场需求 8.5</text><text x="406.0" y="89.9" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D2</text><text x="406.0" y="103.9" text-anchor="start" font-size="11" fill="#64748b">技术成熟度 7.4</text><text x="473.0" y="206.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D3</text><text x="473.0" y="220.0" text-anchor="start" font-size="11" fill="#64748b">社区生态 8.0</text><text x="449.7" y="338.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D4</text><text x="449.7" y="352.0" text-anchor="start" font-size="11" fill="#64748b">变现潜力 7.9</text><text x="347.0" y="424.2" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D5</text><text x="347.0" y="438.2" text-anchor="start" font-size="11" fill="#64748b">竞争格局 6.6</text><text x="213.0" y="424.2" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D6</text><text x="213.0" y="438.2" text-anchor="end" font-size="11" fill="#64748b">法律合规 8.6</text><text x="110.3" y="338.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D7</text><text x="110.3" y="352.0" text-anchor="end" font-size="11" fill="#64748b">企业就绪 7.1</text><text x="87.0" y="206.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D8</text><text x="87.0" y="220.0" text-anchor="end" font-size="11" fill="#64748b">团队治理 7.0</text><text x="154.0" y="89.9" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D9</text><text x="154.0" y="103.9" text-anchor="end" font-size="11" fill="#64748b">上手难度 N/A</text></svg></div>
+<div class="bars"><div class="bar-row"><span class="bar-name">D6 法律合规</span>
+<span class="bar-track"><span class="bar-fill" style="width:86.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.6</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D1 市场需求</span>
+<span class="bar-track"><span class="bar-fill" style="width:85.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.5</span><span class="bar-w">权重13%</span></div>
+<div class="bar-row"><span class="bar-name">D3 社区生态</span>
+<span class="bar-track"><span class="bar-fill" style="width:80.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.0</span><span class="bar-w">权重11%</span></div>
+<div class="bar-row"><span class="bar-name">D4 变现潜力</span>
+<span class="bar-track"><span class="bar-fill" style="width:79.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.9</span><span class="bar-w">权重18%</span></div>
+<div class="bar-row"><span class="bar-name">D2 技术成熟度</span>
+<span class="bar-track"><span class="bar-fill" style="width:74.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.4</span><span class="bar-w">权重14%</span></div>
+<div class="bar-row"><span class="bar-name">D7 企业就绪</span>
+<span class="bar-track"><span class="bar-fill" style="width:71.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.1</span><span class="bar-w">权重8%</span></div>
+<div class="bar-row"><span class="bar-name">D8 团队治理</span>
+<span class="bar-track"><span class="bar-fill" style="width:70.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.0</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D5 竞争格局</span>
+<span class="bar-track"><span class="bar-fill" style="width:66.0%;background:#d97706"></span></span>
+<span class="bar-val">6.6</span><span class="bar-w">权重12%</span></div>
+<div class="bar-row"><span class="bar-name">D9 上手难度</span>
+<span class="bar-track"><span class="bar-fill" style="width:0.0%;background:#dc2626"></span></span>
+<span class="bar-val">N/A</span><span class="bar-w">权重10%</span></div></div>
+<div class="meta">分析时点 2026-08-22 ｜ 数据来源：GitHub API + 仓库代码实测 ｜ 方法论 v1.3</div>
+<div class="credit">报告出品：@魔法工厂　@向量之心　@南山科学家</div>
+<div class="disclaimer"><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</div>
+</div><h1>Diagram-design 商业化潜力分析报告（完整版）</h1>
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家</p>
+<p>方法论版本: v1.3 | 综合评分: <strong>76.6</strong> | 等级: <strong>A（高商业化潜力）</strong> | 价值画像: 明星资产</p>
+</blockquote>
+<h2>一、项目概览</h2>
+<h3>1.1 基本信息</h3>
+<ul>
+<li><strong>项目名称 / 仓库地址</strong>：cathrynlavery/diagram-design</li>
+<li><strong>核心技术栈</strong>：HTML + SVG（自包含），Python（21,463 行，45 文件），AI Agent Skills / 数据可视化 / 设计系统</li>
+<li><strong>社区规模速览</strong>：Star 24,990 / Fork 1,522 / 贡献者 25 人</li>
+<li><strong>分析时点 / 数据来源</strong>：2026-08-22，GitHub 实采数据</li>
+</ul>
+<h3>1.2 项目分类标签</h3>
+<table>
+<thead>
+<tr>
+<th>分类维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>开发者工具（AI Agent 技能包）</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>通用/跨行业</td>
+</tr>
+<tr>
+<td>目标用户角色</td>
+<td>使用 AI 编码代理的开发者（全栈/后端/技术管理者）</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>技术文档、产品与数据可视化、架构图、流程图</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>本地部署（Agent 插件/技能包）</td>
+</tr>
+</tbody>
+</table>
+<h3>1.3 一句话定位</h3>
+<blockquote>
+<p>diagram-design 是一个 AI 代理图表设计技能包，适用于跨行业的技术文档、产品与数据可视化场景，主要面向使用 Claude Code / Codex / Pi 等 AI 编码代理的开发者，用于让代理生成编辑级品质、品牌风格一致的自包含 HTML+SVG 图表。</p>
+</blockquote>
+<p><strong>项目分类标签补充</strong>：项目类型为「开源技能包+插件市场分发」模式，技术领域横跨 AI Agent Skills / 数据可视化 / 设计系统，商业化距离较远（当前无内置付费机制，需构建增值路径）。</p>
+<h2>二、安装部署与使用指南</h2>
+<blockquote>
+<p>【注意】本章节为降级概要（安装指南草稿缺失），要点来自 D9 评分卡：</p>
+</blockquote>
+<ul>
+<li>安装信息采集失败</li>
+</ul>
+<h2>三、评分总览</h2>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>权重</th>
+<th>加权得分</th>
+<th>评级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1 市场需求与商业机会</td>
+<td>8.5/10</td>
+<td>13%</td>
+<td>1.11</td>
+<td>优</td>
+</tr>
+<tr>
+<td>D2 技术成熟度与产品质量</td>
+<td>7.4/10</td>
+<td>14%</td>
+<td>1.04</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D3 社区健康度与生态势能</td>
+<td>8.0/10</td>
+<td>11%</td>
+<td>0.88</td>
+<td>优</td>
+</tr>
+<tr>
+<td>D4 商业模式与变现潜力</td>
+<td>7.9/10</td>
+<td>18%</td>
+<td>1.42</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D5 竞争格局与差异化壁垒</td>
+<td>6.6/10</td>
+<td>12%</td>
+<td>0.79</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D6 法律合规与知识产权</td>
+<td>8.6/10</td>
+<td>7%</td>
+<td>0.60</td>
+<td>优</td>
+</tr>
+<tr>
+<td>D7 企业就绪度与可运营性</td>
+<td>7.1/10</td>
+<td>8%</td>
+<td>0.57</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D8 团队治理与可持续性</td>
+<td>7.0/10</td>
+<td>7%</td>
+<td>0.49</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D9 上手难度与易用性</td>
+<td>N/A</td>
+<td>10%</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>综合评分</strong></td>
+<td>—</td>
+<td>100%</td>
+<td><strong>76.6/100</strong></td>
+<td><strong>A（高商业化潜力）</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>注：D9 维度因分析失败标记为 N/A，综合评分基于其余 8 个维度计算。一票否决检查完整，未触发任何否决条件。</p>
+</blockquote>
+<p><strong>平行维度（不计入综合评分）</strong></p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10 功能价值</td>
+<td>7.8/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>D11 社会价值</td>
+<td>8.5/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>公共价值分</td>
+<td>8.2/10</td>
+<td>(D10+D11)/2</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>各维度细则分值构成详见「二、维度评分细则」。</p>
+</blockquote>
+<h2>四、各维度详细分析</h2>
+<h3>D1. 市场需求与商业机会</h3>
+<p><strong>维度评分: 8.5 / 10</strong>（权重 13%）</p>
+<h4>D1.1 目标市场规模与增长性 — 小分 2.0 / 2.5</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TAM 估算</td>
+<td>锚定「AI 编程代理 × 数据可视化」交叉市场。AI 编码助手为当前资本与需求双驱动的爆发赛道，对应十亿美元级且高速扩张的可触达市场；图表/可视化工具存量市场（draw.io、Mermaid、Lucidchart 等）同为数十亿美元级。</td>
+</tr>
+<tr>
+<td>增长趋势</td>
+<td>强增长。项目创建 4 个月即获得约 2.5 万 star，是市场高速需求侧的侧证；AI Agent 技能生态处在曲线陡峭上升段。</td>
+</tr>
+<tr>
+<td>市场层级</td>
+<td>新兴蓝海向成长期过渡：AI 代理生成高质量设计内容的细分市场尚无明显头部玩家，窗口期明确。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>数据依据</strong>: 项目 2026-04 创建、2026-08 达 24,990 star / 1,522 fork 的社区热度；topics 覆盖 <code>agent-skills</code>、<code>claude-code</code>、<code>codex</code>、<code>mermaid</code>、<code>drawio</code>。市场规模为按行业量级估算，<strong>未经外部数据验证，置信度中低</strong>，未引用具体行业报告数字。</p>
+<h4>D1.2 痛点真实性与解决程度 — 小分 2.5 / 2.5</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>痛点真实性</td>
+<td>AI 编码代理生成的图表质量差（通用圆角框、Mermaid 风、「30 分钟 Figma 调色」）是 Agent 用户的普遍痛点。README「Why I built it」明确描述此痛点；2.5 万 star 为需求真实性的强市场验证。</td>
+</tr>
+<tr>
+<td>解决完整度</td>
+<td>极高：39 种编辑级图表类型 + 语义模式（行为/布局分离）+ 品牌匹配（60 秒抓取网站色板与字体）+ WCAG AA 对比度检查 + draw.io/Mermaid 导入重绘 + SVG/PNG 导出 + 跨 4 个 AI 客户端（Claude Code / Codex / Factory Droid / Pi）。从生成到交付形成完整闭环。</td>
+</tr>
+<tr>
+<td>替代成本</td>
+<td>替代品（Figma 手工绘制、原生 Mermaid、通用 prompt 模板）在「AI 代理自动产出高质量成品」这一场景下体验显著更差；项目中「When not to use」明确界定适用边界，方案成熟度高于一般开源技能包。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>数据依据</strong>: 39 种图表类型的完整目录与截图、设计系统规范（4px 网格、无阴影、三种字体族）、<code>self_check.py</code> 验证脚本、导入导出的「fidelity ledger」机制、多仓库辅助文档（76 个文档文件）。</p>
+<h4>D1.3 市场时机判断 — 小分 2.0 / 2.5</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术成熟度曲线</td>
+<td>AI 编码代理（Claude Code、Codex 等）已越过早期采用期，进入规模化实用期；「生成质量」成为当前竞争焦点，恰是设计系统类技能的需求引爆点。</td>
+</tr>
+<tr>
+<td>竞争密度</td>
+<td>同赛道尚无开源同类头部项目——Agent 技能生态处于早期，mermaid/drawio 为存量替代而非直接竞品，竞争格局未固化，存在先发卡位空间。</td>
+</tr>
+<tr>
+<td>监管/标准</td>
+<td>无直接政策驱动，但 Agent Skills/插件市场正成为各 AI 厂商事实标准，此项目已实现同技能包跨 4 客户端标准化分发，占据标准红利。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>数据依据</strong>: 项目创建于 2026-04，4 个月内 star 冲至 2.5 万；支持 Claude Code 插件市场、Codex 插件市场、Pi 扩展、Factory Droid 四套分发体系；CI 配置完整（ci.yml + pages.yml）。</p>
+<h4>D1.4 应用场景广度 — 小分 2.0 / 2.5</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>行业覆盖</td>
+<td>39 种图表类型覆盖软件架构、产品管理、数据工程、业务流程、安全合规、战略规划等横跨多行业的通用场景；技术咨询、内容创作、技术文档、企业内部分析均可直接使用。</td>
+</tr>
+<tr>
+<td>场景多样性</td>
+<td>横向通用工具属性强：既有技术类（架构/时序/ER/UML/部署），也有管理与战略类（看板/象限/用户旅程/Wardley 图/鱼骨图/Story map）。</td>
+</tr>
+<tr>
+<td>可延展性</td>
+<td>核心设计系统（品牌 token、语义角色、排版规则）与输出管线（HTML/SVG/PNG）可低成本迁移至 PPT、信息图、社交卡片等相邻场景，知识可复用性好。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>数据依据</strong>: 39 种类型参考文档逐一对应（type-*.md 共 39 个文件）；README 明确导出格式支持 <code>social-og</code>/<code>social-square</code>/<code>print-*</code> 等场景尺寸，说明已考虑跨场景交付；4 个 AI 客户端共享同一技能包与 profile 体系。</p>
+<h4>D1 结论</h4>
+<p><strong>D1 综合得分 8.5/10</strong>——需求侧强验证（2.5 万 star、4 个月爆发增长、跨 4 客户端分发）、痛点真实且方案完整度在开源同类中处于领先水平、市场时机处于 AI Agent 生态爆发早期。<strong>主要风险点</strong>：① 独立市场规模依赖 AI 编程代理整体增长（非独立品类），若上游生态增速放缓将直接传导；② MIT 许可 + 无内置付费点，变现路径不明，需依赖生态位形成后的增值服务或企业版/托管版构建商业模式；③ 当前高度绑定作者单点维护（25 名贡献者、无 release），长期可持续性待观察。</p>
+<h3>D2. 技术成熟度与产品质量</h3>
+<p><strong>维度总评</strong>: 8.22 / 10（D2.5 标记为 N/A，按其余 7 项等比缩放）</p>
+<p>该项目虽以 HTML/SVG 图表为产出物，但交付形态为 AI 代理技能包（SKILL.md + 文档规范 + Python CLI 脚本），无面向终端用户的图形界面，D2.5 按规则标记为 N/A。</p>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>小分</th>
+<th>满分</th>
+<th>判定档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D2.1</td>
+<td>产品设计与创新性</td>
+<td>1.2</td>
+<td>1.5</td>
+<td>良好（80%）</td>
+</tr>
+<tr>
+<td>D2.2</td>
+<td>架构设计与工程质量</td>
+<td>1.6</td>
+<td>2.0</td>
+<td>良好（80%）</td>
+</tr>
+<tr>
+<td>D2.3</td>
+<td>代码整洁性与规范性</td>
+<td>0.8</td>
+<td>1.0</td>
+<td>良好（80%）</td>
+</tr>
+<tr>
+<td>D2.4</td>
+<td>安全性</td>
+<td>0.8</td>
+<td>1.0</td>
+<td>良好（80%）</td>
+</tr>
+<tr>
+<td>D2.5</td>
+<td>UI/UX/UE 人机交互</td>
+<td>N/A</td>
+<td>1.0</td>
+<td>不适用（无传统 UI，CLI/技能包形态）</td>
+</tr>
+<tr>
+<td>D2.6</td>
+<td>功能完备度与稳定性</td>
+<td>1.2</td>
+<td>1.5</td>
+<td>良好（80%）</td>
+</tr>
+<tr>
+<td>D2.7</td>
+<td>文档与开发者体验</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>卓越（100%）</td>
+</tr>
+<tr>
+<td>D2.8</td>
+<td>测试与质量保障</td>
+<td>0.8</td>
+<td>1.0</td>
+<td>良好（80%）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>7.4</strong></td>
+<td><strong>9.0</strong></td>
+<td><strong>8.22 / 10</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>D2.1 产品设计与创新性（1.2/1.5）</strong>: 产品理念清晰——针对 AI 编码代理生成图表质量低劣的痛点（"No shadows. No Mermaid slop."），以"设计规范文档 + 验证脚本"组合成可执行技能包交付，是模式创新而非简单模板集合。38 种图表类型覆盖流程图、序列图、ER、Sankey、Treemap、Radar、Wardley 等主流场景，功能与 AI 生成场景高度契合，无冗余堆砌。相比 Mermaid/draw.io 生态，差异化在"将编辑级设计标准编码为机器可强制执行的规则"（如 ADR 0005 标签几何验证）。创新主要集中于设计规范与工程验证层面，核心技术（SVG 渲染）无突破性创新，故给 80% 档而非满分。</p>
+<p><strong>D2.2 架构设计与工程质量（1.6/2.0）</strong>: 架构分层清晰：<code>skills/diagram-design</code>（规范文档体系）+ <code>scripts</code>（解析/验证工具）+ <code>docs/adr</code>（决策记录）+ <code>commands/prompts</code>（命令抽象）。45 个 Python 文件 21,463 行，体量与功能复杂度匹配。核心解析器（mermaid_extract.py 891 行、drawio_extract.py 898 行）采用 dataclass + 类型注解 + 职责单一函数拆分，抽象恰当。复刻门槛高：需要实现 Mermaid/draw.io 语法解析（含嵌套文法、算子优先级、PNG/SVG 内嵌 XML 提取、压缩解限）、像素级渲染校验（Playwright paint oracle）、几何/面积/流守恒等多领域验证器。8 份 ADR 记录关键架构决策，体现工程严谨性。轻微扣分项：单文件近 900 行偏大，40+ 个验证脚本平铺于 scripts/ 下略碎片化，零第三方依赖使得部分通用能力（如 XML 解析）需自造轮子。</p>
+<p><strong>D2.3 代码整洁性与规范性（0.8/1.0）</strong>: 从 P1 摘要抽查，类型注解全覆盖（<code>from __future__ import annotations</code>），函数命名语义化（<code>_split_top_level</code>、<code>_parse_node_expression</code>、<code>_reject_unsafe_xml</code>），HTMLParser 子类与 dataclass 使用规范。CI 中自研 lint-skin.py、lint-render.py、lint-a11y.py 对代码与产物双重约束，<code>git diff --exit-code</code> 确保生成资产可复现，说明风格纪律严格。命名统一、无明显复制粘贴迹象。扣分依据：因素材限制未做全量代码审查，且部分脚本函数数量偏多（如 mermaid_extract.py 主流程函数达 35+）。</p>
+<p><strong>D2.4 安全性（0.8/1.0）</strong>: 安全编码实践明确：drawio_extract.py 内置 <code>_reject_unsafe_xml</code>（拒绝不安全 XML）、<code>_decompress_limited</code> + <code>PayloadTooLarge</code>（限制解压炸弹）；未使用 lxml 等含 XXE 风险的解析库，自写解析器降低了已知攻击面。<code>SECURITY.md</code> 存在。零第三方运行时依赖，供应链攻击面极小。CI 中未见 Dependabot/Snyk/Trivy 等自动化依赖漏洞扫描配置，是主要扣分项（虽因零依赖其实际风险有限）；未发现硬编码密钥/令牌。总体达到良好标准。</p>
+<p><strong>D2.5 UI/UX/UE（N/A）</strong>: 项目交付形态为 AI 代理技能包 + CLI 脚本（doctor、export-diagram、import-drawio 等命令），无 Web 界面/桌面 GUI/移动端 UI。产出物 HTML/SVG 图表虽在规范层有严格的美学与几何约束（如 label geometry 验证、对比度规则），但其服务对象是 AI 代理而非人机交互界面，故标记 N/A，不参与计分。Pages 部署的 gallery 仅为样例展示页，非产品功能界面。</p>
+<p><strong>D2.6 功能完备度与稳定性（1.2/1.5）</strong>: 功能完备度高：38 种图表类型 + draw.io/Mermaid 双格式导入 + 导出 + doctor 诊断 + 客户端 profiles + 可选动画，且通过 ADR 0001（静态默认/单一固定控制器）等决策控制复杂度。稳定性保障强：CI 中 40+ 验证 gate（SVG 无障碍合约、Sankey 流守恒、Treemap 面积保真、Ridgeline 振幅一致性、像素级渲染校验），质量防线远超同类项目。运行环境宽松（Python 3.9+，无 Docker 依赖，无特殊硬件要求）。明确短板：<code>recent_releases</code> 为空，项目自 2026-04 创建仅 4 个月即达 24.9k stars，尚无以 v1.0 为代表的正式版本标记；国际化/本地化框架无明显证据，虽图表输出本身语言中立。综合给 80% 档。</p>
+<p><strong>D2.7 文档与开发者体验（1.0/1.0）</strong>: 文档体系为该项目最突出优势：76 个文档文件，含 README、CONTRIBUTING、CODE_OF_CONDUCT、SECURITY、THIRD_PARTY_LICENSES、PR 模板；<code>SKILL.md</code> + 约 40 份类型/功能 references（animation、doctor、export、import-drawio、onboarding、output-spec、semantic-patterns、style-guide、profiles 等）；8 份 ADR 沉淀架构决策；docs/superpowers 含设计 spec 与实施计划。最难得的是 CI 强制文档同步（<code>verify-docs-sync.py</code>、<code>verify-screenshot-freshness.py</code>），消除"文档与代码脱节"这一常见问题。文档覆盖度、深度、同步性三项均满足满分标准。</p>
+<p><strong>D2.8 测试与质量保障（0.8/1.0）</strong>: 测试体系以"契约验证"为核心：ci.yml 矩阵（3 OS × 2 Python 版本 + 独立 Python 3.9 兼容任务）运行 40+ 个验证步骤，含大量 <code>test-verify-*.py</code>/<code>verify-*.py</code> 脚本、lint-skin/lint-render/lint-a11y 静态检查、Playwright 像素级渲染比对（含 self-test 防止 linter 自身失效）、生成资产 diff 门禁，构成"源码级检查 + 契约验证 + 像素级 oracle"三层质量防线。CD 通过 pages.yml 自动部署 gallery。扣分项：测试以自研验证脚本为主，非标准 pytest/unittest 体系，本地统计未识别出传统测试文件（0 test_lines），且无覆盖率报告；git 历史完整性校验和插件版本同步门禁被刻意省略（无真实 CI 运行的"Checkout repository history"与浏览器安装位于同一环境中，整体可视为通过）。综合给 80% 档。</p>
+<p><strong>结论</strong>: 该项目在技术成熟度与产品质量维度表现突出，属于"工程驱动型"高质量项目。核心优势为三层质量门禁体系、ADR 驱动的架构治理、76 份与代码同步的文档，以及针对导入安全（XML 拒绝/解压限制）的主动防御设计；复刻难度大（解析器 + 像素校验 + 几何验证器构成技术护城河）。商业化前主要需补足两处：其一，发布正式 Release/Tag 并建立语义化版本管理，以证明生产就绪度；其二，引入标准自动化安全依赖扫描（虽零依赖，但缺失该机制在商业化合规审查中构成扣分项）。</p>
+<h3>D3. 社区健康度与生态势能</h3>
+<p>本节基于 GitHub API 补采数据（2026-08-22 采集）与本地仓库实测进行综合评估。项目创建于 2026-04-16，补采时 Star 24,990、Fork 1,522、开放 Issue 21，近 90 天创建 PR 101 个、关闭 Issue 25 个，贡献者 25 人。整体数据置信度较高，个别指标（如 Issue 平均关闭时间）无直接数据，已在相应细则中注明推断依据。</p>
+<h4>D3.1 社区活跃度指标（满分 3 分）→ <strong>3.0 分</strong></h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测数据</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Star 增速</td>
+<td>项目约 4.2 个月，总 Star 24,990，历史平均月增 ≈ 5,910（近 90 天增量数据缺失，采用退化公式，存在高估早期红利可能）</td>
+<td>远超“月增 &gt;500”的卓越线，属现象级增速</td>
+</tr>
+<tr>
+<td>Fork 比率</td>
+<td>1,522 / 24,990 ≈ 6.1%</td>
+<td>中等水平，衍生意愿尚可，不构成短板</td>
+</tr>
+<tr>
+<td>Issue 活跃度</td>
+<td>近 90 天 PR 101、Issue 关闭 25，开放 21</td>
+<td>社区参与度高，PR 流转频繁</td>
+</tr>
+<tr>
+<td>响应速度</td>
+<td>Issue 平均关闭时间无直接数据；但 90 天关闭 25 个 Issue、101 个 PR，且最近推送（2026-08-21）与采集日同期</td>
+<td>推断维护者响应积极，响应较快</td>
+</tr>
+</tbody>
+</table>
+<p>综合判断：Star 增速远超阈值，PR/Issue 流转健康，社区极度活跃。虽响应速度缺乏精确天数，但整体活跃度已充分体现支撑商业化的社区基础。按 100% 档给予满分。</p>
+<h4>D3.2 贡献者结构多样性（满分 2.5 分）→ <strong>2.0 分</strong></h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测数据</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>贡献者数量</td>
+<td>25 人（GitHub API）</td>
+<td>符合 20–50 区间，规模达标</td>
+</tr>
+<tr>
+<td>组织多样性</td>
+<td>无直接数据；25 名贡献者规模暗示一定多样性，但无法确认是否来自 5+ 组织</td>
+<td>证据不足</td>
+</tr>
+<tr>
+<td>核心团队占比</td>
+<td>未知</td>
+<td>无法评估</td>
+</tr>
+</tbody>
+</table>
+<p>贡献者数量确切达到 7–8 档，但组织多样性与核心团队占比缺乏硬数据，按 80% 档给分。</p>
+<h4>D3.3 第三方生态成熟度（满分 3 分）→ <strong>1.8 分</strong></h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测数据</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>插件/扩展</td>
+<td>项目本身为 AI agent 技能，未发现独立第三方插件市场；支持从 draw.io/Mermaid 导入导出</td>
+<td>互操作能力存在，但扩展生态未成形</td>
+</tr>
+<tr>
+<td>集成生态</td>
+<td>被 Claude Code、Codex、Pi 等 agent 工具集成；配置有 GitHub Pages 与 CI workflows</td>
+<td>有一定平台集成，但广度有限</td>
+</tr>
+<tr>
+<td>衍生项目</td>
+<td>未发现公开二次开发或商业衍生品</td>
+<td>无</td>
+</tr>
+<tr>
+<td>教程/课程</td>
+<td>仓库内文档丰富（76 个文件），外部教程覆盖未见证据</td>
+<td>内部文档强，外部生态弱</td>
+</tr>
+</tbody>
+</table>
+<p>综合为“少量第三方扩展”档（5–6 档），按 60% 给分。</p>
+<h4>D3.4 品牌认知与行业影响力（满分 1.5 分）→ <strong>1.2 分</strong></h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测数据</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>品牌辨识度</td>
+<td>项目在 AI 绘图/Claude Code 技能领域有较高认知度，Trendshift 徽章显示其进入趋势榜</td>
+<td>领域内知名度较高</td>
+</tr>
+<tr>
+<td>行业采用</td>
+<td>未发现知名企业背书，但 2.5 万 Star 表明被大量开发者实际采用</td>
+<td>采用面广，背书证据缺</td>
+</tr>
+<tr>
+<td>媒体覆盖</td>
+<td>Trendshift 属行业认可，但未见技术会议/媒体覆盖直接证据</td>
+<td>有一定的行业曝光</td>
+</tr>
+</tbody>
+</table>
+<p>领域内认知度约为 7–8 档，因缺乏企业背书与媒体覆盖的硬证据，按 80% 给分。</p>
+<h4>结论</h4>
+<p><strong>D3 维度总得分 = 3.0 + 2.0 + 1.8 + 1.2 = 8.0 / 10</strong>，属“良好”水平。项目的社区活跃度极高（Star 增速与 PR/Issue 流转均为现象级），贡献者规模初具形态，但第三方生态、组织多样性与品牌背书仍处于早期。社区作为潜在客户池的势能已初步显现，是商业化的重要支撑，但需进一步沉淀生态与行业认可。</p>
+<h3>D4. 商业模式与变现潜力（权重 18%）</h3>
+<p><strong>综合评分：7.9 / 10</strong></p>
+<h4>打分总览</h4>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>权重分</th>
+<th>得分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D4.1 协议对变现模式的影响</td>
+<td>2.0</td>
+<td>2.0</td>
+<td>9–10（卓越）</td>
+</tr>
+<tr>
+<td>D4.2 变现路径清晰度</td>
+<td>3.5</td>
+<td>2.8</td>
+<td>7–8（良好）</td>
+</tr>
+<tr>
+<td>D4.3 付费转化逻辑</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6（一般）</td>
+</tr>
+<tr>
+<td>D4.4 增值服务空间与定价天花板</td>
+<td>2.0</td>
+<td>1.6</td>
+<td>7–8（良好）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>7.9</strong></td>
+<td><strong>良好偏上</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h4>D4.1 协议对变现模式的影响（2.0 / 2.0）</h4>
+<p>项目采用 <strong>MIT License</strong>（LICENSE 文件经本地实测确认，README 亦声明），属于对变现路径完全无约束的协议类型。MIT 下所有主流开源商业化路径——Open Core、SaaS 托管、双协议许可、专业服务、插件市场、认证生态——均无障碍。项目引用的第三方资产（Tabler Icons MIT、Simple Icons CC0、Google Fonts）均有独立的宽松许可，<code>THIRD_PARTY_LICENSES.md</code> 已做隔离声明，不构成对主项目商业化的制约。</p>
+<p>协议层面的唯一潜在限制是：因 MIT 使 fork 零成本，若未来走"付费许可"路线缺乏天然保护，但这属于商业路径设计问题而非协议约束。本项目协议条件属于最优档，<strong>满分</strong>。</p>
+<h4>D4.2 变现路径清晰度（2.8 / 3.5）</h4>
+<p>项目以 MIT 全开源形式存在，仓库内未发现企业版、付费功能、赞助链接或商业授权入口（<code>recent_releases</code> 为空）。然而其变现路径并非空白，可从三个层面判断：</p>
+<ol>
+<li><strong>实际运行中的主路径——个人品牌与内容导流</strong>：作者 Cathryn Lavery 是 BestSelf.co（商业产品公司）创始人，README 中所有站外链接均携带 <code>utm_source=diagram-design</code> 追踪参数（littlemight.com、BestSelf.co、X 账号），表明该 repo 被有意设计为个人品牌与商业产品的引流入口。项目 4 个月内（2026-04-16 创建）达到约 2.5 万 star、1522 fork、25 名贡献者，是 GitHub 上热度最高的 agent skill 类项目之一，这一流量资产对作者博客、newsletter 和实体产品业务有明确转化价值。参照 Vue.js（捐赠/赞助 $1M+/年）与 Next.js/Vercel（框架开源+平台服务 $100M+）的先例，高人气开源资产作为作者商业生态的漏斗顶部是成熟路径。</li>
+<li><strong>备选路径一——AI agent 插件市场的生态位</strong>：项目面向 Claude Code、Codex、Factory Droid、Pi 四个客户端分发，以 marketplace/plugin 形态存在（<code>.claude-plugin/</code>、<code>.codex-plugin/</code> 等目录齐全）。AI 编程代理插件生态正处爆发期，头部 skill 未来存在付费插件、平台分成或企业授权空间，但当前生态的付费机制尚未成熟，<strong>需验证</strong>。</li>
+<li><strong>备选路径二——专业设计服务延伸</strong>：用户"60 秒品牌接入"的痛点（读取网站提取品牌色板与字体）天然衔接定制设计系统服务（追加图表类型、深度品牌定制、团队规范培训）。作者本人是设计师/创业者，具备直接履约能力。</li>
+</ol>
+<p>综合判断：拥有 <strong>1 条清晰可行的主路径</strong>（个人品牌导流+服务延伸）和 <strong>2 条备选路径</strong>（插件市场、专业服务），符合 7–8 档描述，未达到 9–10 档的"2+ 条清晰可行"（插件市场付费机制未成熟，企业版未构建）。</p>
+<h4>D4.3 付费转化逻辑（1.5 / 2.5）</h4>
+<p>付费转化逻辑是该项目最薄弱的环节：</p>
+<ul>
+<li><strong>免费版功能完整性高</strong>：MIT 全开源 + 39 种图表类型全部免费 + 品牌接入（onboarding）与多客户端 profile 管理均无功能限制。用户使用免费版几乎不会遇到"功能不够用"的硬性阻断。</li>
+<li><strong>付费触发点偏"服务型"而非"产品型"</strong>：自然升级动因主要是"想要作者亲自操刀的高质感定制"、"团队统一品牌规范需要专业设计"、"定制新图表类型"，这些触发点依赖用户的主观追求而非产品功能边界，不够自然。</li>
+<li><strong>转化漏斗</strong>：从"使用 skill"到"雇佣作者/购买服务"的路径存在（README 中作者联系方式与个人品牌贯穿始终），但缺乏产品内嵌的付费环节（如 Pro 版功能锁定、商业授权提示）。</li>
+<li><strong>付费意愿参照</strong>：目标用户群（技术创作者、AI 工具重度用户、企业技术团队）对"设计系统/品牌图表规范"类服务有真实付费能力，个人用户付费意愿弱，企业/团队付费意愿中等。</li>
+</ul>
+<p>按评分指引，属于"有升级逻辑但触发点不够自然"（5–6 档），触发点若未来通过企业版功能（协作、权限、SLA）落地即可上探 7–8 档。</p>
+<h4>D4.4 增值服务空间与定价天花板（1.6 / 2.0）</h4>
+<ul>
+<li><strong>增值方向明确</strong>：在免费核心（39 种图表类型 + 品牌匹配）之外，可叠加（a）定制图表类型开发；（b）品牌/设计系统深度整合咨询；（c）企业团队图表规范与培训；（d）私有化插件市场部署与企业支持。对照设计咨询市场（定制设计系统通常报价 $5K–$30K），客单价落在 <strong>$1K–$10K/年</strong> 区间合理，对应 7–8 档。</li>
+<li><strong>定价天花板约束</strong>：MIT 协议使软件许可本身难以收费（fork 即同款），收入形态被迫以服务/人天为主；单人或小团队产能限制收入扩展性，难以指数增长。若未来以"AI skill 基础设施"身份进入平台采购视野（如被 AI 工具厂商整合为官方推荐插件），天花板可上拓，但当前不可证实。</li>
+<li><strong>收入扩展性</strong>：per-seat/per-usage 模式均不适用于 skill 形态，更适合 enterprise flat fee 或 service retainer，扩展性中等。</li>
+</ul>
+<hr />
+<h4>结论</h4>
+<p>项目在商业模式维度处于<strong>良好偏上</strong>水平（7.9/10）。MIT 协议提供最优商业自由度（D4.1 满分）；作者已实际运行"高人气开源资产 → 个人品牌/内容/咨询导流"的间接变现路径，叠加 AI agent 插件市场的生态位，构成 1 主 + 2 备的路径组合（D4.2 良好）；但产品本身无任何付费触点，免费版功能完整导致付费触发点不自然（D4.3 一般）；增值服务空间清晰，可对标 $1K–$10K/年的设计咨询客单价，收入扩展性受 MIT 复制性和服务产能限制（D4.4 良好）。</p>
+<p><strong>一句话定性</strong>：这是一个"变现靠人而非靠产品"的项目——其商业价值更多体现在作者个人品牌生态的超级引流器，以及 AI agent 插件生态中的稀缺头部资产地位，而非内置可规模化收入模型；未来若有企业版/付费插件/收购整合，潜力可再上台阶，当前需主动构建转化触点。</p>
+<h3>D5 竞争格局与差异化壁垒（权重 12%）</h3>
+<h4>D5.1 竞品对比与市场定位（3 分）</h4>
+<p><strong>竞品对比表</strong>（全部经 GitHub Search API 实测或仓库内引用验证，真实存在）：</p>
+<table>
+<thead>
+<tr>
+<th>竞品名称</th>
+<th>类型</th>
+<th>仓库/官网</th>
+<th>验证方式</th>
+<th>Star/用户量</th>
+<th>核心差异</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mahip-kakan/diagram-design</td>
+<td>直接竞品</td>
+<td>github.com/mahip-kakan/diagram-design</td>
+<td>GitHub 搜索 API 确认</td>
+<td>1</td>
+<td>同名同类目，仅 13 种类型，范围小、无品牌 onboarding，更新停滞（2026-04 后未动）</td>
+</tr>
+<tr>
+<td>pattnaik-subhankar/editorial-diagrams</td>
+<td>直接竞品</td>
+<td>github.com/pattnaik-subhankar/editorial-diagrams</td>
+<td>GitHub 搜索 API 确认</td>
+<td>0</td>
+<td>36 种类型、定位与主项目高度相似，面向 OpenClaw/Claude Code/Codex，但几乎无社区</td>
+</tr>
+<tr>
+<td>oceanpelicanassess/diagram-design</td>
+<td>直接竞品</td>
+<td>github.com/oceanpelicanassess/diagram-design</td>
+<td>GitHub 搜索 API 确认</td>
+<td>0</td>
+<td>29 种类型，README 描述近似复制主项目（"No shadows, no Mermaid-slop"），疑似衍生 fork，无影响力</td>
+</tr>
+<tr>
+<td>Mermaid</td>
+<td>间接竞品（文本语法 + 自动布局）</td>
+<td>github.com/mermaid-js/mermaid</td>
+<td>仓库内引用（README 大量提及及 import-mermaid 功能）</td>
+<td>N/A（未实采，不编造）</td>
+<td>通用文本图表工具，自动布局但视觉风格 "AI 味" 重，无编辑级排版、无品牌匹配、无 39 种语义化类型</td>
+</tr>
+<tr>
+<td>draw.io / diagrams.net</td>
+<td>间接竞品（GUI 手动编辑器）</td>
+<td>github.com/jgraph/drawio</td>
+<td>仓库内引用（README 大量提及及 import-drawio 功能）</td>
+<td>N/A（未实采，不编造）</td>
+<td>手动拖拽 GUI 工具，无 AI Agent 原生集成，输出 XML 格式，不具备 60 秒品牌读取能力</td>
+</tr>
+</tbody>
+</table>
+<p><strong>定位清晰度分析</strong>：项目定位极其鲜明——"Editorial diagrams your designer won't hate"，专为 Claude Code、Codex、Pi、Factory Droid 等 AI Agent 提供 39 种自包含 HTML+SVG 的编辑级图表技能；明确反对 Mermaid 风格（"No Mermaid slop"）。经搜索确认的直接竞品全部为极低星（0–1 star）的小项目，部分疑似复刻，与主项目 24,990 star、1,522 fork 差距悬殊。Mermaid 与 draw.io 是间接竞品，但解决的是不同问题（通用图表生成 vs. AI Agent 编辑级出图 + 品牌匹配），且主项目已提供对二者的「反向导入/重绘」能力作为兼容策略。定位独特且明显领先。</p>
+<p><strong>小分：3.0 / 3（100%）</strong></p>
+<h4>D5.2 技术壁垒与网络效应（3 分）</h4>
+<p><strong>技术壁垒</strong>：项目以 MIT 许可证完全开放，无专利、无专有算法、无闭源数据。核心资产是 39 种图类型的设计规范文档（76 个文档文件、8 份 ADR）、Python 工具脚本（21,463 行）和 CI 像素级验证流水线。设计规范本身内部逻辑严密（网格系统、语义角色 token、渐进披露加载），完整复刻需要大量工程投入；但开源属性与已出现的近似复刻（oceanpelicanassess/diagram-design 描述几乎一致）证明防御效果有限。</p>
+<p><strong>网络效应</strong>：几乎不存在多用户网络效应。品牌 profile 库（<code>~/.diagram-design/profiles/</code>）为单机共享，并非多用户数据飞轮；插件生态未形成第三方扩展市场。用户增加不会显著提升每个用户的价值。</p>
+<p><strong>规模效应</strong>：开源分发边际成本为零，但规模扩大不带来明显的成本或体验优势；核心验证仍依赖 CI 与少量维护者（25 contributors）。</p>
+<p>综合来看，有一定内容与工程壁垒但不深厚，且无网络效应，容易被复制。</p>
+<p><strong>小分：1.2 / 3（40%）</strong></p>
+<h4>D5.3 切换成本与用户粘性（2 分）</h4>
+<p><strong>迁移成本</strong>：产出物为自包含 HTML+SVG 文件，无运行时依赖，可在任意浏览器离线打开；用户切换到其他工具时，历史图表资产不受锁定。但深度用户（多客户端、多品牌项目）依赖 <code>style-guide.md</code> 定制、命名 profile 库和 <code>.diagram-design</code> 项目标记，迁移到竞品需重新配置品牌 token 与环境。</p>
+<p><strong>深度集成</strong>：与 Claude Code/Codex/Pi/Factory Droid 的 marketplace/plugin 机制深度绑定，安装、自动更新、剖面存储均为项目特有流程；集成越深，粘性越强，但集成本身是开源协议下可被替代的标准 skill 机制。</p>
+<p><strong>习惯锁定</strong>：团队可能形成「让 Agent 出图 → 自动品牌匹配 → fidelity receipt 校验」的工作流习惯，具备一定组织流程黏性，但切换成本总体中等偏低。</p>
+<p><strong>小分：1.2 / 2（60%）</strong></p>
+<h4>D5.4 护城河可持续性（2 分）</h4>
+<p><strong>护城河趋势</strong>：先发优势显著（4 个月左右获 24,990 star），开发活跃（90 天 101 PR、25 个 issue 关闭），版本迭代快（2.0 → 2.3 → 2.5.10），类型从 38 增至 39；品牌创始人（Cathryn Lavery，BestSelf 创始人）自带内容影响力。护城河短期仍在增厚。</p>
+<p><strong>颠覆风险</strong>：存在三类风险——① 已有 3 个低星直接竞品/复刻出现，复制速度很快；② 大模型本身出图能力持续增强，可能削弱「专用 skill」的存在必要性；③ AI Agent 生态（Claude Code/Codex/Pi）的插件机制变动可能带来适配风险。整体属中等颠覆风险。</p>
+<p><strong>时间窗口</strong>：凭借内容深度与社区规模，优势预计可维持 1–2 年，但 MIT 开放叠加生态快速演进，长期防御力有限。</p>
+<p><strong>小分：1.2 / 2（60%）</strong></p>
+<h4>D5 结论</h4>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D5.1 竞品对比与市场定位</td>
+<td>3</td>
+<td>3.0</td>
+<td>9–10（定位独特，明显领先）</td>
+</tr>
+<tr>
+<td>D5.2 技术壁垒与网络效应</td>
+<td>3</td>
+<td>1.2</td>
+<td>3–4（壁垒薄弱，易被复制）</td>
+</tr>
+<tr>
+<td>D5.3 切换成本与用户粘性</td>
+<td>2</td>
+<td>1.2</td>
+<td>5–6（迁移成本中等，有部分粘性）</td>
+</tr>
+<tr>
+<td>D5.4 护城河可持续性</td>
+<td>2</td>
+<td>1.2</td>
+<td>5–6（护城河一般，有中等颠覆风险）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>6.6</strong></td>
+<td><strong>一般偏良好</strong></td>
+</tr>
+</tbody>
+</table>
+<p>综合评分 <strong>6.6 / 10</strong>：差异化定位是最大竞争优势（近乎空白市场的定义者），但技术壁垒与网络效应薄弱，切换成本中等，护城河可持续性面临 AI 能力演进与复刻者的双重夹击。该项目当前更像是「高质量内容 + 品牌影响力」驱动的强个人 IP 型项目，而非结构性壁垒驱动的商业项目。</p>
+<h3>D6 法律合规与知识产权（权重 7%）</h3>
+<h4>D6.1 开源协议合规性与商业限制 — 3.0 / 3.0（卓越）</h4>
+<p>项目采用标准 MIT License，LICENSE 文件完整规范，版权归属单一（Copyright (c) 2025 Cathryn Lavery）。MIT 协议无 copyleft 传染性、无 Commons Clause/BUSL 等限制商业使用的附加条款，为闭源发行、SaaS 集成、双协议授权等变现模式保留最大法律自由度。本地实测 dependencies 为空，主代码库（Python 脚本）不引入第三方运行时依赖，无传染性依赖链进入核心代码。图标等第三方资产通过 THIRD_PARTY_LICENSES.md 记录 license provenance，CONTRIBUTING.md 明确要求保持该文件准确。无任何法律层面的合规障碍。</p>
+<h4>D6.2 依赖链法律风险 — 2.5 / 2.5（卓越）</h4>
+<p>本地实测 dependencies 为空对象，45 个 Python 文件（21,463 行）无外部包依赖；项目定位为 "self-contained HTML + SVG"，输出产物自包含，运行时不需要 Mermaid/draw.io 组件。CONTRIBUTING.md 中提及的唯一第三方来源为图标集（<code>scripts/vendor/icons/</code> 下 tabler、simple 等来源），均为宽松许可（Tabler Icons 为 MIT、Simple Icons 为 CC0），并有 THIRD_PARTY_LICENSES.md 统一溯源管理。此外，Mermaid/draw.io 导入路径将输入视为不可信数据处理（不渲染、不获取、不执行源内容），降低了供应链侧的安全与合规连带风险。依赖链合规审查成本趋近于零。</p>
+<h4>D6.3 商标与专利风险 — 1.5 / 2.5（一般；未经人工核查，置信度低）</h4>
+<p><strong>自动化限制提示</strong>：商标检索与专利排查无法由 AI 自动完成，本次评估未进行外部商标/专利数据库人工核查，置信度低。</p>
+<p>现有仓库数据中未发现 README 或文档包含商标使用政策或名称声明。"diagram-design" 为通用描述性名称，固有显著性较弱，作为商标注册存在显著障碍，但未发现与已知知名商标的明显冲突。项目本质为提示词规则、脚本与文档构成的 agent skill，专利侵权风险在人工排查前无法排除。按方法论默认档位（5–6 档）计分，建议商业化前做正式商标检索与 FTO（自由实施）分析。</p>
+<h4>D6.4 贡献者协议完备性 — 1.6 / 2.0（良好）</h4>
+<p>CONTRIBUTING.md 极为详尽，覆盖贡献前流程（先建 issue、分支开发、Conventional Commits）、规模庞大的 CI 验证门禁（30+ 项验证脚本）、示例/SVG 无障碍契约、ADR 政策记录，并有 CODE_OF_CONDUCT.md、SECURITY.md、PULL_REQUEST_TEMPLATE.md 配套。LICENSE 中版权归单一作者（Cathryn Lavery），25 名 contributor 的贡献按 GitHub 默示 inbound=outbound 规则以 MIT 授权。但仓库未配置 CLA（Contributor License Agreement）或 DCO（Developer Certificate of Origin），CONTRIBUTING.md 未明示"提交即代表同意 MIT 授权"的条款。当前流程对开源社区运营可控，但若未来推进双协议商业化授权，建议补充 DCO 或轻量 CLA 以固化版权集中度。</p>
+<h4>结论</h4>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>小分</th>
+<th>满分</th>
+<th>判定</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D6.1 开源协议合规性</td>
+<td>3.0</td>
+<td>3.0</td>
+<td>卓越</td>
+<td>MIT 协议明确完整，著作权重归属单一，无 copyleft、无商业附加条款</td>
+</tr>
+<tr>
+<td>D6.2 依赖链法律风险</td>
+<td>2.5</td>
+<td>2.5</td>
+<td>卓越</td>
+<td>无运行时依赖；第三方图标许可有溯源文档且均为宽松许可</td>
+</tr>
+<tr>
+<td>D6.3 商标与专利风险</td>
+<td>1.5</td>
+<td>2.5</td>
+<td>一般</td>
+<td>未经人工核查，仅依据仓库信息，置信度低</td>
+</tr>
+<tr>
+<td>D6.4 贡献者协议完备性</td>
+<td>1.6</td>
+<td>2.0</td>
+<td>良好</td>
+<td>贡献流程规范（30+ 验证门禁），但缺 CLA/DCO</td>
+</tr>
+</tbody>
+</table>
+<p><strong>D6 维度得分：8.6 / 10（权重 7%）</strong>。法律合规基本面健康：MIT 协议为商业化路径提供最高自由度，依赖链风险趋近于零，第三方资产许可管理到位；主要改进点为补充 DCO/CLA 固化贡献版权归属，以及推进商标检索/注册与商标使用政策。未发现阻断商业化的法律硬伤，整体法律合规风险低。</p>
+<h3>D7. 企业就绪度与可运营性</h3>
+<p><strong>评估说明</strong>：本项目为 Claude Code/Codex/Pi 等 AI 编程助手的 diagram 生成技能包（静态 HTML+SVG 输出），非传统服务端应用。评估聚焦其作为企业级开发工具链组件的运营就绪能力。</p>
+<h4>D7.1 运维复杂度与升级路径（3 分）— 2.4 分</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>配置管理</td>
+<td>采用 client profiles 与语义模式（semantic patterns）驱动，配置以静态 Markdown/脚本为主，清晰度高；无独立环境变量/配置中心需求</td>
+</tr>
+<tr>
+<td>运维负担</td>
+<td>无服务端组件、无 Dockerfile、无常驻进程，日常运维负担极低</td>
+</tr>
+<tr>
+<td>升级路径</td>
+<td>CI 中 <code>verify-plugin-package.py</code> 强制插件版本同步（synchronized plugin version bump），并以 <code>plugin validate --strict</code> 校验市场包；未发现正式回滚机制文档</td>
+</tr>
+<tr>
+<td>数据迁移</td>
+<td>无数据库/服务端状态，升级无需数据迁移；draw.io/Mermaid 导入为纯文件转换</td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：静态生成、无部署的架构使运维成本极低，版本门禁保障升级可控；但缺乏明确回滚策略，扣一档。<strong>80% 档（2.4/3）</strong>。</p>
+<h4>D7.2 安全管理与权限控制（2.5 分）— 1.5 分</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>认证授权</td>
+<td>非服务端工具，无 SSO/OAuth/LDAP/SAML；作为 Claude Code 插件，CI 通过 <code>plugin validate --strict</code> 校验插件 manifest 权限声明</td>
+</tr>
+<tr>
+<td>权限模型</td>
+<td>无用户级 RBAC；权限受宿主 Agent（Claude Code 等）权限体系约束</td>
+</tr>
+<tr>
+<td>审计日志</td>
+<td>未发现操作审计日志</td>
+</tr>
+<tr>
+<td>数据安全</td>
+<td><code>drawio_extract.py</code> 中 <code>_reject_unsafe_xml</code> 等防御 XXE/恶意 XML；输出为无外部依赖的静态 HTML+SVG，默认无 JavaScript，降低供应链风险；无传输/存储加密需求</td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：安全设计以满足静态生成工具需求为主，攻击面小，但缺乏企业级认证与审计能力。<strong>60% 档（1.5/2.5）</strong>。</p>
+<h4>D7.3 可扩展性与高可用能力（2.5 分）— 2.0 分</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>水平扩展</td>
+<td>无状态设计，输出为自包含文件，可并行运行于任意 CI runner 或开发者机器；CI 在 3 OS × 2 Python 版本矩阵并行执行为实证</td>
+</tr>
+<tr>
+<td>高可用</td>
+<td>非服务型组件，无单点故障；无集群部署需求</td>
+</tr>
+<tr>
+<td>性能瓶颈</td>
+<td>单机 Python 脚本处理，未见性能基准数据；典型工作负载为轻量级静态图生成</td>
+</tr>
+<tr>
+<td>数据一致性</td>
+<td>无分布式状态，不涉及一致性协议</td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：无状态、可并行的工具链组件，天然支持水平扩展；HA/一致性不适用且无阻塞。<strong>80% 档（2.0/2.5）</strong>。</p>
+<h4>D7.4 集成兼容与可观测性（2 分）— 1.2 分</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>API 完备性</td>
+<td>提供 CLI 命令（doctor、export-diagram、import-drawio、import-mermaid、profile），并面向多 Agent（Claude Code/Codex/Pi）提供 prompt 接口；无 REST/gRPC</td>
+</tr>
+<tr>
+<td>标准协议</td>
+<td>不支持 OpenTelemetry/Prometheus；支持 draw.io（.drawio/.xml/.png/.svg 嵌入 XML）与 Mermaid 导入，输出标准 HTML+SVG</td>
+</tr>
+<tr>
+<td>监控告警</td>
+<td>内置 <code>doctor</code> 诊断命令与 <code>self_check.py</code>（检查 SVG 引用、字体、规范性），CI 中大量 verify 脚本构成持续健康检查</td>
+</tr>
+<tr>
+<td>日志体系</td>
+<td>脚本以标准输出/错误输出为主，无结构化日志或日志级别管理</td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：兼容性突出（多格式导入 + 多 Agent 支持），健康检查能力可用，但标准可观测性协议与结构化日志缺失。<strong>60% 档（1.2/2）</strong>。</p>
+<p><strong>维度结论</strong>：D7 综合得分 <strong>7.1/10</strong>（良好）。作为企业开发工具链组件，该 skill 运维负担极低、升级受版本门禁保护、无状态可并行；但安全审计与标准可观测性不足，距完整企业就绪需补充操作审计、结构化日志与显式回滚策略。</p>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>权重</th>
+<th>小分</th>
+<th>档位</th>
+<th>核心依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D7.1</td>
+<td>3</td>
+<td>2.4</td>
+<td>80%</td>
+<td>静态无服务端、版本门禁、无数据迁移</td>
+</tr>
+<tr>
+<td>D7.2</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>60%</td>
+<td>plugin 权限校验、XXE 防御；无审计</td>
+</tr>
+<tr>
+<td>D7.3</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>80%</td>
+<td>无状态并行、无单点故障</td>
+</tr>
+<tr>
+<td>D7.4</td>
+<td>2</td>
+<td>1.2</td>
+<td>60%</td>
+<td>doctor 诊断、多 Agent/格式兼容；无标准监控</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>7.1</strong></td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h4>D8. 团队治理与可持续性（权重 7%）</h4>
+<p><strong>目的</strong>：评估项目背后的团队是否具备持续运营和商业化的能力——人是最关键的商业化要素。</p>
+<h5>D8.1 核心维护者能力与背景（满分 2.5 → 得分 2.0）</h5>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术能力</td>
+<td><strong>极强</strong>。仓库内置 40+ 个 Python 验证脚本（geometry、treemap、sankey、slopegraph、bubble、draw.io/Mermaid 导入安全等），8 份 ADR 架构决策记录，CI 双工作流（ci.yml + pages.yml），a11y SVG 契约、字节上限、确定性渲染等工程约束表明维护者具备系统性软件工程能力与图形/可视化领域经验</td>
+</tr>
+<tr>
+<td>商业经验</td>
+<td><strong>有产品化思维但无直接收入证据</strong>。面向 Claude Code / Codex / Pi 三大 agent 平台做市场分发，设计了 plugin marketplace 路径、client profiles、逐客户端版本清单（bump-plugin-version.py），说明团队理解"产品-渠道-分发"链路；但未发现公司实体、融资或企业服务背景披露</td>
+</tr>
+<tr>
+<td>投入度</td>
+<td><strong>极高</strong>。创建仅 4 个月（2026-04-16），90 天内合并 101 个 PR、关闭 25 个 issue，最近推送 2026-08-21；此节奏通常意味着全职或近乎全职投入</td>
+</tr>
+<tr>
+<td>巴士因子</td>
+<td><strong>估计 3 左右</strong>。共 25 名贡献者，贡献流程规范（PR 必须过全套验证门禁），但无 CODEOWNERS，核心方向仍由创建者主导（ADR 签核），核心人员离开后维持当前质量标准存在不确定性</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分依据</strong>：技术能力与投入度显著超出平均水平，产品化分发体现一定商业操盘意识；但无已证实的企业/创业商业化记录，巴士因子未达 ≥5。按指引取 7–8 档（80%）。</p>
+<h5>D8.2 治理模型透明度（满分 2.0 → 得分 1.6）</h5>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>治理文档</td>
+<td><strong>完善</strong>。有 CONTRIBUTING.md（PR 流程、分支规范、Conventional Commits、全部验证门禁、新类型/图标/导入路径变更指引）、CODE_OF_CONDUCT.md（Contributor Covenant 2.1）、SECURITY.md（私密漏洞披露流程）、PULL_REQUEST_TEMPLATE.md、docs/adr/ 下 8 份 ADR，及 docs/superpowers/plans+specifics 的公开规划/规格文档</td>
+</tr>
+<tr>
+<td>开放程度</td>
+<td><strong>较透明</strong>。贡献者从 issue → 分支 → PR → 全量验证→ 合并路径清晰；ADR 机制让已定政策有据可循；但最终决策权集中在核心维护者，路线图以个人规划文档形式呈现而非社区共识机制</td>
+</tr>
+<tr>
+<td>基金会/组织</td>
+<td><strong>无</strong>。属于独立个人/团队项目，不在 CNCF/Apache/Linux Foundation 等体系内</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分依据</strong>：治理文档（尤其 CONTRIBUTING 与 ADR 制度）在同类规模开源项目中属上乘，决策对外可见；但与"知名基金会+完全透明决策"的 9–10 档有差距。按指引取 7–8 档（80%）。</p>
+<h5>D8.3 资金支持与商业赞助（满分 2.5 → 得分 1.0）</h5>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>现有资金</td>
+<td><strong>未发现</strong>。仓库归属个人账号（cathrynlavery），无 organization 后台，无 VC/公司赞助披露</td>
+</tr>
+<tr>
+<td>赞助收入</td>
+<td><strong>未披露</strong>。补采数据未含 GitHub Sponsors / Open Collective 字段，无法确认赞助状态；按无证据保守评估</td>
+</tr>
+<tr>
+<td>商业实体</td>
+<td><strong>无明确公司实体</strong>。项目以个人名义运营，未发现对应商业公司或基金会载体</td>
+</tr>
+<tr>
+<td>资金可持续性</td>
+<td><strong>存疑</strong>。核心维护者若无外部资金，长期全职投入的可持续性取决于商业化转化；目前项目免费分发、无付费层</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分依据</strong>：项目无商业实体、无融资披露、无稳定机构支持，属于典型的"高活跃但靠热情驱动"阶段，资金是当前商业化路径上最突出的短板。按指引取 3–4 档（40%）。</p>
+<h5>D8.4 项目可持续性与传承风险（满分 3.0 → 得分 2.4）</h5>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>活跃趋势</td>
+<td><strong>强劲上升</strong>。创建 4 个月（2026-04-16 → 2026-08-21）星标从 0 涨至约 2.5 万，90 天 PR 101 个、关闭 issue 25 个；开放 issue 仅 21 个，issue 闭环率约 54%，无积压迹象</td>
+</tr>
+<tr>
+<td>维护延续性</td>
+<td><strong>机制基本健全</strong>。自动化验证门禁（几十个 verify 脚本）+ 文档化流程使新贡献者可上手；SECURITY.md 与 CoC 提供社区行为规范；但项目无版本化 release（SECURITY.md 明确只维护 main 分支最新提交），长期传承依赖单一主线</td>
+</tr>
+<tr>
+<td>历史信号</td>
+<td><strong>无废弃信号</strong>。is_archived=false，无 deprecated/unmaintained 标记，仅 2 个 CI workflow（干净）</td>
+</tr>
+<tr>
+<td>分叉风险</td>
+<td><strong>低</strong>。fork 1522（约星标的 6%），属正常参与型 fork，无社区分裂迹象</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分依据</strong>：项目处于高速上升期，治理资产（文档+验证体系+ADR）使其可传承性高于同龄项目；但仅 4 个月历史、未经历维护者更替考验，活跃趋势虽有波动观察期不足。按指引取 7–8 档（80%）。</p>
+<h5>结论</h5>
+<p>项目团队治理与可持续性综合得分 <strong>7.0/10</strong>，处于<strong>良好</strong>水平。核心维护者展现出一流的工程组织能力，治理文档与验证基础设施在同等规模项目中堪称标杆，4 个月内聚合 25 名贡献者并维持 101 PR/90 天的合并节奏，说明团队执行力与社区吸引力俱佳。主要短板集中在资金维度：无商业实体、无融资/赞助披露，商业化经验仅有产品化分发层面的间接体现，支撑全职长期投入的资金基础尚未建立。传承层面，巴士因子约 3 且无 CODEOWNERS，在高速扩张期风险可控，但若核心维护者离开，质量标准能否延续仍存变数。总体判断：团队的"人和治理"足以支撑项目继续壮大，但商业化落地需要尽快补齐资金与组织载体。</p>
+<h3>D9 上手难度与易用性</h3>
+<p>分析失败（DeepSeek 调用重试仍失败: 模型返回空内容），本维度标 N/A。</p>
+<h3>D10 功能价值——使用价值视角（平行维度，权重 0%，不计入综合评分）</h3>
+<p><strong>核心判断</strong>: 这是一个典型的高使用价值、低直接变现项目。对使用者而言，它把「制作编辑级图表」从 30 分钟的 Figma 手工劳动（或接受低质量 AI 生成图）压缩为分钟级的高质量产出，39 种图表类型、60 秒品牌匹配、draw.io/Mermaid 导入重绘构成实质性工作流增效。价值结构呈「使用价值高、交换价值低」形态，与 D4.3 付费转化天然反相关，是「免费工具建立影响力」路径的教科书样本。</p>
+<h4>D10 细则打分表</h4>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>分值</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10.1</td>
+<td>效用强度</td>
+<td><strong>2.4 / 3</strong></td>
+<td>80%（7–8 档）</td>
+</tr>
+<tr>
+<td>D10.2</td>
+<td>实际使用规模</td>
+<td><strong>1.8 / 3</strong></td>
+<td>60%（5–6 档）</td>
+</tr>
+<tr>
+<td>D10.3</td>
+<td>免费可得的完整效用</td>
+<td><strong>2.0 / 2</strong></td>
+<td>100%（9–10 档）</td>
+</tr>
+<tr>
+<td>D10.4</td>
+<td>效用可持续性</td>
+<td><strong>1.6 / 2</strong></td>
+<td>80%（7–8 档）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>7.8 / 10</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4>D10.1 效用强度（2.4/3）</h4>
+<ul>
+<li><strong>单用户节省量</strong>: README 明确点出痛点——作者此前「要么在 Figma 上花 30 分钟，要么直接跳过图表」。该工具将这一过程压缩为自然语言请求 + 分钟级生成，且输出为可直接使用的编辑级 HTML/SVG，无需后续美化。对技术作者、顾问、产品文档团队等图表高频生产角色，单次节省 30 分钟至数小时。</li>
+<li><strong>效用层级</strong>: 项目级依赖。它不是业务命脉（如数据库/CI），但对图表密集型工作流（博客配图、咨询交付物、架构文档）是稳定的效率杠杆；导入重绘功能（draw.io/Mermaid → 本设计系统）使得存量图表资产也能统一风格，深化了嵌入深度。</li>
+<li><strong>效用确定性</strong>: 高。项目以工程化手段锁定质量——5 份 ADR 记录设计决策、<code>self_check.py</code> 输出校验、CI 中以阻断网络方式验证像素布局、设计系统强制「坐标/宽度可被 4 整除」等硬规则。效用不依赖运气，而是由模板 + 规则 + 校验三重保障的稳定产出。</li>
+</ul>
+<h4>D10.2 实际使用规模（1.8/3）</h4>
+<ul>
+<li>防幻觉说明：npm/PyPI 下载量均无法实采（N/A，本分发形态走 AI 客户端的 plugin marketplace，无集中下载计数渠道）；GitHub Dependents「Used by」计数未取到。</li>
+<li>以实采硬指标代理评估：<strong>24,990 stars</strong>（创建仅 4 个月，2026-04-16 至 2026-08-22）、<strong>1,522 forks</strong>、<strong>25 名贡献者</strong>、<strong>90 天 101 个 PR / 25 个 issue 关闭</strong>。对 agent-skill 类项目，安装路径即 GitHub 仓库，star→使用 转化率通常较高；25k stars 保守对应万级实际使用者，且 90 天 101 PR 表明存在深度参与的用户群。</li>
+<li>README 置顶 Trendshift 趋势徽章，佐证其处于生态头部位置。综合判定为「万级使用规模」，但因缺少直接下载/依赖方计数，置信度中等，不抬升至十万级档位。</li>
+</ul>
+<h4>D10.3 免费可得的完整效用（2.0/2）</h4>
+<ul>
+<li><strong>开源版即全部价值</strong>: MIT License，39 种图表类型、全部 11 个类型参考文档、semantic-patterns、动画、导入/导出工具、品牌 onboarding、多客户端配置文件全部开源，无任何功能分层。</li>
+<li><strong>无付费墙</strong>: 无企业版、无 Pro 版、无「不付费实际不可用」设计。安装、使用、输出物商用均无限制。</li>
+<li><strong>与 D4.3 的关系</strong>: 本项满分与商业维度的付费转化预期形成鲜明反差——使用价值 100% 免费释放，意味着直接交换价值趋近于零。这并非缺陷，而是该项目的价值结构选择：以免费工具积累生态位与个人品牌（作者为 BestSelf.co 创始人），商业化价值体现在流量入口与品牌溢价，而非软件收费。</li>
+</ul>
+<h4>D10.4 效用可持续性（2/2 满分下的 1.6/2）</h4>
+<ul>
+<li><strong>停维后效用存续</strong>: 输出物为自包含本地 HTML/SVG，离线可开，已生成的图表资产在项目停维后永久可用，效用不归零。</li>
+<li><strong>外部依赖</strong>: 主体完全本地化——45 个 Python 文件、21463 行代码、76 个文档文件、2 个 CI workflow 全部在仓库内。外部依赖仅 ① AI 宿主环境（Claude Code / Codex / Pi / Factory Droid，属 Agent Skills 开放生态，可移植）② Google Fonts（可选，CI 默认阻断网络验证，可自托管替换）。</li>
+<li><strong>可分叉维护性</strong>: MIT 许可 + 完整源码 + 文档（含 ADR、CONTRIBUTING、SECURITY、THIRD_PARTY_LICENSES）+ CI 构建，社区分叉维护无任何障碍。扣分项仅在于：作为 agent-skill，其价值发挥依赖宿主客户端对 Agent Skills 标准的持续支持，若宿主生态变化（如 Anthropic/OpenAI 调整插件机制）需适配迁移，但这是宿主层面的系统性风险，非本项目特有。</li>
+</ul>
+<h4>结论</h4>
+<p><strong>D10 维度总分 7.8/10，价值画像判定为「高使用价值型」项目</strong>。该工具为图表生产工作流提供了确定性的、量级显著的效率提升（39 种编辑级类型 + 品牌匹配 + 存量图表导入重绘），完整开源、免费、本地化的特性使其使用价值 100% 直达用户且长期存续。其价值结构决定了商业化路径不在软件收费，而在生态位卡位（agent-skill 图表标准的事实候选）与作者个人/公司品牌（BestSelf.co、littlemight.com）的流量转化——这与 D1–D9 商业评分较低的结果互为印证，而非矛盾。</p>
+<h3>D11. 社会价值——正外部性视角</h3>
+<blockquote>
+<p><strong>维度定位</strong>：本维度评估项目对使用者之外的行业与社会产生的正外部性（数字公共产品属性、教育价值、普惠性、开放标准推动），与 D3.4（品牌影响力对商业势能的助力）视角不同，聚焦外溢贡献本身。数据来源：GitHub 实采指标 + README 全文 + 竞品检索 + 本地代码实测。</p>
+</blockquote>
+<h4>D11.1 数字公共基础设施属性（3 分）</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>关键依赖地位</td>
+<td>项目通过 Claude Code、Codex、Factory Droid、Pi 四个 Agent 客户端的官方插件市场分发（<code>.claude-plugin</code>、<code>.codex-plugin</code>、<code>.factory-plugin</code>、<code>skills/</code> 标准目录），在 <strong>agent-skills 生态</strong>中处于标杆地位——25k star 是当前可检索到的该细分领域头部项目。但作为应用层 skill 而非底层库，不存在类似 curl/OpenSSL 式的编译期依赖链。</td>
+</tr>
+<tr>
+<td>停摆影响面</td>
+<td>若项目消失，主要影响：下游用户失去该图表技能的更新与维护；四个客户端的插件市场少一个高质量来源；三个已识别竞品（star 均 ≤1）的参考与模仿源头中断。<strong>不会波及其他软件供应链</strong>，替代路径（Mermaid/draw.io 手绘）存在但质量下降。</td>
+</tr>
+<tr>
+<td>数字公共产品属性</td>
+<td>MIT 协议完全开放，产物为自包含 HTML+SVG（无构建步骤、无 JS 依赖），可自由复用与修改；具备 DPG 的开放、可复用、公共利益特征。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分：7 分（3 × 80% = 2.4）</strong> —— 所在领域（AI Agent 图表生成）的重要基础依赖与标杆，但尚未达到行业级数字底座标准。Dependents 计数无直接数据（GitHub API 未提供），以竞品清单替代验证生态影响力。</p>
+<h4>D11.2 教育与人才价值（2.5 分）</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>教学采用</td>
+<td>README 本身即是一份完整的图表设计教材：包含"设计系统"专节（1 个 accent 色、3 组字体、4px 网格、密度目标 4/10）、"何时不该用"判断清单、39 种图表类型的适用场景说明，且配有 <code>docs/adr/</code> 8 份架构决策记录，可作为 Agent skill 工程范本。25k star 反映学习者/使用者基数庞大。</td>
+</tr>
+<tr>
+<td>门槛降低效应</td>
+<td>核心价值即门槛降低：将"编辑级图表设计"从需要专业设计训练（Figma/绘图技能）降为自然语言描述即可获得。按 README 描述，用户从"在 Figma 里折腾 30 分钟"变为 60 秒品牌匹配后直接生成。</td>
+</tr>
+<tr>
+<td>源码学习价值</td>
+<td>45 个 Python 文件、21463 行代码，带 CI、ADR、规范文档、<code>self_check.py</code> 验证脚本，具备优秀工程实践的可读性。10 条 ADR 记录了设计取舍（如"静态化是默认""语义模式不扩展类型体系"），对学习者有方法论价值。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分：8 分（2.5 × 80% = 2.0）</strong> —— 教程生态无法直接量化（无外部课程计数数据），但项目自身的文档体系（76 个文档文件、40+ 类型参考）已构成实质的教学基础设施；"降低行业进入门槛"效果显著，源码工程性良好。未达"行业教材"级别（缺乏第三方课程/出版物佐证）。</p>
+<h4>D11.3 普惠与可及性（2.5 分）</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>能力平权化</td>
+<td>将原本需雇佣设计师或购买 Figma/专业绘图工具的图表产出能力，以 <strong>MIT 免费协议 + 自然语言交互</strong>形式开放给个人开发者、中小团队。README 明示价值主张："No Figma. No generic rounded boxes. No 30-minute color-picking sessions."</td>
+</tr>
+<tr>
+<td>替代价格差</td>
+<td>等效能力商业方案（Figma 专业版约 $15/人/月、专业图表定制设计单次数百美元）与本项目免费获取的价差显著；且产物为自包含文件，无 SaaS 订阅锁定。</td>
+</tr>
+<tr>
+<td>可及性支持</td>
+<td>有实证：README 专列 "Accessible by default" 章节——每个 SVG 含 <code>role="img"</code>、解析式 <code>aria-labelledby</code>、<code>&lt;title&gt;</code>/<code>&lt;desc&gt;</code> 槽位，ID 前缀隔离避免页面冲突；自动 WCAG AA 对比度检查（9–12px 字号级）；<code>prefers-reduced-motion</code> 完整静态降级。i18n 方面支持多语言自然语言指令（如日语示例），但无完整本地化界面。硬件要求极低（静态 HTML 双击可开）。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分：9 分（2.5 × 100% = 2.5）</strong> —— 普惠效果突出：将昂贵设计能力平权化给个人/小团队，可及性支持（无障碍、对比度、低硬件要求）完善且为默认行为而非附加功能。受"需使用 AI Agent"这一技术门槛影响，未给满分档中的最高分界（10 分档留有余量，但按指引 9–10 归为 100% 档）。</p>
+<h4>D11.4 开放标准与行业推动（2 分）</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>标准推动</td>
+<td>输出严格基于 W3C 开放标准（HTML+SVG，无私有格式）；导入侧兼容 draw.io（<code>.drawio</code>/<code>.drawio.xml</code>/<code>.drawio.png</code>/<code>.drawio.svg</code> 含压缩 payload）与 Mermaid（<code>.mmd</code>/fenced code block）开放生态，并以"忠实账本"机制透明化转换过程；唯一外部依赖为 Google Fonts 且可剔除——整体示范"静态优先、无锁定"的实现路径。在 agent-skill 领域推动跨客户端插件标准（同一 <code>skills/</code> 目录被 4 个客户端原生识别）。</td>
+</tr>
+<tr>
+<td>科研支撑</td>
+<td>未检索到学术引用数据（外部检索不可得，标 N/A，不计入扣分）。</td>
+</tr>
+<tr>
+<td>行业示范效应</td>
+<td>竞品检索发现 3 个直接模仿项目（<code>mahip-kakan/diagram-design</code>、<code>pattnaik-subhankar/editorial-diagrams</code>、<code>oceanpelicanassess/diagram-design</code>），均复刻其"editorial diagrams / self-contained HTML+SVG / no shadows"设计语言，验证了其理念的行业扩散；但其 star 规模（1/0/0）远小于原作，示范效应处于早期扩散阶段。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分：8 分（2 × 80% = 1.6）</strong> —— 实现并推广了开放标准路径（SVG 输出、draw.io/Mermaid 互操作），有可验证的同行模仿与示范效应；科研引用无数据故不参与评分。</p>
+<h4>D11 维度汇总</h4>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>得分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D11.1</td>
+<td>数字公共基础设施属性</td>
+<td>3</td>
+<td>2.4</td>
+</tr>
+<tr>
+<td>D11.2</td>
+<td>教育与人才价值</td>
+<td>2.5</td>
+<td>2.0</td>
+</tr>
+<tr>
+<td>D11.3</td>
+<td>普惠与可及性</td>
+<td>2.5</td>
+<td>2.5</td>
+</tr>
+<tr>
+<td>D11.4</td>
+<td>开放标准与行业推动</td>
+<td>2</td>
+<td>1.6</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td><strong>8.5</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：该项目具有显著的正外部性——以 MIT 协议将编辑级图表设计能力平权化，输出严格遵循 SVG 开放标准，在 agent-skills 细分领域形成标杆地位并出现早期行业模仿；教育价值通过 76 份文档与 10 份 ADR 沉淀为可学习的工程范本。主要短板在 D11.1：作为应用层 skill 而非底层依赖，停摆影响面限于其使用生态，尚非全局性数字基础设施。综合评定 <strong>8.5 / 10</strong>，属"高社会价值外溢"项目，价值画像中可定位为"能力平权 + 标准示范"双驱动型。</p>
+<h2>五、商业化价值判断</h2>
+<h3>5.1 综合价值定位</h3>
+<p>diagram-design 的综合评分为 <strong>76.6/100</strong>，等级为 <strong>A（高商业化潜力）</strong>，价值画像为 <strong>⭐ 明星资产</strong>（综合评分 ≥ 65 且公共价值分 ≥ 7）。</p>
+<p>这是一个典型的「高商业潜力 × 高公共价值」组合：项目在 AI 代理图表设计这一爆发性交叉市场中占据先发卡位，同时其 MIT 开源模式、无障碍设计（WCAG AA 对比度检查、role=img/aria-labelledby）和开放标准示范（纯 SVG 输出、draw.io/Mermaid 互操作）赋予了显著的公共产品属性。</p>
+<h3>5.2 商业价值核心来源</h3>
+<p><strong>第一，流量资产价值。</strong> 项目 4 个月获得 24,990 star，月均增长约 5,910，是 agent-skills 领域的标杆项目。README 中所有站外链接均带 utm_source=diagram-design 追踪参数，指向作者博客、BestSelf.co 和 X 账号，构成高价值流量入口。</p>
+<p><strong>第二，生态位卡位价值。</strong> 项目同时覆盖 Claude Code/Codex/Factory Droid/Pi 四客户端插件市场分发，是该赛道最热门的 skill，具备未来付费插件、平台合作或收购可能。</p>
+<p><strong>第三，标准制定潜力。</strong> 39 种编辑级图表类型 + 设计系统 + 8 份 ADR + 40+ 验证脚本，项目正在事实上定义「AI 代理生成图表」的质量标准。</p>
+<h3>5.3 商业价值的结构性矛盾</h3>
+<p>项目的核心张力在于：<strong>使用价值极高（D10=7.8）但交换价值转化路径未打通</strong>。MIT 全功能开源、无任何付费墙/功能阉割，付费转化逻辑薄弱（D4.3=1.5/2.5），当前变现依赖作者个人品牌驱动而非产品功能边界。这意味着商业化的关键不是「如何收费」，而是「如何在不损害社区信任的前提下构建增值层」。</p>
+<h3>5.4 商业化时机判断</h3>
+<p>当前处于 <strong>商业化早期窗口期</strong>：AI Agent 技能生态竞争格局未固化，项目以 4 个月 2.5 万 star 的先发优势卡位，但技术壁垒薄弱（MIT 完全开源、无专利/专有数据、无网络效应），已出现 3 个描述近似的复刻项目。建议在 6–12 个月内完成增值路径设计，否则先发优势可能被复刻者稀释。</p>
+<h2>六、商业路径分析</h2>
+<h3>6.1 路径一：企业级设计系统整合服务（推荐优先）</h3>
+<p><strong>逻辑</strong>：项目已具备企业就绪的技术基础（静态无服务端架构、CI 矩阵跨 3 OS×2 Python 验证、draw.io/Mermaid 互操作），但缺少企业级配套（无认证/审计/结构化日志、无 CODEOWNERS、无版本化 release）。</p>
+<p><strong>具体做法</strong>：
+- 提供定制图表类型开发、设计系统整合咨询、企业团队规范培训
+- 客单价对标设计咨询市场约 $1K–$10K/年
+- 与 D4.4 增值空间判断一致，但收入扩展性受 MIT 可复制性与服务产能限制</p>
+<p><strong>适用性</strong>：与「明星资产」画像匹配——正常商业化，同时经营社区声誉，避免竭泽而渔（参照 Elastic 改协议的反噬教训）。</p>
+<h3>6.2 路径二：插件市场付费分发与平台合作</h3>
+<p><strong>逻辑</strong>：项目已通过插件市场机制覆盖 4 个 AI 客户端，是该赛道最热门 skill。AI agent 插件生态处于早期，平台方（Anthropic/OpenAI 等）有动力扶持高质量 skill 生态。</p>
+<p><strong>具体做法</strong>：
+- 与 Claude Code/Codex 等平台探索付费插件分成或官方推荐位合作
+- 推出「专业版」技能包（如更多图表类型、团队协作功能），通过插件市场分发
+- 关注平台生态机制变动，提前布局多平台兼容</p>
+<p><strong>适用性</strong>：需注意 MIT 协议下代码可被自由复刻，付费版需依赖品牌信任与持续更新速度构建壁垒。</p>
+<h3>6.3 路径三：收购与人才引进</h3>
+<p><strong>逻辑</strong>：项目 4 个月 2.5 万 star 的增速在开发者工具领域极为罕见，核心维护者技术能力极强（40+ 验证脚本、8 份 ADR、a11y 契约），但无已证实的商业化经验。</p>
+<p><strong>具体做法</strong>：
+- 主动接触 AI 编码代理平台方或设计工具厂商，探索收购或核心维护者雇佣
+- 项目作为「agent-skill 图表标准候选」的卡位价值是收购核心标的</p>
+<p><strong>适用性</strong>：与 D8.3「无商业实体、无融资或赞助披露」现状匹配，是资金可持续性短板的最快解法。</p>
+<h3>6.4 路径四：影响力变现（辅助路径）</h3>
+<p><strong>逻辑</strong>：项目公共价值分 8.2，属于「明星资产」画像，社区声誉是重要资产。</p>
+<p><strong>具体做法</strong>：
+- 通过赞助/基金会托管获取资金支持
+- 围绕生态做服务与培训（如「AI 图表设计最佳实践」课程）
+- 作者个人品牌（BestSelf.co）与项目形成流量互哺</p>
+<h3>6.5 路径优先级建议</h3>
+<table>
+<thead>
+<tr>
+<th>优先级</th>
+<th>路径</th>
+<th>理由</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P0</td>
+<td>企业级设计系统整合服务</td>
+<td>最快产生现金流，与现有能力匹配，不损害社区信任</td>
+</tr>
+<tr>
+<td>P1</td>
+<td>插件市场付费分发与平台合作</td>
+<td>中期最大增长空间，需等待生态成熟</td>
+</tr>
+<tr>
+<td>P2</td>
+<td>收购与人才引进</td>
+<td>作为退出或加速路径，需主动接触</td>
+</tr>
+<tr>
+<td>P3</td>
+<td>影响力变现</td>
+<td>长期辅助，维持社区声誉与品牌价值</td>
+</tr>
+</tbody>
+</table>
+<h2>七、能力评估：能做什么 &amp; 最适合做什么</h2>
+<h3>7.1 核心能力清单</h3>
+<table>
+<thead>
+<tr>
+<th>能力域</th>
+<th>具体能力</th>
+<th>证据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>产品设计</strong></td>
+<td>39 种编辑级图表类型设计，覆盖软件架构、数据工程、产品管理、战略分析等场景</td>
+<td>D1.2 满分 2.5/2.5</td>
+</tr>
+<tr>
+<td><strong>技术实现</strong></td>
+<td>自包含 HTML+SVG 输出，无运行时第三方依赖，21,463 行 Python 代码</td>
+<td>D6.2 满分 2.5/2.5</td>
+</tr>
+<tr>
+<td><strong>质量保障</strong></td>
+<td>40+ 验证脚本、CI 像素验证、a11y 契约、8 份 ADR</td>
+<td>D8.1 证据</td>
+</tr>
+<tr>
+<td><strong>生态集成</strong></td>
+<td>同时支持 Claude Code/Codex/Factory Droid/Pi 四客户端，draw.io/Mermaid 互操作</td>
+<td>D3.3、D7.3</td>
+</tr>
+<tr>
+<td><strong>社区运营</strong></td>
+<td>4 个月 2.5 万 star，90 天 101 PR/25 issue 关闭，issue 闭环率约 54%</td>
+<td>D3.1 满分 3.0/3.0</td>
+</tr>
+<tr>
+<td><strong>法律合规</strong></td>
+<td>MIT 协议清晰，第三方资产许可已隔离（Tabler MIT/Simple Icons CC0），无传染性依赖</td>
+<td>D6.1 满分 3.0/3.0</td>
+</tr>
+<tr>
+<td><strong>无障碍设计</strong></td>
+<td>role=img/aria-labelledby/WCAG AA 对比度检查内建</td>
+<td>D11.3 满分 2.5/2.5</td>
+</tr>
+<tr>
+<td><strong>文档体系</strong></td>
+<td>76 个文档文件、10 份 ADR、CONTRIBUTING.md 含 30+ 项验证门禁</td>
+<td>D11.2、D6.4</td>
+</tr>
+</tbody>
+</table>
+<h3>7.2 最适合做什么</h3>
+<p><strong>第一，做 AI 代理图表设计的「事实标准」。</strong> 项目已具备标准制定的技术基础（设计系统 + ADR + 验证脚本）和社区基础（2.5 万 star、4 客户端覆盖），最适合继续深耕「编辑级图表」这一细分赛道，成为 agent-skill 生态中图表领域的默认选择。</p>
+<p><strong>第二，做企业 AI 设计规范的「赋能者」。</strong> 项目的品牌匹配、设计系统整合能力可直接服务于企业的 AI 落地场景——帮助企业将品牌规范嵌入 AI 代理的输出，这比单纯卖软件更有差异化。</p>
+<p><strong>第三，做开发者工具生态的「流量入口」。</strong> 2.5 万 star 的流量资产可通过 utm 追踪链接持续为作者生态导流，适合作为个人品牌（BestSelf.co）与 AI 工具生态的连接节点。</p>
+<h3>7.3 不适合做什么</h3>
+<p><strong>不适合做纯 SaaS 产品</strong>。项目是本地部署的静态技能包，无服务端架构、无账号体系、无数据存储，转型 SaaS 需要重建整个技术栈，与现有能力不匹配。</p>
+<h2>八、短板识别：还缺少什么</h2>
+<h3>8.1 商业化基础设施缺失</h3>
+<table>
+<thead>
+<tr>
+<th>短板</th>
+<th>现状</th>
+<th>影响</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>无付费机制</td>
+<td>MIT 全功能开源，无企业版/付费功能</td>
+<td>无法直接变现，转化依赖品牌驱动</td>
+</tr>
+<tr>
+<td>无商业实体</td>
+<td>无融资或赞助披露，资金可持续性是最大短板</td>
+<td>无法承接企业合同、雇佣全职团队</td>
+</tr>
+<tr>
+<td>无版本化 release</td>
+<td>无任何 release 版本</td>
+<td>企业采购与升级路径不清晰</td>
+</tr>
+<tr>
+<td>无 CLA/DCO</td>
+<td>贡献版权归属依赖 GitHub 默示 MIT 授权</td>
+<td>商业化前置动作需补齐</td>
+</tr>
+</tbody>
+</table>
+<h3>8.2 技术与企业就绪度短板</h3>
+<table>
+<thead>
+<tr>
+<th>短板</th>
+<th>现状</th>
+<th>影响</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>无认证/审计/日志</td>
+<td>脚本防御 XXE，但无认证/审计/结构化日志</td>
+<td>企业安全合规无法满足</td>
+</tr>
+<tr>
+<td>无 CODEOWNERS</td>
+<td>代码审查责任不明确</td>
+<td>团队扩展时治理风险</td>
+</tr>
+<tr>
+<td>无 Dockerfile</td>
+<td>部署依赖本地环境</td>
+<td>企业标准化部署受限</td>
+</tr>
+<tr>
+<td>回滚机制未明</td>
+<td>CI 强制版本同步，但回滚路径不清晰</td>
+<td>升级风险不可控</td>
+</tr>
+</tbody>
+</table>
+<h3>8.3 竞争壁垒短板</h3>
+<table>
+<thead>
+<tr>
+<th>短板</th>
+<th>现状</th>
+<th>影响</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术壁垒薄弱</td>
+<td>MIT 完全开源、无专利/专有数据、无网络效应</td>
+<td>已出现 3 个复刻项目，防御有限</td>
+</tr>
+<tr>
+<td>无商标保护</td>
+<td>'diagram-design' 为通用描述性名称，未做商标检索</td>
+<td>品牌资产易被稀释</td>
+</tr>
+<tr>
+<td>无企业背书</td>
+<td>缺少知名企业客户案例与媒体覆盖</td>
+<td>B 端销售信任不足</td>
+</tr>
+</tbody>
+</table>
+<h3>8.4 治理与传承短板</h3>
+<table>
+<thead>
+<tr>
+<th>短板</th>
+<th>现状</th>
+<th>影响</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>无 GOVERNANCE.md</td>
+<td>决策仍由核心维护者主导</td>
+<td>社区治理透明度不足</td>
+</tr>
+<tr>
+<td>无基金会背书</td>
+<td>无外部治理机构支持</td>
+<td>传承风险高</td>
+</tr>
+<tr>
+<td>巴士因子约 3</td>
+<td>核心维护者依赖度高</td>
+<td>关键人物风险</td>
+</tr>
+<tr>
+<td>仅 4 个月历史</td>
+<td>传承机制未经历更替考验</td>
+<td>长期可持续性未验证</td>
+</tr>
+</tbody>
+</table>
+<h2>九、风险提示</h2>
+<h3>9.1 高风险项</h3>
+<p><strong>风险一：AI 出图能力增强导致项目价值稀释（颠覆风险）</strong></p>
+<p>AI 编码代理的图表生成能力正在快速进化。若 Claude/GPT 等模型原生具备编辑级图表生成能力，项目的核心价值主张（让代理生成高质量图表）将被大幅稀释。当前 D5.4 已识别此风险为「中等颠覆风险」，但考虑到 AI 进化速度，实际风险可能更高。<strong>缓解</strong>：持续深耕设计系统与品牌匹配等模型难以原生覆盖的领域，强化「人机协作」定位。</p>
+<p><strong>风险二：复刻项目快速跟进（竞争风险）</strong></p>
+<p>MIT 协议下代码完全开放，已出现 3 个描述近似的复刻项目（均为 0–1 star）。一旦项目验证了商业模式，复刻者可能以更低价格或更激进的市场策略跟进。<strong>缓解</strong>：利用先发优势快速建立品牌壁垒，通过持续更新速度（90 天 101 PR）拉开代差。</p>
+<h3>9.2 中风险项</h3>
+<p><strong>风险三：生态平台机制变动（依赖风险）</strong></p>
+<p>项目分发依赖 Claude Code/Codex 等外部插件市场机制。若平台方调整插件政策、推出官方竞品或改变分成规则，项目将受重大影响。<strong>缓解</strong>：保持多平台覆盖（当前已支持 4 客户端），降低单一平台依赖。</p>
+<p><strong>风险四：商业化反噬社区信任（声誉风险）</strong></p>
+<p>项目作为「明星资产」，社区声誉是核心资产。若商业化方式不当（如突然闭源、过度收费），可能重蹈 Elastic 改协议的反噬覆辙。<strong>缓解</strong>：遵循「正常商业化，同时经营社区声誉」的路径原则，保持 MIT 核心开源。</p>
+<p><strong>风险五：核心维护者精力分散（人力风险）</strong></p>
+<p>作者同时运营 BestSelf.co 和 X 账号，个人品牌与项目形成流量互哺。若商业化尝试分散精力，可能导致项目维护节奏下降。<strong>缓解</strong>：优先引入更多维护者（当前 25 人），降低单点依赖。</p>
+<h3>9.3 低风险项</h3>
+<p><strong>风险六：法律合规风险（已基本排除）</strong></p>
+<p>MIT 协议清晰、无传染性依赖、第三方资产许可已隔离，法律风险极低。需补充商标检索与 DCO/CLA 作为商业化前置动作。</p>
+<p><strong>风险七：项目停滞风险（已排除）</strong></p>
+<p>项目活跃趋势强劲上升（90 天 101 PR、issue 闭环率约 54%），无废弃/分裂信号，D8.4 未触发一票否决。</p>
+<h2>十、结论与建议</h2>
+<h3>10.1 综合结论</h3>
+<p>diagram-design 是一个 <strong>A 级（高商业化潜力）</strong> 的 <strong>⭐ 明星资产</strong> 项目。它在 AI 代理图表设计这一爆发性交叉市场中以 4 个月 2.5 万 star 的速度完成了先发卡位，技术质量、社区健康度、法律合规均表现优异（D1=8.5、D3=8.0、D6=8.6），公共价值突出（8.2/10）。</p>
+<p>然而，项目面临 <strong>「高使用价值 vs 低交换价值」的结构性矛盾</strong>：MIT 全功能开源使其难以直接收费，技术壁垒薄弱使其易被复刻，无商业实体使其资金可持续性存疑。商业化的核心挑战不是「有没有价值」，而是「如何在不损害社区信任的前提下，将流量资产和标准卡位转化为可持续收入」。</p>
+<h3>10.2 分级建议</h3>
+<p><strong>立即行动（0–3 个月）</strong>：
+1. 补齐商业化前置合规：商标检索注册、增加 DCO/CLA
+2. 建立版本化 release 机制，明确升级路径
+3. 启动企业设计系统整合服务的 pilot 客户验证</p>
+<p><strong>短期重点（3–12 个月）</strong>：
+4. 探索与 Claude Code/Codex 等平台的付费插件或官方合作
+5. 补充企业就绪能力：认证/审计/日志、CODEOWNERS、Dockerfile
+6. 主动接触潜在收购方或投资方，评估资金注入可能</p>
+<p><strong>中长期布局（12 个月+）</strong>：
+7. 持续深耕「编辑级图表标准」定位，构建品牌壁垒
+8. 关注 AI 出图能力进化，提前布局「人机协作」差异化
+9. 在商业化与社区信任间保持平衡，避免竭泽而渔</p>
+<h3>10.3 最终判断</h3>
+<p>diagram-design 具备明确的商业化潜力，但当前处于 <strong>「价值已证明、路径待构建」</strong> 的阶段。最合适的商业化路径是 <strong>企业级设计系统整合服务 + 插件市场付费分发</strong> 的组合，辅以收购/人才引进作为加速选项。建议在 6–12 个月内完成增值路径设计并启动验证，否则先发优势可能被复刻者稀释。项目的长期价值取决于能否在 AI 代理生态中成功卡位「图表标准」这一生态位，并围绕该生态位构建可持续的商业模式。</p>
+<h2>十一、项目地址</h2>
+<p><svg class="ri ri-muted" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.001 2C6.47598 2 2.00098 6.475 2.00098 12C2.00098 16.425 4.86348 20.1625 8.83848 21.4875C9.33848 21.575 9.52598 21.275 9.52598 21.0125C9.52598 20.775 9.51348 19.9875 9.51348 19.15C7.00098 19.6125 6.35098 18.5375 6.15098 17.975C6.03848 17.6875 5.55098 16.8 5.12598 16.5625C4.77598 16.375 4.27598 15.9125 5.11348 15.9C5.90098 15.8875 6.46348 16.625 6.65098 16.925C7.55098 18.4375 8.98848 18.0125 9.56348 17.75C9.65098 17.1 9.91348 16.6625 10.201 16.4125C7.97598 16.1625 5.65098 15.3 5.65098 11.475C5.65098 10.3875 6.03848 9.4875 6.67598 8.7875C6.57598 8.5375 6.22598 7.5125 6.77598 6.1375C6.77598 6.1375 7.61348 5.875 9.52598 7.1625C10.326 6.9375 11.176 6.825 12.026 6.825C12.876 6.825 13.726 6.9375 14.526 7.1625C16.4385 5.8625 17.276 6.1375 17.276 6.1375C17.826 7.5125 17.476 8.5375 17.376 8.7875C18.0135 9.4875 18.401 10.375 18.401 11.475C18.401 15.3125 16.0635 16.1625 13.8385 16.4125C14.201 16.725 14.5135 17.325 14.5135 18.2625C14.5135 19.6 14.501 20.675 14.501 21.0125C14.501 21.275 14.6885 21.5875 15.1885 21.4875C19.259 20.1133 21.9999 16.2963 22.001 12C22.001 6.475 17.526 2 12.001 2Z"/></svg> <a href="https://github.com/cathrynlavery/diagram-design">https://github.com/cathrynlavery/diagram-design</a></p>
+<hr />
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+</blockquote>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家　<a href="https://www.mova.work">www.mova.work</a></p></body></html>

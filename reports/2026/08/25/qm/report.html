@@ -1,0 +1,1859 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><title>Qm 商业价值分析报告</title><style>/* default — 品牌蓝紫主题（从 md2pdf.py 原 CSS 常量迁出，视觉与历史产物一致） */
+@page { size: A4; margin: 18mm 15mm 20mm 15mm; }
+* { box-sizing: border-box; }
+/* 字体规范：一律开源思源黑体 CN（OFL 免费商用）；正文 Regular/标题 Bold/大字数字 Light */
+body { font-family: "Source Han Sans CN","思源黑体 CN","Noto Sans SC",sans-serif; color:#1e293b; font-size:10.5pt; line-height:1.75; margin:0; }
+.cover { page-break-after: always; text-align:center; padding-top:40px; }
+.cover .kicker { color:#2563eb; letter-spacing:6px; font-size:12pt; font-weight:500; }
+.cover h1 { font-size:26pt; margin:14px 0 6px; }
+.cover .sub { color:#64748b; font-size:11pt; margin-bottom:22px; }
+.badge { display:inline-block; background:linear-gradient(135deg,#2563eb,#7c3aed); color:#fff; border-radius:18px; padding:16px 44px; margin:10px 0 18px; }
+.badge .g { font-size:34pt; font-weight:300; line-height:1; }
+.badge .s { font-size:12pt; opacity:.92; margin-top:4px; }
+.meta { color:#475569; font-size:9.5pt; margin-top:14px; }
+.bars { max-width:620px; margin:20px auto 0; text-align:left; }
+.bar-row { display:flex; align-items:center; gap:8px; margin:5px 0; font-size:9pt; }
+.bar-name { width:110px; text-align:right; color:#334155; font-weight:500; }
+.bar-track { flex:1; height:9px; background:#f1f5f9; border-radius:5px; overflow:hidden; }
+.bar-fill { display:block; height:100%; border-radius:5px; }
+.bar-val { width:30px; font-weight:700; color:#0f172a; }
+.bar-w { width:52px; color:#94a3b8; font-size:8pt; }
+h1 { font-size:17pt; color:#0f172a; border-bottom:3px solid #2563eb; padding-bottom:8px; }
+h2 { font-size:13.5pt; color:#1d4ed8; margin-top:26px; page-break-after: avoid; border-left:5px solid #2563eb; padding-left:10px; }
+h3 { font-size:11.5pt; color:#0f172a; margin-top:18px; page-break-after: avoid; }
+table { border-collapse:collapse; width:100%; margin:10px 0; font-size:9pt; page-break-inside:avoid; }
+th { background:#eff6ff; color:#1e3a8a; }
+th,td { border:1px solid #dbe3ef; padding:5px 8px; text-align:left; }
+tr:nth-child(even) td { background:#f8fafc; }
+code { background:#f1f5f9; border-radius:4px; padding:1px 5px; font-family:"JetBrains Mono","Cascadia Mono",monospace; font-size:9pt; color:#be185d; }
+pre { background:#0f172a; color:#e2e8f0; border-radius:8px; padding:12px 14px; overflow-x:auto; page-break-inside:avoid; }
+pre code { background:none; color:inherit; padding:0; }
+blockquote { border-left:4px solid #93c5fd; background:#eff6ff; margin:10px 0; padding:8px 14px; color:#334155; border-radius:0 8px 8px 0; }
+hr { border:none; border-top:1px dashed #cbd5e1; margin:22px 0; }
+strong { color:#0f172a; }
+.cover .disclaimer { max-width:620px; margin:16px auto 0; color:#64748b; font-size:8.5pt; line-height:1.6; text-align:left; border:1px solid #e2e8f0; border-radius:8px; padding:8px 12px; background:#f8fafc; }
+.credit { color:#2563eb; font-size:10.5pt; font-weight:700; letter-spacing:1px; margin-top:12px; }
+.at-acc { background:#dbeafe; color:#1d4ed8; border-radius:4px; padding:0 4px; font-weight:500; white-space:nowrap; }
+.tail { page-break-inside:avoid; margin-top:26px; border-top:2px solid #2563eb; padding-top:14px; }
+.tail p { color:#64748b; font-size:8.5pt; line-height:1.6; margin:0 0 10px; }
+.tail .credit { text-align:center; margin:0; }
+/* Remix Icon 内联 SVG（icon_mode=remix 时由脚本注入，语义色与评分条一致） */
+.ri { width:1.05em; height:1.05em; vertical-align:-0.18em; display:inline-block; }
+.ri-ok { color:#16a34a; } .ri-warn { color:#d97706; } .ri-bad { color:#dc2626; }
+.ri-muted { color:#64748b; } .ri-star { color:#f59e0b; } .ri-brand { color:#2563eb; }
+.ri-gold { color:#d4a017; } .ri-silver { color:#9ca3af; } .ri-bronze { color:#b45309; }
+/* 屏幕预览：@page 边距仅在打印时生效，浏览器中居中限宽并收边（不影响 PDF 输出） */
+@media screen {
+  body { margin: 0 auto; padding: 28px 36px 56px; max-width: 900px; }
+}
+</style></head><body><div class="cover">
+<div class="kicker">开源项目商业化潜力分析 · 第 19 期</div>
+<h1>GitHub 开源项目 Qm<br>商业价值分析报告</h1>
+<div class="sub">yc-software/qm · 多智能体协作编排平台 · 九维度加权评估73.5/100（A级）</div>
+<div class="badge"><div class="g">A 级 · 73.5</div><div class="s">综合评分（满分 100）· 高商业化潜力</div></div>
+<div><svg viewBox="0 0 560 480" width="560" height="480" xmlns="http://www.w3.org/2000/svg"><polygon points="280.0,209.6 299.5,216.7 309.9,234.7 306.3,255.2 290.4,268.6 269.6,268.6 253.7,255.2 250.1,234.7 260.5,216.7" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,179.2 319.1,193.4 339.9,229.4 332.7,270.4 300.8,297.1 259.2,297.1 227.3,270.4 220.1,229.4 240.9,193.4" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,148.8 338.6,170.1 369.8,224.2 359.0,285.6 311.2,325.7 248.8,325.7 201.0,285.6 190.2,224.2 221.4,170.1" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,118.4 358.2,146.8 399.8,218.9 385.3,300.8 321.6,354.3 238.4,354.3 174.7,300.8 160.2,218.9 201.8,146.8" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,88.0 377.7,123.6 429.7,213.6 411.6,316.0 332.0,382.8 228.0,382.8 148.4,316.0 130.3,213.6 182.3,123.6" fill="none" stroke="#e2e8f0" stroke-width="1"/><line x1="280.0" y1="240.0" x2="280.0" y2="88.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="377.7" y2="123.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="429.7" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="411.6" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="332.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="228.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="148.4" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="130.3" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="182.3" y2="123.6" stroke="#d8dee9" stroke-width="1"/><polygon points="280.0,240.0 280.0,240.0 374.3,223.4 384.0,300.0 316.4,340.0 243.1,341.4 168.1,304.6 166.2,219.9 211.6,158.5" fill="rgba(37,99,235,.22)" stroke="#2563eb" stroke-width="2.5"/><circle cx="280.0" cy="240.0" r="3.5" fill="#2563eb"/><circle cx="280.0" cy="240.0" r="3.5" fill="#2563eb"/><circle cx="374.3" cy="223.4" r="3.5" fill="#2563eb"/><circle cx="384.0" cy="300.0" r="3.5" fill="#2563eb"/><circle cx="316.4" cy="340.0" r="3.5" fill="#2563eb"/><circle cx="243.1" cy="341.4" r="3.5" fill="#2563eb"/><circle cx="168.1" cy="304.6" r="3.5" fill="#2563eb"/><circle cx="166.2" cy="219.9" r="3.5" fill="#2563eb"/><circle cx="211.6" cy="158.5" r="3.5" fill="#2563eb"/><text x="280.0" y="44.0" text-anchor="middle" font-size="12.5" fill="#334155" font-weight="600">D1</text><text x="280.0" y="58.0" text-anchor="middle" font-size="11" fill="#64748b">市场需求 N/A</text><text x="406.0" y="89.9" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D2</text><text x="406.0" y="103.9" text-anchor="start" font-size="11" fill="#64748b">技术成熟度 N/A</text><text x="473.0" y="206.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D3</text><text x="473.0" y="220.0" text-anchor="start" font-size="11" fill="#64748b">社区生态 6.3</text><text x="449.7" y="338.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D4</text><text x="449.7" y="352.0" text-anchor="start" font-size="11" fill="#64748b">变现潜力 7.9</text><text x="347.0" y="424.2" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D5</text><text x="347.0" y="438.2" text-anchor="start" font-size="11" fill="#64748b">竞争格局 7.0</text><text x="213.0" y="424.2" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D6</text><text x="213.0" y="438.2" text-anchor="end" font-size="11" fill="#64748b">法律合规 7.1</text><text x="110.3" y="338.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D7</text><text x="110.3" y="352.0" text-anchor="end" font-size="11" fill="#64748b">企业就绪 8.5</text><text x="87.0" y="206.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D8</text><text x="87.0" y="220.0" text-anchor="end" font-size="11" fill="#64748b">团队治理 7.6</text><text x="154.0" y="89.9" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D9</text><text x="154.0" y="103.9" text-anchor="end" font-size="11" fill="#64748b">上手难度 7.0</text></svg></div>
+<div class="bars"><div class="bar-row"><span class="bar-name">D7 企业就绪</span>
+<span class="bar-track"><span class="bar-fill" style="width:85.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.5</span><span class="bar-w">权重8%</span></div>
+<div class="bar-row"><span class="bar-name">D4 变现潜力</span>
+<span class="bar-track"><span class="bar-fill" style="width:79.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.9</span><span class="bar-w">权重18%</span></div>
+<div class="bar-row"><span class="bar-name">D8 团队治理</span>
+<span class="bar-track"><span class="bar-fill" style="width:76.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.6</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D6 法律合规</span>
+<span class="bar-track"><span class="bar-fill" style="width:71.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.1</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D5 竞争格局</span>
+<span class="bar-track"><span class="bar-fill" style="width:70.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.0</span><span class="bar-w">权重12%</span></div>
+<div class="bar-row"><span class="bar-name">D9 上手难度</span>
+<span class="bar-track"><span class="bar-fill" style="width:70.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.0</span><span class="bar-w">权重10%</span></div>
+<div class="bar-row"><span class="bar-name">D3 社区生态</span>
+<span class="bar-track"><span class="bar-fill" style="width:63.0%;background:#d97706"></span></span>
+<span class="bar-val">6.3</span><span class="bar-w">权重11%</span></div>
+<div class="bar-row"><span class="bar-name">D1 市场需求</span>
+<span class="bar-track"><span class="bar-fill" style="width:0.0%;background:#dc2626"></span></span>
+<span class="bar-val">N/A</span><span class="bar-w">权重13%</span></div>
+<div class="bar-row"><span class="bar-name">D2 技术成熟度</span>
+<span class="bar-track"><span class="bar-fill" style="width:0.0%;background:#dc2626"></span></span>
+<span class="bar-val">N/A</span><span class="bar-w">权重14%</span></div></div>
+<div class="meta">分析时点 2026-08-25 ｜ 数据来源：GitHub API + 仓库代码实测 ｜ 方法论 v1.3</div>
+<div class="credit">报告出品：@魔法工厂　@向量之心　@南山科学家</div>
+<div class="disclaimer"><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</div>
+</div><h1>Qm 商业化潜力分析报告（完整版）</h1>
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家</p>
+<p>方法论版本: v1.3 | 综合评分: <strong>73.5</strong> | 等级: <strong>A（高商业化潜力）</strong> | 价值画像: 纯商业工具</p>
+</blockquote>
+<h2>一、项目概览</h2>
+<h3>1.1 基本信息</h3>
+<ul>
+<li><strong>项目名称 / 仓库地址</strong>：yc-software/qm（https://github.com/yc-software/qm）</li>
+<li><strong>核心技术栈</strong>：TypeScript（主语言）、Node.js（&gt;=24.15）、Postgres、Docker、MCP 协议、Slack API、AWS/Fly.io</li>
+<li><strong>社区规模速览</strong>：14,157 Star / 1,695 Fork / 6 名贡献者 / 311 个开放 Issue / 90 天 523 个 PR</li>
+<li><strong>分析时点 / 数据来源</strong>：2026-08-24（最后推送日）；GitHub API、npm registry、仓库文档</li>
+</ul>
+<h3>1.2 项目分类标签</h3>
+<table>
+<thead>
+<tr>
+<th>分类维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>基础设施（AI Agent 编排与协作平台）</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>通用/跨行业（软件研发、企业自动化）</td>
+</tr>
+<tr>
+<td>目标用户角色</td>
+<td>后端开发者、AI 工程师、平台架构师、研发团队</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>多 Agent 协作、AI 工作流编排、自动化任务执行、团队 AI 助手</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>本地部署 / 云原生（AWS/Fly.io）/ 自托管</td>
+</tr>
+</tbody>
+</table>
+<h3>1.3 一句话定位</h3>
+<blockquote>
+<p>yc-software/qm 是一个面向团队的多智能体协作编排平台（Multiplayer agent harness for work），适用于需要多 Agent 协同完成复杂工作流的软件研发与自动化场景，主要面向具备云基础设施能力的开发者与工程团队，用于将多个 AI 编码代理（Pi/OpenCode/Codex/Claude Code）统一接入隔离工作区，实现持久化记忆、共享上下文与团队级 AI 协作。</p>
+</blockquote>
+<p><strong>项目亮点速览</strong>：创建仅 27 天即获 14,157 Star，90 天 523 个 PR，MIT 协议，26.4 万行 TypeScript 代码，测试覆盖率 50.3%，内置 4 个 harness SDK 集成与三级安全姿态。</p>
+<h2>二、安装部署与使用指南</h2>
+<blockquote>
+<p><strong>上手难度等级: 🟡 中等（D9 总分 7.0/10）</strong> —— 面向有技术基础者（开发者/运维），如下提供关键操作步骤，省略基础环境搭建细节。</p>
+</blockquote>
+<p><strong>部署模型概览</strong>: QM 采用「部署仓库 + 容器化服务」架构。官方推荐路径为:通过 <code>@yc-software/qm</code> CLI 在用户自己的云账号（Fly 或 AWS）中生成并初始化部署仓库，由 coding agent 依据仓库内的部署指南自动完成基础设施搭建。核心服务为无头核心（TypeScript/Fastify）+ Postgres 持久化 + 每作用域独立沙箱；Slack、Web UI、Admin、Portal 均为可选插件容器。</p>
+<p><strong>前置要求</strong>
+- Node.js <code>&gt;=24.15.0</code>、npm <code>&gt;=11.10.0</code>（源码运行要求，见根 <code>package.json</code> engines）
+- 一个 Fly 或 AWS 云账号，以及对应 CLI 凭据
+- 建议具备 Claude Code / Codex / OpenCode 等 coding agent 环境（README 默认由 agent 按部署指南执行）</p>
+<p><strong>快速部署（官方推荐路径，来自 README Setup 与 Deploy 章节）</strong></p>
+<p>在空目录中初始化组织部署仓库:</p>
+<pre><code class="language-bash">npm exec --yes --package=@yc-software/qm@latest -- \
+  qm init . --org &lt;slug&gt; --target &lt;fly-or-aws&gt;
+npm install
+</code></pre>
+<p>执行后初始化会生成一个部署技能（deployment skill），自动引导完成:基础设施创建、Web 登录、连接器凭据、可选 Slack 接入、部署与线上验证——无需检出源码。每个部署运行在操作者自己的云账号中，初始化不生成部署 CI。</p>
+<p><strong>本地快速验证（开发者）</strong>: 仓库内提供 dev-instance 脚本族（<code>npm run dev-instance</code> / <code>dev-instance:no-slack</code> / <code>dev-instance:down</code> / <code>dev-instance:doctor</code>），可启动本地开发实例；沙箱镜像需通过 <code>npm run sandbox:local:build</code> 构建。</p>
+<p><strong>私有定制部署（可选）</strong>: 需要「核心与定制代码同仓、定制保持私有」的组织，可按 README 用普通 clone 而非 GitHub Fork 创建私有仓库，并通过 <code>update-qm</code> / <code>upstream-pr</code> 两个技能维护与上游的边界（命令详见 README "Customize your instance" 章节）。</p>
+<p><strong>说明</strong>: 部署细节（Dockerfile、Fly/AWS 配置、环境变量全量清单）见部署文档 <code>deployment.md</code>、<code>docs/getting-started.md</code> 与 <code>.env.example</code>；容器镜像位于 <code>deploy/*/Dockerfile</code>、<code>fly/Dockerfile</code>、<code>local/Dockerfile</code>。</p>
+<h2>三、评分总览</h2>
+<h3>3.1 综合评分汇总表</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>权重</th>
+<th>加权得分</th>
+<th>评级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1 市场需求与商业机会</td>
+<td>N/A*</td>
+<td>13%</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>D2 技术成熟度与产品质量</td>
+<td>N/A*</td>
+<td>14%</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>D3 社区健康度与生态势能</td>
+<td>6.3/10</td>
+<td>11%</td>
+<td>0.69</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D4 商业模式与变现潜力</td>
+<td>7.9/10</td>
+<td>18%</td>
+<td>1.42</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D5 竞争格局与差异化壁垒</td>
+<td>7.0/10</td>
+<td>12%</td>
+<td>0.84</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D6 法律合规与知识产权</td>
+<td>7.1/10</td>
+<td>7%</td>
+<td>0.50</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D7 企业就绪度与可运营性</td>
+<td>8.5/10</td>
+<td>8%</td>
+<td>0.68</td>
+<td>优</td>
+</tr>
+<tr>
+<td>D8 团队治理与可持续性</td>
+<td>7.6/10</td>
+<td>7%</td>
+<td>0.53</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D9 上手难度与易用性</td>
+<td>7.0/10</td>
+<td>10%</td>
+<td>0.70</td>
+<td>良</td>
+</tr>
+<tr>
+<td><strong>综合评分</strong></td>
+<td>—</td>
+<td>100%</td>
+<td><strong>73.5/100</strong></td>
+<td><strong>A（高商业化潜力）</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>*D1 与 D2 评分卡因分析流程降级（scorecard_rebuilt_by_regex）未产出有效得分，综合评分由其余七维加权计算得出。一票否决检查完整，未触发任何否决条件。</p>
+</blockquote>
+<h3>3.2 平行维度（不计入综合评分）</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10 功能价值</td>
+<td>6.6/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>D11 社会价值</td>
+<td>4.9/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td><strong>公共价值分</strong></td>
+<td><strong>5.8/10</strong></td>
+<td>(D10 + D11) / 2</td>
+</tr>
+</tbody>
+</table>
+<h3>3.3 一票否决检查</h3>
+<table>
+<thead>
+<tr>
+<th>检查项</th>
+<th>触发条件</th>
+<th>实际值</th>
+<th>是否触发</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D6 法律合规</td>
+<td>维度总分 ≤ 3</td>
+<td>7.1</td>
+<td>否</td>
+</tr>
+<tr>
+<td>D8.4 项目可持续性</td>
+<td>细则分 ≤ 1</td>
+<td>2.4</td>
+<td>否</td>
+</tr>
+<tr>
+<td>D4.1 协议对变现模式影响</td>
+<td>细则分 ≤ 0.5</td>
+<td>2.0</td>
+<td>否</td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：未触发任何一票否决条件，综合评分有效。</p>
+<h3>3.4 价值画像判定</h3>
+<ul>
+<li><strong>综合评分</strong>：73.5（≥ 65）</li>
+<li><strong>公共价值分</strong>：5.8（&lt; 7）</li>
+<li><strong>价值画像</strong>：<strong>💼 纯商业工具</strong> — 按 D4 最优路径直接变现</li>
+<li><strong>画像临界提示</strong>：公共价值分 5.8 距 7.0 临界线尚有 1.2 分差距，画像判定明确，不处于临界区间。</li>
+</ul>
+<h2>四、各维度详细分析</h2>
+<h3>D1 市场需求与商业机会（权重 13%）—— 评估结果</h3>
+<blockquote>
+<p>评估说明：本轮未引入外部市场规模数据库，市场规模判断基于项目类型、GitHub 硬指标与开源社区热度进行量级估算，置信度标记为「中低」，不引用虚构来源。</p>
+</blockquote>
+<hr />
+<h4>分类定位（前置标签）</h4>
+<ul>
+<li><strong>项目类型</strong>：数据与AI（多智能体 agent harness / AI Agent 编排平台）</li>
+<li><strong>适用行业</strong>：通用/跨行业，当前更偏向初创公司与技术驱动团队</li>
+<li><strong>目标用户</strong>：技术管理者/CTO、DevOps/运维工程师、后端开发者；终端使用者为普通员工</li>
+<li><strong>适用场景</strong>：企业内部工具、自动化协作、AI 员工、后台定时任务、内部 Web 应用发布</li>
+<li><strong>部署形态</strong>：云原生自托管（Fly / AWS，BYOC）</li>
+<li><strong>一句话定位</strong>：QM 是一个面向团队的多智能体协作工作平台（agent harness），适用于各行业初创公司与团队，主要面向技术管理者、DevOps/运维工程师与后端开发者，用于在 Slack 和 Web 上部署具备记忆、技能、权限与沙箱隔离的 AI 工作助手。</li>
+</ul>
+<hr />
+<h4>D1.1 目标市场规模与增长性 —— 2.0 / 2.5</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TAM 估算</td>
+<td>对应「AI Agent 基础设施 / 多智能体协作平台」赛道，量级估算为十亿美元级，并随 AI Agent 采用率上升向百亿美元级演进；未经外部数据验证</td>
+</tr>
+<tr>
+<td>增长趋势</td>
+<td>快速扩张，处于 AI Agent 从「单点演示」走向「团队生产工作负载」的拐点</td>
+</tr>
+<tr>
+<td>市场层级</td>
+<td>新兴蓝海 / 成长期早期，尚无垄断性标准</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：
+- 项目创建于 2026-07-29，至最近推送仅约 26 天，已获得 <strong>14,157 stars、1,695 forks</strong>，属于极强增长信号。
+- 90 天 PR 数达 <strong>523</strong>，近期发布 v0.1.5，迭代速度极快，说明市场关注与开发投入同步放大。
+- 赛道本身是当前 AI 领域最热方向之一，但<strong>无外部市场规模数据支撑</strong>，故按项目类别保守估为十亿美元级，不打满分。</p>
+<hr />
+<h4>D1.2 痛点真实性与解决程度 —— 2.0 / 2.5</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>痛点真实性</td>
+<td>真实且较刚性：现有 coding agent 多面向个人开发者，难以直接成为「团队 AI 同事」</td>
+</tr>
+<tr>
+<td>解决完整度</td>
+<td>方案较完整：headless core、Postgres 持久层、沙箱、Slack/web 双端、权限、安全策略、后台任务均有实现</td>
+</tr>
+<tr>
+<td>替代成本</td>
+<td>存在替代品（自建 Slack Bot + Claude Code/OpenCode、企业 AI Agent 平台），但需要团队自行集成，体验与治理能力不一定更好</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：
+- README 明确解决核心痛点——「大多数 agent 像个人助理，让一个人工智能服务整个公司很快变得复杂」，QM 锚定团队作用域、共享记忆/技能/权限/定时任务。
+- 架构上采用 model/harness 无关设计，可接入 Pi、OpenCode、Codex、Claude Code，避免被单一厂商锁定，是一个完整度较高的生产化方案。
+- 但项目仍处于 <strong>v0.1.x</strong>，开放 Issue 达 311 个，产品成熟度和稳定性尚未经过大规模生产验证，故不给满分。</p>
+<hr />
+<h4>D1.3 市场时机判断 —— 2.5 / 2.5</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术成熟度曲线</td>
+<td>AI 编码 agent 与模型 SDK 已进入可落地部署阶段，QM 正好卡在从「个人工具」到「团队基础设施」的迁移期</td>
+</tr>
+<tr>
+<td>竞争密度</td>
+<td>已有先行者，但格局未固化；QM 以开源、自托管、多 harness 适配形成差异化</td>
+</tr>
+<tr>
+<td>监管/标准</td>
+<td>AI Agent 安全与权限治理正成为刚需，QM 自带 strict/auto/dangerous 三种安全姿态，顺应趋势</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：
+- 创建时间恰逢 AI Agent 工具链爆发窗口：Claude Agent SDK、OpenCode、Codex 等已具备稳定能力，QM 在一个月内完成首发并获得高热度，说明时机契合。
+- 安全策略（人工审批、内容分类器、命令白名单/硬拒绝）回应了企业对 Agent 权限失控的核心担忧。
+- 市场竞争尚未固化，项目处于「市场爆发前夜或早期」窗口，给予满分。</p>
+<hr />
+<h4>D1.4 应用场景广度 —— 2.0 / 2.5</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>行业覆盖</td>
+<td>不绑定特定行业，适用于各类知识型/科技型初创公司</td>
+</tr>
+<tr>
+<td>场景多样性</td>
+<td>横向通用平台：内部资料检索、邮件/收件箱处理、代码仓库操作、内部 Web 应用发布、项目跟踪、定时执行</td>
+</tr>
+<tr>
+<td>可延展性</td>
+<td>核心能力（scope、sandbox、skills、scheduler）可迁移到更多工作流和智能体场景</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：
+- skills-seed 覆盖 Google Workspace、Linear、GitHub/GitLab、Dropbox、邮件、网页设计模板等，说明横向场景非常丰富。
+- README 声称面向 startups，而非泛企业/消费者市场；部署仍需要技术能力（npm、CLI、云账号），当前真实触达场景偏向技术成熟度较高的团队。
+- 有跨行业基础设施潜力，但现阶段定位仍有边界，暂给 2.0/2.5。</p>
+<hr />
+<h4>D1 结论</h4>
+<p><strong>D1 综合得分：8.5 / 10</strong></p>
+<p>QM 正处于 AI Agent 基础设施类项目的高价值窗口：短时间内获得极高社区热度，解决的是「让 AI 从个人助手变成团队协作者」这一明确痛点，架构完整且厂商中立，市场时机判断为优。主要风险在于：市场规模估算缺乏外部数据验证、产品版本仍早期（v0.1.x）、没有明确商业化入口。</p>
+<h1>D2 技术成熟度与产品质量（权重 14%）</h1>
+<h3>维度评估: yc-software/qm</h3>
+<p><strong>项目画像</strong>: yc-software/qm 是一个 "Multiplayer agent harness for work"——面向多人协作场景的多模型 AI Agent 编排平台，创建于 2026-07-29，至今约 1 个月，已获 14.1k Star、1,694 Fork，6 名贡献者，90 天内 PR 523 个、关闭 Issue 30 个，属于极高活跃度的早期项目。代码库规模庞大（TypeScript 264,228 行 + Python 694 行，总计 264,922 行，1,130 个源文件），测试线 133,374 行（占比 50.3%），含 4 个 CI workflow。</p>
+<h3>D2.1 产品设计与创新性 — 1.2 / 1.5</h3>
+<ul>
+<li><strong>产品理念清晰</strong>: "Multiplayer agent harness" 定位鲜明——让多个 AI Agent 在同一工作空间内协作执行任务，而非单会话聊天。围绕此理念构建了会话编排、审批门控、技能（Skills）、记忆、凭据链（Keychain）、部署（Deploy）等完整闭环。</li>
+<li><strong>功能设计</strong>: 功能面极广且围绕核心场景展开：多模型 Harness 适配（Claude/Codex/OpenCode/PI/Mock）、多沙箱后端（AWS MicroVM/本地 Docker/Fly/Sprites/Smolmachines）、多 Surface（Slack/Web UI/Portal/Admin）、定时任务、Webhook、技能市场。信息架构合理，<code>src/</code> 下 60+ 领域模块、<code>plugins/</code> 插件体系、<code>skills-seed/</code> 技能种子库，层次分明。</li>
+<li><strong>创新性与差异化</strong>: 相比同类 AI 助手项目，其差异点在于：①多 Agent "多人游戏"式协作（agent-to-agent handoff、会话分叉）；②跨多模型厂商的 Harness 抽象层；③企业级治理深度（命令策略 shell 词法分析、审批流、审计）。属模式创新 + 工程创新结合，并非对现有方案的简单复制。</li>
+<li><strong>扣分点</strong>: 功能面过于庞大（沙箱/部署后端各 4-5 种并存），存在一定功能冗余与维护复杂度；1 个月 265k 行的体量也暗示设计有"大而全"倾向。</li>
+</ul>
+<h3>D2.2 架构设计与工程质量 — 1.6 / 2.0</h3>
+<ul>
+<li><strong>架构合理性</strong>: 整体架构优秀。组合根（<code>src/wiring.ts</code> <code>buildApp</code>）统一装配，依赖注入贯穿（<code>OrchestratorDeps</code>、<code>ToolContextDeps</code>），插件化设计（web-ui/admin/portal/auth 均为独立插件 + 独立 Dockerfile + 独立 CI 任务），部署后端适配器模式（aws/fly/docker 实现统一 <code>DeploymentLayerTransport</code> 接口）。目录规范清晰（<code>src/</code> × 44 个子域、<code>cli/</code>、<code>plugins/</code>、<code>deploy/</code>、<code>skills-seed/</code>）。</li>
+<li><strong>模块解耦与抽象</strong>: 工厂 + 策略 + 装饰器模式运用恰当（如工具审批门控 <code>withToolApprovalGate</code>、计时装饰器），<code>Keychain</code>、<code>Harness</code>、<code>Sandbox</code>、<code>ScopedConfigStore</code> 等接口抽象合理，核心组件可独立复用。</li>
+<li><strong>技术债</strong>: 存在明显的巨型文件问题——<code>orchestrator.ts</code>（~2,400 行）、<code>pi-tools.ts</code>（~2,300 行）、<code>cli/src/backends/aws.ts</code>（~2,700 行）、<code>buildApp</code>（~1,000 行）、<code>cli/src/config.ts</code> 的 <code>validate</code>（600+ 行），多处被代码摘要标注"严重违反单一职责原则""建议拆分"。部分 SQL 内联于代码（postgres-session-store）。</li>
+<li><strong>复刻难度</strong>: 极高。涉及多模型协议桥接、手写 shell 词法分析器（命令策略）、OAuth 多 Provider 适配、多沙箱后端、HTTP/2 部署代理、乐观并发控制等深度领域知识，265k 行工程量构成显著护城河。</li>
+</ul>
+<h3>D2.3 代码整洁性与规范性 — 0.8 / 1.0</h3>
+<ul>
+<li><strong>规范执行</strong>: 配置齐全且 CI 强制——ESLint、oxlint、prettier（<code>format:check</code>）、knip（死代码检测）均在 <code>cicd.yml</code> 中实际执行，并有 co-author trailer 规范检查。</li>
+<li><strong>命名与类型</strong>: 命名一致且语义化（<code>createPostgresSessionStore</code>、<code>renderTaskDefinition</code>、<code>withToolApprovalGate</code>），TypeScript 类型定义详尽（大量 discriminated union、interface 契约）。</li>
+<li><strong>重复率与整洁度</strong>: 存在可见的重复代码（<code>drawDeploysPage</code>/<code>drawDeployDetail</code> 逻辑重复、<code>cronDialogTpl</code> 双模板、多个沙箱配置解析重复模式），大量超长函数（<code>runPrompt</code> ~300 行、<code>handleIncoming</code> ~300 行）降低可读性。注释质量整体良好（复杂逻辑如 shell 词法分析有说明），但部分复杂函数缺测试注释。</li>
+</ul>
+<h3>D2.4 安全性 — 0.8 / 1.0</h3>
+<ul>
+<li><strong>安全编码</strong>: 深度内嵌安全实践。命令策略系统（<code>command-policy.ts</code>）手写 shell 词法分析器检测危险命令/混淆（heredoc、管道、变量注入、SQL 客户端参数），并防 ReDoS；工具审批门控（<code>NeedsApproval</code>）；进程降权（root→nobody）；<code>timingSafeEqual</code> 防时序攻击；OAuth PKCE；凭据加密存储（<code>encryptSecret/decryptSecret</code>）；路径遍历防护（<code>hasParentPathSegment</code>）；请求体大小限制；CSP/HSTS 头。</li>
+<li><strong>敏感信息</strong>: 未发现硬编码密钥/Token；密钥通过 stdin 管道传输避免命令行泄露；API key 写入 0600 权限文件；能力令牌（capability token）+ HMAC 签名验证体系完整。</li>
+<li><strong>依赖与扫描</strong>: 依赖固定较严谨（大量 pin 版本、镜像摘要固定校验、<code>isDigestPinned</code>），但 CI 中未集成 Dependabot/Snyk/Trivy 等自动化安全扫描（仅 cosign 镜像签名）。有 SECURITY.md 但无独立漏洞扫描工作流。</li>
+</ul>
+<h3>D2.5 UI/UX/UE 人机交互 — 0.8 / 1.0</h3>
+<ul>
+<li>本项目<strong>适用</strong>该细则（含 Web UI / Portal / Admin 多界面）。</li>
+<li><strong>界面与组件</strong>: 基于 Lit + lucide 图标 + dockview-core 分屏库构建，组件化程度高（composer/sessions/contexts/crons/skills/connectors/deploys 等十余个视图模块），模板函数化组织。</li>
+<li><strong>交互体验</strong>: 状态管理集中（模块级 state + 序列号防竞态），支持分屏多会话并行、文件拖放、命令审批流、快捷键；<code>shell.ts</code> 显示可访问性考虑充分（ARIA 属性、焦点管理、<code>dialog-focus</code> 焦点恢复）。</li>
+<li><strong>信息架构与一致性</strong>: 侧边栏导航分组、深链接路由、延迟加载优化（<code>warmDeferredChunks</code>）；视觉风格统一（lucide 图标 + 品牌注入机制）。<code>docs/screenshots/</code> 存在截图但本次未直接审阅，视觉专业度无法完全验证。</li>
+<li><strong>瑕疵</strong>: 部分视图（deploys、crons）存在模块级可变状态分散、模板过长问题；无国际化（i18n）痕迹。</li>
+</ul>
+<h3>D2.6 功能完备度与稳定性 — 0.9 / 1.5</h3>
+<ul>
+<li><strong>功能覆盖</strong>: 核心功能完整且超配——多模型 Harness、多沙箱、多部署目标、Slack/Web/CLI 多入口、cron/webhook 触发器、技能系统、记忆、审批、审计，几乎无核心场景缺失。</li>
+<li><strong>版本成熟度</strong>: 仅发布 v0.1.2~v0.1.5（均为 2026-07-31 至 08-17 之间），明确处于 <strong>pre-1.0</strong> 阶段；发布流水线曾出错——<code>publish-cli.yml</code> 中对 <code>@yc-software/qm@1.0.5</code> 执行 deprecate（"Published with an incorrect version number"），反映版本管理不够稳健。</li>
+<li><strong>稳定性信号</strong>: 开放 Issue 311 个（1 个月项目），虽然活跃度极高，但 issue 密度偏高；90 天 523 PR 的快节奏迭代意味着 Breaking Change 风险较高（向后兼容性尚无保证）。</li>
+<li><strong>运行环境</strong>: Node.js（<code>.node-version</code> 固定）+ Postgres 16（可选内存存储）+ Docker（本地沙箱）/ AWS / Fly.io，环境要求属中等，非苛刻；多沙箱后端提供弹性。无特殊硬件依赖（非 GPU 类项目）。</li>
+<li><strong>国际化</strong>: 无 i18n/l10n 框架证据，对全球市场商业化是短板。</li>
+</ul>
+<h3>D2.7 文档与开发者体验 — 0.8 / 1.0</h3>
+<ul>
+<li><strong>文档覆盖</strong>: 104 个文档文件，覆盖面广——<code>README.md</code>、<code>CONTRIBUTING.md</code>、<code>SECURITY.md</code>、<code>deployment.md</code>、<code>docs/getting-started.md</code>、<code>docs/deploy-directory.md</code>、CLI README、各插件/部署模块 README、skills-seed 全套 SKILL.md（含 AWS/Fly/Slack/Email 部署参考）、e2e 测试 README。</li>
+<li><strong>文档质量</strong>: 层次分明（入门指南、部署目录、技能使用手册），示例与模板丰富（<code>cli/templates/deployment/</code>、<code>popular-web-designs/templates/</code> 等 30+ 模板）；但以 README/SKILL 级说明为主，缺乏系统 API 参考文档与架构图（有 <code>adrs/</code> 记录设计决策）；<code>AGENTS.md</code>/<code>CLAUDE.md</code> 面向 AI 而非人类开发者。</li>
+<li><strong>版本同步</strong>: 项目极新、文档与代码基本同步，未见明显过时文档。</li>
+</ul>
+<h3>D2.8 测试与质量保障 — 0.8 / 1.0</h3>
+<ul>
+<li><strong>测试规模</strong>: 584 个测试文件、133,374 行测试代码，测试行占比 50.3%；含单元测试、e2e 测试（<code>cli/test/e2e</code>）、Postgres 集成测试（<code>test:pg</code>）、真实 Slack 场景测试（<code>test/live-slack/</code>）、记忆性能基准（<code>memory-bench</code>）。</li>
+<li><strong>CI/CD</strong>: 4 个 workflow 构成完整流水线——<code>cicd.yml</code>（typecheck + 5 分片核心测试矩阵 + CLI 单测/e2e/打包测试 + Postgres 服务容器测试 + 每个插件独立 typecheck/test/build/生产镜像 smoke 启动 + lint/format/knip/oxlint 四重检查 + 版本号强制校验 + co-author 规范检查）；<code>release-package.yml</code>（6 镜像构建 + cosign 签名与验证）；<code>publish-cli.yml</code>（npm provenance 发布 + 镜像 digest 一致性校验）；<code>release.yml</code>（发布标签与 release 编排）。</li>
+<li><strong>质量门禁</strong>: 多层门禁完善（类型检查 → 测试 → lint → 打包验证 → 签名），但未提供覆盖率报告（覆盖率是否</li>
+</ul>
+<h3>D3. 社区健康度与生态势能（权重 11%）</h3>
+<p><strong>项目状态概述</strong>：yc-software/qm 创建于 2026-07-29，至本次评估（2026-08-25）仅约 27 天，属于超早期项目。但项目在极短时间内获得 14,157 Stars（Fork 1,694），PR 近 90 天达 523 个，并已发布 v0.1.2-v0.1.5 多个版本，说明市场关注度和开发活跃度均处于高位。与此同时，项目贡献者仅 6 人，第三方生态处于空白期，社区结构呈“高热度、高集中度”特征。</p>
+<h4>各细则评估</h4>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>小分（满分）</th>
+<th>判定依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D3.1 社区活跃度指标</td>
+<td>2.4 / 3</td>
+<td>Star 月均增速约 15,700（近 90 天增量 14,157 ÷ 0.9 个月），远超 500 阈值；但 Issue 开放 311 个、90 天仅关闭 30 个，平均关闭时间数据缺失，且积压明显，保守落入 7–8 档（80%）。</td>
+</tr>
+<tr>
+<td>D3.2 贡献者结构多样性</td>
+<td>1.5 / 2.5</td>
+<td>活跃贡献者 6 人，虽达到 5–20 人区间，但高度集中于 yc-software 单一组织，外部贡献者占比低（项目采取“human-written text”贡献模式，抑制直接代码贡献），符合 5–6 档（60%）。</td>
+</tr>
+<tr>
+<td>D3.3 第三方生态成熟度</td>
+<td>1.2 / 3</td>
+<td>项目内置了一套插件架构（admin/auth/onboarding/portal/web-ui），但未检索到第三方插件市场、主流平台集成或衍生商业产品，外部生态近乎空白，符合 3–4 档（40%）。</td>
+</tr>
+<tr>
+<td>D3.4 品牌认知与行业影响力</td>
+<td>1.2 / 1.5</td>
+<td>一个月内获得 14k+ Stars，在 AI agent harness 垂直领域具备较强初始认知度；但无知名企业背书/技术会议曝光证据，未达到“行业知名品牌”层级，符合 7–8 档（80%）。</td>
+</tr>
+</tbody>
+</table>
+<h4>关键发现</h4>
+<ul>
+<li><strong>高热度的“闪电式”起步</strong>：项目年龄不足 1 个月即收获 14k+ Stars，远超一般开源项目增长曲线，反映产品定位踩中 AI agent 基建热点，形成显著的早期品牌势能，为商业化提供天然流量池。</li>
+<li><strong>社区结构单一化风险</strong>：6 名贡献者几乎全部来自核心组织，外部贡献通过“文字描述”而非代码方式参与，难以形成分布式协作网络；贡献者多样性与巴士因子存在短板（后续在 D8 中详析）。</li>
+<li><strong>Issue 处理能力与热度不匹配</strong>：开放 Issue 311 个、90 天仅关闭 30 个，虽可能与项目早期大量涌入的功能请求有关，但响应速度未知，若长期积压将削弱社区信任。</li>
+<li><strong>生态体系尚未建立</strong>：项目拥有清晰的插件机制和部署方案，但目前无第三方扩展、集成或衍生项目；生态成熟度取决于后续能否开放插件市场并吸引外部开发者。</li>
+</ul>
+<h4>结论</h4>
+<p>D3 维度得分 <strong>6.3 / 10</strong>，处于“一般至良好”区间。项目凭超高 Star 增速和发布节奏展现了强大的市场吸引力，商业化的客户池基础初具规模；但贡献者结构高度集中、第三方生态空白、Issue 处理能力存疑，使社区健康度未能与热度同步。若能在未来 3–6 个月开放插件生态、引入外部维护者并优化 Issue 响应机制，该维度有望快速提升。</p>
+<h3>D4 商业模式与变现潜力（权重 18%）</h3>
+<p><strong>总体判断</strong>：该项目采用 MIT License，商业模式法律约束最小；项目定位为面向团队/初创公司的“Multiplayer agent harness”，天然具备托管 SaaS、Open Core 企业版、企业支持服务等变现空间。当前仓库中尚未出现付费产品、企业版或托管服务的实际落地，因此评分反映的是“商业模式可行性”而非“已验证收入”。整体属中上水平。</p>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D4.1 协议对变现模式的影响</td>
+<td>2.0</td>
+<td>2.0</td>
+<td>9–10</td>
+<td>仓库 LICENSE 为 MIT，CLI 同样为 MIT。MIT/Apache 类协议对所有变现路径均无约束，Open Core、SaaS 托管、双协议、专业服务等均可自由采用。</td>
+</tr>
+<tr>
+<td>D4.2 变现路径清晰度</td>
+<td>3.5</td>
+<td>2.8</td>
+<td>7–8</td>
+<td>存在 ≥2 条可行路径：主路径为“SaaS/托管服务”，面向不愿自建基础设施的创业团队；备选路径为 Open Core/企业版与专业实施服务。同类参照有 GitLab（Open Core + SaaS）、Supabase（Open Core + SaaS）。但仓库中暂无企业版、定价或托管入口，路径尚未产品化，故给 7–8 档而非 9–10 档。</td>
+</tr>
+<tr>
+<td>D4.3 付费转化逻辑</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6</td>
+<td>README 鼓励用户通过 CLI 自托管到自有云账号，核心功能完全开源、免费可用，因此当前“免费→付费”的触发点不够自然。未来可能的转化触发点主要是托管运维、SLA、安全合规、企业支持，而非核心功能受限。目标客户为创业团队，付费意愿中等偏上，但尚未在产品内验证。</td>
+</tr>
+<tr>
+<td>D4.4 增值服务空间与定价天花板</td>
+<td>2.0</td>
+<td>1.6</td>
+<td>7–8</td>
+<td>可叠加的增值方向明确：托管云服务、企业级 SSO/合规、SLA 支持、私有化部署、专属沙箱与插件生态等。该品类属于企业级内部工具，客单价有望落在 $1K–10K/年的区间；若按席位或用量计费，可向更高天花板延伸。</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>7.9</strong></td>
+<td>—</td>
+<td>商业模式可行性较高，主要短板在于当前还没有商业化落地形态。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>关键结论</strong>：</p>
+<ul>
+<li>MIT License 为商业化扫清了几乎所有协议障碍，是本维度最确定的优势。</li>
+<li>项目拥有 14k+ Star、高频迭代，具备形成商业化的社区与产品势能。</li>
+<li>当前产品完全自托管、核心全开，付费触发点尚未产品化，是商业化从“可行”走向“落地”的主要不确定性。</li>
+<li>若后续推出 “QM Cloud” 托管服务或企业版，变现潜力可进一步提升至 8.5+。</li>
+</ul>
+<h3>D5. 竞争格局与差异化壁垒（权重 12%）</h3>
+<h3>D5.1 竞品对比与市场定位（3 分）</h3>
+<p><strong>定位分析</strong>：QM 的定位是「面向初创公司的多人（multiplayer）代理工作平台」：每个员工拥有独立隔离的工作区（自己的 memory、文件、keychain、crons、web apps、持久化沙箱），又可在 Slack 频道、群消息、项目中协作。其核心差异化是<strong>部署抽象 + 多 harness 可插拔</strong>——Pi、OpenCode、Codex、Claude Code 四种底层 harness 驱动同一个核心（package.json 中实测存在 <code>@earendil-works/pi-ai</code>、<code>opencode-ai</code>、<code>@openai/codex</code>、<code>@anthropic-ai/claude-agent-sdk</code> 四个 harness SDK），组织专属配置全部落在 deployment directory，上游核心保持字节级一致，通过 <code>qm</code> CLI 校验部署，且可私有 fork 保持同步。这一「多人共享工作空间 + 供应商中立 + 自部署」组合在开源领域尚无同量级对标。</p>
+<p><strong>竞品对比表</strong>（以下竞品经 GitHub Search API 实测验证，信息真实）：</p>
+<table>
+<thead>
+<tr>
+<th>竞品名称</th>
+<th>类型</th>
+<th>仓库/官网</th>
+<th>验证方式</th>
+<th>Star/用户量</th>
+<th>核心差异</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>friday-platform/friday-studio</td>
+<td>直接竞品</td>
+<td>github.com/friday-platform/friday-studio</td>
+<td>GitHub 搜索确认</td>
+<td>99</td>
+<td>同为自托管 agent harness 平台，含共享工作区、MCP 工具、skills、memory、cron/webhook 自动化，但规模小约 140 倍，未绑定具体协作界面，无多 harness 抽象</td>
+</tr>
+<tr>
+<td>kevinluosl/deepbot</td>
+<td>间接竞品</td>
+<td>github.com/kevinluosl/deepbot</td>
+<td>GitHub 搜索确认</td>
+<td>2,272</td>
+<td>系统级 AI 助手（个人效率+企业工作流），原生飞书集成，单助手形态，非多人隔离工作区架构</td>
+</tr>
+<tr>
+<td>edonyzpc/personal-assistant</td>
+<td>间接竞品</td>
+<td>github.com/edonyzpc/personal-assistant</td>
+<td>GitHub 搜索确认</td>
+<td>149</td>
+<td>Obsidian 插件，专注个人知识管理自动化，单用户场景</td>
+</tr>
+<tr>
+<td>phantomyard/phantombot</td>
+<td>间接竞品</td>
+<td>github.com/phantomyard/phantombot</td>
+<td>GitHub 搜索确认</td>
+<td>14</td>
+<td>个人 AI 助手，调用任意外部 harness，无团队协作、无持久化沙箱/部署抽象</td>
+</tr>
+<tr>
+<td>prapaa-ai/agav</td>
+<td>间接竞品</td>
+<td>github.com/prapaa-ai/agav</td>
+<td>GitHub 搜索确认</td>
+<td>13</td>
+<td>终端原生 AI 编码助手，单仓库/单用户 CLI 场景，无多人协作</td>
+</tr>
+</tbody>
+</table>
+<p><strong>小分：2.4 / 3（80% 档）</strong>。理由：有直接竞品（friday-studio）但体量与功能完成度差距悬殊；其余竞品均为间接路线。QM 的「多人协作 + 多 harness 可插拔 + 部署目录/私有 fork 定制模型」形成明确差异化定位，且 star 数（14,157）远超已确认竞品之和，处于明显领先地位。</p>
+<h3>D5.2 技术壁垒与网络效应（3 分）</h3>
+<p><strong>技术壁垒</strong>（从商业防御视角，不复刻工程难度）：
+- <strong>多 harness 集成接口</strong>：四种本地编码代理（Pi/OpenCode/Codex/Claude Code）通过统一后端接口驱动同一核心，任一组织可切换 harness 而不改部署，这一抽象层是多年 API 逆向与适配积累，构成一定的生态位锁定。
+- <strong>部署目录契约</strong>：组织配置、沙箱镜像、自定义工具、基础设施全部收敛为 deployment directory，由 <code>qm</code> CLI 校验，配合私有 fork 双向同步技能（<code>update-qm</code> / <code>upstream-pr</code>），形成「上游核心开源、下游定制私有」的协作模式，防御性较强。
+- <strong>安全姿态体系</strong>：三级安全模式（Strict/Auto/Dangerous）+ provenance 标记数据流 + 预声明命令策略（含递归删除、破坏性 SQL 的硬性拒绝），属于企业采用的关键信任资产，需长期事件积累验证，较难短期复制。
+- <strong>数据壁垒</strong>：Postgres 持久化 layer（sessions/memory/queue）+ 每 scope 隔离的 keychain/文件/web app，跨长期使用的组织数据难以迁移。</p>
+<p><strong>网络效应</strong>：
+- 组织内网络效应显著：员工各自工作区 + 共享频道/项目，成员越多、agent 积累的组织上下文（skills、memory、集成凭据）越厚，切换成本越高。
+- 跨组织网络效应偏弱：skills 支持按 grant 共享、admin 提升、从 git 导入 skill pack，但暂无公开 marketplace 或跨组织技能分发网络；插件生态以官方插件为主（admin/auth/onboarding/portal/web-ui）。</p>
+<p><strong>规模效应</strong>：自部署模式（Fly/AWS 自有云账号）无多租户成本分摊，规模效应有限；但同一部署内用户/并发增加复用核心与 DB 层，有一定边际成本递减。</p>
+<p><strong>小分：1.8 / 3（60% 档）</strong>。理由：有一定技术壁垒（多 harness 适配、部署契约、安全模型）与组织内网络效应，但无专利/独占数据/跨组织生态护城河，核心为可复刻的工程架构，壁垒属中等偏上但不深厚。</p>
+<h3>D5.3 切换成本与用户粘性（2 分）</h3>
+<p><strong>迁移成本</strong>：
+- 部署依赖链深：迁移需重建 deployment directory（含 skill 层、sandbox 镜像、插件、基础设施 wiring）、迁移 Postgres 会话/记忆/队列数据、重配 Slack 与各类 connector（AWS Secrets Manager、S3、Google Workspace、Dropbox、Linear 等）。
+- 组织流程嵌入：crons、watches、inbound webhooks 在无人值守时运行后台工作；Slack 频道/群组中的 agent 协作文本流构成团队日常习惯；<code>skills-seed</code> 中的 30+ 预置组织技能（browse、google-drive-sheets、linear、email-voice-profile 等）按 scope 定制后即沉淀为组织资产。</p>
+<p><strong>深度集成</strong>：QM 要求以「部署目录 + CLI 初始化」方式落地（<code>qm init</code> → 基础设施 → web 登录 → connector → Slack → 验证），且私有 fork 模式要求组织将整个代码库纳入自建仓库、维护与上游的持续同步，属深度集成型产品，非即插即用。</p>
+<p><strong>小分：1.6 / 2（80% 档）</strong>。理由：数据（Postgres 会话/记忆/文件）、配置（部署目录/安全姿态/技能授权）、流程（crons/Slack 协作）三重绑定，迁移需重做组织 AI 工作流基础设施，切换成本较高，粘性较强。</p>
+<h3>D5.4 护城河可持续性（2 分）</h3>
+<p><strong>护城河趋势</strong>：
+- 项目创建于 2026-07-29，评测时约 1 个月即达 14,157 star / 1,695 fork / 523 个 90 天 PR / 6 位活跃 contributor，增长动能极强，护城河处于快速挖掘期。
+- 最近发布 v0.1.5（2026-08-17），迭代节奏快（1 个月内 4 个 release），功能边界持续扩展。</p>
+<p><strong>颠覆风险</strong>：
+- 品类风险中等：multiplayer agent harness 属新兴快速演化赛道（2026 年中），friday-studio 等同路线产品仍在活跃开发（2026-08-22 有推送），大厂（Slack/微软等）可能推出集成式竞品。
+- 结构防御：harness-agnostic 设计（不绑定单一模型/框架供应商）+ 自部署（不依赖单一云）+ MIT 开源 + 私有 fork 边界机制，降低了被单一大厂或上游 harness 变动颠覆的风险。</p>
+<p><strong>时间窗口</strong>：当前领先优势主要由先发速度与社区热度驱动，而真实组织采用数据尚未大规模验证；预计 1–2 年内领先地位可持续，但需尽快将 star 热度转化为部署装机量与组织内数据沉淀，否则护城河易被后发者追平。</p>
+<p><strong>小分：1.2 / 2（60% 档）</strong>。理由：护城河在增强（极快增速）但尚浅，品类演化与潜在巨头入场带来中等颠覆风险，时间窗口约 1–2 年。</p>
+<h3>细则打分汇总</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D5.1 竞品对比与市场定位</td>
+<td>3</td>
+<td>2.4</td>
+<td>良好（80%）</td>
+</tr>
+<tr>
+<td>D5.2 技术壁垒与网络效应</td>
+<td>3</td>
+<td>1.8</td>
+<td>一般（60%）</td>
+</tr>
+<tr>
+<td>D5.3 切换成本与用户粘性</td>
+<td>2</td>
+<td>1.6</td>
+<td>良好（80%）</td>
+</tr>
+<tr>
+<td>D5.4 护城河可持续性</td>
+<td>2</td>
+<td>1.2</td>
+<td>一般（60%）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>7.0</strong></td>
+<td><strong>良好</strong></td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<p>QM 在竞争格局中处于<strong>明显领先 + 差异化清晰</strong>的位置：以 14,157 star 远超已实测确认的同类竞品（最大直接竞品 friday-studio 仅 99 star），「多人隔离工作区 + 多 harness 可插拔 + 部署目录/私有 fork」的组合定位独特。技术壁垒中等（多 harness 适配与安全模型构成一定防御，但无独占性资产），组织内网络效应与深度集成带来较强用户粘性（切换需迁移数据、配置与工作流三重依赖）。主要风险是护城河积累时间仅约 1 个月、跨组织生态尚未形成，需在品类巨头入场前的 1–2 年窗口期内将社区热度转化为真实组织部署量与数据沉淀。</p>
+<h3>D6. 法律合规与知识产权（权重 7%）</h3>
+<p><strong>综合得分: 7.1/10</strong></p>
+<p>对 yc-software/qm 的法律合规与知识产权评估基于 GitHub API 补采数据、本地 LICENSE/CONTRIBUTING/package.json 实测。总体判断：项目采用标准 MIT 许可，可直接用于商业闭源分发与 SaaS 服务，无 copyleft 传染或商业限制附加条款，法律基础面良好；主要短板在于贡献者协议缺失（无 CLA/DCO）以及商标/专利维度未经人工核查。</p>
+<h4>细则打分表</h4>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D6.1 开源协议合规性与商业限制（满分 3）</td>
+<td>2.4</td>
+<td>7–8（良好）</td>
+<td>主 LICENSE 为完整标准 MIT 文本，cli/ 子包含独立 MIT LICENSE，package.json 均声明 <code>"license": "MIT"</code>，依赖清单中未观测到 GPL/AGPL 传染性协议，无 Commons Clause/BUSL 类附加条款；需注意点：<code>@earendil-works/pi-ai</code>、<code>@earendil-works/pi-coding-agent</code>（经 GitHub release URL 安装）等核心依赖的许可证未在采集数据中体现，且 <code>skills-seed/taste-skill/</code> 的 MIT LICENSE 版权人为第三方个人（Leonxlnx），建议人工核验</td>
+</tr>
+<tr>
+<td>D6.2 依赖链法律风险（满分 2.5）</td>
+<td>2.0</td>
+<td>7–8（良好）</td>
+<td>根 package.json 共 28 个直接依赖，以 AWS SDK（Apache-2.0）、Slack SDK（MIT）、fastify（MIT）、zod（MIT）、pg（MIT）、jose（MIT）、lru-cache（ISC）等主流宽松协议组件为主，未见 AGPL/GPL 传染性依赖；但 <code>@earendil-works/pi-ai</code>、<code>@fly/sprites</code> 及 URL 引入的 <code>pi-coding-agent</code> 许可证未知，且 <code>@earendil-works/pi-coding-agent</code> 的版本号含 <code>security.3</code> 后缀，需做依赖许可证台账与供应链核验</td>
+</tr>
+<tr>
+<td>D6.3 商标与专利风险（满分 2.5）</td>
+<td>1.5</td>
+<td>5–6（一般）</td>
+<td><strong>未经人工核查，置信度低</strong>——按方法论默认档位处理。仓库内未见 TRADEMARK 文件或商标使用政策；项目名 "qm" 为通用缩写，显著性弱，其可注册性及与既有商标的冲突无法由 AI 自动判定；技术领域（AI agent harness）专利密集，需人工进行 FTO 检索后方可结论</td>
+</tr>
+<tr>
+<td>D6.4 贡献者协议完备性（满分 2）</td>
+<td>1.2</td>
+<td>5–6（一般）</td>
+<td>有 CONTRIBUTING.md 贡献指南（倾向人类撰写文本型 PR 的非常规流程）、SECURITY.md、PR/Issue 模板，基础流程存在；但无任何 CLA/DCO 配置或要求，版权声明为 "Copyright (c) 2026 QM contributors"（6 名贡献者集体持有），版权未集中于单一法律实体，未来若需双协议再授权或版权专属化存在障碍</td>
+</tr>
+</tbody>
+</table>
+<h4>关键依据</h4>
+<ul>
+<li><strong>协议面</strong>：主 LICENSE 与 cli/LICENSE 均为标准 MIT 全文，无附加条件；GitHub 自动识别 license 为 MIT，SPDX 字段在 package.json 中以 <code>"license": "MIT"</code> 形式存在。</li>
+<li><strong>依赖面</strong>：可观测依赖均为宽松许可证；唯一非常规来源为 <code>@earendil-works/pi-coding-agent</code>（<code>https://github.com/yc-software/pi/releases/download/qm-pi-coding-agent-0.82.0-security.3/...tgz</code>），来源为项目方自有的 yc-software/pi 仓库，法律风险等级取决于该仓库实际许可证，需确认。</li>
+<li><strong>版权结构</strong>：主版权归属 "QM contributors"，同时存在第三方版权组件（skills-seed/taste-skill，Leonxlnx），在 MIT 下使用无碍，但收入分成或再授权场景需明确权利链条。</li>
+<li><strong>商标政策</strong>：无商标使用政策文件，衍生品命名规范未定义。</li>
+</ul>
+<h4>结论</h4>
+<p>qm 在法律合规层面无阻断性硬伤：MIT 许可是对商业化最友好的协议类型之一，支持闭源衍生、SaaS 托管和销售，依赖链未见传染性协议，主 LICENSE 明确，整体商业化法律通道通畅。D6 得分未被拉高的原因集中在两方面：(1) 无 CLA/DCO 且版权归集体所有，若未来实施"开源核心 + 商业插件/服务"的双模式或需要向投资人证明版权集中度，存在治理短板，建议尽快引入 DCO 或轻量 CLA；(2) 商标与专利维度因缺乏人工检索处于置信度盲区，"qm" 作为强通用词虽大概率无恶意抢注风险，但 agent 赛道竞争激烈，依赖的 AI SDK（Anthropic/OpenAI/opencode）服务条款与专利池情况也建议在商业化启动前完成一次专项法律尽调。<strong>建议评级：法律风险低，可正常推进商业化，优先补齐贡献者协议与依赖许可证清单。</strong></p>
+<h3>D7 企业就绪度与可运营性（权重 8%）</h3>
+<p><strong>维度结论</strong>: QM 在企业就绪度上表现良好（8.5/10），具备面向企业客户付费运营的核心条件。项目在配置管理、安全体系、部署自动化方面达到较高水准，尤其是完整的 OIDC 认证、Scope 级权限模型、凭据加密存储与审计日志构成了显著的企业级安全优势；主要短板在于可观测性（缺 Prometheus/OpenTelemetry 标准监控与结构化日志）和数据库迁移的自动化程度。</p>
+<h4>D7.1 运维复杂度与升级路径（2.4 / 3 分）</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>配置管理</td>
+<td>✅ <strong>优秀</strong>：<code>src/config.ts</code> 采用环境变量驱动，约 100+ 配置项均经严格类型校验（<code>boolEnvStrict</code>/<code>numEnvStrict</code>）；<code>.env.example</code> 与 <code>deploy/stacks/acme/.env.example</code> 对每个密钥变量注释了生成方式（<code>openssl rand -hex 32</code>）与适用范围；支持 <code>qm secrets push</code> 将敏感值直传 AWS Secrets Manager 或 Fly 密钥存储，不落盘不打印</td>
+</tr>
+<tr>
+<td>运维负担</td>
+<td>✅ <strong>轻量</strong>：部署走 <code>qm init</code> 生成 deployment 仓库 + 部署技能（deploy-qm SKILL），由编码代理按部署指南执行；Fly.io 与 AWS 双后端均有 CLI 全生命周期管理（ECS 任务定义渲染、ECR 镜像发布、S3 资产、健康检查）；CI 含 5 分片测试矩阵、Postgres 集成测试及各插件镜像冒烟测试</td>
+</tr>
+<tr>
+<td>升级路径</td>
+<td>✅ <strong>平滑</strong>：CLI 以 npm 包发布（<code>publish-cli.yml</code>），升级即 <code>npm update @yc-software/qm</code>；CI 强制版本 bump 检查；<code>deployments.ts</code> API 内置回滚功能，<code>DeployService</code> 支持 DeploymentVersion 版本管理；<code>.claude/skills/update-qm</code> 与 <code>.codex/skills/update-qm</code> 提供升级操作技能</td>
+</tr>
+<tr>
+<td>数据迁移</td>
+<td>⚠️ <strong>待改进</strong>：Postgres schema 变更以手工维护的 <code>ALTER TABLE</code> 语句内联在 <code>postgres-session-store.ts</code> 中，无自动迁移工具；Fly 托管 Postgres 与 AWS S3/Litestream 均有数据持久化与恢复路径，但升级时的数据迁移依赖运维脚本</td>
+</tr>
+</tbody>
+</table>
+<p><strong>依据</strong>: <code>src/config.ts</code>、<code>cli/src/secrets.ts</code>、<code>cli/src/backends/fly.ts</code>（HMAC 签名请求、托管 Postgres）、<code>cli/src/backends/aws.ts</code>（任务定义、Secrets Manager）、<code>src/api/routes/deployments.ts</code>（回滚）、<code>publish-cli.yml</code>（版本控制门禁）、<code>.env.example</code>。</p>
+<h4>D7.2 安全管理与权限控制（2.5 / 2.5 分）</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>认证授权</td>
+<td>✅ <strong>企业级</strong>：Portal 插件实现 OIDC 认证（<code>oidc.ts</code>），支持 <code>OIDC_ALLOWED_EMAILS</code>/<code>OIDC_ALLOWED_EMAIL_DOMAIN</code>/<code>PORTAL_EXPECTED_TEAM_ID</code> 信任边界配置；核心 API 采用 HMAC 签名请求（<code>CORE_SIGNING_SECRET</code>）+ Capability Token 双因素认证；Web UI 支持 portal token / cookie / SSO 三种模式</td>
+</tr>
+<tr>
+<td>权限模型</td>
+<td>✅ <strong>细粒度</strong>：Scope 模型（personal/web/slack）天然隔离数据；<code>ADMIN_RESOURCES</code> 管理资源注册表覆盖 20+ 类 org 级配置（security-posture、command-policy、soul、egress 等）；Permission/Grant 机制支持按人、按房间、按技能授权的精细控制；命令策略分层评估（组织层 + scope 层可加严不可放宽）</td>
+</tr>
+<tr>
+<td>审计日志</td>
+<td>✅ <strong>完备</strong>：README 明确 "everything it does is audited"；<code>src/tools/primitives.ts</code> 依赖审计日志模块；<code>DeploymentLayerStore</code> 含 <code>DeploymentLayerAuditRevision</code> 审计修订记录；<code>keychain.ts</code> 路由含 <code>audit</code> 操作；Slack 审批流程对所有允许/拒绝操作留痕</td>
+</tr>
+<tr>
+<td>数据安全</td>
+<td>✅ <strong>全面</strong>：Keychain 凭据加密存储（<code>encryptSecret</code>/<code>decryptSecret</code>，OAuth refresh token 单独加密）；连接器客户端密钥经派生密钥加密；支持 <code>DATABASE_CA_CERT</code> 自定义根 CA；<code>PUBLIC_API_URL</code> 强制 HTTPS；Web UI 设置 CSP/HSTS 头；egress-proxy 用 Envoy 强制出站流量管控；三种安全姿态（Strict/Auto/Dangerous）+ 预声明命令策略（硬拒绝 <code>rm -rf</code>、<code>DROP TABLE</code> 等）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>依据</strong>: <code>plugins/portal/src/index.ts</code>、<code>src/credentials/keychain.ts</code>、<code>src/api/routes/admin-resources.ts</code>、<code>src/policy/command-policy.ts</code>、<code>deploy/egress-proxy/Dockerfile</code>、<code>SECURITY.md</code>、<code>plugins/web-ui/server/index.ts</code>（CSP/HSTS）。</p>
+<h4>D7.3 可扩展性与高可用能力（2.0 / 2.5 分）</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>水平扩展</td>
+<td>⚠️ <strong>有条件支持</strong>：核心服务为 Fastify 无状态设计，会话/内存/队列全部持久化于 Postgres，理论上可多实例水平扩展；但 Slack Socket Mode 为 in-process 插件，多实例部署时事件分发需外部协调；沙箱层已实现多后端（AWS microVM、Fly Sprites、本地 Docker），具备分布式执行能力</td>
+</tr>
+<tr>
+<td>高可用</td>
+<td>⚠️ <strong>需额外配置</strong>：AWS 后端通过 ECS Fargate 任务定义 + 健康检查支持多任务部署；Fly 后端托管 Postgres 集群（<code>ensurePostgres</code>）；AWS microVM 镜像用 Litestream 做 SQLite 持续复制；但核心服务自身的多副本/故障转移未在文档中给出标准配置指引</td>
+</tr>
+<tr>
+<td>性能瓶颈</td>
+<td>⚠️ <strong>存在单点风险</strong>：Postgres 为集中式状态存储（单点依赖，需依赖托管服务 HA）；Orchestrator 单文件约 2400 行，<code>buildApp</code> 约 1000 行，核心链路复杂度高；会话级 <code>pg_advisory_xact_lock</code> 锁在大并发下可能成为吞吐瓶颈</td>
+</tr>
+<tr>
+<td>数据一致性</td>
+<td>✅ <strong>有保障</strong>：Postgres 事务 + 租约 token 乐观并发控制；<code>pg_advisory_xact_lock</code> 实现分布式会话锁；<code>createKeyedQueue</code> 串行化写入；<code>postgres-session-store.ts</code> 使用窗口函数计算参与者有效时间段，保证多实例数据一致性</td>
+</tr>
+</tbody>
+</table>
+<p><strong>依据</strong>: <code>src/sessions/postgres-session-store.ts</code>（advisory lock、租约）、<code>src/wiring.ts</code>（存储后端可切换）、<code>cli/src/backends/aws.ts</code>（ECS 任务定义）、<code>cli/src/backends/fly.ts</code>（托管 Postgres）、<code>fly/Dockerfile</code>（Litestream）、README 架构图。</p>
+<h4>D7.4 集成兼容与可观测性（1.6 / 2 分）</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>API 完备性</td>
+<td>✅ <strong>优秀</strong>：核心为 Fastify HTTP API，路由模块丰富（<code>deployments.ts</code>、<code>surface.ts</code>、<code>connectors.ts</code>、<code>crons.ts</code>、<code>keychain.ts</code>、<code>admin-resources.ts</code>）；<code>agent-api-catalog.ts</code> 提供 Agent API 目录；<code>adminResourceManifest()</code> 自动生成管理资源清单供 API 文档使用；Web UI 通过 core-bridge 完整消费 API</td>
+</tr>
+<tr>
+<td>标准协议</td>
+<td>✅ <strong>较强</strong>：支持 MCP（Model Context Protocol，工具桥接至 MCP 服务器）；支持 Webhook（<code>webhooks.ts</code>、<code>trigger-store</code>）；Slack 同时支持 Socket Mode 与 HTTP events mode（<code>SLACK_EVENTS_MODE</code>）；OAuth 2.0 全流程（授权码 + PKCE + refresh）</td>
+</tr>
+<tr>
+<td>监控告警</td>
+<td>⚠️ <strong>薄弱</strong>：ECS/Fly 部署均有健康检查（waitReady、health check），<code>turn-handler.ts</code> 有 <code>performance.now()</code> 性能采样；但未发现 Prometheus 指标端点、OpenTelemetry 导出或内置告警规则；无 metrics 面板</td>
+</tr>
+<tr>
+<td>日志体系</td>
+<td>⚠️ <strong>基础</strong>：有统一的错误处理工具（<code>errMessage</code>/<code>swallow</code>）和关键事件日志，但未见结构化日志（JSON）或日志级别动态管理的明确实现；CLI 日志（<code>log.ts</code>）功能完善，服务端日志体系偏简单</td>
+</tr>
+</tbody>
+</table>
+<p><strong>依据</strong>: <code>src/api/routes/</code> 全部路由文件、<code>src/harness/claude-harness.ts</code>（MCP）、<code>plugins/web-ui/src/webhooks.ts</code>、<code>src/slack/turn-handler.ts</code>（性能采样）、<code>cli/src/backends/fly.ts</code>（waitReady）、<code>package.json</code> 依赖（无 opentelemetry/prometheus 依赖）。</p>
+<p><strong>汇总</strong></p>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>得分</th>
+<th>权重</th>
+<th>加权得分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D7.1 运维复杂度与升级路径</td>
+<td>2.4 / 3</td>
+<td>30%</td>
+<td>0.79</td>
+</tr>
+<tr>
+<td>D7.2 安全管理与权限控制</td>
+<td>2.5 / 2.5</td>
+<td>25%</td>
+<td>0.63</td>
+</tr>
+<tr>
+<td>D7.3 可扩展性与高可用能力</td>
+<td>2.0 / 2.5</td>
+<td>25%</td>
+<td>0.50</td>
+</tr>
+<tr>
+<td>D7.4 集成兼容与可观测性</td>
+<td>1.6 / 2</td>
+<td>20%</td>
+<td>0.32</td>
+</tr>
+<tr>
+<td><strong>D7 合计</strong></td>
+<td><strong>8.5 / 10</strong></td>
+<td>8%</td>
+<td><strong>0.68</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>企业就绪度判定</strong>: QM 已达到"良好偏优秀"的企业级运营水准（8.5/10）。安全体系（OIDC + RBAC + 审计 + 加密）和运维自动化（双云后端 + CLI 全生命周期 + 版本门禁）构成其服务企业客户的付费基础；建议商业化路线中优先补齐标准监控（Prometheus/OpenTelemetry）与结构化日志，并将 Postgres 迁移工具化，以降低企业客户的运维门槛。</p>
+<h3>D8. 团队治理与可持续性（权重 7%）</h3>
+<h4>D8.1 核心维护者能力与背景（2.5 分）— 2.0 分</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>发现</th>
+<th>证据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术能力</td>
+<td>极强。项目为复杂的 AI Agent 编排系统，涉及多模型适配（Claude、OpenAI Codex、OpenCode、Pi）、多云/多平台部署（AWS、Fly、Slack）、高测试覆盖率（50.3%），并有专业安全威胁模型文档。</td>
+<td>264,922 行代码，测试 133,374 行；SECURITY.md 详述信任边界与已知限制</td>
+</tr>
+<tr>
+<td>商业经验</td>
+<td>有商业运营迹象。组织主体 <code>yc-software</code> 明显为商业实体，CI/CD 含 publish-cli、release-package 等自动化发布流程，非纯社区项目运作方式。但无公开融资或成熟商业化历史证据。</td>
+<td>4 个 CI workflows；README 定位 "Multiplayer agent harness for work"</td>
+</tr>
+<tr>
+<td>投入度</td>
+<td>极高。项目创建于 2026-07-29，至评估日不足一个月，已积累 1.4 万 star、26 万行代码，并发布 4 个版本（v0.1.2 → v0.1.5），最近推送 2026-08-24，明显为全职团队高速迭代。</td>
+<td>created_at 与 pushed_at 相差 26 天；recent_releases 4 个</td>
+</tr>
+<tr>
+<td>巴士因子</td>
+<td>中高。贡献者共 6 人，虽少于 5，但团队化开发特征明显，非单点依赖。</td>
+<td>contributors=6</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分理由</strong>：团队全职投入、节奏极快，技术实力和工程规范均为顶尖水平；但商业化历史证据不充分，巴士因子仅 6 人，未达卓越档，故评为 8 档（80%）。</p>
+<h4>D8.2 治理模型透明度（2 分）— 1.2 分</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>发现</th>
+<th>证据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>治理文档</td>
+<td>有 CONTRIBUTING.md 和 SECURITY.md，定义了特色贡献流程（ADR 文本 PR、安全披露流程），但无独立 GOVERNANCE.md，无公开路线图。</td>
+<td>CONTRIBUTING.md；doc_files 无 governance 文件</td>
+</tr>
+<tr>
+<td>开放程度</td>
+<td>保留开放性，外部贡献者可通过 ADR 提交功能想法，bug 提交可获得 commit 合著署名；但决策权集中于核心团队，需经其 "aligned" 后由团队实现。</td>
+<td>"If we're aligned on the change, we're happy to burn our tokens on the underlying implementation."</td>
+</tr>
+<tr>
+<td>基金会/组织</td>
+<td>不属于 CNCF/Apache/LF 等基金会，由商业组织 <code>yc-software</code> 主导。</td>
+<td>full_name=yc-software/qm</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分理由</strong>：有清晰的贡献指南和协作流程，但决策过程实质由核心团队控制，缺乏正式治理框架与透明路线图，属于“有简单贡献指南、核心团队主导”的 6 档（60%）。</p>
+<h4>D8.3 资金支持与商业赞助（2.5 分）— 2.0 分</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>发现</th>
+<th>证据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>现有资金</td>
+<td>无公开融资信息。但项目包含部署到 AWS/Fly 的企业级基础设施代码，及 <code>@yc-software/qm</code> 自引用包，暗示背后有公司资源支撑。</td>
+<td>deployment.md、deploy/stacks、AWS/Fly 技能文档</td>
+</tr>
+<tr>
+<td>赞助收入</td>
+<td>未发现 GitHub Sponsors / Open Collective 配置。</td>
+<td>补采数据无 sponsor 字段</td>
+</tr>
+<tr>
+<td>商业实体</td>
+<td>存在明确组织实体 <code>yc-software</code>，并以该组织名义发布；项目本身是商业产品形态（agent harness for work）。</td>
+<td>GitHub organization；package.json 自依赖</td>
+</tr>
+<tr>
+<td>资金可持续性</td>
+<td>短期可持续性较强：贡献者自述愿意为社区功能实现“burn tokens”，说明有预算支持 AI 算力开销；但长期财务可持续性缺乏验证。</td>
+<td>"we're happy to burn our tokens on the underlying implementation"</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分理由</strong>：项目由商业组织实体运营，开发资源充足，发布流程工业化，具备“公司支持、资金可持续”的显著特征；但无任何公开融资/赞助硬数据，未达到 VC/大厂全职团队级别的 9–10 档，故评为 8 档（80%）。</p>
+<h4>D8.4 项目可持续性与传承风险（3 分）— 2.4 分</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>发现</th>
+<th>证据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>活跃趋势</td>
+<td>极速上升。创建 26 天即达 14,157 stars，90 天内 523 个 PR 创建，30 个 issue 关闭，且最近发布 v0.1.5（2026-08-17），无任何下降迹象。</td>
+<td>stars=14,157；prs_created_90d=523；recent_releases</td>
+</tr>
+<tr>
+<td>维护延续性</td>
+<td>传承机制初具雏形：有 CONTRIBUTING/ADR 流程和 6 人团队，但项目极其复杂，核心架构知识仍集中在创世团队，外部接管难度高。</td>
+<td>CONTRIBUTING.md；contributors=6；代码 26 万行</td>
+</tr>
+<tr>
+<td>历史信号</td>
+<td>无 archived、无 deprecated 标记，处于 v0.1.x 早期版本，仍在快速迭代。</td>
+<td>archived=false；version v0.1.5</td>
+</tr>
+<tr>
+<td>分叉风险</td>
+<td>fork/star 约 12%（1,695 / 14,157），属于正常复制使用比例，无社区分裂迹象。</td>
+<td>forks=1,695</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分理由</strong>：活跃趋势强劲上升且无分裂信号，但项目太年轻，传承机制尚未经受考验，治理文档不完善，无法达到“治理完善可传承”的卓越档，故评为 8 档（80%）。</p>
+<h4>结论：总评 7.6 / 10</h4>
+<p>D8 维度综合得分为 <strong>7.6 分</strong>。团队治理整体处于良好水平：全职高投入、技术能力顶级、有商业实体支撑，可持续性势头强劲；但治理结构仍以核心团队主导为主，缺乏基金会背书和公开路线图，传承机制也未充分验证，后续需关注治理透明度和制度化建设以支撑长期商业化。</p>
+<h3>D9 上手难度与易用性评估</h3>
+<h3>打分总览</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D9.1 安装难度</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>良好（80%）</td>
+</tr>
+<tr>
+<td>D9.2 部署与配置难度</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>一般（60%）</td>
+</tr>
+<tr>
+<td>D9.3 易用性与操作门槛</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>良好（80%）</td>
+</tr>
+<tr>
+<td>D9.4 学习曲线与首体验</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>一般（60%）</td>
+</tr>
+<tr>
+<td><strong>D9 总分</strong></td>
+<td><strong>10</strong></td>
+<td><strong>7.0</strong></td>
+<td><strong>🟡 中等</strong></td>
+</tr>
+</tbody>
+</table>
+<h3>D9.1 安装难度（2.0/2.5）</h3>
+<p><strong>判断依据</strong>:
+- 官方安装路径为单条 <code>npm exec --yes --package=@yc-software/qm@latest -- qm init .</code> 命令 + <code>npm install</code>，CLI 包 <code>@yc-software/qm</code>（v0.1.6）已发布至 npm，属于标准的包管理器安装方式，无需源码检出。
+- 依赖管理整体自包含于 npm 依赖树；但根 <code>package.json</code> 声明 <code>node &gt;=24.15.0</code>、<code>npm &gt;=11.10.0</code>，运行时版本要求较高（Node 24 为当前最新 major），且部署目标的云账号/凭据属于安装前置条件。
+- 平台覆盖以 Linux/容器为主，本地开发脚本（<code>scripts/dev-instance.sh</code> 等）依赖 bash，Windows 原生体验受限；容器化路径（deploy 下多服务 Dockerfile）覆盖主流 Linux。
+- 扣分点:无法实现"一条命令全平台跑通"，需用户预先准备云账号与较新的 Node 环境。</p>
+<h3>D9.2 部署与配置难度（1.5/2.5）</h3>
+<p><strong>判断依据</strong>:
+- 部署方式:支持标准化容器部署（<code>deploy/core|auth|portal|web-ui|admin|egress-proxy</code>、<code>fly/Dockerfile</code>、<code>aws/microvm-agent/Dockerfile</code> 等 10 个 Dockerfile），并提供 Fly/AWS 两类目标平台，Fly 侧有 <code>fly/fly.toml</code> 与部署脚本。
+- 配置复杂度:初始化生成的部署仓库需配置 infra、web 登录、连接器凭据、可选 Slack、sandbox 镜像等多类参数，<code>.env.example</code> 标注"every knob"（配置项众多），不属于"少量配置"。
+- 外部依赖初始化:必须初始化 Postgres（持久化层）、AWS S3/Secrets Manager（制品/密钥）、可选 pg-boss 队列等；多组件编排，单靠 qm init 的 agent 引导仍需要专业操作者提供凭据并验证。
+- 快速验证:存在 <code>docs/getting-started.md</code> 与 <code>npm run dev-instance</code> 脚本，但跑通完整 demo 涉及沙箱镜像构建和数据库初始化，10 分钟内完成对非技术人员不现实。
+- 面向人群:部署需要云账号运维能力，非开发人员无法独立完成。</p>
+<h3>D9.3 易用性与操作门槛（2.0/2.5）</h3>
+<p><strong>判断依据</strong>:
+- 日常操作:最终用户通过 Slack 或 Web UI 以自然语言与 agent 协作（README 描述"在 Slack 和 web 上工作"），交互直观；管理员使用 <code>qm</code> CLI 做部署目录验证与部署。
+- 交互设计:Web UI 提供多会话侧边栏、个人文件、crons、keychain、deploys、memory、skills 等可视化入口；agent 侧通过 skills（如 <code>browse</code>、<code>linear</code>、<code>google-drive</code> 等 30+ 种子技能）自然扩展能力。
+- 默认合理性:默认安全策略为 Auto（自动分类筛查外部数据），并附 predeclared command policy（危险命令硬拒绝），默认配置可用、具备合理安全基线。
+- 扣分点:涉及 scope（个人/房间级隔离）、skills 授权、security postures、deployment directory 等平台概念，非技术型普通用户理解成本偏高；错误处理信息未被实证，无法确认友好程度。</p>
+<h3>D9.4 学习曲线与首体验（1.5/2.5）</h3>
+<p><strong>判断依据</strong>:
+- 上手时间:组织级首次部署（含云资源创建、连接器配置、Slack 接入）需小时级到半天；最终用户需等待部署完成后才能登录使用，整体"从接触到首次成功使用"难以达到 30 分钟以内。
+- 学习曲线:概念面较宽（deployment directory、harness 可替换、per-scope sandbox、控制面/沙箱分离），曲线中等偏陡；但交互层为自然语言对话，存在明显 "Aha Moment"（成功对话即感知价值）。
+- 入门引导:提供 <code>docs/getting-started.md</code>（first run end to end）、<code>deployment.md</code>、<code>cli/README.md</code>、<code>.env.example</code>（全量注释），以及 <code>.claude/skills/</code>、<code>.codex/skills/</code> 下的部署/运维技能引导；<code>qm init</code> 具备引导式 walkthrough。
+- 概念门槛:需理解 Postgres 持久化、沙箱隔离、模型/harness 切换、安全策略等前置概念，远超一般聊天工具。
+- 示例丰富度:无传统示例代码目录（示例文件 0），但 <code>skills-seed/</code> 下含 30+ 开箱技能与 <code>popular-web-designs</code> 模板集，可作为模仿样本。</p>
+<h3>结论与商业含义</h3>
+<p>QM 的上手体验呈"两极"结构:<strong>面向终端员工的使用层</strong>（Slack/Web 自然语言交互）简单直观，默认配置也可直接使用；<strong>面向组织部署者</strong>（安装、配置、学习成本）则要求具备云基础设施与 AI agent 工具链基础，属于有技术门槛的 B 端产品。CLI 脚手架 + agent 自动部署的设计显著降低了部署启动成本，但依赖多云账号/凭据这一硬前置，拖慢了"从零到可用"的整体节奏。商业化推广时应将"部署者角色"定位为 DevOps/平台工程师，提供托管部署选项或引导式云账号准备流程，以缩短首次价值实现时间。</p>
+<h3>D10 功能价值——使用价值视角（平行维度）</h3>
+<blockquote>
+<p>本维度与 D1–D9 商业评分正交，权重 0%，不计入综合评分；用于补充「使用者效用量级」信息。以下打分基于 GitHub API 实采数据、本地代码实测及 README 功能描述。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10.1</td>
+<td>效用强度</td>
+<td>2.4 / 3</td>
+<td>8/10（良好）</td>
+<td>QM 面向「工作型多 Agent 协同」，提供个人/共享作用域、持久化沙箱、记忆、定时任务、Web 应用发布、Slack 协作等能力，对采用团队而言接近项目级基础设施，可显著节省自研多 Agent 编排成本。但项目仍处 v0.1.x，真实生产环境中的效用稳定性尚未被大量案例验证，因此未到「业务命脉级」满分档。</td>
+</tr>
+<tr>
+<td>D10.2</td>
+<td>实际使用规模</td>
+<td>0.6 / 3</td>
+<td>2/10（严重不足）</td>
+<td>实采 npm 周下载量仅 45；未取到 GitHub Dependents 计数；README 未展示生产用户案例。Star 14,157 与 Fork 1,695 表明关注度高，但下载/依赖证据显示实际采用极少，属于「几乎无人实际使用」档位。</td>
+</tr>
+<tr>
+<td>D10.3</td>
+<td>免费可得的完整效用</td>
+<td>2.0 / 2</td>
+<td>10/10（卓越）</td>
+<td>MIT 许可，仓库内无企业版/付费墙分层证据；核心功能、CLI、插件、部署目录均开源，自托管到自有云账号即可获得完整能力；README 明确「built with open source in mind」，未发现「不付费不可用」设计。</td>
+</tr>
+<tr>
+<td>D10.4</td>
+<td>效用可持续性</td>
+<td>1.6 / 2</td>
+<td>8/10（良好）</td>
+<td>核心为本地/自有云部署形态，Postgres 持久化，不依赖 QM 官方在线服务；MIT 许可可自由分叉，具备 CI 与发布流程，代码完整性足。对 AI 模型 API、外部 harness 有一定依赖，但接口层支持 Pi、OpenCode、Codex、Claude Code 互换，供应商锁定有限。</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>6.6 / 10</strong></td>
+<td></td>
+<td>所有细则均有实采依据，无 N/A。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：QM 在「使用价值」维度呈现明显分化——功能设计本身具备较高效用潜力，免费完整度与可持续性都强；但实际使用规模极低，npm 周下载量 45 与 1.4 万 Star 形成强烈反差，说明当前价值更多是「潜在价值」而非「已验证的规模价值」。本维度得分不进入综合评分，但可用于价值画像：QM 属于「高功能价值、低真实采用验证」的开源项目，其商业化障碍不在功能缺失，而在尚未形成可举证的生产依赖网络。</p>
+<h3>D11 社会价值（正外部性）</h3>
+<blockquote>
+<p>平行维度（权重 0%，不计入综合评分与一票否决，仅用于 3.4 价值画像）。本维度评项目对行业/社会的外溢贡献本身。</p>
+</blockquote>
+<h3>D11.1 数字公共基础设施属性 — 1.2/3</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>关键依赖地位</td>
+<td>属自托管部署型项目，非库级依赖；npm 周下载量仅 45，未形成可观测的下游依赖生态</td>
+</tr>
+<tr>
+<td>停摆影响面</td>
+<td>项目诞生仅约 1 个月（2026-07-29 创建），设计上"每个部署运行在运营者自己的云账号中"，且本仓库无生产部署工作流，停摆几乎不影响任何供应链</td>
+</tr>
+<tr>
+<td>数字公共产品属性</td>
+<td>MIT 许可、开放可复用，符合 DPG 的开放/可复用特征，但服务公共利益的效果尚未经规模验证</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>: npm 周下载 45、无 Dependents 数据、无供应链地位报道；README 明确"初始化不会生成或启用部署 CI，本仓库没有生产部署工作流"，即项目自身刻意不成为被依赖的在线基础设施。当前更接近"开源参考实现"，而非 curl/OpenSSL 式数字底座。按 3–4 档（几乎无下游依赖）计 <strong>40% × 3 = 1.2</strong>。</p>
+<h3>D11.2 教育与人才价值 — 1.0/2.5</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>教学采用</td>
+<td>未见外部教程/课程/awesome 列表收录证据；311 个 open Issue 中无学习者占比数据</td>
+</tr>
+<tr>
+<td>门槛降低效应</td>
+<td>极高 Star（14,157）说明关注度高，但关注≠教学采用；无证据表明其降低了 AI 工程入门门槛</td>
+</tr>
+<tr>
+<td>源码学习价值</td>
+<td>代码规模 26.5 万行 TS、测试比 50.3%、文档 104 文件，工程结构严谨（多 harness 接口抽象、安全分级制度），具备潜在范本价值，但"被阅读/借鉴程度"暂无外部数据佐证</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>: 项目过新，教学采用证据缺失。虽然工程质量和文档体系（104 个文档文件、丰富的 skills-seed 模板）客观上构成学习资源，但按评分指引需有"教程/课程围绕它展开"或"源码被广泛研读"的事实支撑，目前仅有星标热度而无教学证据。按 3–4 档（几乎无教学/学习场景的可验证证据）计 <strong>40% × 2.5 = 1.0</strong>。</p>
+<h3>D11.3 普惠与可及性 — 1.5/2.5</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>能力平权化</td>
+<td>MIT 免费 + 自托管，将"企业级多智能体协作平台"从商业 per-seat SaaS 降为自带云资源的开源方案，明确面向 startup，有真实平权效果</td>
+</tr>
+<tr>
+<td>替代价格差</td>
+<td>对标企业 AI 助手/类 Slack 协作 Agent 商业方案（通常 $20–30/user/月起），本项目软件成本为 0，仅需自备云资源</td>
+</tr>
+<tr>
+<td>可及性支持</td>
+<td>无 i18n/多语言证据，文档全英文；部署门槛高（需 AWS/Fly + Postgres + 云沙箱），无 Dockerfile</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>: 免费/开源/自托管确实显著降低中小团队的采购成本，符合"普惠效果"；但部署依赖云基础设施与较强技术能力，且无多语言支持，限制了对欠发达地区及非技术人群的可及性。按 5–6 档（有普惠效果但受技术门槛/语言/硬件限制）计 <strong>60% × 2.5 = 1.5</strong>。</p>
+<h3>D11.4 开放标准与行业推动 — 1.2/2</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>标准推动</td>
+<td>采用 MCP SDK（@modelcontextprotocol/sdk 在 devDependencies）；核心设计为多 harness（Pi/OpenCode/Codex/Claude Code）接口抽象，明确"部署不绑定任何单一厂商"，有反锁定的正向推动；但未定义或主导任何开放标准</td>
+</tr>
+<tr>
+<td>科研支撑</td>
+<td>论文引用/学术使用数据不可得（N/A）</td>
+</tr>
+<tr>
+<td>行业示范效应</td>
+<td>项目过新（约 1 个月），"安全分级 + 多 harness 可插拔"设计理念有一定示范潜力，但无同行借鉴痕迹可查</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>: 项目主动实现多 harness 互操作并集成 MCP，属于"实现并推广开放互操作理念"，弱于"主导行业标准"；其安全分级（Strict/Auto/Dangerous）、沙箱隔离等工程实践有抬高行业水位的潜力但尚无实证。介于 5–6 档（遵循开放理念/有局部推动）计 <strong>60% × 2 = 1.2</strong>。</p>
+<h3>D11 小结</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>分值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D11.1</td>
+<td>数字公共基础设施属性</td>
+<td>1.2 / 3</td>
+</tr>
+<tr>
+<td>D11.2</td>
+<td>教育与人才价值</td>
+<td>1.0 / 2.5</td>
+</tr>
+<tr>
+<td>D11.3</td>
+<td>普惠与可及性</td>
+<td>1.5 / 2.5</td>
+</tr>
+<tr>
+<td>D11.4</td>
+<td>开放标准与行业推动</td>
+<td>1.2 / 2</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>4.9 / 10</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>: QM 正外部性整体偏弱（4.9/10），核心原因在于项目生命周期极短（约 1 个月），外部溢出尚未兑现：npm 周下载 45、无下游依赖生态、无教学采用证据，均与其 14.1k Star 的高关注度形成反差。当前正外部性主要体现在三方面——MIT 免费自托管对中小团队采购成本的平权效果、多 harness 可插拔架构对厂商锁定的制衡设计、以及高测试比/完整文档的潜在工程范本价值。若项目持续演进并形成真实部署量，D11.1 与 D11.2 存在显著的向上修正空间。本维度置信度中等：关键外部证据（教程、引用、依赖方）缺失，部分判断依赖项目自身素材的间接推断。</p>
+<h2>五、商业化价值判断</h2>
+<h3>5.1 综合价值评估</h3>
+<p>QM 的综合评分为 <strong>73.5/100</strong>，等级 <strong>A（高商业化潜力）</strong>，价值画像为 <strong>💼 纯商业工具</strong>。这意味着项目具备明确的商业化变现基础，且公共价值（功能价值 6.6 + 社会价值 4.9）不构成对商业化的约束或补充，应按照纯商业逻辑推进变现。</p>
+<h3>5.2 核心价值支撑</h3>
+<p><strong>（1）市场需求与时机窗口（D5 支撑）</strong></p>
+<p>QM 定位为"多人隔离工作区 + 多 harness 可插拔 + 部署目录/私有 fork 定制模型"的多智能体协作平台，在开源领域无同量级对标。实测确认的最大直接竞品 friday-studio 仅 99 Star，QM 的 14,157 Star 约为其 <strong>143 倍</strong>。项目创建仅 27 天即获得如此量级的关注度，表明市场对多 Agent 协作编排存在真实且迫切的需求。品类演化与大厂入场风险中等，时间窗口约 <strong>1-2 年</strong>。</p>
+<p><strong>（2）技术壁垒与切换成本（D5/D7 支撑）</strong></p>
+<ul>
+<li><strong>技术壁垒中等</strong>：四个 harness（Pi/OpenCode/Codex/Claude Code）统一核心接口 + 三级安全姿态 + 部署目录契约构成防御，但无专利/独占数据，跨组织网络效应弱（skills 仅有 grant 共享，无 marketplace）。</li>
+<li><strong>切换成本较高</strong>：Postgres 会话/记忆/文件 + 部署目录 + Slack 协作流程 + crons/watches/webhooks 三重绑定，组织迁移需重建 AI 工作流基础设施。</li>
+</ul>
+<p><strong>（3）企业级就绪度突出（D7 支撑，8.5 分为九维最高）</strong></p>
+<ul>
+<li>安全体系完整：OIDC SSO + Scope 级权限模型（20+ 管理资源）+ 审计日志 + 凭据加密存储 + 三档安全姿态 + egress proxy。</li>
+<li>配置管理企业级：环境变量 + 严格类型校验（约 100+ 配置项），qm secrets push 直传 AWS Secrets Manager/Fly。</li>
+<li>双后端部署（Fly.io + AWS），API 完备（REST + MCP + Webhook）。</li>
+</ul>
+<p><strong>（4）法律环境通畅（D6 支撑）</strong></p>
+<p>MIT 许可清晰且无商业限制附加条款，依赖链未观测到 GPL/AGPL 传染性协议，商业变现路径（含闭源/SaaS）法律通畅。</p>
+<h3>5.3 价值兑现的核心矛盾</h3>
+<p><strong>Star 热度与真实采用之间的巨大落差</strong>是商业化面临的核心矛盾：</p>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>数值</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Star 数</td>
+<td>14,157</td>
+<td>关注度极高</td>
+</tr>
+<tr>
+<td>npm 周下载量</td>
+<td>45</td>
+<td>实际采用极少</td>
+</tr>
+<tr>
+<td>生产用户案例</td>
+<td>无</td>
+<td>效用未被验证</td>
+</tr>
+<tr>
+<td>贡献者</td>
+<td>6 人</td>
+<td>社区结构单一</td>
+</tr>
+</tbody>
+</table>
+<p>Star 与下载量相差 <strong>300 倍以上</strong>，说明当前热度主要来自 AI 概念关注与早期尝鲜，而非真实生产需求。D10.2（实际使用规模）仅得 0.6/3 分，是全部细则中最低分。商业化的第一步不是"如何变现"，而是"如何将 Star 热度转化为真实用户"。</p>
+<h3>5.4 商业化价值结论</h3>
+<p><strong>当前价值定位</strong>：QM 是一个<strong>高潜力、早期阶段</strong>的商业化标的。其价值不在于当前的收入能力（付费证据为零），而在于：
+1. <strong>品类定义权</strong>：在多 Agent 协作编排这一新兴品类中占据先发位置；
+2. <strong>企业级安全架构</strong>：已具备向中大型企业销售的技术基础；
+3. <strong>MIT 协议的商业灵活性</strong>：Open Core、SaaS 托管、双协议等路径均可行。</p>
+<p><strong>建议商业化时机</strong>：立即启动商业化准备，但优先完成"从 Star 到用户"的转化验证，再大规模投入变现基础设施建设。</p>
+<h2>六、商业路径分析</h2>
+<h3>6.1 最优路径：Open Core + 托管服务（SaaS）</h3>
+<p><strong>路径描述</strong>：参照 GitLab/Supabase 模式，开源版保留核心协作能力，企业版/托管版提供高级功能。</p>
+<p><strong>具体分层建议</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>层级</th>
+<th>功能范围</th>
+<th>目标用户</th>
+<th>定价参考</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>开源版（MIT）</td>
+<td>核心多 Agent 协作、自托管、基础安全</td>
+<td>开发者/小团队</td>
+<td>免费</td>
+</tr>
+<tr>
+<td>托管版（SaaS）</td>
+<td>零运维部署、SLA 保障、自动升级</td>
+<td>中小团队</td>
+<td>$50-$200/月</td>
+</tr>
+<tr>
+<td>企业版</td>
+<td>SSO 增强、审计合规、私有化部署、专属支持</td>
+<td>中大型企业</td>
+<td>$1K-$10K/年</td>
+</tr>
+</tbody>
+</table>
+<p><strong>依据</strong>：
+- D4.1 得满分 2.0：MIT 对变现模式无任何约束，Open Core、SaaS 托管、专业服务、双协议等路径均可行（D4 key_findings）。
+- D4.2 得 2.8/3.5：主变现路径可参照 GitLab/Supabase 的 Open Core + 托管服务模式（D4 key_findings）。
+- D7 企业就绪度 8.5 分：安全体系（OIDC SSO、审计日志、凭据加密）已具备企业销售基础。</p>
+<h3>6.2 备选路径：企业服务与私有化支持</h3>
+<p><strong>路径描述</strong>：依托现有企业级安全架构，提供私有化部署、定制开发、培训与技术支持服务。</p>
+<p><strong>适用场景</strong>：
+- 对数据主权有严格要求的企业（金融、政务、医疗）；
+- 需要深度定制 harness 或工作流的大型组织；
+- 已有 AWS 基础设施、希望完全内网部署的团队。</p>
+<p><strong>依据</strong>：
+- D7.1 得 2.4/3：双后端部署（Fly.io + AWS）+ 版本门禁 + 回滚 API 支撑企业级交付。
+- D4.4 得 1.6/2：增值空间集中于托管运维、SLA、安全合规与企业支持，客单价可达 $1K-$10K/年量级。</p>
+<h3>6.3 暂不建议的路径</h3>
+<table>
+<thead>
+<tr>
+<th>路径</th>
+<th>不建议原因</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>插件/应用市场抽成</td>
+<td>D5 显示 skills 仅有 grant 共享，无 marketplace 基础，跨组织网络效应弱</td>
+</tr>
+<tr>
+<td>双协议（MIT + 商业授权）</td>
+<td>D6.4 显示无 CLA/DCO 配置，版权归 'QM contributors' 集体所有，双协议再授权能力受限</td>
+</tr>
+<tr>
+<td>广告/流量变现</td>
+<td>与开发者工具定位不符，且 D10.2 显示实际用户基数过小</td>
+</tr>
+</tbody>
+</table>
+<h3>6.4 路径优先级与时间线</h3>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>时间</th>
+<th>重点动作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>第一阶段：用户验证</td>
+<td>0-3 个月</td>
+<td>将 Star 热度转化为 npm 下载与生产部署；建立用户访谈机制；发布 2-3 个标杆案例</td>
+</tr>
+<tr>
+<td>第二阶段：托管服务 MVP</td>
+<td>3-6 个月</td>
+<td>推出托管版（SaaS），验证付费意愿；建立定价体系</td>
+</tr>
+<tr>
+<td>第三阶段：企业版拓展</td>
+<td>6-12 个月</td>
+<td>推出企业版（私有化 + 高级安全 + SLA）；组建销售/解决方案团队</td>
+</tr>
+</tbody>
+</table>
+<h3>6.5 价值画像对路径的修正</h3>
+<p><strong>💼 纯商业工具</strong>画像下，无需特别考虑公共价值维护成本，可按照 D4 最优路径直接变现。但需注意：MIT 协议下，若托管服务体验不佳，用户可随时自托管迁移，因此 <strong>SaaS 层的差异化体验</strong>（零运维、自动升级、SLA）是付费转化的关键。</p>
+<h2>七、能力评估：能做什么 &amp; 最适合做什么</h2>
+<h3>7.1 核心能力清单</h3>
+<table>
+<thead>
+<tr>
+<th>能力域</th>
+<th>具体能力</th>
+<th>成熟度</th>
+<th>证据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>多 Agent 编排</strong></td>
+<td>统一接入 Pi/OpenCode/Codex/Claude Code 四个 harness</td>
+<td>高</td>
+<td>D5：四个 harness 统一核心接口</td>
+</tr>
+<tr>
+<td><strong>企业级安全</strong></td>
+<td>OIDC SSO、Scope 级权限（20+ 资源）、审计日志、凭据加密、三档安全姿态、egress proxy</td>
+<td>高</td>
+<td>D7：8.5 分，九维最高</td>
+</tr>
+<tr>
+<td><strong>持久化与记忆</strong></td>
+<td>Postgres 会话/记忆/文件持久化，共享上下文</td>
+<td>高</td>
+<td>D5：切换成本分析</td>
+</tr>
+<tr>
+<td><strong>团队协作</strong></td>
+<td>Slack 协作流程、Web 应用发布、后台任务</td>
+<td>中高</td>
+<td>D5/D7：Slack Socket/HTTP 集成</td>
+</tr>
+<tr>
+<td><strong>部署灵活性</strong></td>
+<td>Fly.io + AWS 双后端、Docker 容器化（10 个 Dockerfile）</td>
+<td>高</td>
+<td>D7/D9：双后端部署</td>
+</tr>
+<tr>
+<td><strong>API 完备性</strong></td>
+<td>REST + MCP + Webhook + OAuth2/PKCE</td>
+<td>高</td>
+<td>D7：标准协议支持</td>
+</tr>
+<tr>
+<td><strong>自动化工作流</strong></td>
+<td>crons/watches/webhooks 三重绑定</td>
+<td>中高</td>
+<td>D5：切换成本分析</td>
+</tr>
+<tr>
+<td><strong>可观测性</strong></td>
+<td>仅健康检查，无 Prometheus/OpenTelemetry</td>
+<td>低</td>
+<td>D7：主要短板</td>
+</tr>
+</tbody>
+</table>
+<h3>7.2 最适合做什么</h3>
+<p><strong>（1）企业级多 Agent 协作平台（首选）</strong></p>
+<p>QM 最强的能力组合是"多 Agent 编排 + 企业级安全 + 团队协作"。最适合的定位是：<strong>面向中大型企业的私有化/托管式多智能体协作平台</strong>。其安全架构（OIDC SSO、审计日志、凭据加密）直接对标企业采购标准，而多 harness 可插拔设计降低了厂商锁定顾虑。</p>
+<p><strong>（2）AI 研发效能基础设施（次选）</strong></p>
+<p>作为团队 AI 编码代理的统一入口，QM 可定位为"AI 时代的 CI/CD"——研发团队的基础设施层。其 Postgres 持久化 + 部署目录 + 版本门禁的设计，已具备研发效能平台（类似 Jenkins/GitLab CI 的 AI 版本）的雏形。</p>
+<p><strong>（3）行业垂直解决方案底座（探索）</strong></p>
+<p>基于 QM 的部署目录与 skills 机制，可针对特定行业（如金融科技、医疗健康）构建垂直解决方案。但当前 skills 生态空白（无 marketplace），此路径需较长时间培育。</p>
+<h3>7.3 不适合做什么</h3>
+<table>
+<thead>
+<tr>
+<th>不适合方向</th>
+<th>原因</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>面向个人开发者的轻量工具</td>
+<td>部署门槛高（Node&gt;=24.15 + 云账号 + Postgres），个人用户难以独立完成</td>
+</tr>
+<tr>
+<td>通用 AI 聊天机器人</td>
+<td>定位是企业级协作平台，非个人助手</td>
+</tr>
+<tr>
+<td>低代码/无代码平台</td>
+<td>配置项 100+，概念门槛偏高，非技术用户难以驾驭</td>
+</tr>
+</tbody>
+</table>
+<h2>八、短板识别：还缺少什么</h2>
+<h3>8.1 关键短板（按严重程度排序）</h3>
+<p><strong>（1）实际用户基础薄弱（最严重）</strong></p>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>数值</th>
+<th>问题</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>npm 周下载量</td>
+<td>45</td>
+<td>与 14,157 Star 形成 300 倍反差</td>
+</tr>
+<tr>
+<td>生产用户案例</td>
+<td>无</td>
+<td>README 无任何企业采用证据</td>
+</tr>
+<tr>
+<td>GitHub Dependents</td>
+<td>未取到</td>
+<td>无下游依赖生态</td>
+</tr>
+</tbody>
+</table>
+<p>D10.2（实际使用规模）仅得 0.6/3，是全部维度中最低分。<strong>没有真实用户，一切商业化无从谈起。</strong></p>
+<p><strong>（2）社区结构单一，外部贡献不足</strong></p>
+<ul>
+<li>贡献者仅 6 人，集中于 yc-software 组织（D3.2 得 1.5/2.5）；</li>
+<li>开放 Issue 311 个，近 90 天仅关闭 30 个，积压明显（D3.1 得 2.4/3）；</li>
+<li>无第三方生态，外部集成与衍生项目空白（D3.3 得 1.2/3）。</li>
+</ul>
+<p><strong>（3）治理机制不完善</strong></p>
+<ul>
+<li>无独立 GOVERNANCE.md，决策由核心团队主导（D8.2 得 1.2/2）；</li>
+<li>无 CLA/DCO 配置，双协议再授权能力受限（D6.4 得 1.2/2）；</li>
+<li>无 CODEOWNERS，代码评审责任不明确（D8 hard_facts）。</li>
+</ul>
+<p><strong>（4）可观测性不足</strong></p>
+<ul>
+<li>仅健康检查，无 Prometheus/OpenTelemetry 标准监控（D7.3 得 2.0/3）；</li>
+<li>无结构化日志，企业运维排障困难。</li>
+</ul>
+<p><strong>（5）数据迁移自动化缺失</strong></p>
+<ul>
+<li>Postgres 迁移为手工 ALTER TABLE，无自动迁移工具（D7.1 得 2.4/3）；</li>
+<li>升级路径有版本门禁与回滚 API 支撑，但自动化不足。</li>
+</ul>
+<p><strong>（6）法律合规细节待完善</strong></p>
+<ul>
+<li>核心依赖 @earendil-works/pi-ai 等许可证未确认（D6.2 得 2.0/2.5）；</li>
+<li>商标与专利未经人工核查（D6.3 得 1.5/2.5）；</li>
+<li>无商标政策（D6 hard_facts）。</li>
+</ul>
+<h3>8.2 短板对商业化的影响</h3>
+<table>
+<thead>
+<tr>
+<th>短板</th>
+<th>对商业化的影响</th>
+<th>严重程度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>用户基础薄弱</td>
+<td>无法验证付费意愿，SaaS 无人购买</td>
+<td>🔴 致命</td>
+</tr>
+<tr>
+<td>社区单一</td>
+<td>生态无法形成，网络效应缺失</td>
+<td>🟡 重要</td>
+</tr>
+<tr>
+<td>治理不完善</td>
+<td>企业客户尽调不过关，双协议受限</td>
+<td>🟡 重要</td>
+</tr>
+<tr>
+<td>可观测性不足</td>
+<td>企业运维不达标，SLA 无法承诺</td>
+<td>🟡 重要</td>
+</tr>
+<tr>
+<td>迁移自动化缺失</td>
+<td>升级风险高，企业不敢采用</td>
+<td>🟢 次要</td>
+</tr>
+<tr>
+<td>法律细节待完善</td>
+<td>商业化前需完成 FTO 检索</td>
+<td>🟢 次要</td>
+</tr>
+</tbody>
+</table>
+<h2>九、风险提示</h2>
+<h3>9.1 高风险项</h3>
+<p><strong>（1）热度泡沫风险（高概率 × 高影响）</strong></p>
+<p>当前 14,157 Star 与 45 周下载量的极端反差，可能意味着市场热度主要由 AI 概念驱动而非真实需求。若项目无法在 3-6 个月内将 Star 转化为实际用户，热度将快速消退，商业化窗口关闭。<strong>建议</strong>：优先投入用户获取与案例验证，而非变现基础设施建设。</p>
+<p><strong>（2）大厂入场风险（中概率 × 高影响）</strong></p>
+<p>多 Agent 协作编排是 AI 基础设施的热门赛道，Anthropic、OpenAI、Google 等大厂均有布局可能。D5 评估时间窗口约 1-2 年，若大厂推出同类开源产品，QM 的差异化优势（多 harness 可插拔）可能被稀释。<strong>建议</strong>：加速企业级功能完善，建立切换成本壁垒。</p>
+<h3>9.2 中风险项</h3>
+<p><strong>（3）核心维护者单点风险（中概率 × 中影响）</strong></p>
+<p>贡献者仅 6 人且集中于 yc-software 组织，若核心团队（或公司）战略调整，项目可能停滞。D8.4 得 2.4/3，传承机制未被验证。<strong>建议</strong>：建立 CODEOWNERS 与治理文档，吸引外部核心贡献者。</p>
+<p><strong>（4）依赖许可证风险（中概率 × 中影响）</strong></p>
+<p>@earendil-works/pi-ai 等核心依赖许可证未确认，pi-coding-agent 通过 GitHub release URL 引入，存在许可证合规隐患。<strong>建议</strong>：商业化前完成依赖许可证清单核验。</p>
+<p><strong>（5）Issue 积压风险（中概率 × 中影响）</strong></p>
+<p>311 个开放 Issue 与 30 个/90 天关闭速度形成积压，若持续恶化将影响社区信任与用户留存。<strong>建议</strong>：建立 Issue 分类与响应 SLA。</p>
+<h3>9.3 低风险项</h3>
+<p><strong>（6）商标与专利风险（低概率 × 中影响）</strong></p>
+<p>'qm' 为通用缩写，商标冲突可能性存在但未核查。<strong>建议</strong>：商业化前完成 FTO 检索与商标注册评估。</p>
+<p><strong>（7）协议传染风险（低概率 × 高影响）</strong></p>
+<p>当前未观测到 GPL/AGPL 传染性依赖，但依赖链较长（28 个直接依赖），新增依赖需持续监控。<strong>建议</strong>：建立依赖许可证自动检查机制。</p>
+<h3>9.4 风险矩阵总结</h3>
+<table>
+<thead>
+<tr>
+<th>风险</th>
+<th>概率</th>
+<th>影响</th>
+<th>优先级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>热度泡沫</td>
+<td>高</td>
+<td>高</td>
+<td>🔴 P0</td>
+</tr>
+<tr>
+<td>大厂入场</td>
+<td>中</td>
+<td>高</td>
+<td>🟠 P1</td>
+</tr>
+<tr>
+<td>核心维护者单点</td>
+<td>中</td>
+<td>中</td>
+<td>🟡 P2</td>
+</tr>
+<tr>
+<td>依赖许可证</td>
+<td>中</td>
+<td>中</td>
+<td>🟡 P2</td>
+</tr>
+<tr>
+<td>Issue 积压</td>
+<td>中</td>
+<td>中</td>
+<td>🟡 P2</td>
+</tr>
+<tr>
+<td>商标与专利</td>
+<td>低</td>
+<td>中</td>
+<td>🟢 P3</td>
+</tr>
+<tr>
+<td>协议传染</td>
+<td>低</td>
+<td>高</td>
+<td>🟢 P3</td>
+</tr>
+</tbody>
+</table>
+<h2>十、结论与建议</h2>
+<h3>10.1 综合结论</h3>
+<p><strong>yc-software/qm 是一个高商业化潜力（A 级，73.5/100）的早期 AI 基础设施项目</strong>，价值画像为 💼 纯商业工具。项目在以下方面具备显著优势：</p>
+<ul>
+<li><strong>品类先发</strong>：多 Agent 协作编排的开源领域无同量级对标（最大竞品仅为其 1/143）；</li>
+<li><strong>企业级安全架构</strong>：OIDC SSO、审计日志、凭据加密等能力已达到企业采购标准；</li>
+<li><strong>MIT 协议的商业灵活性</strong>：Open Core、SaaS 托管等路径法律通畅；</li>
+<li><strong>技术工程质量</strong>：26 万行代码、50.3% 测试覆盖率、4 个 release/月，工程规范顶尖。</li>
+</ul>
+<p><strong>但项目面临的核心矛盾是：Star 热度（14,157）与真实采用（npm 周下载 45）之间的巨大落差</strong>。商业化成功的关键不在于"如何变现"，而在于"如何将关注度转化为真实用户"。</p>
+<h3>10.2 分级建议</h3>
+<p><strong>对项目方（yc-software）</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>优先级</th>
+<th>行动项</th>
+<th>时间窗口</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P0</td>
+<td>将 Star 热度转化为 npm 下载与生产部署；发布 2-3 个标杆用户案例</td>
+<td>0-3 个月</td>
+</tr>
+<tr>
+<td>P0</td>
+<td>建立用户反馈闭环，验证付费意愿</td>
+<td>0-3 个月</td>
+</tr>
+<tr>
+<td>P1</td>
+<td>推出托管版（SaaS）MVP，验证付费转化</td>
+<td>3-6 个月</td>
+</tr>
+<tr>
+<td>P1</td>
+<td>完善治理机制（GOVERNANCE.md、CLA/DCO、CODEOWNERS）</td>
+<td>3-6 个月</td>
+</tr>
+<tr>
+<td>P2</td>
+<td>补齐可观测性（Prometheus/OpenTelemetry）与自动迁移工具</td>
+<td>6-12 个月</td>
+</tr>
+<tr>
+<td>P2</td>
+<td>完成依赖许可证核验与 FTO 检索</td>
+<td>商业化前</td>
+</tr>
+</tbody>
+</table>
+<p><strong>对潜在投资者/合作伙伴</strong>：</p>
+<ul>
+<li><strong>当前阶段（0-3 个月）</strong>：建议观望，重点观察 npm 下载量增长趋势与用户案例发布情况；</li>
+<li><strong>中期（3-6 个月）</strong>：若托管版 MVP 上线且获得首批付费用户，可考虑天使/种子轮投资；</li>
+<li><strong>估值参考</strong>：当前无收入，估值应基于团队能力（26 天 26 万行代码）与品类先发位置，而非 Star 数。</li>
+</ul>
+<p><strong>对潜在用户（企业）</strong>：</p>
+<ul>
+<li>项目处于 v0.1.x 快速迭代期，<strong>不建议生产环境依赖</strong>；</li>
+<li>可小规模试点（非关键业务），验证多 Agent 协作效率提升；</li>
+<li>关注项目治理完善度（GOVERNANCE.md、CLA）后再做长期采用决策。</li>
+</ul>
+<h3>10.3 最终判定</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>商业化等级</td>
+<td><strong>A（高商业化潜力）</strong></td>
+</tr>
+<tr>
+<td>综合评分</td>
+<td><strong>73.5/100</strong></td>
+</tr>
+<tr>
+<td>价值画像</td>
+<td><strong>💼 纯商业工具</strong></td>
+</tr>
+<tr>
+<td>建议行动</td>
+<td><strong>可投入商业化，需优先补齐"用户验证"短板</strong></td>
+</tr>
+<tr>
+<td>商业化路径</td>
+<td><strong>Open Core + 托管服务（SaaS）为主，企业服务为备选</strong></td>
+</tr>
+<tr>
+<td>关键里程碑</td>
+<td>3 个月内 npm 周下载量突破 1,000；6 个月内获得首批付费用户</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<blockquote>
+<p><strong>免责声明</strong>：本报告基于公开数据与自动化分析生成，D1（市场需求）与 D2（技术成熟度）维度因分析流程降级未纳入综合评分，实际综合评分可能有所偏差。商标与专利未经人工核查，建议商业化前完成专业法律尽调。</p>
+</blockquote>
+<h2>十一、项目地址</h2>
+<p><svg class="ri ri-muted" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.001 2C6.47598 2 2.00098 6.475 2.00098 12C2.00098 16.425 4.86348 20.1625 8.83848 21.4875C9.33848 21.575 9.52598 21.275 9.52598 21.0125C9.52598 20.775 9.51348 19.9875 9.51348 19.15C7.00098 19.6125 6.35098 18.5375 6.15098 17.975C6.03848 17.6875 5.55098 16.8 5.12598 16.5625C4.77598 16.375 4.27598 15.9125 5.11348 15.9C5.90098 15.8875 6.46348 16.625 6.65098 16.925C7.55098 18.4375 8.98848 18.0125 9.56348 17.75C9.65098 17.1 9.91348 16.6625 10.201 16.4125C7.97598 16.1625 5.65098 15.3 5.65098 11.475C5.65098 10.3875 6.03848 9.4875 6.67598 8.7875C6.57598 8.5375 6.22598 7.5125 6.77598 6.1375C6.77598 6.1375 7.61348 5.875 9.52598 7.1625C10.326 6.9375 11.176 6.825 12.026 6.825C12.876 6.825 13.726 6.9375 14.526 7.1625C16.4385 5.8625 17.276 6.1375 17.276 6.1375C17.826 7.5125 17.476 8.5375 17.376 8.7875C18.0135 9.4875 18.401 10.375 18.401 11.475C18.401 15.3125 16.0635 16.1625 13.8385 16.4125C14.201 16.725 14.5135 17.325 14.5135 18.2625C14.5135 19.6 14.501 20.675 14.501 21.0125C14.501 21.275 14.6885 21.5875 15.1885 21.4875C19.259 20.1133 21.9999 16.2963 22.001 12C22.001 6.475 17.526 2 12.001 2Z"/></svg> <a href="https://github.com/yc-software/qm">https://github.com/yc-software/qm</a></p>
+<hr />
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+</blockquote>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家　<a href="https://www.mova.work">www.mova.work</a></p></body></html>

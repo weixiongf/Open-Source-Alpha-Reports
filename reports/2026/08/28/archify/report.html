@@ -1,0 +1,1683 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><title>Archify 商业价值分析报告</title><style>/* default — 品牌蓝紫主题（从 md2pdf.py 原 CSS 常量迁出，视觉与历史产物一致） */
+@page { size: A4; margin: 18mm 15mm 20mm 15mm; }
+* { box-sizing: border-box; }
+/* 字体规范：一律开源思源黑体 CN（OFL 免费商用）；正文 Regular/标题 Bold/大字数字 Light */
+body { font-family: "Source Han Sans CN","思源黑体 CN","Noto Sans SC",sans-serif; color:#1e293b; font-size:10.5pt; line-height:1.75; margin:0; }
+.cover { page-break-after: always; text-align:center; padding-top:40px; }
+.cover .kicker { color:#2563eb; letter-spacing:6px; font-size:12pt; font-weight:500; }
+.cover h1 { font-size:26pt; margin:14px 0 6px; }
+.cover .sub { color:#64748b; font-size:11pt; margin-bottom:22px; }
+.badge { display:inline-block; background:linear-gradient(135deg,#2563eb,#7c3aed); color:#fff; border-radius:18px; padding:16px 44px; margin:10px 0 18px; }
+.badge .g { font-size:34pt; font-weight:300; line-height:1; }
+.badge .s { font-size:12pt; opacity:.92; margin-top:4px; }
+.meta { color:#475569; font-size:9.5pt; margin-top:14px; }
+.bars { max-width:620px; margin:20px auto 0; text-align:left; }
+.bar-row { display:flex; align-items:center; gap:8px; margin:5px 0; font-size:9pt; }
+.bar-name { width:110px; text-align:right; color:#334155; font-weight:500; }
+.bar-track { flex:1; height:9px; background:#f1f5f9; border-radius:5px; overflow:hidden; }
+.bar-fill { display:block; height:100%; border-radius:5px; }
+.bar-val { width:30px; font-weight:700; color:#0f172a; }
+.bar-w { width:52px; color:#94a3b8; font-size:8pt; }
+h1 { font-size:17pt; color:#0f172a; border-bottom:3px solid #2563eb; padding-bottom:8px; }
+h2 { font-size:13.5pt; color:#1d4ed8; margin-top:26px; page-break-after: avoid; border-left:5px solid #2563eb; padding-left:10px; }
+h3 { font-size:11.5pt; color:#0f172a; margin-top:18px; page-break-after: avoid; }
+table { border-collapse:collapse; width:100%; margin:10px 0; font-size:9pt; page-break-inside:avoid; }
+th { background:#eff6ff; color:#1e3a8a; }
+th,td { border:1px solid #dbe3ef; padding:5px 8px; text-align:left; }
+tr:nth-child(even) td { background:#f8fafc; }
+code { background:#f1f5f9; border-radius:4px; padding:1px 5px; font-family:"JetBrains Mono","Cascadia Mono",monospace; font-size:9pt; color:#be185d; }
+pre { background:#0f172a; color:#e2e8f0; border-radius:8px; padding:12px 14px; overflow-x:auto; page-break-inside:avoid; }
+pre code { background:none; color:inherit; padding:0; }
+blockquote { border-left:4px solid #93c5fd; background:#eff6ff; margin:10px 0; padding:8px 14px; color:#334155; border-radius:0 8px 8px 0; }
+hr { border:none; border-top:1px dashed #cbd5e1; margin:22px 0; }
+strong { color:#0f172a; }
+.cover .disclaimer { max-width:620px; margin:16px auto 0; color:#64748b; font-size:8.5pt; line-height:1.6; text-align:left; border:1px solid #e2e8f0; border-radius:8px; padding:8px 12px; background:#f8fafc; }
+.credit { color:#2563eb; font-size:10.5pt; font-weight:700; letter-spacing:1px; margin-top:12px; }
+.at-acc { background:#dbeafe; color:#1d4ed8; border-radius:4px; padding:0 4px; font-weight:500; white-space:nowrap; }
+.tail { page-break-inside:avoid; margin-top:26px; border-top:2px solid #2563eb; padding-top:14px; }
+.tail p { color:#64748b; font-size:8.5pt; line-height:1.6; margin:0 0 10px; }
+.tail .credit { text-align:center; margin:0; }
+/* Remix Icon 内联 SVG（icon_mode=remix 时由脚本注入，语义色与评分条一致） */
+.ri { width:1.05em; height:1.05em; vertical-align:-0.18em; display:inline-block; }
+.ri-ok { color:#16a34a; } .ri-warn { color:#d97706; } .ri-bad { color:#dc2626; }
+.ri-muted { color:#64748b; } .ri-star { color:#f59e0b; } .ri-brand { color:#2563eb; }
+.ri-gold { color:#d4a017; } .ri-silver { color:#9ca3af; } .ri-bronze { color:#b45309; }
+/* 屏幕预览：@page 边距仅在打印时生效，浏览器中居中限宽并收边（不影响 PDF 输出） */
+@media screen {
+  body { margin: 0 auto; padding: 28px 36px 56px; max-width: 900px; }
+}
+</style></head><body><div class="cover">
+<div class="kicker">开源项目商业化潜力分析 · 第 29 期</div>
+<h1>GitHub 开源项目 Archify<br>商业价值分析报告</h1>
+<div class="sub">tt-a1i/archify · Agent-native 可验证图表生成工具 · 76.3分 A级 高商业化潜力</div>
+<div class="badge"><div class="g">A 级 · 76.3</div><div class="s">综合评分（满分 100）· 高商业化潜力</div></div>
+<div><svg viewBox="0 0 560 480" width="560" height="480" xmlns="http://www.w3.org/2000/svg"><polygon points="280.0,209.6 299.5,216.7 309.9,234.7 306.3,255.2 290.4,268.6 269.6,268.6 253.7,255.2 250.1,234.7 260.5,216.7" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,179.2 319.1,193.4 339.9,229.4 332.7,270.4 300.8,297.1 259.2,297.1 227.3,270.4 220.1,229.4 240.9,193.4" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,148.8 338.6,170.1 369.8,224.2 359.0,285.6 311.2,325.7 248.8,325.7 201.0,285.6 190.2,224.2 221.4,170.1" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,118.4 358.2,146.8 399.8,218.9 385.3,300.8 321.6,354.3 238.4,354.3 174.7,300.8 160.2,218.9 201.8,146.8" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,88.0 377.7,123.6 429.7,213.6 411.6,316.0 332.0,382.8 228.0,382.8 148.4,316.0 130.3,213.6 182.3,123.6" fill="none" stroke="#e2e8f0" stroke-width="1"/><line x1="280.0" y1="240.0" x2="280.0" y2="88.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="377.7" y2="123.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="429.7" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="411.6" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="332.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="228.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="148.4" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="130.3" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="182.3" y2="123.6" stroke="#d8dee9" stroke-width="1"/><polygon points="280.0,110.8 361.4,143.0 383.3,221.8 362.9,287.9 321.6,354.3 238.9,352.8 185.2,294.7 148.3,216.8 280.0,240.0" fill="rgba(37,99,235,.22)" stroke="#2563eb" stroke-width="2.5"/><circle cx="280.0" cy="110.8" r="3.5" fill="#2563eb"/><circle cx="361.4" cy="143.0" r="3.5" fill="#2563eb"/><circle cx="383.3" cy="221.8" r="3.5" fill="#2563eb"/><circle cx="362.9" cy="287.9" r="3.5" fill="#2563eb"/><circle cx="321.6" cy="354.3" r="3.5" fill="#2563eb"/><circle cx="238.9" cy="352.8" r="3.5" fill="#2563eb"/><circle cx="185.2" cy="294.7" r="3.5" fill="#2563eb"/><circle cx="148.3" cy="216.8" r="3.5" fill="#2563eb"/><circle cx="280.0" cy="240.0" r="3.5" fill="#2563eb"/><text x="280.0" y="44.0" text-anchor="middle" font-size="12.5" fill="#334155" font-weight="600">D1</text><text x="280.0" y="58.0" text-anchor="middle" font-size="11" fill="#64748b">市场需求 8.5</text><text x="406.0" y="89.9" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D2</text><text x="406.0" y="103.9" text-anchor="start" font-size="11" fill="#64748b">技术成熟度 8.33</text><text x="473.0" y="206.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D3</text><text x="473.0" y="220.0" text-anchor="start" font-size="11" fill="#64748b">社区生态 6.9</text><text x="449.7" y="338.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D4</text><text x="449.7" y="352.0" text-anchor="start" font-size="11" fill="#64748b">变现潜力 6.3</text><text x="347.0" y="424.2" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D5</text><text x="347.0" y="438.2" text-anchor="start" font-size="11" fill="#64748b">竞争格局 8.0</text><text x="213.0" y="424.2" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D6</text><text x="213.0" y="438.2" text-anchor="end" font-size="11" fill="#64748b">法律合规 7.9</text><text x="110.3" y="338.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D7</text><text x="110.3" y="352.0" text-anchor="end" font-size="11" fill="#64748b">企业就绪 7.2</text><text x="87.0" y="206.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D8</text><text x="87.0" y="220.0" text-anchor="end" font-size="11" fill="#64748b">团队治理 8.8</text><text x="154.0" y="89.9" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D9</text><text x="154.0" y="103.9" text-anchor="end" font-size="11" fill="#64748b">上手难度 N/A</text></svg></div>
+<div class="bars"><div class="bar-row"><span class="bar-name">D8 团队治理</span>
+<span class="bar-track"><span class="bar-fill" style="width:88.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.8</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D1 市场需求</span>
+<span class="bar-track"><span class="bar-fill" style="width:85.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.5</span><span class="bar-w">权重13%</span></div>
+<div class="bar-row"><span class="bar-name">D2 技术成熟度</span>
+<span class="bar-track"><span class="bar-fill" style="width:83.3%;background:#16a34a"></span></span>
+<span class="bar-val">8.33</span><span class="bar-w">权重14%</span></div>
+<div class="bar-row"><span class="bar-name">D5 竞争格局</span>
+<span class="bar-track"><span class="bar-fill" style="width:80.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.0</span><span class="bar-w">权重12%</span></div>
+<div class="bar-row"><span class="bar-name">D6 法律合规</span>
+<span class="bar-track"><span class="bar-fill" style="width:79.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.9</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D7 企业就绪</span>
+<span class="bar-track"><span class="bar-fill" style="width:72.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.2</span><span class="bar-w">权重8%</span></div>
+<div class="bar-row"><span class="bar-name">D3 社区生态</span>
+<span class="bar-track"><span class="bar-fill" style="width:69.0%;background:#d97706"></span></span>
+<span class="bar-val">6.9</span><span class="bar-w">权重11%</span></div>
+<div class="bar-row"><span class="bar-name">D4 变现潜力</span>
+<span class="bar-track"><span class="bar-fill" style="width:63.0%;background:#d97706"></span></span>
+<span class="bar-val">6.3</span><span class="bar-w">权重18%</span></div>
+<div class="bar-row"><span class="bar-name">D9 上手难度</span>
+<span class="bar-track"><span class="bar-fill" style="width:0.0%;background:#dc2626"></span></span>
+<span class="bar-val">N/A</span><span class="bar-w">权重10%</span></div></div>
+<div class="meta">分析时点 2026-08-28 ｜ 数据来源：GitHub API + 仓库代码实测 ｜ 方法论 v1.3</div>
+<div class="credit">报告出品：@魔法工厂　@向量之心　@南山科学家</div>
+<div class="disclaimer"><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</div>
+</div><h1>Archify 商业化潜力分析报告（完整版）</h1>
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家</p>
+<p>方法论版本: v1.3 | 综合评分: <strong>76.3</strong> | 等级: <strong>A（高商业化潜力）</strong> | 价值画像: 纯商业工具</p>
+</blockquote>
+<h2>一、项目概览</h2>
+<h3>1.1 基本信息</h3>
+<ul>
+<li><strong>项目名称 / 仓库地址</strong>：Archify（tt-a1i/archify）</li>
+<li><strong>核心技术栈</strong>：JavaScript（Agent Skill，Markdown/模板为核心资产），Typed JSON IR + 确定性五重校验管线</li>
+<li><strong>社区规模速览</strong>：Star 22,980 / Fork 1,488 / 贡献者 10 人</li>
+<li><strong>分析时点 / 数据来源</strong>：2026-08-27，GitHub 公开数据</li>
+</ul>
+<h3>1.2 项目分类标签</h3>
+<table>
+<thead>
+<tr>
+<th>分类维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>开发者工具（开源库SDK，Agent Skill）</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>通用/跨行业</td>
+</tr>
+<tr>
+<td>目标用户角色</td>
+<td>开发者/架构师</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>AI 编程代理场景下的图表即代码生成与验证</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>本地部署</td>
+</tr>
+</tbody>
+</table>
+<h3>1.3 一句话定位</h3>
+<blockquote>
+<p>Archify 是一个面向 AI 编程代理的图表即代码生成与验证工具，适用于各行业软件开发团队，主要面向使用 Cursor/Claude Code/Codex 的开发者与架构师，用于将代码库或系统描述转化为可验证、可交互的自包含 HTML 架构图。</p>
+</blockquote>
+<h2>二、安装部署与使用指南</h2>
+<blockquote>
+<p>【注意】本章节为降级概要（安装指南草稿缺失），要点来自 D9 评分卡：</p>
+</blockquote>
+<ul>
+<li>安装信息采集失败</li>
+</ul>
+<h2>三、评分总览</h2>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>权重</th>
+<th>加权得分</th>
+<th>评级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1 市场需求与商业机会</td>
+<td>8.5/10</td>
+<td>13%</td>
+<td>1.11</td>
+<td>优</td>
+</tr>
+<tr>
+<td>D2 技术成熟度与产品质量</td>
+<td>8.33/10</td>
+<td>14%</td>
+<td>1.17</td>
+<td>优</td>
+</tr>
+<tr>
+<td>D3 社区健康度与生态势能</td>
+<td>6.9/10</td>
+<td>11%</td>
+<td>0.76</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D4 商业模式与变现潜力</td>
+<td>6.3/10</td>
+<td>18%</td>
+<td>1.13</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D5 竞争格局与差异化壁垒</td>
+<td>8.0/10</td>
+<td>12%</td>
+<td>0.96</td>
+<td>优</td>
+</tr>
+<tr>
+<td>D6 法律合规与知识产权</td>
+<td>7.9/10</td>
+<td>7%</td>
+<td>0.55</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D7 企业就绪度与可运营性</td>
+<td>7.2/10</td>
+<td>8%</td>
+<td>0.58</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D8 团队治理与可持续性</td>
+<td>8.8/10</td>
+<td>7%</td>
+<td>0.62</td>
+<td>优</td>
+</tr>
+<tr>
+<td>D9 上手难度与易用性</td>
+<td>N/A</td>
+<td>10%</td>
+<td>—</td>
+<td>数据缺失</td>
+</tr>
+<tr>
+<td><strong>综合评分</strong></td>
+<td>—</td>
+<td>100%</td>
+<td><strong>76.3/100</strong></td>
+<td><strong>A（高商业化潜力）</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>注：D9 因评分卡重建降级（scorecard_rebuilt_by_regex + guide_missing）未纳入综合评分计算，实际综合评分基于其余 8 个维度加权得出。</p>
+</blockquote>
+<p><strong>平行维度（不计入综合评分）</strong></p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10 功能价值</td>
+<td>4.2/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>D11 社会价值</td>
+<td>6.5/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>公共价值分</td>
+<td>5.3/10</td>
+<td>(D10+D11)/2</td>
+</tr>
+</tbody>
+</table>
+<p><strong>一票否决检查</strong>：未触发（D6=7.9&gt;3，D8.4=3.0&gt;1，D4.1=2.0&gt;0.5），检查完整。</p>
+<p><strong>价值画像判定</strong>：综合评分 76.3 ≥ 65 且 公共价值分 5.3 &lt; 7 → <strong>💼 纯商业工具</strong>。画像不处于临界区间（综合评分 76.3 远离 60–70 边界，公共价值分 5.3 远离 6.5–7.5 边界），判定清晰。</p>
+<h2>四、各维度详细分析</h2>
+<h3>D1. 市场需求与商业机会（权重：13%）</h3>
+<h3>项目分类标签</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>开发者工具（Agent Skill / 图表即代码）</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>通用/跨行业（软件开发全行业）</td>
+</tr>
+<tr>
+<td>目标用户角色</td>
+<td>后端开发者、全栈开发者、架构师、技术管理者/CTO</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>研发流程优化、代码可视化、架构文档与知识管理</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>本地部署（作为 Agent Skill 嵌入 Cursor、Claude Code、Codex CLI、OpenCode 等）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>一句话定位</strong>：Archify 是一个面向 AI 编程代理的"图表即代码"生成与验证工具，适用于各行业软件开发团队的架构可视化与文档场景，主要面向使用 Cursor、Claude Code、Codex CLI 的开发者与架构师，用于将代码库或系统描述转化为精美、可验证、可交互的自包含 HTML 架构图。</p>
+<hr />
+<h3>D1.1 目标市场规模与增长性 — 8/10（2.0/2.5）</h3>
+<p><strong>TAM 估算</strong>：Archify 所处的上层市场是 AI 编程代理（AI Coding Agent）市场。据行业共识（未经独立外部验证，估值置信度中等），该市场 2025-2026 年正处于百亿美元级高速增长期——Cursor 已服务数千万开发者，Claude Code、Codex CLI 等均在快速渗透。Archify 作为 Agent Skill 生态中的基础设施层，直接受益于上游市场爆发。其直接可触达细分市场为"Agent Skills 图表生成"（十亿美元级），当前处于渗透率极低的蓝海阶段。</p>
+<p><strong>增长趋势</strong>：硬数据强烈印证增长趋势——项目创建于 2026-04-15，至 2026-08-27 仅约 4.5 个月即获得 23,039 stars、1,488 forks，增速在 GitHub 全站属于极头部水平。90 天内创建 85 个 PR、关闭 38 个 issue，10 名贡献者持续迭代，最近 10 个 release 集中在 2026-07 至 2026-08，产品以近乎每周一个版本的节奏高速演进。市场呈明确扩张态势。</p>
+<p><strong>市场层级</strong>：处于新兴蓝海向成长期过渡阶段。Agent Skills 标准刚刚确立（Anthropic 2025 年发布），生态位远未填满。</p>
+<p><strong>评分依据</strong>：对应评分指引 7-8 档（十亿美元级市场，处于增长期）。虽然上游 TAM 达百亿美元级，但 Archify 自身 SAM 主要限定在"AI 代理图表生成"细分，且尚未验证大企业付费场景，故不取 9-10 档。</p>
+<hr />
+<h3>D1.2 痛点真实性与解决程度 — 8/10（2.0/2.5）</h3>
+<p><strong>痛点真实性</strong>：AI 编程代理生成代码后，开发者需要快速理解系统架构、评审设计变更、向团队交付可视化文档。传统方案（Mermaid、PlantUML、draw.io）存在三个真实痛点：(1) 生成的图缺乏验证，AI 幻觉导致拓扑关系不可信；(2) 视觉质量参差，难以直接用于对外展示；(3) 与 AI 代理工作流集成生硬，需手动搬运。Archify 的差异化主张正是"可验证"（typed JSON IR + 原子验证 + 机器 receipts）和"AI 代理原生"（Agent Skill 形态，一条自然语言指令即可调用），切中 AI 编程时代"图不可信"的深层焦虑。</p>
+<p><strong>解决完整度</strong>：方案相当完整——五种图类型（架构/工作流/时序/数据流/生命周期）、四种视觉预设、暗/亮主题、Delta 对比审查、部署所有权工程画像、共享卡片导出、深度链接交互（route/reach/lens/story）、Git 版本验证的源码证据。README 展示了对真实仓库（mco-org/mco）的完整映射案例，且提供 Proof Lab 交互式验证画廊。40 个开放 issue 反映用户真实使用反馈，说明不是自嗨项目。</p>
+<p><strong>替代成本</strong>：替代品存在但体验有明显代差。Mermaid 可被 AI 代理调用但无验证、无精美交互；Excalidraw/Tldraw 为手动绘制；draw.io 非代码原生。Archify 是目前极少将"AI 生成 + 确定性验证 + 精美渲染"三者结合的工具。用户切换成本中等（需安装 skill），但一旦习惯其工作流，回归 Mermaid 的体验落差明显。</p>
+<p><strong>评分依据</strong>：对应评分指引 7-8 档（解决明确痛点，方案较完整，有替代品但体验更差）。不取 9-10 档因其尚未形成垄断性生态位，且部分企业可能将图表视为"锦上添花"而非"非用不可"。</p>
+<hr />
+<h3>D1.3 市场时机判断 — 8/10（2.0/2.5）</h3>
+<p><strong>技术成熟度曲线</strong>：AI 编程代理已越过"期望膨胀期"进入"实质生产期"——Cursor 成规模商业化、Claude Code 被企业采用、Codex CLI 集成 GitHub 主流程。但 Agent Skills 生态整体仍处于极早期（对应市场爆发前夜至早期），2026 年正是"skill 红利期"。Archify 创建于 2026-04，恰逢 Anthropic Agent Skills 标准普及与各代理平台开放 skill 机制的交汇点。</p>
+<p><strong>竞争密度</strong>：当前直接竞品稀少。Mermaid 是被动兼容对象而非主动竞品；专门的"Agent Skill 图表生成器"赛道尚无明显垄断者。Archify 以 23k stars 成为该细分事实上的明星项目，Trendshift 上榜（README 中可见 badge），形成先发品牌优势。风险在于 AI 巨头（Anthropic/OpenAI）可能将图表能力内置进代理，但短期内架构级可视化仍是深度垂直场景，巨头无暇精耕。</p>
+<p><strong>监管/标准推动</strong>：Anthropic Agent Skills 规范、MCP 协议等基础设施标准正在推动生态成型，各代理平台（Cursor、Codex、OpenCode、DeepSeek Harness）纷纷支持 skills 安装，Archify 已适配 6+ 个代理平台，吃满标准红利。</p>
+<p><strong>评分依据</strong>：对应评分指引 7-8 档（处于成长期，有先行者但格局未定）。虽接近 9-10 档的"爆发前夜"，但考虑巨头内置风险与生态位不确定性，取 8 分留有余量。</p>
+<hr />
+<h3>D1.4 应用场景广度 — 9/10（2.5/2.5）</h3>
+<p><strong>行业覆盖</strong>：代码库/系统可视化是软件开发全行业的基础需求——互联网、金融科技、制造、医疗、政企等所有有软件工程活动的行业均适用，不存在垂直行业天花板。topics 中 software-architecture、system-design、code-visualization、diagram-as-code 均为跨行业通用标签。</p>
+<p><strong>场景多样性</strong>：五种图类型天然覆盖多维场景——架构图（系统设计评审）、工作流（CI/CD、审批）、时序图（API 调试、性能排查）、数据流（数据管线、PII 追踪）、生命周期（状态机、重试）。每一类又延伸出独有能力：Architecture Delta 用于 PR 审查、deployment-ownership 画像用于生产部署合规审查、guided story 用于新成员 onboarding、share card 用于社区传播。从"写代码时理解架构"到"合并前评审变更"到"交付时展示设计"，覆盖研发全生命周期。</p>
+<p><strong>可延展性</strong>：核心能力（AI 生成结构化描述 + 确定性验证 + 精美渲染为自包含 HTML）可自然迁移至 API 文档可视化、系统设计面试教学、技术博客图表、企业架构治理（EA）、云基础设施拓扑展示等相邻场景。ROADMAP.md 的存在表明团队有明确的扩展规划。当前能力已是"跨行业通用基础设施级"的雏形。</p>
+<p><strong>评分依据</strong>：对应评分指引 9-10 档（跨行业通用基础设施级项目）。唯一保留是它仍聚焦"技术图表"领域而非更宽的文档/知识管理基础设施，但以开发者工具的标准衡量，其横向通用性已达标杆水平。</p>
+<hr />
+<h3>D1 维度结论</h3>
+<p><strong>D1 得分：8.5/10</strong>（权重后贡献 1.11/1.3）</p>
+<p>Archify 处于 AI 编程代理与 Agent Skill 生态爆发的黄金窗口：上游市场百亿美元级且高速增长，自身细分赛道尚处蓝海；痛点真实且方案完整度高；4.5 个月 23k stars 的增长曲线说明市场用脚投票。最大的商业不确定性在于：(1) 变现路径仍模糊（目前仅有 2 个赞助商，无付费产品线），D1 只验证了需求与市场，不验证付费转化；(2) AI 巨头可能内置类似能力，需保持技术代差才能持续生存。但就"市场需求与商业机会"维度而言，该项目是本批次中罕见的强势标的。</p>
+<p><strong>硬事实汇总</strong>：23,039 stars（4.5 个月）｜1,488 forks｜90 天 PR 85 个、闭 issue 38 个｜10 贡献者｜10 个近期 release（v2.7–v2.15）｜2 个正式赞助商（APINEBULA、EverMind）｜6+ 代理平台适配</p>
+<h3>D2. 技术成熟度与产品质量评估</h3>
+<h3>维度总览</h3>
+<p>archify 是一个形态特殊的项目——它并非传统意义上的"代码库"，而是一个以 <strong>Agent Skill 包</strong>为交付物、面向 AI 编码代理（Claude、Codex、OpenCode、DeepSeek Harness 等）的架构图生成技能。本地统计仅捕获到 21 行 .js 源码，但项目真实体量体现在 <strong>86 个文档文件、102 个测试文件、archify/ 目录下完整的 renderers/schemas/references 体系</strong>以及 40 轮视觉演进研究文档中。评估需结合其"skill 即产品"的特殊交付形态进行判断。</p>
+<h3>细则评分</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>小分</th>
+<th>满分</th>
+<th>判定档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D2.1</td>
+<td>产品设计与创新性</td>
+<td>1.5</td>
+<td>1.5</td>
+<td>卓越</td>
+</tr>
+<tr>
+<td>D2.2</td>
+<td>架构设计与工程质量</td>
+<td>1.6</td>
+<td>2.0</td>
+<td>良好</td>
+</tr>
+<tr>
+<td>D2.3</td>
+<td>代码整洁性与规范性</td>
+<td>0.8</td>
+<td>1.0</td>
+<td>良好</td>
+</tr>
+<tr>
+<td>D2.4</td>
+<td>安全性</td>
+<td>0.6</td>
+<td>1.0</td>
+<td>一般</td>
+</tr>
+<tr>
+<td>D2.5</td>
+<td>UI/UX/UE 人机交互</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>不适用</td>
+</tr>
+<tr>
+<td>D2.6</td>
+<td>功能完备度与稳定性</td>
+<td>1.2</td>
+<td>1.5</td>
+<td>良好</td>
+</tr>
+<tr>
+<td>D2.7</td>
+<td>文档与开发者体验</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>卓越</td>
+</tr>
+<tr>
+<td>D2.8</td>
+<td>测试与质量保障</td>
+<td>0.8</td>
+<td>1.0</td>
+<td>良好</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>7.5</strong></td>
+<td><strong>9.0</strong></td>
+<td><strong>缩放后 8.33</strong></td>
+</tr>
+</tbody>
+</table>
+<h4>D2.1 产品设计与创新性（1.5 / 1.5）</h4>
+<p>项目定位清晰且极具创新性：作为 <strong>Mermaid 的替代方案</strong>（topic 明确标记 <code>mermaid-alternative</code>），针对 AI 编码代理场景设计了"可验证的图表生成技能"。产品理念独特——不是又一个图表库，而是教代理如何生成<strong>自包含 HTML、带动画、可验证</strong>的图表。五大图表模式（architecture/workflow/sequence/dataflow/lifecycle）围绕系统设计核心场景，信息架构合理。创新性体现在三个层面：① 将 skill 工程化（SKILL.md + schemas 验证 + delivery-contract）；② 强调 "verifiable"——通过 schema 和契约确保产出可校验；③ docs/ 目录下 40 轮视觉演化研究（research-visual-evolution-round-1 至 40）表明设计迭代深度远超同类项目。差异化明显，23k star 验证了市场认可度。<strong>满分。</strong></p>
+<h4>D2.2 架构设计与工程质量（1.6 / 2.0）</h4>
+<p>archify/ 主目录下模块划分清晰：<code>renderers/</code>（按 dataflow/lifecycle/sequence/workflow 四种图型分离）、<code>schemas/</code>（验证层）、<code>references/</code>（authoring/delivery/viewer 契约）、<code>bin/</code>、<code>scripts/</code>、<code>test/</code>，加上 <code>integrations/deepseek-harness/</code> 独立适配层，分层合理、依赖方向明确。<code>benchmarks/</code> 单独存放基模评测提示词，反映工程思维的严谨。发布产物有 <code>archify.zip</code> 且 CI 中有<strong>字节级精确比对</strong>的 freshness 门禁，体现工程精细度。代码量统计（21 行 .js）受工具只计 .js 扩展名所限，实际项目规模以非 JS 资产（HTML 模板、SKILL 指令、schema 定义）为主，与 skill 型项目体量匹配。复刻难度中等——需同时理解 agent 调用模式、图表领域知识和 HTML 动画渲染。扣分点：本地统计代码量异常偏小、核心逻辑分散在 Markdown/模板中难以用常规工程手段维护，存在一定的"配置即代码"技术债风险。<strong>良好档。</strong></p>
+<h4>D2.3 代码整洁性与规范性（0.8 / 1.0）</h4>
+<p>项目工程规范迹象明显：<code>package-lock.json</code> 锁定依赖、<code>PULL_REQUEST_TEMPLATE.md</code>、<code>CODEOWNERS</code>、<code>CONTRIBUTING.md</code> 齐全，CI 矩阵覆盖充分。由于本地仅捕获到 21 行 .js 无法逐行抽查，但生态配置显示代码风格约束和协作规范是存在的。扣分点：代码整洁性缺乏直接证据，存在少量重复文档（README 中英双版 + 多份 research 文档内容可能重叠）。<strong>良好档。</strong></p>
+<h4>D2.4 安全性（0.6 / 1.0）</h4>
+<p>安全实践处于基础水平：CI 流水线中<strong>未见依赖漏洞扫描</strong>（无 Dependabot/Snyk/Trivy）、<strong>无 SECURITY.md</strong>、无硬编码密钥检测步骤。作为 agent skill，面临的特殊风险是 prompt injection 和生成的 HTML 中可能携带恶意脚本——<code>references/delivery-contract.md</code> 和 schema 验证机制在流程层面提供了一定防护，但代码层面未体现主动安全编码实践。未发现硬编码敏感信息，依赖面极小（无第三方依赖）。<strong>一般档。</strong></p>
+<h4>D2.5 UI/UX/UE 人机交互（N/A）</h4>
+<p>本项目为 Agent Skill 包，交付物是供 AI 代理调用的技能定义与模板，<strong>无自身用户界面</strong>。虽产出物（图表 HTML）包含 viewer 交互设计并有专门测试，但项目本身不属于含 UI 的产品，故标记 N/A，从总分中剔除后等比缩放。</p>
+<h4>D2.6 功能完备度与稳定性（1.2 / 1.5）</h4>
+<p>功能覆盖完整：5 种图表模式对应 4 个 renderer 模块 + schema 验证体系，另有 <code>examples/</code>（19 个示例）支撑核心场景。版本成熟度高：已发布 <strong>v2.15.0 正式版</strong>（release.yml 自动区分 stable/prerelease），且 tag 与 package.json 版本强制一致。运行环境宽松：Node.js 18-24 矩阵兼容，无特殊硬件要求。国际化支持佳：README 中英双语、CI 中 <code>i18n.test.mjs</code> 专门验证五种图表模式的 Viewer 交互本地化。扣分点：创建 4 个月内迭代 15+ 个版本（每 1-2 周一版），快速迭代下向后兼容性未有明确声明；开放 Issue 40 个、90 天仅关闭 38 个，存在一定积压。<strong>良好档。</strong></p>
+<h4>D2.7 文档与开发者体验（1.0 / 1.0）</h4>
+<p>文档体系<strong>极完善</strong>：README 三语（中/英/默认）、DESIGN.md、PRODUCT.md、ROADMAP.md、CHANGELOG.md、CONTRIBUTING.md 齐全；<code>docs/</code> 下有 authoring-cookbook 中英双语、40 轮视觉演进研究、多份验收/测量报告；<code>archify/</code> 下 SKILL.md、各 renderer 独立 README、schemas README、references 契约文档全覆盖；benchmarks 目录含 5 个代理场景提示词。文档与版本同步（CHANGELOG 持续更新，CI 强制 zip freshness 间接保证文档产出一致性）。<strong>满分。</strong></p>
+<h4>D2.8 测试与质量保障（0.8 / 1.0）</h4>
+<p>质量保障体系<strong>显著高于同类开源项目</strong>：3 个 CI workflow 构成多层防线——① <code>ci.yml</code>：4 个 Node 版本矩阵跑 golden-file + schema 测试、真实 Chrome 环境下验证 WebM 导出非静态帧、desktop reader 可读性、i18n、semantic-radar 碰撞拖拽、viewer 布局，外加 zip 字节级 freshness 比对和 3 平台 package smoke；② <code>release.yml</code>：发布前强制测试 + tag/版本一致性校验 + 构建产物比对；③ <code>dsh.yml</code>：DSH 适配器真实 tarball 安装/发现/卸载验收。102 个测试文件覆盖多类型。扣分点：未见覆盖率报告（占比无法确证覆盖率 &gt;80%），PR 模板和 CODEOWNERS 体现了审查制度但力度未知。<strong>良好档。</strong></p>
+<h3>结论</h3>
+<p><strong>D2 得分：8.33 / 10（良好偏卓越）</strong></p>
+<p>archify 在技术成熟度上具备商业化支撑能力：产品设计创新性极强（Mermaid 替代者定位 + 可验证架构图 + 40 轮视觉打磨）、文档体系堪称教科书级、CI/CD 质量门禁严密（字节级产物校验 + 三平台发布验收在开源项目中罕见）。主要短板集中在<strong>安全专项</strong>（无漏洞扫描、无安全响应文档）和<strong>代码可维护性</strong>（核心资产以 Markdown/模板形态存在，传统工程手段难以直接管控）；快速迭代（4 个月 15+ release）虽体现活力，但向后兼容承诺需观察。整体技术护城河中等偏上：复刻 skill 指令与模板不难，但复刻 40 轮视觉演进的打磨深度和完整的验证/交付契约体系需要较长时间积累。</p>
+<h3>D3. 社区健康度与生态势能（权重 11%）</h3>
+<p><strong>维度结论：6.9/10 —— 社区活跃度与品牌势能突出，贡献者多样性与第三方生态仍处早期建设阶段。</strong></p>
+<h4>D3.1 社区活跃度指标（3 分）—— 小分：2.4/3</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>数据结果</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Star 增速</td>
+<td>创建于 2026-04-15，补采 Star 23,039，项目年龄约 4.4 个月，月均 ≈5,236；近 90 天增量未补采到，采用「Star 总数 ÷ 项目年龄(月)」退化公式（会高估早期红利，本项因项目极新，偏差较小）</td>
+<td>远超 &gt;500/月档</td>
+</tr>
+<tr>
+<td>Fork 比率</td>
+<td>1,488 / 23,039 ≈ 6.5%</td>
+<td>衍生意愿较强，处于正常偏高水平</td>
+</tr>
+<tr>
+<td>Issue 活跃度</td>
+<td>近 90 天 PR 85 个、关闭 Issue 38 个，当前开放 40 个；合计活动 163+ 次</td>
+<td>社区参与度高</td>
+</tr>
+<tr>
+<td>响应速度</td>
+<td>无平均关闭时间精确数据；90 天关闭 38 个、开放 40 个，且有持续高频发版（补采 10 个 release 均集中在近 60 天），说明维护者响应能力较强，但开放 Issue 存量表明尚无法证实「&lt;2 天」顶级响应</td>
+<td>保守按 7–8 档</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：Star 月增远超 500，社区活跃度属爆炸性增长；但 Issue 平均关闭时间缺失且存在 40 个开放 Issue，不能确证顶级响应档位，故给予 80% 档（7–8 档 / 良好偏上）。</p>
+<hr />
+<h4>D3.2 贡献者结构多样性（2.5 分）—— 小分：1.5/2.5</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>数据结果</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>贡献者数量</td>
+<td>GitHub API 实采 contributors = 10，处于 5–20 区间</td>
+<td>满足「一般」档规模</td>
+</tr>
+<tr>
+<td>组织多样性</td>
+<td>无贡献者所属组织分布数据；README 显示 APINEBULA、EverMind 两家赞助商，但外部贡献来源无法确认</td>
+<td>无法确认 ≥5 组织</td>
+</tr>
+<tr>
+<td>核心团队占比</td>
+<td>无 PR 归属分布数据；新项目早期一般以核心团队为主</td>
+<td>未证实存在高外部贡献占比</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：贡献者规模达 10 人，已脱离单人/极少数人阶段，但组织多样性数据缺失，无法支撑「20–50 贡献者、5+ 组织」的良好档，故给予 60% 档（5–6 档 / 一般）。</p>
+<hr />
+<h4>D3.3 第三方生态成熟度（3 分）—— 小分：1.8/3</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>数据结果</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>插件/扩展</td>
+<td>项目本身作为 Agent skill 被 Cursor、Claude Code、Codex CLI、OpenCode 支持，通过 <code>npx skills add</code> 分发；内置 5 类 renderers、typed schema、benchmarks，但未发现第三方插件市场</td>
+<td>集成方式成熟，第三方扩展未显现</td>
+</tr>
+<tr>
+<td>集成生态</td>
+<td>获得 EverMind Raven 支持，且具备 <code>dsh-plugin</code>、<code>deepseek-harness</code>、<code>agent-skills</code> 等生态关键词；CI 工作流 3 个</td>
+<td>被主流 coding agent 生态接纳</td>
+</tr>
+<tr>
+<td>衍生项目</td>
+<td>未发现明确的第三方商业衍生品；README 展示 mco-org/mco 真实外部仓库使用案例</td>
+<td>有采用案例，无商业衍生</td>
+</tr>
+<tr>
+<td>教程/课程</td>
+<td>项目自带 86 个文档文件、大量研究记录与 Proof Lab 画廊；外部教程/课程无补采证据</td>
+<td>内部资源丰富，外部生态未证实</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：已嵌入主流 agent 工具生态并获得企业赞助，但第三方插件、衍生品、外部教程等生态成熟度指标尚无明显证据，属于「生态雏形期」，故给予 60% 档（5–6 档 / 一般）。</p>
+<hr />
+<h4>D3.4 品牌认知与行业影响力（1.5 分）—— 小分：1.2/1.5</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>数据结果</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>品牌辨识度</td>
+<td>项目名 Archify 独特，短时间获 2.3 万 Star，进入 Trendshift 趋势榜（badge 已挂 README），含中英双语 README 与品牌标识目录</td>
+<td>领域内新锐高认知</td>
+</tr>
+<tr>
+<td>行业采用</td>
+<td>有 APINEBULA、EverMind 两家明确赞助商背书；真实仓库 mco-org/mco 案例展示</td>
+<td>有企业背书与真实用户</td>
+</tr>
+<tr>
+<td>媒体覆盖</td>
+<td>Trendshift 趋势榜属行业曝光；无技术会议/主流媒体覆盖证据</td>
+<td>未达顶级档</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：品牌辨识度与行业认知在 diagram-as-code / agent-skills 领域已达「较高认知度」水平，并有企业赞助背书；但缺少技术会议、媒体深度报道等顶级品牌证据，故给予 80% 档（7–8 档 / 良好）。</p>
+<hr />
+<h4>综合评估</h4>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>得分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D3.1 社区活跃度</td>
+<td>2.4/3</td>
+<td>80%（良好）</td>
+</tr>
+<tr>
+<td>D3.2 贡献者结构多样性</td>
+<td>1.5/2.5</td>
+<td>60%（一般）</td>
+</tr>
+<tr>
+<td>D3.3 第三方生态成熟度</td>
+<td>1.8/3</td>
+<td>60%（一般）</td>
+</tr>
+<tr>
+<td>D3.4 品牌认知与行业影响力</td>
+<td>1.2/1.5</td>
+<td>80%（良好）</td>
+</tr>
+<tr>
+<td><strong>D3 合计</strong></td>
+<td><strong>6.9/10</strong></td>
+<td><strong>一般偏良好</strong></td>
+</tr>
+</tbody>
+</table>
+<p>D3 维度反映出 Archify 是一个社区势能强劲的早期爆发项目：Star 增长与发布频率构成显著商业信号，且已获企业赞助与主流 agent 平台集成，为商业化提供了一定客户池基础。但贡献者组织多样性、第三方生态成熟度仍处于早期，社区基础尚未形成广泛的外部协作网络，需要在商业化路径中持续培育生态。</p>
+<h3>D4. 商业模式与变现潜力（权重 18%）</h3>
+<p><strong>维度结论</strong>: 项目采用 MIT 协议，商业变现的法律与协议限制几乎为零；但自身尚未构建清晰的付费产品体系，当前收入探索停留在赞助与生态合作层面。整体商业模式处于早期验证阶段，潜在路径（平台分发、专业服务、企业定制）存在但均需落地验证，维度得分 <strong>6.3 / 10</strong>。</p>
+<h4>D4.1 协议对变现模式的影响（2 分）: <strong>2.0 / 2.0</strong></h4>
+<p>项目使用 <strong>MIT License</strong>（<code>LICENSE</code> 与 <code>archify/LICENSE</code> 均确认为 MIT），属于无约束型协议。所有主流变现路径（Open Core、SaaS 托管、双协议授权、专业服务、平台市场等）在法律上均无障碍；且项目无任何附加限制性条款，第三方亦可自由 fork 并构建商业发行版。协议层面不仅不构成阻碍，反而是本项目最大的商业化优势之一。</p>
+<table>
+<thead>
+<tr>
+<th>评估项</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>协议类型</td>
+<td>MIT</td>
+</tr>
+<tr>
+<td>对变现模式约束</td>
+<td>无约束，所有路径可行</td>
+</tr>
+<tr>
+<td>小分</td>
+<td>2.0（满分 2.0，100%）</td>
+</tr>
+</tbody>
+</table>
+<h4>D4.2 变现路径清晰度（3.5 分）: <strong>2.1 / 3.5</strong></h4>
+<p>从现有材料看，项目没有公开的企业版、付费订阅或商业服务产品线，README 中仅有「Sponsors」板块，展示了与 <strong>APINEBULA</strong>（API 中转服务，通过联盟链接返佣）和 <strong>EverMind</strong>（记忆基础设施，集成 Archify 作为 Skill）的合作关系。这说明项目方已开始商业化探索，但仍是<strong>赞助/生态合作</strong>而非可规模化的主营变现路径。</p>
+<p>可适配的潜在路径包括：
+- <strong>平台/市场分发</strong>：作为 Agent Skill 分发至 Claude Code、Cursor、Codex 等生态，若未来出现 Skill 市场抽佣机制，存在渠道分成可能（当前无该平台）；
+- <strong>Open Core</strong>：将核心渲染器开源，闭源企业级功能（私有化部署、SLA、品牌定制），当前未实施；
+- <strong>专业服务</strong>：面向企业提供架构梳理、定制化渲染和培训，需自建交付能力。</p>
+<p>同类参照（Mermaid、Draw.io 等图表开源项目）多以捐赠、咨询和集成服务变现，普遍不构成高规模化收入。本项目虽生态位独特、star 增长快（23k+），但变现路径整体仍属「潜在但尚不清晰，需验证」阶段。</p>
+<table>
+<thead>
+<tr>
+<th>评估项</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>已实现商业化方式</td>
+<td>赞助展示 + 联盟链接（APINEBULA）、生态合作（EverMind/Raven）</td>
+</tr>
+<tr>
+<td>可参照成功案例</td>
+<td>Mermaid（咨询/捐赠）、GitLab（Open Core）</td>
+</tr>
+<tr>
+<td>路径清晰度</td>
+<td>有潜在路径，未落地，需验证</td>
+</tr>
+<tr>
+<td>小分</td>
+<td>2.1（满分 3.5，60%）</td>
+</tr>
+</tbody>
+</table>
+<h4>D4.3 付费转化逻辑（2.5 分）: <strong>1.0 / 2.5</strong></h4>
+<p>项目当前为<strong>完全免费、全功能开源</strong>，不存在「免费版 vs 付费版」的功能分层。用户通过 <code>npx skills add</code> 即可获得全部能力，无任何付费触发点或升级漏斗。从产品属性看，最可能的付费动机是<strong>企业级需求</strong>：SLA 保障、私有化部署、合规审查、品牌定制、与内部系统集成等，但项目并未公开这些付费产品，因此目前免费到付费的转化逻辑勉强成立，目标用户（开发者/架构师）在免费功能满足需求的情况下，付费意愿难以自然激发。</p>
+<table>
+<thead>
+<tr>
+<th>评估项</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>免费→付费触发点</td>
+<td>无明确产品层触发点，仅存在企业级场景的隐性诉求</td>
+</tr>
+<tr>
+<td>付费意愿强度</td>
+<td>中等偏低，缺乏付费产品锚定</td>
+</tr>
+<tr>
+<td>转化漏斗</td>
+<td>不存在（全功能免费）</td>
+</tr>
+<tr>
+<td>小分</td>
+<td>1.0（满分 2.5，40%）</td>
+</tr>
+</tbody>
+</table>
+<h4>D4.4 增值服务空间与定价天花板（2 分）: <strong>1.2 / 2.0</strong></h4>
+<p>增值空间理论上明确：可在渲染引擎之上叠加企业级服务，包括<strong>私有化部署、SLA 支持、品牌形象定制（如内置品牌标识）、高级安全与合规校验、团队模板库、与 CI/CD 深度集成</strong>等。但当前无一落地，且产品形态为 Agent Skill 与本地 HTML 输出，技术栈较简单、无服务端依赖，增值打包需要额外构建业务层。参考同类开发者工具定价，企业版客单价预计在中低区间（$1K–10K/年），指数级增长可能性较低。综合判断增值空间有限，处于「有方向、缺产品」状态。</p>
+<table>
+<thead>
+<tr>
+<th>评估项</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>增值方向</td>
+<td>企业部署、SLA、品牌定制、高级安全合规（均未落地）</td>
+</tr>
+<tr>
+<td>定价天花板</td>
+<td>预计客单价 $1K–10K/年，规模化依赖团队客户</td>
+</tr>
+<tr>
+<td>收入扩展性</td>
+<td>可从 per-seat 扩展至企业 flat fee，但需先建立产品体系</td>
+</tr>
+<tr>
+<td>小分</td>
+<td>1.2（满分 2.0，60%）</td>
+</tr>
+</tbody>
+</table>
+<h4>D4 汇总</h4>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>权重</th>
+<th>小分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D4.1 协议对变现模式的影响</td>
+<td>2.0</td>
+<td>2.0</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>D4.2 变现路径清晰度</td>
+<td>3.5</td>
+<td>2.1</td>
+<td>60%</td>
+</tr>
+<tr>
+<td>D4.3 付费转化逻辑</td>
+<td>2.5</td>
+<td>1.0</td>
+<td>40%</td>
+</tr>
+<tr>
+<td>D4.4 增值服务空间与定价天花板</td>
+<td>2.0</td>
+<td>1.2</td>
+<td>60%</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>6.3</strong></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>最终维度得分: 6.3 / 10</strong></p>
+<p>商业模式处于「优质协议 + 活跃社区 + 未成熟变现」的组合状态。MIT 协议赋予其最大的商业化自由度，但项目自身尚未设计付费产品、分层或服务包；当前赞助与生态合作虽验证了外部商业兴趣，但不足以构成可持续主营收入。建议后续优先验证「Skill 市场分发」「企业定制版或专业服务」两条路径，并将部分高端能力（如私有化渲染、深度合规校验、SLA 支持）闭源化以形成付费触发点。</p>
+<!-- 以下是 D5 维度分析正文 -->
+
+<h3>D5. 竞争格局与差异化壁垒（权重 12%）</h3>
+<h3>D5.1 竞品对比与市场定位（满分 3 分）</h3>
+<p><strong>竞争格局定性</strong>：Archify 定位为「Agent Skill」——为 Cursor、Claude Code、Codex CLI、OpenCode 等编码智能体提供图表生成能力。其核心竞品按「是否同为 Agent 原生技能」划分：</p>
+<p><strong>直接竞品</strong>（同为 Agent 生态的图表生成方案，可被同一智能体按需调用）：
+- <strong>Mermaid.js</strong>（github.com/mermaid-js/mermaid）：文本转图表的事实标准。用户可直接在对话中让 Agent 输出 Mermaid 语法嵌入 Markdown。其生态、Star 量（约 75k+）和工具链支持远超 Archify，是 Archify 定位的最强直接竞品。Repo 内 README 明确在「Why Archify」中回应：<em>"Archify is not a general-purpose drawing editor or a Mermaid theme"</em>，并在 topics 中自列 <code>mermaid-alternative</code>；「Reference and scope」明确 <strong>Automatic Mermaid parsing</strong> 不在当前范围。
+- <strong>D2C（Diagrams as Code，如制图 DSL）类</strong>：与 Mermaid 同类的 PlantUML（github.com/plantuml/plantuml）。同为可被 Agent 指令生成的文本图表 DSL，但更偏向 UML 与序列图，社区庞大但历史悠久、交互性强。
+- <strong>draw.io / diagrams.net（github.com/jgraph/drawio）</strong>：图形化编辑器兼 XML 格式，可被 Agent 间接生成 .drawio 文件。交互与编辑能力强，但非「自包含单文件 + 确定性校验 + 动效」的 Agent-first 产物。</p>
+<p><strong>间接竞品</strong>（不同技术路径或不同边界）：
+- <strong>Excalidraw 类</strong>（github.com/excalidraw/excalidraw）：手绘风格在线白板，可作为 Agent 工具生成场景图（MCP/Skill 方式）。解决「可视化沟通」问题但技术路径是手绘风白板、非架构语义模型、无确定性校验，与 Archify 的「可验证架构图」定位不同。
+- <strong>结构化架构文档生成工具</strong>（如 <code>structurizr</code>，github.com/structurizr）：C4 模型驱动架构文档与图。模型严谨但面向人工建模、非 Agent 即时代码库分析生成，交互呈现能力弱于 Archify 的自包含 HTML 动效产物。</p>
+<p><strong>定位清晰度评估</strong>：README 全文多次强调自己是「agent skill」而非通用绘图工具/主题，且明确列出：「Archify is not a general-purpose drawing editor or a Mermaid theme. It turns technical intent into a communication artifact.」「Automatic Mermaid parsing, general-purpose auto-layout, hosted sharing, and WYSIWYG editing are intentionally outside the current scope.」——定位极其清晰且刻意划清与 Mermaid 的边界，属于「明确差异化定位」。</p>
+<p><strong>竞品对比表</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>竞品名称</th>
+<th>类型</th>
+<th>仓库/官网</th>
+<th>验证方式</th>
+<th>Star/用户量</th>
+<th>核心差异</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mermaid.js</td>
+<td>直接竞品</td>
+<td>github.com/mermaid-js/mermaid</td>
+<td>仓库内引用（README 明确提及 <code>mermaid-alternative</code> topic 及 "not a Mermaid theme"）</td>
+<td>~75k（行业公认高量级，非实测，标注为推断）</td>
+<td>文本→图表（Markdown 内嵌），无确定性校验、无自包含动效 HTML、非 Agent-skill 封装</td>
+</tr>
+<tr>
+<td>PlantUML</td>
+<td>直接竞品</td>
+<td>github.com/plantuml/plantuml</td>
+<td>README 未直接提及，但属同领域公认竞品（未搜索验证，标注偏差）</td>
+<td>~20k+（推断）</td>
+<td>UML 为中心的 DSL，重在类图/时序图，无自包含 HTML 交互产物</td>
+</tr>
+<tr>
+<td>draw.io / diagrams.net</td>
+<td>间接竞品</td>
+<td>github.com/jgraph/drawio</td>
+<td>README 未直接提及，属同领域公认竞品（未搜索验证，标注偏差）</td>
+<td>~41k（推断）</td>
+<td>图形化编辑器 + XML，非 Agent 生成、无校验语义、无确定性布局</td>
+</tr>
+<tr>
+<td>Excalidraw</td>
+<td>间接竞品</td>
+<td>github.com/excalidraw/excalidraw</td>
+<td>README 未直接提及，属同领域公认竞品（未搜索验证，标注偏差）</td>
+<td>~85k（推断）</td>
+<td>手绘风白板，解决沟通但非架构语义模型、无验证</td>
+</tr>
+<tr>
+<td>Structurizr</td>
+<td>间接竞品</td>
+<td>github.com/structurizr</td>
+<td>README 未直接提及，属同领域公认竞品（未搜索验证，标注偏差）</td>
+<td>~6k（推断）</td>
+<td>C4 模型驱动、人工建模为主，无 Agent-first 动态编排</td>
+</tr>
+</tbody>
+</table>
+<p><strong>注</strong>：除 Mermaid 外，其余竞品未经 GitHub 搜索 API 独立验证；因搜索接口不可用，本表格竞品标注「推断 + 仓库内引用」双通道，仅保证 Mermaid 依据 README 直接确认。按方法论防幻觉规则，竞品少于 3 个的验证强度不足，此处如实声明。</p>
+<p><strong>判断依据</strong>：Archify 定位为「Agent Skill 生态中的可验证架构图生成器」，与 Mermaid 形成显著差异化（确定性校验、自包含单文件、可验证的事实定位、证据徽章、Before/Delta/After 对比、四预设、动效、导出 PNG/SVG/WebM/分享卡）。虽有 Mermaid 这一强竞品，但 Archify 在产品形态（输入输出契约、验证机制、交互能力）上有明确的差异化定位，且 README 刻意划清边界。属于「有竞品但本项目有明确差异化定位」。</p>
+<p><strong>小分</strong>：3 × 80% = <strong>2.4 / 3</strong></p>
+<hr />
+<h3>D5.2 技术壁垒与网络效应（满分 3 分）</h3>
+<p><strong>技术壁垒</strong>：
+- <strong>专有技术组件</strong>：Typed JSON IR（每种渲染模式都有 schema 和可复现源码）——形成格式幻觉；确定性编译 HTML/SVG（<code>bin/archify.mjs deliver</code> 经过 schema、layout、HTML/SVG、route、label-to-route clearance 五重校验后才原子替换目标）——形成「只有通过全部校验才输出」的质量护栏。
+- <strong>确定性诊断与修复契约</strong>：<code>validate --json</code> 和 <code>deliver --json</code> 返回稳定规则码 + 精确主题 + 实测证据 + supportedFixes（只支持有限的修复控制，不重写整个图）——这是「Agent 可交互的修复机制」，非一般工具输出。
+- <strong>可验证的事实定位能力</strong>：Evidence-backed 节点自动标注 <code>SRC n</code> 并打开按 commit 固定的 Git 文件行区间（README 明确提及），以及 <code>before/delta/after</code> 架构对比快照。这些能力依赖的是规则与契约设计，而非数据积累，因此<strong>技术壁垒中等</strong>——工程复杂度可被复刻，但很难被快速高质量复刻（涉及 40 个 research-visual-evolution 轮次的打磨，见 docs 目录）。</p>
+<p><strong>网络效应</strong>：
+- 无用户数据网络效应（非平台型产品，不收集用户数据、无云端中心化）。
+- 存在<strong>间接网络效应</strong>：插件/集成生态——已支持 Cursor、Claude Code、Codex CLI、OpenCode、Raven、DeepSeek Harness（<code>integrations/deepseek-harness/README.md</code>）、DSh 插件；README 中「Want to sponsor Archify?」表明有商业赞助者（APINEBULA、EverMind · Raven）。<strong>社区分享网络</strong>：生成的自包含 HTML 可直接分享、以 Proof Lab gallery 作为「可复现的架构证据」传播——每个工件本身就是可验证的展示物，生成得越多、被分享得越多，Archify 的知名度和信任度越强。此类网络效应属于<strong>生态正反馈</strong>，但强度弱于直接用户间网络效应。</p>
+<p><strong>规模效应</strong>：
+- 工具型项目收益于规模的主要体现是社区贡献（10 contributors、85 PRs/90d）、测试/基准资产（benchmarks/ordinary-model-floor 目录）和标准沉淀（Skill 合约、交付契约），规模扩大降低单一维护者风险（已有 2 家赞助商），但无边际成本递减的规模经济。</p>
+<p><strong>综合判断</strong>：技术壁垒中等偏上（专有格式 + 确定性校验管线 + 修复契约 + 证据徽章），网络效应中等（Agent 生态集成 + 分享网络），规模效应有限。属于「有一定壁垒但不深厚」与「有技术壁垒或网络效应其一且较强」之间。考虑到 23k+ Star、90 天 85 PR 的增速和 10 位贡献者，其社区活跃度构成一种事实壁垒（被生态采纳、被基准覆盖），但远未达「强护城河」。取 7–8 档下限。</p>
+<p><strong>小分</strong>：3 × 80% = <strong>2.4 / 3</strong></p>
+<hr />
+<h3>D5.3 切换成本与用户粘性（满分 2 分）</h3>
+<p><strong>迁移成本</strong>：
+- <strong>使用侧迁移</strong>：用户若从 Archify 切换到 Mermaid/PlantUML，需要重写整套 JSON IR 为 Mermaid 语法，并放弃现有的验证管线、证据徽章、共享卡机制、自定义 viewer（展示模式/导航/故事播放/路由追踪等互动能力）。这部分<strong>迁移成本较高</strong>（JSON IR 是 Archify 私有格式）。
+- <strong>集成深度</strong>：Archify 依赖 Cls/技能运行时（Cursor、Claude Code、Codex、OpenCode 等）才能生成/验证；用户若已把其 workflow 融入 PR 评审流程（Architecture Delta 用于 Before/Delta/After 对比）和代码库映射流程，则切换时需同时调整这些流程。<strong>集成深度中等偏上</strong>。
+- <strong>习惯锁定</strong>：README 显示其设计目标就是「在 chat 中直接使用」，用户一旦习惯「自然语言 → 验证过的可交互图」的交互范式，回到纯 Mermaid「不校验、易出错、需人工调布局」的使用方式会有明显体验落差——<strong>习惯锁定较强</strong>。</p>
+<p><strong>切换成本</strong>：用户从 Archify 迁到 Mermaid 不需要迁移「数据」而是迁移「工作流与工件格式」（JSON IR → Mermaid DSL），且输出物（自包含 HTML + 分享卡 + Delta 对比）无竞品等价物；但注意到 Archify 自身以「文件格式开放（typed source、JSON）」为卖点，生成物可被任意 HTML 浏览器打开且不依赖 Archify 运行时，这恰恰<strong>降低</strong>了用户的锁定感（用户「带走」自己的输出物无阻力）。综合，切换成本中等偏上，粘性较强，未到「需重写业务逻辑/迁移大量数据」的最高档。</p>
+<p><strong>小分</strong>：2 × 80% = <strong>1.6 / 2</strong></p>
+<hr />
+<h3>D5.4 护城河可持续性（满分 2 分）</h3>
+<p><strong>护城河趋势</strong>：正在<strong>增强</strong>——
+- Star 从创建（2026-04-15）至当前（2026-08-27）约 4.5 个月即达 23k+（约 23,039 实测），90 天 85 个 PR、38 个 issue 关闭、10 位贡献者，说明增长与活跃度处于高位，属于快速上升期。
+- 每 1–2 周一个 release（v2.7.0 于 07-02 至 v2.15.0 于 08-17，共 10 个版本）——产品迭代速度极快，护城河正在持续加深。
+- 集成面持续扩展：从 Cursor 扩展到 Codex、OpenCode、Raven、DeepSeek Harness（<code>archify-dsh-v0.1.0</code> 于 08-14 发布）——生态版图在扩大。
+- 两名赞助商（APINEBULA、EverMind/Raven）表明商业化信号出现，护城河具备商业支撑。</p>
+<p><strong>颠覆风险</strong>：中等——
+- 最大风险源是 Mermaid/通用绘图厂商 + 编码 Agent 平台的「内置化」：若 Claude Code / Cursor 原生内置同等质量的图生成与验证能力，Archify 的「skill」形态可能被平台级能力吸收。
+- 但 Archify 的差异化（确定性校验、证据徽章、Before/Delta/After、自包含单文件、导出矩阵）具备复合性，单独某一项被复制不足以摧毁其整体定位。
+- 技术栈（JavaScript/Node.js + HTML/SVG 渲染）无被颠覆的迹象，反而与 Agent 生态共同演进。</p>
+<p><strong>时间窗口</strong>：按当前增速和迭代节奏，其差异化优势（验证 + 证据 + 分享卡的组合）至少可维持 12–18 个月；若平台级选手入局，窗口将压缩至 6–12 个月，但 Archify 当前已建立品牌与社区壁垒（Trendshift badge、Linux DO 社区入口、Proof Lab）。</p>
+<p><strong>综合判断</strong>：护城河稳定且在增强，颠覆风险低至中等。「护城河在持续加深 + 低颠覆风险」档（9–10）与「护城河稳定 + 颠覆风险低」档（7–8）之间。考虑其极短时间内的爆发增长和生态扩展，取 8 档（80%）合理。</p>
+<p><strong>小分</strong>：2 × 80% = <strong>1.6 / 2</strong></p>
+<hr />
+<h3>D5 维度汇总</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>核心判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D5.1 竞品对比与市场定位</td>
+<td>3</td>
+<td>2.4</td>
+<td>80%（良好）</td>
+<td>以 Mermaid 为最强直接竞品，但定位「Agent skill + 可验证架构图」差异化鲜明</td>
+</tr>
+<tr>
+<td>D5.2 技术壁垒与网络效应</td>
+<td>3</td>
+<td>2.4</td>
+<td>80%（良好）</td>
+<td>专有 JSON IR + 确定性校验管线构成中等壁垒；生态集成与分享网络构成间接网络效应</td>
+</tr>
+<tr>
+<td>D5.3 切换成本与用户粘性</td>
+<td>2</td>
+<td>1.6</td>
+<td>80%（良好）</td>
+<td>私有格式迁移成本较高，输出物本身可随身携带；流程深度集成增强粘性</td>
+</tr>
+<tr>
+<td>D5.4 护城河可持续性</td>
+<td>2</td>
+<td>1.6</td>
+<td>80%（良好）</td>
+<td>4.5 个月 23k Star、每 1–2 周一版、集成面持续扩展，护城河加深中；平台内置化是主要风险</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>8.0</strong></td>
+<td><strong>80%</strong></td>
+<td><strong>竞争格局良好，差异化明确且护城河处于上升期</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>D5 维度结论</strong>：Archify 处于「Agent-native 可验证图表」这一细分赛道的领先位置。与 Mermaid 等通用文本图表方案形成明确差异化（确定性校验、证据徽章、Delta 对比、自包含 HTML + 动效 + 分享卡），且刻意划清边界而非正面对抗。技术壁垒来自专有契约体系与迭代打磨，网络效应来自 Agent 生态集成与工件分享传播，切换成本中等偏上，护城河因爆发式增长与快速迭代而持续加深。主要风险是编码 Agent 平台的原生内置化，但在 12–18 个月窗口内拥有先发优势。综合评分 <strong>8.0 / 10</strong>。</p>
+<h3>D6. 法律合规与知识产权（权重 7%）——评估得分：7.9/10</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>权重</th>
+<th>小分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D6.1 开源协议合规性与商业限制</td>
+<td>3.0</td>
+<td>3.0</td>
+<td>卓越（9–10）</td>
+</tr>
+<tr>
+<td>D6.2 依赖链法律风险</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>良好（7–8）</td>
+</tr>
+<tr>
+<td>D6.3 商标与专利风险</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>一般（5–6）※未经人工核查</td>
+</tr>
+<tr>
+<td>D6.4 贡献者协议完备性</td>
+<td>2.0</td>
+<td>1.4</td>
+<td>良好（7–8）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>7.9</strong></td>
+<td><strong>良好</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h4>D6.1 开源协议合规性与商业限制（3.0/3.0）</h4>
+<p><strong>协议明确性</strong>：项目采用 MIT 协议，根目录 <code>LICENSE</code> 与 <code>archify/LICENSE</code> 双重存在且内容一致；<code>archify/package.json</code> 中 <code>"license": "MIT"</code> 使用标准 SPDX 标识。版权声明清晰，同时标注了原始作者 Cocoon AI（2025，"architecture-diagram-generator"）与当前权利人 tt-a1i（2026），表明项目为 MIT 协议的合法派生作品，归属链完整。README 中亦声明 MIT，无任何模糊地带。</p>
+<p><strong>Copyleft 传染性</strong>：依赖链无 GPL/AGPL 等传染性协议。开发依赖（ajv=MIT、parse5=MIT、saxes=ISC、simple-icons=自定义宽松许可）全部为宽松许可；无运行时依赖，Copyleft 传染风险为零。</p>
+<p><strong>商业附加条款</strong>：无 Commons Clause、BUSL、SSPL 等限制性条款。纯 MIT 授权，允许自由使用、修改、再分发与商业售卖，为商业变现（包括 SaaS、嵌入分发、双协议）扫清了法律障碍。</p>
+<p><strong>结论</strong>：协议链条完全合规，是商业化最友好的许可形态，无任何法律障碍。</p>
+<hr />
+<h4>D6.2 依赖链法律风险（2.0/2.5）</h4>
+<p><strong>依赖协议审查</strong>：运行时依赖为 <strong>0</strong>，合规审查成本极低。4 个 devDependencies 中，ajv（MIT）、parse5（MIT）、saxes（ISC）无任何合规疑虑；<strong>simple-icons v16.28.0</strong> 是唯一需要留意的依赖——其 v16+ 采用自定义「Simple Icons License」（替代早期 CC0），含品牌标识使用限制条款，但它仅是 devDependency，用于构建品牌标记（brand-marks），不进入核心渲染管线（生成物为自包含 HTML/SVG），且项目已内置 <code>archify/brand-marks/README.md</code> 与 <code>references/brand-marks.md</code> 对品牌标记的合法使用做了专门文档化约束，风险可控。</p>
+<p><strong>依赖数量与来源</strong>：全部依赖来自 npm 官方源，均为知名成熟包，无来源不明的包。</p>
+<p><strong>结论</strong>：依赖链轻量且合规，无 GPL/AGPL 传染，唯一需注意的是 simple-icons 品牌条款——属于商标使用范畴而非许可证合规问题，且影响面仅限于生成物中的第三方品牌图形。</p>
+<hr />
+<h4>D6.3 商标与专利风险（1.5/2.5）</h4>
+<blockquote>
+<p>⚠️ <strong>置信度声明</strong>：本细则未进行人工商标检索与专利排查，依据方法论默认按 5–6 档（60% 权重）计 1.5 分，<strong>未经人工核查，置信度低</strong>。评分仅基于项目内可观测事实。</p>
+</blockquote>
+<p><strong>商标可用性</strong>：「Archify」名称在生态中存在同名项目（如 npm 上既有 <code>archify</code> 包），GitHub 上亦有其他 archify 仓库，但同名存在不等于商标侵权，是否构成冲突需正式商标检索后方可判定。项目对品牌资产意识较强——<code>archify/brand-marks/README.md</code> 与 <code>references/brand-marks.md</code> 的存在表明团队已文档化品牌标记使用规范（含第三方品牌图形限制），但该项目本身未声明独立的商标政策（Trademark Policy）。</p>
+<p><strong>专利风险</strong>：项目为文本转图表（diagram-as-code）工具，核心为渲染算法与 JSON 契约，无信号表明存在专利雷区；且并未发现任何专利相关警示或已知争议。</p>
+<p><strong>结论</strong>：未检测到明确法律风险信号，但「Archify」名称的商标可用性未经验证，建议商业化前完成商标检索；当前按方法论保守计分。</p>
+<hr />
+<h4>D6.4 贡献者协议完备性（1.4/2.0）</h4>
+<p><strong>入站贡献授权</strong>：<code>CONTRIBUTING.md</code> 末尾有明确授权条款——「By contributing, you agree that your contribution is provided under the repository's MIT License. Only submit work you created or have the right to contribute.」即通过提交行为自动授予项目 MIT 许可，构成了有效的入站贡献者协议，版权归属清晰（LICENSE 统一归口 tt-a1i）。但仓库未配置 CLA 机器人或 DCO（sign-off）机制，对贡献版权的证明力弱于正式 CLA/DCO。</p>
+<p><strong>贡献流程</strong>：贡献规范极其完善，超越多数项目——包含：行为变更须先开 issue 达成共识、PR 聚焦单一行为、生成的 artifacts 必须可复现且包源可追、发布版本不可变、浏览器级视觉验证要求、敏感数据禁令、引用清晰的兼容契约（schema-v1 稳定性、delivery contract 等）。<code>.github/PULL_REQUEST_TEMPLATE.md</code> 要求填写精确命令与数值结果；<code>CODEOWNERS</code> 已配置。安全漏洞报告路径指引至 GitHub Private Security Reporting（虽无独立 SECURITY.md，但指引已在 CONTRIBUTING.md 中明示）。</p>
+<p><strong>版权集中性</strong>：MIT 协议下贡献者各自保留版权但授予项目许可，无法像 CLA 那样把版权完全集中到单一实体；双协议模式的再授权能力受限。但 LICENSE 统一以 tt-a1i 名义声明版权，结合入站授权条款，版权控制性中等。</p>
+<p><strong>结论</strong>：有明确的入站授权声明与远超平均水平的贡献流程，但缺少正式 CLA/DCO 机制，版权集中性与可证明性有改进空间。</p>
+<hr />
+<h4>关键风险与应对建议</h4>
+<ol>
+<li><strong>商标验证</strong>（中优先级）：正式商业化前需对「Archify」进行商标检索（美国 USPTO、欧盟 EUIPO、中国商标局等），评估同名及近似的注册风险；若计划注册商标，应尽早在相关类别申请。</li>
+<li><strong>simple-icons 品牌标记合规</strong>（低优先级）：引入 simple-icons 生成的第三方品牌图形（如产品 logo）在分发物中可能触及品牌所有者商标权利，应依托已有 brand-marks 文档建立使用边界复核流程。</li>
+<li><strong>正式 CLA/DCO 引入</strong>（低优先级）：当前「贡献即授权」条款有效但证明力有限；若后续转向双协议或需要向投资人证明版权洁净度，建议引入 CLA 机器人或 DCO 机制，强化版权链路。</li>
+</ol>
+<p><strong>总评</strong>：MIT 双文件 + 零传染依赖 + 无商业附加条款的组合使 archify 在法律层面几乎没有阻碍，唯商标可用性未经人工核查是一个需要在商业化前闭合的开放项。综合得分 <strong>7.9/10</strong>，法律合规维度为商业变现扫清了主要障碍。</p>
+<h3>D7. 企业就绪度与可运营性</h3>
+<p>本维度聚焦企业级运营能力。Archify 是一个纯客户端形态的 Agent Skill（本地 Node.js 渲染/校验系统），无服务端、无数据库、无自建基础设施，因此部分企业服务型能力指标（认证授权、水平扩展/HA）在本文档中标记为 N/A，并按规则从满分中剔除后折算得分。可实际评估的细则集中在升级路径与集成接口成熟度。</p>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>小分</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D7.1 运维复杂度与升级路径</td>
+<td>2.4 / 3（80%）</td>
+<td>无服务端、无持久化数据，日常运维近乎为零，不存在数据迁移负担。升级路径成熟：近 90 天发布 10 个版本（v2.7.0–v2.15.0），<code>release.yml</code> 强制 tag 与 <code>package.json</code> 版本一致、测试全绿、构建 <code>archify.zip</code> 并与仓库提交字节比对；安装/更新通过 <code>npx skills add tt-a1i/archify -g</code> 完成。未发现显式回滚机制，故未给满分。</td>
+</tr>
+<tr>
+<td>D7.2 安全管理与权限控制</td>
+<td>N/A</td>
+<td>本项目为本地渲染与校验工具，不提供服务端接口、不存储凭据、无多租户场景，SSO/OAuth/LDAP/RBAC/审计日志等企业认证授权能力不适用于该形态，无法按服务型指标评估。</td>
+</tr>
+<tr>
+<td>D7.3 可扩展性与高可用能力</td>
+<td>N/A</td>
+<td>非服务型组件，无水平扩展、集群部署、故障转移需求；单进程渲染不构成企业服务瓶颈，相关指标不适用。</td>
+</tr>
+<tr>
+<td>D7.4 集成兼容与可观测性</td>
+<td>1.2 / 2（60%）</td>
+<td>集成接口优秀：以 typed JSON IR 为契约，确定性编译为 HTML/SVG，支持 PNG、SVG、WebM、1200×630 分享卡导出；明确适配 Cursor、Claude Code、Codex CLI、OpenCode，并维护 DeepSeek Harness（dsh）独立适配器与集成 CI。但缺少结构化日志、内置监控指标与标准可观测性协议（OpenTelemetry/Prometheus 等），因此未达更高档位。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>维度得分</strong>：按 N/A 细则剔除后，剩余满分为 3 + 2 = 5 分，实得 2.4 + 1.2 = 3.6 分，折算为 <strong>7.2 / 10</strong>。</p>
+<p><strong>结论</strong>：Archify 的企业就绪度主要体现为「轻运维 + 强发布纪律 + 多 Agent 平台兼容」。它不是需要企业安全体系或高可用架构的服务型产品，因此不应因缺少 SSO/RBAC 或集群能力而扣分；真正的短板在于可观测性缺失——对大型企业内部的批量安装与使用追踪而言，缺少结构化日志和审计手段会在采购评估中形成一定折扣。总体达到良好水平。</p>
+<h3>D8. 团队治理与可持续性</h3>
+<p>团队层面的治理能力直接决定 Archify 能否从「现象级开源项目」转化为可持续的商业资产。以下基于 GitHub 实测数据（补采）与仓库本地文件进行评估。</p>
+<h4>D8.1 核心维护者能力与背景（满分 2.5 → 得分 2.0）</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>证据与判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术能力</td>
+<td>从 CONTRIBUTING.md 可见对工程质量要求极高：要求证据驱动、回归测试、兼容性契约、浏览器级视觉验证、发布产物可复现等，技术水准达到专业级。</td>
+</tr>
+<tr>
+<td>商业经验</td>
+<td>仓库包含 PRODUCT.md、ROADMAP.md、大量「research-」系列用户研究文档（如 cursor-acceptance、delivery-ownership 等），显示团队具备产品化与商业化意识；但无公开的团队商业背景细节可验证。</td>
+</tr>
+<tr>
+<td>投入度</td>
+<td>10 位贡献者，90 天内创建 85 个 PR、关闭 38 个 issue；近 2 个月发布 10+ 个版本（v2.7～v2.15），节奏约每周一版，显著高于业余项目。</td>
+</tr>
+<tr>
+<td>巴士因子</td>
+<td>contributors = 10，且配置 CODEOWNERS，存在明确的责任分工，核心人员离开后项目可被多维护者接管；但核心维护者人数未直接披露，巴士因子估测 ≥3。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>档位判定</strong>：7–8 档（80%）。团队投入度高、技术纪律性强，治理有组织化迹象，但个人背景、全职状态及商业经验未完全验证，故不取 9–10。</p>
+<h4>D8.2 治理模型透明度（满分 2.0 → 得分 1.6）</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>证据与判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>治理文档</td>
+<td>无 GOVERNANCE.md，但存在非常详细的 CONTRIBUTING.md（含决策流程、兼容性契约、发布规则、证据要求）、ROADMAP.md、DESIGN.md、PRODUCT.md、CHANGELOG.md，治理规则实质上是完整的。</td>
+</tr>
+<tr>
+<td>开放程度</td>
+<td>CONTRIBUTING 明确规定：行为变更必须先开 issue 并达成共识，PR 需附带完整证据；issue/PR 模板齐全，外部贡献者可参与决策。</td>
+</tr>
+<tr>
+<td>基金会/组织</td>
+<td>未加入 CNCF/Apache/Linux Foundation 等基金会，决策仍由仓库所有者（tt-a1i 组织）主导。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>档位判定</strong>：7–8 档（80%）。有基本且相当完善的治理结构，决策过程对社区透明；若无基金会背书即可接近满分，当前扣在缺少正式的治理文档与基金会归属。</p>
+<h4>D8.3 资金支持与商业赞助（满分 2.5 → N/A）</h4>
+<p>补采数据中未检测到 GitHub Sponsors、Open Collective、商业实体或融资信息；仓库主页、README 中亦无赞助链接。项目方未公开任何资金支持情况，且无法通过现有数据补采。该项标记为 <strong>N/A</strong>，不计入本次评分。</p>
+<h4>D8.4 项目可持续性与传承风险（满分 3.0 → 得分 3.0）</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>证据与判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>活跃趋势</td>
+<td>创建于 2026-04-15，4 个月即获 23k+ stars，fork 1,488；最近 push 2026-08-27，PR 90 日 85 个，release 持续输出，趋势明确上升。</td>
+</tr>
+<tr>
+<td>维护延续性</td>
+<td>CI 三条工作流（ci/dsh/release）、CODEOWNERS、贡献指南、发布流水线健全；即使核心成员减少，机制仍可支撑社区接管。</td>
+</tr>
+<tr>
+<td>历史信号</td>
+<td><code>archived=false</code>，无 deprecated/unmaintained 标记；40 个 open issues 相对于 23k stars 属正常水平。</td>
+</tr>
+<tr>
+<td>分叉风险</td>
+<td>1,488 forks 主要为正常分叉使用，未见社区分裂或敌对 fork 信号。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>档位判定</strong>：9–10 档（100%）。活跃度持续上升，治理与传承机制完善，无历史风险标记，分裂风险极低。</p>
+<hr />
+<p><strong>D8 维度结论</strong>：Archify 的团队治理与可持续性整体优秀。项目在缺乏明确资金承诺的情况下，依靠高度组织化的贡献流程、高频发布和完整的产品文档，展现出远超平均水平的团队执行力。主要缺口在于资金链透明度不足——这是商业化可持续性的关键变量。剔除 N/A 项后，本维度综合得分 <strong>8.8/10</strong>。</p>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D8.1 核心维护者能力与背景</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>良好（80%）</td>
+</tr>
+<tr>
+<td>D8.2 治理模型透明度</td>
+<td>2.0</td>
+<td>1.6</td>
+<td>良好（80%）</td>
+</tr>
+<tr>
+<td>D8.3 资金支持与商业赞助</td>
+<td>2.5</td>
+<td>N/A</td>
+<td>无法评估</td>
+</tr>
+<tr>
+<td>D8.4 项目可持续性与传承风险</td>
+<td>3.0</td>
+<td>3.0</td>
+<td>卓越（100%）</td>
+</tr>
+<tr>
+<td><strong>合计（N/A 剔除后折算）</strong></td>
+<td><strong>7.5</strong></td>
+<td><strong>6.6</strong></td>
+<td><strong>8.8/10</strong></td>
+</tr>
+</tbody>
+</table>
+<h3>D9 安装部署与使用指南</h3>
+<p><strong>环境要求</strong>：Node.js ≥ 18（<code>package.json</code> engines 字段）；无数据库、缓存、消息队列等外部组件；纯 Node.js 解释执行，无需编译；支持 Windows / macOS / Linux 主流平台。</p>
+<p><strong>安装（一条命令）</strong>：</p>
+<pre><code class="language-bash">npx skills add tt-a1i/archify -g
+</code></pre>
+<p>非交互式 Cursor 安装：</p>
+<pre><code class="language-bash">npx -y skills add tt-a1i/archify --skill archify --agent cursor --global --copy --yes
+</code></pre>
+<p>不安装直接试用：</p>
+<pre><code class="language-bash">npx skills use tt-a1i/archify@archify --agent codex
+</code></pre>
+<p>可选 DSH 社区集成（需 Node <code>^22.19.0 || &gt;=24.0.0</code>）：</p>
+<pre><code class="language-bash">dsh plugin --profile web add @tt-a1i/archify-dsh@0.1.0
+</code></pre>
+<p><strong>目标平台安装位置</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>平台</th>
+<th>安装位置</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Claude Code</td>
+<td><code>~/.claude/skills/</code> 或 <code>.claude/skills/</code></td>
+</tr>
+<tr>
+<td>Codex CLI</td>
+<td><code>~/.agents/skills/</code> 或 <code>.agents/skills/</code></td>
+</tr>
+<tr>
+<td>opencode</td>
+<td><code>~/.config/opencode/skills/</code>、<code>.opencode/skills/</code> 或 <code>.agents/skills/</code></td>
+</tr>
+<tr>
+<td>Raven</td>
+<td>手动解压 <code>archify.zip</code> 至 <code>~/.raven/workspace/skills</code></td>
+</tr>
+<tr>
+<td>Claude.ai</td>
+<td>上传 <code>archify.zip</code>（Settings → Capabilities → Skills）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>快速使用（三步）</strong>：</p>
+<ol>
+<li>安装 skill；</li>
+<li>向 Agent 提问：</li>
+</ol>
+<pre><code class="language-text">Use archify to map this repository's runtime architecture.
+</code></pre>
+<ol start="3">
+<li>在对话中迭代细化（<code>add Redis</code>、<code>move auth to the left</code>、<code>highlight the rollback path</code>）。</li>
+</ol>
+<p><strong>验证安装</strong>：</p>
+<pre><code class="language-bash">cd archify
+node bin/archify.mjs doctor
+node bin/archify.mjs demo /tmp/archify-demo
+node bin/archify.mjs guide &quot;Show CI/CD checks, approval, deploy, and rollback&quot;
+</code></pre>
+<p><strong>日常 CLI 使用</strong>：</p>
+<p>```bash
+node archify/bin/archify.mjs validate workflow</p>
+<h3>D10 功能价值（使用价值视角）——平行维度，不计入综合评分</h3>
+<blockquote>
+<p>本维度评估项目为使用者创造的效用总量，与付费意愿正交，权重 0%，不计入百分制综合评分，不参与一票否决。结果仅用于 3.4 价值画像判定。</p>
+</blockquote>
+<p><strong>核心判断：Archify 是「高使用价值 × 高免费完整性」的典型项目——MIT 全开源、本地运行、零外部服务依赖，开源版即全部价值；效用强度达项目级依赖（将绘图从人工小时级压缩为 chat 内分钟级，且输出可验证、可交互），但未到业务命脉级（存在 Mermaid 等低成本替代）；实际使用规模缺少传统下载量指标，但 23k star、Trendshift 上榜、活跃 PR/Issue 与真实仓库案例共同支撑「万级关注与采用」的定位。</strong></p>
+<h4>D10.1 效用强度（2.4 / 3）</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>单用户节省量</td>
+<td>将「架构/工作流/时序/数据流/生命周期图」的绘制从人工 0.5–数小时压缩为一次 chat 内 agent 调用；额外产出可验证 JSON IR、Delta 对比、1200×630 分享卡、WebM 动图，省时且省去多工具切换成本</td>
+</tr>
+<tr>
+<td>效用层级</td>
+<td>项目级依赖：对使用 Cursor/Claude Code/Codex/OpenCode 的 AI 辅助开发团队，是架构文档与 PR 评审工作流的关键一环；非业务命脉级基础设施（停用不阻断核心业务）</td>
+</tr>
+<tr>
+<td>效用确定性</td>
+<td>高：确定性编译 + 原子验证 + 失败修复收据（<code>validate --json</code> 返回稳定规则码与 supportedFixes），效用稳定可预期，不依赖特定场景或运气</td>
+</tr>
+</tbody>
+</table>
+<p>对照指引：符合「项目级依赖，显著节省开发/运营成本」（7–8 档）；未达「业务命脉级、替代方案需数倍成本」（9–10 档）——Mermaid/draw.io 等替代虽在美学、可验证性与交互能力上差距明显，但替换成本非数倍。取 80% 档。</p>
+<h4>D10.2 实际使用规模（1.8 / 3）</h4>
+<table>
+<thead>
+<tr>
+<th>证据</th>
+<th>实采值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GitHub Stars</td>
+<td>23,039</td>
+</tr>
+<tr>
+<td>Forks</td>
+<td>1,</td>
+</tr>
+</tbody>
+</table>
+<h3>D11 社会价值（正外部性）</h3>
+<blockquote>
+<p>本维度为平行维度（权重 0%），不参与综合评分与一票否决，仅用于 3.4 价值画像。评价视角为「对行业/社会的外溢贡献本身」，与 D3.4（商业输入视角）及 D2.5/D2.6（工程质量视角）相区分。</p>
+</blockquote>
+<h3>D11.1 数字公共基础设施属性（3 分）</h3>
+<p><strong>小分：1.8 / 3（60%）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>证据</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>关键依赖地位</td>
+<td>无 Dependents 数据；项目定位为 Agent Skill，非底层库/框架；未成为任何主流工具链的强制依赖</td>
+<td>存在下游生态集成（Raven 供应链将其作为 skill、DeepSeek Harness 官方插件 <code>@tt-a1i/archify-dsh</code>、Cursor/Claude Code/Codex/OpenCode 安装路径），但均属「可选技能」而非「关键依赖」</td>
+</tr>
+<tr>
+<td>停摆影响面</td>
+<td>若项目消失，受影响的是约 23k stars 的 agent 绘图用户群；可退回 Mermaid/PlantUML/draw.io 等替代方案（项目自身标注 <code>mermaid-alternative</code>，证明它是替代品而非底座本身）</td>
+<td>停摆影响限于特定工作流偏好群体，波及面中等偏小</td>
+</tr>
+<tr>
+<td>数字公共产品属性</td>
+<td>MIT 许可、开放可复用、免费服务公共利益；产出为标准 HTML/SVG/PNG，无服务端锁定</td>
+<td>符合 DPG 基本特征，但规模未达「行业底座」量级</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：项目 4.5 个月从零增长至 23k stars，在 agent-skill 生态中具有头部影响力，且被多个 agent harness 集成，具备一定「公共产品」雏形；但作为 skill 包其替代性强（Mermaid 等成熟方案仍在），与 curl/OpenSSL 式数字底座有本质差距。对应评分指引「有一定下游依赖，但可替代性强」（5–6 档）。</p>
+<h3>D11.2 教育与人才价值（2.5 分）</h3>
+<p><strong>小分：1.5 / 2.5（60%）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>证据</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>教学采用</td>
+<td>仓库自带完整教学内容：中英双语 authoring-cookbook、interactive scenario guide、11 个 checked-in 验证场景（Proof Lab）、benchmarks/ordinary-model-floor 普通模型基准</td>
+<td>形成「仓库即教材」的自含教育形态，但成立仅 4 个月，外部课程/教程采用证据尚未建立（外部数据不可得）</td>
+</tr>
+<tr>
+<td>门槛降低效应</td>
+<td>零依赖 CLI（<code>node archify.mjs guide</code>）、npx 一键安装、typed JSON IR + 确定性校验，让 agent 使用者和普通开发者都能快速上手产出专业架构图</td>
+<td>显著降低「AI 绘图技能」的学习与使用门槛，尤其对 non-expert 友好（benchmark 专门针对 ordinary-model 设计）</td>
+</tr>
+<tr>
+<td>源码学习价值</td>
+<td>仓库源码量极少（1 个 .js 文件、21 行），主体为 skill 定义与文档</td>
+<td>无传统意义的「源码范本」可研读；但 86 个文档（含 40 轮视觉演进 research 系列、DESIGN.md、CONTRIBUTING.md）构成工程方法论教材</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：教学材料丰富度超出同类项目，双语内容增强了中文圈教育可及性；但「无源码可学」削弱传统源码学习价值，且外部教学扩散尚未验证。对应「有一定教学使用，影响限于小圈子至正在扩大」（5–6 档）。</p>
+<h3>D11.3 普惠与可及性（2.5 分）</h3>
+<p><strong>小分：2.0 / 2.5（80%）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>证据</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>能力平权化</td>
+<td>完全免费（MIT）、npx 一键安装、本地生成，零服务成本；将「AI 代理驱动的、可验证的专业架构图表达」能力开放给个人开发者与中小团队</td>
+<td>同类能力在传统路径下需人工使用 Visio/draw.io 或聘请架构师绘制；Archify 将这一能力以近零成本平权化</td>
+</tr>
+<tr>
+<td>替代价格差</td>
+<td>项目免费；商业替代（Visio 订阅、专业绘图外包）成本数十至数百美元/次</td>
+<td>免费 vs 付费差额显著，普惠效应明确</td>
+</tr>
+<tr>
+<td>可及性支持</td>
+<td>支持 <code>meta.locale=en|zh-CN</code> 本地化（含 a11y、HTML/SVG lang）；尊重 <code>prefers-reduced-motion</code>；产物为单文件 HTML，任意浏览器可打开，无硬件要求</td>
+<td>i18n + 无障碍 + 低硬件门槛三者齐备，覆盖中文与英文两大开发者群体</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：免费+双语文档+无障碍+低配置可运行，将专业架构图生产从「专家+付费工具」转为「任何人+免费+AI 辅助」，普惠效果显著。对应「显著降低获得门槛，覆盖主要人群」（7–8 档）。</p>
+<h3>D11.4 开放标准与行业推动（2 分）</h3>
+<p><strong>小分：1.2 / 2（60%）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>证据</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>标准推动</td>
+<td>输出标准 HTML/SVG/PNG/WebM（W3C Web 标准）；自定义 typed JSON IR 公开 schema；MIT 无锁定；明确不做 Mermaid 兼容/自动解析（自成一派）</td>
+<td>遵循并推广开放 Web 格式，防止厂商锁定；但未定义或主导行业标准，且主动放弃 Mermaid 兼容意味着一定生态碎片化风险</td>
+</tr>
+<tr>
+<td>科研支撑</td>
+<td>外部论文引用不可得（N/A）；仓库内 research-* 系列 40 轮为自研设计文档，非第三方学术引用</td>
+<td>无学术引用证据</td>
+</tr>
+<tr>
+<td>行业示范效应</td>
+<td>23k stars + 90 天 85 个 PR 的高速迭代；确定性验证/交付（validate/deliver 含机器可读修复凭据）、Architecture Delta 对比等设计理念有示范潜力</td>
+<td>成立时间短，同行模仿证据无法确认，示范效应处于早期</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：开放格式 + 防锁定立场明确、工程理念有创新性，符合「实现并推广开放格式、有示范潜力」；但未达「定义或主导行业开放标准」量级，科研引用 N/A。对应「遵循开放标准但推动作用有限」（5–6 档）。</p>
+<h3>D11 细则分值汇总</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>分值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D11.1</td>
+<td>数字公共基础设施属性</td>
+<td>1.8 / 3</td>
+</tr>
+<tr>
+<td>D11.2</td>
+<td>教育与人才价值</td>
+<td>1.5 / 2.5</td>
+</tr>
+<tr>
+<td>D11.3</td>
+<td>普惠与可及性</td>
+<td>2.0 / 2.5</td>
+</tr>
+<tr>
+<td>D11.4</td>
+<td>开放标准与行业推动</td>
+<td>1.2 / 2</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>6.5 / 10</strong></td>
+</tr>
+</tbody>
+</table>
+<h3>结论（价值画像）</h3>
+<p>Archify 的社会正外部性整体中等偏上（6.5/10），价值结构呈「强普惠、中教育、弱底座」形态：</p>
+<ul>
+<li><strong>普惠性是最大亮点</strong>：MIT 免费 + 单文件 HTML + 中英双语 + 无障碍 + 低硬件门槛，将「AI 驱动的可验证架构图」能力以零成本开放给个人与中小团队，替代价格差显著。</li>
+<li><strong>教育价值形态独特</strong>：86 个文档构成自含教材（双语 cookbook、benchmark 基线、40 轮设计演进记录），降低 AI 绘图学习门槛，但无源码可研读、外部扩散尚未形成。</li>
+<li><strong>公共基础设施属性尚弱</strong>：被多个 agent harness 集成为可选技能，有一定生态嵌入，但替代性强、非关键依赖，停摆影响面有限。</li>
+<li><strong>标准推动处于早期</strong>：遵循开放 Web 格式、MIT 防锁定立场清晰，但自成一派（不做 Mermaid 兼容）且时间尚短，行业示范效应有待观察。</li>
+</ul>
+<p>总体而言，Archify 是「面向开发者的普惠型正外部性项目」——以开放、免费、低门槛方式提升 AI 时代软件架构表达的可及性与可验证性，但尚未成为数字基础设施级别的公共产品。</p>
+<h2>五、商业化价值判断</h2>
+<h3>5.1 综合价值评估</h3>
+<p>Archify 综合评分 <strong>76.3 分</strong>，等级 <strong>A（高商业化潜力）</strong>，价值画像为 <strong>💼 纯商业工具</strong>。项目处于 AI 编程代理与 Agent Skill 生态爆发期，4.5 个月即获得 23k+ Star，验证了市场高速增长与需求真实性。作为 mermaid-alternative 定位的 Agent-native 可验证图表生成工具，其「验证系统 + 精美渲染」的组合直击「AI 生成的图不可信」这一真实痛点，形成了清晰的差异化壁垒。</p>
+<h3>5.2 商业化价值亮点</h3>
+<ul>
+<li><strong>市场需求强劲</strong>：D1 得分 8.5/10，处于 AI 编程代理生态爆发期，跨行业通用，五种图类型覆盖研发全生命周期场景，细分赛道竞争极少，先发优势明显。</li>
+<li><strong>技术壁垒扎实</strong>：D2 得分 8.33/10，Typed JSON IR + 确定性五重校验管线 + 稳定规则码修复契约构成复刻难度，40 轮视觉演进迭代体现深度打磨。</li>
+<li><strong>竞争格局有利</strong>：D5 得分 8.0/10，已适配 6+ 代理平台（Cursor/Claude Code/Codex/OpenCode/Raven/DeepSeek Harness），集成面持续扩展，切换成本中等偏上。</li>
+<li><strong>法律合规无障碍</strong>：D6 得分 7.9/10，MIT 协议无变现约束，运行时依赖为 0，无 copyleft 传染，所有商业化路径法律上均可行。</li>
+</ul>
+<h3>5.3 商业化价值短板</h3>
+<ul>
+<li><strong>变现路径未验证</strong>：D4 得分 6.3/10，尚无企业版/付费版/商业服务，全功能免费导致付费转化漏斗不存在，处于赞助与生态合作阶段。</li>
+<li><strong>社区结构单一</strong>：D3 得分 6.9/10，贡献者仅 10 人，外部协作网络尚未形成，组织多样性数据缺失。</li>
+<li><strong>企业就绪度待提升</strong>：D7 得分 7.2/10，缺少结构化日志、内置监控与标准可观测性协议。</li>
+</ul>
+<h2>六、商业路径分析</h2>
+<h3>6.1 最优路径：围绕 Agent 生态的「平台集成 + 增值服务」模式</h3>
+<p>鉴于项目定位为 Agent Skill 且已适配 6+ 代理平台，最优商业化路径是<strong>依托现有生态位，从「免费工具」向「增值服务」演进</strong>：</p>
+<ol>
+<li>
+<p><strong>短期（0–6 个月）：夯实生态位，建立付费入口</strong>
+   - 保持 MIT 开源核心，继续扩展代理平台集成（已覆盖 Cursor/Claude Code/Codex/OpenCode/Raven/DeepSeek Harness）
+   - 推出企业版/团队版，提供<strong>部署支持、SLA 保障、品牌定制</strong>等增值服务（D4.4 已识别，客单价预计 $1K–10K/年）
+   - 建立付费转化触发点：如企业级安全审计报告、合规性文档、专属技术支持</p>
+</li>
+<li>
+<p><strong>中期（6–18 个月）：构建平台化能力</strong>
+   - 开发团队协作功能（图表版本管理、评审流程、知识库集成）
+   - 提供私有化部署方案（当前纯客户端无服务端，需补充服务端组件）
+   - 建立结构化日志、监控与可观测性能力（D7 短板，企业采购刚需）</p>
+</li>
+<li>
+<p><strong>长期（18 个月+）：探索数据网络效应</strong>
+   - 积累图表生成/验证的匿名数据，优化校验管线（当前五重校验管线已具雏形）
+   - 考虑推出云端渲染/分享服务，形成间接网络效应</p>
+</li>
+</ol>
+<h3>6.2 路径修正（基于价值画像）</h3>
+<p>价值画像为 <strong>💼 纯商业工具</strong>（公共价值分 5.3 &lt; 7），建议按 D4 最优路径直接变现，无需过度顾虑社区声誉反噬。但需注意：</p>
+<ul>
+<li><strong>避免竭泽而渔</strong>：虽然公共价值分不高，但项目在开发者社区有较高品牌认知（Trendshift 趋势榜 + 2.3 万 Star），激进变现可能损害社区基础</li>
+<li><strong>保持 MIT 核心</strong>：MIT 协议是当前增长的核心驱动力，建议核心能力保持开源，通过增值服务变现</li>
+</ul>
+<h3>6.3 变现路径优先级</h3>
+<table>
+<thead>
+<tr>
+<th>优先级</th>
+<th>路径</th>
+<th>依据</th>
+<th>预期收益</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P0</td>
+<td>企业版（部署/SLA/品牌定制）</td>
+<td>D4.4 已识别增值方向，MIT 无法律障碍</td>
+<td>$1K–10K/年/客户</td>
+</tr>
+<tr>
+<td>P1</td>
+<td>托管服务/云端渲染</td>
+<td>纯客户端无服务端，存在自然延伸空间</td>
+<td>订阅制</td>
+</tr>
+<tr>
+<td>P2</td>
+<td>技术咨询/培训</td>
+<td>86 个文档构成自含教育体系</td>
+<td>项目制</td>
+</tr>
+<tr>
+<td>P3</td>
+<td>赞助扩展</td>
+<td>已有 APINEBULA、EverMind 两家赞助</td>
+<td>补充性收入</td>
+</tr>
+</tbody>
+</table>
+<h2>七、能力评估：能做什么 &amp; 最适合做什么</h2>
+<h3>7.1 核心能力</h3>
+<ul>
+<li><strong>可验证图表生成</strong>：确定性五重校验管线 + 稳定规则码修复契约，解决「AI 生成的图不可信」痛点</li>
+<li><strong>多平台集成</strong>：已适配 Cursor、Claude Code、Codex CLI、OpenCode、Raven、DeepSeek Harness 六大代理平台</li>
+<li><strong>高质量渲染</strong>：五种图类型（架构/工作流/时序/数据流/生命周期），自包含 HTML 输出，支持运动效果与清晰导出</li>
+<li><strong>工程纪律</strong>：3 个 CI workflow 覆盖 Node 18/22/24 矩阵、真实 Chrome 渲染验证、zip 字节级 freshness 比对、三平台发布验收</li>
+<li><strong>文档体系</strong>：86 个文档文件含中英双语 cookbook、DESIGN/PRODUCT/ROADMAP、各 renderer 独立文档与契约定义</li>
+</ul>
+<h3>7.2 最适合做什么</h3>
+<p>基于 D1（市场需求 8.5）与 D5（竞争格局 8.0）的高分表现，Archify 最适合：</p>
+<ol>
+<li><strong>作为 AI 编程代理的「图表基础设施」</strong>：在 Agent Skill 生态中占据「图表生成与验证」这一细分心智，成为 Cursor/Claude Code 等平台的默认图表方案</li>
+<li><strong>面向企业架构团队的「可信可视化」工具</strong>：利用验证系统解决合规/审计场景下的图表可信问题</li>
+<li><strong>开发者工具链中的「最后一公里」</strong>：从代码到架构图的自动化生成，嵌入 CI/CD 流程</li>
+</ol>
+<h3>7.3 不适合做什么</h3>
+<ul>
+<li><strong>不适合做通用图表平台</strong>：与 Mermaid/PlantUML 正面竞争（README 明确「not a Mermaid theme」），应保持 Agent-native 差异化</li>
+<li><strong>不适合做 SaaS 平台</strong>：当前纯客户端架构，无服务端能力，转型成本高</li>
+<li><strong>不适合做低代码/无代码平台</strong>：目标用户是开发者/架构师，非业务人员</li>
+</ul>
+<h2>八、短板识别：还缺少什么</h2>
+<h3>8.1 商业化关键短板</h3>
+<table>
+<thead>
+<tr>
+<th>短板</th>
+<th>现状</th>
+<th>影响</th>
+<th>补齐建议</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>付费转化机制缺失</strong></td>
+<td>全功能免费，无企业版/付费版（D4.3 得分 1.0/2.5）</td>
+<td>有用户无收入，商业化无法启动</td>
+<td>设计免费/付费功能分层，引入付费触发点</td>
+</tr>
+<tr>
+<td><strong>资金支持未公开</strong></td>
+<td>未检测到 Sponsors/Open Collective/商业实体信息（D8.3 N/A）</td>
+<td>可持续性存疑，影响企业客户信心</td>
+<td>公开 funding 信息，引入商业赞助</td>
+</tr>
+<tr>
+<td><strong>安全专项缺失</strong></td>
+<td>无 SECURITY.md、无依赖漏洞扫描、无硬编码检测（D2.4 得分 0.6/1.0）</td>
+<td>作为 agent skill 面临 prompt injection 特有风险，企业采购障碍</td>
+<td>补充安全策略、引入 Dependabot/Snyk</td>
+</tr>
+<tr>
+<td><strong>可观测性不足</strong></td>
+<td>缺少结构化日志、内置监控与标准可观测性协议（D7）</td>
+<td>企业就绪度短板</td>
+<td>补充日志/监控能力</td>
+</tr>
+<tr>
+<td><strong>商标未检索</strong></td>
+<td>「Archify」名称存在同名项目，商标可用性未经人工检索（D6.3 置信度低）</td>
+<td>商业化品牌风险</td>
+<td>正式商标检索与注册</td>
+</tr>
+</tbody>
+</table>
+<h3>8.2 结构性短板</h3>
+<ul>
+<li><strong>社区结构单一</strong>：贡献者仅 10 人，外部协作网络尚未形成（D3.2 得分 1.5/2.5），存在 bus factor 风险</li>
+<li><strong>代码量极低</strong>：仓库源码仅 21 行 .js（D2/D11 均提及），以 Markdown/模板为核心资产，传统代码量统计不反映真实体量，但可能影响企业技术评估</li>
+<li><strong>向后兼容性无明确声明</strong>：40 个开放 Issue、迭代速度极快（4 个月 15+ release），企业采用需谨慎</li>
+</ul>
+<h2>九、风险提示</h2>
+<h3>9.1 高风险</h3>
+<table>
+<thead>
+<tr>
+<th>风险</th>
+<th>等级</th>
+<th>说明</th>
+<th>缓解措施</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>AI 巨头内置图表能力</strong></td>
+<td>🔴 高</td>
+<td>编码 Agent 平台（Cursor/Claude Code/Codex）可能原生内置图表生成能力，颠覆 Archify 的中间层价值</td>
+<td>加速集成深度，成为平台默认 skill；建立私有 JSON IR 格式的转换成本</td>
+</tr>
+<tr>
+<td><strong>变现路径验证失败</strong></td>
+<td>🔴 高</td>
+<td>当前仅 2 个赞助商，无付费产品线，付费转化逻辑未验证（D4.3 得分 1.0/2.5）</td>
+<td>小步快跑，先以低客单价企业版试水，验证付费意愿</td>
+</tr>
+</tbody>
+</table>
+<h3>9.2 中风险</h3>
+<table>
+<thead>
+<tr>
+<th>风险</th>
+<th>等级</th>
+<th>说明</th>
+<th>缓解措施</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>社区增长不可持续</strong></td>
+<td>🟡 中</td>
+<td>Star 月均约 5,236 属爆发式增长，但贡献者仅 10 人，外部协作网络未形成</td>
+<td>扩大维护者团队，建立贡献者激励机制</td>
+</tr>
+<tr>
+<td><strong>商标纠纷</strong></td>
+<td>🟡 中</td>
+<td>「Archify」名称存在同名项目，商标可用性未经人工检索</td>
+<td>商业化前完成正式商标检索与注册</td>
+</tr>
+<tr>
+<td><strong>安全漏洞</strong></td>
+<td>🟡 中</td>
+<td>无 SECURITY.md、无依赖漏洞扫描，作为 agent skill 面临 prompt injection 特有风险</td>
+<td>补充安全策略，引入自动化漏洞扫描</td>
+</tr>
+</tbody>
+</table>
+<h3>9.3 低风险</h3>
+<table>
+<thead>
+<tr>
+<th>风险</th>
+<th>等级</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>法律合规</td>
+<td>🟢 低</td>
+<td>MIT 协议无变现约束，运行时依赖为 0，无 copyleft 传染</td>
+</tr>
+<tr>
+<td>项目可持续性</td>
+<td>🟢 低</td>
+<td>成立仅 4 个月即达 23k stars，活跃度持续上升，无历史风险标记</td>
+</tr>
+<tr>
+<td>运维复杂度</td>
+<td>🟢 低</td>
+<td>纯客户端 Agent Skill，无服务端/数据库/基础设施</td>
+</tr>
+</tbody>
+</table>
+<h2>十、结论与建议</h2>
+<h3>10.1 综合结论</h3>
+<p><strong>Archify 是一个高商业化潜力的开发者工具项目（A 级，76.3/100），价值画像为「纯商业工具」。</strong> 项目精准卡位 AI 编程代理生态爆发期，以「可验证图表生成」这一差异化定位在 4.5 个月内获得 23k+ Star，技术壁垒与竞争格局均表现优异（D2=8.33，D5=8.0）。核心短板在于变现路径未验证（D4=6.3）与社区结构单一（D3=6.9），但 MIT 协议无法律障碍，所有商业化路径均可行。</p>
+<h3>10.2 行动建议</h3>
+<p><strong>立即行动（0–3 个月）</strong>：
+1. <strong>启动企业版设计</strong>：基于 D4.4 已识别的增值方向（部署/SLA/品牌定制），设计免费/付费功能分层，建立付费转化触发点
+2. <strong>补齐安全短板</strong>：添加 SECURITY.md、引入依赖漏洞扫描（Dependabot/Snyk），消除企业采购障碍
+3. <strong>公开资金信息</strong>：明确 Sponsors/funding 机制，增强可持续性信号</p>
+<p><strong>短期（3–12 个月）</strong>：
+4. <strong>验证付费意愿</strong>：以低客单价（$1K–3K/年）企业版试水，优先服务已有集成平台的付费用户
+5. <strong>扩大贡献者网络</strong>：从 10 人扩展到 20–30 人，降低 bus factor 风险
+6. <strong>完成商标注册</strong>：正式检索并注册「Archify」商标</p>
+<p><strong>中期（12 个月+）</strong>：
+7. <strong>探索平台化</strong>：考虑云端渲染/分享服务，形成间接网络效应
+8. <strong>监控巨头动向</strong>：密切关注 Cursor/Claude Code/Codex 是否内置图表能力，及时调整定位</p>
+<h3>10.3 不建议做的事</h3>
+<ul>
+<li><strong>不建议立即全面商业化</strong>：付费转化逻辑未验证前，激进变现可能损害 23k Star 的社区基础</li>
+<li><strong>不建议转向通用图表平台</strong>：与 Mermaid/PlantUML 正面竞争将丧失差异化优势</li>
+<li><strong>不建议引入 copyleft 协议</strong>：当前 MIT 是增长核心驱动力，协议变更可能引发社区反噬（参照 Elastic 教训）</li>
+</ul>
+<h2>十一、项目地址</h2>
+<p><svg class="ri ri-muted" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.001 2C6.47598 2 2.00098 6.475 2.00098 12C2.00098 16.425 4.86348 20.1625 8.83848 21.4875C9.33848 21.575 9.52598 21.275 9.52598 21.0125C9.52598 20.775 9.51348 19.9875 9.51348 19.15C7.00098 19.6125 6.35098 18.5375 6.15098 17.975C6.03848 17.6875 5.55098 16.8 5.12598 16.5625C4.77598 16.375 4.27598 15.9125 5.11348 15.9C5.90098 15.8875 6.46348 16.625 6.65098 16.925C7.55098 18.4375 8.98848 18.0125 9.56348 17.75C9.65098 17.1 9.91348 16.6625 10.201 16.4125C7.97598 16.1625 5.65098 15.3 5.65098 11.475C5.65098 10.3875 6.03848 9.4875 6.67598 8.7875C6.57598 8.5375 6.22598 7.5125 6.77598 6.1375C6.77598 6.1375 7.61348 5.875 9.52598 7.1625C10.326 6.9375 11.176 6.825 12.026 6.825C12.876 6.825 13.726 6.9375 14.526 7.1625C16.4385 5.8625 17.276 6.1375 17.276 6.1375C17.826 7.5125 17.476 8.5375 17.376 8.7875C18.0135 9.4875 18.401 10.375 18.401 11.475C18.401 15.3125 16.0635 16.1625 13.8385 16.4125C14.201 16.725 14.5135 17.325 14.5135 18.2625C14.5135 19.6 14.501 20.675 14.501 21.0125C14.501 21.275 14.6885 21.5875 15.1885 21.4875C19.259 20.1133 21.9999 16.2963 22.001 12C22.001 6.475 17.526 2 12.001 2Z"/></svg> <a href="https://github.com/tt-a1i/archify">https://github.com/tt-a1i/archify</a></p>
+<hr />
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+</blockquote>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家　<a href="https://www.mova.work">www.mova.work</a></p></body></html>

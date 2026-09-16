@@ -1,0 +1,1634 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><title>Claude-of-Duty 商业价值分析报告</title><style>/* default — 品牌蓝紫主题（从 md2pdf.py 原 CSS 常量迁出，视觉与历史产物一致） */
+@page { size: A4; margin: 18mm 15mm 20mm 15mm; }
+* { box-sizing: border-box; }
+/* 字体规范：一律开源思源黑体 CN（OFL 免费商用）；正文 Regular/标题 Bold/大字数字 Light */
+body { font-family: "Source Han Sans CN","思源黑体 CN","Noto Sans SC",sans-serif; color:#1e293b; font-size:10.5pt; line-height:1.75; margin:0; }
+.cover { page-break-after: always; text-align:center; padding-top:40px; }
+.cover .kicker { color:#2563eb; letter-spacing:6px; font-size:12pt; font-weight:500; }
+.cover h1 { font-size:26pt; margin:14px 0 6px; }
+.cover .sub { color:#64748b; font-size:11pt; margin-bottom:22px; }
+.badge { display:inline-block; background:linear-gradient(135deg,#2563eb,#7c3aed); color:#fff; border-radius:18px; padding:16px 44px; margin:10px 0 18px; }
+.badge .g { font-size:34pt; font-weight:300; line-height:1; }
+.badge .s { font-size:12pt; opacity:.92; margin-top:4px; }
+.meta { color:#475569; font-size:9.5pt; margin-top:14px; }
+.bars { max-width:620px; margin:20px auto 0; text-align:left; }
+.bar-row { display:flex; align-items:center; gap:8px; margin:5px 0; font-size:9pt; }
+.bar-name { width:110px; text-align:right; color:#334155; font-weight:500; }
+.bar-track { flex:1; height:9px; background:#f1f5f9; border-radius:5px; overflow:hidden; }
+.bar-fill { display:block; height:100%; border-radius:5px; }
+.bar-val { width:30px; font-weight:700; color:#0f172a; }
+.bar-w { width:52px; color:#94a3b8; font-size:8pt; }
+h1 { font-size:17pt; color:#0f172a; border-bottom:3px solid #2563eb; padding-bottom:8px; }
+h2 { font-size:13.5pt; color:#1d4ed8; margin-top:26px; page-break-after: avoid; border-left:5px solid #2563eb; padding-left:10px; }
+h3 { font-size:11.5pt; color:#0f172a; margin-top:18px; page-break-after: avoid; }
+table { border-collapse:collapse; width:100%; margin:10px 0; font-size:9pt; page-break-inside:avoid; }
+th { background:#eff6ff; color:#1e3a8a; }
+th,td { border:1px solid #dbe3ef; padding:5px 8px; text-align:left; }
+tr:nth-child(even) td { background:#f8fafc; }
+code { background:#f1f5f9; border-radius:4px; padding:1px 5px; font-family:"JetBrains Mono","Cascadia Mono",monospace; font-size:9pt; color:#be185d; }
+pre { background:#0f172a; color:#e2e8f0; border-radius:8px; padding:12px 14px; overflow-x:auto; page-break-inside:avoid; }
+pre code { background:none; color:inherit; padding:0; }
+blockquote { border-left:4px solid #93c5fd; background:#eff6ff; margin:10px 0; padding:8px 14px; color:#334155; border-radius:0 8px 8px 0; }
+hr { border:none; border-top:1px dashed #cbd5e1; margin:22px 0; }
+strong { color:#0f172a; }
+.cover .disclaimer { max-width:620px; margin:16px auto 0; color:#64748b; font-size:8.5pt; line-height:1.6; text-align:left; border:1px solid #e2e8f0; border-radius:8px; padding:8px 12px; background:#f8fafc; }
+.credit { color:#2563eb; font-size:10.5pt; font-weight:700; letter-spacing:1px; margin-top:12px; }
+.at-acc { background:#dbeafe; color:#1d4ed8; border-radius:4px; padding:0 4px; font-weight:500; white-space:nowrap; }
+.tail { page-break-inside:avoid; margin-top:26px; border-top:2px solid #2563eb; padding-top:14px; }
+.tail p { color:#64748b; font-size:8.5pt; line-height:1.6; margin:0 0 10px; }
+.tail .credit { text-align:center; margin:0; }
+/* Remix Icon 内联 SVG（icon_mode=remix 时由脚本注入，语义色与评分条一致） */
+.ri { width:1.05em; height:1.05em; vertical-align:-0.18em; display:inline-block; }
+.ri-ok { color:#16a34a; } .ri-warn { color:#d97706; } .ri-bad { color:#dc2626; }
+.ri-muted { color:#64748b; } .ri-star { color:#f59e0b; } .ri-brand { color:#2563eb; }
+.ri-gold { color:#d4a017; } .ri-silver { color:#9ca3af; } .ri-bronze { color:#b45309; }
+/* 屏幕预览：@page 边距仅在打印时生效，浏览器中居中限宽并收边（不影响 PDF 输出） */
+@media screen {
+  body { margin: 0 auto; padding: 28px 36px 56px; max-width: 900px; }
+}
+</style></head><body><div class="cover">
+<div class="kicker">开源项目商业化潜力分析 · 第 21 期</div>
+<h1>GitHub 开源项目 Claude-of-Duty<br>商业价值分析报告</h1>
+<div class="sub">mshumer/Claude-of-Duty · AI单prompt生成Three.js FPS技术演示 · 长尾项目（52.8/100 B级）</div>
+<div class="badge"><div class="g">B 级 · 52.8</div><div class="s">综合评分（满分 100）· 中等商业化潜力</div></div>
+<div><svg viewBox="0 0 560 480" width="560" height="480" xmlns="http://www.w3.org/2000/svg"><polygon points="280.0,209.6 299.5,216.7 309.9,234.7 306.3,255.2 290.4,268.6 269.6,268.6 253.7,255.2 250.1,234.7 260.5,216.7" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,179.2 319.1,193.4 339.9,229.4 332.7,270.4 300.8,297.1 259.2,297.1 227.3,270.4 220.1,229.4 240.9,193.4" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,148.8 338.6,170.1 369.8,224.2 359.0,285.6 311.2,325.7 248.8,325.7 201.0,285.6 190.2,224.2 221.4,170.1" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,118.4 358.2,146.8 399.8,218.9 385.3,300.8 321.6,354.3 238.4,354.3 174.7,300.8 160.2,218.9 201.8,146.8" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,88.0 377.7,123.6 429.7,213.6 411.6,316.0 332.0,382.8 228.0,382.8 148.4,316.0 130.3,213.6 182.3,123.6" fill="none" stroke="#e2e8f0" stroke-width="1"/><line x1="280.0" y1="240.0" x2="280.0" y2="88.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="377.7" y2="123.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="429.7" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="411.6" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="332.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="228.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="148.4" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="130.3" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="182.3" y2="123.6" stroke="#d8dee9" stroke-width="1"/><polygon points="280.0,141.2 345.5,162.0 345.9,228.4 341.9,275.7 302.9,302.8 242.6,342.8 214.2,278.0 241.1,233.1 226.3,176.0" fill="rgba(37,99,235,.22)" stroke="#2563eb" stroke-width="2.5"/><circle cx="280.0" cy="141.2" r="3.5" fill="#2563eb"/><circle cx="345.5" cy="162.0" r="3.5" fill="#2563eb"/><circle cx="345.9" cy="228.4" r="3.5" fill="#2563eb"/><circle cx="341.9" cy="275.7" r="3.5" fill="#2563eb"/><circle cx="302.9" cy="302.8" r="3.5" fill="#2563eb"/><circle cx="242.6" cy="342.8" r="3.5" fill="#2563eb"/><circle cx="214.2" cy="278.0" r="3.5" fill="#2563eb"/><circle cx="241.1" cy="233.1" r="3.5" fill="#2563eb"/><circle cx="226.3" cy="176.0" r="3.5" fill="#2563eb"/><text x="280.0" y="44.0" text-anchor="middle" font-size="12.5" fill="#334155" font-weight="600">D1</text><text x="280.0" y="58.0" text-anchor="middle" font-size="11" fill="#64748b">市场需求 6.5</text><text x="406.0" y="89.9" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D2</text><text x="406.0" y="103.9" text-anchor="start" font-size="11" fill="#64748b">技术成熟度 6.7</text><text x="473.0" y="206.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D3</text><text x="473.0" y="220.0" text-anchor="start" font-size="11" fill="#64748b">社区生态 4.4</text><text x="449.7" y="338.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D4</text><text x="449.7" y="352.0" text-anchor="start" font-size="11" fill="#64748b">变现潜力 4.7</text><text x="347.0" y="424.2" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D5</text><text x="347.0" y="438.2" text-anchor="start" font-size="11" fill="#64748b">竞争格局 4.4</text><text x="213.0" y="424.2" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D6</text><text x="213.0" y="438.2" text-anchor="end" font-size="11" fill="#64748b">法律合规 7.2</text><text x="110.3" y="338.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D7</text><text x="110.3" y="352.0" text-anchor="end" font-size="11" fill="#64748b">企业就绪 5.0</text><text x="87.0" y="206.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D8</text><text x="87.0" y="220.0" text-anchor="end" font-size="11" fill="#64748b">团队治理 2.6</text><text x="154.0" y="89.9" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D9</text><text x="154.0" y="103.9" text-anchor="end" font-size="11" fill="#64748b">上手难度 5.5</text></svg></div>
+<div class="bars"><div class="bar-row"><span class="bar-name">D6 法律合规</span>
+<span class="bar-track"><span class="bar-fill" style="width:72.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.2</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D2 技术成熟度</span>
+<span class="bar-track"><span class="bar-fill" style="width:67.0%;background:#d97706"></span></span>
+<span class="bar-val">6.7</span><span class="bar-w">权重14%</span></div>
+<div class="bar-row"><span class="bar-name">D1 市场需求</span>
+<span class="bar-track"><span class="bar-fill" style="width:65.0%;background:#d97706"></span></span>
+<span class="bar-val">6.5</span><span class="bar-w">权重13%</span></div>
+<div class="bar-row"><span class="bar-name">D9 上手难度</span>
+<span class="bar-track"><span class="bar-fill" style="width:55.0%;background:#dc2626"></span></span>
+<span class="bar-val">5.5</span><span class="bar-w">权重10%</span></div>
+<div class="bar-row"><span class="bar-name">D7 企业就绪</span>
+<span class="bar-track"><span class="bar-fill" style="width:50.0%;background:#dc2626"></span></span>
+<span class="bar-val">5.0</span><span class="bar-w">权重8%</span></div>
+<div class="bar-row"><span class="bar-name">D4 变现潜力</span>
+<span class="bar-track"><span class="bar-fill" style="width:47.0%;background:#dc2626"></span></span>
+<span class="bar-val">4.7</span><span class="bar-w">权重18%</span></div>
+<div class="bar-row"><span class="bar-name">D3 社区生态</span>
+<span class="bar-track"><span class="bar-fill" style="width:44.0%;background:#dc2626"></span></span>
+<span class="bar-val">4.4</span><span class="bar-w">权重11%</span></div>
+<div class="bar-row"><span class="bar-name">D5 竞争格局</span>
+<span class="bar-track"><span class="bar-fill" style="width:44.0%;background:#dc2626"></span></span>
+<span class="bar-val">4.4</span><span class="bar-w">权重12%</span></div>
+<div class="bar-row"><span class="bar-name">D8 团队治理</span>
+<span class="bar-track"><span class="bar-fill" style="width:26.0%;background:#dc2626"></span></span>
+<span class="bar-val">2.6</span><span class="bar-w">权重7%</span></div></div>
+<div class="meta">分析时点 2026-08-26 ｜ 数据来源：GitHub API + 仓库代码实测 ｜ 方法论 v1.3</div>
+<div class="credit">报告出品：@魔法工厂　@向量之心　@南山科学家</div>
+<div class="disclaimer"><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</div>
+</div><h1>Claude-of-Duty 商业化潜力分析报告（完整版）</h1>
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家</p>
+<p>方法论版本: v1.3 | 综合评分: <strong>52.8</strong> | 等级: <strong>B（中等商业化潜力）</strong> | 价值画像: 长尾项目</p>
+</blockquote>
+<h2>一、项目概览</h2>
+<h3>1.1 基本信息</h3>
+<ul>
+<li><strong>项目名称 / 仓库地址</strong>：mshumer/Claude-of-Duty</li>
+<li><strong>核心技术栈</strong>：JavaScript / Three.js（^0.180.0）/ WebGL2 / Web Audio</li>
+<li><strong>社区规模速览</strong>：Star 3,272 / Fork 497 / 贡献者 1 人</li>
+<li><strong>分析时点 / 数据来源</strong>：GitHub 公开仓库数据（创建于 2026-07-25，评估时仓库年龄约 6 分钟）</li>
+</ul>
+<h3>1.2 项目分类标签</h3>
+<table>
+<thead>
+<tr>
+<th>分类维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>应用软件（网页 FPS 游戏）</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>媒体内容 / 游戏技术演示</td>
+</tr>
+<tr>
+<td>目标用户角色</td>
+<td>全栈开发者 / 前端开发者 / AI 工程师</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>游戏技术演示 / AI 编程能力验证 / 视觉回归测试方法展示</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>混合部署（本地开发服务器 + 浏览器运行）</td>
+</tr>
+</tbody>
+</table>
+<h3>1.3 一句话定位</h3>
+<blockquote>
+<p>Claude-of-Duty 是一个由单个 prompt 驱动的 Three.js 网页 FPS 游戏，适用于游戏技术演示与 AI 编程能力验证场景，主要面向全栈开发者和 AI 工程师，用于展示大规模 AI 生成代码的可行性及可复现的视觉回归测试方法。</p>
+</blockquote>
+<h2>二、安装部署与使用指南</h2>
+<h4>环境要求</h4>
+<ul>
+<li><strong>运行时</strong>: 无需预装运行时，浏览器原生支持 WebGL2（Chrome/Firefox/Safari 最新版均可）</li>
+<li><strong>Node.js</strong>: 需 Node.js 环境（建议 v20+，Vite 7 要求）</li>
+<li><strong>GPU</strong>: 建议独立显卡，Retina 屏幕（DPR 2）下 1512×982 分辨率、ultra 预设实测 <code>28–30 fps</code>（Apple silicon 笔记本）</li>
+</ul>
+<h4>安装步骤</h4>
+<pre><code class="language-bash">npm install
+npm run dev          # http://127.0.0.1:5173
+</code></pre>
+<p>依赖仅 <code>three</code>（运行时），开发依赖含 <code>vite</code>、<code>playwright</code>、<code>pngjs</code>。无 Dockerfile、无 CI 配置。</p>
+<h4>操作方式</h4>
+<p>点击画布锁定光标，WASD 移动、鼠标瞄准、LMB 射击、RMB 机瞄、R 换弹、Shift 冲刺、Ctrl 蹲下、Space 跳跃、Q/E 倾斜、Esc 释放光标。</p>
+<h4>验证与调试工具</h4>
+<table>
+<thead>
+<tr>
+<th>工具</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>tools/capture.mjs</code></td>
+<td>截图单个命名的场景</td>
+</tr>
+<tr>
+<td><code>tools/shotset.mjs</code></td>
+<td>一次会话内快速采集 11 帧</td>
+</tr>
+<tr>
+<td><code>tools/baseline.mjs</code></td>
+<td>可复现截图（逐帧隔离页面）</td>
+</tr>
+<tr>
+<td><code>tools/imagediff.mjs</code></td>
+<td>像素级比较，作为回归门禁</td>
+</tr>
+<tr>
+<td><code>tools/profile.mjs</code></td>
+<td>帧时间分布和卡顿归因分析</td>
+</tr>
+<tr>
+<td><code>tools/playtest.mjs</code></td>
+<td>脚本化移动/射击冒烟测试</td>
+</tr>
+</tbody>
+</table>
+<h2>三、评分总览</h2>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>权重</th>
+<th>加权得分</th>
+<th>评级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1 市场需求与商业机会</td>
+<td>6.5/10</td>
+<td>13%</td>
+<td>0.85</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D2 技术成熟度与产品质量</td>
+<td>6.7/10</td>
+<td>14%</td>
+<td>0.94</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D3 社区健康度与生态势能</td>
+<td>4.4/10</td>
+<td>11%</td>
+<td>0.48</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D4 商业模式与变现潜力</td>
+<td>4.7/10</td>
+<td>18%</td>
+<td>0.85</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D5 竞争格局与差异化壁垒</td>
+<td>4.4/10</td>
+<td>12%</td>
+<td>0.53</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D6 法律合规与知识产权</td>
+<td>7.2/10</td>
+<td>7%</td>
+<td>0.50</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D7 企业就绪度与可运营性</td>
+<td>5.0/10</td>
+<td>8%</td>
+<td>0.40</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D8 团队治理与可持续性</td>
+<td>2.6/10</td>
+<td>7%</td>
+<td>0.18</td>
+<td>差</td>
+</tr>
+<tr>
+<td>D9 上手难度与易用性</td>
+<td>5.5/10</td>
+<td>10%</td>
+<td>0.55</td>
+<td>中</td>
+</tr>
+<tr>
+<td><strong>综合评分</strong></td>
+<td>—</td>
+<td>100%</td>
+<td><strong>52.8/100</strong></td>
+<td><strong>B（中等商业化潜力）</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>平行维度（不计入综合评分）</strong></p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10 功能价值</td>
+<td>6.6/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>D11 社会价值</td>
+<td>5.4/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>公共价值分</td>
+<td>6.0/10</td>
+<td>(D10+D11)/2</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>各维度细则分值构成详见「二、维度评分细则」。</p>
+</blockquote>
+<p><strong>一票否决检查</strong>：未触发（D6=7.2&gt;3，D8.4=1.2&gt;1，D4.1=2&gt;0.5）。</p>
+<p><strong>价值画像判定</strong>：综合评分 52.8 &lt; 65 且 公共价值分 6.0 &lt; 7 → <strong>📦 长尾项目</strong>（技术借鉴或人才引进，不投入商业化）。综合评分与公共价值分均未落入临界区间（60–70 / 6.5–7.5），画像判定明确。</p>
+<h2>四、各维度详细分析</h2>
+<h3>D1 市场需求与商业机会</h3>
+<h3>一句话定位</h3>
+<blockquote>
+<p><strong>Claude-of-Duty 是一个由单个 prompt 驱动的 Three.js 网页 FPS 游戏</strong>，适用于游戏技术演示与 AI 编程能力验证场景，主要面向全栈开发者、前端开发者和 AI/ML 工程师，用于展示大规模 AI 生成代码的可行性，以及一套可复现的视觉回归测试方法。</p>
+</blockquote>
+<hr />
+<h3>D1.1 目标市场规模与增长性（2.5 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TAM 估算</td>
+<td>项目本质是 <strong>AI 生成完整 3D 游戏</strong> 的技术演示，可映射至「AI 辅助游戏开发 + 程序化内容生成（PCG）」赛道。全球游戏开发工具市场已达百亿美元量级，其中 AI 代码生成细分市场在 2026 年处于高速增长期，估算规模在数十亿美元（未经外部数据验证）。项目的实际可触达市场更偏向「游戏开发自动化」工具层，预计 10 亿美元级。</td>
+</tr>
+<tr>
+<td>增长趋势</td>
+<td>明显扩张。AI 编程、AI 生成 3D 内容、可游戏化概念验证均处于资本与技术双驱动的上升通道。</td>
+</tr>
+<tr>
+<td>市场层级</td>
+<td>新兴蓝海，尚未形成标准或垄断格局，属于成长期早期。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分：7/10</strong>（十亿美元级市场，处于增长期）→ 加权小分 <strong>2.0/2.5</strong></p>
+<hr />
+<h3>D1.2 痛点真实性与解决程度（2.5 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>痛点真实性</td>
+<td>游戏开发（尤其 AAA 级别）耗时长、资产制作成本高、团队协作复杂，是行业级真实痛点。项目验证了“从自然语言直接生成可玩 FPS”的路径，能显著降低原型验证成本。</td>
+</tr>
+<tr>
+<td>解决完整度</td>
+<td>项目是一个 <strong>垂直完整的游戏 Demo</strong>（含渲染、物理、AI、音频等 11 个子系统），但 README 自评为“现代 COD 目标未达成，样张评分仅 5.05/10”。作为可商用产品远不达标，作为技术可行性证明则基本完成。</td>
+</tr>
+<tr>
+<td>替代成本</td>
+<td>替代方案包括传统游戏引擎（Unity/Unreal）开发、AI 辅助编程（Copilot/Cursor）等，但尚无现成方案能从零生成整款 FPS。项目展示出差异化能力，但未提供可被第三方直接复用的接口或工作流。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分：5/10</strong>（解决明确痛点但方案仅为演示级，无法直接用于生产）→ 加权小分 <strong>1.5/2.5</strong></p>
+<hr />
+<h3>D1.3 市场时机判断（2.5 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术成熟度曲线</td>
+<td>AI 生成代码已进入实质生产期（Copilot 等工具广泛使用），但“生成完整 3A 级别实时 3D 应用”仍处于早期实验室阶段。本项目证明 55k 行代码可从单 prompt 生成，但质量瓶颈明确（手部模型、材质精细度、GI、帧率）。</td>
+</tr>
+<tr>
+<td>竞争密度</td>
+<td>同赛道竞争者少，且多集中于“AI 生成单资产”或“AI 辅助代码片段”，尚未出现“AI 生成完整游戏”的垄断者。项目作为先行者具有稀缺性。</td>
+</tr>
+<tr>
+<td>监管/标准</td>
+<td>无强制监管，但 AI 生成内容的版权和合规问题尚未明确，可能构成远期不确定性。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分：7/10</strong>（成长期早期，格局未定，先行者有卡位优势）→ 加权小分 <strong>2.0/2.5</strong></p>
+<hr />
+<h3>D1.4 应用场景广度（2.5 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>行业覆盖</td>
+<td>项目本身仅适用于 <strong>FPS 游戏演示</strong>，可直接覆盖行业为「游戏/媒体内容」一个行业。</td>
+</tr>
+<tr>
+<td>场景多样性</td>
+<td>属于偏纵向的“专用工具”，而非横向通用库。用户无法脱离 Doom-like 玩法使用。</td>
+</tr>
+<tr>
+<td>可延展性</td>
+<td>底层程序化资产生成、WebGL 渲染管线、AI 驱动开发流程可迁移至 VR 训练、元宇宙场景、交互式数字孪生等，但 <strong>交付物未封装为 SDK/框架</strong>，迁移需要大量二次开发。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分：4/10</strong>（单一行业专用，场景窄；仅具备间接可延展潜力）→ 加权小分 <strong>1.0/2.5</strong></p>
+<hr />
+<h3>D1 维度结论</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>加权小分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1.1 目标市场规模与增长性</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>良好（7-8）</td>
+</tr>
+<tr>
+<td>D1.2 痛点真实性与解决程度</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>一般（5-6）</td>
+</tr>
+<tr>
+<td>D1.3 市场时机判断</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>良好（7-8）</td>
+</tr>
+<tr>
+<td>D1.4 应用场景广度</td>
+<td>2.5</td>
+<td>1.0</td>
+<td>较弱（3-4）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>6.5</strong></td>
+<td><strong>一般偏上</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>D1 维度得分：6.5/10</strong></p>
+<p>整体来看，Claude-of-Duty 踩中了「AI 生成游戏」这一高增长新兴赛道，市场时机优越，但项目本身以技术验证为核心，尚未形成可复用的商业产品。痛点解决程度停留在“能演示但不好用”的阶段，且应用场景高度单一，导致商业化基础薄弱。该维度得分为中等偏上，反映了“赛道性感、产品未成型”的典型早期 demo 特征。</p>
+<h3>D2. 技术成熟度与产品质量（权重 14%）</h3>
+<p><strong>维度得分: 6.7 / 10</strong></p>
+<h3>总评</h3>
+<p>Claude-of-Duty 是一个由单一 prompt 生成的、基于 Three.js 的 FPS 游戏演示项目。其<strong>工程深度令人惊叹</strong>——66,112 行原生 JavaScript（无外部美术资源、无游戏引擎）、13 个功能子系统（渲染/物理/AI/音频/UI/世界生成等），在代码架构和算法实现上达到了商业级 3A 玩法的技术复杂度，复刻门槛极高。然而，作为商业化候选，其<strong>产品质量基础设施几乎为零</strong>: 0 测试、0 CI 流水线、0 个正式 Release、1 名贡献者、单日提交历史，且文档与测试体系远未达到可交付标准。一句话概括:<strong>这是"技术可行性证明"与"商业可交付产品"之间的巨大鸿沟</strong>。</p>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>得分</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D2.1</td>
+<td>产品设计与创新性</td>
+<td>1.5</td>
+<td>1.2</td>
+<td>产品理念（AI 单 prompt 生成 3A 品质 FPS）极具创新性，差异化显著；模块覆盖武器/敌人/物理/音效等 FPS 完整要素，功能设计围绕"可玩演示"场景，取舍合理。但作为产品，未设计面向玩家的价值闭环（无进度/模式循环/引导），始终定位为技术 demo。1.2/1.5 = 80%</td>
+</tr>
+<tr>
+<td>D2.2</td>
+<td>架构设计与工程质量</td>
+<td>2.0</td>
+<td>1.6</td>
+<td>架构高度模块化：13 个子系统通过 <code>ctx</code> 依赖注入与事件总线解耦；渲染/物理/AI 各自为独立子系统，抽象层次恰当（如武器零件工厂、材质缓存、渲染管线 18 步固定流程）。复刻难度极高（BVH+SAH、延迟渲染+CSM+TAA+GTAO、PBD 布娃娃、程序化音频/几何/纹理全栈自研）。目录结构规范清晰。扣分项：无统一 lint 配置；物理系统含 <code>?physdebug=1</code> 调试后门；<code>viewmodel.js</code>(~1000行)/<code>buildFacade()</code>(~200行) 等文件/函数偏长；无测试体系支撑跨模块演进。1.6/2.0 = 80%</td>
+</tr>
+<tr>
+<td>D2.3</td>
+<td>代码整洁性与规范性</td>
+<td>1.0</td>
+<td>0.8</td>
+<td>核心模块注释极其详尽（含设计决策、物理依据、实测数据），命名规范（私有成员 <code>_</code> 前缀），模块化组织一致，无发现大面积重复代码（仅 ragdoll.js 有少量重复函数）。扣分项：无 lint/format 配置文件，代码风格未受工具约束；部分文件超长，长函数较多。0.8/1.0 = 80%</td>
+</tr>
+<tr>
+<td>D2.4</td>
+<td>安全性</td>
+<td>1.0</td>
+<td>0.6</td>
+<td>作为纯客户端浏览器游戏，攻击面小；仅依赖 1 个运行时包（three），供应链风险低。代码层面有输入验证（<code>isVec</code> 检查 NaN、武器 ID 检查等）。扣分项：存在 URL 调试后门（<code>?physdebug=1</code>）；无安全扫描工具集成（Dependabot/Snyk 等）；无 SECURITY.md；大量程序化生成代码无法验证是否存在边界漏洞。1.0 分档位中按 60%（一般）计</td>
+</tr>
+<tr>
+<td>D2.5</td>
+<td>UI/UX/UE 人机交互</td>
+<td>1.0</td>
+<td>0.8</td>
+<td>已有交互式 FPS 界面，适用。UI 代码呈现专业水准：基于 CSS 变量 + 4px 网格的设计系统、响应式缩放（<code>calc(N * var(--k))</code>）、SVG 滤镜效果、针对视口高度的适配方案；移动手感经过精细调校（土狼时间、跳跃缓冲、滑铲指数衰减等）；HUD 组件齐全（小地图、命中标记、伤害数字、受伤效果）。扣分项：无截图足资验证实际视觉呈现质量；未考虑无障碍设计。0.8/1.0 = 80%</td>
+</tr>
+<tr>
+<td>D2.6</td>
+<td>功能完备度与稳定性</td>
+<td>1.5</td>
+<td>0.9</td>
+<td>功能覆盖极广（移动状态机 6+ 种、武器系统含换弹/后坐力/弹道、AI 8 状态 + A* 寻路 + 掩体评分、完整渲染后处理链、程序化音频、天气/时间系统、室内外世界生成），达到可玩水准；性能优化深入（实例化渲染、对象池、预分配避免 GC、帧预算分配）。但：0 个 Release，无版本迭代，稳定性完全未验证；pushed_at 与 created_at 同日，无演进历史；无 i18n 框架；需 WebGL2 支持的高负载渲染，对硬件有一定要求。0.9/1.5 = 60%</td>
+</tr>
+<tr>
+<td>D2.7</td>
+<td>文档与开发者体验</td>
+<td>1.0</td>
+<td>0.6</td>
+<td>有 README.md + <strong>ARCHITECTURE.md</strong>（对 66k 行项目提供架构说明是加分项）+ prompt.md；无 API 文档、无教程、无 FAQ、无示例代码；文档与代码版本同步性无法验证（仅 1 次提交）；相比项目体量，文档覆盖明显不足。0.6/1.0 = 60%</td>
+</tr>
+<tr>
+<td>D2.8</td>
+<td>测试与质量保障</td>
+<td>1.0</td>
+<td>0.2</td>
+<td>测试行数 0、测试覆盖率 0%、CI workflows 0 个——无单元测试、无集成测试、无自动化构建/发布流水线、无静态分析。仅有 <code>src/physics/selftest.js</code>（物理系统手动验证工具）和 <code>tools/workflows/perf.js</code>（性能工作流）作为非标准替代，无法构成质量保障体系。0.2/1.0 = 20%</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10.0</strong></td>
+<td><strong>6.7</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>关键发现</h3>
+<ol>
+<li>
+<p><strong>工程深度是最大资产</strong>: 从零实现的延迟渲染管线、SAH-BVH 物理、PBD 布娃娃、程序化音频合成、程序化人物/武器/建筑生成——代码量 66k 行且不依赖任何游戏引擎，复刻难度极高，构成强大的技术护城河。</p>
+</li>
+<li>
+<p><strong>质量保障是最大短板</strong>: 0 测试 + 0 CI + 0 Release 意味着"能跑"但"不可维护"——任何商业化的二次开发都将面临回归风险。</p>
+</li>
+<li>
+<p><strong>产品形态处于"演示"而非"可交付"阶段</strong>: 功能完整性高（可玩），但产品化要素缺失（无安装/构建产物流、无版本管理、无用户文档），当前更像一个技术可行性证明。</p>
+</li>
+<li>
+<p><strong>社区热度高但协作基础缺失</strong>: 3.2k Star 与 24 个 Open Issue 显示关注度高，但 contributors=1、issues_closed_90d=0、无 CONTRIBUTING 指南，社区协作无法展开。</p>
+</li>
+</ol>
+<hr />
+<h3>D3. 社区健康度与生态势能（权重 11%）</h3>
+<h3>D3.1 社区活跃度指标（3 分）</h3>
+<p><strong>数据依据</strong>：Star 3272，Fork 497，创建于 2026-07-25，最近推送 2026-07-25（即创建当天即推送，项目年龄极短）。补采数据中 <code>prs_created_90d: 20</code>，<code>issues_closed_90d: 0</code>，开放 Issue 24。</p>
+<p><strong>计算方式说明</strong>：
+- Star 增速：项目创建于 2026-07-25，假设评估时间为 2026-08-26（本地仓库路径含 08/26），项目年龄约 32 天。无近 90 天 Star 增量数据，使用退化公式：Star 数 ÷ 项目年龄(月) = 3272 ÷ 1.07 ≈ <strong>3058/月</strong>，远超 500/月阈值。
+- Fork 比率：497 ÷ 3272 ≈ <strong>15.2%</strong>，表明较强的衍生意愿。
+- Issue 活跃度：近 90 天 PR 创建 20 个，开放 Issue 24，但 Issue 关闭数为 0。项目创建仅一个月即积累 24 个开放 Issue，社区反馈活跃，但维护响应存疑。
+- 响应速度：<code>issues_closed_90d = 0</code>，说明几乎没有官方维护响应（但可能因项目过新或维护者仅推送一次）。</p>
+<p><strong>评分判断</strong>：Star 月增速（退化公式）约 3058/月，远超 500/月上限；但该项目为单次推送的病毒式传播结果，且无 Issue 关闭、无后续提交，呈现“爆发式关注 + 维护停滞”特征。考虑到项目年龄极短且属于 AI 生成游戏这一热点赛道，社区关注度极高，但维护响应极差。按通用阈值：Star 月增 &gt;500 对应 9–10 档，但响应速度 &lt;2 天完全不满足。综合权衡，取 <strong>7–8 档（80%）</strong>，该档要求 Star 月增 100–500 且响应 &lt;7 天——但 Star 增速实际远超 500，响应缺失严重。由于退化公式高估了老项目红利，且本项目确属超新星式增长，我们按“Star 极端活跃 + Issue 响应完全缺失”折中，给定 <strong>小分 2.4/3（80%）</strong>。</p>
+<p><strong>小分</strong>：2.4 / 3</p>
+<hr />
+<h3>D3.2 贡献者结构多样性（2.5 分）</h3>
+<p><strong>数据依据</strong>：补采数据 <code>contributors: 1</code>，即贡献者仅 1 人。无组织多样性可言，核心团队占比 100%。</p>
+<p><strong>评分判断</strong>：单人项目，完全符合“1–2 分档：单人项目”。按 20% 折算。</p>
+<p><strong>小分</strong>：0.5 / 2.5</p>
+<hr />
+<h3>D3.3 第三方生态成熟度（3 分）</h3>
+<p><strong>数据依据</strong>：Topics 为空；本地实测无 CI workflows、无 CONTRIBUTING、无 CODEOWNERS；依赖仅 <code>three</code>；无插件/扩展机制；无 awesome 列表。README 中无第三方采用案例、无二次开发项目、无教程/课程指示。外部生态基本为零。</p>
+<p><strong>评分判断</strong>：完全孤立，符合“1–2 分档：完全孤立”。按 20% 折算。</p>
+<p><strong>小分</strong>：0.6 / 3</p>
+<hr />
+<h3>D3.4 品牌认知与行业影响力（1.5 分）</h3>
+<p><strong>数据依据</strong>：项目名 “Claude of Duty” 为高辨识度梗（“使命召唤”+ Claude AI），在 AI 编程热点话题下获得 3272 Star，说明病毒式传播显著。README 中无企业用户列表；但已被技术媒体广泛报道的可能性极高（AI 生成 55k 行 FPS 游戏的新闻性强）。由于素材未提供外部媒体报道的直接证据，仅能从 Star 数与项目话题性推断小圈子内有较高认知度。</p>
+<p><strong>评分判断</strong>：符合“5–6 分档：小圈子内有认知度”。其传播范围已超出小圈子（Star 3000+ 在 GitHub 属中上热度），且与 AI 编程热点绑定，但缺乏头部企业背书或会议证据。按 60% 折算。</p>
+<p><strong>小分</strong>：0.9 / 1.5</p>
+<hr />
+<h3>汇总与结论</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>核心依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D3.1 社区活跃度</td>
+<td>3</td>
+<td>2.4</td>
+<td>7–8 档</td>
+<td>Star 月增（退化公式）≈3058，Fork 15.2%，但 0 Issue 关闭、0 响应</td>
+</tr>
+<tr>
+<td>D3.2 贡献者结构</td>
+<td>2.5</td>
+<td>0.5</td>
+<td>1–2 档</td>
+<td>贡献者仅 1 人，单人项目</td>
+</tr>
+<tr>
+<td>D3.3 第三方生态</td>
+<td>3</td>
+<td>0.6</td>
+<td>1–2 档</td>
+<td>Topics 空、无插件/集成/衍生项目、无 CI</td>
+</tr>
+<tr>
+<td>D3.4 品牌认知</td>
+<td>1.5</td>
+<td>0.9</td>
+<td>5–6 档</td>
+<td>病毒式传播、高辨识度命名，但无媒体/企业背书硬证据</td>
+</tr>
+</tbody>
+</table>
+<p><strong>维度得分</strong> = (2.4 + 0.5 + 0.6 + 0.9) ÷ (3 + 2.5 + 3 + 1.5) × 10 = 4.4 ÷ 10 × 10 = <strong>4.4</strong></p>
+<p><strong>结论</strong>：该项目呈现出典型的“爆发式热度 + 单人维护”社区特征。极高的 Star 增速证明其话题势能强劲，可作为商业化初期的流量入口；但贡献者单一、第三方生态空白、Issue 零响应，意味着该势能尚未转化为可持续的社区协作结构。对于商业化而言，当前社区更像“营销事件”而非“客户池”——需要尽快补齐维护响应、开放贡献治理、培育衍生生态，否则热度将迅速衰减。</p>
+<h3>D4. 商业模式与变现潜力（权重 18%）</h3>
+<p><strong>总体评估</strong>：该项目是一个由单条 prompt 驱动的 Three.js FPS 技术演示。虽然 MIT 协议为商业化扫清了法律障碍，但项目本身没有任何已实施的商业模式设计，付费转化逻辑缺失，增值空间有限。其最大的商业价值不在于游戏本体，而在于「AI 生成完整游戏代码」这一过程所展示的技术能力，可作为作者/团队获客与品牌溢价的素材。</p>
+<h4>D4.1 协议对变现模式的影响（2 分）</h4>
+<p><strong>数据依据</strong>：LICENSE 文件明确为 MIT License；package.json 唯一运行时依赖为 <code>three</code>。</p>
+<p>MIT 协议属于最宽松的一类，对 Open Core、SaaS 托管、双协议、专业服务等所有主流变现路径均不构成约束。项目可以自由地被闭源衍生、托管或集成到商业产品中。该细则无扣分项。</p>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>说明</th>
+<th>得分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D4.1</td>
+<td>协议为 MIT，所有变现路径无障碍</td>
+<td><strong>2 / 2</strong></td>
+</tr>
+</tbody>
+</table>
+<h4>D4.2 变现路径清晰度（3.5 分）</h4>
+<p><strong>数据依据</strong>：项目无 releases、无企业版/付费版声明、无服务端组件；README 仅提供 newsletter 订阅链接；创建后即无后续维护（单次提交，1 名贡献者）。</p>
+<p>从项目自身可识别的变现路径来看：</p>
+<ul>
+<li><strong>Open Core</strong>：核心为完整游戏，无预留企业级功能边界，需要从零设计付费层，路径不清晰。</li>
+<li><strong>SaaS 托管</strong>：纯客户端 Three.js 游戏，无账号、存档、联机等托管服务基础，需大量额外开发。</li>
+<li><strong>双协议</strong>：当前 MIT 授权，商业再授权模式需要修改许可策略，尚未启动。</li>
+<li><strong>专业服务</strong>：这是最可能的方向——其 <code>tools/</code> 下的可复现截图、性能剖析、像素级 diff 工具链展示了「AI 生成游戏」的工程化能力，可作为定制开发或咨询服务的展示案例。但项目自身没有服务定价、交付流程或合作渠道，路径仍处于「演示 → 引流」的模糊阶段。</li>
+<li><strong>市场/插件/认证/捐赠</strong>：均无对应基础设施或社区运营。</li>
+</ul>
+<p>综合来看，项目尚未形成任何一条清晰、已验证的变现路径，仅存在基于技术展示的间接变现潜力。参照同类开源技术演示项目，其直接商业化通常需要转型为产品（如引擎/工具）或并入商业实体。</p>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>说明</th>
+<th>得分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D4.2</td>
+<td>仅有潜在的专业服务/品牌引流方向，未落地，变现路径模糊</td>
+<td><strong>1.4 / 3.5</strong></td>
+</tr>
+</tbody>
+</table>
+<h4>D4.3 付费转化逻辑（2.5 分）</h4>
+<p><strong>数据依据</strong>：仓库只包含 MIT 完全开源的单一版本；无付费版、企业版、功能分级或服务订阅；无任何“免费不够用”的触发点。</p>
+<p>项目所有功能对用户完全免费开放，用户没有被迫升级的场景。游戏本身是单机浏览器 FPS，不涉及团队协作、合规或性能瓶颈等企业级付费动机。唯一可能的付费触发点是“获取 AI 生成游戏的方法论/管线”，但这发生在项目之外（如咨询服务），且没有在仓库内设计转化漏斗。按评分指引，属于「完全找不到付费触发点」档位。</p>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>说明</th>
+<th>得分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D4.3</td>
+<td>无免费/付费分层，无任何自然的付费升级触发点</td>
+<td><strong>0.5 / 2.5</strong></td>
+</tr>
+</tbody>
+</table>
+<h4>D4.4 增值服务空间与定价天花板（2 分）</h4>
+<p><strong>数据依据</strong>：项目无 CI、无测试、无安全策略、无企业级部署支持；代码总量 66,112 行，全部为浏览器端 JavaScript。</p>
+<p>作为软件产品，其增值空间非常有限：无 SLA 承诺、无数据合规需求、无多租户或权限管理、无监控告警等可收费的企业功能。作为技术资产，可以围绕「AI 生成游戏」提供定制开发、代码审查、管线搭建等服务，但这些是人力服务而非软件定价，无法形成规模化收入。以开源游戏代码库的常见变现方式（如皮肤、关卡订阅）衡量，项目没有任何内购或分发平台支撑。综合判断，客单价和收入扩展性均处于低位。</p>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>说明</th>
+<th>得分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D4.4</td>
+<td>增值方向仅限人力服务，软件侧增值空间小，定价天花板低</td>
+<td><strong>0.8 / 2</strong></td>
+</tr>
+</tbody>
+</table>
+<h4>结论</h4>
+<p><strong>总分：4.7 / 10</strong></p>
+<ul>
+<li><strong>核心优势</strong>：MIT 协议不设限，代码可自由用于任何商业场景；技术含量高（渲染、物理、AI 均由代码生成），可作为团队实力的强信号。</li>
+<li><strong>核心短板</strong>：项目是“一次性”技术演示，没有产品化设计，没有付费功能分层，没有维护迭代，导致直接变现路径缺失。</li>
+<li><strong>商业建议</strong>：若期望商业化，应将项目转化为「AI 游戏生成管线」产品（如提供付费的关卡/素材生成服务），或作为咨询/融资的 showcase，而非指望代码库本身产生收入。</li>
+</ul>
+<h3>D5. 竞争格局与差异化壁垒（权重 12%）</h3>
+<blockquote>
+<p><strong>评估限制说明</strong>：本次评估未执行独立的 GitHub/Web 竞品搜索（素材未提供可用搜索接口或结果），按防幻觉规则，竞品只能引用 README/docs 中明确提及的项目。该仓库 README 唯一明确提及的质量对标的只有 <strong>Call of Duty</strong>（商业游戏），此外未提及任何开源/商业竞品。因此竞品对比表无法满足 3–5 个竞品的要求，经仓库内引用验证的竞品仅 1 个，其余标为 N/A。这一数据缺口降低了 D5 维度的评估置信度。</p>
+</blockquote>
+<h4>D5.1 竞品对比与市场定位（3 分）— 小分 2.4</h4>
+<table>
+<thead>
+<tr>
+<th>竞品名称</th>
+<th>类型</th>
+<th>仓库/官网</th>
+<th>验证方式</th>
+<th>Star/用户量</th>
+<th>核心差异</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Call of Duty（系列）</td>
+<td>间接竞品（商业游戏，原生引擎路径）</td>
+<td>动视发行（URL 不在素材内）</td>
+<td>仓库内引用（README：“The goal was to match a modern Call of Duty”）</td>
+<td>商业 AAA 游戏，用户量以千万计（未实测）</td>
+<td>原生引擎 + 人工美术资产；本项目为浏览器 Three.js + 纯程序化资产 + AI 代理编排生成</td>
+</tr>
+<tr>
+<td>其他 Three.js FPS 项目</td>
+<td>直接竞品</td>
+<td>无法验证</td>
+<td>N/A（素材无搜索证据）</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>定位清晰度</strong>：README 明确自述为“在浏览器中用 Three.js 构建的 CoD 品质 FPS，由单一 prompt 生成”，同时坦承“未能匹配现代 Call of Duty”（11 位对抗评审均分 5.05/10，盲测中所有评审均选择真实 CoD 帧）。因此项目定位不是与 CoD 争夺玩家，而是展示「AI 代理编排 + 程序化内容生成 + 可复现渲染验证」的工程能力，差异化清晰。</li>
+<li><strong>直接竞品缺失</strong>：由于未能从素材中验证其他同类开源项目，无法判断直接竞争密度。但结合其“AI 单 prompt 生成 55k 行 FPS”的叙事，该细分定位具有独特性。</li>
+</ul>
+<p>评分依据：差异化定位明确，且与间接竞品（CoD）技术路径完全不同；但由于竞品验证数据不足，无法给出更高分。</p>
+<p><strong>小分：2.4/3（7–8 档：有竞品但有明确差异化定位）</strong></p>
+<h4>D5.2 技术壁垒与网络效应（3 分）— 小分 1.2</h4>
+<ul>
+<li><strong>技术壁垒</strong>：工程量大且有一定深度——自研物理（Binned-SAH BVH、扫掠胶囊体控制器、PBD 布娃娃、子弹穿透）、HDR 渲染管线（CSM/PCSS/GTAO/TAA/AgX）、GPU 纹理锻造、程序化音频等；但项目以 MIT 协议开源，核心代码完全公开，无专利、无专属数据资产，且运行时仅依赖 <code>three</code> 一个库，不存在生态锁定。从竞争战略角度看，这是“高工程门槛、低商业防御性”。</li>
+<li><strong>网络效应</strong>：无插件生态、无多人在线互动、无数据飞轮。Stars/Fork（3272/497）来自展示效应而非网络效应。</li>
+<li><strong>规模效应</strong>：不适用——单机浏览器演示，规模扩大不降低成本或提升体验。</li>
+</ul>
+<p>评分依据：技术有复杂度但无保护，开源即可复制；网络效应和规模效应均缺失。</p>
+<p><strong>小分：1.2/3（3–4 档：壁垒薄弱，容易被复制）</strong></p>
+<h4>D5.3 切换成本与用户粘性（2 分）— 小分 0.4</h4>
+<ul>
+<li><strong>迁移成本</strong>：用户通过 <code>npm install &amp;&amp; npm run dev</code> 即可本地运行，无需账号、数据存储、服务端配置或专有格式。切换到任意 Web FPS 或本地游戏几乎零成本。</li>
+<li><strong>深度集成</strong>：无外部系统集成，所有代码自包含；只有 <code>three</code> 一个运行时依赖。</li>
+<li><strong>习惯锁定</strong>：玩家或开发者均无组织流程依赖；一次性技术演示的体验属性导致粘性极弱。</li>
+</ul>
+<p>评分依据：即插即用即走，无任何切换摩擦。</p>
+<p><strong>小分：0.4/2（1–2 档：无切换成本，粘性极弱）</strong></p>
+<h4>D5.4 护城河可持续性（2 分）— 小分 0.4</h4>
+<ul>
+<li><strong>护城河趋势</strong>：仓库创建于 2026-07-25，创建当天即完成推送，此后无更新迹象（contributors=1、无 recent releases、无 CI、无后续 commits 数据）。这是一个“发布即停更”的单点技术演示，优势随时间自然衰退。</li>
+<li><strong>颠覆风险</strong>：AI 代码生成能力迭代极快，同类“单 prompt 生成游戏”的实验很可能在更短时间内做出更高品质结果；项目自身也承认未达到 AAA 品质，且已知存在 viewmodel 光照比率缺陷未修复。</li>
+<li><strong>时间窗口</strong>：其价值主要是“当前时刻的工程成果证明”，缺乏持续投入和社区积累，现有优势窗口很短。</li>
+</ul>
+<p>评分依据：无持续维护、无迭代计划迹象，护城河在项目诞生当天即已达峰值并开始削弱。</p>
+<p><strong>小分：0.4/2（1–2 档：护城河已失效或即将失效）</strong></p>
+<h4>结论</h4>
+<p>D5 维度总得分为 <strong>(2.4 + 1.2 + 0.4 + 0.4) / (3 + 3 + 2 + 2) × 10 = 4.4/10</strong>，处于“较弱”区间。项目在工程展示层面令人印象深刻，但作为可商业化的竞争资产存在明显短板：竞品验证数据不足、无网络效应、切换成本为零、护城河随停更快速消退。其价值更多在于证明“AI 代理 + 程序化生成”方法论的有效性，而非构建可持续的产品壁垒。</p>
+<h3>D6 法律合规与知识产权（权重 7%）</h3>
+<p><strong>维度得分：7.2/10</strong></p>
+<h3>D6.1 开源协议合规性与商业限制（3 分）— 2.4 分</h3>
+<p><strong>评估</strong>：仓库根目录含标准 MIT LICENSE 文件，版权声明清晰（Copyright (c) 2026 mshumer），无 GPL/AGPL 等 copyleft 传染性依赖，亦无 Commons Clause、BUSL 等商业附加限制条款。轻微注意事项：<code>package.json</code> 中 <code>license</code> 字段声明为 <code>"ISC"</code> 且 <code>"private": true</code>，与根 LICENSE 的 MIT 存在不一致；但由于 <code>private: true</code> 表明项目不计划以 npm 包形式对外分发，该冲突不构成实质法律障碍，正式对外发布时需统一协议声明。</p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>协议明确性</td>
+<td>根 LICENSE 为标准 MIT，版权人清晰；package.json 中 license 字段为 ISC，存在轻微不一致</td>
+</tr>
+<tr>
+<td>copyleft 传染性</td>
+<td>未检出 GPL/AGPL 依赖</td>
+</tr>
+<tr>
+<td>商业附加条款</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<h3>D6.2 依赖链法律风险（2.5 分）— 2.5 分</h3>
+<p><strong>评估</strong>：直接运行依赖仅 <code>three@^0.180.0</code>（MIT）；开发依赖 <code>playwright</code>（Apache-2.0）、<code>pngjs</code>（MIT）、<code>vite</code>（MIT）均为宽松许可，且来源为 npm 官方注册表。未检出传染性 copyleft 依赖，依赖数量极少，合规审查成本低。</p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>依赖协议审查</td>
+<td>均无 GPL/AGPL，以 MIT/Apache-2.0 为主</td>
+</tr>
+<tr>
+<td>依赖数量</td>
+<td>直接依赖 1 个，dev 依赖 3 个，非常少</td>
+</tr>
+<tr>
+<td>依赖来源</td>
+<td>npm 官方包，来源可靠</td>
+</tr>
+</tbody>
+</table>
+<h3>D6.3 商标与专利风险（2.5 分）— 1.5 分（未经人工核查，置信度低）</h3>
+<p><strong>评估</strong>：受自动化分析限制，未执行商标检索与专利排查，本细则按默认档计分（1.5/2.5）。从项目元数据硬事实看，项目名 "Claude-of-Duty" 及描述 "Call of Duty-quality FPS" 与知名游戏商标 "Call of Duty" 高度近似，存在潜在商标冲突；项目 README 未披露任何商标使用政策或免责声明。此风险提示基于项目元数据，不构成法律结论，正式商业化前需人工进行商标检索与风险评估。</p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>商标可用性</td>
+<td>项目名与 "Call of Duty" 近似，存在潜在冲突（未经人工核查）</td>
+</tr>
+<tr>
+<td>专利风险</td>
+<td>未检索，无法判断</td>
+</tr>
+<tr>
+<td>商标政策</td>
+<td>README 无商标使用声明或限制</td>
+</tr>
+</tbody>
+</table>
+<h3>D6.4 贡献者协议完备性（2 分）— 0.8 分</h3>
+<p><strong>评估</strong>：仓库无 CONTRIBUTING.md、无 CLA/DCO 配置、无 CODEOWNERS 等贡献治理文件。当前仅有 1 名贡献者（mshumer），版权归属相对单一，但由于没有任何贡献协议和流程，一旦引入外部贡献，版权归属将产生不确定性，不利于双协议商业模式构建。建议补充 CONTRIBUTING.md 并引入 DCO 机制。</p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CLA/DCO</td>
+<td>无</td>
+</tr>
+<tr>
+<td>版权归属</td>
+<td>单作者，当前归属清晰；缺少未来外部贡献的归属机制</td>
+</tr>
+<tr>
+<td>贡献流程</td>
+<td>无 CONTRIBUTING.md，无治理文件</td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<p>项目整体法律合规风险总体可控：MIT 协议无传染性、依赖链干净，适合大多数商业场景。主要风险点集中在：① <code>package.json</code> 协议声明与根 LICENSE 不一致（轻微）；② 项目名称与 "Call of Duty" 商标的潜在冲突（需人工核查）；③ 缺乏贡献者协议。建议在正式商业化前完成商标检索、统一协议声明并建立 DCO 机制。</p>
+<h3>D7. 企业就绪度与可运营性（权重 8%）</h3>
+<p><strong>目的</strong>: 评估项目是否具备企业级客户所要求的运营特性——企业客户是商业化的主要付费方。</p>
+<blockquote>
+<p><strong>注</strong>: 安装部署与易用性相关内容已独立为 D9 维度，本维度聚焦于企业级运营能力。</p>
+</blockquote>
+<h4>D7.1 运维复杂度与升级路径（满分 3 分，得分 1.8 分）</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>配置管理</td>
+<td>项目内置 <code>createConfig</code>（src/core/config.js）运行时配置系统，但无环境变量注入、无配置中心对接，配置管理能力停留在应用内硬编码层面</td>
+</tr>
+<tr>
+<td>运维负担</td>
+<td>纯客户端浏览器应用，无后端服务，运行时仅依赖 <code>three</code>，日常运维负担天然较低；但无 CI/CD 流水线（ci_workflows=0），发布流程完全依赖手工 <code>npm install &amp;&amp; npm run dev</code></td>
+</tr>
+<tr>
+<td>升级路径</td>
+<td>无 CHANGELOG、无 Release（recent_releases=[]）、无版本号管理，项目创建到最近推送仅间隔 6 分 17 秒，尚无任何升级实践</td>
+</tr>
+<tr>
+<td>数据迁移</td>
+<td>无持久化数据层，游戏局内数据全部存在于内存，无数据迁移需求</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分依据</strong>: 项目处于极早期（创建 6 分钟后即推送），无任何企业级运维基础设施。配置系统存在但功能基础；无 CI/CD、无版本管理、无回滚机制。纯前端架构免除了服务器运维负担，但升级路径完全空白。根据评分指引“需一定运维投入，升级需手动操作”（5–6 分档），折算为该细则满分的 60%，计 <strong>1.8/3</strong>。</p>
+<h4>D7.2 安全管理与权限控制（满分 2.5 分，得分 0.5 分）</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>认证授权</td>
+<td>无 SSO/OAuth/LDAP/SAML 等任何企业认证机制，游戏无账号体系</td>
+</tr>
+<tr>
+<td>权限模型</td>
+<td>无 RBAC/ABAC 权限控制，单机游戏中无多用户权限需求</td>
+</tr>
+<tr>
+<td>审计日志</td>
+<td>无操作审计、无安全日志；仅有引擎内部事件总线（ctx.events）用于游戏逻辑通信</td>
+</tr>
+<tr>
+<td>数据安全</td>
+<td>无加密存储、无传输加密、无密钥管理；所有资源程序化生成，无用户数据；但存在 <code>?physdebug=1</code> URL 调试后门（src/physics/index.js），可被利用注入物理调试视图</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分依据</strong>: 项目无任何安全机制文档（has_security_md=false），P1 代码摘要中所有子系统均注明“无认证/加密”。虽然纯客户端游戏对认证授权的需求有限，但从企业就绪度看，安全管理能力为零，且存在调试后门暴露面。根据评分指引“安全机制薄弱”（3–4 分档）至“无安全机制”（1–2 分档）之间，取后者，折算为该细则满分的 20%，计 <strong>0.5/2.5</strong>。</p>
+<h4>D7.3 可扩展性与高可用能力（满分 2.5 分，得分 1.5 分）</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>水平扩展</td>
+<td>纯客户端单进程架构，无服务器组件，水平扩展概念不适用；引擎内在通过模块化（EventBus/子系统注册）支持功能扩展</td>
+</tr>
+<tr>
+<td>高可用</td>
+<td>无集群部署、无故障转移机制，浏览器崩溃即游戏终止</td>
+</tr>
+<tr>
+<td>性能瓶颈</td>
+<td>明确存在性能瓶颈：README 实测 Retina 分辨率 ultra 预设下 p50 仅 28–30 fps，p99 14–17 fps，启动时间 3.7–4.6 秒，场景三角形数高达 11.3M</td>
+</tr>
+<tr>
+<td>数据一致性</td>
+<td>无分布式数据，不涉及一致性协议</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分依据</strong>: 架构上无扩展性和高可用需求场景，但引擎内建模块化注册机制（ctx.get/peek）具备一定的功能级可扩展性。性能方面有量化瓶颈，但项目通过 <code>prewarm.js</code> 消除了运行期着色器编译卡顿，属于可接受的单机性能。根据评分指引“单机性能可接受，扩展需改造”（5–6 分档），折算为该细则满分的 60%，计 <strong>1.5/2.5</strong>。</p>
+<h4>D7.4 集成兼容与可观测性（满分 2 分，得分 1.2 分）</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>API 完备性</td>
+<td>引擎对外暴露 <code>window.__ENGINE__</code> 全局对象和 <code>ctx.peek()</code> 子系统访问接口（tools/demo-driver.js 依赖此机制），但无 REST/gRPC/SDK 形式的正式 API，无 OpenAPI 定义</td>
+</tr>
+<tr>
+<td>标准协议</td>
+<td>不支持 OpenTelemetry/Prometheus/Webhook 等标准运维协议，无健康检查端点</td>
+</tr>
+<tr>
+<td>监控告警</td>
+<td>无运行时监控指标；但开发期工具链极强：<code>profile.mjs</code> 提供帧时间分布（p50/p95/p99）和逐帧 WebGL 程序计数归因，<code>baseline.mjs</code> 实现位级可复现截图，<code>imagediff.mjs</code> 实现像素级回归门禁</td>
+</tr>
+<tr>
+<td>日志体系</td>
+<td>无结构化日志、无日志级别管理，仅代码内散落的调试输出；<code>debugState</code>/<code>debugExposure</code> 为开发调试接口</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分依据</strong>: 项目在开发可观测性工具上投入显著，tools/ 目录下的性能剖析与回归测试工具达到行业一流水准，但这些是开发/QA 期工具而非生产运行时监控。缺少标准协议对接、结构化日志和健康检查。根据评分指引“有 API 但监控/日志薄弱”（5–6 分档），折算为该细则满分的 60%，计 <strong>1.2/2</strong>。</p>
+<h4>D7 维度结论</h4>
+<p><strong>总分：5.0/10</strong></p>
+<p>Claude-of-Duty 的企业就绪度处于较低水平。作为创建仅 6 分钟、完全由 AI 生成的前端 FPS 演示项目，它具备纯客户端架构带来的天然低运维优势，且开发期可观测性工具链（profile/baseline/imagediff）是突出亮点；但企业客户关心的安全体系（无认证、无审计、有调试后门）、版本升级路径（无 CHANGELOG、无 Release）、生产监控与日志能力（无标准协议、无结构化日志）全部缺失。项目目前定位为技术演示与开源社区传播，不适合直接作为企业级产品商业化，需补充完整的安全、发布和可观测性基础设施后方可进入企业市场。</p>
+<h3>D8. 团队治理与可持续性（权重 7%）</h3>
+<p><strong>维度总评分：2.6 / 10（严重缺陷）</strong></p>
+<h4>细则评分表</h4>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D8.1 核心维护者能力与背景</td>
+<td>2.5</td>
+<td>0.5</td>
+<td>1–2 档（20%）</td>
+<td>项目仅有 1 名贡献者，巴士因子 = 1；创建日期与最后推送日期完全相同（2026-07-25），此后无任何提交记录，维护者活跃度极低；无任何公司/组织背景或商业经验信息；无法验证技术能力与投入度，整体呈一次性发布特征</td>
+</tr>
+<tr>
+<td>D8.2 治理模型透明度</td>
+<td>2.0</td>
+<td>0.4</td>
+<td>1–2 档（20%）</td>
+<td>仓库无 GOVERNANCE.md、CONTRIBUTING.md、CODEOWNERS 等任何治理文档；不属于任何基金会（CNCF/Apache/Linux Foundation）；决策完全由创建者一人做出，无公开决策流程或路线图</td>
+</tr>
+<tr>
+<td>D8.3 资金支持与商业赞助</td>
+<td>2.5</td>
+<td>0.5</td>
+<td>1–2 档（20%）</td>
+<td>未发现任何资金支持来源：无 GitHub Sponsors 页面、Open Collective 账户、VC 或企业赞助信息；无商业实体在运营该项目；项目无收入渠道，维护者已不活跃，资金可持续性为零</td>
+</tr>
+<tr>
+<td>D8.4 项目可持续性与传承风险</td>
+<td>3.0</td>
+<td>1.2</td>
+<td>3–4 档（40%）</td>
+<td>活跃趋势断崖式下降：创建当天推送后一个月内零提交，24 个开放 Issue 全部无人处理；无 CI、无测试、无版本发布；虽然项目未被归档（archived=false），但传承机制完全缺失；fork 数 497 相对 star 数 3272 比例正常，但缺乏社区治理基础，一旦核心维护者退出项目即停止</td>
+</tr>
+</tbody>
+</table>
+<h4>结论</h4>
+<p>项目的团队治理与可持续性处于<strong>严重缺陷</strong>水平。Claude-of-Duty 是一个典型的一次性 AI 生成演示项目：由单一维护者创建，发布当天即达到 3272 星，但之后没有后续提交，24 个未处理 Issue 和零发布记录表明项目缺乏持续运营意愿。项目没有任何治理结构、资金支持或商业实体支撑，巴士因子为 1，传承风险极高。若计划基于该项目进行商业化，团队、治理和资源基础均不成立，必须首先解决维护者投入度与组织化问题，否则任何商业化尝试都将面临不可持续的根本性障碍。</p>
+<h3>D9 上手难度与易用性</h3>
+<p>上手体验是开源项目商业化的第一道门槛——安装、部署与日常使用的顺畅程度直接决定试用转化率。本项目作为浏览器端 FPS 游戏，在安装层面表现良好（npm 一条命令），但在部署标准化、文档化引导与新手体验上存在明显短板。</p>
+<h4>D9.1 安装难度（2.5 分）——得分 1.5 / 2.5</h4>
+<p><strong>判断依据</strong>：安装方式为标准的 <code>npm install</code> 单条命令，依赖仅 <code>three</code> 一个运行时包，本质上自包含且轻量。但 <code>npm install</code> 相比 <code>docker run</code> 或二进制分发仍需要 Node.js 环境与网络拉取依赖，且无 Windows/macOS/Linux 各平台的预构建产物。README 中安装命令清晰，<strong>但缺少 Node 版本要求说明</strong>，Vite 7 要求 Node 20.19+ / 22.12+，未说明可能导致 Node 18 用户安装失败。</p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+<th>证据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>安装方式</td>
+<td>单条 <code>npm install</code>，非一键脚本/容器化</td>
+<td>README: <code>npm install</code></td>
+</tr>
+<tr>
+<td>依赖管理</td>
+<td>运行时仅 <code>three</code>，自包含良好</td>
+<td>package.json: <code>"three": "^0.180.0"</code></td>
+</tr>
+<tr>
+<td>环境要求</td>
+<td>需 Node.js 环境，版本要求未在 README 说明</td>
+<td>Vite 7 隐式要求 Node ≥20.19</td>
+</tr>
+<tr>
+<td>平台覆盖</td>
+<td>浏览器端运行，跨平台理论上无差异，但安装环节依赖 Node 生态</td>
+<td>无 Windows 安装包等</td>
+</tr>
+</tbody>
+</table>
+<p><strong>档位判定</strong>：6 档 × 2.5 = 1.5。属于「需少量配置」与「一键安装」之间的中间档，依赖极简是加分项，但缺少环境门槛明示是扣分项。</p>
+<h4>D9.2 部署与配置难度（2.5 分）——得分 1.0 / 2.5</h4>
+<p><strong>判断依据</strong>：该项目<strong>无 Dockerfile、无 Helm Chart、无 docker-compose</strong>，不存在容器化部署能力。部署形态为本地 <code>vite</code> 开发服务器（默认 5173 端口），生产环境需自行搭建静态托管或容器化方案，无任何部署文档支撑。本地实测确认 <code>has_dockerfile: false</code>、<code>ci_workflows: []</code>。<strong>快速验证环节</strong>（README 指引下 10 分钟内可跑通）是唯一亮点：<code>npm install &amp;&amp; npm run dev</code> 后浏览器访问 localhost 即可体验，无外部数据库/缓存依赖，demo 即完整游戏。</p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+<th>证据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>部署方式</td>
+<td>无容器化/编排支持，仅开发服务器方式</td>
+<td>本地实测 has_dockerfile=false</td>
+</tr>
+<tr>
+<td>配置复杂度</td>
+<td>零配置，<code>vite</code> 默认设置即跑</td>
+<td>README 仅两条命令</td>
+</tr>
+<tr>
+<td>外部依赖初始化</td>
+<td>无数据库/缓存/消息队列等外部组件</td>
+<td>依赖清单仅 three</td>
+</tr>
+<tr>
+<td>快速验证</td>
+<td>10 分钟内可跑通 demo</td>
+<td>README 命令简洁直接</td>
+</tr>
+<tr>
+<td>面向人群</td>
+<td>非技术人员无法完成部署（Node 环境/DOM 概念）</td>
+<td>需 CLI 操作</td>
+</tr>
+</tbody>
+</table>
+<p><strong>档位判定</strong>：40% × 2.5 = 1.0。快速验证的便捷性提升了分数，但生产部署路径缺失拖累整体——作为开源项目，无官方容器镜像意味着用户无法快速接入自有基础设施。</p>
+<h4>D9.3 易用性与操作门槛（2.5 分）——得分 1.5 / 2.5</h4>
+<p><strong>判断依据</strong>：作为 FPS 游戏，日常操作是 WASD+鼠标的标准范式，README 提供了完整的键位对照表，操作直觉性良好。但项目本质是<strong>开发者向的技术演示</strong>而非面向普通玩家的游戏产品——无菜单界面、无设置面板、无教程关卡。运行时如有错误，浏览器控制台输出的堆栈信息对于非开发者不友好。项目自带 6 个调试工具（capture/shotset/baseline/imagediff/profile/playtest），展示出对开发者体验的重视，但普通用户用不到这些工具。</p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+<th>证据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>操作便捷度</td>
+<td>WASD+FPS 标准键位，直觉性好</td>
+<td>README 键位表</td>
+</tr>
+<tr>
+<td>交互设计</td>
+<td>无 CLI 交互、无管理界面；浏览器内操作</td>
+<td>纯 Three.js 游戏</td>
+</tr>
+<tr>
+<td>错误处理</td>
+<td>无自定义错误提示，异常暴露在浏览器控制台</td>
+<td>无错误处理代码证据</td>
+</tr>
+<tr>
+<td>默认合理性</td>
+<td>默认配置即开即玩，无需调参</td>
+<td>README 直接运行</td>
+</tr>
+<tr>
+<td>非专家可用性</td>
+<td>非游戏玩家可上手，但非开发者无法调试/构建</td>
+<td>面向开发者群体的技术仓库</td>
+</tr>
+</tbody>
+</table>
+<p><strong>档位判定</strong>：60% × 2.5 = 1.5。操作体验良好但「产品化」程度不足，处于「操作可用但需查文档」与「操作较便捷」之间。</p>
+<h4>D9.4 学习曲线与首体验（2.5 分）——得分 1.5 / 2.5</h4>
+<p><strong>判断依据</strong>：README 的 quickstart 极为精炼（两条命令），安装到首次游玩预计 5–10 分钟内可完成，这是明显的加分项。但项目<strong>无交互式教程、无示例代码目录（本地实测 examples=0）、无入门引导流程</strong>，文档仅 README + ARCHITECTURE.md + prompt.md 三份。ARCHITECTURE.md 面向 AI 代理而非人类读者，procedural generation 概念需要用户理解「无资源文件、全代码生成」这一背景知识才能真正欣赏项目价值。</p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+<th>证据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>上手时间</td>
+<td>5–10 分钟可首次游玩</td>
+<td>README 2 条命令</td>
+</tr>
+<tr>
+<td>学习曲线</td>
+<td>游玩层面平缓，但理解架构需领域知识</td>
+<td>涉及 HDR/WebGL/物理引擎等</td>
+</tr>
+<tr>
+<td>入门引导</td>
+<td>无教程/onboarding/交互式引导</td>
+<td>无 examples 目录、无教程文档</td>
+</tr>
+<tr>
+<td>概念门槛</td>
+<td>无需前置知识即可游玩，但「全程序化生成」概念需解释</td>
+<td>README: "no art assets"</td>
+</tr>
+<tr>
+<td>示例丰富度</td>
+<td>无示例文件；游戏本身即唯一 demo</td>
+<td>examples=0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>档位判定</strong>：60% × 2.5 = 1.5。首次体验的门槛低、Aha Moment 明显（一个 prompt 生成的 3A 级 FPS），但项目定位是 AI 编程范式的技术演示，缺乏用户成长路径。</p>
+<hr />
+<h4>D9 评分汇总</h4>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+<th>核心判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D9.1 安装难度</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>60%</td>
+<td>npm 单命令安装、依赖极简，但缺环境门槛说明</td>
+</tr>
+<tr>
+<td>D9.2 部署与配置难度</td>
+<td>2.5</td>
+<td>1.0</td>
+<td>40%</td>
+<td>无容器化/编排能力，仅本地开发服务器</td>
+</tr>
+<tr>
+<td>D9.3 易用性与操作门槛</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>60%</td>
+<td>游戏操作直觉性好，但无产品化 UI/错误引导</td>
+</tr>
+<tr>
+<td>D9.4 学习曲线与首体验</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>60%</td>
+<td>10 分钟快速上手，但无教程/示例生态</td>
+</tr>
+<tr>
+<td><strong>D9 总分</strong></td>
+<td><strong>10</strong></td>
+<td><strong>5.5</strong></td>
+<td><strong>/</strong></td>
+<td><strong>上手难度「中等」，偏开发者向</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：项目上手难度属于 🟡 <strong>中等</strong>（5.5/10）——面向有技术基础的开发者，普通用户可游玩但无法参与构建与调试。安装体验是最大亮点（依赖极简、秒级启动），生产部署能力是最明显短板（无 Docker 支持）。对于「单个 prompt 生成 FPS」这一核心叙事，项目在技术传播上做到了 10 分钟级体验闭环，但若面向更广泛的用户群体（如游戏玩家、产品人员），仍需补充一键式部署方案、内置新手引导和可视化错误反馈。</p>
+<h3>D10 功能价值——使用价值视角（平行维度，权重 0%，不计入综合评分）</h3>
+<blockquote>
+<p>本维度与商业评分正交：只评估「用它的人获得了多少实际效用」，不问付费意愿。低分不构成商业化硬伤，仅用于价值画像判定。</p>
+</blockquote>
+<h3>细则打分</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>分值</th>
+<th>小分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10.1</td>
+<td>效用强度</td>
+<td>3</td>
+<td>1.8</td>
+<td>5–6 档（60%）：明确但有限的效率提升</td>
+</tr>
+<tr>
+<td>D10.2</td>
+<td>实际使用规模</td>
+<td>3</td>
+<td>1.2</td>
+<td>3–4 档（40%）：千级及以下，小范围使用</td>
+</tr>
+<tr>
+<td>D10.3</td>
+<td>免费可得的完整效用</td>
+<td>2</td>
+<td>2.0</td>
+<td>9–10 档（100%）：开源版即全部价值</td>
+</tr>
+<tr>
+<td>D10.4</td>
+<td>效用可持续性</td>
+<td>2</td>
+<td>1.6</td>
+<td>7–8 档（80%）：主体本地化，少量可替换外部依赖</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td><strong>6.6</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>分析</h3>
+<p><strong>D10.1 效用强度（1.8/3）</strong>：该项目是「单个 prompt 生成 COD 级 FPS」的技术演示品。作为游戏本身的娱乐效用有限——README 坦承未达到现代 COD 水平，对抗性评审得分 5.05/10，所有盲测均被真实 COD 帧击败；但作为 55k 行、11 个子系统的完整 Three.js FPS 参考实现，它对想学习渲染管线、自研物理、程序化资产生成的开发者有明确节省时间价值：若无此参考，从零构建类似系统需要数周至数月。效用层级为「项目级参考资源」，依赖确定性中等（依赖使用者主动挖掘代码价值，而非开箱即用的基础设施），因此落在「明确但有限的效率提升」档。</p>
+<p><strong>D10.2 实际使用规模（1.2/3）</strong>：该项目不是库，无 npm/PyPI 下载量可采（实采标记 N/A），也无生产环境采用证据。可观测的硬信号为：Star 3,272、Fork 497（说明存在代码级复制使用），开放 Issue 24（发布即获得相当反馈）。但 Fork 量仍处于千级以下，属于小范围使用；Star 反映关注度而非实际依赖规模。按防幻觉原则不估算使用人数，基于实采数据仅能判定为「小范围使用」档。</p>
+<p><strong>D10.3 免费可得的完整效用（2.0/2）</strong>：MIT 许可，全量 66,112 行代码开源；无企业版、无付费墙、无线上服务门槛，<code>npm install &amp;&amp; npm run dev</code> 即获得全部能力；且所有美术资源由代码在本地生成，没有隐藏的资产包或外部 API 依赖。开源版即完整价值，本项满分。需要指出的是，这一结果与 D4.3 付费转化天然反相关——本项目几乎没有构建付费层的空间，属于典型的「使用价值高、交换价值弱」结构。</p>
+<p><strong>D10.4 效用可持续性（1.6/2）</strong>：纯客户端静态应用，运行时仅依赖开源库 <code>three</code>（^0.180.0），可锁定版本或 vendored 后本地化运行；不依赖厂商闭源组件、无云服务。MIT 协议允许自由分叉，代码完整且 README 提供了位级可重现的截图基线工具，说明构建可验证。唯一的持续性是外部包管理器获取依赖的步骤，但属于可替换依赖，不构成强锁定。停维后效用可长期存续，按「主体本地化、少量可替换外部依赖」打 80% 档。</p>
+<h3>结论</h3>
+<p><strong>使用价值画像：6.6/10——中等偏上的技术演示型价值，而非业务命脉/基础设施。</strong> 项目为使用者提供的核心效用是「可运行、可阅读、可复现」的大型 AI 生成代码样本：对 AI 工程研究者与 Three.js 开发者有明确的节省时间价值，且完全免费、可持续获取。但作为游戏产品本身的娱乐效用未达宣传目标，实际使用规模也停留在千级复制层面，整体呈现「高演示价值、低基础设施价值」的特征，与商业维度（D1–D9）的低交换价值预期形成互补画像。</p>
+<h3>4.11 D11 社会价值（正外部性）评估</h3>
+<blockquote>
+<p>该维度为平行维度（权重 0%），不计入综合评分与一票否决，仅作为 3.4 价值画像的补充材料。评估聚焦项目对「使用者之外的行业与社会」的外溢贡献，与 D3.4（品牌对商业的助力）视角相互独立。</p>
+</blockquote>
+<h3>D11.1 数字公共基础设施属性（3 分）</h3>
+<p><strong>得分：1.2 / 3（对应 3–4 分档：几乎无下游依赖，停摆影响微小）</strong></p>
+<p>项目是一个浏览器端 FPS 游戏演示，主体为可运行的应用程序而非被复用的库。唯一运行时依赖为 <code>three</code>，自身不被任何 npm 生态核心链路所依赖；GitHub API 未提供 Dependents 数据（N/A），但从项目形态（独立游戏、无导出模块、无对外 API）可判断，其停摆对软件供应链无实质影响。项目完全符合 MIT 开放许可、代码可免费复用，具备一定数字公共物品品格，但这属于「存在开放属性」而非「关键基础设施」。</p>
+<h3>D11.2 教育与人才价值（2.5 分）</h3>
+<p><strong>得分：1.5 / 2.5（对应 5–6 分档：有一定教学使用，影响限于小圈子）</strong></p>
+<p>项目包含 <code>ARCHITECTURE.md</code>（子系统接口与事件词汇表）与 <code>prompt.md</code>，展示了 AI 多代理协作构建复杂系统的完整流程；README 中关于「可重现性能基准（<code>baseline.mjs</code>）」「像素级零视觉变化优化（<code>imagediff.mjs</code> 门禁）」的方法论记录具有工程教学价值。但项目无测试代码（test_lines=0）、无教程/课程体系的外部引用证据，行业教材地位不成立。其源码作为 AI 生成代码的工程范本，对 AI 编程研究者和 Three.js 高级用户有一定学习意义，影响面仍属小圈子。</p>
+<h3>D11.3 普惠与可及性（2.5 分）</h3>
+<p><strong>得分：1.5 / 2.5（对应 5–6 分档：有普惠效果但受技术门槛/硬件限制）</strong></p>
+<p>项目将商业 3A 射击游戏的体验以零成本、浏览器即玩的形式开放（对比 COD 约 70 美元售价），并通篇采用程序化生成替代美术资产，对个人开发者具显著成本降低效应。但可及性支持不足：无 i18n/多语言（README 与界面均仅英文）、无无障碍标注；性能实测在 Apple silicon Retina DPR 下仅 28–30 fps，低配硬件难以流畅运行，限制了普惠覆盖面。</p>
+<h3>D11.4 开放标准与行业推动（2 分）</h3>
+<p><strong>得分：1.2 / 2（对应 5–6 分档：遵循开放标准但无推动作用）</strong></p>
+<p>项目构建于开放标准之上（WebGL2、Web Audio API、Three.js），但未实现或推动新的开放标准/协议。科研引用数据不可得（外部检索缺失，标 N/A）；同行模仿痕迹无证据。作为「单 prompt 生成 55k 行可玩 FPS」的 AI 编程里程碑式演示，其对 AI 驱动游戏开发的工作流具备一定行业示范潜力，但截至评估时点尚无广泛模仿的硬证据。</p>
+<h3>D11 汇总</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>分值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D11.1</td>
+<td>数字公共基础设施属性</td>
+<td>1.2 / 3</td>
+</tr>
+<tr>
+<td>D11.2</td>
+<td>教育与人才价值</td>
+<td>1.5 / 2.5</td>
+</tr>
+<tr>
+<td>D11.3</td>
+<td>普惠与可及性</td>
+<td>1.5 / 2.5</td>
+</tr>
+<tr>
+<td>D11.4</td>
+<td>开放标准与行业推动</td>
+<td>1.2 / 2</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>5.4 / 10</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：Claude-of-Duty 作为 MIT 开源的浏览器游戏，免费开放了类 3A 的 FPS 体验，并输出了一套可复现的性能评测方法论，具备中等偏弱的正向外部性。其短板在于：非软件供应链关键依赖、无 i18n/无障碍支持、性能门槛偏高、开放标准影响力尚未显现。社会价值整体处于「一般」水平（5.4/10），对价值画像的贡献为「技术民主化的示范样本 + AI 工程方法论的潜在教材」，而非社会基础设施。</p>
+<h2>五、商业化价值判断</h2>
+<h3>5.1 综合价值评估</h3>
+<p>Claude-of-Duty 的综合评分为 <strong>52.8/100</strong>，等级为 <strong>B（中等商业化潜力）</strong>，价值画像为 <strong>📦 长尾项目</strong>。综合来看，该项目具备以下核心价值特征：</p>
+<p><strong>价值亮点</strong>：
+- <strong>技术示范价值突出</strong>：66,112 行零引擎 JavaScript 实现完整 FPS 技术栈（延迟渲染/BVH物理/PBD布娃娃/程序化音频/程序化世界），复刻难度极高，技术护城河坚实
+- <strong>市场时机有利</strong>：AI 驱动完整游戏生成处于十亿美元级新兴市场，增长迅速但竞争未固化，项目作为先行者具有稀缺性
+- <strong>法律合规基础良好</strong>：MIT 协议不限制任何变现路径，无 copyleft 依赖，是商业化前提的最大优势
+- <strong>社区关注度极高</strong>：Star 月增约 3,058，Fork 比率 15.2%，病毒式传播效应显著</p>
+<p><strong>价值局限</strong>：
+- <strong>产品化成熟度为零</strong>：无测试、无 CI、无 Release、单贡献者，项目处于"可运行演示"而非"可交付产品"阶段
+- <strong>商业模式完全空白</strong>：无任何已实施的变现路径，完全开源且无功能分层，用户没有付费触发点
+- <strong>可持续性极差</strong>：项目创建当天即推送完毕，无后续维护迹象，24 个开放 Issue 全部无人处理，巴士因子=1
+- <strong>技术壁垒不可持续</strong>：MIT 开源、无专利/数据/生态锁定，高工程门槛但易被复制</p>
+<h3>5.2 商业化价值结论</h3>
+<p>项目当前不具备直接商业化的条件。其核心价值在于<strong>技术示范与人才吸引</strong>，而非产品变现。作为"AI 单 prompt 生成完整游戏"的标杆案例，其营销与品牌价值远高于直接商业价值。若将底层技术能力（AI 生成代码的组织方式、可复现的视觉回归测试方法）提炼为可复用资产，存在间接变现的可能。</p>
+<h2>六、商业路径分析</h2>
+<h3>6.1 路径可行性评估</h3>
+<p>基于价值画像（📦 长尾项目）与各维度评分，以下商业路径按可行性排序：</p>
+<p><strong>路径一：技术借鉴与人才引进（推荐，低投入）</strong>
+- <strong>核心逻辑</strong>：项目展示了 AI 生成大规模代码的可行性，66,112 行代码的组织方式（13 子系统通过 ctx 依赖注入+事件总线解耦）具有工程参考价值
+- <strong>具体做法</strong>：游戏公司或 AI 编程工具厂商可研究其 prompt 工程方法与架构组织方式，将可复现的视觉回归测试方法（imagediff.mjs 像素级回归、baseline.mjs 位级可复现截图）整合进自身 AI 代码生成质量保障体系
+- <strong>预期收益</strong>：降低 AI 生成代码的质量验证成本，非直接收入
+- <strong>可行性依据</strong>：D2 显示架构模块化与代码注释水准达商业级，D10 显示对开发者有明确学习/节省时间价值</p>
+<p><strong>路径二：影响力变现（可行，需长期经营）</strong>
+- <strong>核心逻辑</strong>：项目具有高辨识度名称与病毒式传播潜力，可围绕 AI 编程能力验证建立个人/团队品牌
+- <strong>具体做法</strong>：维护者可通过 newsletter 引流（项目当前已有此雏形）、技术演讲、付费教程或咨询服务的间接方式变现
+- <strong>预期收益</strong>：间接且需长期积累，天花板低
+- <strong>可行性依据</strong>：D4 显示变现路径停留在技术演示和 newsletter 引流阶段，D3 显示项目名"Claude of Duty"具有高辨识度</p>
+<p><strong>路径三：定制化服务（可行，但天花板低）</strong>
+- <strong>核心逻辑</strong>：基于 AI 生成游戏能力的定制开发服务
+- <strong>具体做法</strong>：为有需求的客户提供基于 AI prompt 的游戏原型快速生成服务
+- <strong>预期收益</strong>：人力型变现，规模有限
+- <strong>可行性依据</strong>：D4 显示"仅存在基于 AI 生成游戏能力的定制服务等人力型变现可能"</p>
+<p><strong>路径四：产品化商业化（不推荐，当前阶段不可行）</strong>
+- <strong>核心逻辑</strong>：将项目打磨为可交付的游戏产品或引擎
+- <strong>阻碍因素</strong>：质量自评仅 5.05/10、无测试/CI/Release、性能瓶颈明确（Retina/ultra 下 p50 28-30fps、启动 3.7-4.6s）、单贡献者无法支撑产品迭代
+- <strong>可行性依据</strong>：D1 自认质量无法商业化，D2 质量保障体系为零，D8 资金可持续性为零</p>
+<h3>6.2 路径选择建议</h3>
+<p>当前阶段建议以<strong>路径一（技术借鉴）</strong>为主，辅以<strong>路径二（影响力变现）</strong>的长期经营。不建议投入资源进行产品化商业化。若未来 AI 生成游戏市场进一步成熟，且维护者补齐测试、CI 与治理基础，可重新评估产品化路径。</p>
+<h2>七、能力评估：能做什么 &amp; 最适合做什么</h2>
+<h3>7.1 核心能力盘点</h3>
+<table>
+<thead>
+<tr>
+<th>能力领域</th>
+<th>具体能力</th>
+<th>证据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AI 生成代码组织</td>
+<td>单 prompt 生成 55k 行可运行 FPS，13 子系统通过 ctx 依赖注入+事件总线解耦</td>
+<td>D2 架构模块化达商业级</td>
+</tr>
+<tr>
+<td>程序化内容生成</td>
+<td>程序化世界/音频/布娃娃物理，零外部资产依赖</td>
+<td>D2 完整 FPS 技术栈</td>
+</tr>
+<tr>
+<td>视觉回归测试方法</td>
+<td>imagediff.mjs 像素级回归、baseline.mjs 位级可复现截图、profile.mjs 帧时间分布归因</td>
+<td>D7 开发期可观测性工具链突出</td>
+</tr>
+<tr>
+<td>高性能 WebGL 渲染</td>
+<td>延迟渲染、11.3M 三角形场景、BVH 物理</td>
+<td>D2 技术护城河坚实</td>
+</tr>
+<tr>
+<td>技术传播与示范</td>
+<td>高辨识度项目名、病毒式传播、3.2k Star</td>
+<td>D3 社区关注度极高</td>
+</tr>
+</tbody>
+</table>
+<h3>7.2 最适合做什么</h3>
+<p>基于能力盘点与市场定位，项目最适合的定位是：</p>
+<ol>
+<li><strong>AI 编程能力验证基准</strong>：作为"AI 能否生成完整可运行游戏"的公开验证案例，其可复现的视觉回归测试方法可成为 AI 代码生成质量的评估工具</li>
+<li><strong>技术演示与人才吸引</strong>：作为 AI 工程师能力展示与团队技术品牌建设的素材</li>
+<li><strong>工程教学资源</strong>：README 中的可重现性能基准与像素级零视觉变化优化方法论具有工程教学价值（D11）</li>
+</ol>
+<h3>7.3 不适合做什么</h3>
+<ul>
+<li><strong>直接作为游戏产品发布</strong>：质量未达商业游戏水准（自评 5.05/10），无测试保障</li>
+<li><strong>作为 SaaS 服务基础</strong>：无后端架构、无用户体系、无生产运维能力</li>
+<li><strong>作为可复用库/引擎</strong>：非库项目设计，无 API 文档，依赖方/下载量实采为 N/A</li>
+</ul>
+<h2>八、短板识别：还缺少什么</h2>
+<h3>8.1 关键短板清单</h3>
+<table>
+<thead>
+<tr>
+<th>短板领域</th>
+<th>具体缺失</th>
+<th>严重程度</th>
+<th>证据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>质量保障体系</strong></td>
+<td>0 测试行、0 CI workflows、0 Release</td>
+<td>🔴 致命</td>
+<td>D2 质量保障体系为零</td>
+</tr>
+<tr>
+<td><strong>团队与治理</strong></td>
+<td>1 名贡献者、无治理文档、无 CONTRIBUTING/CODEOWNERS</td>
+<td>🔴 致命</td>
+<td>D8 巴士因子=1，传承风险极高</td>
+</tr>
+<tr>
+<td><strong>商业模式</strong></td>
+<td>无付费触发点、无功能分层、无增值服务</td>
+<td>🔴 致命</td>
+<td>D4 付费转化逻辑缺失</td>
+</tr>
+<tr>
+<td><strong>可持续性</strong></td>
+<td>创建当天后无任何提交、24 个 Issue 全部未处理</td>
+<td>🔴 致命</td>
+<td>D8 活跃趋势断崖式下降</td>
+</tr>
+<tr>
+<td><strong>生产可运营性</strong></td>
+<td>无 Dockerfile/Helm/CI、无认证授权/审计日志/加密机制</td>
+<td>🟡 严重</td>
+<td>D7 安全管理为零</td>
+</tr>
+<tr>
+<td><strong>性能瓶颈</strong></td>
+<td>Retina/ultra 下 p50 28-30fps、启动 3.7-4.6s</td>
+<td>🟡 严重</td>
+<td>D7 明确性能瓶颈</td>
+</tr>
+<tr>
+<td><strong>法律一致性</strong></td>
+<td>package.json license 字段（ISC）与根 LICENSE（MIT）不一致</td>
+<td>🟡 中等</td>
+<td>D6 需统一</td>
+</tr>
+<tr>
+<td><strong>商标风险</strong></td>
+<td>项目名与描述含"Call of Duty"字样，存在潜在商标冲突</td>
+<td>🟡 中等</td>
+<td>D6 未经人工核查</td>
+</tr>
+<tr>
+<td><strong>文档与引导</strong></td>
+<td>无教程/示例/onboarding 流程，ARCHITECTURE 面向 AI 代理而非人类</td>
+<td>🟢 一般</td>
+<td>D9 开发者向特征明显</td>
+</tr>
+</tbody>
+</table>
+<h3>8.2 短板优先级排序</h3>
+<p><strong>第一优先级（商业化前提）</strong>：质量保障体系（测试+CI）、团队治理（至少 2-3 名维护者）、商业模式设计（付费触发点）</p>
+<p><strong>第二优先级（可运营基础）</strong>：生产部署能力（Dockerfile+CI/CD）、安全管理（认证/审计/移除调试后门）、性能优化</p>
+<p><strong>第三优先级（合规与体验）</strong>：License 字段统一、商标风险评估、文档与教程完善</p>
+<h2>九、风险提示</h2>
+<h3>9.1 高风险项</h3>
+<table>
+<thead>
+<tr>
+<th>风险</th>
+<th>等级</th>
+<th>说明</th>
+<th>缓解建议</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>项目停滞风险</strong></td>
+<td>🔴 高</td>
+<td>项目创建当天即推送完毕，无后续维护迹象，24 个开放 Issue 全部无人处理</td>
+<td>商业化前须确认维护者意图与投入承诺</td>
+</tr>
+<tr>
+<td><strong>商标侵权风险</strong></td>
+<td>🔴 高</td>
+<td>项目名与描述含"Call of Duty"字样，存在潜在商标冲突（未经人工核查，置信度低）</td>
+<td>商业化前须进行商标法律核查，必要时更名</td>
+</tr>
+<tr>
+<td><strong>质量回归风险</strong></td>
+<td>🔴 高</td>
+<td>0 测试行、0 CI，任何二次开发都可能引入不可控回归</td>
+<td>商业化前须建立基础测试与 CI 体系</td>
+</tr>
+</tbody>
+</table>
+<h3>9.2 中风险项</h3>
+<table>
+<thead>
+<tr>
+<th>风险</th>
+<th>等级</th>
+<th>说明</th>
+<th>缓解建议</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>复制风险</strong></td>
+<td>🟡 中</td>
+<td>MIT 开源、无专利/数据/生态锁定，高工程门槛但易被复制</td>
+<td>通过持续迭代与社区运营建立品牌壁垒</td>
+</tr>
+<tr>
+<td><strong>性能体验风险</strong></td>
+<td>🟡 中</td>
+<td>Retina/ultra 下 p50 28-30fps、启动 3.7-4.6s，高配硬件要求限制用户范围</td>
+<td>优化渲染管线与资源加载策略</td>
+</tr>
+<tr>
+<td><strong>安全风险</strong></td>
+<td>🟡 中</td>
+<td>存在 ?physdebug=1 URL 调试后门，无认证授权/审计日志</td>
+<td>商业化前须移除调试后门并建立安全机制</td>
+</tr>
+</tbody>
+</table>
+<h3>9.3 低风险项</h3>
+<table>
+<thead>
+<tr>
+<th>风险</th>
+<th>等级</th>
+<th>说明</th>
+<th>缓解建议</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>License 不一致</strong></td>
+<td>🟢 低</td>
+<td>package.json 声明 ISC 且 private: true，与根 LICENSE（MIT）不一致</td>
+<td>统一为 MIT 并移除 private 标记</td>
+</tr>
+<tr>
+<td><strong>依赖链风险</strong></td>
+<td>🟢 低</td>
+<td>运行时依赖仅 three（MIT），无 copyleft 依赖</td>
+<td>无需特别处理</td>
+</tr>
+</tbody>
+</table>
+<h2>十、结论与建议</h2>
+<h3>10.1 综合结论</h3>
+<p>Claude-of-Duty 是一个<strong>技术示范价值突出但产品化程度为零</strong>的 AI 生成游戏演示项目。综合评分 52.8/100（B 级，中等商业化潜力），价值画像为 <strong>📦 长尾项目</strong>。项目在 AI 驱动游戏生成这一新兴市场中具有先行者稀缺性与高社区关注度，技术护城河（66k 行零引擎 FPS 实现）坚实，MIT 协议为商业化提供了最大自由度。然而，项目存在<strong>质量保障缺失、团队治理空白、商业模式未建立、可持续性极差</strong>四大致命短板，当前不具备直接商业化条件。</p>
+<h3>10.2 分级建议</h3>
+<p><strong>对维护者（mshumer）</strong>：
+1. <strong>短期（0-3 个月）</strong>：明确项目定位与维护承诺；统一 License 字段；评估商标风险；建立 CONTRIBUTING 与 Issue 响应机制
+2. <strong>中期（3-12 个月）</strong>：补充基础测试与 CI；引入 2-3 名核心贡献者；将视觉回归测试方法提炼为独立工具；探索 newsletter 引流与定制服务
+3. <strong>长期（12 个月+）</strong>：若 AI 生成游戏市场持续增长，可考虑将底层能力封装为 AI 编程质量验证服务</p>
+<p><strong>对潜在商业合作方</strong>：
+- 建议以<strong>技术借鉴与人才引进</strong>为主要切入点，研究其 prompt 工程方法与架构组织方式
+- 不建议直接投资产品化商业化，风险过高
+- 可关注其视觉回归测试方法在 AI 代码生成质量保障领域的应用潜力</p>
+<p><strong>对开发者社区</strong>：
+- 项目作为"AI 单 prompt 生成完整游戏"的标杆案例，具有工程教学价值
+- 可复现的性能基准与像素级零视觉变化优化方法论值得学习参考</p>
+<h3>10.3 最终评级</h3>
+<p><strong>B 级（中等商业化潜力）</strong>：有商业化基础（技术+流量+合规），但需较多投入补齐短板（质量、治理、商业模式）。建议以技术借鉴与影响力变现为主，暂不投入产品化商业化。</p>
+<h2>十一、项目地址</h2>
+<p><svg class="ri ri-muted" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.001 2C6.47598 2 2.00098 6.475 2.00098 12C2.00098 16.425 4.86348 20.1625 8.83848 21.4875C9.33848 21.575 9.52598 21.275 9.52598 21.0125C9.52598 20.775 9.51348 19.9875 9.51348 19.15C7.00098 19.6125 6.35098 18.5375 6.15098 17.975C6.03848 17.6875 5.55098 16.8 5.12598 16.5625C4.77598 16.375 4.27598 15.9125 5.11348 15.9C5.90098 15.8875 6.46348 16.625 6.65098 16.925C7.55098 18.4375 8.98848 18.0125 9.56348 17.75C9.65098 17.1 9.91348 16.6625 10.201 16.4125C7.97598 16.1625 5.65098 15.3 5.65098 11.475C5.65098 10.3875 6.03848 9.4875 6.67598 8.7875C6.57598 8.5375 6.22598 7.5125 6.77598 6.1375C6.77598 6.1375 7.61348 5.875 9.52598 7.1625C10.326 6.9375 11.176 6.825 12.026 6.825C12.876 6.825 13.726 6.9375 14.526 7.1625C16.4385 5.8625 17.276 6.1375 17.276 6.1375C17.826 7.5125 17.476 8.5375 17.376 8.7875C18.0135 9.4875 18.401 10.375 18.401 11.475C18.401 15.3125 16.0635 16.1625 13.8385 16.4125C14.201 16.725 14.5135 17.325 14.5135 18.2625C14.5135 19.6 14.501 20.675 14.501 21.0125C14.501 21.275 14.6885 21.5875 15.1885 21.4875C19.259 20.1133 21.9999 16.2963 22.001 12C22.001 6.475 17.526 2 12.001 2Z"/></svg> <a href="https://github.com/mshumer/Claude-of-Duty">https://github.com/mshumer/Claude-of-Duty</a></p>
+<hr />
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+</blockquote>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家　<a href="https://www.mova.work">www.mova.work</a></p></body></html>

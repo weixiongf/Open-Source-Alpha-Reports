@@ -1,0 +1,1479 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><title>Omarchy 商业价值分析报告</title><style>/* default — 品牌蓝紫主题（从 md2pdf.py 原 CSS 常量迁出，视觉与历史产物一致） */
+@page { size: A4; margin: 18mm 15mm 20mm 15mm; }
+* { box-sizing: border-box; }
+/* 字体规范：一律开源思源黑体 CN（OFL 免费商用）；正文 Regular/标题 Bold/大字数字 Light */
+body { font-family: "Source Han Sans CN","思源黑体 CN","Noto Sans SC",sans-serif; color:#1e293b; font-size:10.5pt; line-height:1.75; margin:0; }
+.cover { page-break-after: always; text-align:center; padding-top:40px; }
+.cover .kicker { color:#2563eb; letter-spacing:6px; font-size:12pt; font-weight:500; }
+.cover h1 { font-size:26pt; margin:14px 0 6px; }
+.cover .sub { color:#64748b; font-size:11pt; margin-bottom:22px; }
+.badge { display:inline-block; background:linear-gradient(135deg,#2563eb,#7c3aed); color:#fff; border-radius:18px; padding:16px 44px; margin:10px 0 18px; }
+.badge .g { font-size:34pt; font-weight:300; line-height:1; }
+.badge .s { font-size:12pt; opacity:.92; margin-top:4px; }
+.meta { color:#475569; font-size:9.5pt; margin-top:14px; }
+.bars { max-width:620px; margin:20px auto 0; text-align:left; }
+.bar-row { display:flex; align-items:center; gap:8px; margin:5px 0; font-size:9pt; }
+.bar-name { width:110px; text-align:right; color:#334155; font-weight:500; }
+.bar-track { flex:1; height:9px; background:#f1f5f9; border-radius:5px; overflow:hidden; }
+.bar-fill { display:block; height:100%; border-radius:5px; }
+.bar-val { width:30px; font-weight:700; color:#0f172a; }
+.bar-w { width:52px; color:#94a3b8; font-size:8pt; }
+h1 { font-size:17pt; color:#0f172a; border-bottom:3px solid #2563eb; padding-bottom:8px; }
+h2 { font-size:13.5pt; color:#1d4ed8; margin-top:26px; page-break-after: avoid; border-left:5px solid #2563eb; padding-left:10px; }
+h3 { font-size:11.5pt; color:#0f172a; margin-top:18px; page-break-after: avoid; }
+table { border-collapse:collapse; width:100%; margin:10px 0; font-size:9pt; page-break-inside:avoid; }
+th { background:#eff6ff; color:#1e3a8a; }
+th,td { border:1px solid #dbe3ef; padding:5px 8px; text-align:left; }
+tr:nth-child(even) td { background:#f8fafc; }
+code { background:#f1f5f9; border-radius:4px; padding:1px 5px; font-family:"JetBrains Mono","Cascadia Mono",monospace; font-size:9pt; color:#be185d; }
+pre { background:#0f172a; color:#e2e8f0; border-radius:8px; padding:12px 14px; overflow-x:auto; page-break-inside:avoid; }
+pre code { background:none; color:inherit; padding:0; }
+blockquote { border-left:4px solid #93c5fd; background:#eff6ff; margin:10px 0; padding:8px 14px; color:#334155; border-radius:0 8px 8px 0; }
+hr { border:none; border-top:1px dashed #cbd5e1; margin:22px 0; }
+strong { color:#0f172a; }
+.cover .disclaimer { max-width:620px; margin:16px auto 0; color:#64748b; font-size:8.5pt; line-height:1.6; text-align:left; border:1px solid #e2e8f0; border-radius:8px; padding:8px 12px; background:#f8fafc; }
+.credit { color:#2563eb; font-size:10.5pt; font-weight:700; letter-spacing:1px; margin-top:12px; }
+.at-acc { background:#dbeafe; color:#1d4ed8; border-radius:4px; padding:0 4px; font-weight:500; white-space:nowrap; }
+.tail { page-break-inside:avoid; margin-top:26px; border-top:2px solid #2563eb; padding-top:14px; }
+.tail p { color:#64748b; font-size:8.5pt; line-height:1.6; margin:0 0 10px; }
+.tail .credit { text-align:center; margin:0; }
+/* Remix Icon 内联 SVG（icon_mode=remix 时由脚本注入，语义色与评分条一致） */
+.ri { width:1.05em; height:1.05em; vertical-align:-0.18em; display:inline-block; }
+.ri-ok { color:#16a34a; } .ri-warn { color:#d97706; } .ri-bad { color:#dc2626; }
+.ri-muted { color:#64748b; } .ri-star { color:#f59e0b; } .ri-brand { color:#2563eb; }
+.ri-gold { color:#d4a017; } .ri-silver { color:#9ca3af; } .ri-bronze { color:#b45309; }
+/* 屏幕预览：@page 边距仅在打印时生效，浏览器中居中限宽并收边（不影响 PDF 输出） */
+@media screen {
+  body { margin: 0 auto; padding: 28px 36px 56px; max-width: 900px; }
+}
+</style></head><body><div class="cover">
+<div class="kicker">开源项目商业化潜力分析 · 第 36 期</div>
+<h1>GitHub 开源项目 Omarchy<br>商业价值分析报告</h1>
+<div class="sub">omacom/omarchy · 一体化预设Linux桌面发行版 · 九维度加权评估67.8/100（A级）</div>
+<div class="badge"><div class="g">A 级 · 67.8</div><div class="s">综合评分（满分 100）· 高商业化潜力</div></div>
+<div><svg viewBox="0 0 560 480" width="560" height="480" xmlns="http://www.w3.org/2000/svg"><polygon points="280.0,209.6 299.5,216.7 309.9,234.7 306.3,255.2 290.4,268.6 269.6,268.6 253.7,255.2 250.1,234.7 260.5,216.7" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,179.2 319.1,193.4 339.9,229.4 332.7,270.4 300.8,297.1 259.2,297.1 227.3,270.4 220.1,229.4 240.9,193.4" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,148.8 338.6,170.1 369.8,224.2 359.0,285.6 311.2,325.7 248.8,325.7 201.0,285.6 190.2,224.2 221.4,170.1" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,118.4 358.2,146.8 399.8,218.9 385.3,300.8 321.6,354.3 238.4,354.3 174.7,300.8 160.2,218.9 201.8,146.8" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,88.0 377.7,123.6 429.7,213.6 411.6,316.0 332.0,382.8 228.0,382.8 148.4,316.0 130.3,213.6 182.3,123.6" fill="none" stroke="#e2e8f0" stroke-width="1"/><line x1="280.0" y1="240.0" x2="280.0" y2="88.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="377.7" y2="123.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="429.7" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="411.6" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="332.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="228.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="148.4" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="130.3" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="182.3" y2="123.6" stroke="#d8dee9" stroke-width="1"/><polygon points="280.0,240.0 348.4,158.5 381.8,222.1 357.7,284.8 318.5,345.7 240.5,348.6 197.1,287.9 166.2,219.9 216.5,164.3" fill="rgba(37,99,235,.22)" stroke="#2563eb" stroke-width="2.5"/><circle cx="280.0" cy="240.0" r="3.5" fill="#2563eb"/><circle cx="348.4" cy="158.5" r="3.5" fill="#2563eb"/><circle cx="381.8" cy="222.1" r="3.5" fill="#2563eb"/><circle cx="357.7" cy="284.8" r="3.5" fill="#2563eb"/><circle cx="318.5" cy="345.7" r="3.5" fill="#2563eb"/><circle cx="240.5" cy="348.6" r="3.5" fill="#2563eb"/><circle cx="197.1" cy="287.9" r="3.5" fill="#2563eb"/><circle cx="166.2" cy="219.9" r="3.5" fill="#2563eb"/><circle cx="216.5" cy="164.3" r="3.5" fill="#2563eb"/><text x="280.0" y="44.0" text-anchor="middle" font-size="12.5" fill="#334155" font-weight="600">D1</text><text x="280.0" y="58.0" text-anchor="middle" font-size="11" fill="#64748b">市场需求 N/A</text><text x="406.0" y="89.9" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D2</text><text x="406.0" y="103.9" text-anchor="start" font-size="11" fill="#64748b">技术成熟度 7.0</text><text x="473.0" y="206.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D3</text><text x="473.0" y="220.0" text-anchor="start" font-size="11" fill="#64748b">社区生态 6.8</text><text x="449.7" y="338.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D4</text><text x="449.7" y="352.0" text-anchor="start" font-size="11" fill="#64748b">变现潜力 5.9</text><text x="347.0" y="424.2" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D5</text><text x="347.0" y="438.2" text-anchor="start" font-size="11" fill="#64748b">竞争格局 7.4</text><text x="213.0" y="424.2" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D6</text><text x="213.0" y="438.2" text-anchor="end" font-size="11" fill="#64748b">法律合规 7.6</text><text x="110.3" y="338.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D7</text><text x="110.3" y="352.0" text-anchor="end" font-size="11" fill="#64748b">企业就绪 6.3</text><text x="87.0" y="206.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D8</text><text x="87.0" y="220.0" text-anchor="end" font-size="11" fill="#64748b">团队治理 7.6</text><text x="154.0" y="89.9" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D9</text><text x="154.0" y="103.9" text-anchor="end" font-size="11" fill="#64748b">上手难度 6.5</text></svg></div>
+<div class="bars"><div class="bar-row"><span class="bar-name">D6 法律合规</span>
+<span class="bar-track"><span class="bar-fill" style="width:76.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.6</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D8 团队治理</span>
+<span class="bar-track"><span class="bar-fill" style="width:76.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.6</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D5 竞争格局</span>
+<span class="bar-track"><span class="bar-fill" style="width:74.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.4</span><span class="bar-w">权重12%</span></div>
+<div class="bar-row"><span class="bar-name">D2 技术成熟度</span>
+<span class="bar-track"><span class="bar-fill" style="width:70.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.0</span><span class="bar-w">权重14%</span></div>
+<div class="bar-row"><span class="bar-name">D3 社区生态</span>
+<span class="bar-track"><span class="bar-fill" style="width:68.0%;background:#d97706"></span></span>
+<span class="bar-val">6.8</span><span class="bar-w">权重11%</span></div>
+<div class="bar-row"><span class="bar-name">D9 上手难度</span>
+<span class="bar-track"><span class="bar-fill" style="width:65.0%;background:#d97706"></span></span>
+<span class="bar-val">6.5</span><span class="bar-w">权重10%</span></div>
+<div class="bar-row"><span class="bar-name">D7 企业就绪</span>
+<span class="bar-track"><span class="bar-fill" style="width:63.0%;background:#d97706"></span></span>
+<span class="bar-val">6.3</span><span class="bar-w">权重8%</span></div>
+<div class="bar-row"><span class="bar-name">D4 变现潜力</span>
+<span class="bar-track"><span class="bar-fill" style="width:59.0%;background:#dc2626"></span></span>
+<span class="bar-val">5.9</span><span class="bar-w">权重18%</span></div>
+<div class="bar-row"><span class="bar-name">D1 市场需求</span>
+<span class="bar-track"><span class="bar-fill" style="width:0.0%;background:#dc2626"></span></span>
+<span class="bar-val">N/A</span><span class="bar-w">权重13%</span></div></div>
+<div class="meta">分析时点 2026-08-30 ｜ 数据来源：GitHub API + 仓库代码实测 ｜ 方法论 v1.3</div>
+<div class="credit">报告出品：@魔法工厂　@向量之心　@南山科学家</div>
+<div class="disclaimer"><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</div>
+</div><h1>Omarchy 商业化潜力分析报告（完整版）</h1>
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家</p>
+<p>方法论版本: v1.3 | 综合评分: <strong>67.8</strong> | 等级: <strong>A（高商业化潜力）</strong> | 价值画像: 明星资产</p>
+</blockquote>
+<h2>一、项目概览</h2>
+<h3>1.1 基本信息</h3>
+<ul>
+<li><strong>项目名称</strong>：Omarchy（omacom/omarchy）</li>
+<li><strong>项目定位</strong>：Beautiful, Modern &amp; Opinionated Linux（美观、现代、有主见的 Linux 发行版）</li>
+<li><strong>核心技术栈</strong>：Shell（441 个脚本文件，5,722 行核心代码）</li>
+<li><strong>社区规模</strong>：34,752 Star / 3,568 Fork / 449 名贡献者</li>
+<li><strong>版本状态</strong>：v4.0.1（2026-08-25 发布），创建约 15 个月</li>
+<li><strong>分析时点</strong>：2026 年 8 月（数据截至 2026-08-29）</li>
+</ul>
+<h3>1.2 项目分类标签</h3>
+<table>
+<thead>
+<tr>
+<th>分类维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>操作系统发行版 / 开发框架</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>通用/跨行业（个人桌面计算）</td>
+</tr>
+<tr>
+<td>目标用户角色</td>
+<td>Linux 爱好者 / 开发者 / 技术博主</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>个人桌面系统 / 开发环境搭建</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>本地部署（裸机安装）</td>
+</tr>
+</tbody>
+</table>
+<h3>1.3 一句话定位</h3>
+<blockquote>
+<p>Omarchy 是一个<strong>一体化预设 Linux 桌面发行版</strong>，适用于<strong>个人桌面计算与开发环境搭建</strong>场景，主要面向<strong>追求美观与效率的 Linux 用户与开发者</strong>，用于<strong>开箱即用地获得一套完整、现代、有主见的操作系统配置</strong>。</p>
+</blockquote>
+<hr />
+<h2>二、安装部署与使用指南</h2>
+<p>Omarchy 是一个完整的 Linux 发行版，由 DHH 开发，定位为“美观、现代、强约定（Opinionated）”的桌面系统。安装部署需遵循官方手册指引（仓库 <code>manual/</code> 目录），主要入口包括：</p>
+<ul>
+<li><strong>开始使用</strong>：<code>manual/02-getting-started.md</code></li>
+<li><strong>双系统安装</strong>：<code>manual/50-dual-boot-install.md</code></li>
+<li><strong>无人值守安装</strong>：<code>manual/51-unattended-installs.md</code></li>
+</ul>
+<p>官方手册同步镜像于 <a href="https://learn.omacom.io/2/the-omarchy-manual">learn.omacom.io</a>，其中包含详细的分步说明与截图。读者亦可访问 <a href="https://omarchy.org">omarchy.org</a> 获取项目信息。</p>
+<p><strong>环境要求</strong>：本项目的目标运行环境为 Linux（作为发行版本身，不适用于 Windows/macOS 原生部署；手册另提供了从 Mac/Windows 迁移的说明章节）。</p>
+<p><strong>部署方式</strong>：仓库未提供 Dockerfile 或容器化清单，不适用 Docker/K8s 等容器化部署；部署场景为裸机/虚拟机系统安装。安装完成后系统自带预配置桌面环境，用户可按需参考 <code>manual/</code> 下 51 章手册进行调整与定制。</p>
+<h2>三、评分总览</h2>
+<h3>3.1 九维评分表</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>权重</th>
+<th>加权得分</th>
+<th>评级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1 市场需求与商业机会</td>
+<td>N/A</td>
+<td>13%</td>
+<td>N/A</td>
+<td>分析失败</td>
+</tr>
+<tr>
+<td>D2 技术成熟度与产品质量</td>
+<td>7.0/10</td>
+<td>14%</td>
+<td>0.98</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D3 社区健康度与生态势能</td>
+<td>6.8/10</td>
+<td>11%</td>
+<td>0.75</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D4 商业模式与变现潜力</td>
+<td>5.9/10</td>
+<td>18%</td>
+<td>1.06</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D5 竞争格局与差异化壁垒</td>
+<td>7.4/10</td>
+<td>12%</td>
+<td>0.89</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D6 法律合规与知识产权</td>
+<td>7.6/10</td>
+<td>7%</td>
+<td>0.53</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D7 企业就绪度与可运营性</td>
+<td>6.3/10</td>
+<td>8%</td>
+<td>0.50</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D8 团队治理与可持续性</td>
+<td>7.6/10</td>
+<td>7%</td>
+<td>0.53</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D9 上手难度与易用性</td>
+<td>6.5/10</td>
+<td>10%</td>
+<td>0.65</td>
+<td>中</td>
+</tr>
+<tr>
+<td><strong>综合评分</strong></td>
+<td>—</td>
+<td>100%</td>
+<td><strong>67.8/100</strong></td>
+<td><strong>A（高商业化潜力）</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>注：D1 维度因分析失败标记为 N/A，综合评分基于其余 8 个维度计算。一票否决检查完整，未触发否决机制。</p>
+</blockquote>
+<h3>3.2 平行维度表（不计入综合评分）</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10 功能价值</td>
+<td>7.8/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>D11 社会价值</td>
+<td>6.5/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td><strong>公共价值分</strong></td>
+<td><strong>7.2/10</strong></td>
+<td>(D10 + D11) / 2</td>
+</tr>
+</tbody>
+</table>
+<h3>3.3 价值画像判定</h3>
+<ul>
+<li><strong>综合评分</strong>：67.8（≥ 65）</li>
+<li><strong>公共价值分</strong>：7.2（≥ 7）</li>
+<li><strong>价值画像</strong>：⭐ <strong>明星资产</strong>（综合评分 ≥ 65 且 公共价值分 ≥ 7）</li>
+<li><strong>画像临界提示</strong>：公共价值分 7.2 处于 6.5–7.5 临界区间，需注意画像边界波动。</li>
+</ul>
+<hr />
+<h2>四、各维度详细分析</h2>
+<h3>D1 市场需求与商业机会</h3>
+<p>分析失败（DeepSeek 调用重试仍失败: 模型返回空内容），本维度标 N/A。</p>
+<h3>D2 技术成熟度与产品质量</h3>
+<h3>概述</h3>
+<p>omarchy 是一个"Beautiful, Modern &amp; Opinionated"的 Linux 桌面环境发行方案，基于 Hyprland/Wayland 生态构建。项目定位清晰——为用户提供一套开箱即用、深度定制且高度一致性的 Linux 桌面体验。项目创建于 2025 年 6 月，至今约 14 个月，已迭代至 v4.0.1，累计获得 34.7k stars、449 名贡献者，处于高速演进期。从产品设计、文档体系到功能覆盖度，omarchy 展现出远超一般 dotfiles 项目的工程化水准；但快速迭代也带来了 Issue 积压（2145 个开放）与质量保障体系（CI/测试）相对滞后的问题。</p>
+<h3>细则打分</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>分值</th>
+<th>得分</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D2.1</td>
+<td>产品设计与创新性</td>
+<td>1.5</td>
+<td>1.2</td>
+<td>良好（80%）</td>
+</tr>
+<tr>
+<td>D2.2</td>
+<td>架构设计与工程质量</td>
+<td>2.0</td>
+<td>1.2</td>
+<td>一般（60%）</td>
+</tr>
+<tr>
+<td>D2.3</td>
+<td>代码整洁性与规范性</td>
+<td>1.0</td>
+<td>0.8</td>
+<td>良好（80%）</td>
+</tr>
+<tr>
+<td>D2.4</td>
+<td>安全性</td>
+<td>1.0</td>
+<td>0.4</td>
+<td>较弱（40%）</td>
+</tr>
+<tr>
+<td>D2.5</td>
+<td>UI/UX/UE 人机交互</td>
+<td>1.0</td>
+<td>0.8</td>
+<td>良好（80%）</td>
+</tr>
+<tr>
+<td>D2.6</td>
+<td>功能完备度与稳定性</td>
+<td>1.5</td>
+<td>1.2</td>
+<td>良好（80%）</td>
+</tr>
+<tr>
+<td>D2.7</td>
+<td>文档与开发者体验</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>卓越（100%）</td>
+</tr>
+<tr>
+<td>D2.8</td>
+<td>测试与质量保障</td>
+<td>1.0</td>
+<td>0.4</td>
+<td>较弱（40%）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10.0</strong></td>
+<td><strong>7.0</strong></td>
+<td><strong>良好</strong></td>
+</tr>
+</tbody>
+</table>
+<h4>D2.1 产品设计与创新性 — 1.2/1.5</h4>
+<p>产品理念清晰且具有鲜明差异化。omarchy 以"Opinionated"为核心设计哲学，不是简单的 dotfiles 集合，而是完整的桌面环境方案：从 51 章用户手册（manual/01 至 manual/51）可以看出，产品覆盖了从入门引导、日常导航、主题定制、AI 集成、Windows 虚拟机、双启动安装到故障排除的完整用户旅程。功能设计围绕核心场景展开，包括统一剪贴板历史、屏幕截图/录制、文本提取/听写、提醒、通知中心等创新功能模块。相比同类 Hyprland 配置项目，omarchy 通过 shell/plugins 插件体系、40+ 主题系统（themes/ 目录下 22 个主题变体）、以及针对 macOS/Windows 用户的迁移指南（manual/03-coming-from-mac-or-windows.md、manual/44-mac-support.md）形成了显著差异化。扣分原因：本质仍是对 Hyprland 生态的深度集成与再包装，底层技术（Wayland 合成器、QML 渲染）非自研，创新主要体现在产品整合层面而非技术层面。</p>
+<h4>D2.2 架构设计与工程质量 — 1.2/2.0</h4>
+<p>项目采用清晰的分层目录结构：<code>config/</code>（用户配置层）、<code>default/</code>（默认基线配置层）、<code>install/</code>（系统安装/配置脚本层）、<code>shell/</code>（核心插件与逻辑层）、<code>themes/</code>（主题层）、<code>docs/</code> 与 <code>manual/</code>（文档层）。各层职责明确，依赖方向合理。<code>shell/plugins/</code> 下的功能模块（menu、notifications、panels/<em>、services/</em>、bar/）均遵循 Model 模式——每个插件将纯逻辑函数抽离为独立的 <code>Model.js</code> 文件（如 <code>MenuModel.js</code> 525 行、<code>NotificationLogic.js</code> 480 行），与 QML UI 层解耦，这一设计显著提升了可测试性与可复用性。<code>shell/Commons/</code> 提供了跨模块共用的工具函数（如 <code>BorderGeometry.js</code> 处理复杂的 QML 圆角/渐变边界几何计算），抽象层次恰当。但受限于项目本质（系统配置 + 胶水逻辑），代码总量仅 5722 行（.js/.py），441 个脚本文件未统计在内，复刻难度中等——技术护城河在于对 Hyprland/Wayland/Arch 生态的深度整合经验，而非核心算法或数据结构。扣分原因：开放 Issue 达 2145 个且无 CODEOWNERS、无 CONTRIBUTING 文档，工程治理质量与项目规模不匹配。</p>
+<h4>D2.3 代码整洁性与规范性 — 0.8/1.0</h4>
+<p>从代码摘要看，函数命名规范且语义明确（如 <code>stripImageTags</code>、<code>formatBytes</code>、<code>parseNetworkStatus</code>），粒度控制良好——<code>MenuModel.js</code> 中 33 个函数各司其职，单个函数长度大多在 10-30 行内。代码风格统一，JS 代码采用 ES6 模块语法，Python 代码（<code>status.py</code>、<code>transcode.py</code>）遵循 PEP8 风格，函数职责单一。基于 Promise 的异步处理（<code>promise</code>、<code>normalizeEntry</code> 等返回值语义明确）和数据流设计（parse → model → view）一致性良好。未发现明显的大量复制粘贴代码。同时项目配备 <code>agents/skills/</code> 下的开发规范文档（如 <code>shell-dev.md</code>、<code>command-metadata.md</code>），说明有意识地规范开发流程。但未检测到 ESLint/Prettier 等 lint/format 配置文件，代码风格主要依赖贡献者自律。</p>
+<h4>D2.4 安全性 — 0.4/1.0</h4>
+<p>由于项目包含系统级配置（<code>etc/sudoers.d/</code>、<code>etc/security/</code>、<code>etc/sysctl.d/</code>、GPG 相关配置），安全性至关重要。项目未提供 SECURITY.md 安全策略文档（<code>has_security_md: false</code>），GitHub Actions 未配置安全扫描流程，依赖漏洞扫描（Dependabot/Snyk）也未启用。本地依赖检测显示 <code>dependencies: {}</code>（未解析系统包级别的依赖树），无法自动追踪已知漏洞。不过在代码层面观察到一些安全实践：<code>NotificationLogic.js</code> 中有 <code>sanitizeBody</code>、<code>stripImageTags</code> 等净化函数处理 HTML 通知内容，<code>panels/network/Model.js</code> 中对无线 SSID 做了 <code>decodeIwSsid</code> 解码处理，说明开发者对注入和编码问题有一定意识。但整体上安全工程体系缺失，安全编码规范未文档化。</p>
+<h4>D2.5 UI/UX/UE 人机交互 — 0.8/1.0</h4>
+<p>本项目适用此细则（Hyprland 桌面环境包含丰富的 UI 面）。从代码与文档层面可推断项目 UI/UX 达到较高水准：<code>shell/plugins/bar/</code> 实现了精致的顶部栏（含托盘、键盘布局、自定义模块），<code>themes/</code> 提供 22 个精心设计的主题变体（catppuccin、gruvbox、tokyo-night、everforest 等知名配色方案），<code>osd/</code> 模块实现屏幕亮度/音量调节的 OSD 反馈。<code>manual/05-the-top-bar.md</code>、<code>manual/06-themes.md</code>、<code>manual/07-hotkeys.md</code> 等文档显示信息架构完整，用户可通过热键和搜索快速访问功能。<code>shell/services/AppSearch.js</code> 中实现了模糊搜索（<code>fuzzyScore</code>、<code>termMatches</code>）与应用首字母匹配，交互设计有深度。图标系统（<code>agents/skills/icon-font.md</code>、<code>applications/icons/</code>）体现视觉一致性投入。扣分原因：无法实际运行验证界面，且无障碍（accessibility）方面未见相关文档或代码证据。</p>
+<h4>D2.6 功能完备度与稳定性 — 1.2/1.5</h4>
+<p>功能覆盖极其广泛，51 章用户手册覆盖：导航、主题、热键、剪贴板、提醒、通知、截图录制、文本提取听写、AI、Neovim 开发工具、终端、Shell 插件系统、游戏、PDF 填写、Windows 虚拟机、双启动、系统快照（snapper）、无头安装（unattended-installs）等，核心场景无明显缺失。版本已发布正式版 v4.0.1（2026-08-25），迭代节奏极快——4 个月内从 v3.6.0（2026-04-23）推进至 v4.0.0（2026-08-14），大版本升级至 v4.0 可能引入 Breaking Change。运行环境要求面向 Arch Linux + systemd + Hyprland/Wayland 用户，环境门槛属于产品定位，但相比跨平台方案有一定限制。国际化方面：<code>localeUsesImperial</code>、<code>countryUsesImperial</code>、<code>weekStartSettingName</code> 等代码支持区域/单位/周首日自适应，但未发现 i18n 框架，界面文案大概率以英文为主。扣分原因：2145 个开放 Issue 中存在大量 bug 报告（90 天关闭 387 个），稳定性有待验证；国际化支持不完整。</p>
+<h4>D2.7 文档与开发者体验 — 1.0/1.0</h4>
+<p>文档体系在同类项目中堪称标杆。81 个文档文件形成三层结构：<strong>用户手册层</strong>——51 章按序编号的 Markdown 手册（manual/01-welcome 至 manual/51-unattended-installs），从入门到高级场景全覆盖；<strong>技术文档层</strong>——docs/ 目录提供 <code>file-layout.md</code>（文件架构）、<code>cli-router.md</code>（CLI 路由）、<code>theming.md</code>（主题开发）、<code>testing.md</code>（测试指南）等 8 篇开发者技术文档；<strong>AI/协作层</strong>——AGENTS.md、CLAUDE.md 和 <code>agents/skills/</code> 下 15 个技能文档（shell-dev、icon-font、install-scripts、migrations 等），为 AI 辅助开发提供了结构化上下文。<code>default/agents/skills/diagnose-crash/</code> 提供崩溃诊断技能，<code>manual/45-troubleshooting.md</code> 提供用户排查指南。文档与版本同步程度较高（pushed_at 2026-08-29 表明仓库持续更新）。唯一遗漏是无 CONTRIBUTING.md 和 CODEOWNERS，但文档完备度已达满分标准。</p>
+<h4>D2.8 测试与质量保障 — 0.4/1.0</h4>
+<p>测试体系处于基础阶段。<code>test/</code> 目录包含 <code>acceptance.d/</code> 和 <code>shell.d/</code> 两个子目录，<code>shell.d/qml-text-format-scan.py</code>（374 行）是一个 QML 文本格式静态扫描工具，<code>shell.d/fixtures/tray-menu-activation/mock-sni.py</code>（188 行）实现了 StatusNotifierItem/DBusMenu 的模拟器，说明测试有一定工程深度。但实测测试比例仅 9.8%（560 行测试 / 5722 行代码），测试文件约 3-5 个，覆盖率远低于 50% 门槛。CI/CD 方面：<code>.github/</code> 目录下仅 ISSUE_TEMPLATE，无 workflows 目录（ci_workflows: []），未启用 GitHub Actions 自动化流水线；Dependabot/Snyk 安全扫描均未配置。测试主要由 Python 静态检查脚本组成，缺少针对核心 JS Model 逻辑的单元测试。考虑到项目有 449 名贡献者和 90 天 1638 个 PR 的活跃度，无 CI 是显著短板。</p>
+<h3>结论</h3>
+<p><strong>D2 维度总分：7.0/10（良好）</strong></p>
+<p>omarchy 的产品设计与文档体系达到卓越水准，51 章手册、22 个主题、插件化 Model 架构均超出同类项目平均水平，具备一定的商业化基础——其"Opinionated"定位和完整的用户体验封装构成了差异化卖点。然而，项目仍处于快速演进期（v4.0 大版本刚发布），与商业化交付直接相关的质量保障体系尚未跟上：CI 流水线缺失、测试覆盖率不足 10%、2145 个开放 Issue 积压。管理 449 名贡献者的协作规模需要更完善的工程治理（CODEOWNERS、CONTRIBUTING、自动化检查）。建议在商业化前优先补齐 CI/CD 基础设施并建立质量门禁，将 Issue 积压降至可控水平。</p>
+<h3>D3. 社区健康度与生态势能</h3>
+<p><strong>总体判断</strong>: Omarchy 的社区活跃度与参与规模处于爆发期，Star 增长、PR/Issue 吞吐量和贡献者数量均大幅超过一般开源项目；但其第三方生态尚未成体系，生态势能目前更多表现为「流量与关注度」而非「可商业化的周边生态」。品牌影响力高度依赖 DHH（David Heinemeier Hansson）个人光环，独立品牌资产仍在积累中。</p>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>小分</th>
+<th>档位</th>
+<th>主要依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D3.1 社区活跃度指标</td>
+<td>2.4 / 3</td>
+<td>8 档</td>
+<td>Star 34,772、约 15 个月历史均值约 2,320 颗/月（退化公式，90 天增量未采到）；Fork 率约 10.3%；近 90 天创建 PR 1,638 个、关闭 Issue 387 个；但有开放 Issue 2,145 个，且 Issue 平均关闭时间未采到，故不给满档</td>
+</tr>
+<tr>
+<td>D3.2 贡献者结构多样性</td>
+<td>2.0 / 2.5</td>
+<td>8 档</td>
+<td>全部贡献者 449 人，近 90 天 PR 1,638 个，外部参与规模大；组织归属/核心团队 PR 占比未直接采到，故不取满档</td>
+</tr>
+<tr>
+<td>D3.3 第三方生态成熟度</td>
+<td>1.2 / 3</td>
+<td>4 档</td>
+<td>未见外部插件市场、主流平台集成、知名衍生商业产品或第三方教程的公开证据；仓库内虽有主题/插件开发文档，但属于官方能力，不构成第三方生态</td>
+</tr>
+<tr>
+<td>D3.4 品牌认知与行业影响力</td>
+<td>1.2 / 1.5</td>
+<td>8 档</td>
+<td>README 明确标注 by DHH，拥有独立官网 omarchy.org 和 learn.omacom.io 文档站，在 Rails/DHH 生态内有高辨识度；但未采到头部企业采用名单或技术会议/媒体专题报道的直接证据，不给满档</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>6.8 / 10</strong></td>
+<td></td>
+<td>权重 11%，加权贡献约 0.75 / 1.1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>分部说明</strong>:</p>
+<ul>
+<li><strong>D3.1</strong>：项目创建于 2025-06-01，最近推送 2026-08-29，生命周期约 15 个月。由于补采数据中未含近 90 天 Star 增量，按细则允许的退化公式计算，历史月均 Star 约 2,320 颗，远超 500 颗/月阈值；同时 Fork/Star ≈ 10.3%，说明用户派生、定制意愿较强。近 90 天 1,638 个 PR 和 387 个 Issue 关闭表明维护与协作吞吐量很高，但与「Issue 响应 &lt;2 天」的满档标准无法直接验证，且开放 Issue 2,145 个形成一定积压感，因此仅取 8 档。</li>
+<li><strong>D3.2</strong>：449 名贡献者在绝对数量上远超「50+ 活跃贡献者」的顶档经验值，近 90 天 PR 数也佐证外部参与活跃。但项目由 DHH 主导，核心团队/外部 PR 比例和贡献者组织归属未采集，从严谨角度不判满档，取 8 档。</li>
+<li><strong>D3.3</strong>：当前仓库 topics 为空，没有外部插件/集成收录，也没有发现基于 Omarchy 的第三方商业衍生品。官方提供了主题、插件、Shell 插件等扩展文档，说明项目具备生态延展的基础能力，但第三方生态尚未形成，判 4 档。</li>
+<li><strong>D3.4</strong>：DHH 是行业级知名人物，Omarchy 从诞生起就自带品牌势能；README 直接标注 by DHH，并配置了独立官网和在线手册，品牌辨识度明显高于普通新项目。不过缺少知名企业采用、技术会议/媒体覆盖的直接硬事实，故取 8 档而非满档。</li>
+</ul>
+<p><strong>结论</strong>: Omarchy 已具备商业化所需的「社区即潜在客户池」基础——高 Star、高 PR 活跃度、大规模贡献者群体，都说明其拥有很强的流量与注意力势能。但当前生态更多集中在项目自身，第三方插件、集成、衍生商业产品尚未形成体系；品牌影响力也尚未从「DHH 个人背书」完全转化为独立的行业品牌资产。综合看，D3 维度为 6.8/10，属于「中上偏强，但生态沉淀不足」的状态。</p>
+<h3>D4. 商业模式与变现潜力</h3>
+<p><strong>维度概述</strong>：omarchy 是一个由知名开发者 DHH 主导的“美丽、现代、有主见”的开源 Linux 发行版项目，采用 MIT 协议。项目于 2025 年 6 月创建后迅速获得 3.4 万+ Star，社区热度极高，但仓库中未发现企业版、付费订阅或商业服务声明。整体商业模式处于“有影响力、无落地路径”的早期探索阶段。</p>
+<table>
+<thead>
+<tr>
+<th>子维度（满分）</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D4.1 协议对变现模式的影响（2.0）</td>
+<td>2.0</td>
+<td>9–10（100%）</td>
+<td>仓库 LICENSE 为 MIT，属于完全宽松协议，无传染性、无云服务限制，Open Core、SaaS 托管、双协议、专业服务等所有主流变现路径在法律层面均无障碍。</td>
+</tr>
+<tr>
+<td>D4.2 变现路径清晰度（3.5）</td>
+<td>2.1</td>
+<td>5–6（60%）</td>
+<td>存在潜在路径：依托 DHH 个人品牌的赞助/捐赠、系统定制与专业服务、基于发行版的生态认证。但仓库中没有任何收费产品或商业计划落地，未形成一条清晰主路径，需进一步验证。</td>
+</tr>
+<tr>
+<td>D4.3 付费转化逻辑（2.5）</td>
+<td>1.0</td>
+<td>3–4（40%）</td>
+<td>免费用户可完整使用全部功能，仓库中不存在企业版功能分层或“免费不够用”的升级触发点；面向个人桌面用户的付费意愿较弱，依靠粉丝经济的转化不稳定。</td>
+</tr>
+<tr>
+<td>D4.4 增值服务空间与定价天花板（2.0）</td>
+<td>0.8</td>
+<td>3–4（40%）</td>
+<td>潜在增值方向包括定制镜像、企业安全支持、品牌化部署、文档/培训服务等，但均未启动；目标客户为个人 Linux 用户，客单价天花板低（预计 &lt;$1K/年），收入扩展性有限。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：D4 维度合计 <strong>5.9/10</strong>，处于“一般”水平。MIT 协议为商业化扫清了法律障碍，是最大的加分项；但项目目前更像一个“明星开源作品”，缺乏明确的商业产品设计和付费转化链路。若后续推出 Open Core 企业功能、托管桌面服务或认证生态，此维度有较大提升空间。</p>
+<h3>D5 竞争格局与差异化壁垒（权重 12%）</h3>
+<h3>D5.1 竞品对比与市场定位（3 分）—— 小分：2.4（80%，良好）</h3>
+<p><strong>竞品验证说明</strong>：通过 GitHub Search API 以「Beautiful, Modern &amp; Opinionated Linux」等关键词实测检索（补采数据），确认竞品清单如下。所有列举竞品均经 API 返回真实仓库数据验证，无误报。</p>
+<p><strong>竞品对比表</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>竞品名称</th>
+<th>类型</th>
+<th>仓库/官网</th>
+<th>验证方式</th>
+<th>Star/用户量</th>
+<th>核心差异</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>overthinkinglabs/domarchy</td>
+<td>直接竞品</td>
+<td>github.com/overthinkinglabs/domarchy</td>
+<td>GitHub Search API 确认</td>
+<td>28</td>
+<td>将 Omarchy 容器化（Dockerized Linux），面向容器场景，定位细分</td>
+</tr>
+<tr>
+<td>ParkerrDev/omcachy</td>
+<td>直接竞品</td>
+<td>github.com/ParkerrDev/omcachy</td>
+<td>GitHub Search API 确认</td>
+<td>1</td>
+<td>重命名 fork，无实质差异化</td>
+</tr>
+<tr>
+<td>5kyguy/r2-d2</td>
+<td>直接竞品</td>
+<td>github.com/5kyguy/r2-d2</td>
+<td>GitHub Search API 确认</td>
+<td>1</td>
+<td>Omarchy 的 fork 衍生版，无独立生态</td>
+</tr>
+<tr>
+<td>qoqn/omarchy</td>
+<td>直接竞品</td>
+<td>github.com/qoqn/omarchy</td>
+<td>GitHub Search API 确认</td>
+<td>0</td>
+<td>同名 fork，无差异化</td>
+</tr>
+<tr>
+<td>jzetterman/anarchy</td>
+<td>直接竞品</td>
+<td>github.com/jzetterman/anarchy</td>
+<td>GitHub Search API 确认</td>
+<td>0</td>
+<td>改名 fork，无差异化</td>
+</tr>
+</tbody>
+</table>
+<p><strong>间接竞品说明</strong>：从技术路径角度，传统 Linux 发行版生态（如 Arch Linux + Hyprland 手动配置方案、EndeavourOS、Garuda Linux 等）以及「零配置开发环境」类项目（如 nix-darwin、chezmoi dotfiles 管理器等）构成间接竞争——这些方案以「用户自组装」或「声明式配置」路径解决「搭建现代化桌面开发环境」问题，与 Omarchy「开箱即用、强意见预设」的一体化发行版路径不同。因本地搜索 API 验证范围以直接同名竞品为主，间接竞品描述基于通用行业认知，未逐一 API 验证，标注为低置信度。</p>
+<p><strong>定位清晰度</strong>：项目定位极为清晰——「Beautiful, Modern &amp; Opinionated Linux」，由知名开发者 DHH 主导，以「开箱即用的强意见预设桌面发行版」为差异化卖点。本项目 34,772 Stars 对第二名 28 Stars 形成三个数量级的压倒性领先，在「一体化预设 Linux 桌面」这一细分赛道上事实占据领导者地位。但需注意：已有 fork 尝试向容器化等方向分化，说明差异化缝隙仍存在。</p>
+<p><strong>评分依据</strong>：直接竞品均为低 Star fork/衍生项目，无实质性威胁；本项目在细分赛道定位独特且明显领先，符合 9–10 档「定位独特，无直接竞品或明显领先」。<strong>小分 = 3 × 80% = 2.4</strong>。</p>
+<hr />
+<h3>D5.2 技术壁垒与网络效应（3 分）—— 小分：1.8（60%，一般）</h3>
+<p><strong>技术壁垒</strong>：本项目核心资产是 81 份手册文档、441 个 Shell 脚本及深度定制的桌面环境配置体系，形成一套「DHH 品味驱动的完整桌面解决方案」。从工程复刻角度看，Shell 脚本/配置类技术本身无专利保护、无闭源算法、无数据壁垒，MIT 许可下竞争对手可直接复制全部代码——技术壁垒本质上是<strong>品牌与品味</strong>（DHH 个人影响力）而非技术机密。此点已在 D2.2 复刻难度中计分，此处不重复评估工程难度，仅评估商业防御效果：品牌壁垒有一定防御性，但技术本身可复制性高。</p>
+<p><strong>网络效应</strong>：存在<strong>中等强度</strong>的网络效应渠道：
+- <strong>社区生态</strong>：449 名贡献者、90 天 PR 1638 个，社区活跃度高，形成贡献者网络；
+- <strong>用户手册/教程生态</strong>：51 章官方手册 + 学习站点镜像，用户生成内容（tweaks、themes 等）可形成内容飞轮；
+- <strong>插件/主题系统</strong>：设有 shell-plugins、theming 机制（见 manual/32、manual/43），插件生态有形成网络效应的潜力，但当前规模无法与成熟生态（如 VS Code、Arch AUR）相比。</p>
+<p><strong>规模效应</strong>：作为配置发行版，边际分发成本趋近于零；用户规模扩大带来更多社区主题/插件/教程，可降低新用户使用门槛。但规模效应不构成成本壁垒——竞品 fork 一份即可复用全部生态。</p>
+<p><strong>评分依据</strong>：有社区网络效应但尚不深厚，技术壁垒以品牌为主、防御性有限，符合 5–6 档「有一定壁垒但不深厚」。<strong>小分 = 3 × 60% = 1.8</strong>。</p>
+<hr />
+<h3>D5.3 切换成本与用户粘性（2 分）—— 小分：1.6（80%，良好）</h3>
+<p><strong>迁移成本</strong>：Omarchy 是<strong>完整操作系统发行版</strong>而非单一工具。用户迁移意味着整机重装系统、重建 dotfiles、重配桌面环境、重装全部应用并适应 DHH 定制的快捷键/工作流/CLI（omarchy 命令体系）。从 Omarchy 切换到其他发行版的成本极高——需要重建整个开发环境与日常使用习惯。</p>
+<p><strong>深度集成</strong>：项目集成深度极高，体现在：
+- 系统级集成：包括桌面环境配置、统一剪贴板历史、提醒系统、文本提取/听写、截图录屏、系统快照、硬件认证等系统级功能（见 manual/08–13、37、47）；
+- CLI 集成：专属 <code>omarchy</code> CLI 管理更新、配置、主题等（manual/14、cli-router.md）；
+- AI 集成：预置 AI 工具链（manual/17）；
+- AGENTS.md/CLAUDE.md 等面向 AI 代理的工程化配置，深化了开发工作流的嵌入。</p>
+<p><strong>习惯锁定</strong>：用户一旦适应 Omarchy 的快捷键、工作流与「Opinionated」预设，切换到其他环境需要重新学习并重建肌肉记忆，习惯锁定效应强。</p>
+<p><strong>评分依据</strong>：从发行版切换到竞品需整机重装+工作流重建，迁移成本高、粘性强，符合 7–8 档「迁移有较高成本，用户粘性较强」。<strong>小分 = 2 × 80% = 1.6</strong>。</p>
+<hr />
+<h3>D5.4 护城河可持续性（2 分）—— 小分：1.6（80%，良好）</h3>
+<p><strong>护城河趋势</strong>：护城河<strong>正在增强</strong>。项目创建于 2025-06，截至 2026-08 仅 15 个月即达 34.7K Stars；最近 10 个 Release 密集发布于 2026 年 4–8 月（v3.6.0 → v4.0.1），90 天 PR 1638 个、Issue 关闭 387 个，迭代速度极快。版本号从 3.x 跃升到 4.0 说明功能快速扩展，先发优势与社区规模正在扩大。</p>
+<p><strong>颠覆风险</strong>：
+- <strong>低-中风险</strong>：作为 MIT 开源项目，任何团队可 fork 后快速复制，且已有 fork 尝试差异化（如 domarchy 容器化方向），存在「被借鉴后反超」的可能；
+- <strong>较低风险</strong>：Omarchy 的差异化核心在于 DHH 的品牌号召力与审美判断力，这一「品味/品牌」资产难以被 fork 复制；
+- <strong>外部风险</strong>：如上游 Arch Linux 生态变动、Hyprland 等桌面组件发展方向变化，可能影响项目根基，但属行业共同风险。</p>
+<p><strong>时间窗口</strong>：DHH 作为持续高产的意见领袖（Rails、HEY、Once 等背书），其个人品牌护城河在短期内（2–3 年）大概率维持；若 DHH 投入转移或社区治理不善，护城河可能快速削弱。</p>
+<p><strong>评分依据</strong>：护城河稳定且呈增强趋势，颠覆风险低，符合 7–8 档「护城河稳定，颠覆风险低」。<strong>小分 = 2 × 80% = 1.6</strong>。</p>
+<hr />
+<h3>D5 维度结论</h3>
+<p><strong>综合评分 = (2.4 + 1.8 + 1.6 + 1.6) / 10 × 12 ≈ 7.4 / 10</strong>（权重后贡献 0.89 分）</p>
+<p>Omarchy 在细分赛道（一体化预设 Linux 桌面发行版）处于绝对领先地位，34.7K Stars 对第二名 28 Stars 形成三个数量级优势；其差异化壁垒核心是 <strong>DHH 品牌背书 + 完整开箱即用体验 + 高切换成本</strong> 的组合。技术本身（Shell/配置）极易复制（MIT 协议），但品牌品味、社区规模和用户习惯锁定构成了实际防御力。主要风险在于：一旦出现资本或社区驱动的强竞争力 fork，技术层面的护城河不足以阻挡。整体竞争格局健康，属于「领导者 + 弱竞争者」格局，但壁垒结构偏「品牌依赖型」而非「技术/生态依赖型」，长期需通过插件生态和数据飞轮加固。</p>
+<h3>D6 法律合规与知识产权</h3>
+<p><strong>维度得分：7.6/10（权重 7%）</strong></p>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D6.1 开源协议合规性与商业限制</td>
+<td>3</td>
+<td>2.4</td>
+<td>7–8（良好）</td>
+<td>根目录有 LICENSE 文件，文本为标准 MIT License，GitHub API 元数据亦显示 license=MIT；无 Commons Clause、BUSL 等商业限制附加条款。轻微注意事项：版权人为 David Heinemeier Hansson，而仓库主体为 omacom/omarchy，项目内贡献文档又指向 basecamp/omarchy，版权主体与仓库运营方存在不一致，但不改变 MIT 许可效力。</td>
+</tr>
+<tr>
+<td>D6.2 依赖链法律风险</td>
+<td>2.5</td>
+<td>2.5</td>
+<td>9–10（卓越）</td>
+<td>本地实测依赖清单为空，未发现 package.json、requirements.txt、go.mod 等依赖声明文件，直接依赖的 copyleft 传染风险低。注意：项目为 Linux 发行版/系统层项目，实际运行时可能依赖外部系统组件，发布打包阶段仍需对分发物做整体合规审查。</td>
+</tr>
+<tr>
+<td>D6.3 商标与专利风险</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6（一般）</td>
+<td>无人工商标检索与专利排查数据，按方法论默认给 1.5/2.5，置信度低。仓库内未见商标使用政策或 README 商标声明，“Omarchy”名称的商标可用性需专业检索确认。</td>
+</tr>
+<tr>
+<td>D6.4 贡献者协议完备性</td>
+<td>2</td>
+<td>1.2</td>
+<td>5–6（一般）</td>
+<td>根目录无 CONTRIBUTING.md、无 CLA/DCO 配置、无 CODEOWNERS；存在 <code>default/agents/skills/omarchy/contributing.md</code> 贡献指南并引用 AGENTS.md 为规范，流程描述较清晰，但无任何版权授权/贡献者许可协议。449 名贡献者版权分散，且指南中仓库地址指向 basecamp/omarchy，与当前 omacom/omarchy 运营主体不一致。</td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<p>D6 维度得分 7.6/10。核心法律风险不在开源许可证本身——MIT 协议清晰、无传染性依赖、无商业附加条款，直接合规门槛较低。主要风险集中在版权治理与品牌层面：项目无 CLA/DCO，449 名贡献者版权归属分散，且贡献流程指向 basecamp/omarchy，与 omacom/omarchy 的运营主体存在错位；这将对未来更换许可证、双许可商业化或独家授权构成实质障碍。商标与专利未经人工核查，建议在商业化启动前完成专业检索。</p>
+<h3>D7. 企业就绪度与可运营性（权重 8%）</h3>
+<h3>核心结论</h3>
+<p>Omarchy 是一个由 DHH 主导的桌面 Linux 发行版，整体代码规模较小（约 5.7k 行），以 Shell 脚本和 QML/JavaScript 插件为主。作为面向桌面用户的“opinionated”发行版，其企业级运营能力呈现明显的“两极分化”：升级路径与系统快照/回滚机制有较完善的设计；但在集中安全治理、可观测性、标准协议集成方面存在明显短板；水平扩展/高可用在桌面发行版场景下不适用。</p>
+<p>综合评估，本维度得分 <strong>6.3/10</strong>（D7.3 标记为 N/A，基于剩余 7.5 分满分折算），属于“一般”水平，距离企业级客户直接采购仍有距离。</p>
+<hr />
+<h3>D7.1 运维复杂度与升级路径（满分 3 分） → <strong>2.4 分</strong></h3>
+<p><strong>依据</strong>:
+- 项目维护了完整的更新文档链：<code>manual/30-updates.md</code>（更新操作）、<code>manual/47-system-snapshots.md</code>（系统快照）、<code>docs/update-process.md</code>（更新流程）、<code>agents/skills/migrations.md</code>（迁移技能），说明升级与迁移流程被明确记录。
+- 系统快照（system snapshots）是回滚机制的重要证据，可作为升级失败后的恢复手段。
+- 版本发布高频且稳定：近 4 个月发布 10 个版本（v3.6.0 → v4.0.1），表明版本迭代节奏可控。
+- 但仓库内无 CI 工作流（<code>ci_workflows: 0</code>），测试覆盖率仅 9.8%，升级自动化验证不足，需依赖手动流程或外部测试体系。</p>
+<p><strong>扣分原因</strong>: 升级路径文档化且具备快照回滚能力，达到“基本平滑”水平；但无 CI 自动化验证，数据迁移仍需人工确认，属于“运维成本可控、升级基本平滑”与“需一定运维投入”之间。按指引取 80% 档位。</p>
+<hr />
+<h3>D7.2 安全管理与权限控制（满分 2.5 分） → <strong>1.5 分</strong></h3>
+<p><strong>依据</strong>:
+- 作为 Linux 发行版，继承了内核级权限模型（用户/组/文件权限），并通过 polkit 提供桌面授权管理（<code>shell/plugins/polkit/PolkitModel.js</code>）。
+- 有硬件认证支持文档（<code>manual/37-hardware-authentication.md</code>），并存在指纹识别与 PAM 配置解析逻辑（<code>fingerprintConfiguredFromPamConfig</code>）。
+- 提供了安全专题文档（<code>manual/48-security.md</code>），说明项目层面关注安全主题。
+- 但仓库中不存在企业级安全机制证据：无 SSO/OAuth/LDAP/SAML 集成、无细粒度 RBAC/ABAC 设计、无集中式审计日志、无密钥管理方案。<code>has_security_md</code> 为 false，<code>has_codeowners</code> 为 false。</p>
+<p><strong>扣分原因</strong>: 有系统级基础认证与 polkit 粗粒度授权，但缺少企业环境所必需的统一身份认证与审计能力，不符合“有基本认证授权和审计”的 7–8 档要求，处于“有简单认证、权限管理粗粒度”的 5–6 档。按指引取 60% 档位。</p>
+<hr />
+<h3>D7.3 可扩展性与高可用能力（满分 2.5 分） → <strong>N/A</strong></h3>
+<p><strong>说明</strong>: Omarchy 是桌面 Linux 发行版，非服务端/中间件类软件。水平扩展、集群部署、故障转移、分布式一致性等考察点在桌面发行版场景下不适用。虽可通过 <code>manual/51-unattended-installs.md</code> 支持大规模自动安装，但并非本细则考察范畴。因此该细则标记为 N/A，不参与计分。</p>
+<hr />
+<h3>D7.4 集成兼容与可观测性（满分 2 分） → <strong>0.8 分</strong></h3>
+<p><strong>依据</strong>:
+- 有专门 CLI：<code>docs/cli-router.md</code>、<code>manual/14-omarchy-cli.md</code>，说明提供了命令行入口作为可编程接口。
+- 有若干外部服务集成（Dropbox、Tailscale、Nautilus 扩展等），说明具备一定的生态适配能力。
+- 但未发现 REST/gRPC/SDK 级别的 API 定义；未检测到 OpenTelemetry、Prometheus、Webhook 等标准协议支持；仓库内无监控指标、健康检查或结构化日志体系相关代码/配置。可观测性基本缺失。</p>
+<p><strong>扣分原因</strong>: 有 CLI 和有限的第三方集成，但无标准 API 体系、无监控/日志能力，集成与可观测性能力有限，符合 3–4 档“集成能力有限”。按指引取 40% 档位。</p>
+<hr />
+<h3>数据依据汇总</h3>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>实测值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>版本发布节奏</td>
+<td>近 4 个月 10 个版本（v3.6.0 → v4.0.1）</td>
+</tr>
+<tr>
+<td>CI 工作流</td>
+<td>0</td>
+</tr>
+<tr>
+<td>测试行数/比例</td>
+<td>560 / 9.8%</td>
+</tr>
+<tr>
+<td>代码总行数</td>
+<td>5722</td>
+</tr>
+<tr>
+<td>文档文件</td>
+<td>81（含更新、快照、安全等专题）</td>
+</tr>
+<tr>
+<td>开放 Issue</td>
+<td>2145</td>
+</tr>
+<tr>
+<td>SECURITY.md / CODEOWNERS</td>
+<td>均不存在</td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<p>D7 维度总得分 <strong>6.3/10</strong>。项目在升级路径与快照回滚上具备较好的设计，但安全治理停留在操作系统基础层面，可观测性与标准协议集成明显不足，综合认定为“一般”水平，尚未达到企业级客户可直接采购的运营标准。若面向企业桌面市场，需优先补齐集中式身份认证（SSO/LDAP）、审计日志、监控与结构化日志能力。</p>
+<h3>D8 团队治理与可持续性（权重 7%）</h3>
+<h3>8.1 核心维护者能力与背景（2.5 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>分析</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术能力</td>
+<td>项目 LICENSE 头部版权为 “Copyright (c) David Heinemeier Hansson”，即 DHH（Ruby on Rails 作者、Basecamp/37signals 联合创始人），技术影响力与行业经验均为顶级；仓库虽托管于 omacom 组织，但文档明确指向 basecamp/omarchy，核心维护者技术能力卓越</td>
+</tr>
+<tr>
+<td>商业经验</td>
+<td>DHH 有多次成功商业化/创业经验（37signals/Basecamp 产品线），具备企业级软件与开源商业化实践</td>
+</tr>
+<tr>
+<td>投入度</td>
+<td>项目创建于 2025-06-01，至评估日约 1 年 3 个月；最近推送 2026-08-29，近 10 个 release 时间跨度 2026-04 至 2026-08，版本迭代密集（v3.6.0→v4.0.1），维护者投入度极高</td>
+</tr>
+<tr>
+<td>巴士因子</td>
+<td>贡献者总数达 449 人，近 90 天 PR 创建 1638 个，社区协作规模显著；但核心维护者名单未公开，无法量化巴士因子，保守判断 ≥3</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分：8/10（小分 2.0/2.5）</strong> — 团队全职投入、有成功商业化经验，且社区规模庞大，但巴士因子缺乏直接证据，未达卓越档。</p>
+<h3>8.2 治理模型透明度（2 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>分析</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>治理文档</td>
+<td>未发现根级 GOVERNANCE.md / CONTRIBUTING.md / ROADMAP；但存在 AGENTS.md、CLAUDE.md 及 agents/skills/omarchy/contributing.md，明确规定了 bug 提交、PR 流程、风格与测试要求，并说明 issue 仅接受已验证 bug、功能建议走 Discussions、支持走 Discord</td>
+</tr>
+<tr>
+<td>开放程度</td>
+<td>外部贡献者可通过 GitHub Issues/PR/Discussions 参与，决策仍由核心团队主导（如 PR 审批），无公开决策流程文档</td>
+</tr>
+<tr>
+<td>基金会/组织</td>
+<td>不属于 CNCF / Apache / Linux Foundation 等知名基金会；项目有明确商业公司背景（Basecamp）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分：6/10（小分 1.2/2.0）</strong> — 有基础贡献指南和社区渠道，但治理结构非正式、决策由核心团队主导，透明度中等。</p>
+<h3>8.3 资金支持与商业赞助（2.5 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>分析</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>现有资金</td>
+<td>项目由 DHH 主导，依赖 Basecamp/37signals 公司资源，非纯志愿者项目；未获取外部 VC/基金公开信息</td>
+</tr>
+<tr>
+<td>赞助收入</td>
+<td>GitHub Sponsors / Open Collective 页面数据未在素材中披露，无法确认</td>
+</tr>
+<tr>
+<td>商业实体</td>
+<td>仓库文档（如贡献指南）明确指向 basecamp/omarchy，可确认存在商业公司实体运营</td>
+</tr>
+<tr>
+<td>资金可持续性</td>
+<td>Basecamp 为持续盈利的商业公司，且项目本身是公司开源战略的一部分，资金可持续性有保障</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分：8/10（小分 2.0/2.5）</strong> — 有稳定公司支持，资金可持续，但缺少公开赞助/融资数据，未达“大公司全职团队/VC 充足资金”的卓越档。</p>
+<h3>8.4 项目可持续性与传承风险（3 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>分析</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>活跃趋势</td>
+<td>创建一年余即获 34,772 Star、3,568 Fork；近 90 天 PR 创建 1,638 个、关闭 Issue 387 个；最近 release v4.0.1（2026-08-25），活跃度呈显著上升趋势</td>
+</tr>
+<tr>
+<td>维护延续性</td>
+<td>有 AGENTS.md、贡献指南、Discord 社区和多代理协作文档（CLAUDE.md），社区接管路径基本可循；449 名贡献者形成多元化社区</td>
+</tr>
+<tr>
+<td>历史信号</td>
+<td><code>archived: false</code>，无 deprecated/unmaintained 标记</td>
+</tr>
+<tr>
+<td>分叉风险</td>
+<td>Fork 3,568 个属正常参与，未见明显社区分裂迹象；但 open issues 达 2,145 个，存在一定维护压力</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分：8/10（小分 2.4/3.0）</strong> — 活跃度持续上升、传承机制基本健全，但治理文档不完善且 Issue 积压较多，存在中等偏低传承风险。</p>
+<h3>结论</h3>
+<p>D8 维度总分 <strong>7.6/10</strong>。项目已形成以 DHH 为核心的强商业基因（Basecamp 支持、成功创业经验），社区活跃度与贡献者规模证明项目具备持续运营的活力；但正式治理结构缺失、巴士因子不透明、Issue 积压较多，是商业化过程中需补强的短板。总体而言，团队治理与可持续性处于<strong>良好水平</strong>，为商业化提供了有利基础。</p>
+<h3>D9 上手难度与易用性（权重 10%）</h3>
+<h4>评分总览</h4>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>小分（满分 2.5）</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D9.1 安装难度</td>
+<td>1.5</td>
+<td>60%（一般）</td>
+<td>完整 Linux 发行版，需通过官方手册完成镜像/脚本安装，无一键安装命令；不适用 Windows/macOS 原生安装</td>
+</tr>
+<tr>
+<td>D9.2 部署与配置难度</td>
+<td>1.5</td>
+<td>60%（一般）</td>
+<td>无 Dockerfile/容器化部署，需裸机/虚拟机安装；Opinionated 预配置降低安装后配置成本，但快速验证需完整安装系统，无法 10 分钟跑通 demo</td>
+</tr>
+<tr>
+<td>D9.3 易用性与操作门槛</td>
+<td>2.0</td>
+<td>80%（良好）</td>
+<td>提供专有 Omarchy CLI、51 章操作手册及 Troubleshooting 章节；默认配置合理，日常操作便捷度较高</td>
+</tr>
+<tr>
+<td>D9.4 学习曲线与首体验</td>
+<td>1.5</td>
+<td>60%（一般）</td>
+<td>首次安装到可用需小时级；有 Getting Started 引导但无交互式教程；概念门槛为 Linux 基础，手册资源丰富但需自行阅读</td>
+</tr>
+</tbody>
+</table>
+<h4>逐项分析</h4>
+<p><strong>D9.1 安装难度（1.5/2.5）</strong></p>
+<p>项目作为独立 Linux 发行版，安装过程天然重于普通软件。README 未提供单条安装命令，安装指引分散于 <code>manual/</code> 目录（含 Dual Boot、Unattended Installs 等专题）。依赖管理由发行版自身承担，用户无需手动安装系统级依赖，但对硬件分区、引导等需具备基本认识。平台覆盖仅限 Linux，且需目标机为 x86_64 等兼容架构。综合而言，安装难度处于“需手动执行若干步骤 + 参考配置文档”的档位，低于纯手工 Linux 构建，但高于一键脚本安装。</p>
+<p><strong>D9.2 部署与配置难度（1.5/2.5）</strong></p>
+<p>本地实测确认仓库无 Dockerfile、无 CI workflows，不提供容器化或云原生部署路径，部署场景被限定为系统级安装。受益于“Opinionated”设计，系统默认配置即形成完整桌面环境，安装后无需大量初始化即可进入使用，配置负担较低。但快速验证门槛较高：必须完成整个系统安装才能评估实际体验，无法通过 quickstart 脚本在 10 分钟内跑通 demo。面向人群仍以具备系统安装经验的运维/开发者为主。</p>
+<p><strong>D9.3 易用性与操作门槛（2.0/2.5）</strong></p>
+<p>项目在易用性上表现良好。通过 Omarchy CLI 提供统一操作入口，将常见系统操作（主题、更新、截图、剪贴板等）命令化；51 章手册覆盖从导航、热键到故障排查的完整场景，<code>manual/45-troubleshooting.md</code> 专门面向错误处理。默认配置合理，符合“开箱即用”定位。但作为 Linux 发行版，用户仍需理解文件系统、终端、包管理等基本概念，非领域专家无障碍使用存在一定门槛。</p>
+<p><strong>D9.4 学习曲线与首体验（1.5/2.5）</strong></p>
+<p>从零到首次成功使用，需经过安装、引导、登录等步骤，耗时为小时级而非分钟级，难以在 30 分钟内完成首次体验。学习曲线中等：<code>manual/02-getting-started.md</code> 提供入门引导，<code>manual/03-coming-from-mac-or-windows.md</code> 专门帮助迁移用户降低心理成本，但缺少交互式教程或 onboarding 流程。文档示例丰富（81 个文档文件、51 个手册章节），为后续深入学习提供充分支撑。</p>
+<h4>结论</h4>
+<p>D9 维度总分 <strong>6.5/10</strong>，上手难度等级为 <strong>🟡 中等</strong>（面向有技术基础者）。核心短板在于系统级安装的固有时长与验证成本（无容器化替代路径），核心优势在于 Opinionated 预配置带来的低配置负担和丰富完整的手册体系。建议在商业化材料中提供“虚拟机镜像/一键安装脚本”等轻量验证方式，以降低用户首次尝试的心理门槛。</p>
+<h3>D10. 功能价值——使用价值视角（平行维度，权重 0%，不计入综合评分）</h3>
+<p>Omarchy 是一个由 DHH 发起的“美观、现代、有观点”的 Linux 发行版。本维度评估其不为付费、只论使用者实际获得的效用。由于是平行维度，以下分数仅用于价值画像，不进入 D1–D9 综合商业评分。</p>
+<h4>D10 细则打分表</h4>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>小分</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10.1</td>
+<td>效用强度（3 分）</td>
+<td>2.4</td>
+<td>Omarchy 提供从安装、桌面环境、终端/Neovim、AI、主题、硬件配置到游戏的一站式发行版方案。对采用者而言，省去的是从零选型、配置、维护一套 Linux 桌面的数天至数周工作量，替代方案（自行维护 dotfiles 与软件栈）成本显著更高。效用层级属于“项目级依赖”——对日常使用者是操作系统级别的底层依赖，但并非商业业务命脉；且效用稳定性取决于用户是否认同其“Opinionated”的取舍。按 8 分档（80%）计 2.4/3。</td>
+</tr>
+<tr>
+<td>D10.2</td>
+<td>实际使用规模（3 分）</td>
+<td>1.8</td>
+<td>项目为发行版形态，无 npm/PyPI 类下载量指标，也未在 README 中列出装机量或用户案例。可用实采 GitHub 代理指标：34,772 stars、3,568 forks、449 contributors、90 天 1,638 个 PR、387 个 closed issues、2,145 个 open issues。综合判断使用规模达到“万级”但未到“十万级依赖方”的明确证据，按 6 分档（60%）计 1.8/3。</td>
+</tr>
+<tr>
+<td>D10.3</td>
+<td>免费可得的完整效用（2 分）</td>
+<td>2.0</td>
+<td>项目以 MIT 协议发布，完整发行版代码、51 章官方手册、CLI、主题、脚本等全部公开。未发现核心功能闭源、付费墙或“不付费不可用”的设计；自行安装即可获得与官方发布一致的价值。按 10 分档（100%）计 2/2。</td>
+</tr>
+<tr>
+<td>D10.4</td>
+<td>效用可持续性（2 分）</td>
+<td>1.6</td>
+<td>发行版以本地安装/自托管为主，停更后已装系统仍可继续使用，效用不会立即归零；MIT 许可允许社区自由分叉。少量能力（如手册在线镜像、系统更新源、可能的在线 AI 服务）依赖外部服务，但核心桌面功能不依赖官方云。属于“主体本地化、少量可替换外部依赖”，按 8 分档（80%）计 1.6/2。</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>7.8 / 10</strong></td>
+<td>平行维度，不计入综合评分。</td>
+</tr>
+</tbody>
+</table>
+<h4>D10 结论</h4>
+<p>Omarchy 的使用价值显著高于一般“配置脚本”类项目：它把一套完整的、经过强观点整合的 Linux 桌面系统以 MIT 协议免费交付给用户，对目标用户节省的是“从零搭建并长期维护一套个人 OS”的高额时间成本。免费可得的完整效用和低供应商锁定进一步放大了使用价值。主要局限在于直接装机量数据缺失，且强烈的主观取舍决定了它并非对所有 Linux 用户都有同等效用。整体看，这是一个功能使用价值突出、且与商业变现呈天然弱相关的项目——适合在价值画像中标记为“高使用价值、低直接商业转化”的类型。</p>
+<h3>D11. 社会价值——正外部性视角（平行维度，权重 0%，不计入综合评分）</h3>
+<p><strong>维度结论</strong>: Omarchy 作为一款由 DHH 主导的现代化开源 Linux 发行版，其社会价值主要体现在<strong>免费普惠桌面级系统能力</strong>与<strong>完善的入门文档</strong>上，属于「面向终端用户的开源产品」而非「底层数字基础设施」。它通过 MIT 协议和活跃社区为个人与中小团队提供了一套开箱即用的现代桌面方案，并在小范围内催生了衍生 fork 项目，但尚未达到行业级标准制定者或科研支撑的地位。</p>
+<h4>D11.1 数字公共基础设施属性（3 分）——1.8 / 3</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>关键依赖地位</td>
+<td>存在少量可验证的下游 fork（如 overthinkinglabs/domarchy 28★、5kyguy/r2-d2、ParkerrDev/omcachy 等），但规模均极小，无大型生态依赖</td>
+</tr>
+<tr>
+<td>停摆影响面</td>
+<td>若仓库消失，受影响范围主要为 Omarchy 终端用户与少数衍生项目，不波及其他软件供应链</td>
+</tr>
+<tr>
+<td>数字公共产品属性</td>
+<td>符合 DPG 特征：MIT 开放许可、可自由 fork/复用、服务公众桌面计算需求</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>: 项目定位为「Opinionated Linux」发行版，本质是配置与脚本集合（本地实测代码仅 5.7k 行），而非 curl/OpenSSL 式被海量下游依赖的底层组件。虽然拥有 34.7k stars 与 3.5k forks，但 fork 多为个人二次开发，未形成行业级依赖。替代品（其他发行版）众多，停摆影响与可替代性均处于中等水平。按「5–6 档：有一定下游依赖，但可替代性强」给分，对应 60% 折算。</p>
+<h4>D11.2 教育与人才价值（2.5 分）——1.5 / 2.5</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>教学采用</td>
+<td>仓库内包含 51 章完整用户手册（manual/），映射至 learn.omacom.io，具备明显的教学/入门引导属性</td>
+</tr>
+<tr>
+<td>门槛降低效应</td>
+<td>手册覆盖从「从 Mac/Windows 迁移」到「双启动安装」，显著降低了非技术背景用户尝试现代 Linux 桌面的门槛</td>
+</tr>
+<tr>
+<td>源码学习价值</td>
+<td>代码规模小且以配置/脚本为主（.js 4.8k 行、.py 0.9k 行），工程范本价值有限，更多是「开箱配置」的参考</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>: 手册体系是突出的教育资产，但外部课程/教程数据缺失（且项目创建不足一年），无法确证其已成为行业教材。DHH 的知名度可能带来大量学习者，但「源码学习价值」因代码体量小而偏弱。综合判定处于「5–6 档：有一定教学使用，影响限于小圈子」与「7–8 档：常见于教学与入门路径」之间，取 60% 折算（1.5 分）。</p>
+<h4>D11.3 普惠与可及性（2.5 分）——2.0 / 2.5</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>能力平权化</td>
+<td>免费提供完整现代 Linux 桌面体验，使个人与中小团队以零成本获得接近商业桌面系统（macOS/Windows）的能力</td>
+</tr>
+<tr>
+<td>替代价格差</td>
+<td>对比 macOS 许可或 Windows 授权费用，Omarchy 为 MIT 免费发行，价格差即为商业系统全套价格</td>
+</tr>
+<tr>
+<td>可及性支持</td>
+<td>手册齐全（含 Dual Boot 与无人值守安装），对新手友好；但未发现 i18n/多语言体系，README 与 manual 均为英文</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>: 作为免费开源发行版，普惠效应显著——任何人可自由下载、安装、修改。安装与使用文档完善，降低了硬件与预算门槛。缺失多语言支持是主要短板，按「7–8 档：显著降低获得门槛，覆盖主要人群」计 80% 折算（2.0 分）。</p>
+<h4>D11.4 开放标准与行业推动（2 分）——1.2 / 2</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>标准推动</td>
+<td>基于 Linux 生态与 Hyprland/Wayland 等开放技术构建，但未主导或定义新的开放标准</td>
+</tr>
+<tr>
+<td>科研支撑</td>
+<td>无可检索的论文引用或学术使用证据（外部数据缺失，标 N/A）</td>
+</tr>
+<tr>
+<td>行业示范效应</td>
+<td>竞品清单显示至少 5 个直接描述为「Beautiful, Modern &amp; Opinionated Linux」的模仿 fork，说明设计理念有一定示范性</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>: 项目遵循 Linux 开放生态而非反向推动标准；科研支撑缺失；示范效应存在但规模有限（衍生项目均 ≤28 星）。按「5–6 档：遵循开放标准但无推动作用」计 60% 折算（1.2 分），科研项 N/A 不影响已确认的档位。</p>
+<h4>D11 细则分值汇总</h4>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>分值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D11.1</td>
+<td>数字公共基础设施属性</td>
+<td>1.8</td>
+</tr>
+<tr>
+<td>D11.2</td>
+<td>教育与人才价值</td>
+<td>1.5</td>
+</tr>
+<tr>
+<td>D11.3</td>
+<td>普惠与可及性</td>
+<td>2.0</td>
+</tr>
+<tr>
+<td>D11.4</td>
+<td>开放标准与行业推动</td>
+<td>1.2</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>6.5</strong></td>
+</tr>
+</tbody>
+</table>
+<h2>五、商业化价值判断</h2>
+<h3>5.1 综合价值评估</h3>
+<p>Omarchy 的综合评分为 <strong>67.8 分</strong>，等级为 <strong>A（高商业化潜力）</strong>，价值画像为 <strong>⭐ 明星资产</strong>。项目在多个维度展现出显著的商业化基础与潜力：</p>
+<p><strong>核心价值支撑：</strong></p>
+<ol>
+<li>
+<p><strong>社区势能强劲</strong>：约 15 个月达成 34,752 Star，历史月均约 2,320 颗；近 90 天 PR 1,638 个、关闭 Issue 387 个，449 名贡献者参与，参与吞吐量远超一般开源项目。</p>
+</li>
+<li>
+<p><strong>竞争地位独特</strong>：在"一体化预设 Linux 桌面发行版"细分赛道以 34,752 Stars 对第二名 28 Stars 形成三个数量级领先，直接竞品无实质性威胁。</p>
+</li>
+<li>
+<p><strong>法律环境友好</strong>：MIT 许可证，所有主流开源变现路径均无法律约束；无 copyleft 依赖风险。</p>
+</li>
+<li>
+<p><strong>品牌光环加持</strong>：核心维护者大概率是 DHH（David Heinemeier Hansson），拥有 Basecamp/37signals 成功创业经验，技术影响力强，项目有商业公司实体支持。</p>
+</li>
+<li>
+<p><strong>功能价值突出</strong>：一站式 Linux 发行版，替代自建桌面配置方案成本显著更高，效用强度达到项目级依赖；MIT 协议且全部功能/手册公开，免费即得完整价值。</p>
+</li>
+</ol>
+<h3>5.2 商业化价值结论</h3>
+<p>Omarchy 具备<strong>高商业化潜力</strong>，但其商业化路径不宜照搬传统开源软件模式。项目本质是<strong>个人桌面 Linux 发行版</strong>，而非企业级基础设施，付费转化逻辑天然偏弱（D4.3 仅 1.0/2.5）。其真正的商业价值在于：</p>
+<ul>
+<li><strong>品牌资产</strong>：DHH 个人品牌 + 34K+ Star 构成的行业影响力</li>
+<li><strong>社区资产</strong>：449 名贡献者、高活跃度的参与生态</li>
+<li><strong>产品资产</strong>：完整的信息架构（51 章用户手册 + 22 个主题变体 + 插件化 Model 架构）</li>
+</ul>
+<p><strong>商业化方向应聚焦于"影响力变现"而非"产品直接售卖"</strong>，具体路径见第六章。</p>
+<hr />
+<h2>六、商业路径分析</h2>
+<h3>6.1 路径总览</h3>
+<p>基于 ⭐ 明星资产画像，Omarchy 的商业化应遵循"<strong>正常商业化，同时经营社区声誉，避免竭泽而渔</strong>"的原则（参照 Elastic 改协议的反噬教训）。以下按可行性排序：</p>
+<h3>6.2 路径一：品牌赞助与影响力变现（推荐优先）</h3>
+<p><strong>逻辑</strong>：DHH 个人品牌 + 34K+ Star 构成潜在的品牌/赞助变现基础。</p>
+<p><strong>具体方式</strong>：
+- 通过 omarchy.org / learn.omacom.io 官方渠道引入赞助商
+- 围绕 DHH 个人影响力开展技术演讲、工作坊、付费内容
+- 接受企业赞助以维持项目持续开发</p>
+<p><strong>可行性评估</strong>：
+- 优势：不触碰 MIT 协议红线，社区接受度高
+- 劣势：不可规模化，收入天花板有限（D4.4 定价天花板仅 0.8/2.0）
+- 前置条件：需建立独立于 DHH 个人品牌的项目品牌资产</p>
+<h3>6.3 路径二：企业版/增值服务（中期探索）</h3>
+<p><strong>逻辑</strong>：MIT 协议允许，但需设计付费触发点。</p>
+<p><strong>具体方式</strong>：
+- 面向企业 Linux 桌面管理场景推出<strong>企业支持订阅</strong>（安装、配置、安全更新保障）
+- 提供<strong>托管配置服务</strong>：为企业批量部署 Omarchy 桌面环境
+- 开发<strong>管理控制台</strong>：集中管理多台 Omarchy 设备（当前 D7 无 API/监控能力，需补齐）</p>
+<p><strong>可行性评估</strong>：
+- 优势：MIT 协议无法律障碍（D4.1 满分 2.0）
+- 劣势：当前无企业版/付费服务展示（D4.2 仅 2.1/3.5），免费用户可完整使用全部功能，缺乏付费触发点（D4.3 仅 1.0/2.5）
+- 前置条件：需投入开发企业级功能（SSO/RBAC/审计日志），当前 D7.2 安全能力停留在系统基础层面</p>
+<h3>6.4 路径三：生态服务与培训（辅助路径）</h3>
+<p><strong>逻辑</strong>：51 章用户手册构成完善的学习/入门路径，降低 Linux 使用门槛（D11.2 教育与人才价值 1.5/2.5）。</p>
+<p><strong>具体方式</strong>：
+- 围绕 Omarchy 开展付费培训课程、认证体系
+- 提供定制化主题/配置开发服务
+- 建立插件/主题市场，抽取交易佣金</p>
+<p><strong>可行性评估</strong>：
+- 优势：文档体系卓越（81 个文档），教育价值明确
+- 劣势：第三方生态几乎空白（D3.3 仅 1.2/3.0），需从零培育
+- 前置条件：先建立插件/主题生态，形成网络效应</p>
+<h3>6.5 路径四：基金会托管/大厂雇佣（备选）</h3>
+<p><strong>逻辑</strong>：作为公共产品型资产，可考虑由基金会或大厂托管维护。</p>
+<p><strong>具体方式</strong>：
+- 将项目捐赠给 Linux 基金会等中立机构
+- 由商业公司雇佣核心维护者全职开发
+- 围绕 Omarchy 生态做服务与培训</p>
+<p><strong>可行性评估</strong>：
+- 优势：符合项目公共价值属性（公共价值分 7.2），保障长期可持续性
+- 劣势：失去直接商业控制权
+- 适用条件：若直接商业化路径受阻，此路径可保障项目存续</p>
+<h3>6.6 路径优先级建议</h3>
+<table>
+<thead>
+<tr>
+<th>优先级</th>
+<th>路径</th>
+<th>时间窗口</th>
+<th>投入产出比</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P0</td>
+<td>品牌赞助与影响力变现</td>
+<td>立即启动</td>
+<td>高（利用现有资产）</td>
+</tr>
+<tr>
+<td>P1</td>
+<td>生态服务与培训</td>
+<td>3-6 个月内启动</td>
+<td>中（需培育生态）</td>
+</tr>
+<tr>
+<td>P2</td>
+<td>企业版/增值服务</td>
+<td>6-12 个月后评估</td>
+<td>中低（需大量投入）</td>
+</tr>
+<tr>
+<td>P3</td>
+<td>基金会托管/大厂雇佣</td>
+<td>长期备选</td>
+<td>低（失去控制权）</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>七、能力评估：能做什么 &amp; 最适合做什么</h2>
+<h3>7.1 核心能力盘点</h3>
+<table>
+<thead>
+<tr>
+<th>能力维度</th>
+<th>当前水平</th>
+<th>证据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>产品设计</strong></td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>51 章用户手册 + 22 个主题变体 + 插件化 Model 架构，信息架构完整</td>
+</tr>
+<tr>
+<td><strong>文档体系</strong></td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>81 个文档，三层结构（用户手册/技术文档/AI 协作文档）远超同类项目</td>
+</tr>
+<tr>
+<td><strong>社区运营</strong></td>
+<td>⭐⭐⭐⭐</td>
+<td>34,752 Star、449 贡献者、90 天 1,638 PR，参与吞吐量极高</td>
+</tr>
+<tr>
+<td><strong>品牌影响力</strong></td>
+<td>⭐⭐⭐⭐</td>
+<td>DHH 个人品牌 + 细分赛道绝对领先</td>
+</tr>
+<tr>
+<td><strong>技术实现</strong></td>
+<td>⭐⭐⭐</td>
+<td>代码整洁度良好，纯逻辑 Model 层与 UI 解耦，但工程治理薄弱</td>
+</tr>
+<tr>
+<td><strong>企业级能力</strong></td>
+<td>⭐⭐</td>
+<td>无 SSO/RBAC/审计日志、无 API/监控、无 CI 验证</td>
+</tr>
+<tr>
+<td><strong>生态建设</strong></td>
+<td>⭐⭐</td>
+<td>第三方生态几乎空白，无插件/集成/衍生商业产品</td>
+</tr>
+<tr>
+<td><strong>安全工程</strong></td>
+<td>⭐⭐</td>
+<td>无 SECURITY.md、无 Dependabot/Snyk 扫描</td>
+</tr>
+</tbody>
+</table>
+<h3>7.2 最适合做什么</h3>
+<p>基于能力评估，Omarchy <strong>最适合</strong>：</p>
+<ol>
+<li>
+<p><strong>做"美学与体验标杆"</strong>：以卓越的文档和设计差异化引领 Linux 桌面审美潮流，通过品牌影响力变现。</p>
+</li>
+<li>
+<p><strong>做"Linux 入门教育入口"</strong>：51 章用户手册 + 完整信息架构，天然适合作为 Linux 学习平台，围绕教育场景开展培训/认证服务。</p>
+</li>
+<li>
+<p><strong>做"开发者社区磁石"</strong>：449 名贡献者、90 天 1,638 PR 的高活跃度，可围绕项目构建开发者社区，通过社区服务变现。</p>
+</li>
+<li>
+<p><strong>做"个人品牌放大器"</strong>：DHH 个人品牌与项目互相成就，可通过演讲、内容、咨询等方式放大商业价值。</p>
+</li>
+</ol>
+<h3>7.3 不适合做什么</h3>
+<ol>
+<li>
+<p><strong>做企业级桌面管理平台</strong>：当前无 API/监控/安全体系，补齐成本高，且企业桌面市场已有成熟玩家。</p>
+</li>
+<li>
+<p><strong>做付费功能阉割模式</strong>：MIT 协议 + 免费完整功能已定调，强行付费墙将引发社区反噬。</p>
+</li>
+<li>
+<p><strong>做云服务/SaaS</strong>：桌面 Linux 发行版与云服务场景天然不匹配。</p>
+</li>
+</ol>
+<hr />
+<h2>八、短板识别：还缺少什么</h2>
+<h3>8.1 工程治理短板（D2/D7）</h3>
+<table>
+<thead>
+<tr>
+<th>短板</th>
+<th>现状</th>
+<th>影响</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CI/CD 缺失</td>
+<td>CI workflows 为 0</td>
+<td>版本迭代无自动化验证，质量保障薄弱</td>
+</tr>
+<tr>
+<td>测试覆盖不足</td>
+<td>测试比例仅 9.8%（560/5,722 行）</td>
+<td>回归风险高，企业采用顾虑大</td>
+</tr>
+<tr>
+<td>安全工程缺失</td>
+<td>无 SECURITY.md、无 Dependabot/Snyk 扫描</td>
+<td>涉及 sudoers/sysctl 等系统安全配置存在风险</td>
+</tr>
+<tr>
+<td>Issue 积压</td>
+<td>开放 Issue 达 2,145 个</td>
+<td>维护响应速度存疑，用户体验受损</td>
+</tr>
+</tbody>
+</table>
+<h3>8.2 生态建设短板（D3/D5）</h3>
+<table>
+<thead>
+<tr>
+<th>短板</th>
+<th>现状</th>
+<th>影响</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>第三方生态空白</td>
+<td>topics 为空、无外部插件/集成/衍生商业产品</td>
+<td>网络效应弱，用户粘性依赖产品本身</td>
+</tr>
+<tr>
+<td>品牌独立资产缺失</td>
+<td>品牌高度依赖 DHH 个人光环</td>
+<td>品牌转移风险高，独立品牌资产未建立</td>
+</tr>
+<tr>
+<td>无 CI workflow</td>
+<td>0 个 CI 工作流</td>
+<td>生态伙伴接入门槛高</td>
+</tr>
+</tbody>
+</table>
+<h3>8.3 商业变现短板（D4）</h3>
+<table>
+<thead>
+<tr>
+<th>短板</th>
+<th>现状</th>
+<th>影响</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>变现路径不清晰</td>
+<td>未展示任何企业版/付费服务/托管产品</td>
+<td>商业价值无法落地</td>
+</tr>
+<tr>
+<td>付费触发点缺失</td>
+<td>免费用户可完整使用全部功能</td>
+<td>转化逻辑薄弱</td>
+</tr>
+<tr>
+<td>增值服务未落地</td>
+<td>无增值服务空间设计</td>
+<td>定价天花板低</td>
+</tr>
+</tbody>
+</table>
+<h3>8.4 治理与法律短板（D6/D8）</h3>
+<table>
+<thead>
+<tr>
+<th>短板</th>
+<th>现状</th>
+<th>影响</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>无 CLA/DCO</td>
+<td>449 名贡献者版权分散</td>
+<td>商业换证/双许可的主要障碍</td>
+</tr>
+<tr>
+<td>治理透明度有限</td>
+<td>无根级 GOVERNANCE.md/CONTRIBUTING.md</td>
+<td>社区治理规则不明确</td>
+</tr>
+<tr>
+<td>仓库标识不一致</td>
+<td>仓库为 omacom/omarchy，文档指向 basecamp/omarchy</td>
+<td>品牌归属模糊</td>
+</tr>
+</tbody>
+</table>
+<h3>8.5 企业就绪度短板（D7）</h3>
+<table>
+<thead>
+<tr>
+<th>短板</th>
+<th>现状</th>
+<th>影响</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>无 API/集成能力</td>
+<td>无 REST/gRPC API、标准可观测协议</td>
+<td>集成能力有限</td>
+</tr>
+<tr>
+<td>无企业级安全</td>
+<td>无 SSO/RBAC/审计日志</td>
+<td>企业采用门槛高</td>
+</tr>
+<tr>
+<td>无监控/日志</td>
+<td>无内置监控或结构化日志</td>
+<td>运维能力不足</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>九、风险提示</h2>
+<h3>9.1 高优先级风险</h3>
+<table>
+<thead>
+<tr>
+<th>风险</th>
+<th>等级</th>
+<th>说明</th>
+<th>缓解措施</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>品牌单一依赖风险</strong></td>
+<td>🔴 高</td>
+<td>品牌高度依赖 DHH 个人光环，独立品牌资产与企业背书尚未建立明确硬证据；若 DHH 兴趣转移，项目势能可能骤降</td>
+<td>建立独立品牌资产，引入多元维护者，分散品牌依赖</td>
+</tr>
+<tr>
+<td><strong>工程治理风险</strong></td>
+<td>🔴 高</td>
+<td>CI workflows 为 0、测试比例仅 9.8%、开放 Issue 2,145 个，与项目规模不匹配；大版本迭代（4 个月从 v3.6 到 v4.0）可能引入 breaking changes</td>
+<td>建立 CI/CD 流水线，提升测试覆盖，规范 Issue 管理</td>
+</tr>
+<tr>
+<td><strong>安全合规风险</strong></td>
+<td>🟡 中</td>
+<td>无 SECURITY.md、无 Dependabot/Snyk 扫描，涉及 sudoers/sysctl 等系统安全配置存在风险；作为 Linux 发行版，实际分发包仍需完整合规审查</td>
+<td>建立安全响应流程，引入依赖扫描，开展合规审查</td>
+</tr>
+</tbody>
+</table>
+<h3>9.2 中优先级风险</h3>
+<table>
+<thead>
+<tr>
+<th>风险</th>
+<th>等级</th>
+<th>说明</th>
+<th>缓解措施</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>社区治理风险</strong></td>
+<td>🟡 中</td>
+<td>无 CLA/DCO，449 名贡献者版权分散，构成商业换证/双许可的主要障碍；治理透明度有限</td>
+<td>引入 CLA/DCO，发布治理文档</td>
+</tr>
+<tr>
+<td><strong>生态空心化风险</strong></td>
+<td>🟡 中</td>
+<td>第三方生态几乎空白，网络效应弱；若生态长期不发展，社区活跃度可能回落</td>
+<td>制定生态激励计划，开放插件/主题市场</td>
+</tr>
+<tr>
+<td><strong>竞争复制风险</strong></td>
+<td>🟡 中</td>
+<td>MIT 许可 + Shell 配置类代码极易复制，技术壁垒薄弱；已出现差异化分化迹象（如 domarchy 容器化版本）</td>
+<td>强化品牌壁垒，加快功能迭代，培育生态</td>
+</tr>
+</tbody>
+</table>
+<h3>9.3 低优先级风险</h3>
+<table>
+<thead>
+<tr>
+<th>风险</th>
+<th>等级</th>
+<th>说明</th>
+<th>缓解措施</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>商标与专利风险</strong></td>
+<td>🟢 低</td>
+<td>无人工商标/专利检索数据，置信度低</td>
+<td>开展商标/专利检索</td>
+</tr>
+<tr>
+<td><strong>仓库标识不一致</strong></td>
+<td>🟢 低</td>
+<td>仓库为 omacom/omarchy，文档指向 basecamp/omarchy</td>
+<td>统一仓库标识</td>
+</tr>
+<tr>
+<td><strong>画像临界波动</strong></td>
+<td>🟢 低</td>
+<td>公共价值分 7.2 处于 6.5–7.5 临界区间，若公共价值分跌破 7，画像将从"明星资产"转为"纯商业工具"</td>
+<td>持续关注公共价值维度变化</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>十、结论与建议</h2>
+<h3>10.1 综合结论</h3>
+<p>Omarchy 是一个<strong>高商业化潜力（A 级，67.8 分）</strong>的 ⭐ <strong>明星资产</strong>项目。其在社区势能、竞争地位、法律环境、品牌影响力四个维度表现突出，具备扎实的商业化基础。然而，项目在工程治理、生态建设、商业变现三个维度存在明显短板，且品牌高度依赖 DHH 个人光环，构成商业化进程中的主要风险。</p>
+<h3>10.2 核心建议</h3>
+<p><strong>短期（0-6 个月）——夯实基础，启动影响力变现</strong></p>
+<ol>
+<li><strong>补齐工程治理短板</strong>：建立 CI/CD 流水线，将测试比例从 9.8% 提升至 30%+，规范 Issue 管理流程。</li>
+<li><strong>启动品牌赞助计划</strong>：通过 omarchy.org 引入赞助商，将 DHH 个人品牌转化为项目品牌资产。</li>
+<li><strong>建立安全响应机制</strong>：添加 SECURITY.md，引入 Dependabot/Snyk 依赖扫描。</li>
+<li><strong>统一品牌标识</strong>：解决 omacom/omarchy 与 basecamp/omarchy 的不一致问题。</li>
+</ol>
+<p><strong>中期（6-18 个月）——培育生态，探索增值服务</strong></p>
+<ol start="5">
+<li><strong>培育第三方生态</strong>：开放插件/主题市场，设立生态激励基金，吸引第三方开发者。</li>
+<li><strong>设计付费触发点</strong>：在不触碰 MIT 协议红线的前提下，探索企业支持订阅、托管配置服务等增值模式。</li>
+<li><strong>引入 CLA/DCO</strong>：为未来可能的商业换证/双许可扫清障碍。</li>
+<li><strong>建立治理文档</strong>：发布 GOVERNANCE.md，明确社区治理规则与决策流程。</li>
+</ol>
+<p><strong>长期（18 个月+）——评估企业级路径，防范品牌风险</strong></p>
+<ol start="9">
+<li><strong>评估企业版可行性</strong>：若生态成熟，可考虑面向企业 Linux 桌面管理场景推出企业版。</li>
+<li><strong>分散品牌依赖</strong>：培养多元核心维护者，降低对 DHH 个人的依赖。</li>
+<li><strong>持续关注画像边界</strong>：公共价值分处于临界区间，需在商业化与公共价值维护间保持平衡，避免竭泽而渔。</li>
+</ol>
+<h3>10.3 一句话总结</h3>
+<blockquote>
+<p>Omarchy 拥有<strong>顶级社区势能</strong>与<strong>独特竞争地位</strong>，但需在<strong>工程治理</strong>与<strong>生态建设</strong>上补齐短板，以"<strong>影响力变现</strong>"为核心路径，在<strong>维护社区声誉</strong>的前提下稳步推进商业化。</p>
+</blockquote>
+<h2>十一、项目地址</h2>
+<p><svg class="ri ri-muted" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.001 2C6.47598 2 2.00098 6.475 2.00098 12C2.00098 16.425 4.86348 20.1625 8.83848 21.4875C9.33848 21.575 9.52598 21.275 9.52598 21.0125C9.52598 20.775 9.51348 19.9875 9.51348 19.15C7.00098 19.6125 6.35098 18.5375 6.15098 17.975C6.03848 17.6875 5.55098 16.8 5.12598 16.5625C4.77598 16.375 4.27598 15.9125 5.11348 15.9C5.90098 15.8875 6.46348 16.625 6.65098 16.925C7.55098 18.4375 8.98848 18.0125 9.56348 17.75C9.65098 17.1 9.91348 16.6625 10.201 16.4125C7.97598 16.1625 5.65098 15.3 5.65098 11.475C5.65098 10.3875 6.03848 9.4875 6.67598 8.7875C6.57598 8.5375 6.22598 7.5125 6.77598 6.1375C6.77598 6.1375 7.61348 5.875 9.52598 7.1625C10.326 6.9375 11.176 6.825 12.026 6.825C12.876 6.825 13.726 6.9375 14.526 7.1625C16.4385 5.8625 17.276 6.1375 17.276 6.1375C17.826 7.5125 17.476 8.5375 17.376 8.7875C18.0135 9.4875 18.401 10.375 18.401 11.475C18.401 15.3125 16.0635 16.1625 13.8385 16.4125C14.201 16.725 14.5135 17.325 14.5135 18.2625C14.5135 19.6 14.501 20.675 14.501 21.0125C14.501 21.275 14.6885 21.5875 15.1885 21.4875C19.259 20.1133 21.9999 16.2963 22.001 12C22.001 6.475 17.526 2 12.001 2Z"/></svg> <a href="https://github.com/omacom/omarchy">https://github.com/omacom/omarchy</a></p>
+<hr />
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+</blockquote>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家　<a href="https://www.mova.work">www.mova.work</a></p></body></html>

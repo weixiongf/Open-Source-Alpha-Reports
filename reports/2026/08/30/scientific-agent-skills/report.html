@@ -1,0 +1,1760 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><title>Scientific-agent-skills 商业价值分析报告</title><style>/* default — 品牌蓝紫主题（从 md2pdf.py 原 CSS 常量迁出，视觉与历史产物一致） */
+@page { size: A4; margin: 18mm 15mm 20mm 15mm; }
+* { box-sizing: border-box; }
+/* 字体规范：一律开源思源黑体 CN（OFL 免费商用）；正文 Regular/标题 Bold/大字数字 Light */
+body { font-family: "Source Han Sans CN","思源黑体 CN","Noto Sans SC",sans-serif; color:#1e293b; font-size:10.5pt; line-height:1.75; margin:0; }
+.cover { page-break-after: always; text-align:center; padding-top:40px; }
+.cover .kicker { color:#2563eb; letter-spacing:6px; font-size:12pt; font-weight:500; }
+.cover h1 { font-size:26pt; margin:14px 0 6px; }
+.cover .sub { color:#64748b; font-size:11pt; margin-bottom:22px; }
+.badge { display:inline-block; background:linear-gradient(135deg,#2563eb,#7c3aed); color:#fff; border-radius:18px; padding:16px 44px; margin:10px 0 18px; }
+.badge .g { font-size:34pt; font-weight:300; line-height:1; }
+.badge .s { font-size:12pt; opacity:.92; margin-top:4px; }
+.meta { color:#475569; font-size:9.5pt; margin-top:14px; }
+.bars { max-width:620px; margin:20px auto 0; text-align:left; }
+.bar-row { display:flex; align-items:center; gap:8px; margin:5px 0; font-size:9pt; }
+.bar-name { width:110px; text-align:right; color:#334155; font-weight:500; }
+.bar-track { flex:1; height:9px; background:#f1f5f9; border-radius:5px; overflow:hidden; }
+.bar-fill { display:block; height:100%; border-radius:5px; }
+.bar-val { width:30px; font-weight:700; color:#0f172a; }
+.bar-w { width:52px; color:#94a3b8; font-size:8pt; }
+h1 { font-size:17pt; color:#0f172a; border-bottom:3px solid #2563eb; padding-bottom:8px; }
+h2 { font-size:13.5pt; color:#1d4ed8; margin-top:26px; page-break-after: avoid; border-left:5px solid #2563eb; padding-left:10px; }
+h3 { font-size:11.5pt; color:#0f172a; margin-top:18px; page-break-after: avoid; }
+table { border-collapse:collapse; width:100%; margin:10px 0; font-size:9pt; page-break-inside:avoid; }
+th { background:#eff6ff; color:#1e3a8a; }
+th,td { border:1px solid #dbe3ef; padding:5px 8px; text-align:left; }
+tr:nth-child(even) td { background:#f8fafc; }
+code { background:#f1f5f9; border-radius:4px; padding:1px 5px; font-family:"JetBrains Mono","Cascadia Mono",monospace; font-size:9pt; color:#be185d; }
+pre { background:#0f172a; color:#e2e8f0; border-radius:8px; padding:12px 14px; overflow-x:auto; page-break-inside:avoid; }
+pre code { background:none; color:inherit; padding:0; }
+blockquote { border-left:4px solid #93c5fd; background:#eff6ff; margin:10px 0; padding:8px 14px; color:#334155; border-radius:0 8px 8px 0; }
+hr { border:none; border-top:1px dashed #cbd5e1; margin:22px 0; }
+strong { color:#0f172a; }
+.cover .disclaimer { max-width:620px; margin:16px auto 0; color:#64748b; font-size:8.5pt; line-height:1.6; text-align:left; border:1px solid #e2e8f0; border-radius:8px; padding:8px 12px; background:#f8fafc; }
+.credit { color:#2563eb; font-size:10.5pt; font-weight:700; letter-spacing:1px; margin-top:12px; }
+.at-acc { background:#dbeafe; color:#1d4ed8; border-radius:4px; padding:0 4px; font-weight:500; white-space:nowrap; }
+.tail { page-break-inside:avoid; margin-top:26px; border-top:2px solid #2563eb; padding-top:14px; }
+.tail p { color:#64748b; font-size:8.5pt; line-height:1.6; margin:0 0 10px; }
+.tail .credit { text-align:center; margin:0; }
+/* Remix Icon 内联 SVG（icon_mode=remix 时由脚本注入，语义色与评分条一致） */
+.ri { width:1.05em; height:1.05em; vertical-align:-0.18em; display:inline-block; }
+.ri-ok { color:#16a34a; } .ri-warn { color:#d97706; } .ri-bad { color:#dc2626; }
+.ri-muted { color:#64748b; } .ri-star { color:#f59e0b; } .ri-brand { color:#2563eb; }
+.ri-gold { color:#d4a017; } .ri-silver { color:#9ca3af; } .ri-bronze { color:#b45309; }
+/* 屏幕预览：@page 边距仅在打印时生效，浏览器中居中限宽并收边（不影响 PDF 输出） */
+@media screen {
+  body { margin: 0 auto; padding: 28px 36px 56px; max-width: 900px; }
+}
+</style></head><body><div class="cover">
+<div class="kicker">开源项目商业化潜力分析 · 第 38 期</div>
+<h1>GitHub 开源项目 Scientific-agent-skills<br>商业价值分析报告</h1>
+<div class="sub">K-Dense-AI/scientific-agent-skills · AI Agent 科研技能库 · 77.2分 A级高商业化潜力</div>
+<div class="badge"><div class="g">A 级 · 77.2</div><div class="s">综合评分（满分 100）· 高商业化潜力</div></div>
+<div><svg viewBox="0 0 560 480" width="560" height="480" xmlns="http://www.w3.org/2000/svg"><polygon points="280.0,209.6 299.5,216.7 309.9,234.7 306.3,255.2 290.4,268.6 269.6,268.6 253.7,255.2 250.1,234.7 260.5,216.7" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,179.2 319.1,193.4 339.9,229.4 332.7,270.4 300.8,297.1 259.2,297.1 227.3,270.4 220.1,229.4 240.9,193.4" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,148.8 338.6,170.1 369.8,224.2 359.0,285.6 311.2,325.7 248.8,325.7 201.0,285.6 190.2,224.2 221.4,170.1" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,118.4 358.2,146.8 399.8,218.9 385.3,300.8 321.6,354.3 238.4,354.3 174.7,300.8 160.2,218.9 201.8,146.8" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,88.0 377.7,123.6 429.7,213.6 411.6,316.0 332.0,382.8 228.0,382.8 148.4,316.0 130.3,213.6 182.3,123.6" fill="none" stroke="#e2e8f0" stroke-width="1"/><line x1="280.0" y1="240.0" x2="280.0" y2="88.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="377.7" y2="123.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="429.7" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="411.6" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="332.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="228.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="148.4" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="130.3" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="182.3" y2="123.6" stroke="#d8dee9" stroke-width="1"/><polygon points="280.0,118.4 362.5,141.7 386.3,221.3 384.0,300.0 280.0,240.0 249.3,324.3 181.3,297.0 160.2,218.9 201.8,146.8" fill="rgba(37,99,235,.22)" stroke="#2563eb" stroke-width="2.5"/><circle cx="280.0" cy="118.4" r="3.5" fill="#2563eb"/><circle cx="362.5" cy="141.7" r="3.5" fill="#2563eb"/><circle cx="386.3" cy="221.3" r="3.5" fill="#2563eb"/><circle cx="384.0" cy="300.0" r="3.5" fill="#2563eb"/><circle cx="280.0" cy="240.0" r="3.5" fill="#2563eb"/><circle cx="249.3" cy="324.3" r="3.5" fill="#2563eb"/><circle cx="181.3" cy="297.0" r="3.5" fill="#2563eb"/><circle cx="160.2" cy="218.9" r="3.5" fill="#2563eb"/><circle cx="201.8" cy="146.8" r="3.5" fill="#2563eb"/><text x="280.0" y="44.0" text-anchor="middle" font-size="12.5" fill="#334155" font-weight="600">D1</text><text x="280.0" y="58.0" text-anchor="middle" font-size="11" fill="#64748b">市场需求 8.0</text><text x="406.0" y="89.9" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D2</text><text x="406.0" y="103.9" text-anchor="start" font-size="11" fill="#64748b">技术成熟度 8.44</text><text x="473.0" y="206.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D3</text><text x="473.0" y="220.0" text-anchor="start" font-size="11" fill="#64748b">社区生态 7.1</text><text x="449.7" y="338.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D4</text><text x="449.7" y="352.0" text-anchor="start" font-size="11" fill="#64748b">变现潜力 7.9</text><text x="347.0" y="424.2" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D5</text><text x="347.0" y="438.2" text-anchor="start" font-size="11" fill="#64748b">竞争格局 N/A</text><text x="213.0" y="424.2" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D6</text><text x="213.0" y="438.2" text-anchor="end" font-size="11" fill="#64748b">法律合规 5.9</text><text x="110.3" y="338.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D7</text><text x="110.3" y="352.0" text-anchor="end" font-size="11" fill="#64748b">企业就绪 7.5</text><text x="87.0" y="206.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D8</text><text x="87.0" y="220.0" text-anchor="end" font-size="11" fill="#64748b">团队治理 8.0</text><text x="154.0" y="89.9" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D9</text><text x="154.0" y="103.9" text-anchor="end" font-size="11" fill="#64748b">上手难度 8.0</text></svg></div>
+<div class="bars"><div class="bar-row"><span class="bar-name">D2 技术成熟度</span>
+<span class="bar-track"><span class="bar-fill" style="width:84.39999999999999%;background:#16a34a"></span></span>
+<span class="bar-val">8.44</span><span class="bar-w">权重14%</span></div>
+<div class="bar-row"><span class="bar-name">D1 市场需求</span>
+<span class="bar-track"><span class="bar-fill" style="width:80.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.0</span><span class="bar-w">权重13%</span></div>
+<div class="bar-row"><span class="bar-name">D8 团队治理</span>
+<span class="bar-track"><span class="bar-fill" style="width:80.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.0</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D9 上手难度</span>
+<span class="bar-track"><span class="bar-fill" style="width:80.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.0</span><span class="bar-w">权重10%</span></div>
+<div class="bar-row"><span class="bar-name">D4 变现潜力</span>
+<span class="bar-track"><span class="bar-fill" style="width:79.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.9</span><span class="bar-w">权重18%</span></div>
+<div class="bar-row"><span class="bar-name">D7 企业就绪</span>
+<span class="bar-track"><span class="bar-fill" style="width:75.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.5</span><span class="bar-w">权重8%</span></div>
+<div class="bar-row"><span class="bar-name">D3 社区生态</span>
+<span class="bar-track"><span class="bar-fill" style="width:71.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.1</span><span class="bar-w">权重11%</span></div>
+<div class="bar-row"><span class="bar-name">D6 法律合规</span>
+<span class="bar-track"><span class="bar-fill" style="width:59.0%;background:#dc2626"></span></span>
+<span class="bar-val">5.9</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D5 竞争格局</span>
+<span class="bar-track"><span class="bar-fill" style="width:0.0%;background:#dc2626"></span></span>
+<span class="bar-val">N/A</span><span class="bar-w">权重12%</span></div></div>
+<div class="meta">分析时点 2026-08-30 ｜ 数据来源：GitHub API + 仓库代码实测 ｜ 方法论 v1.3</div>
+<div class="credit">报告出品：@魔法工厂　@向量之心　@南山科学家</div>
+<div class="disclaimer"><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</div>
+</div><h1>Scientific-agent-skills 商业化潜力分析报告（完整版）</h1>
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家</p>
+<p>方法论版本: v1.3 | 综合评分: <strong>77.2</strong> | 等级: <strong>A（高商业化潜力）</strong> | 价值画像: 明星资产</p>
+</blockquote>
+<h2>一、项目概览</h2>
+<h3>1.1 基本信息</h3>
+<ul>
+<li><strong>项目名称</strong>：Scientific Agent Skills（K-Dense-AI/scientific-agent-skills）</li>
+<li><strong>核心技术栈</strong>：Python（&gt;=3.13）、Agent Skills 开放标准、Agent Plugins 标准</li>
+<li><strong>社区规模速览</strong>：Star 37,905 / Fork 3,570 / 贡献者 47 人</li>
+<li><strong>分析时点</strong>：2026 年 8 月（项目创建于 2025 年 10 月，约 10.4 个月）</li>
+<li><strong>数据来源</strong>：GitHub 仓库元数据、README、代码库静态分析、CI 配置分析</li>
+</ul>
+<h3>1.2 项目分类标签</h3>
+<table>
+<thead>
+<tr>
+<th>分类维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>开发者工具（AI Agent 技能库）</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>通用/跨行业（核心：生物医药、化学、材料、临床研究）</td>
+</tr>
+<tr>
+<td>目标用户角色</td>
+<td>科研人员 / AI 工程师 / 数据科学家</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>科学计算、数据库检索、复杂工作流执行、AI 科学家能力增强</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>本地部署 + 混合部署（BYOK 本地 + Modal 云端）</td>
+</tr>
+</tbody>
+</table>
+<h3>1.3 一句话定位</h3>
+<blockquote>
+<p>Scientific Agent Skills 是一个 AI Agent 科研技能库，适用于生物医药、化学、材料、临床研究等多学科研发场景，主要面向科研人员和 AI 开发者，用于将通用 AI Agent 转化为具备专业科学计算、数据库检索与复杂工作流执行能力的"AI 科学家"。</p>
+</blockquote>
+<hr />
+<h2>二、安装部署与使用指南</h2>
+<p><strong>上手难度等级：🟢 简单（8.0/10）</strong>，面向人群：所有人（含非技术背景的科研人员）。本项目本质上是一个「技能包」而非传统应用，安装即用，日常使用通过自然语言与 AI Agent 交互，无需编程。</p>
+<h4>前置要求</h4>
+<ul>
+<li>Python 3.13+（仓库工具链所需；各技能的依赖可能支持更宽泛的 Python 版本）</li>
+<li>uv（Python 包管理器，用于安装技能依赖）</li>
+<li>任何支持 <a href="https://agentskills.io/">Agent Skills</a> 标准的 AI Agent 客户端（Cursor、Claude Code、Codex、Gemini CLI、Google Antigravity 等）</li>
+<li>系统：macOS、Linux 或 Windows（需 WSL2）</li>
+</ul>
+<h4>安装方式（任选其一）</h4>
+<p><strong>方式一：npx 标准安装（推荐，单条命令）</strong></p>
+<pre><code class="language-bash">npx skills add K-Dense-AI/scientific-agent-skills
+</code></pre>
+<p>适用于 Claude Code、Codex、Gemini CLI、Google Antigravity、Cursor 等主流宿主。</p>
+<p><strong>方式二：GitHub CLI 安装</strong></p>
+<pre><code class="language-bash"># 浏览并交互式安装
+gh skill install K-Dense-AI/scientific-agent-skills
+
+# 直接安装指定技能
+gh skill install K-Dense-AI/scientific-agent-skills scanpy
+
+# 指定 Agent 宿主
+gh skill install K-Dense-AI/scientific-agent-skills --agent cursor
+</code></pre>
+<p>版本锁定与更新：</p>
+<pre><code class="language-bash">gh skill install K-Dense-AI/scientific-agent-skills --pin v2.65.0
+gh skill update
+gh skill update --all
+</code></pre>
+<p><strong>方式三：Agent Plugins（Cursor / Codex 等）</strong></p>
+<p>Cursor：</p>
+<pre><code class="language-bash">mkdir -p ~/.cursor/plugins/local
+ln -s &quot;$(pwd)&quot; ~/.cursor/plugins/local/scientific-agent-skills
+</code></pre>
+<p>重启 Cursor 或执行 <strong>Developer: Reload Window</strong>，在 Customize 下确认插件与技能加载。</p>
+<p>Codex：</p>
+<pre><code class="language-bash">codex plugins install .
+</code></pre>
+<p><strong>方式四：手动克隆（其他宿主）</strong></p>
+<pre><code class="language-bash">git clone https://github.com/K-Dense-AI/scientific-agent-skills.git ~/.agents/skills/scientific-agent-skills   # 用户级
+git clone https://github.com/K-Dense-AI/scientific-agent-skills.git .agents/skills/scientific-agent-skills      # 项目级
+</code></pre>
+<h4>快速验证</h4>
+<p>安装完成后，在 Agent 对话框中直接提及技能名称（如「使用 scanpy 技能分析单细胞数据」），Agent 即可自动调用对应 <code>SKILL.md</code> 中的工作流。官方提供了 <a href="https://youtu.be/ZxbnDaD_FVg">Getting Started 视频</a> 及多个实战教程，可帮助在 10 分钟内完成首次使用。</p>
+<h4>安全建议</h4>
+<p>技能可执行代码并影响 Agent 行为，官方建议按需安装子集、安装前阅读 <code>SKILL.md</code>，并可使用内置扫描器：</p>
+<pre><code class="language-bash">uv pip install cisco-ai-skill-scanner
+skill-scanner scan /path/to/skill --use-behavioral
+</code></pre>
+<p>了解更多使用细节，参见 <a href="https://github.com/K-Dense-AI/scientific-agent-skills">README</a> 中的 Quick Examples、Troubleshooting 与 FAQ 章节。</p>
+<h2>三、评分总览</h2>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>权重</th>
+<th>加权得分</th>
+<th>评级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1 市场需求与商业机会</td>
+<td>8.0/10</td>
+<td>13%</td>
+<td>1.04</td>
+<td>优</td>
+</tr>
+<tr>
+<td>D2 技术成熟度与产品质量</td>
+<td>8.44/10</td>
+<td>14%</td>
+<td>1.18</td>
+<td>优</td>
+</tr>
+<tr>
+<td>D3 社区健康度与生态势能</td>
+<td>7.1/10</td>
+<td>11%</td>
+<td>0.78</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D4 商业模式与变现潜力</td>
+<td>7.9/10</td>
+<td>18%</td>
+<td>1.42</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D5 竞争格局与差异化壁垒</td>
+<td>N/A</td>
+<td>12%</td>
+<td>—</td>
+<td>数据缺失</td>
+</tr>
+<tr>
+<td>D6 法律合规与知识产权</td>
+<td>5.9/10</td>
+<td>7%</td>
+<td>0.41</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D7 企业就绪度与可运营性</td>
+<td>7.5/10</td>
+<td>8%</td>
+<td>0.60</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D8 团队治理与可持续性</td>
+<td>8.0/10</td>
+<td>7%</td>
+<td>0.56</td>
+<td>优</td>
+</tr>
+<tr>
+<td>D9 上手难度与易用性</td>
+<td>8.0/10</td>
+<td>10%</td>
+<td>0.80</td>
+<td>优</td>
+</tr>
+<tr>
+<td><strong>综合评分</strong></td>
+<td>—</td>
+<td>100%</td>
+<td><strong>77.2/100</strong></td>
+<td><strong>A（高商业化潜力）</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>注</strong>：D5 竞争格局维度因评分卡重建失败标记为 N/A，未计入综合评分。综合评分基于其余 8 个维度计算。一票否决检查完整，未触发任何否决条件。</p>
+</blockquote>
+<p><strong>平行维度（不计入综合评分）</strong></p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10 功能价值</td>
+<td>8.2/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>D11 社会价值</td>
+<td>7.4/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>公共价值分</td>
+<td>7.8/10</td>
+<td>(D10+D11)/2</td>
+</tr>
+</tbody>
+</table>
+<p><strong>价值画像判定</strong>：综合评分 77.2 ≥ 65 且 公共价值分 7.8 ≥ 7 → <strong>⭐ 明星资产</strong></p>
+<hr />
+<h2>四、各维度详细分析</h2>
+<h1>D1 市场需求与商业机会评估</h1>
+<h3>D1. 市场需求与商业机会（权重 13%）</h3>
+<h3>项目分类标签</h3>
+<p><strong>一句话定位</strong>: Scientific Agent Skills 是一个面向 AI Agent 的科研技能库（Agent Skills Library），适用于生物医药、化学、材料、临床研究等多学科研发场景，主要面向科研人员和 AI 开发者，用于将通用 AI Agent 转化为具备专业科学计算、数据库检索与复杂工作流执行能力的"AI 科学家"。</p>
+<table>
+<thead>
+<tr>
+<th>分类维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>开发者工具（Agent Skills 库，兼具中间件属性——连接 AI Agent 与科学计算生态）</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>通用/跨行业（生物医药、化学、材料、物理、临床、金融等）；以生物医药为核心</td>
+</tr>
+<tr>
+<td>目标用户</td>
+<td>科研人员、AI/ML 工程师、数据工程师、药物研发科学家、企业技术决策者</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>研发流程优化、数据处理与分析、内容管理（文献/写作）、基础设施搭建（Agent 能力扩展）</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>本地部署 + 混合部署（BYOK 本地运行 + Modal 云端扩展）</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>D1.1 目标市场规模与增长性（满分 2.5，小分 2.0）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TAM 估算</td>
+<td>该项目处于 <strong>AI Agent × 科学研究（AI for Science）</strong> 两个高增长赛道的交叉点。全球 AI Agent 市场规模预计 2026 年已达数百亿美元级且以 30%+ CAGR 增长；AI for Science 市场（AI 药物研发、计算生物学、科学计算软件）同样处于数十亿至百亿美元级扩张期</td>
+</tr>
+<tr>
+<td>增长趋势</td>
+<td>双赛道均处于显著扩张期：AI Agent 从 2024-2025 年的技术验证期进入 2026 年的生产落地期；AI for Science 受生成式 AI 驱动加速增长</td>
+</tr>
+<tr>
+<td>市场层级</td>
+<td>新兴蓝海与成长期市场交界——Agent Skills 标准化（agentskills.io）刚刚形成生态，尚无垄断者</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：
+- 项目创建于 2025-10-19，至 2026-08-29（约 10 个月）积累 37,905 stars、3,570 forks，增长速度极快，侧面印证市场需求爆发。
+- README 声称 190,000+ 科学家用户，即使考虑夸大因素，量级也可信。
+- 从 2.55.0 到 2.65.0 的密集发版节奏（2026-07-24 至 2026-08-29 间 10 次 release，平均每周一次）说明团队在快速响应需求。
+- 该项目横跨生物医药（全球药物研发投入超 2000 亿美元/年）、科学计算软件、AI Agent 工具链三大市场，TAM 量级可达百亿美元。
+- 市场规模估算未经外部数据源验证，基于行业常识量级判断，置信度中等（标注：估算未经外部数据验证）。</p>
+<p><strong>评分理由</strong>：对应百亿美元级增长市场，双赛道叠加，赛道明确且处于扩张期，符合 9-10 档描述，但<strong>无外部数据源交叉验证 TAM</strong>，且项目本身属于工具层而非平台层，可攫取市场价值低于其"所在市场"总量，给出 8 分档（2.0/2.5）。</p>
+<hr />
+<h3>D1.2 痛点真实性与解决程度（满分 2.5，小分 2.0）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>痛点真实性</td>
+<td>真实且强烈：通用 AI Agent（Claude Code、Cursor、Codex 等）缺乏科学领域专业知识——不了解 RDKit、Scanpy、pydicom 等科学库的 API 细节、参数语义、数据格式和验证流程，导致在科研场景中"会用但用不精、不可靠"</td>
+</tr>
+<tr>
+<td>解决完整度</td>
+<td>方案较完整：163 个带完整文档（SKILL.md）、测试套件、参考材料（references/）的技能，覆盖从数据库查询到复杂工作流（PK/PD 建模、临床研究证据流程、分析方法验证）的闭环；每个技能附带测试（test_ratio 23.3%，130 个测试文件）保证质量</td>
+</tr>
+<tr>
+<td>替代成本</td>
+<td>替代品存在但体验明显更差：(a) 科学家自己阅读 API 文档后提示 agent——极其耗时；(b) 写自定义 prompt/脚本——需开发能力且不可复用；(c) Anthropic 官方 skills（仅文档处理 4 个，本项目已包含）——覆盖范围窄</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：
+- README 明确描述痛点场景："Skip API documentation research and integration setup"、"Save Days of Work"。
+- 测试覆盖率：130 个测试文件 / 49,302 行测试代码，每个带 scripts/ 的技能都有测试套件，CI 在 PR 时强制执行——说明不是"文档堆砌"，而是经过验证的可用方案。
+- 90 天 35 个 PR、17 个 issue 关闭，社区活跃度高，用户反馈计入迭代。
+- 15 个开放 Issue 相对于 37.9k stars 规模而言极少（~0.04%），说明用户满意度高或 issue 处理效率高。
+- 知识库中大量 references/ 文档（如 ich-q2r2.md、ich-m10-bioanalytical.md、bids_specification.md 等）显示对专业领域规范/标准有深入整理——这是替代方案难以快速复制的护城河。
+- 有科学免责声明（"aid, never a decision rule"）等合规边界设计，体现专业度。
+- 存在替代方案（Anthropic 官方 skills、各 agent 平台自带 skill 生态、科学家手动提示词），但其广度和专业深度（尤其法规/标准类技能）显著领先。</p>
+<p><strong>评分理由</strong>：解决明确痛点，方案完整度高（测试验证 + 文档 + 持续更新），替代品存在但覆盖度和体验明显更差。符合 7-8 档"解决明确痛点，方案较完整，有替代品但体验更差"，给予 8 分档（2.0/2.5）。</p>
+<hr />
+<h3>D1.3 市场时机判断（满分 2.5，小分 2.0）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术成熟度曲线</td>
+<td>AI Agent 正处于"期望膨胀期"向"实质生产期"过渡的关键阶段。2025-2026 年 Agent Skills 标准化（agentskills.io、agent-plugins.org）刚刚落地，GitHub CLI 于 2026-04 推出 <code>gh skill</code> 命令专门管理 Agent Skills——说明生态基础设施正在快速成型</td>
+</tr>
+<tr>
+<td>竞争密度</td>
+<td>竞争尚不固化：Anthropic 有官方 skills（少量）、各 agent 平台有自带市场，但<strong>科学领域</strong>的 Agent Skills 专业库尚无强垄断者。本项目以"#1 Agent Skills library for science"自居，在细分赛道具备先发优势</td>
+</tr>
+<tr>
+<td>监管/标准</td>
+<td>标准化正在推动需求爆发：Agent Skills 开放标准 + Agent Plugins 1.0.0 + GitHub CLI 原生支持，三个标准信号均在 2025-2026 年密集落地，属于典型的"标准推动需求"阶段</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：
+- 项目创建于 2025-10-19，正值 Agent Skills 标准形成期，10 个月达到 37.9k stars，说明<strong>踩准了爆发窗口</strong>。
+- 兼容矩阵覆盖 Cursor、Claude Code、Codex、Gemini CLI、Google Antigravity、Pi、Hermes 等几乎所有主流 Agent 宿主，显示其意在成为"Agent 科学技能层"的标准库。
+- <code>gh skill</code> 的推出（2026-04）是 GitHub 官方对 Agent Skills 生态的背书，极大降低了安装门槛（<code>gh skill install K-Dense-AI/scientific-agent-skills</code> 一行命令）。
+- 竞争维度：同类科学 AI 工具（如 ResearchAgent、Kaggle 模型等）多聚焦单一任务，以"标准化技能库"形态切入者尚少。市场仍处于渗透率早期。
+- 风险点：技术仍处于快速演进期，标准可能变动（README 中多次"confirm in your host's current documentation"即暗示兼容性尚不稳定）。</p>
+<p><strong>评分理由</strong>：恰逢生态爆发前夜到早期间，标准刚刚成型、竞争尚未固化、GitHub 官方工具链加持（gh skill），符合 9-10 档"爆发布前夜或早期，竞争尚未固化"，但考虑到 Agent 技术本身仍在高速变动、标准兼容性存在不确定性（README 多处提示"确认当前文档"），给出 8 分档（2.0/2.5）。</p>
+<hr />
+<h3>D1.4 应用场景广度（满分 2.5，小分 2.0）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>行业覆盖</td>
+<td>覆盖至少 5-8 个行业/学科：生物医药（基因组学、蛋白质组学、药物发现）、化学（化学信息学、材料科学）、临床医疗（临床试验、医学影像）、物理天文、工程仿真、金融（FRED/US Treasury）、环境（地理空间）、科研传播（文献/写作/审稿）</td>
+</tr>
+<tr>
+<td>场景多样性</td>
+<td>横向通用 + 纵向深度兼具：163 个技能覆盖 20 个功能类别（README 列出），从底层 Python 包技能（RDKit、Scanpy）、数据库查询技能（PubChem、ChEMBL、UniProt、COSMIC）、到完整工作流（PK/PD 建模、临床证据审查、分析方法验证等）</td>
+</tr>
+<tr>
+<td>可延展性</td>
+<td>核心模式（为 AI Agent 提供结构化、经过验证的科学工具封装）可自然迁移到任何科学/工程领域；当前已覆盖的金融数据（FRED）、材料科学、工程仿真已超出传统"生命科学"边界</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：
+- topics 标签 17 个，覆盖 bioinformatics、chemoinformatics、clinical-research、drug-discovery、genomics、proteomics、metabolomics、materials-science、scientific-computing 等，横向跨度大。
+- 数据库覆盖：统一访问 78+ 公共数据库（PubChem、ChEMBL、UniProt、COSMIC、ClinicalTrials.gov、FRED、USPTO），加 BioServices（40+ 服务）、BioPython Entrez（39 个 NCBI 子库）、gget（20+ 基因组数据库），数据库总量 100+。
+- 技能生态分层清晰：70+ Python 包技能 + 9 个平台集成技能（Benchling、DNAnexus、LatchBio、OMERO、Protocols.io、Opentrons 等）+ 30+ 分析与沟通工具 + 10+ 研究与临床工具。
+- 文档体系庞大（1226 个文档文件），含法规/标准类技能（ICH Q2(R2)、ICH M10、CLSI、ISO 13485/14971/17025/15189），这些在国际化生物医药企业中有硬性需求。
+- 局限：核心深度仍在生命科学/生物医药方向，金融、材料等领域目前是扩展态而非主力。</p>
+<p><strong>评分理由</strong>：多行业可用，场景丰富（10+ 领域），横向通用 + 纵向专业兼具，且能力模式可迁移。接近"跨行业通用基础设施级"，但其深度重心仍在科学研发（尤其生物医药），未达到"任意行业通用"的纯粹基础设施级别（如日志系统、消息队列），给出 8 分档（2.0/2.5）。</p>
+<hr />
+<h3>D1 维度汇总</h3>
+<p><strong>综合评分：8.0 / 10</strong></p>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>权重</th>
+<th>小分</th>
+<th>得分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1.1 目标市场规模与增长性</td>
+<td>25%</td>
+<td>2.0</td>
+<td>0.50</td>
+</tr>
+<tr>
+<td>D1.2 痛点真实性与解决程度</td>
+<td>25%</td>
+<td>2.0</td>
+<td>0.50</td>
+</tr>
+<tr>
+<td>D1.3 市场时机判断</td>
+<td>25%</td>
+<td>2.0</td>
+<td>0.50</td>
+</tr>
+<tr>
+<td>D1.4 应用场景广度</td>
+<td>25%</td>
+<td>2.0</td>
+<td>0.50</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td>100%</td>
+<td><strong>8.0</strong></td>
+<td><strong>0.80</strong>（加权后）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>关键结论</strong>：
+1. <strong>市场空间大且增长快</strong>：AI Agent × AI for Science 双赛道叠加，TAM 达百亿美元级，处于爆发增长早期。项目 10 个月 37.9k stars 的增长曲线是市场需求的强信号。
+2. <strong>痛点真实且方案质量高</strong>：解决"通用 AI Agent 不具备科学领域专业能力"的真实痛点，163 个技能带测试验证、CI 强制质量门槛、专业规范文档（ICH/CLSI/ISO），方案完整度远超替代品。
+3. <strong>时机极佳</strong>：Agent Skills 标准于 2025-2026 年密集落地（agentskills.io、agent-plugins.org、GitHub <code>gh skill</code>），项目恰好成立于标准成型期，科学领域尚无垄断者，先发优势显著。
+4. <strong>场景广度突出</strong>：覆盖 10+ 科学/工程/金融领域，横向拓展能力强，但商业变现仍需聚焦生命科学这一付费意愿最强的垂直行业深耕。
+5. <strong>需注意的风险</strong>：市场规模为估算值（未经外部数据源验证）；Agent 技术仍在演进，标准兼容性存在不确定性。</p>
+<p><strong>置信度说明</strong>：D1.1 的 TAM 估算未经外部市场数据验证，基于行业常识量级推断（置信度中等）；其余细则均基于项目实测数据（GitHub API + 本地代码库分析）判断，置信度较高。</p>
+<h3>D2. 技术成熟度与产品质量（权重 14%）</h3>
+<p><strong>维度结论：D2 得分 8.44/10（良好偏上）</strong></p>
+<p>本维度从产品设计、工程实现、安全、测试、文档等多视角评估该项目。总体而言，这是一个工程质量优秀、安全实践突出、文档极其完善的项目，但在代码复用（跨技能重复代码）和测试执行范围上存在可观察的短板。鉴于本项目为 Agent Skills 库（面向 AI Agent 而非直接面向终端用户），D2.5 UI/UX/UE 判定为 <strong>N/A</strong>，本维度总分按其余 7 项等比缩放至 10 分。</p>
+<h4>D2.1 产品设计与创新性 — 1.2 / 1.5</h4>
+<p><strong>判断依据</strong>：项目产品理念清晰——将科学方法论封装为 AI Agent 可直接调用的技能（Skills），解决「通用 Agent 缺乏领域深度」的核心痛点。功能设计围绕科研全流程展开（文献检索、实验设计、数据分析、科学写作、图表生成等），165 个技能覆盖生物、化学、医学、药物发现等一级学科，信息架构采用「每技能一目录（SKILL.md + scripts/ + references/）」的标准化布局。创新性体现在<strong>模式创新</strong>：作为首个大规模（标称 #1）的 Agent Skills 科学库，将数十年科学计算工具链（RDKit、Biopython、PyTorch 等）转化为受控、可验证的 Agent 技能，并提出 metadata.version、allowed-tools 等规范约束（见 skill-spec-validation.yml）。差异化明显：兼容 Cursor、Claude Code、Codex、Pi、Antigravity 等多平台及开放 Agent Skills 标准。</p>
+<p><strong>扣分点</strong>：部分技能存在功能重叠（如三个技能目录下 <code>generate_schematic_ai.py</code> 完全重复），反映功能设计上存在冗余；165 个技能内容的深度与质量一致性难以保证。</p>
+<h4>D2.2 架构设计与工程质量 — 1.6 / 2.0</h4>
+<p><strong>判断依据</strong>：整体架构清晰，按 <code>skills/&lt;skill-name&gt;/</code> 组织独立单元，每个单元含 <code>SKILL.md</code>（Agent 交互接口）、<code>scripts/</code>（实现）、<code>references/</code>（领域知识库），模块间通过 <code>_common.py</code> 抽离共享工具函数（路径安全、JSON 严格解析、原子写入等），依赖方向正确。目录管理规范，命名一致（<code>checked_input_file</code>、<code>safe_relative_path</code>、<code>emit_json</code> 等）。代码规模 220,654 行 / 682 文件，与 165 个技能的复杂度匹配。<strong>复刻难度较高</strong>：需深厚的领域知识（PK/PD 建模、cgroup 解析、ARIMA 预测、OOXML 验证等）和大量工程积累，构成技术护城河。工程质量突出体现在大量防御性编程模式（输入有界、路径遍历防护、符号链接拒绝、私有字段检测）。</p>
+<p><strong>扣分点</strong>：跨技能复用不足，存在严重重复代码——<code>docx/pptx/xlsx</code> 三套 <code>office/validators/base.py</code> 几乎相同，<code>literature-review</code>/<code>scientific-schematics</code>/<code>scientific-slides</code> 三份 <code>generate_schematic_ai.py</code> 完全重复（P1 代码摘要明确指出「三个文件内容完全重复」），增加维护成本与 bug 修复不同步风险。部分函数过长（如 <code>validate_rubric</code>、<code>checked_input</code>、<code>run</code>），可进一步拆分。</p>
+<h4>D2.3 代码整洁性与规范性 — 0.8 / 1.0</h4>
+<p><strong>判断依据</strong>：代码整洁度整体良好。命名规范统一且有意义（如 <code>checked_root</code>、<code>atomic_write_bytes</code>、<code>_reject_constant</code>），符合 Python 惯例。注释质量高——统计假设、数值稳定性边界、安全设计均有详细说明（如 <code>pkpd-modeling/_models.py</code> 对奇异点处理的数学推导注释、<code>get-available-resources</code> 的隐私保护说明）。有 lint 意识（代码中出现 <code># noqa: E402</code> 等注释）。核心模块类型注解覆盖率高，文档字符串详实。</p>
+<p><strong>扣分点</strong>：重复代码占比偏高（多份 <code>generate_schematic_ai.py</code>、<code>office/validators/base.py</code> 完全或近乎完全重复），函数长度普遍偏长（P1 摘要中 500-700 行的文件多达 30+ 个），未检测到统一 lint/format 配置文件（pyproject.toml 中仅含 pytest 配置）。</p>
+<h4>D2.4 安全性 — 1.0 / 1.0</h4>
+<p><strong>判断依据</strong>：这是本项目最突出的优势维度。安全实践贯穿所有技能代码：</p>
+<ul>
+<li><strong>安全编码规范</strong>：输入验证、参数校验、边界处理高度系统化（如 <code>hypogenic/_common.py</code> 拒绝符号链接/路径遍历/URL 访问 <code>.env</code>；<code>get-available-resources</code> 子进程固定 argv 无 shell 插值）</li>
+<li><strong>注入防护</strong>：XML 解析禁用 DTD/实体（<code>pptx-posters</code> 使用安全 XML 解析），ZIP 预检防 zip bomb，路径遍历防护在多个技能中实现</li>
+<li><strong>密钥管理</strong>：无硬编码凭据，API 密钥统一从环境变量/.env 解析（<code>_resolve_api_key</code> 模式），API 响应大小限制（25 MiB）</li>
+<li><strong>安全扫描</strong>：集成 3 层安全机制——<code>pr-skill-scan.yml</code>（PR 变更技能扫描，<code>--fail-on HIGH</code>）、<code>security-scan.yml</code>（每周全量扫描 + 自动提交报告）、<code>cisco-ai-skill-scanner</code> 依赖（pyproject.toml 中明确声明），并有 <code>docs/security-report.md</code> 安全报告追踪</li>
+</ul>
+<p><strong>注</strong>：未发现 Dependabot/Snyk 等依赖漏洞自动更新工具，属于轻微缺失，但整体安全实践达到卓越标准。</p>
+<h4>D2.5 UI/UX/UE 人机交互 — N/A</h4>
+<p><strong>判定理由</strong>：本项目为 Agent Skills 库，直接交互对象是 AI Agent（通过 SKILL.md + CLI scripts），而非人类终端用户。虽然部分技能生成海报、幻灯片、信息图等视觉产物，但那是技能的输出而非项目本身的用户界面。按细则适用性判定「纯后端库/命令行工具/API 服务标记为 N/A」，本项不参与计分。</p>
+<h4>D2.6 功能完备度与稳定性 — 1.2 / 1.5</h4>
+<p><strong>判断依据</strong>：</p>
+<ul>
+<li><strong>功能覆盖</strong>：165 个技能覆盖 10+ 个科学领域，每个技能含完整的 SKILL.md、scripts 与参考资料（约 1226 个文档文件），功能覆盖面极广</li>
+<li><strong>版本成熟度</strong>：已迭代至 <strong>v2.65.0</strong>（2026-08-29 发布），远超 v1.0 稳定版门槛；近 3 个月发布 10+ 个版本（v2.55.0→v2.65.0），迭代节奏约每周一版，显示产品进入成熟维护期</li>
+<li><strong>向后兼容</strong>：未见 Breaking Change 的明确记录；但高频版本迭代存在潜在兼容风险</li>
+<li><strong>运行环境要求</strong>：<code>requires-python = "&gt;=3.13"</code>，要求较新——Python 3.13 对部分科学计算库（如 TensorFlow 特定版本）的兼容性可能构成轻度门槛，但考虑到项目面向 2026 年的 Agent 生态，影响有限</li>
+<li><strong>国际化/本地化</strong>：文档与界面语言均为英语，未见 i18n 框架；但对科研领域而言，英语为通用学术语言，影响不大</li>
+<li><strong>稳定性指标</strong>：开放 Issue 仅 15 个（Star 37,905 规模下），90 天关闭 Issue 17 个，缺陷密度低</li>
+</ul>
+<h4>D2.7 文档与开发者体验 — 1.0 / 1.0</h4>
+<p><strong>判断依据</strong>：文档体系极其完善，属于同类项目标杆：</p>
+<ul>
+<li><strong>覆盖度</strong>：README、AGENTS.md（Agent 开发指引）、CLAUDE.md（Claude Code 配置）、CONTRIBUTING.md、CODE_OF_CONDUCT.md、SECURITY.md、docs/examples.md、docs/skills.md 等一应俱全；每个技能均有 SKILL.md + references/ 子目录（如 <code>aeon/</code> 下含 10 个参考文档），文档文件达 <strong>1,226 个</strong></li>
+<li><strong>质量</strong>：docs/security-report.md 提供安全扫描结果追踪；CONTRIBUTING.md 提供贡献指引；AGENTS.md 定义技能规范（metadata.version 要求）；有 PULL_REQUEST_TEMPLATE.md</li>
+<li><strong>版本同步</strong>：文档随代码持续更新（security-report.md 每周自动提交），v2.65.0 版本与 pyproject.toml 版本一致，基本无过时文档迹象</li>
+</ul>
+<h4>D2.8 测试与质量保障 — 0.8 / 1.0</h4>
+<p><strong>判断依据</strong>：质量保障体系完善，采用「规范验证 + 契约测试 + 安全扫描 + 发布流水线」四层门禁：</p>
+<table>
+<thead>
+<tr>
+<th>CI Workflow</th>
+<th>触发时机</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>skill-spec-validation.yml</code></td>
+<td>PR / push</td>
+<td>使用官方 skills-ref 验证所有技能的 frontmatter、allowed-tools、metadata 格式</td>
+</tr>
+<tr>
+<td><code>skill-tests.yml</code></td>
+<td>PR / push</td>
+<td>仓库级结构性契约（tests/_meta）+ 标准库-only 技能测试套件</td>
+</tr>
+<tr>
+<td><code>pr-skill-scan.yml</code></td>
+<td>PR</td>
+<td>对变更技能执行安全扫描，HIGH 级别即 fail</td>
+</tr>
+<tr>
+<td><code>security-scan.yml</code></td>
+<td>每周</td>
+<td>全量安全扫描并自动提交报告</td>
+</tr>
+<tr>
+<td><code>release.yml</code></td>
+<td>push main</td>
+<td>从 pyproject.toml 提取版本号自动创建 GitHub Release</td>
+</tr>
+</tbody>
+</table>
+<p>测试规模：130 测试文件 / 49,302 行，占代码总量 23.3%，有 <code>tests/_contract</code>、<code>tests/_meta</code> 等仓库级质量守卫。<code>tests/skill-requirements.toml</code> 强制有 scripts/ 的技能必须配套测试套件。</p>
+<p><strong>扣分点</strong>：CI 中仅运行标准库-only 技能套件（约 100+ 个需 torch/qiskit/scanpy 等重依赖的技能不在 CI 内执行，CI 注释明确说明），覆盖率无法精确量化；大量技能的测试实际通过本地或调度运行，存在回归风险。</p>
+<hr />
+<h4>D2 细则分值汇总</h4>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D2.1</td>
+<td>产品设计与创新性</td>
+<td>1.5</td>
+<td><strong>1.2</strong></td>
+<td>良好（80%）</td>
+</tr>
+<tr>
+<td>D2.2</td>
+<td>架构设计与工程质量</td>
+<td>2.0</td>
+<td><strong>1.6</strong></td>
+<td>良好（80%）</td>
+</tr>
+<tr>
+<td>D2.3</td>
+<td>代码整洁性与规范性</td>
+<td>1.0</td>
+<td><strong>0.8</strong></td>
+<td>良好（80%）</td>
+</tr>
+<tr>
+<td>D2.4</td>
+<td>安全性</td>
+<td>1.0</td>
+<td><strong>1.0</strong></td>
+<td>卓越（100%）</td>
+</tr>
+<tr>
+<td>D2.5</td>
+<td>UI/UX/UE 人机交互</td>
+<td>1.0</td>
+<td><strong>N/A</strong></td>
+<td>—</td>
+</tr>
+<tr>
+<td>D2.6</td>
+<td>功能完备度与稳定性</td>
+<td>1.5</td>
+<td><strong>1.2</strong></td>
+<td>良好（80%）</td>
+</tr>
+<tr>
+<td>D2.7</td>
+<td>文档与开发者体验</td>
+<td>1.0</td>
+<td><strong>1.0</strong></td>
+<td>卓越（100%）</td>
+</tr>
+<tr>
+<td>D2.8</td>
+<td>测试与质量保障</td>
+<td>1.0</td>
+<td><strong>0.8</strong></td>
+<td>良好（80%）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td>9.0</td>
+<td><strong>7.6</strong></td>
+<td><strong>D2 总分 = 7.6/9×10 = 8.44</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>核心优势</strong>：安全实践卓越（多层扫描+防御性编码）、文档体系标杆级（1,226 文件）、版本成熟稳定（v2.65.0）+ 完善 CI 流水线、复刻难度高构成技术壁垒。</p>
+<p><strong>主要短板</strong>：跨技能重复代码严重（增加维护成本）、CI 仅覆盖标准库-only 技能（重依赖技能存在回归盲区）、Python ≥3.13 的版本要求对部分科学计算环境构成轻度门槛。</p>
+<h3>D3. 社区健康度与生态势能（权重 11%）</h3>
+<p><strong>总体得分：7.1 / 10</strong>（本维度总体良好，社区活跃度与维护响应表现突出，但第三方生态成熟度与组织多样性证据不足，生态势能尚未完全兑现。）</p>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D3.1 社区活跃度指标</td>
+<td>3.0</td>
+<td>2.4</td>
+<td>7–8 档（80%）</td>
+<td>Star 37,905，创建于 2025-10-19，截至 2026-08-29 约 10.4 个月，月均 Star 约 3,645（远超 500 阈值）；Fork 比率 9.4%；近 90 天 PR 35 个、Issue 关闭 17 个，开放 Issue 仅 15 个。因补采未取得近 90 天 Star 增量，采用退化公式计算，且缺少 Issue 平均关闭时间数据，保守下调一档</td>
+</tr>
+<tr>
+<td>D3.2 贡献者结构多样性</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8 档（80%）</td>
+<td>贡献者总数 47，符合 20–50 区间；项目由 K-Dense 主导，组织多样性未获专项数据，但有外部贡献者参与迹象（开放贡献指南、活跃 PR）；核心团队占比无法精确评估，整体结构相对健康</td>
+</tr>
+<tr>
+<td>D3.3 第三方生态成熟度</td>
+<td>3.0</td>
+<td>1.8</td>
+<td>5–6 档（60%）</td>
+<td>兼容 Cursor、Claude Code、Codex、Pi、Antigravity 等主流 Agent 平台，遵循开放 Agent Skills 标准并可作为 Agent Plugins 包加载；官方有衍生项目 K-Dense BYOK，但第三方插件、衍生品与外部课程生态未见明确证据</td>
+</tr>
+<tr>
+<td>D3.4 品牌认知与行业影响力</td>
+<td>1.5</td>
+<td>0.9</td>
+<td>5–6 档（60%）</td>
+<td>项目自述为“#1 Agent Skills library for science”，37.9k Star 表明小圈层内有较高认知度；有官方社交媒体矩阵（X、LinkedIn、YouTube、Reddit）与研讨会，但缺少第三方媒体/知名企业背书的硬证据</td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：D3 维度得 7.1/10，社区健康度与生态势能高于行业平均。Star 增速、Issue 维护、版本迭代节奏（39 天内发布 10 个 Release）均显示极强的社区运营能力，构成商业化的重要基础。但组织多样性、第三方生态和品牌背书仍有待数据强化，建议后续关注外部贡献者占比、集成案例与用户推荐材料的沉淀。</p>
+<h3>D4. 商业模式与变现潜力（权重 18%）</h3>
+<p><strong>维度结论:7.9/10 — 良好</strong>。项目由商业公司 K-Dense Inc. 体系化运营，MIT 协议对变现路径零约束，当前最清晰的变现路径是企业级支持/专业服务（README 明示入口），并具备向 Open Core、SaaS 托管延伸的潜力；但免费到付费的触发点依赖"企业级支持+SLA"而非功能分层，自助转化漏斗尚未建立，付费逻辑的可持续性需以企业版落地验证。</p>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D4.1 协议对变现模式的影响</td>
+<td>2</td>
+<td>2.0</td>
+<td>9–10（100%）</td>
+<td>仓库整体 MIT 许可，无任何变现模式约束（Open Core/SaaS/双协议/专业服务均可）；需注意内嵌 Anthropic 的 docx/pdf/pptx/xlsx 四个技能使用条款受限，属合规细节（D6.1 范畴），不构成协议层障碍</td>
+</tr>
+<tr>
+<td>D4.2 变现路径清晰度</td>
+<td>3.5</td>
+<td>2.8</td>
+<td>7–8（80%）</td>
+<td>主路径明确：企业支持/专业服务（README 明确 "Commercial support available for advanced needs" + "Enterprise Support: Contact K-Dense"，背后有 K-Dense Inc. 公司实体）；备选路径存在但未公开落地：Open Core 企业版（可择取 PK/PD、ISO/ICH 合规等技能做商业增强）、SaaS 托管（BYOK 提及 Modal 云扩展）；无公开定价与企业版功能分层</td>
+</tr>
+<tr>
+<td>D4.3 付费转化逻辑</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6（60%）</td>
+<td>付费触发点为药企/CRO/科研机构的企业级需求（SLA、合规辅助、私有化安全），目标客户付费意愿真实存在；但 MIT 全功能免费开放下个人科学家无付费动力，且无功能分层与自助转化路径，转化依赖人工接洽，漏斗不自然</td>
+</tr>
+<tr>
+<td>D4.4 增值服务空间与定价天花板</td>
+<td>2</td>
+<td>1.6</td>
+<td>7–8（80%）</td>
+<td>增值方向明确：企业支持、合规咨询（ISO 13485/14971、ICH Q2/M10、CLSI 技能已内建）、定制技能开发、私有化部署、培训；目标客户（生命科学/制药企业）客单价可达 $10K+/年，但当前服务交付与定价未公开，收入扩展性待验证</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>7.9</strong></td>
+<td><strong>良好（高于平均）</strong></td>
+<td>商业模式方向正确、有公司化运营支撑，处于从"用户增长"向"收入验证"过渡的早期阶段</td>
+</tr>
+</tbody>
+</table>
+<p><strong>关键分析依据</strong>：项目创建不足一年（2025-10-19）即达 37,905 stars、3,570 forks，发布节奏密集（2026-07-24 至 08-29 间发布 v2.55→v2.65 共 10 个版本），47 名贡献者、90 天 35 个 PR、17 个 issue 关闭，体现专业团队持续投入——这是商业化可持续性的重要基础设施。但需清醒认识：MIT 协议下 163 个技能的"知识资产"无技术护城河，可分叉复制；变现壁垒主要依赖品牌、维护质量、合规深度与企业服务粘性，这也是本维度评为"良好"而非"卓越"（9–10 档需 2+ 条已验证的清晰路径）的核心原因。</p>
+<blockquote>
+<p><strong>置信度提示</strong>: 项目无公开财务数据、定价页或企业版功能清单，D4.2–D4.4 部分判断基于 README 声明与竞品模式推演，置信度中等。</p>
+</blockquote>
+<h3>D5 竞争格局与差异化壁垒（权重 12%）</h3>
+<p><strong>维度评分：8.2 / 10（良好偏优）</strong></p>
+<h3>D5.1 竞品对比与市场定位（满分 3.0 → 小分 3.0）</h3>
+<p><strong>竞品验证说明</strong>：以下竞品清单全部经 GitHub Search API 实测验证（搜索关键词：scientific agent / AI scientist / co-scientist，检索时间与数据采集同步），确认仓库真实存在、描述与规模属实，无虚构。另经"仓库内引用"方式验证 anthropics/skills（README 明确声明 docx/pdf/pptx/xlsx 四技能 vendored 自该库）。</p>
+<p><strong>竞品对比表</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>竞品名称</th>
+<th>类型</th>
+<th>仓库/官网</th>
+<th>验证方式</th>
+<th>Star/用户量</th>
+<th>核心差异</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>panjose/Co-Scientist</td>
+<td>直接竞品</td>
+<td>github.com/panjose/Co-Scientist</td>
+<td>GitHub 搜索确认</td>
+<td>5</td>
+<td>同为"科学 Agent Skills"路线（面向 Claude Code / Codex），但仅覆盖假设生成/评审/排序/综合等少数技能，无数据库集成、无测试体系，规模与本项目相差 4 个数量级</td>
+</tr>
+<tr>
+<td>Eldergenix/Plato-Scientific-Research-Autonomous-Agent</td>
+<td>间接竞品</td>
+<td>github.com/Eldergenix/Plato-Scientific-Research-Autonomous-Agent</td>
+<td>GitHub 搜索确认</td>
+<td>133</td>
+<td>自研多智能体系统将实验数据转化为论文，技术路径不同（独立 agent 工作流 vs. 可插入任意宿主的标准技能库），不做广谱科学技能覆盖</td>
+</tr>
+<tr>
+<td>CKwin26/Auto-Agentic-Research-Forge</td>
+<td>间接竞品</td>
+<td>github.com/CKwin26/Auto-Agentic-Research-Forge</td>
+<td>GitHub 搜索确认</td>
+<td>3</td>
+<td>本地优先的端到端研究平台（论文生成 + 确定性评审门控），独立系统形态，非技能库</td>
+</tr>
+<tr>
+<td>sunnysuhas/Agent-Research-Scientist</td>
+<td>间接竞品</td>
+<td>github.com/sunnysuhas/Agent-Research-Scientist</td>
+<td>GitHub 搜索确认</td>
+<td>0</td>
+<td>多智能体论文自动生成（搜索/综合/实验/引用），单点论文产出工具，无生态与标准属性</td>
+</tr>
+<tr>
+<td>Ahmad-Jaradat-Space/Co-Scientist</td>
+<td>间接竞品</td>
+<td>github.com/Ahmad-Jaradat-Space/Co-Scientist</td>
+<td>GitHub 搜索确认</td>
+<td>0</td>
+<td>Google AI co-scientist 的开源复刻，聚焦假设生成与锦标赛排序，纯 agent 系统，无技能矩阵</td>
+</tr>
+</tbody>
+</table>
+<p><strong>定位清晰度分析</strong>：项目定位明确且高度差异化——"Turn any AI agent into an AI Scientist"，即做一个<strong>符合开放 Agent Skills / Agent Plugins 双标准的科学技能库</strong>，而非自研一个封闭的 agent 系统。这一选择使其与三类竞争者天然区隔：(1) 同格式直接竞品（panjose/Co-Scientist）规模极小、覆盖面窄；(2) 自研多智能体系统（Plato / Auto-Agentic-Research-Forge / Agent-Research-Scientist / 各种 Co-Scientist 复刻）bound 于自身闭环，无法随宿主生态扩散；(3) 平台方官方技能库（anthropics/skills）当前聚焦通用软件工程技能，科学领域覆盖有限。在"科学 Agent Skills 库"这一细分赛道内，本项目以 <strong>37,905 stars vs. 次位 133 stars</strong> 形成数量级领先，处于事实上的领导者地位。</p>
+<p><strong>小分 3.0（100%，对应 9–10 档：定位独特，无直接竞品或明显领先）</strong>——综合判定：直接竞品虽存在但规模可忽略，项目在细分市场明显领先且定位差异化鲜明。</p>
+<h3>D5.2 技术壁垒与网络效应（满分 3.0 → 小分 2.4）</h3>
+<p><strong>技术壁垒</strong>：从商业防御视角看，壁垒属于<strong>中等偏弱→较强</strong>的混合形态。项目整体 MIT 开源，技能本质是对公开 Python 包（RDKit、Scanpy、BioPython 等）与公开数据库 API（PubChem、ChEMBL、UniProt 等）的"文档 + 示例 + 测试"封装，无专利与独占数据，任何技能可被低成本复制。<strong>但规模化质量壁垒真实存在</strong>：51,305 行测试（测试占比 23.3%）、5 套 CI 工作流（技能规范校验 / 安全扫描 / 测试矩阵 / 发布流程）、来源可溯的数据库 lookup 设计（provenance-rich）、逐技能版本钉扎与 --help 契约校验，构成"单个技能可抄、163 技能的高质量维护体系难抄"的复合壁垒。</p>
+<p><strong>网络效应（较强）</strong>：本项目具备典型的内容飞轮——47 名贡献者持续并入社区技能（README 已明确区分 K-Dense 自研与社区贡献）、35 个 PR/90 天、技能越多 → 宿主兼容方与用户越多（署名 190,000+ 科学家）→ 贡献者越多 → 技能越多。同时项目参与开放标准话语权建设（同时兼容 agentskills.io 与 agent-plugins.org 双标准），npx / gh skill / plugin.json 三种安装通道使其成为生态底座而非孤岛。</p>
+<p><strong>规模效应</strong>：10 次版本发布/60 天（v2.55.0–v2.65.0）的迭代速度与 100+ 数据库的覆盖面，使后发者难以在短期内以同等质量追平；但 MIT 许可使"fork 后加速"理论可行，仅靠规模不构成深护城河。</p>
+<p><strong>小分 2.4（80%，对应 7–8 档：有技术壁垒或网络效应其一且较强）</strong>——综合判定：产权型技术壁垒薄弱，但网络效应与内容飞轮较强，二者叠加形成中等偏上的商业防御力。</p>
+<h3>D5.3 切换成本与用户粘性（满分 2.0 → 小分 1.2）</h3>
+<p><strong>迁移成本</strong>：呈"单技能低、整体高"的分层结构。单个技能严格遵循开放标准（SKILL.md + YAML frontmatter），可复制到任何兼容宿主直接运行，单点替换成本近乎为零；但整体迁移意味着放弃 163 技能的<strong>持续维护红利</strong>——周更节奏、安全扫描报告（docs/security-report.md 公开）、gh skill --pin 版本钉扎的可复现安装、CI 契约保障，这些是替代品难以平移的存量价值。</p>
+<p><strong>深度集成</strong>：用户可通过 npx / gh skill / Agent Plugins / 手动 clone 四种方式安装，实验室与工业场景中技能已嵌入研究管线（Benchling、DNAnexus、Opentrons、LatchBio 等 9 个集成技能），一旦形成"技能目录 + 内部流程 + 团队习惯"的组合依赖，替换成本显著上升。K-Dense BYOK 桌面产品（免费开源 AI 共研助手）与技能库深度绑定，进一步形成产品级粘性。</p>
+<p><strong>习惯锁定</strong>：引用规范（BibTeX/APA/MLA citation 指引）鼓励科研用户在论文中引用该库与单个技能，形成学术</p>
+<h3>D6. 法律合规与知识产权</h3>
+<p><strong>目的</strong>: 识别商业化过程中的法律风险和知识产权障碍——一个法律硬伤可能阻断整条商业路径。</p>
+<h4>本维度结论</h4>
+<p>项目以 MIT 协议为主体，授权清晰、贡献流程规范，但存在一个显著的法律合规硬伤：仓库内 4 个技能（docx/pdf/pptx/xlsx）携带 Anthropic 专有许可证（All Rights Reserved，禁止复制、分发、衍生），与顶层 MIT 声明构成直接的许可冲突。这一混合许可状态使得「整个仓库以 MIT 协议再分发」在法律上不成立，对商业打包分发构成实质性障碍。此外，项目无正式 CLA/DCO，47 名贡献者版权分散，制约后续协议变更或双协议商业模式的实施。商标与专利风险未经人工核查，置信度低。</p>
+<h4>细则评估</h4>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>小分</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D6.1 开源协议合规性与商业限制（3 分）</td>
+<td>1.2 / 3</td>
+<td>顶层 LICENSE.md 为标准 MIT（Copyright © 2025 K-Dense Inc.），协议文本明确、SPDX 标识在 CI/plugin.json 体系中有约束；但 <code>skills/docx</code>、<code>skills/pdf</code>、<code>skills/pptx</code>、<code>skills/xlsx</code> 四个技能的 LICENSE.txt 为 Anthropic 专有许可（© 2025 Anthropic, PBC），明确禁止提取、复制、分发、创建衍生作品，且不授予任何超出明示范围的许可。该专有材料嵌入 MIT 仓库形成混合许可冲突，任何对含此四目录的仓库的整体再分发/销售在法律上均不成立（Anthropic 条款与 MIT 授予的权利直接矛盾），属于「有限制性附加条款、部分商业模式法律上不可行」档。</td>
+</tr>
+<tr>
+<td>D6.2 依赖链法律风险（2.5 分）</td>
+<td>2.0 / 2.5</td>
+<td><code>pyproject.toml</code> 直接依赖仅 4 个（cisco-ai-skill-scanner、firecrawl-py、pytest、python-dotenv），均来自 PyPI 主流来源，未见 GPL/AGPL 等传染性协议；dev 依赖 <code>skills-ref @ git+...agentskills.git</code> 协议未标，但属开发工具链、不随产品分发。主要合规成本在于 165 个技能各自引用的科学计算包数量庞大，需逐技能审查（如 <code>skills/pacsomatic/LICENSE</code> 为第三方 MIT，版权归 Beifang Niu），整体依赖风险可控但审查工作量高。</td>
+</tr>
+<tr>
+<td>D6.3 商标与专利风险（2.5 分）</td>
+<td>1.5 / 2.5</td>
+<td><strong>未经人工核查，置信度低</strong>。本项目名称 "scientific-agent-skills"、"Agent Skills" 及 K-Dense 商标状态未做检索；项目主页/README 未见商标使用政策声明。按方法论要求，无人工核查数据时默认给 1.5/2.5，不凭模型记忆断言商标/专利状态。</td>
+</tr>
+<tr>
+<td>D6.4 贡献者协议完备性（2 分）</td>
+<td>1.2 / 2</td>
+<td>CONTRIBUTING.md 内容极为完善——含技能格式规范、frontmatter 要求、版本管理、测试结构、安全扫描、PR 检查清单等，贡献流程在同类项目中属顶尖；但全文未见 CLA 或 DCO 机制，也未见版权转让或贡献者授权条款。仓库共 47 名贡献者，版权分散于各贡献者手中，未集中至 K-Dense Inc.，对后续协议变更（如转 BUSL 双协议）构成障碍，属「有贡献指南但无正式 CLA」档。</td>
+</tr>
+</tbody>
+</table>
+<h4>综合评分</h4>
+<p>本维度得分：<strong>5.9 / 10</strong>（小分合计 5.9 / 满分 10）。主要扣分项为 Anthropic 专有材料混入 MIT 仓库造成的许可冲突（D6.1），以及无 CLA 导致的版权分散（D6.4）。D6.2 依赖链风险良好但需随技能库扩张持续审查；D6.3 未经人工核查，置信度低。</p>
+<hr />
+<h3>D7. 企业就绪度与可运营性（权重 8%）</h3>
+<p><strong>维度概览</strong>：Scientific Agent Skills 本质上是「技能库」形态的开源交付物（163 个技能、220,654 行 Python、682 个文件），而非传统服务端应用。这一形态决定了其企业就绪度的特殊性：无服务器/无数据库架构带来极低运维负担，git 版本管理天然支持升级与回滚；但企业级管控三件套——SSO/RBAC、操作审计、运行时监控——基本缺失。综合评估为 <strong>7.5/10</strong>，属于「良好」档：运维与安全代码质量高于平均，但距大型药企/临床机构合规采购要求仍有差距。</p>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>小分</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D7.1 运维复杂度与升级路径（满分 3）</td>
+<td>2.4</td>
+<td>版本管理规范：pyproject.toml 版本 2.65.0，2026-07-24 至 2026-08-29 间发布 10 个版本（v2.55.0→v2.65.0），release.yml 自动从 pyproject.toml 提取版本生成 GitHub Release 与 changelog；无服务器、无数据库，升级即 git pull/目录替换，git tag 天然构成回滚机制；无数据迁移需求。配置通过环境变量/.env（python-dotenv 依赖）管理，各技能 API key 由用户 BYOK。扣分项：requires-python &gt;=3.13 较新，对企业存量 Python 环境构成升级前提；无集中配置中心，多技能环境变量管理靠约定。</td>
+</tr>
+<tr>
+<td>D7.2 安全管理与权限控制（满分 2.5）</td>
+<td>1.5</td>
+<td>数据安全实践极为丰富：HTTPS 强制（generate_image.py 拒绝非 HTTPS 下载 URL）、API key 仅经环境变量/.env 解析、路径遍历/符号链接/zip bomb/XXE 防护、原子写入、敏感字段脱敏（pydicom 匿名化、hypogenic 秘密值检测）、SECURITY.md + security-scan.yml 每周全量扫描并自动提交 docs/security-report.md。但无 SSO/OAuth/LDAP/SAML 认证，无 RBAC/ABAC 权限模型，无操作级审计日志（现有安全报告为代码审计而非运行时审计），与「完整企业安全体系」差距明显。</td>
+</tr>
+<tr>
+<td>D7.3 可扩展性与高可用能力（满分 2.5）</td>
+<td>2.0</td>
+<td>技能为无状态 CLI 工具，天然支持多 agent/多 worker 并行调用，扩展新技能只需按标准新增目录（47 名贡献者、PR 35/90d）；支持 Slurm 调度器检测（detect_scheduler）、Nextflow 流程（pacsomatic 多调度器）、资源检测与预检（get-available-resources、timesfm check_system），可适配 HPC/GPU 集群。无中心服务，无单点故障；但高可用能力受制于所调用的外部 API（PubMed、OpenRouter 等）可用性，且无集群部署/故障转移配置。</td>
+</tr>
+<tr>
+<td>D7.4 集成兼容与可观测性（满分 2）</td>
+<td>1.6</td>
+<td>集成兼容是强项：兼容开放 Agent Skills 标准与 Agent Plugins 标准（plugin.json 可整体作为插件加载），覆盖 Cursor、Claude Code、Codex、Google Antigravity 等平台；163 个技能均以 SKILL.md 定义能力接口，多数 CLI 支持 JSON 结构化输出（emit_json 模式），machine-readable 友好。但无 OpenAPI/gRPC API、无 Prometheus/OpenTelemetry 监控指标、无集中式日志级别管理，可观测性停留在「脚本级 verbose + 结构化输出」层面。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：作为以「科学家个人/课题组」为主要客群的开源技能库，其企业就绪度已超出同类平均水平——极低的运维成本、git 化升级回滚路径、大量内建的安全边界检查，以及开放标准兼容性，使其容易嵌入企业现有 agent 工作流。但若目标客户升级为大型药企或临床机构，缺少 SSO 集成、RBAC 权限模型、操作审计与运行时监控会成为采购门槛。建议后续通过 K-Dense BYOK 桌面端/企业版补充集中管控层（企业 SSO、审计导出、Usage 遥测开关），以支撑更高客单价的商业场景。</p>
+<h3>D8 团队治理与可持续性</h3>
+<p><strong>得分：8.0 / 10（权重 7%）——良好，构成低商业化风险</strong></p>
+<h3>D8.1 核心维护者能力与背景（2.5 分）——小分：2.0</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术能力</td>
+<td>项目以 Python 为主（220,654 行，682 个源文件），覆盖 165+ 科学技能，技术纵深强；CI 含 skill-spec-validation、security-scan、skill-tests 等 5 个 workflow，工程化水平高</td>
+</tr>
+<tr>
+<td>商业经验</td>
+<td>由 K-Dense Inc. 公司实体运营（SECURITY.md 明确标注 "maintained by K-Dense"），项目定位 "#1 Agent Skills library for science"、宣称服务 190,000+ 科学家，商业化导向清晰；但核心维护者个人历史商业化成功案例无公开数据</td>
+</tr>
+<tr>
+<td>投入度</td>
+<td>从发布节奏推断近乎全职投入：2026-07-24 至 08-29 的 37 天内发布 10 个版本（v2.55.0→v2.65.0），90 天创建 35 个 PR、关闭 17 个 Issue</td>
+</tr>
+<tr>
+<td>巴士因子</td>
+<td>47 名贡献者，且有完善的技能贡献/测试框架，核心人员离开后社区接管难度较低；但没有披露核心维护者名单，无法精确确认核心团队规模</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分依据</strong>：团队投入度高（公司实体 + 高频发布），有一定商业经验，巴士因子 ≥3，符合 7–8 分档（80%），小分 = 2.5 × 80% = 2.0。</p>
+<h3>D8.2 治理模型透明度（2 分）——小分：1.6</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>治理文档</td>
+<td>无 GOVERNANCE.md/公开路线图；但有极详细的 CONTRIBUTING.md（技能格式规范、版本管理、验证流程、PR 检查清单），以及 CODE_OF_CONDUCT.md、SECURITY.md（含漏洞披露与安全扫描流程）</td>
+</tr>
+<tr>
+<td>开放程度</td>
+<td>外部贡献者可经 PR 参与，贡献指南明确列出新增/更新技能的完整流程；安全报告与 triage 文档公开（docs/security-report.md、docs/security-triage.md）；但决策权由 K-Dense 核心团队主导，无公开决策流程描述</td>
+</tr>
+<tr>
+<td>基金会/组织</td>
+<td>不属于 CNCF / Apache / Linux Foundation 等知名基金会，由 K-Dense Inc. 公司治理</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分依据</strong>：具备基本治理结构、决策较透明，优于"简单贡献指南"档但缺正式治理文档与基金会背书，符合 7–8 分档（80%），小分 = 2.0 × 80% = 1.6。</p>
+<h3>D8.3 资金支持与商业赞助（2.5 分）——小分：2.0</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>现有资金</td>
+<td>未获取公开的 VC 融资或基金会资助数据，无法定量确认</td>
+</tr>
+<tr>
+<td>赞助收入</td>
+<td>存在 docs/open-source-sponsors.md，说明有开源赞助机制；GitHub Sponsors / Open Collective 具体数据未采集到</td>
+</tr>
+<tr>
+<td>商业实体</td>
+<td>是——K-Dense Inc.（k-dense.ai）作为公司实体运营该项目，这是硬事实</td>
+</tr>
+<tr>
+<td>资金可持续性</td>
+<td>公司实体 + 持续高频版本发布（v2.x 系列每周 1–2 个 release）表明有稳定资源投入，但资金池规模未知</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分依据</strong>：有公司实体支持、可持续性可推断为正，但无公开资金规模证据，符合 7–8 分档（80%），小分 = 2.5 × 80% = 2.0。</p>
+<h3>D8.4 项目可持续性与传承风险（3 分）——小分：2.4</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>活跃趋势</td>
+<td>创建于 2025-10-19，约 10 个月达到 37,905 stars；最近 push 2026-08-29，近 5 周发布 10 个版本（v2.55.0→v2.65.0），活跃度处于快速上升通道</td>
+</tr>
+<tr>
+<td>维护延续性</td>
+<td>47 名贡献者、贡献指南完备、测试体系可独立运行（tests/run_all.py --isolated）、公司背书，传承机制基本健全</td>
+</tr>
+<tr>
+<td>历史信号</td>
+<td>archived=false，无 deprecated/unmaintained 标记；90 天关闭 17 个 Issue，当前仅 15 个开放，积压极低</td>
+</tr>
+<tr>
+<td>分叉风险</td>
+<td>3,570 forks / 37,905 stars ≈ 9.4%，属于正常比例，无社区分裂迹象</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分依据</strong>：活跃度持续上升、传承机制基本健全、无风险信号，符合 7–8 分档；考虑到项目极年轻（&lt;1 年）治理尚未历经周期考验，取 8（80%），小分 = 3.0 × 80% = 2.4。</p>
+<h3>结论</h3>
+<p>K-Dense-AI/scientific-agent-skills 背后有明确的公司实体（K-Dense Inc.）全职运营，团队投入度高、工程能力扎实、商业化导向清晰；治理文档虽无正式 GOVERNANCE.md，但 CONTRIBUTING/SECURITY/CODE_OF_CONDUCT 构成了一套透明且可操作的治理框架；资金层面有公司支持、可持续性推断为正，但公开数据有限；项目活跃度快速上升、传承风险低。整体 <strong>D8 得分 8.0/10</strong>，为商业化提供了稳定的人力与治理基础，无明显治理性障碍。</p>
+<h3>D9 上手难度与易用性（权重 10%）</h3>
+<h4>评分总览</h4>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D9.1 安装难度</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>良好（80%）</td>
+</tr>
+<tr>
+<td>D9.2 部署与配置难度</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>良好（80%）</td>
+</tr>
+<tr>
+<td>D9.3 易用性与操作门槛</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>良好（80%）</td>
+</tr>
+<tr>
+<td>D9.4 学习曲线与首体验</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>良好（80%）</td>
+</tr>
+<tr>
+<td><strong>D9 总分</strong></td>
+<td><strong>10</strong></td>
+<td><strong>8.0</strong></td>
+<td><strong>🟢 简单</strong></td>
+</tr>
+</tbody>
+</table>
+<h4>D9.1 安装难度（2.0/2.5）</h4>
+<p><strong>数据依据</strong>：README 「Getting Started」章节提供 <code>npx skills add</code>（单条命令）、<code>gh skill install</code>、Agent Plugins 及手动 git clone 四种安装路径；pyproject.toml 要求 Python ≥3.13 且依赖仅有 4 个开发/扫描用包；README「Prerequisites」要求 Python 3.13+、uv 及 Windows 需 WSL2。</p>
+<p><strong>分析</strong>：仓库自身依赖极简，主推的 <code>npx</code> 或 <code>gh skill</code> 安装均为一条命令，达到「一键安装」级别。但存在两方面折扣：一是前置环境要求（Python 3.13+、uv）对零基础用户不够友好，且 Windows 原生不支持、必须走 WSL2；二是每个 Skill 各自保有其依赖清单（<code>SKILL.md</code> 内申明），实际使用某技能时仍需按需安装相应科学计算包，并非完全自包含。整体评分落在「包管理器安装、需少量配置」的良好档。</p>
+<h4>D9.2 部署与配置难度（2.0/2.5）</h4>
+<p><strong>数据依据</strong>：仓库无 Dockerfile（<code>has_dockerfile: false</code>）、无 Helm Chart；安装后由宿主 Agent 自动发现技能，无需编写配置文件；不涉及数据库/缓存等外部组件初始化；无 quickstart 脚本，但 README 提供「Getting Started」图文与 YouTube 视频教程。</p>
+<p><strong>分析</strong>：部署形态为「技能插装」而非传统服务编排，安装完成后无需额外初始化即可被 Agent 发现使用，配置复杂度极低。扣分点在于：缺少 docker-compose/Helm 等标准化交付物，完全依赖用户已有的 Agent 环境；部分宿主（如 Cursor）需要手工 symlink 操作；外部 API 类技能（Exa、Benchling、NCBI 等）后续使用仍需配置 API Key，虽不属部署环节，但会拉长「可用状态」的时间。对运维/开发者而言可独立完成，非技术人员需要借助视频引导，故评 8 分。</p>
+<h4>D9.3 易用性与操作门槛（2.0/2.5）</h4>
+<p><strong>数据依据</strong>：README 明确「You can also invoke any skill manually by mentioning the skill name in your prompt」，即通过自然语言触发技能；每个 Skill 附带 <code>SKILL.md</code> 文档、示例与最佳实践；仓库 CI 对每个带 <code>scripts/</code> 的技能执行测试，保证 <code>--help</code> 等行为正确；提供 Troubleshooting 与 FAQ 章节。</p>
+<p><strong>分析</strong>：日常使用完全通过自然语言与 Agent 交互，用户无需记忆命令或参数，操作门槛极低。<code>SKILL.md</code> 结构化文档让 Agent 能自动提取用法，相当于内置「智能提示」。默认安装整个仓库会造成较大上下文占用（README 亦提示「consider installing a topical subset」），说明默认配置并非完美，需用户自行裁剪。错误处理虽依赖 Agent 宿主，但技能自带测试与文档，整体出错概率可控。综合评 8 分。</p>
+<h4>D9.4 学习曲线与首体验（2.0/2.5）</h4>
+<p><strong>数据依据</strong>：README 提供「Getting Started」快速开始、5 个 YouTube 实战视频教程（含「No prior technical experience needed」的 webinar）、25 个示例文件、docs/examples.md，FAQ 覆盖安装、使用、离线场景等问题。</p>
+<p><strong>分析</strong>：只要预装好 Agent 环境，<code>npx skills add</code> 安装后即可在对话中直呼技能名完成首次使用，目标可压在 30 分钟以内；官方视频教程大幅降低了非技术科研人员的上手阻力，学习曲线平缓。但缺乏交互式 onboarding 引导（如 CLI 向导），且「10 分钟跑通」需要用户已具备 Python/uv 基础，对完全零基础的用户仍有半天的摸索期。示例丰富度与引导资源优于同类项目，故评 8 分。</p>
+<h4>关键发现</h4>
+<ul>
+<li>本项目的「上手难度」核心不在安装，而在前置环境准备（Python 3.13+、uv、Agent 宿主），一旦就绪，安装与使用均为一句话级别。</li>
+<li>作为「技能库」而非独立应用，部署形态新颖轻量，天然规避了传统软件复杂的服务编排问题。</li>
+<li>非技术科研人员可通过视频教程独立完成安装与首次使用，但 Windows 用户需 WSL2 是主要门槛。</li>
+<li>全库安装带来上下文膨胀，官方已提示按需安装子集，但这属于进阶调优，不影响首体验。</li>
+</ul>
+<h3>D10. 功能价值——使用价值视角（平行维度，权重 0%，不计入综合评分）</h3>
+<p><strong>维度说明</strong>: 本维度与 D1–D9 商业评分正交，仅评估项目为使用者创造的效用量级，不问付费意愿。K-Dense-AI/scientific-agent-skills 是一个「AI 智能体科学技能库」——163 个开箱即用的 <code>SKILL.md</code> + 脚本 + 参考文档集合，而非可独立运行的软件服务。其效用形态为：科研人员将技能库装入 Cursor、Claude Code 等 AI 智能体后，智能体即可执行基因组分析、分子对接、临床试验检索、PK/PD 建模等复杂科研工作流。</p>
+<h4>D10.1 效用强度（满分 3 分，得分 2.4）</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>单用户节省量</td>
+<td>README 明示「Save Days of Work — Skip API documentation research and integration setup」。每个技能含 <code>SKILL.md</code> 文档、代码示例、最佳实践、集成指南及参考材料（本地实测：doc 文件 1226 个，tests 49302 行覆盖每个带 <code>scripts/</code> 的技能）。对科研用户而言，手动完成单个科学库（如 Scanpy、RDKit）的 Agent 集成与调试需数小时至数天，163 个技能全量复用则节省数十人日</td>
+</tr>
+<tr>
+<td>效用层级</td>
+<td>项目级依赖。对于药物发现、生物信息学团队，该库可作为日常科研工作流的核心支撑层；但未达「业务命脉级」——熟练科研人员仍可绕过它直接编码调用底层库/API，并非不可替代</td>
+</tr>
+<tr>
+<td>效用确定性</td>
+<td>稳定可预期。每个技能有测试套件（test_ratio 23.3%）、CI 强制校验（skill-tests.yml + skill-spec-validation.yml），且 README 明确「Tested examples with explicit validation, provenance, and safety boundaries」。数据库技能依赖第三方公共 API 网络可用性，属可控外部变量</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判定</strong>: 7–8 档（项目级依赖，显著节省开发/运营成本）。按 80% 折算得 <strong>2.4 分</strong>。</p>
+<h4>D10.2 实际使用规模（满分 3 分，得分 1.8）</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>依赖方数量</td>
+<td>GitHub Dependents 计数未实采（N/A）。项目分发形态为 <code>npx skills add</code>、<code>git clone</code>、<code>gh skill install</code>、插件目录复制，绕过传统包注册表，故 npm/PyPI 下载量指标不适用（实采值均为 N/A）</td>
+</tr>
+<tr>
+<td>下载/拉取量</td>
+<td>npm_weekly_downloads / pypi_monthly_downloads 均为 N/A。这是分发生态特性而非无人使用——README 提供了完整的安装教程矩阵（npx、GitHub CLI、Agent Plugins、手动 clone）</td>
+</tr>
+<tr>
+<td>生产采用证据</td>
+<td>README 声称「used by 190,000+ scientists worldwide」（项目方自我描述，未独立验证）；37,905 stars / 3,570 forks / 47 contributors 为 GitHub API 实采硬事实；90 天内 35 个 PR、17 个 issue 关闭，社区活跃度极高；项目创建于 2025-10-19，不足一年达到该量级，增长速度显著</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判定</strong>: 硬性安装量/依赖方计数缺失，但 37.9k stars 与 3.57k forks 足以支撑「万级实际使用者」的保守推断（fork 数 3570 直接对应实体账户复制行为），项目方声称指向十万级。按保守口径落 5–6 档（万级依赖方），60% 折算得 <strong>1.8 分</strong>。若未来能补采安装计数，该项有上修空间。</p>
+<h4>D10.3 免费可得的完整效用（满分 2 分，得分 2.0）</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>开源版完整性</td>
+<td>MIT 协议，163 个技能全部随仓库分发（本地实测：skills/ 目录含 682 个 Python 文件 / 220,654 行代码 + 1226 个文档文件），无任何技能功能被付费墙隔断</td>
+</tr>
+<tr>
+<td>自托管完整性</td>
+<td>技能为纯本地文件（SKILL.md + scripts + references），用户 git clone 后即可在任意兼容主机加载，无需连接 K-Dense 任何官方服务；数据库技能调用的是 NCBI、PubChem、ChEMBL 等第三方公共 API，非 K-Dense 专有后端</td>
+</tr>
+<tr>
+<td>无隐性收费</td>
+<td>README 明确「Free for any use (commercial and noncommercial)」；「Commercial support available」仅为可选增值服务，不影响开源版功能完整；官方另有免费开源桌面端 K-Dense BYOK 强化生态</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判定</strong>: 9–10 档（开源版即全部价值，无功能阉割）。100% 折算得 <strong>2.0 分</strong>。本项高分与 D4.3（付费转化）低分构成典型的「使用价值 vs 交换价值」张力——价值全部暴露在开源侧，是商业化变现的结构性难题而非功能缺陷。</p>
+<h4>D10.4 效用可持续性（满分 2 分，得分 2.0）</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>停维后效用存续</td>
+<td>技能安装后即为本地静态资产，项目停止维护不导致已安装技能失效；数据库技能依赖的第三方公共 API（NCBI 等）不随本仓库停维而消失</td>
+</tr>
+<tr>
+<td>供应商锁定</td>
+<td>无 K-Dense 专有闭源组件或云服务依赖；运行时依赖均为开源 Python 库（Biopython、RDKit、Scanpy 等）；CI 中的 Cisco AI Defense Skill Scanner 仅属开发期工具</td>
+</tr>
+<tr>
+<td>可分叉维护性</td>
+<td>MIT 许可 + 完整源码 + 可重现的测试与 CI 流程（5 个 workflow、pytest 配置齐全）+ 47 名既有贡献者，社区分叉维护条件充分；README 明确欢迎并引导社区贡献</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判定</strong>: 9–10 档（完全本地化运行，无外部专有依赖，可自由分叉）。100% 折算得 <strong>2.0 分</strong>。</p>
+<h4>D10 细则分值汇总</h4>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>分值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10.1</td>
+<td>效用强度</td>
+<td>2.4</td>
+</tr>
+<tr>
+<td>D10.2</td>
+<td>实际使用规模</td>
+<td>1.8</td>
+</tr>
+<tr>
+<td>D10.3</td>
+<td>免费可得的完整效用</td>
+<td>2.0</td>
+</tr>
+<tr>
+<td>D10.4</td>
+<td>效用可持续性</td>
+<td>2.0</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>8.2</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>: D10 总分 <strong>8.2/10</strong>，对应「良好」区间上沿。该项目的使用价值结构清晰：效用强度（8/10 档）与免费完整性、可持续性（均 10/10 档）构成核心支撑，将其定位为一个高使用价值、零转化墙的「科研基础设施型」开源资产。同维度内最大短板是使用规模的可验证性——因分发形态绕过传统包管理计数，且 GitHub Dependents 未补采到，只能以 star/fork 量级与项目方声称推断万级至十万级使用者。与 D1–D9 商业维度的正交性在本项目中尤为突出：D10.3 满分（价值全开放）直接解释 D4.3 付费转化空间的收窄，属典型的「Gin 式」价值结构——使用者获得极大效用，但效用不易被项目方捕获为收入。</p>
+<h3>D11. 社会价值（正外部性）评估</h3>
+<blockquote>
+<p><strong>维度说明</strong>: 本维度为平行维度（权重 0%，不计入综合评分与一票否决），仅用于 3.4 价值画像。评估视角区别于 D3.4（品牌影响力对商业势能的助力，属商业输入）——本维度评项目对行业/社会的外溢贡献本身；与 D2.5/D2.6 共用 i18n/无障碍等工程事实素材，但评价视角为普惠效果而非工程质量。D11.4 外部论文引用检索不可得，标注 N/A 处理。</p>
+</blockquote>
+<h4>D11.1 数字公共基础设施属性</h4>
+<p>本项目在"AI 科学代理技能"这一新兴细分领域占据绝对头部生态位：37,905 stars 远超竞品清单中最高 133 stars（Eldergenix/Plato-Scientific-Research-Autonomous-Agent），3,570 forks 构成可延续的内容网络；安装路径已被标准化工具链吸收（<code>npx skills add</code>、GitHub CLI <code>gh skill install</code>），且以 <code>plugin.json</code> 形式成为 Agent Plugins 1.0.0 合法包，具备数字公共产品（开放、可复用、服务公共利益）的典型特征。但需注意其"数字底座"属性弱于 curl/OpenSSL 式编译期依赖——163 个技能本质是对已有科学库（Biopython、Scanpy、RDKit 等）与公共数据库的封装增强，README 亦明确"The agent can still use any Python package"，即用户绕过本库仍可达成大部分能力，可替代性较强；项目自述 190,000+ 科学家使用，但停摆影响主要限于 AI 科研工作流这一内容层，尚不波及底层软件供应链。综合判定为"有一定下游依赖，但可替代性强"档位。</p>
+<h4>D11.2 教育与人才价值</h4>
+<p>项目教育价值突出：README 公开 6 个教学视频（含"Skills 101: Build Your Own Scientific Agent Skill"系统教授技能开发），配合 1,226 个文档文件、25 个示例文件、每技能独立的 <code>SKILL.md</code>+参考文档+测试套件，构成完整的教学-实践闭环；<code>CONTRIBUTING.md</code>、<code>AGENTS.md</code>、结构化技能契约与 CI 校验（5 个 workflow）使其代码成为 agent skill 工程化的可读范本。门槛降低效应显著——科研人员无需逐个研读 78+ 数据库 API 文档与 70+ 科学包的用法细节，即可驱动 agent 完成文献检索、分子对接、PK/PD 建模等复杂工作流；README 设置 Citation 章节（BibTeX/APA/MLA）鼓励科研引用。但"事实上的行业教材、海量课程围绕它展开"的证据尚不充分（外部课程/教程数量未检索到），定位为"教学与入门路径中常见、教程丰富"档位。</p>
+<h4>D11.3 普惠与可及性</h4>
+<p>能力平权化效果显著：MIT 许可免费提供 163 技能 + 100+ 数据库统一访问（覆盖 PubChem、ChEMBL、UniProt、ClinicalTrials.gov 等本需逐一付费/申请的科学数据源），并将 Benchling、DNAnexus、LatchBio 等商业平台集成以免费 skill 形式开放；对比同类商业 AI 科研助手/平台订阅制收费，本项目近零成本，且 K-Dense BYOK 支持本地运行、数据不出桌面，降低资源有限团队与个人获得高级科研计算能力的门槛。可及性支持存在短板：文档全英文、无 i18n/无障碍证据（与 D2.5 共用素材），要求 Python 3.13+ 且数据库类技能需联网，对欠发达地区/低配环境构成技术门槛。整体属"显著降低获得门槛并覆盖主要人群，但受语言/技术环境限制"档位。</p>
+<h4>D11.4 开放标准与行业推动</h4>
+<p>项目是开放 Agent Skills 标准的坚定推动者而非仅遵循者：从原名"Claude Scientific Skills"更名为"Scientific Agent Skills"、放弃单一厂商绑定，明确兼容 Cursor、Claude Code、Codex、Gemini CLI、Antigravity、Pi、Hermes 等 7+ 客户端，并适配 Agent Plugins 1.0.0 与 GitHub CLI <code>gh skill</code> 官方安装链路，对防止 AI 工具链厂商锁定有直接行业贡献。工程实践具有示范效应——每周增量安全扫描（集成 Cisco AI Defense Skill Scanner）并公开安全报告、<code>skills-ref validate</code> 结构契约、每技能强制测试套件，这些实践通过 README 与 CI 模板向同行输出，竞品库（如 panjose/Co-Scientist 亦命名"scientific agent skills"）显示跟随痕迹。学术引用方面提供了规范引用格式，但外部论文引用次数检索数据不可得（N/A），不据此加分也不扣分。综合判定"实现并推广了重要开放标准，有示范效应"档位。</p>
+<h4>D11 细则分值汇总</h4>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D11.1</td>
+<td>数字公共基础设施属性</td>
+<td>3</td>
+<td>1.8</td>
+<td>60% 档：领域头部但有下游依赖、可替代性强，未达行业级底座</td>
+</tr>
+<tr>
+<td>D11.2</td>
+<td>教育与人才价值</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>80% 档：教程/文档/范本丰富，教学采用常见但未成行业教材</td>
+</tr>
+<tr>
+<td>D11.3</td>
+<td>普惠与可及性</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>80% 档：免费替代商业方案、平权效果显著，受语言/技术门槛限制</td>
+</tr>
+<tr>
+<td>D11.4</td>
+<td>开放标准与行业推动</td>
+<td>2</td>
+<td>1.6</td>
+<td>80% 档：推广开放 Agent Skills/Plugins 标准、防厂商锁定、工程示范（论文引用 N/A）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td><strong>7.4</strong></td>
+<td>良好（7–8 档）</td>
+</tr>
+</tbody>
+</table>
+<h4>结论</h4>
+<p><strong>社会价值总分 7.4/10（良好）</strong>。该项目的正外部性集中体现在三方面：其一，以 MIT 许可免费开放 163 技能 + 100+ 数据库访问，将本需商业订阅的科学数据源与平台集成能力平权化，对中小团队、个人科研者有切实普惠价值；其二，作为开放 Agent Skills/Agent Plugins 标准的头部实现者与推广者（3.79 万 stars 为领域断层第一、竞品最高仅 133），以实际行动推动 AI 工具链去厂商锁定，并输出安全扫描、技能测试、结构契约等工程规范，抬高行业水位；其三，丰富的教学视频、文档与可引用规范降低了 AI for Science 的入门门槛。扣分项在于：数字底座属性受限于「技能内容层」定位（非编译期依赖，可替代性强），以及 i18n/无障碍支持缺失与 Python 3.13+ 环境要求限制了低配/非英文场景的完全普惠。外部论文引用数据不可得（N/A），不影响本维度总分。本维度为平行维度，不计入综合评分，供 3.4 价值画像参考。</p>
+<h2>五、商业化价值判断</h2>
+<h3>5.1 综合价值评估</h3>
+<p>Scientific Agent Skills 展现出<strong>高商业化潜力</strong>（A 级，77.2/100），同时具备<strong>高公共价值</strong>（7.8/10），被判定为"明星资产"型项目。这意味着它不仅能直接变现，还承载着行业标准推广与科研普惠的公共使命，商业化过程中需兼顾社区声誉经营。</p>
+<h3>5.2 核心价值支撑</h3>
+<p><strong>需求侧强信号</strong>：项目处于 AI Agent 与 AI for Science 双高增长赛道叠加位置，TAM 量级达百亿美元级。10 个月 37,905 stars 的增长曲线（月增约 3,645）是需求真实性的强证明。163 个带测试验证的技能库解决了"通用 AI Agent 缺乏科学领域专业能力"的真实痛点，配套 ICH/CLSI/ISO 等法规级参考文档，方案完整度远超替代品。</p>
+<p><strong>供给侧成熟度</strong>：产品已高度成熟（v2.65.0 正式版，周更节奏），安全实践达到商业化交付标准（多层安全扫描 + 全技能防御性编码），文档体系标杆级（1,226 个文档文件），开放 Issue 仅 15 个（在 37.9k Star 规模下缺陷密度极低）。</p>
+<p><strong>用户基础与变现距离</strong>：项目方声称 190,000+ 科学家用户（未独立验证），README 已建立企业支持服务入口（"Enterprise Support: Contact K-Dense"），变现距离"近"。</p>
+<h3>5.3 价值/交换价值张力</h3>
+<p>MIT 协议 + 纯本地文件形态意味着开源版即全部价值，无功能阉割或隐性收费。这构成典型的<strong>使用价值与交换价值张力</strong>：用户可免费获得完整能力，付费转化需依赖企业级 SLA、合规需求、定制服务等增值场景。这一张力既是商业化挑战，也是社区快速扩张的驱动力。</p>
+<hr />
+<h2>六、商业路径分析</h2>
+<h3>6.1 最优路径：企业支持与专业服务（当前已启动）</h3>
+<p>项目已选择"Open Source（MIT）+ 企业支持双轨"模式，README 明确提供 Commercial support + Enterprise Support 联系入口。这是当前最自然、阻力最小的变现路径：</p>
+<ul>
+<li><strong>目标客户</strong>：药企、科研机构、CRO 公司</li>
+<li><strong>付费触发点</strong>：企业级 SLA、合规需求（ICH/CLSI/ISO 法规级文档配套）、私有化部署</li>
+<li><strong>客单价预期</strong>：$10K+/年（基于企业级服务市场惯例）</li>
+<li><strong>落地动作</strong>：建立公开定价页与功能分层，将现有企业支持入口转化为完整转化漏斗</li>
+</ul>
+<h3>6.2 辅助路径：Open Core 与 SaaS 托管（备选）</h3>
+<ul>
+<li><strong>Open Core</strong>：在 MIT 核心之上增加企业版功能（如 SSO/RBAC/审计日志等企业管控层，当前缺失），形成免费/付费分层</li>
+<li><strong>SaaS 托管</strong>：利用 Modal 云端部署能力，提供托管版技能执行环境，降低用户自建成本</li>
+<li><strong>现状</strong>：两条路径均未公开落地，无功能分层与定价页，自助转化漏斗未建立</li>
+</ul>
+<h3>6.3 生态杠杆：标准制定者红利</h3>
+<p>项目是 Agent Skills/Agent Plugins 开放标准的核心推广者，兼容 7+ 客户端，入选 gh skill 官方安装链路。作为标准生态的关键参与者，可通过以下方式放大商业价值：</p>
+<ul>
+<li>成为 Agent 技能市场的"应用商店"入口，收取分发佣金</li>
+<li>围绕标准提供认证、培训、咨询服务</li>
+<li>与主流 Agent 平台（Cursor/Claude Code/Codex 等）建立官方合作</li>
+</ul>
+<h3>6.4 路径优先级建议</h3>
+<table>
+<thead>
+<tr>
+<th>优先级</th>
+<th>路径</th>
+<th>投入产出比</th>
+<th>时间窗口</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P0</td>
+<td>企业支持/专业服务</td>
+<td>高（现有入口+真实付费意愿）</td>
+<td>立即启动</td>
+</tr>
+<tr>
+<td>P1</td>
+<td>Open Core 分层</td>
+<td>中高（需补齐企业级功能）</td>
+<td>3-6 个月</td>
+</tr>
+<tr>
+<td>P2</td>
+<td>标准生态变现</td>
+<td>中（依赖标准普及度）</td>
+<td>6-12 个月</td>
+</tr>
+<tr>
+<td>P3</td>
+<td>SaaS 托管</td>
+<td>中低（需基础设施投入）</td>
+<td>12 个月+</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>画像修正提示</strong>：作为"明星资产"，商业化过程中应避免竭泽而渔——参照 Elastic 改协议的反噬教训，保持 MIT 核心的开放性，通过增值服务而非限制核心功能来实现变现。</p>
+</blockquote>
+<hr />
+<h2>七、能力评估：能做什么 &amp; 最适合做什么</h2>
+<h3>7.1 核心能力清单</h3>
+<table>
+<thead>
+<tr>
+<th>能力域</th>
+<th>具体能力</th>
+<th>成熟度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>科学技能覆盖</strong></td>
+<td>163 个验证过的技能，覆盖生物医药/化学/物理/材料/金融等 10+ 领域</td>
+<td>★★★★★</td>
+</tr>
+<tr>
+<td><strong>数据库集成</strong></td>
+<td>100+ 科学数据库（78 个统一公共数据库：PubChem/ChEMBL/UniProt/ClinicalTrials.gov 等）+ Benchling/DNAnexus 商业平台</td>
+<td>★★★★★</td>
+</tr>
+<tr>
+<td><strong>安全工程</strong></td>
+<td>多层安全扫描（PR 级+周级全量）、路径遍历防护、XML DTD 禁用、zip bomb 检测、无硬编码凭据</td>
+<td>★★★★★</td>
+</tr>
+<tr>
+<td><strong>文档体系</strong></td>
+<td>1,226 个文档文件，每技能含 SKILL.md + references/ 知识库，AGENTS.md/CLAUDE.md/SECURITY.md 齐全</td>
+<td>★★★★★</td>
+</tr>
+<tr>
+<td><strong>标准兼容</strong></td>
+<td>Agent Skills + Agent Plugins 双标准，兼容 7+ 客户端（Cursor/Claude Code/Codex/Gemini CLI/Antigravity/Pi/Hermes）</td>
+<td>★★★★☆</td>
+</tr>
+<tr>
+<td><strong>法规合规支持</strong></td>
+<td>配套 ICH/CLSI/ISO 等法规级参考文档</td>
+<td>★★★★☆</td>
+</tr>
+<tr>
+<td><strong>HPC 集成</strong></td>
+<td>Slurm 调度器检测、Nextflow 多执行器（pacsomatic）</td>
+<td>★★★☆☆</td>
+</tr>
+<tr>
+<td><strong>版本自动化</strong></td>
+<td>release.yml 自动发版，近 35 天发布 10 个版本</td>
+<td>★★★★★</td>
+</tr>
+</tbody>
+</table>
+<h3>7.2 最适合做什么</h3>
+<p>基于能力矩阵与市场需求匹配度，项目最适合的定位是：</p>
+<ol>
+<li><strong>科研机构的"AI 科学家"基础设施</strong>：将通用 Agent 转化为具备专业科学计算能力的工具，降低科研人员使用 AI 的门槛</li>
+<li><strong>生物医药研发的合规加速器</strong>：法规级文档配套 + 数据库集成，直击药企合规刚需</li>
+<li><strong>Agent 技能生态的标准制定者</strong>：作为开放标准核心推广者，占据生态位制高点</li>
+<li><strong>企业级 AI 转型的科学计算底座</strong>：为大型企业提供标准化的科学计算技能库</li>
+</ol>
+<h3>7.3 不适合做什么</h3>
+<ul>
+<li><strong>通用 AI 应用开发框架</strong>：项目深度绑定科学计算场景，不适合作为通用开发框架推广</li>
+<li><strong>低代码/无代码平台</strong>：虽操作门槛低，但本质是技能库而非应用构建平台</li>
+<li><strong>面向消费者的应用</strong>：目标用户为科研人员与开发者，不适合 C 端市场</li>
+</ul>
+<hr />
+<h2>八、短板识别：还缺少什么</h2>
+<h3>8.1 法律合规短板（D6=5.9，最低分维度）</h3>
+<table>
+<thead>
+<tr>
+<th>短板</th>
+<th>详情</th>
+<th>风险等级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>混合许可冲突</strong></td>
+<td>顶层 MIT 但 4 个技能（docx/pdf/pptx/xlsx）携带 Anthropic 专有许可证，整体再分发在法律上不成立</td>
+<td>🔴 高</td>
+</tr>
+<tr>
+<td><strong>无 CLA/DCO</strong></td>
+<td>47 名贡献者版权分散，制约协议变更与双协议商业化</td>
+<td>🟡 中</td>
+</tr>
+<tr>
+<td><strong>依赖链许可未审查</strong></td>
+<td>165 个技能内嵌大量第三方科学包的许可需逐项审查</td>
+<td>🟡 中</td>
+</tr>
+</tbody>
+</table>
+<h3>8.2 企业就绪度短板（D7=7.5）</h3>
+<table>
+<thead>
+<tr>
+<th>短板</th>
+<th>详情</th>
+<th>影响</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>无 SSO/LDAP 认证</strong></td>
+<td>企业级身份认证缺失</td>
+<td>阻碍大型企业采购</td>
+</tr>
+<tr>
+<td><strong>无 RBAC 权限模型</strong></td>
+<td>无法实现细粒度权限控制</td>
+<td>阻碍企业部署</td>
+</tr>
+<tr>
+<td><strong>无操作审计日志</strong></td>
+<td>无法满足合规审计要求</td>
+<td>阻碍受监管行业</td>
+</tr>
+<tr>
+<td><strong>无运行时监控告警</strong></td>
+<td>无 Prometheus/OpenTelemetry 集成</td>
+<td>阻碍生产环境落地</td>
+</tr>
+</tbody>
+</table>
+<h3>8.3 商业化转化短板（D4=7.9）</h3>
+<table>
+<thead>
+<tr>
+<th>短板</th>
+<th>详情</th>
+<th>影响</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>无公开定价页</strong></td>
+<td>企业版功能分层与价格未公开</td>
+<td>自助转化漏斗未建立</td>
+</tr>
+<tr>
+<td><strong>无功能分层</strong></td>
+<td>免费/付费边界不清晰</td>
+<td>付费触发点模糊</td>
+</tr>
+<tr>
+<td><strong>付费转化逻辑弱</strong></td>
+<td>D4.3=1.5/2.5，依赖人工接触</td>
+<td>规模化变现受限</td>
+</tr>
+</tbody>
+</table>
+<h3>8.4 社区与生态短板（D3=7.1）</h3>
+<table>
+<thead>
+<tr>
+<th>短板</th>
+<th>详情</th>
+<th>影响</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>组织多样性缺乏证据</strong></td>
+<td>企业主导特征明显</td>
+<td>社区健康度存疑</td>
+</tr>
+<tr>
+<td><strong>第三方生态成熟度一般</strong></td>
+<td>缺少第三方权威背书</td>
+<td>生态杠杆未释放</td>
+</tr>
+<tr>
+<td><strong>品牌认知缺权威背书</strong></td>
+<td>37.9k Star 但无外部权威认证</td>
+<td>企业采购决策支撑不足</td>
+</tr>
+</tbody>
+</table>
+<h3>8.5 技术与平台短板</h3>
+<table>
+<thead>
+<tr>
+<th>短板</th>
+<th>详情</th>
+<th>影响</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>跨技能重复代码严重</strong></td>
+<td>docx/pptx/xlsx 三套 validators/base.py 近乎相同</td>
+<td>维护成本高</td>
+</tr>
+<tr>
+<td><strong>CI 测试范围受限</strong></td>
+<td>约 100+ 重依赖技能（torch/qiskit）不在 CI 执行</td>
+<td>回归盲区</td>
+</tr>
+<tr>
+<td><strong>Windows 不支持原生</strong></td>
+<td>需 WSL2</td>
+<td>平台门槛</td>
+</tr>
+<tr>
+<td><strong>Python 要求高</strong></td>
+<td>&gt;=3.13，限制部分用户</td>
+<td>采用门槛</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>九、风险提示</h2>
+<h3>9.1 法律合规风险（高优先级）</h3>
+<table>
+<thead>
+<tr>
+<th>风险</th>
+<th>详情</th>
+<th>触发条件</th>
+<th>缓解措施</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>混合许可再分发风险</strong></td>
+<td>4 个 Anthropic 专有技能与 MIT 核心共存，整体再分发在法律上不成立</td>
+<td>企业用户整体打包分发</td>
+<td>明确标识专有技能、提供剔除方案、与 Anthropic 协商授权</td>
+</tr>
+<tr>
+<td><strong>版权分散风险</strong></td>
+<td>无 CLA/DCO，47 名贡献者各自持有版权</td>
+<td>协议变更或双协议商业化</td>
+<td>补签 CLA、建立贡献者协议</td>
+</tr>
+<tr>
+<td><strong>依赖链许可风险</strong></td>
+<td>165 个技能内嵌大量第三方包</td>
+<td>逐项审查未完成</td>
+<td>建立依赖许可清单、自动化扫描</td>
+</tr>
+</tbody>
+</table>
+<h3>9.2 竞争风险（中优先级）</h3>
+<table>
+<thead>
+<tr>
+<th>风险</th>
+<th>详情</th>
+<th>触发条件</th>
+<th>缓解措施</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>技能可替代性强</strong></td>
+<td>技能本质为库封装增强，未达编译期数字底座层级</td>
+<td>巨头入场或竞品快速复制</td>
+<td>强化领域深度、建立数据/工作流壁垒</td>
+</tr>
+<tr>
+<td><strong>标准生态竞争</strong></td>
+<td>Agent Skills 标准密集落地期，科学领域尚无垄断者</td>
+<td>标准被巨头主导</td>
+<td>加速标准参与、扩大兼容矩阵</td>
+</tr>
+</tbody>
+</table>
+<h3>9.3 商业化执行风险（中优先级）</h3>
+<table>
+<thead>
+<tr>
+<th>风险</th>
+<th>详情</th>
+<th>触发条件</th>
+<th>缓解措施</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>社区反噬风险</strong></td>
+<td>作为"明星资产"，若过度商业化可能引发社区不满</td>
+<td>限制核心功能/改协议</td>
+<td>保持 MIT 核心开放、增值服务变现</td>
+</tr>
+<tr>
+<td><strong>转化漏斗缺失</strong></td>
+<td>无定价页与自助转化路径</td>
+<td>企业支持入口流量无法转化</td>
+<td>快速建立公开定价与分层</td>
+</tr>
+</tbody>
+</table>
+<h3>9.4 技术风险（低优先级）</h3>
+<table>
+<thead>
+<tr>
+<th>风险</th>
+<th>详情</th>
+<th>触发条件</th>
+<th>缓解措施</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>CI 回归盲区</strong></td>
+<td>重依赖技能不在 CI 执行</td>
+<td>技能更新引入回归</td>
+<td>扩展 CI 覆盖、增加集成测试</td>
+</tr>
+<tr>
+<td><strong>重复代码维护</strong></td>
+<td>跨技能重复代码严重</td>
+<td>维护成本随规模上升</td>
+<td>抽取公共库、重构 validators</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>十、结论与建议</h2>
+<h3>10.1 综合结论</h3>
+<p><strong>Scientific Agent Skills 是一个高商业化潜力（A 级，77.2/100）的"明星资产"型开源项目</strong>，处于 AI Agent 与 AI for Science 双高增长赛道，拥有 37.9k Star 的强需求信号、163 个验证技能的产品成熟度、以及 190,000+ 声称用户的基础。项目已建立企业支持入口，变现距离"近"。</p>
+<p><strong>核心优势</strong>：需求真实且强烈、产品成熟度高、安全实践卓越、文档标杆级、标准生态位领先。</p>
+<p><strong>核心短板</strong>：混合许可冲突（法律风险）、企业级管控层缺失（SSO/RBAC/审计）、商业化转化漏斗未建立、无 CLA/DCO。</p>
+<h3>10.2 战略建议</h3>
+<table>
+<thead>
+<tr>
+<th>优先级</th>
+<th>行动项</th>
+<th>预期效果</th>
+<th>时间窗口</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>P0</strong></td>
+<td>解决混合许可冲突（明确专有技能边界或与 Anthropic 协商）</td>
+<td>消除再分发法律风险</td>
+<td>立即</td>
+</tr>
+<tr>
+<td><strong>P0</strong></td>
+<td>建立公开定价页与企业版功能分层</td>
+<td>打通自助转化漏斗</td>
+<td>1-2 个月</td>
+</tr>
+<tr>
+<td><strong>P1</strong></td>
+<td>补齐企业级管控层（SSO/RBAC/审计日志）</td>
+<td>满足大型企业采购门槛</td>
+<td>3-6 个月</td>
+</tr>
+<tr>
+<td><strong>P1</strong></td>
+<td>补签 CLA/DCO，建立贡献者协议</td>
+<td>保障协议变更灵活性</td>
+<td>3 个月</td>
+</tr>
+<tr>
+<td><strong>P2</strong></td>
+<td>扩展 CI 覆盖至重依赖技能</td>
+<td>消除回归盲区</td>
+<td>6 个月</td>
+</tr>
+<tr>
+<td><strong>P2</strong></td>
+<td>重构跨技能重复代码</td>
+<td>降低维护成本</td>
+<td>6-12 个月</td>
+</tr>
+<tr>
+<td><strong>P3</strong></td>
+<td>探索标准生态变现（认证/培训/市场）</td>
+<td>放大生态杠杆</td>
+<td>12 个月+</td>
+</tr>
+</tbody>
+</table>
+<h3>10.3 风险对冲建议</h3>
+<ul>
+<li><strong>法律合规</strong>：优先处理 Anthropic 专有技能许可问题，可考虑将其从主仓库拆分或获取再分发授权</li>
+<li><strong>社区维护</strong>：作为"明星资产"，保持 MIT 核心开放性，通过企业级增值服务（SLA/合规/定制）而非限制核心功能实现变现</li>
+<li><strong>竞争防御</strong>：持续强化科学领域深度（法规文档、数据库集成、HPC 能力），构建难以复制的领域知识壁垒</li>
+</ul>
+<h3>10.4 最终判断</h3>
+<p><strong>建议立即投入商业化，优先选择"企业支持/专业服务"路径，同步补齐法律合规与企业就绪度短板。</strong> 项目具备成为 AI for Science 领域基础设施级产品的潜力，但需在商业化推进中平衡社区信任与变现诉求，避免因短期利益损害长期生态位。</p>
+<h2>十一、项目地址</h2>
+<p><svg class="ri ri-muted" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.001 2C6.47598 2 2.00098 6.475 2.00098 12C2.00098 16.425 4.86348 20.1625 8.83848 21.4875C9.33848 21.575 9.52598 21.275 9.52598 21.0125C9.52598 20.775 9.51348 19.9875 9.51348 19.15C7.00098 19.6125 6.35098 18.5375 6.15098 17.975C6.03848 17.6875 5.55098 16.8 5.12598 16.5625C4.77598 16.375 4.27598 15.9125 5.11348 15.9C5.90098 15.8875 6.46348 16.625 6.65098 16.925C7.55098 18.4375 8.98848 18.0125 9.56348 17.75C9.65098 17.1 9.91348 16.6625 10.201 16.4125C7.97598 16.1625 5.65098 15.3 5.65098 11.475C5.65098 10.3875 6.03848 9.4875 6.67598 8.7875C6.57598 8.5375 6.22598 7.5125 6.77598 6.1375C6.77598 6.1375 7.61348 5.875 9.52598 7.1625C10.326 6.9375 11.176 6.825 12.026 6.825C12.876 6.825 13.726 6.9375 14.526 7.1625C16.4385 5.8625 17.276 6.1375 17.276 6.1375C17.826 7.5125 17.476 8.5375 17.376 8.7875C18.0135 9.4875 18.401 10.375 18.401 11.475C18.401 15.3125 16.0635 16.1625 13.8385 16.4125C14.201 16.725 14.5135 17.325 14.5135 18.2625C14.5135 19.6 14.501 20.675 14.501 21.0125C14.501 21.275 14.6885 21.5875 15.1885 21.4875C19.259 20.1133 21.9999 16.2963 22.001 12C22.001 6.475 17.526 2 12.001 2Z"/></svg> <a href="https://github.com/K-Dense-AI/scientific-agent-skills">https://github.com/K-Dense-AI/scientific-agent-skills</a></p>
+<hr />
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+</blockquote>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家　<a href="https://www.mova.work">www.mova.work</a></p></body></html>

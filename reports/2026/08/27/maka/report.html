@@ -1,0 +1,1892 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><title>Maka 商业价值分析报告</title><style>/* default — 品牌蓝紫主题（从 md2pdf.py 原 CSS 常量迁出，视觉与历史产物一致） */
+@page { size: A4; margin: 18mm 15mm 20mm 15mm; }
+* { box-sizing: border-box; }
+/* 字体规范：一律开源思源黑体 CN（OFL 免费商用）；正文 Regular/标题 Bold/大字数字 Light */
+body { font-family: "Source Han Sans CN","思源黑体 CN","Noto Sans SC",sans-serif; color:#1e293b; font-size:10.5pt; line-height:1.75; margin:0; }
+.cover { page-break-after: always; text-align:center; padding-top:40px; }
+.cover .kicker { color:#2563eb; letter-spacing:6px; font-size:12pt; font-weight:500; }
+.cover h1 { font-size:26pt; margin:14px 0 6px; }
+.cover .sub { color:#64748b; font-size:11pt; margin-bottom:22px; }
+.badge { display:inline-block; background:linear-gradient(135deg,#2563eb,#7c3aed); color:#fff; border-radius:18px; padding:16px 44px; margin:10px 0 18px; }
+.badge .g { font-size:34pt; font-weight:300; line-height:1; }
+.badge .s { font-size:12pt; opacity:.92; margin-top:4px; }
+.meta { color:#475569; font-size:9.5pt; margin-top:14px; }
+.bars { max-width:620px; margin:20px auto 0; text-align:left; }
+.bar-row { display:flex; align-items:center; gap:8px; margin:5px 0; font-size:9pt; }
+.bar-name { width:110px; text-align:right; color:#334155; font-weight:500; }
+.bar-track { flex:1; height:9px; background:#f1f5f9; border-radius:5px; overflow:hidden; }
+.bar-fill { display:block; height:100%; border-radius:5px; }
+.bar-val { width:30px; font-weight:700; color:#0f172a; }
+.bar-w { width:52px; color:#94a3b8; font-size:8pt; }
+h1 { font-size:17pt; color:#0f172a; border-bottom:3px solid #2563eb; padding-bottom:8px; }
+h2 { font-size:13.5pt; color:#1d4ed8; margin-top:26px; page-break-after: avoid; border-left:5px solid #2563eb; padding-left:10px; }
+h3 { font-size:11.5pt; color:#0f172a; margin-top:18px; page-break-after: avoid; }
+table { border-collapse:collapse; width:100%; margin:10px 0; font-size:9pt; page-break-inside:avoid; }
+th { background:#eff6ff; color:#1e3a8a; }
+th,td { border:1px solid #dbe3ef; padding:5px 8px; text-align:left; }
+tr:nth-child(even) td { background:#f8fafc; }
+code { background:#f1f5f9; border-radius:4px; padding:1px 5px; font-family:"JetBrains Mono","Cascadia Mono",monospace; font-size:9pt; color:#be185d; }
+pre { background:#0f172a; color:#e2e8f0; border-radius:8px; padding:12px 14px; overflow-x:auto; page-break-inside:avoid; }
+pre code { background:none; color:inherit; padding:0; }
+blockquote { border-left:4px solid #93c5fd; background:#eff6ff; margin:10px 0; padding:8px 14px; color:#334155; border-radius:0 8px 8px 0; }
+hr { border:none; border-top:1px dashed #cbd5e1; margin:22px 0; }
+strong { color:#0f172a; }
+.cover .disclaimer { max-width:620px; margin:16px auto 0; color:#64748b; font-size:8.5pt; line-height:1.6; text-align:left; border:1px solid #e2e8f0; border-radius:8px; padding:8px 12px; background:#f8fafc; }
+.credit { color:#2563eb; font-size:10.5pt; font-weight:700; letter-spacing:1px; margin-top:12px; }
+.at-acc { background:#dbeafe; color:#1d4ed8; border-radius:4px; padding:0 4px; font-weight:500; white-space:nowrap; }
+.tail { page-break-inside:avoid; margin-top:26px; border-top:2px solid #2563eb; padding-top:14px; }
+.tail p { color:#64748b; font-size:8.5pt; line-height:1.6; margin:0 0 10px; }
+.tail .credit { text-align:center; margin:0; }
+/* Remix Icon 内联 SVG（icon_mode=remix 时由脚本注入，语义色与评分条一致） */
+.ri { width:1.05em; height:1.05em; vertical-align:-0.18em; display:inline-block; }
+.ri-ok { color:#16a34a; } .ri-warn { color:#d97706; } .ri-bad { color:#dc2626; }
+.ri-muted { color:#64748b; } .ri-star { color:#f59e0b; } .ri-brand { color:#2563eb; }
+.ri-gold { color:#d4a017; } .ri-silver { color:#9ca3af; } .ri-bronze { color:#b45309; }
+/* 屏幕预览：@page 边距仅在打印时生效，浏览器中居中限宽并收边（不影响 PDF 输出） */
+@media screen {
+  body { margin: 0 auto; padding: 28px 36px 56px; max-width: 900px; }
+}
+</style></head><body><div class="cover">
+<div class="kicker">开源项目商业化潜力分析 · 第 25 期</div>
+<h1>GitHub 开源项目 Maka<br>商业价值分析报告</h1>
+<div class="sub">apache/maka · 本地优先 AI Agent 运行时 · 九维度加权评估 73.9/100</div>
+<div class="badge"><div class="g">A 级 · 73.9</div><div class="s">综合评分（满分 100）· 高商业化潜力</div></div>
+<div><svg viewBox="0 0 560 480" width="560" height="480" xmlns="http://www.w3.org/2000/svg"><polygon points="280.0,209.6 299.5,216.7 309.9,234.7 306.3,255.2 290.4,268.6 269.6,268.6 253.7,255.2 250.1,234.7 260.5,216.7" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,179.2 319.1,193.4 339.9,229.4 332.7,270.4 300.8,297.1 259.2,297.1 227.3,270.4 220.1,229.4 240.9,193.4" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,148.8 338.6,170.1 369.8,224.2 359.0,285.6 311.2,325.7 248.8,325.7 201.0,285.6 190.2,224.2 221.4,170.1" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,118.4 358.2,146.8 399.8,218.9 385.3,300.8 321.6,354.3 238.4,354.3 174.7,300.8 160.2,218.9 201.8,146.8" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,88.0 377.7,123.6 429.7,213.6 411.6,316.0 332.0,382.8 228.0,382.8 148.4,316.0 130.3,213.6 182.3,123.6" fill="none" stroke="#e2e8f0" stroke-width="1"/><line x1="280.0" y1="240.0" x2="280.0" y2="88.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="377.7" y2="123.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="429.7" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="411.6" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="332.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="228.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="148.4" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="130.3" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="182.3" y2="123.6" stroke="#d8dee9" stroke-width="1"/><polygon points="280.0,126.0 362.1,142.2 386.3,221.3 369.5,291.7 317.4,342.8 237.9,355.7 181.3,297.0 140.3,215.4 226.3,176.0" fill="rgba(37,99,235,.22)" stroke="#2563eb" stroke-width="2.5"/><circle cx="280.0" cy="126.0" r="3.5" fill="#2563eb"/><circle cx="362.1" cy="142.2" r="3.5" fill="#2563eb"/><circle cx="386.3" cy="221.3" r="3.5" fill="#2563eb"/><circle cx="369.5" cy="291.7" r="3.5" fill="#2563eb"/><circle cx="317.4" cy="342.8" r="3.5" fill="#2563eb"/><circle cx="237.9" cy="355.7" r="3.5" fill="#2563eb"/><circle cx="181.3" cy="297.0" r="3.5" fill="#2563eb"/><circle cx="140.3" cy="215.4" r="3.5" fill="#2563eb"/><circle cx="226.3" cy="176.0" r="3.5" fill="#2563eb"/><text x="280.0" y="44.0" text-anchor="middle" font-size="12.5" fill="#334155" font-weight="600">D1</text><text x="280.0" y="58.0" text-anchor="middle" font-size="11" fill="#64748b">市场需求 7.5</text><text x="406.0" y="89.9" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D2</text><text x="406.0" y="103.9" text-anchor="start" font-size="11" fill="#64748b">技术成熟度 8.4</text><text x="473.0" y="206.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D3</text><text x="473.0" y="220.0" text-anchor="start" font-size="11" fill="#64748b">社区生态 7.1</text><text x="449.7" y="338.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D4</text><text x="449.7" y="352.0" text-anchor="start" font-size="11" fill="#64748b">变现潜力 6.8</text><text x="347.0" y="424.2" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D5</text><text x="347.0" y="438.2" text-anchor="start" font-size="11" fill="#64748b">竞争格局 7.2</text><text x="213.0" y="424.2" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D6</text><text x="213.0" y="438.2" text-anchor="end" font-size="11" fill="#64748b">法律合规 8.1</text><text x="110.3" y="338.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D7</text><text x="110.3" y="352.0" text-anchor="end" font-size="11" fill="#64748b">企业就绪 7.5</text><text x="87.0" y="206.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D8</text><text x="87.0" y="220.0" text-anchor="end" font-size="11" fill="#64748b">团队治理 9.33</text><text x="154.0" y="89.9" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D9</text><text x="154.0" y="103.9" text-anchor="end" font-size="11" fill="#64748b">上手难度 5.5</text></svg></div>
+<div class="bars"><div class="bar-row"><span class="bar-name">D8 团队治理</span>
+<span class="bar-track"><span class="bar-fill" style="width:93.3%;background:#16a34a"></span></span>
+<span class="bar-val">9.33</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D2 技术成熟度</span>
+<span class="bar-track"><span class="bar-fill" style="width:84.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.4</span><span class="bar-w">权重14%</span></div>
+<div class="bar-row"><span class="bar-name">D6 法律合规</span>
+<span class="bar-track"><span class="bar-fill" style="width:81.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.1</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D1 市场需求</span>
+<span class="bar-track"><span class="bar-fill" style="width:75.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.5</span><span class="bar-w">权重13%</span></div>
+<div class="bar-row"><span class="bar-name">D7 企业就绪</span>
+<span class="bar-track"><span class="bar-fill" style="width:75.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.5</span><span class="bar-w">权重8%</span></div>
+<div class="bar-row"><span class="bar-name">D5 竞争格局</span>
+<span class="bar-track"><span class="bar-fill" style="width:72.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.2</span><span class="bar-w">权重12%</span></div>
+<div class="bar-row"><span class="bar-name">D3 社区生态</span>
+<span class="bar-track"><span class="bar-fill" style="width:71.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.1</span><span class="bar-w">权重11%</span></div>
+<div class="bar-row"><span class="bar-name">D4 变现潜力</span>
+<span class="bar-track"><span class="bar-fill" style="width:68.0%;background:#d97706"></span></span>
+<span class="bar-val">6.8</span><span class="bar-w">权重18%</span></div>
+<div class="bar-row"><span class="bar-name">D9 上手难度</span>
+<span class="bar-track"><span class="bar-fill" style="width:55.0%;background:#dc2626"></span></span>
+<span class="bar-val">5.5</span><span class="bar-w">权重10%</span></div></div>
+<div class="meta">分析时点 2026-08-27 ｜ 数据来源：GitHub API + 仓库代码实测 ｜ 方法论 v1.3</div>
+<div class="credit">报告出品：@魔法工厂　@向量之心　@南山科学家</div>
+<div class="disclaimer"><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</div>
+</div><h1>Maka 商业化潜力分析报告（完整版）</h1>
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家</p>
+<p>方法论版本: v1.3 | 综合评分: <strong>73.9</strong> | 等级: <strong>A（高商业化潜力）</strong> | 价值画像: 纯商业工具</p>
+</blockquote>
+<h2>一、项目概览</h2>
+<h3>1.1 基本信息</h3>
+<ul>
+<li><strong>项目名称 / 仓库地址</strong>：Apache Maka (Incubating) / <code>apache/maka</code></li>
+<li><strong>核心技术栈</strong>：TypeScript（885,053 行）、TSX（63,723 行）、Rust（9,890 行）；Node 22+/24、Electron 桌面端、bubblewrap/AppContainer 沙箱</li>
+<li><strong>社区规模速览</strong>：Star 3,596 / Fork 349 / 贡献者 85；90 天 PR 3,036 个、关闭 Issue 703 个</li>
+<li><strong>分析时点 / 数据来源</strong>：项目创建于 2026-05-27，分析时点约 2026-08 下旬；数据来自 GitHub 仓库实采与 Apache 孵化器公开信息</li>
+</ul>
+<h3>1.2 项目分类标签</h3>
+<table>
+<thead>
+<tr>
+<th>分类维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>数据与AI（AI Agent 运行时/工作区）</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>通用/跨行业</td>
+</tr>
+<tr>
+<td>目标用户角色</td>
+<td>后端开发者 / AI-ML工程师 / 技术管理者</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>AI Agent 自动化、本地沙箱运行、执行审计与恢复</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>本地部署（开源 Desktop + CLI，local-first）</td>
+</tr>
+</tbody>
+</table>
+<h3>1.3 一句话定位</h3>
+<blockquote>
+<p>Apache Maka 是一个本地优先的 AI Agent 工作区与运行时，适用于通用跨行业的智能体自动化场景，主要面向后端开发者、AI/ML 工程师与技术管理者，用于在本地沙箱中运行 AI 代理并记录模型消息、工具调用、权限决策与终止事件等可恢复的执行事实。</p>
+</blockquote>
+<h2>二、安装部署与使用指南</h2>
+<blockquote>
+<p><strong>上手难度等级</strong>: 🟡 中等（5.5/10）—— 需具备 Node.js/npm/Git 基础，推荐开发人员操作。本指南提供关键步骤，省略基础环境安装细节。</p>
+</blockquote>
+<h4>环境要求（素材原文）</h4>
+<ul>
+<li><strong>Node.js 22.19 或更新</strong>（CI 使用 Node.js 24）；</li>
+<li><strong>npm</strong>（lockfile 与脚本基于 npm；当前 <code>packageManager</code> 为 npm 11）；</li>
+<li><strong>Git</strong>；</li>
+<li><strong>ripgrep</strong>（Runtime 的 <code>Grep</code> 工具依赖）。</li>
+</ul>
+<h4>平台支持现状</h4>
+<ul>
+<li><strong>桌面端</strong>：目前仅支持 <strong>Apple Silicon Macs（arm64）</strong>，Intel Mac 与 Linux 尚不支持；</li>
+<li><strong>Windows</strong>：为未签名预览版（unsigned preview），不属于受支持发布层级；</li>
+<li><strong>无预编译下载</strong>：README 明确说明 "Until an approved source release exists, this README recommends no prebuilt download"，用户需从源码构建运行。</li>
+</ul>
+<h4>从源码启动 Desktop</h4>
+<pre><code class="language-sh">git clone https://github.com/apache/maka.git
+cd maka
+npm ci
+npm run dev
+</code></pre>
+<p>若以 <code>ELECTRON_SKIP_BINARY_DOWNLOAD=1</code> 安装依赖，需先补齐 Electron 平台二进制：</p>
+<pre><code class="language-sh">node node_modules/electron/install.js
+</code></pre>
+<p>首次启动需自行配置模型连接（Maka 不捆绑共享模型账号）：</p>
+<ol>
+<li>打开 <code>Settings → Models</code>；</li>
+<li>添加 API、本地模型或受支持账号连接；</li>
+<li>测试连接并选择默认模型；</li>
+<li>返回工作区开始任务。</li>
+</ol>
+<h4>终端入口（开发模式 CLI）</h4>
+<p>先构建 workspace，再启动 TUI 或执行单次 Turn：</p>
+<pre><code class="language-sh">npm run build
+npm run cli:dev
+npm run cli:dev -- run &quot;Summarize this repository and identify its most important risk&quot;
+npm run cli:dev -- --help
+</code></pre>
+<p>TUI 支持 <code>/graph on</code>、<code>/graph off</code>、<code>/graph &lt;task&gt;</code>。仓库 CLI 使用 <code>Maka Dev</code> profile，与发布版 <code>maka</code> 二进制的 <code>Maka</code> profile 互不共享。完整指南见 <a href="./packages/cli/README.md"><code>packages/cli/README.md</code></a>。</p>
+<hr />
+<h2>三、评分总览</h2>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>权重</th>
+<th>加权得分</th>
+<th>评级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1 市场需求与商业机会</td>
+<td>7.5/10</td>
+<td>13%</td>
+<td>0.98</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D2 技术成熟度与产品质量</td>
+<td>8.4/10</td>
+<td>14%</td>
+<td>1.18</td>
+<td>优</td>
+</tr>
+<tr>
+<td>D3 社区健康度与生态势能</td>
+<td>7.1/10</td>
+<td>11%</td>
+<td>0.78</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D4 商业模式与变现潜力</td>
+<td>6.8/10</td>
+<td>18%</td>
+<td>1.22</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D5 竞争格局与差异化壁垒</td>
+<td>7.2/10</td>
+<td>12%</td>
+<td>0.86</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D6 法律合规与知识产权</td>
+<td>8.1/10</td>
+<td>7%</td>
+<td>0.57</td>
+<td>优</td>
+</tr>
+<tr>
+<td>D7 企业就绪度与可运营性</td>
+<td>7.5/10</td>
+<td>8%</td>
+<td>0.60</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D8 团队治理与可持续性</td>
+<td>9.33/10</td>
+<td>7%</td>
+<td>0.65</td>
+<td>优</td>
+</tr>
+<tr>
+<td>D9 上手难度与易用性</td>
+<td>5.5/10</td>
+<td>10%</td>
+<td>0.55</td>
+<td>中</td>
+</tr>
+<tr>
+<td><strong>综合评分</strong></td>
+<td>—</td>
+<td>100%</td>
+<td><strong>73.9/100</strong></td>
+<td><strong>A（高商业化潜力）</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>平行维度（不计入综合评分）</strong></p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10 功能价值</td>
+<td>6.0/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>D11 社会价值</td>
+<td>5.4/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>公共价值分</td>
+<td>5.7/10</td>
+<td>(D10+D11)/2</td>
+</tr>
+</tbody>
+</table>
+<p><strong>一票否决检查</strong>：未触发任何否决条件（D6 法律合规 8.1 分 &gt; 3 分；D8.4 项目可持续性 3.0 分 &gt; 1 分；D4.1 协议对变现模式影响 2.0 分 &gt; 0.5 分）。检查完整，无跳过项。</p>
+<p><strong>价值画像判定</strong>：综合评分 73.9 ≥ 65 且 公共价值分 5.7 &lt; 7 → <strong>💼 纯商业工具</strong>。画像不处于临界区间（综合评分 73.9 远离 60–70 边界，公共价值分 5.7 远离 6.5–7.5 边界），判定清晰无歧义。</p>
+<h2>四、各维度详细分析</h2>
+<h3>D1. 市场需求与商业机会（权重 13%）</h3>
+<h3>项目分类标签</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>数据与AI（AI Agent 运行时/工作区，兼有应用软件与开发者工具属性）</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>通用/跨行业</td>
+</tr>
+<tr>
+<td>目标用户角色</td>
+<td>后端开发者、全栈开发者、AI/ML 工程师、技术管理者</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>研发流程优化、企业内部工具、自动化任务执行、数据处理与分析</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>本地部署（Desktop + TUI/CLI，local-first）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>一句话定位</strong>：Apache Maka 是一个本地优先（local-first）的 AI Agent 工作区与运行时，适用于通用跨行业的智能体自动化场景，主要面向后端开发者、AI/ML 工程师与技术管理者，用于在本地沙箱中运行 AI 代理并记录模型消息、工具调用、权限决策与终止事件等可恢复的执行事实。</p>
+<hr />
+<h3>D1.1 目标市场规模与增长性 — 8/10</h3>
+<p><strong>判断依据</strong>：</p>
+<ul>
+<li><strong>TAM 量级</strong>：Maka 所处的 AI Agent 市场是当前软件行业增长最迅猛的赛道之一。全球 AI Agent 市场目前已达数十亿美元规模，多家行业机构的预测指向未来 3–5 年向百亿美元级扩张，处于典型的「十亿美元级现量 + 百亿美元级预期」高增长区间（估算未经验证，置信度中等）。</li>
+<li><strong>增长趋势</strong>：2025–2026 年 Claude Code、Codex 等 Agent 编程工具的规模化采用已验证该赛道的付费意愿与扩散速度，市场呈显著扩张态势。Maka 的「local-first Agent workspace」细分定位正处在这波浪潮之中。</li>
+<li><strong>市场层级</strong>：属于成长期市场，远未饱和；Local-first（本地优先）叠加企业数据主权诉求，进一步扩宽了可触达的企业级市场空间。</li>
+<li><strong>佐证数据</strong>：项目创建仅 3 个月即获得 3,596 stars、85 名贡献者、90 天 3,036 个 PR、10 个迭代版本（v0.1.3→v0.1.11），侧面印证赛道关注度极高、项目执行力强。</li>
+</ul>
+<blockquote>
+<p>小分：8/10（十亿美元级市场，处于增长期，赛道明确）</p>
+</blockquote>
+<hr />
+<h3>D1.2 痛点真实性与解决程度 — 7/10</h3>
+<p><strong>判断依据</strong>：</p>
+<ul>
+<li><strong>痛点真实性（真实）</strong>：Maka 直击 AI Agent 落地中的四个真实高频痛点——
+  1. <strong>执行不可观测/不可复现</strong>：模型消息、工具调用、工具结果、权限决策全部以 append-only 事件日志落盘，解决「Agent 干了什么无法追溯」；
+  2. <strong>会话数据失控与安全</strong>：沙箱边界 + 越界工具必须审批，解决「Agent 乱跑命令/乱写文件」；
+  3. <strong>上下文丢失</strong>：「更短的上下文 ≠ 删除历史」，解决长任务中旧工具输出被截断但证据丢失的问题；
+  4. <strong>中断恢复</strong>：崩溃恢复 + 可选断点续跑，解决长任务中断后从头再来的成本。
+  这些均属 Agent 生产环境使用的「非用不可」级痛点，而非锦上添花。</li>
+<li><strong>解决完整度（较完整但未成熟）</strong>：架构上方案完整——Desktop/TUI/CLI/Eval 四入口统一走 Runtime Host，事件溯源、沙箱、恢复机制一应俱全，42% 测试覆盖率显示工程严谨。但产品仍处早期：尚无 Apache 正式 release、仅 macOS arm64 正式支持、Windows 为未签名预览、Linux 未支持、数据格式与 CLI 命令仍可能变更。</li>
+<li><strong>替代成本（中等偏高）</strong>：替代品众多——Claude Code、OpenAI Codex、OpenHands、CrewAI、LangGraph 等均解决部分痛点，且大厂产品迭代极快。Maka 的差异化（本地优先 + 事件溯源 + Apache 中立治理）是真实卖点，但目前功能完整度、模型生态、平台覆盖均不如头部商业产品，用户迁移有实际成本。</li>
+</ul>
+<blockquote>
+<p>小分：7/10（解决明确刚需，方案较完整，替代品存在但差异化明确）</p>
+</blockquote>
+<hr />
+<h3>D1.3 市场时机判断 — 7/10</h3>
+<p><strong>判断依据</strong>：</p>
+<ul>
+<li><strong>技术成熟度曲线</strong>：Agent 技术已越过「期望膨胀期」进入「实质生产期」——2025–2026 年 Agent 编程工具从 demo 走向企业付费采用即是明证。Maka 创建于 2026 年 5 月，正是这波生产化浪潮的中段，时机不早不晚。</li>
+<li><strong>竞争密度</strong>：赛道拥挤，Anthropic、OpenAI、Google 自有工具 + 大量创业公司同台竞技；但「本地优先 + 可审计执行日志 + 中立开源治理」的定位仍有差异化空位，尚未出现垄断格局。Apache 孵化身份为企业采购提供信任背书，这是多数竞品不具备的制度性优势。</li>
+<li><strong>监管/标准驱动</strong>：企业数据不出域、AI 合规审计等监管趋势利好 local-first 架构；MCP 等 Agent 互操作标准仍在形成期，提前卡位有机会参与标准制定。</li>
+<li><strong>风险点</strong>：项目 3 个月即进入 Apache 孵化，治理流程完善但决策速度可能受制于基金会流程；市场窗口期不会等待，商业产品（Claude Code 等）迭代极快，Maka 需在窗口期内完成平台覆盖（Linux/Windows 正式支持）和生态建设。</li>
+</ul>
+<blockquote>
+<p>小分：7/10（市场处于成长期，有先行者但格局未定，存在差异化空位）</p>
+</blockquote>
+<hr />
+<h3>D1.4 应用场景广度 — 8/10</h3>
+<p><strong>判断依据</strong>：</p>
+<ul>
+<li><strong>行业覆盖（跨行业通用）</strong>：AI Agent workspace 不受行业限制——软件研发（代码理解、重构、测试）、数据分析（仓库总结、风险识别）、运维自动化、文档知识工作、企业内部流程自动化均可适用，天然具备通用/跨行业属性。</li>
+<li><strong>场景多样性</strong>：三入口覆盖多类场景——Desktop 面向日常交互与文件/Artifact 工作流；TUI/CLI 面向「在项目目录内干活」和单轮非交互任务（<code>maka run</code>）；Eval 面向可复现的基准评测（多臂实验、不可变 cell 尝试）。从交互式到批处理、从单人使用到实验对比均有覆盖。</li>
+<li><strong>可延展性</strong>：事件日志（event-sourcing）作为核心抽象具有强迁移能力——可扩展到审计合规、任务回放、训练数据采集、Agent 评测基准、多 Agent 协作编排等相邻场景；<code>Runtime Host</code> 单点后端架构允许未来将运行时嵌入其他产品（IDE、CI 流水线、企业平台）。README 中已有 agent-swarm、MCP runtime、scheduled-task 等设计文档，印证延展方向已纳入规划。</li>
+<li><strong>局限</strong>：当前实际可用的终端平台仅 macOS arm64，限制了短期场景广度；主要面向开发者与技术团队，距「非技术用户可用」还有距离。</li>
+</ul>
+<blockquote>
+<p>小分：8/10（多行业可用、场景丰富、横向通用工具，具备基础设施级延展潜力）</p>
+</blockquote>
+<hr />
+<h3>综合结论</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>小分</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1.1 目标市场规模与增长性</td>
+<td>8/10</td>
+<td>十亿美元级高增长市场，向百亿美元级扩张</td>
+</tr>
+<tr>
+<td>D1.2 痛点真实性与解决程度</td>
+<td>7/10</td>
+<td>刚需痛点真实，架构方案完整，产品成熟度尚浅</td>
+</tr>
+<tr>
+<td>D1.3 市场时机判断</td>
+<td>7/10</td>
+<td>成长期中段，竞争未固化，有差异化空位</td>
+</tr>
+<tr>
+<td>D1.4 应用场景广度</td>
+<td>8/10</td>
+<td>跨行业通用，多入口多场景，可延展性强</td>
+</tr>
+<tr>
+<td><strong>D1 综合得分</strong></td>
+<td><strong>7.5/10</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>核心判断</strong>：Maka 面对的是一个真实、高增长、量级达数十亿至百亿美元的市场，所解决的 Agent 执行可观测性、本地数据主权、沙箱安全与中断恢复均为生产级刚需。市场时机处于成长期、格局未定，Apache 中立治理是差异化信任资产。主要风险在于竞争密度高、产品平台覆盖不足（仅 macOS 正式支持）、距 Apache 正式发布与商业化仍有较长距离——但就「市场需求与商业机会」维度而言，方向正确且空间充足。</p>
+<p>==</p>
+<h1>D2 技术成熟度与产品质量评估</h1>
+<h3>总体结论</h3>
+<p>Apache Maka 是一个工程成熟度远超同阶段开源项目的 AI Agent 工作区。项目以 <strong>append-only log 事件溯源</strong>为核心设计理念，将模型消息、工具调用、权限决策、终止事件全部持久化为不可变日志，在架构层面构建了完整的可审计、可恢复、可续接的 Agent 运行时基础。96.5 万行代码、85 名贡献者、90 天 3036 个 PR、16 个 CI 工作流，显示出 Apache 孵化器级别的工程流程管控。测试体系（40.5 万行测试、1024 个测试文件）与文档体系（130 个文档文件、中英双语架构文档）均属行业顶级水准。主要短板在于仍处于 v0.1.x 快速迭代期（未发布 1.0 稳定版）、部分核心文件规模过大（6000+ 行）形成技术债，以及运行环境存在 Linux/Windows 系统级依赖门槛。D2 综合得分 <strong>8.4/10</strong>，技术成熟度构成显著商业化优势。</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+<th>判定依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D2.1</td>
+<td>产品设计与创新性</td>
+<td>1.5</td>
+<td>1.2</td>
+<td>80%（良好）</td>
+<td>事件溯源设计为核心差异化：模型消息、工具调用、权限决策均记录为 append-only log；local-first + 沙箱 + 计算机使用 + 权限决策记录，与 Claude Code/OpenHands 等同类形成显著区隔。但大量设计文档仍为 draft 状态（agent-graph-stream-scheduling-draft、mcp-runtime-architecture-draft），产品设计尚在演进中</td>
+</tr>
+<tr>
+<td>D2.2</td>
+<td>架构设计与工程质量</td>
+<td>2</td>
+<td>1.6</td>
+<td>80%（良好）</td>
+<td>Monorepo 分层清晰：core（领域模型）/storage（SQLite 持久化）/runtime（agent 循环）/runtime-host（托管服务）/cli/desktop 解耦充分；Rust 原生 helper（gitoxide、Windows 沙箱）体现技术护城河；复刻难度极高。但 session-manager.ts（6000+ 行）、sqlite-session-metadata-store.ts（6000+ 行）等超大文件存在可维护性挑战</td>
+</tr>
+<tr>
+<td>D2.3</td>
+<td>代码整洁性与规范性</td>
+<td>1</td>
+<td>0.8</td>
+<td>80%（良好）</td>
+<td>命名统一、类型约束严格（Zod schema、satisfies、readonly），注释详实且引用 issue 编号说明设计决策；Biome 统一风格并在 CI 强制 format:check；自动生成文件标注清晰禁止手改。个别超大函数/类影响简洁度</td>
+</tr>
+<tr>
+<td>D2.4</td>
+<td>安全性</td>
+<td>1</td>
+<td>1.0</td>
+<td>100%（卓越）</td>
+<td>安全编码贯穿全栈：输入验证（assertSafeSessionId、requireEntityId）、路径包含检查、符号链接/硬链接拒绝、沙箱边界管理、redactSecrets 敏感信息脱敏、MCP OAuth PKCE、Windows AppContainer 隔离、物理输入防护；dependency-audit.yml 定时执行 npm audit + 注册表签名验证；ASF 源码候选强制 audit-level=moderate；无硬编码密钥证据</td>
+</tr>
+<tr>
+<td>D2.5</td>
+<td>UI/UX/UE 人机交互</td>
+<td>1</td>
+<td>0.8</td>
+<td>80%（良好）</td>
+<td>Electron 桌面端 + CLI TUI 双界面；基于 @astryxdesign/core 设计系统；Storybook 故事文件覆盖设置页、模块中心等场景；Composer 组件关注无障碍（aria 属性、键盘导航）；shell-copy.ts 提供中英文双语 UI 文案。无截图数据，视觉细节无法完全验证</td>
+</tr>
+<tr>
+<td>D2.6</td>
+<td>功能完备度与稳定性</td>
+<td>1.5</td>
+<td>1.2</td>
+<td>80%（良好）</td>
+<td>功能覆盖面极广：CLI（v0.1.0-beta.1）、桌面应用、agent 运行时、MCP、计算机使用、eval 评测框架、跨平台沙箱；发布流程极其严格（ASF source candidate + npm stage/finalize 两级验证）；字节预算、上下文压缩、游标分页等性能机制完善。但版本仍为 v0.1.11（未达 1.0），337 个开放 issue，运行环境要求 Node 22+ 且 Linux 需要 bubblewrap/ripgrep 系统依赖</td>
+</tr>
+<tr>
+<td>D2.7</td>
+<td>文档与开发者体验</td>
+<td>1</td>
+<td>1.0</td>
+<td>100%（卓越）</td>
+<td>130 个文档文件：README/ARCHITECTURE/DESIGN 中英双语、CONTRIBUTING、SECURITY、CHANGELOG、16 篇架构 RFC/ADR（runtime-resume、windows-sandbox、gitoxide 等）、archive 决策归档、ASF 发布清单、PR 模板、copilot 审查指令；文档与版本同步（release 流程强制 check:asf-source）</td>
+</tr>
+<tr>
+<td>D2.8</td>
+<td>测试与质量保障</td>
+<td>1</td>
+<td>0.8</td>
+<td>80%（良好）</td>
+<td>1024 个测试文件/40.5 万行测试（占比 41.9%）；16 个 CI workflows 覆盖 lint/format/build/typecheck/unit/e2e（Playwright）/Storybook smoke/knip/ASF 源码验证/Windows 打包升级回滚验证/依赖审计；跨平台矩阵（Linux/macOS/Windows）；无覆盖率报告文件，无法确证 &gt;80% 覆盖率</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td><strong>8.4</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>关键硬事实</h3>
+<ul>
+<li><strong>代码规模</strong>: 965,064 行（TypeScript 885,053 + TSX 63,723 + Rust 9,890）</li>
+<li><strong>测试规模</strong>: 1,024 文件 / 404,817 行，测试占比 41.9%</li>
+<li><strong>CI 工作流</strong>: 16 个（含 ASF 发布验证、依赖审计、Windows 沙箱 e2e）</li>
+<li><strong>发布节奏</strong>: 2026-08 单月发布 10+ 版本（v0.1.3 → v0.1.11）</li>
+<li><strong>社区活跃度</strong>: 85 贡献者，90 天 3,036 PR / 703 issue 关闭</li>
+<li><strong>技术栈</strong>: TypeScript + Electron + SQLite + Rust（原生 helper）+ bubblewrap/AppContainer 沙箱</li>
+</ul>
+<h3>商业化启示</h3>
+<p>Maka 的技术成熟度足以支撑商业化交付：事件溯源架构为 AI Agent 提供了审计合规基础（权限决策全记录），沙箱体系（bubblewrap/AppContainer/受限令牌）解决了企业级安全诉求，发布流程达到 Apache 软件基金会标准。主要商业化风险在于：0.x 版本迭代过快可能带来 API 不稳定性；超大核心文件提高维护成本；运行环境依赖（Node 22+/系统级沙箱组件）增加企业部署门槛。建议商业化切入时锁定 LTS 基线版本，并提供容器化/托管化部署方案以降低环境门槛。</p>
+<h3>D3. 社区健康度与生态势能</h3>
+<h4>D3.1 社区活跃度指标（3 分）</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测数据</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Star 增速</td>
+<td>创建于 2026-05-27，距今约 3 个月；Star 3,596（API 实采），近 90 天增量≈全部 Star 数，月均增量约 <strong>1,200</strong>，远超 500/月阈值</td>
+<td>极活跃</td>
+</tr>
+<tr>
+<td>Fork 比率</td>
+<td>349 / 3,596 ≈ <strong>9.7%</strong>，衍生意愿较强</td>
+<td>良好</td>
+</tr>
+<tr>
+<td>Issue 活跃度</td>
+<td>近 90 天创建 PR <strong>3,036</strong> 个，关闭 Issue <strong>703</strong> 个，当前开放 337 个</td>
+<td>参与度极高</td>
+</tr>
+<tr>
+<td>响应速度</td>
+<td>近 90 天日均关闭 Issue 约 7.8 个，且 8 月密集发版（v0.1.3→v0.1.11），反映快速迭代与响应</td>
+<td>响应迅速</td>
+</tr>
+</tbody>
+</table>
+<p>说明：近 90 天 Star 增量无直接 API 字段，因项目年龄≈90 天，增量近似为当前 Star 数，未启用退化公式。项目处于 AI Agent 热点领域，不适用小众领域下调档位。综合评级 <strong>9–10 档（满档）</strong>。</p>
+<p><strong>小分：3.0 / 3.0</strong></p>
+<hr />
+<h4>D3.2 贡献者结构多样性（2.5 分）</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测数据</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>贡献者数量</td>
+<td>API 实采 <strong>85 名贡献者</strong>，在 3 个月生命周期内属高水平，达到"50+"卓越线</td>
+<td>强</td>
+</tr>
+<tr>
+<td>组织多样性</td>
+<td>未获取贡献者组织归属数据；Apache 孵化项目治理框架要求多方参与，但硬证据不足</td>
+<td>无法确认</td>
+</tr>
+<tr>
+<td>核心团队占比</td>
+<td>90 天 PR 3,036 个，但无法剥离外部贡献者与核心团队比例</td>
+<td>无法确认</td>
+</tr>
+</tbody>
+</table>
+<p>贡献者数量达标，但组织多样性与外部贡献占比缺乏硬数据，不足以支撑满档判定。保守评级 <strong>7–8 档（良好）</strong>。</p>
+<p><strong>小分：2.0 / 2.5</strong></p>
+<hr />
+<h4>D3.3 第三方生态成熟度（3 分）</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测数据</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>插件/扩展</td>
+<td>无插件市场或扩展机制证据；docs 中仅有 MCP 运行时架构草案（draft 状态）</td>
+<td>未成形</td>
+</tr>
+<tr>
+<td>集成生态</td>
+<td>未发现被主流平台/工具集成的证据</td>
+<td>无</td>
+</tr>
+<tr>
+<td>衍生项目</td>
+<td>未发现二次开发或商业衍生品</td>
+<td>无</td>
+</tr>
+<tr>
+<td>教程/课程</td>
+<td>未发现外部教程/课程；仅有官方中英文文档</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<p>项目仍处于 v0.1.x 早期阶段，尚未发布正式 Apache Release，第三方生态基本空白。评级 <strong>3–4 档（几乎无第三方生态）</strong>。</p>
+<p><strong>小分：1.2 / 3.0</strong></p>
+<hr />
+<h4>D3.4 品牌认知与行业影响力（1.5 分）</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测数据</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>品牌辨识度</td>
+<td>"Apache Maka (Incubating)" 借 Apache 品牌获得辨识度，但 "Maka" 本身在领域内认知度尚浅</td>
+<td>中</td>
+</tr>
+<tr>
+<td>行业采用</td>
+<td>README 未展示知名企业用户或采用案例</td>
+<td>无</td>
+</tr>
+<tr>
+<td>媒体覆盖</td>
+<td>无技术会议/媒体覆盖证据；3,600+ Star 反映开发者关注</td>
+<td>小圈子</td>
+</tr>
+</tbody>
+</table>
+<p>Apache 基金会孵化背书提供了权威性，但项目自身尚未进入主流视野。评级 <strong>5–6 档（小圈子内有认知度）</strong>。</p>
+<p><strong>小分：0.9 / 1.5</strong></p>
+<hr />
+<h3>结论</h3>
+<p><strong>总分：7.1 / 10</strong></p>
+<p>Apache Maka 的社区健康度处于"良好"水平。核心势能来自 Apache 孵化加持与早期爆发式活跃：月均 Star 增量约 1,200、90 天 PR 超 3,000、版本迭代高频，贡献者基数达 85 人。但第三方生态（插件、集成、衍生）仍为空白，品牌影响力局限于开发者小圈子，距离支撑商业化所需的成熟生态尚有较大差距。当前社区热度的可持续性需持续观察——高 Star 增速中包含 Apache 品牌效应及 AI Agent 赛道整体红利。</p>
+<h3>D4 商业模式与变现潜力</h3>
+<h3>总览</h3>
+<p>Apache Maka（Incubating）目前处于 Apache 孵化期，代码采用 <strong>Apache-2.0</strong> 协议，定位为 <strong>local-first AI agent workspace</strong>，核心卖点是"数据留在本地、自带模型、运行记录可审计"。截至数据采集时点，项目<strong>没有任何付费版、企业版或商用托管产品</strong>，商业闭环尚未建立，但协议与产品特性为后续商业化留出了较大空间。</p>
+<h3>D4.1 协议对变现模式的影响 — 2.0 / 2</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>协议类型</td>
+<td>Apache-2.0（LICENSE 文件与 README 均确认）</td>
+</tr>
+<tr>
+<td>传染性约束</td>
+<td>无 copyleft 约束</td>
+</tr>
+<tr>
+<td>云服务限制</td>
+<td>无 SSPL/AGPL 类限制</td>
+</tr>
+<tr>
+<td>可采用的变现模式</td>
+<td>Open Core、SaaS、双协议、专业服务、认证生态等全部路径在法律上均可行</td>
+</tr>
+</tbody>
+</table>
+<p>Apache-2.0 对商业化几乎零约束：既可以做 Open Core（核心开源 + 企业功能闭源），也可以由第三方做 SaaS 托管或商业授权。这一项是 Maka 商业化维度中确定性最高的部分。</p>
+<p><strong>小分：2.0 / 2.0（对应 10/10 档）</strong></p>
+<hr />
+<h3>D4.2 变现路径清晰度 — 2.1 / 3.5</h3>
+<table>
+<thead>
+<tr>
+<th>潜在路径</th>
+<th>可行性判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Open Core</td>
+<td>较可行。append-only 执行日志、权限决策、沙箱边界、compliance/audit 能力天然适合做企业版功能分层</td>
+</tr>
+<tr>
+<td>专业服务</td>
+<td>较可行。企业部署、安全审计、Runtime 深度集成、eval 基准定制均可收费</td>
+</tr>
+<tr>
+<td>SaaS 托管</td>
+<td>弱。local-first + BYO model 设计使托管价值被削弱，用户自带模型密钥，平台难以从 token 用量抽成</td>
+</tr>
+<tr>
+<td>插件/市场</td>
+<td>有可能。Desktop 已具备 Module Hub/Artifact 等 UI 概念，但无市场基础设施</td>
+</tr>
+</tbody>
+</table>
+<p>目前<strong>没有任何已实施的变现路径</strong>：无企业版、无付费功能、无商业授权页。README 只提供源码构建与 npm CLI 发布流程，未出现任何商业产品描述。Apache 孵化项目本身也不以卖软件为目的，未来大概率需由外部商业实体或新设公司承担 Open Core 商业化。</p>
+<p>同赛道（AI Agent 开发工具/运行时）存在成功先例，Open Core 与专业服务模式可参照，但 Maka 自己的变现路径仍处于"有潜力、未验证"阶段。</p>
+<p><strong>小分：2.1 / 3.5（对应 5–6/10 档）</strong></p>
+<hr />
+<h3>D4.3 付费转化逻辑 — 1.5 / 2.5</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>免费到付费触发点</td>
+<td>目前免费/开源版已包含最核心价值（沙箱、审计日志、工具调用记录）。潜在付费触发点是企业级治理：集中审计、SSO/RBAC、合规保留策略、SLA 支持、团队级策略管理</td>
+</tr>
+<tr>
+<td>付费意愿</td>
+<td>面向开发者工具与企业 AI 治理场景，中大型企业有较强合规付费动机；个人开发者付费意愿低</td>
+</tr>
+<tr>
+<td>转化漏斗</td>
+<td>本地使用 → 团队协作/合规需求 → 企业版或专业服务，逻辑上自然，但当前没有付费版承接转化</td>
+</tr>
+</tbody>
+</table>
+<p>由于产品为 local-first 且自带模型，用户不会因"用量超限"而自然付费，付费必须依赖"企业治理与支持"这类更高层需求。升级触发点有一定合理性，但尚未被产品化验证。</p>
+<p><strong>小分：1.5 / 2.5（对应 5–6/10 档）</strong></p>
+<hr />
+<h3>D4.4 增值服务空间与定价天花板 — 1.2 / 2</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>增值方向</td>
+<td>企业安全/合规套件（审计导出、权限审批流、策略引擎）、SSO/团队管理、SLA 支持、专业服务（部署与安全加固）、eval 基准测试与模型评估服务</td>
+</tr>
+<tr>
+<td>定价天花板</td>
+<td>企业 AI Agent 治理工具存在 $1K–10K/年 的客单价空间；但 local-first 使纯云端增值空间缩小，天花板受限于"单机/团队"而非大集群部署</td>
+</tr>
+<tr>
+<td>收入扩展性</td>
+<td>可从 per-seat 延伸到 enterprise flat fee；若能切中企业合规刚需，收入可规模化，当前尚无实证</td>
+</tr>
+</tbody>
+</table>
+<p>总体增值空间中等偏上，方向明确但缺少商业载体和定价验证。</p>
+<p><strong>小分：1.2 / 2.0（对应 5–6/10 档）</strong></p>
+<hr />
+<h3>D4 结论</h3>
+<p><strong>总分：6.8 / 10</strong></p>
+<p>Maka 在"协议开放性"上得分最高（Apache-2.0 全路径可行），产品形态也具备企业治理卖点（审计、沙箱、权限记录），为 Open Core 模式提供了良好土壤。但项目处于孵化早期，<strong>没有付费版、没有企业版、没有定价模型</strong>，商业模式停留在潜在路径层面。local-first 与 BYO model 的设计虽然降低了用户使用门槛，却也削弱了 SaaS 托管类变现的天然抓手。整体判断：商业化基础不错，变现路径仍需通过企业版产品化来验证。</p>
+<h3>D5 竞争格局与差异化壁垒（权重 12%）</h3>
+<h3>D5.1 竞品对比与市场定位（3 分）— 2.4/3</h3>
+<p><strong>竞品验证说明</strong>：本次评估未启用 GitHub/Web 外部搜索；对仓库内 README、docs 目录、CHANGELOG 文件清单检索后，未发现任何被直接点名的竞品。按防幻觉规则，不虚构竞品名称，竞品对比表记为「无可用验证数据」。</p>
+<table>
+<thead>
+<tr>
+<th>竞品名称</th>
+<th>类型</th>
+<th>仓库/官网</th>
+<th>验证方式</th>
+<th>Star/用户量</th>
+<th>核心差异</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>未列出（无法验证）</td>
+<td>—</td>
+<td>—</td>
+<td>未搜索</td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>定位清晰度</strong>：Maka 自述定位清晰——「local-first AI agent workspace」，核心差异点包括：
+- 模型消息、工具调用、工具结果、权限决策、终止事件均以 append-only log 记录，执行记录是权威事实来源；
+- Desktop、TUI/CLI、Eval 统一经 Runtime Host 执行，多个前端共享同一执行内核；
+- 沙箱边界、崩溃恢复、Safe Resume、Git worktree 图执行、Windows 沙箱 RFC 等架构特性在同类工具中具有较高辨识度；
+- ASF Incubating 身份带来治理与品牌背书，但也附带了「尚未正式发布 Apache release」的风险声明。</p>
+<p>整体看，差异化定位明确，但缺少外部竞品实测，无法判断是否「明显领先」，故按 7–8 档（有明确差异化定位）处理。</p>
+<p><strong>数据依据</strong>：README 定位描述、ARCHITECTURE 文件布局、docs 架构文档、仓库内无竞品提及。</p>
+<hr />
+<h3>D5.2 技术壁垒与网络效应（3 分）— 2.4/3</h3>
+<p><strong>技术壁垒</strong>：较强。
+- 事件溯源型执行日志（Runtime Event Log）作为核心设计，叠加沙箱边界、崩溃恢复、Resume 抽取账本，工程复杂度高；
+- 代码规模约 96.5 万行（TypeScript 88.5 万行 + Rust 0.99 万行），测试 40.5 万行、测试占比 41.9%，16 个 CI workflow，85 名贡献者、90 天 3036 个 PR，工程投入显著；
+- 这些构成「从零复刻」的高门槛，对潜在跟随者形成实质威慑。</p>
+<p><strong>网络效应</strong>：暂未形成明显网络效应。
+- 仓库内未见插件市场、共享技能包生态或用户生成内容的飞轮；
+- Eval 支持 external subject adapters，理论上可建立评估生态，但尚未观察到规模化生态证据；
+- Apache 社区可提供贡献者网络，但用户侧网络效应尚弱。</p>
+<p><strong>规模效应</strong>：本地优先架构不依赖服务器规模；更多用户能带来 issue 反馈、模型元数据校正，但边际优势有限。</p>
+<p><strong>评分依据</strong>：有较强技术壁垒，网络效应尚未形成，符合 7–8 档。</p>
+<p><strong>数据依据</strong>：本地代码统计、CI 数量、贡献者数、PR 活跃度、README 架构描述。</p>
+<hr />
+<h3>D5.3 切换成本与用户粘性（2 分）— 1.2/2</h3>
+<p><strong>迁移成本</strong>：中等偏高。
+- 工作区数据存于本地 SQLite（runtime.sqlite）、connection-catalog、credential-vault、settings、artifacts，切换工具需重建模型连接、沙箱配置、会话状态；
+- README 明确说明旧版 JSONL 与 safeStorage 凭据不会被导入，升级工作区可能出现空会话，说明数据格式存在锁定风险；
+- 但项目尚未发布正式 Apache release，CLI 命令、数据格式、实验性能力仍可能变化，用户粘性尚未固化。</p>
+<p><strong>深度集成</strong>：Desktop、CLI、Eval 共享 Runtime Host，用户若使用 Maka 的图执行、恢复、评估能力，集成深度会显著提升粘性；但当前仍处于早期，稳定 API 未形成。</p>
+<p><strong>评分依据</strong>：迁移成本中等、有部分粘性，符合 5–6 档。</p>
+<p><strong>数据依据</strong>：README「Local data and recovery」描述、数据格式变更声明、CLI/Desktop 共享架构。</p>
+<hr />
+<h3>D5.4 护城河可持续性（2 分）— 1.2/2</h3>
+<p><strong>护城河趋势</strong>：当前处于快速建设期。
+- 3.6k Stars、85 贡献者、90 天 3036 个 PR、90 天关闭 703 个 issue、2 周内发布 10 个版本，显示极高开发速度；
+- ASF Incubating 带来持续治理投入，护城河有望随社区扩大而加深。</p>
+<p><strong>颠覆风险</strong>：中等。
+- local-first AI agent 赛道仍处早期，LLM 工具调用范式、MCP 等协议演进可能改变竞争格局；
+- 项目尚未有正式 Apache release，存在「概念验证早期」的不确定性；
+- 外部大厂 agent 工具和商业化产品可能快速跟进，但未经验证的竞品无法量化该风险。</p>
+<p><strong>时间窗口</strong>：现有工程深度与 Apache 背书为项目争取了 1–2 年的差异化窗口，但需尽快完成正式发布与生态建设。</p>
+<p><strong>评分依据</strong>：护城河一般、有中等颠覆风险，符合 5–6 档。</p>
+<p><strong>数据依据</strong>：GitHub API 活跃度指标、README 发布状态声明、Incubating 免责声明。</p>
+<hr />
+<h3>结论</h3>
+<p><strong>D5 维度得分：7.2/10</strong>。</p>
+<p>Maka 的核心竞争壁垒在其事件溯源型执行架构、沙箱与恢复机制，以及 ASF 治理背书；这是目前最有价值的商业防御点。但网络效应、插件生态尚未形成，竞品格局未经验证，叠加 Incubating 阶段的不确定性，护城河仍属「技术深厚、生态未立」状态。若后续能围绕 append-only log 建立开放数据/评估生态，或形成 MCP/工具链的开发者网络，差异化壁垒有望显著增强。</p>
+<h3>D6 法律合规与知识产权</h3>
+<h3>D6.1 开源协议合规性与商业限制（3 分）</h3>
+<p><strong>数据依据</strong>: LICENSE 文件为标准 Apache-2.0 全文；根 <code>package.json</code> 及全部 workspace（core/runtime/cli/desktop 等）声明 <code>"license": "Apache-2.0"</code>；LICENSE 内附详细 THIRD-PARTY COMPONENTS 声明（覆盖 Vercel AI SDK、Astryx、node-pty、opencode、cline、gemini-cli、models.dev、DeepSeek Harness 等 8 类第三方改编/补丁材料）；CI 含 <code>dependency-audit.yml</code>、<code>asf-source-candidate.yml</code>、<code>check:asf-headers</code> 等 ASF 合规检查；依赖清单中未发现 GPL/AGPL 声明。</p>
+<p><strong>评估</strong>: 协议明确性极高——项目属 Apache 孵化器，LICENSE 文件规范完整，SPDX 标识（<code>license: Apache-2.0</code>）统一。依赖链中 Vercel AI SDK、@modelcontextprotocol/sdk、node-pty、Astryx 等均为 Apache-2.0/MIT/BSD 宽松许可，无 copyleft 传染风险，也未见 Commons Clause、BUSL 等商业限制附加条款。ASF 孵化器本身强制执行第三方许可审查，法律合规路径清晰。不存在因协议导致的商业路径阻断。</p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>结论</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>协议明确性</td>
+<td>LICENSE 完整，Apache-2.0 标准文本，各 package.json 声明一致</td>
+</tr>
+<tr>
+<td>copyleft 传染性</td>
+<td>依赖链（npm + Cargo）均无 GPL/AGPL 传染协议</td>
+</tr>
+<tr>
+<td>商业附加条款</td>
+<td>无 Commons Clause / BUSL 等限制条款</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分</strong>: 3.0 / 3.0（100% 档：协议明确规范，无传染性风险，无商业附加条款）</p>
+<hr />
+<h3>D6.2 依赖链法律风险（2.5 分）</h3>
+<p><strong>数据依据</strong>: 根 <code>package.json</code> 及 9 个 workspace 的依赖清单；Rust 原生依赖（gix、libp2p、tokio、napi、serde 等）许可证为 MIT/Apache-2.0 双许可或宽松许可；项目含 <code>scripts/generate-third-party-notices.mjs</code>、<code>scripts/third-party-closure.test.mjs</code>、<code>dependency-audit.yml</code> 等自动化合规审计；根 package.json 含 <code>overrides</code> 与 <code>allowScripts</code> 管控原生/构建依赖。</p>
+<p><strong>评估</strong>: 依赖数量庞大（多 workspace、TypeScript + Rust + Python 混合生态），但依赖来源均为知名组织（Vercel、Microsoft、Meta、Mozilla、npm 官方包），传递依赖中无 GPL/AGPL 高风险项。项目通过第三方声明闭包测试和 <code>check:third-party-notices</code> 保证每个发布产物附带许可声明，合规管理成熟。需注意的轻微事项：项目对 @ai-sdk/provider-utils、node-pty、@astryxdesign/core 维护源码补丁（patch-package），这些补丁的许可兼容性已在 LICENSE 中逐一声明，但后续依赖升级时需同步维护补丁合规记录，构成长期合规成本。</p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>结论</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>依赖协议审查</td>
+<td>npm/Cargo 依赖均为 MIT/Apache-2.0 宽松许可，无传染性协议</td>
+</tr>
+<tr>
+<td>依赖数量</td>
+<td>依赖规模大，但以自动化脚本 + CI 审计闭环管理</td>
+</tr>
+<tr>
+<td>依赖来源</td>
+<td>npm 官方源 + GitHub 头部仓库，来源可靠</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分</strong>: 2.0 / 2.5（80% 档：无传染性依赖，来源可靠，整体可控但有需持续维护的补丁合规事项）</p>
+<hr />
+<h3>D6.3 商标与专利风险（2.5 分）</h3>
+<p><strong>数据依据</strong>: 项目名 "Maka" 属 Apache 孵化器品牌；无人工商标检索/专利排查数据。未经人工核查，置信度低。</p>
+<p><strong>评估</strong>: 依据方法论自动化限制，商标检索与专利排查无法由 AI 自动完成，本细则默认按 5–6 档评定。需说明：项目处 ASF 孵化流程（Incubating），ASF 通常会对项目名称做初步商标尽职调查，且 ASF 有统一商标使用政策（限制衍生品使用 Apache 品牌），但这些事实均不替代独立 FTO（自由实施）分析。商业化前应在目标司法辖区完成 "Maka" 商标注册状态检索，并对 AI agent 运行时、事件溯源日志等核心技术领域做专利侵权排查。</p>
+<p><strong>评分</strong>: 1.5 / 2.5（60% 档：未经人工核查，置信度低）</p>
+<hr />
+<h3>D6.4 贡献者协议完备性（2 分）</h3>
+<p><strong>数据依据</strong>: <code>CONTRIBUTING.md</code> 存在，内含完整贡献流程（issue 认领、PR 模板、Conventional Commits、人类审核责任制、AI 署名 <code>Generated-by</code> 要求、Provenance and Licensing 章节）；无 CLA 自动化助手（如 CLAassistant）或 DCO <code>Signed-off-by</code> 的显式配置；无 CODEOWNERS 文件。</p>
+<p><strong>评估</strong>: 项目作为 Apache 孵化器项目，版权归属由 ASF 集中控制（ASF 法律框架 + ICLA 制度），贡献授权明确写入 CONTRIBUTING.md（"Contributions are licensed under the Apache License 2.0"），并对第三方材料来源、许可、归属有明确记录义务，贡献流程在开源项目中属规范水平。仓库内虽无 CLA 机器人或 DCO 标识，但 ASF 的 ICLA 体系在产业界属于最严格档位之一，版权归属清晰，利于双协议等后续商业化操作。扣分点仅在贡献协议的工具化显式程度不足。</p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>结论</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CLA/DCO</td>
+<td>依赖 ASF ICLA 体系，仓库内无 CLA 助手/DCO 显式配置</td>
+</tr>
+<tr>
+<td>版权归属</td>
+<td>版权归 ASF 集中所有，控制力强</td>
+</tr>
+<tr>
+<td>贡献流程</td>
+<td>CONTRIBUTING.md 规范完整，含 AI 贡献强制署名的前沿治理</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分</strong>: 1.6 / 2.0（80% 档：有基本贡献协议和流程，版权归属清晰）</p>
+<hr />
+<h3>结论</h3>
+<p><strong>D6 总体评分：8.1 / 10</strong>，法律合规与知识产权维度处于「良好」水平，商业化的法律硬伤风险低。</p>
+<p>主要支撑：
+1. <strong>协议纯净</strong>：Apache-2.0 单一许可，无 copyleft 传染、无商业附加条款，ASF 孵化器法律治理成熟；
+2. <strong>依赖合规闭环</strong>：无 GPL/AGPL 依赖，第三方材料（含补丁）全部在 LICENSE 中列出归属与许可，CI 强制执行第三方声明闭包检查；
+3. <strong>版权集中可控</strong>：ASF 统一持有版权，贡献流程含 AI 署名规则，对商业化授权与双协议操作友好。</p>
+<p>主要不确定项：
+- D6.3 商标与专利为默认评分（1.5/2.5），未经人工检索，需在商业化启动前补做尽调；
+- 依赖规模大 + 补丁维护（node-pty、@ai-sdk/provider-utils、Astryx 等）带来持续合规成本，需按依赖升级节奏同步更新第三方声明。</p>
+<p>整体而言，Apache-2.0 许可允许商用、修改和闭源分发，ASF 之名本身为下游采用者提供法律确定性。在法律层面，该项目不构成商业化路径的实质性障碍，唯商标/专利核查为必要前置动作。</p>
+<h3>D7. 企业就绪度与可运营性（权重 8%）</h3>
+<p><strong>综合得分：7.5 / 10</strong></p>
+<p>Maka 作为 Apache Incubating 项目，在企业级运营能力上呈现出“高工程成熟度 + 早期产品约束”的双重特征：发布/升级流水线、安全审计、权限沙箱和可观测性基础设施明显强于同类 v0.1 项目，但本地优先的单机架构、尚未正式 Apache Release、数据格式可能变更、缺少企业级 SSO/RBAC 与集群高可用，使其尚不能视为完整企业级平台。</p>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>小分</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D7.1 运维复杂度与升级路径（3 分）</td>
+<td>2.4 / 3</td>
+<td>发布工程极完善：2026-08 内密集发布 v0.1.3–v0.1.11 共 10 个版本，配套 ASF source candidate、CLI npm staging/finalize、Windows release check 等多条自动化发布流水线。Windows 流程专门覆盖 pinned-version 升级、自动更新 E2E、安装器中途失败回滚，升级路径基本平滑。SQLite 层有显式 schema 迁移与 rollback 实现（<code>sqlite-session-metadata-schema.ts</code>），并具备 runtime resume / workspace checkpoint / session bundle 备份恢复机制。但 README 明确提示数据格式与 CLI 命令仍可能变化，尚未发布 Apache 正式版本，且无集中式配置中心，故按“运维成本可控、升级基本平滑”评为 7–8 档。</td>
+</tr>
+<tr>
+<td>D7.2 安全管理与权限控制（2.5 分）</td>
+<td>2.0 / 2.5</td>
+<td>安全体系明显强于一般早期项目：append-only 执行日志记录模型消息、工具调用、工具结果、权限决策与终止事件，天然构成审计轨迹；权限模型细粒度（<code>PermissionMode</code>、sandbox boundary review、工具审批、computer-use 物理输入防护）；Windows 沙箱使用受限令牌/AppContainer/Job 对象；MCP 集成支持 OAuth/PKCE、凭据库、密钥脱敏与传输安全断言；Git 工作区隔离时禁用凭据与网络。不足之处是未发现 SSO/LDAP/SAML 企业认证接入，且权限模型面向本机单用户而非多租户 RBAC/ABAC，因此按“有基本认证授权和审计、权限控制有细粒度设计”评为 7–8 档。</td>
+</tr>
+<tr>
+<td>D7.3 可扩展性与高可用能力（2.5 分）</td>
+<td>1.5 / 2.5</td>
+<td>架构为 local-first 单机形态：会话、设置与运行记录默认保存在本地，Desktop/CLI/Eval 均经 Runtime Host 执行，无服务端集群或分布式协调。单节点可靠性较好：SQLite 事务、乐观并发控制、崩溃恢复、断点续跑、工作区 checkpoint 均有实现；Runtime Host 也支持多 profile、loopback 端口分配与受管服务替换。但水平扩展与高可用能力缺失，若需作为企业共享服务部署，需对架构做实质性改造，符合“单机性能可接受、扩展需改造”的 5–6 档。</td>
+</tr>
+<tr>
+<td>D7.4 集成兼容与可观测性（2 分）</td>
+<td>1.6 / 2</td>
+<td>集成能力较好：提供 MCP 客户端（OAuth、工具发现与调用）、OpenAI Responses 增量传输、多 LLM 提供商注册表，以及 Runtime Host 类型化协议（WebSocket/IPC）和多个 SDK 包。可观测性有基础：健康中心/HealthSnapshot、运行时主机状态、就绪探测、usage/pricing 用量遥测、诊断日志与脱敏错误处理均存在。但未发现 Prometheus / OpenTelemetry / Webhook 等通用企业可观测协议接入，日志与指标也未体现集中汇聚能力，按“有 API 和基本监控”评为 7–8 档。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：Maka 的企业就绪度处于“工程化优秀但产品形态尚未企业级化”的中间阶段。对商业化最有利的是发布/升级工程、安全审计与权限沙箱；最明显的企业级短板是单机架构缺少 HA/扩展性、无企业 SSO/RBAC、数据格式尚未稳定、Linux 尚未正式支持。若目标客户是看重安全与本地数据的个人开发者/小团队，当前成熟度已具商业价值；若面向大中型企业集中部署，需优先补齐服务端高可用与集中治理能力。</p>
+<h3>D8. 团队治理与可持续性（权重 7%）— 得分 9.33 / 10（置信度：中）</h3>
+<blockquote>
+<p><strong>置信度说明</strong>: 本维度 D8.3（资金支持与商业赞助）因补采数据未包含 GitHub Sponsors / Open Collective / 融资记录而标记为 N/A，维度和分按规则从满分中剔除后等比缩放。其余细则基于 GitHub API 实采数据与本地仓库 P0 文件评估，核心维护者个人履历（商业化背景）未直接采集，D8.1 通过项目可观察表现间接推断。</p>
+</blockquote>
+<h4>D8.1 核心维护者能力与背景 — 2.0 / 2.5 分（80%，8 分档）</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术能力</td>
+<td>卓越</td>
+<td>96.5 万行 TypeScript 代码，架构文档体系完整（ARCHITECTURE.md/DESIGN.md/30+ 架构 ADR），SECURITY.md 定义了分层信任模型与加载边界，测试覆盖率 41.9%，体现极高的工程标准</td>
+</tr>
+<tr>
+<td>商业经验</td>
+<td>无法直接验证</td>
+<td>未采集到核心维护者个人 GitHub 履历与公司背景；security@maka.app 的独立域名暗示存在运营实体，但无确凿商业化记录</td>
+</tr>
+<tr>
+<td>投入度</td>
+<td>极高</td>
+<td>90 天创建 3036 个 PR（日均 33+），3 个月内发布 12+ 个版本（v0.1.3→v0.1.11），投入强度远超业余水平</td>
+</tr>
+<tr>
+<td>巴士因子</td>
+<td>≥3</td>
+<td>85 名贡献者，ASF 孵化项目要求至少 3 名初始 committer 且有 mentor 监督，非单人依赖</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>: 项目处于 Apache 孵化器内，ASF 对 committer 数量与评审流程有硬性准入要求，可确认巴士因子 ≥3；贡献密度与代码质量证明核心团队技术水平与投入度达到 7–8 档标准。商业经验因数据缺失无法加分，故不打 9–10 档。</p>
+<h4>D8.2 治理模型透明度 — 2.0 / 2.0 分（100%，9–10 分档）</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>治理文档</td>
+<td>完善</td>
+<td>CONTRIBUTING.md 明确治理流程（项目方向与产品决策在 dev@maka.apache.org 公开讨论）、PR 评审规则（committer 互审 + 分支保护）、命名规范（Conventional Commits）、AI 贡献归属政策（Generated-by 声明）；SECURITY.md 定义安全信任边界与报告流程；.asf.yaml 落实分支保护</td>
+</tr>
+<tr>
+<td>开放程度</td>
+<td>完全公开</td>
+<td>决策通过 ASF 公共邮件列表进行，外部贡献者可参与讨论；issue 标签体系（help wanted/good first issue）引导社区贡献；人类的最终评审是强制要求（"AI review does not count"）</td>
+</tr>
+<tr>
+<td>基金会/组织</td>
+<td>ASF 孵化项目</td>
+<td>属于 Apache Software Foundation 顶级开放治理体系，受 ASF 法律与基础设施支持（ASF NPM/SOURCE Release 流程等 16 个 CI 工作流可见端倪）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>: 治理透明度和开放程度达到开源项目最高标准——决策公开、有基金会背书、贡献路径清晰。非 Apache 顶级项目（仍处孵化期），但治理框架本身即为 ASF 标准，给予 9–10 档满分。</p>
+<h4>D8.3 资金支持与商业赞助 — N/A</h4>
+<p>补采数据（GitHub API）不含 Sponsors / Open Collective / 组织资金信息，本地仓库亦无相关记录。无法证实是否存在 VC 支持、公司赞助或商业实体运营。仅观察到两个间接信号：SECURITY.md 使用 security@maka.app 独立域名（暗示有官方运营实体），ASF 孵化器提供非资金类基础设施支持（托管、法律、发布管道）。因核心数据缺失，标记 N/A，不计入评分。</p>
+<h4>D8.4 项目可持续性与传承风险 — 3.0 / 3.0 分（100%，9–10 分档）</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>活跃趋势</td>
+<td>持续上升</td>
+<td>项目创建于 2026-05-27，3 个月内 star 达 3596、贡献者 85 人；90 天关闭 issue 703 个（约 7.8 个/天）且仍在新增开放 issue 337 个，需求持续涌入；版本迭代密集（v0.1.3→v0.1.11 仅 15 天），呈明显上升曲线</td>
+</tr>
+<tr>
+<td>维护延续性</td>
+<td>传承机制健全</td>
+<td>ASF 孵化流程保证 committer 轮换与 mentor 监督；85 名贡献者保证核心团队退出后社区具备接管基础；CONTRIBUTING.md 对 PR 审查、AI 贡献归属有明确规则，降低人员流动风险</td>
+</tr>
+<tr>
+<td>历史信号</td>
+<td>无风险标记</td>
+<td>is_archived=false，无 deprecated/unmaintained 声明</td>
+</tr>
+<tr>
+<td>分叉风险</td>
+<td>无分裂信号</td>
+<td>349 forks / 3596 stars（fork 比例 9.7%）属正常范围，无社区分裂迹象</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>: 活跃度、传承机制、历史信号、分叉风险四方面均无瑕疵，处于高速上升期且治理完善，给予 9–10 档满分。</p>
+<h4>D8 维度结论</h4>
+<p>Apache Maka 在团队治理与可持续性维度表现卓越（<strong>9.33 / 10</strong>）。作为 Apache 孵化器项目，它继承了开源世界最成熟的治理框架——公开决策、强制评审、基金会背书；项目自身活跃度处于爆发期，85 名贡献者与日均 33 个 PR 的工程化节奏证明团队投入度极高，传承风险低。<strong>主要不确定点在于 D8.3 资金支持状况（N/A）</strong>：ASF 项目通常依赖贡献者所属公司资源或志愿时间，但本项目既无公开赞助记录也无融资披露，独立域名 maka.app 暗示存在商业实体，需进一步人工尽调其资金可持续性。若资金维度确认有企业支持，本维度得分可维持；若纯社区志愿驱动，长期商业化投入强度仍待观察。</p>
+<h3>D9. 上手难度与易用性</h3>
+<h4>总览</h4>
+<p>Apache Maka 仍处于孵化早期（v0.1.x），尚未发布 Apache 正式版本。README 明确不推荐预编译下载、要求从源码构建，且桌面端仅支持 macOS Apple Silicon——这使得<strong>安装环节</strong>成为商业化推广的第一道硬门槛。另一方面，项目提供了清晰的 4 步 Quick Start、GUI/CLI/TUI 三入口和 130 篇文档（含中英双语），开发人员可在 30 分钟内跑通首体验。各细则打分如下：</p>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>小分</th>
+<th>满分</th>
+<th>档位</th>
+<th>核心判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D9.1 安装难度</td>
+<td>1.0</td>
+<td>2.5</td>
+<td>40%（3–4 档）</td>
+<td>无预编译包、从源码构建、要求 Node 22.19+/npm/Git/ripgrep，仅 macOS arm64</td>
+</tr>
+<tr>
+<td>D9.2 部署与配置难度</td>
+<td>1.5</td>
+<td>2.5</td>
+<td>60%（5–6 档）</td>
+<td>无 Docker/K8s 部署方案；<code>npm run dev</code> 可跑通，但需手动配置模型连接</td>
+</tr>
+<tr>
+<td>D9.3 易用性与操作门槛</td>
+<td>1.5</td>
+<td>2.5</td>
+<td>60%（5–6 档）</td>
+<td>桌面 GUI 较完整，CLI 有 <code>--help</code>/斜杠命令，但需理解沙箱/权限/连接等概念</td>
+</tr>
+<tr>
+<td>D9.4 学习曲线与首体验</td>
+<td>1.5</td>
+<td>2.5</td>
+<td>60%（5–6 档）</td>
+<td>Quick Start 清晰，开发人员约 30 分钟首跑；但 0 示例、无交互式引导</td>
+</tr>
+<tr>
+<td><strong>D9 合计</strong></td>
+<td><strong>5.5</strong></td>
+<td><strong>10</strong></td>
+<td><strong>🟡 中等</strong></td>
+<td>对开发人员友好，对非技术人员构成显著门槛</td>
+</tr>
+</tbody>
+</table>
+<h4>细则分析</h4>
+<p><strong>D9.1 安装难度（1.0/2.5）</strong></p>
+<ul>
+<li>安装方式上，README 原文明确指出 "recommends no prebuilt download"，用户必须走 <code>git clone → npm ci → npm run dev</code> 的源码路径；CLI 包 <code>maka-agent</code> 虽声明了 <code>bin.maka</code>，但 <code>private: true</code> 尚未发布到 npm 公共源。</li>
+<li>依赖管理不包含系统级组件：除 Node.js ≥22.19、npm 11、Git 外，还需单独安装 <code>ripgrep</code>（Runtime 的 Grep 工具依赖）；<code>postinstall</code> 含依赖补丁与 Electron 二进制下载逻辑，安装失败面较大。</li>
+<li>平台覆盖严重受限：桌面端仅 Apple Silicon Mac（arm64），Intel Mac 与 Linux "not supported yet"，Windows 仅为未签名预览。仓库含 10 个 npm workspace 与 3 个 Rust 原生组件（gitoxide-helper / runtime-host-peer / windows-sandbox，测试链需要 Rust 1.98）。</li>
+<li>综合判定为 3–4 档（安装步骤多、依赖复杂、需开发人员操作），在六档折算下取 40% → <strong>1.0 分</strong>。</li>
+</ul>
+<p><strong>D9.2 部署与配置难度（1.5/2.5）</strong></p>
+<ul>
+<li>主应用无 Docker/K8s/Helm 部署方案；仓库中唯一的 Dockerfile（<code>packages/eval/harbor/egress-proxy/Dockerfile</code>）是 eval 评估框架的出口代理辅助组件，非产品本体。</li>
+<li>部署路径实质是「开发模式运行」：<code>npm run dev</code> 启动带 HMR 的 Electron 开发环境，<code>npm run dev:full</code> 先构建所有 workspace 再启动；对运维/非技术人员而言没有可分发的安装产物。</li>
+<li>首次启动必须完成模型连接配置（Settings → Models → 添加/测试/选择默认模型），Maka 不捆绑任何共享模型账号，外部模型 API 是硬性前置依赖；数据落地位于 <code>&lt;Electron userData&gt;/workspaces/default/</code>，SQLite 内部存储无需额外初始化数据库。</li>
+<li>存在 Quick Start 且开发人员可在约 10 分钟内跑通 demo，但配置与依赖初始化仍需手动完成、面向人群为开发人员，故取 5–6 档 → <strong>1.5 分</strong>（注：本细则仅评估部署验证环节便捷性，总学习时长归 D9.4）。</li>
+</ul>
+<p><strong>D9.3 易用性与操作门槛（1.5/2.5）</strong></p>
+<ul>
+<li>操作便捷度方面，桌面端具备流式会话、工具时间线、分支、搜索、恢复等完整 GUI；CLI/TUI 入口提供 <code>maka run</code> 非交互单次 Turn 与 <code>/graph</code> 斜杠命令；<code>--help</code> 可用。</li>
+<li>交互设计与错误处理：能力清单中列出 "clearer provider errors"，应用区分 configured / send-ready / experimental 三种连接状态，说明对错误提示有一定投入；但整体仍处于 v0.1.x 快速迭代期，README 明确警告 "data formats, CLI commands, and experimental capabilities may still change"。</li>
+<li>非专家可用性：概念门槛较明显——用户需理解模型连接、沙箱边界、权限决策（离开沙箱的工具调用需审批）、Runtime Host 等概念；默认配置（如 <code>MAKA_RUNTIME_SAFE_BOUNDARY_RESUME=1</code> 控制的安全恢复默认关闭）相对保守合理，开箱可用性尚可。</li>
+<li>综合为「操作可用但需查文档、部分概念需摸索」的 5–6 档 → <strong>1.5 分</strong>。</li>
+</ul>
+<p><strong>D9.4 学习曲线与首体验（1.5/2.5）</strong></p>
+<ul>
+<li>上手时间：Quick Start 为 4 条命令 + 首次运行 4 步配置，具备 Node/Git 基础的开发人员约 30 分钟可完成首次成功使用（含 npm ci 安装耗时）；非技术人员因需先安装系统依赖且无安装包，上手时间升至小时级。</li>
+<li>入门引导：README 的 Quick start / First run 章节清晰，提供中英双语文档（README.zh-CN.md + 大量架构文档 zh-CN）降低中文用户成本；但无交互式 onboarding 流程，且全仓库 <strong>示例文件为 0</strong>，缺少可模仿的模板项目。</li>
+<li>学习曲线：事件溯源（append-only log）、Runtime Host、沙箱边界等设计概念有一定陡度，桌面 GUI 虽能掩盖部分复杂度，但用户仍需自带模型 API 并理解连接配置。</li>
+<li>判定为「半天到一天上手、有基本文档但需自行摸索」的 5–6 档 → <strong>1.5 分</strong>。</li>
+</ul>
+<h4>结论</h4>
+<p>Maka 的 D9 维度总分为 <strong>5.5/10</strong>，上手难度等级为 <strong>🟡 中等</strong>。核心矛盾在于：<strong>产品形态面向日常使用者（桌面工作区），但分发形态仍停留在开发者工具</strong>——无预编译安装包、仅 macOS arm64、需源码构建，直接阻塞了非技术用户的试用转化；而项目早期状态（格式/CLI 仍可变更）也放大了学习成本的不确定性。正面因素是 Quick Start 质量高、中英双语文档体系完善（130 篇）、GUI 三入口设计合理，为后续发布正式版本、提供一键安装包后快速拉升易用性评分留出了充足空间。建议商业化路径上优先补齐 macOS/Windows 签名安装包与 Linux 支持，并配套交互式 onboarding，这一维度将有显著提升空间。</p>
+<h3>D10 功能价值——使用价值视角（平行维度，权重 0%）</h3>
+<blockquote>
+<p>本维度与商业评分正交，仅评估「使用者获得的效用量级，不论是否付费」。结论用于价值画像判定，不计入综合评分。</p>
+</blockquote>
+<h3>D10.1 效用强度（满分 3 → 实得 1.8）</h3>
+<p>Maka 的核心效用主张十分明确：为 AI agent 的真实工作负载提供<strong>可审计、可恢复、本地优先的执行基础设施</strong>。从 README 与架构文档看，其效用集中在三方面：</p>
+<ol>
+<li><strong>执行事实记录</strong>：模型消息、工具调用、工具结果、权限决策、终止事件全部写入 append-only log（<code>runtime.sqlite</code>），UI 与下一次模型调用都只是该记录的投影——这直接解决了 agent 工作「不可复现、无法审计、上下文被截断后证据丢失」的痛点；</li>
+<li><strong>沙箱权限边界</strong>：越界工具调用需逐次批准，失败分类、可中止，为真实生产操作提供了安全边际；</li>
+<li><strong>中断恢复</strong>：崩溃恢复与可选 resume 机制，避免长任务因一次故障整体重来。</li>
+</ol>
+<p>对深度依赖 agent 完成实际工作的用户，这些能力构成<strong>项目级基础设施</strong>，替代方案需自行拼装事件存储、权限网关、恢复编排等一整套组件，成本显著。但当前版本明确标注 "data formats, CLI commands, and experimental capabilities may still change"，且平台支持仅限 macOS Apple Silicon（Windows 为 unsigned preview、Linux 未支持），<strong>效用确定性</strong>受早期阶段拖累。综合评定为「明确但有限的效率提升，随项目成熟有望升级为项目级依赖」，对应 6 分档（60%）。</p>
+<h3>D10.2 实际使用规模（满分 3 → 实得 0.6）</h3>
+<p>实采数据为硬约束：<strong>npm 周下载量 13</strong>，无 PyPI 数据，GitHub Dependents 计数未实采到。按评分指引，月下载量不足百次，处于「几乎无人实际使用」区间。</p>
+<p>但需注意两个解释性背景：其一，README 明确建议<strong>不在 Apache release 前提供预编译下载</strong>（"this README recommends no prebuilt download. Build and run Maka from source"），官方主动抑制了包管理器分发路径，npm 数字不能完全代表全部采用量（源码构建使用不在计数内）；其二，GitHub 侧呈现出「开发热度高、终端采用极低」的剪刀差——3596 stars、349 forks、85 contributors、90 天 3036 个 PR，说明这是一个快速迭代但尚未进入大众采用期的孵化项目。生产采用证据（README 用户案例、公开部署报道）均为零。综合评定为「几乎无人实际使用、但开发社区活跃」，对应 2 分档（20%）。</p>
+<h3>D10.3 免费可得的完整效用（满分 2 → 实得 2.0）</h3>
+<p>本项目在免费完整性上无可挑剔：</p>
+<ul>
+<li><strong>协议与形态</strong>：Apache-2.0，ASF 孵化项目，无企业版、无付费墙、无功能分层；</li>
+<li><strong>本地优先</strong>：会话、设置、运行记录默认全部留在本机（Electron <code>userData/workspaces/default/</code>），自行部署可获得与官方完全一致的全部能力；</li>
+<li><strong>BYOK 模式</strong>：模型连接由用户自带（云 API、本地模型或兼容网关），不存在「不付费实际不可用」的隐性设计；README 还专门声明未接入 Runtime 的实验性账户不会伪装成可用模型。</li>
+</ul>
+<p>这是一个「开源版即全部价值」的典型样本，对应 10 分档（100%）。</p>
+<h3>D10.4 效用可持续性（满分 2 → 实得 1.6）</h3>
+<ul>
+<li><strong>停维后效用存续</strong>：核心运行体完全本地化——SQLite 事件存储、本地工件目录、Electron 客户端；即使项目停止维护，已安装版本的核心能力（本地记录、工具执行、恢复）持续可用，不依赖官方在线服务。</li>
+<li><strong>供应商锁定</strong>：模型 API 是唯一必要的外部依赖，但设计上为多 provider + 本地模型适配，属<strong>可替换依赖</strong>而非锁定的闭源组件；密码学凭据存储在本地 plaintext 文件（OS 账户级权限），不依赖厂商云端。</li>
+<li><strong>可分叉维护性</strong>：Apache-2.0 协议允许自由分叉；构建链路完整（npm scripts、CI 16 个 workflow、release 检查脚本），但 96.5 万行 TypeScript 的体量意味着分叉维护门槛较高。</li>
+</ul>
+<p>未给满分的原因在于：agent 软件的价值发挥必然依赖外部 LLM 服务可用性（虽可替换但不可消除），且 96 万行代码库对社区分叉提出了实质能力要求。综合评定「主体本地化、少量可替换外部依赖」，对应 8 分档（80%）。</p>
+<h3>细则打分汇总</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>实得</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10.1</td>
+<td>效用强度</td>
+<td>3</td>
+<td>1.8</td>
+<td>6 分档（60%）</td>
+</tr>
+<tr>
+<td>D10.2</td>
+<td>实际使用规模</td>
+<td>3</td>
+<td>0.6</td>
+<td>2 分档（20%）</td>
+</tr>
+<tr>
+<td>D10.3</td>
+<td>免费可得的完整效用</td>
+<td>2</td>
+<td>2.0</td>
+<td>10 分档（100%）</td>
+</tr>
+<tr>
+<td>D10.4</td>
+<td>效用可持续性</td>
+<td>2</td>
+<td>1.6</td>
+<td>8 分档（80%）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td><strong>6.0</strong></td>
+<td><strong>60%</strong></td>
+</tr>
+</tbody>
+</table>
+<h3>维度结论</h3>
+<p>D10 总分 <strong>6.0/10</strong>。Maka 的价值结构呈现鲜明的「高完整、高可持续、低当前采用」特征：开源版即全部价值、本地优先与可替换模型依赖保证了效用存续性，这是典型的健康开源基础设施形态；但实际使用规模极小（npm 周下载 13），效用强度尚停留在「明确但有限」阶段，且受早期版本不稳定性与平台覆盖限制。</p>
+<p>与 D1–D9 商业评分对照，本维度揭示了一个重要信号：<strong>Maka 的低商业分主要源于采用规模不足与市场未验证，而非价值结构缺陷</strong>——其使用价值在当前阶段是「未释放的潜能」，而非「不存在的价值」。按 3.4 价值画像判定，Maka 应划入「高使用价值潜力、低当前商业化验证」类别，后续商业化观察重点在于：Apache 正式 release 后能否将开发热度转化为终端采用规模。</p>
+<h3>D11 社会价值（正外部性视角）</h3>
+<blockquote>
+<p><strong>平行维度说明</strong>: 本维度权重为 0%，不计入综合评分与一票否决，仅用于 3.4 价值画像。与 D3.4「品牌影响力对商业势能的助力」（商业输入视角）不同，本维度评估项目对行业与社会的外溢贡献本身；与 D2.5/D2.6 共用 i18n、文档等工程事实素材，但评价视角为普惠效果而非工程质量。</p>
+</blockquote>
+<p>Apache Maka 是一个处于 ASF 孵化期的本地优先（local-first）AI Agent 工作区，以「append-only 事件日志 + Runtime Host 沙箱边界 + 可恢复执行记录」为核心设计。截至评估时点，项目创建仅约 3 个月（2026-05-27 创建），尚未发布 Apache 官方 release，npm 周下载量仅 13，下游生态依赖尚未形成；但其 Apache-2.0 许可、双语文档体系、本地优先隐私理念与开放协议对接，展现出清晰的数字公共产品基因。以下从四个细则维度展开评估。</p>
+<h4>D11.1 数字公共基础设施属性（3 分）</h4>
+<p><strong>得分: 1.2 / 3（40% 档，对应通用标尺 3–4「几乎无下游依赖，停摆影响微小」）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>关键依赖地位</td>
+<td>无 Dependents 数据；npm 周下载量仅 13；README 明确表示「尚未发布 Apache release，不推荐预构建下载」，须从源码构建——尚未成为任何下游生态的关键依赖</td>
+</tr>
+<tr>
+<td>停摆影响面</td>
+<td>项目消失将影响的仅限早期采用者（3596 star / 349 fork 群体中的活跃用户），对软件供应链几乎无波及</td>
+</tr>
+<tr>
+<td>数字公共产品属性</td>
+<td>较符合 DPG 特征：Apache-2.0 开放许可；核心设计（append-only 事件日志、沙箱边界、可恢复执行）服务可审计性与用户数据自主权，具有公共利益指向；但可复用性受制于平台覆盖（正式仅支持 macOS arm64）与构建门槛</td>
+</tr>
+</tbody>
+</table>
+<p><strong>关键事实</strong>: 项目处于孵化期早期（ASF Incubating），90 天 PR 3036 个显示密集开发但仍无稳定正式发布物；npm 周下载量 13 是最直接的「下游依赖尚未形成」证据。其架构文档（ARCHITECTURE.md 六篇双语 deep dive）展示的 Runtime Host 分层设计具备成为领域参考实现的基础，但「数字底座」地位远未确立。</p>
+<h4>D11.2 教育与人才价值（2.5 分）</h4>
+<p><strong>得分: 1.5 / 2.5（60% 档，对应通用标尺 5–6「有一定教学使用，影响限于小圈子」）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>教学采用</td>
+<td>外部教程/课程数量数据缺失（N/A），无法确证教学采用规模；但 README 声称架构文档提供「系统地图、代码边界、问题导向阅读路径、六个双语深度解析」，显式设计了学习者阅读路径</td>
+</tr>
+<tr>
+<td>门槛降低效应</td>
+<td>项目本身是 AI Agent 工具，使用门槛不低——需要 Node.js 22.19+、ripgrep、源码构建、自带模型连接；对降低「掌握 AI Agent 技术」的门槛帮助有限，更多是向已具备工程能力的开发者开放内部范式</td>
+</tr>
+<tr>
+<td>源码学习价值</td>
+<td>较强：96.5 万行 TypeScript 组织为清晰的 6 包分层（core/storage/runtime/eval/cli/ui），测试 40.4 万行（覆盖率 41.9%），依赖极简（dependencies 为空），16 个 CI workflow——是「如何构建严肃 agent 运行时」的优秀工程范本</td>
+</tr>
+</tbody>
+</table>
+<p><strong>关键事实</strong>: 130 个文档文件中包含大量中英双语架构文档（ARCHITECTURE.zh-CN.md、DESIGN.md、runtime-resume-architecture.zh-CN.md 等 25+ 篇），这种系统性双语设计在开源项目中属中上水平，为中文开发者提供了难得的 agent 系统学习素材；但项目太新、无外部课程生态数据，教学影响目前仍限于关注最新 agent 架构的小圈子。评分反映「有真实学习价值、外溢待发酵」的现状，介于 5–6 档。</p>
+<h4>D11.3 普惠与可及性（2.5 分）</h4>
+<p><strong>得分: 1.5 / 2.5（60% 档，对应通用标尺 5–6「有普惠效果但受技术门槛/语言/硬件限制」）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>能力平权化</td>
+<td>免费开源（Apache-2.0）的本地优先 Agent 工作区，用户自带模型（BYO model，可接本地模型或任意兼容网关），对比商业 Agent 平台（订阅制、按量计费）存在显著价格差，个人开发者可近零成本获得同等架构能力——普惠效应真实存在</td>
+</tr>
+<tr>
+<td>替代价格差</td>
+<td>README 未提及具体竞品定价（竞品清单未经搜索验证），但「免费 + 自带模型 + 本地运行」与主流商业 Agent 工作区的订阅制形成结构性价差</td>
+</tr>
+<tr>
+<td>可及性支持</td>
+<td>双语文档（EN + zh-CN）是明显的可及性优势，覆盖更大语种人群；但平台支持是硬约束：正式支持仅 macOS Apple Silicon（arm64），Windows 为无签名预览，Linux 明确「not yet supported」；且无官方 release（须源码构建），硬件与技能门槛均偏高</td>
+</tr>
+</tbody>
+</table>
+<p><strong>关键事实</strong>: 本地优先架构本身即是普惠设计——数据不出机器、API 密钥本地明文存储（仅 OS 账号可读）、沙箱边界控制工具权限，降低了用户对云端 Agent 服务的信任成本；「不捆绑共享模型账户」让用户自由选择低成本/本地模型，避免厂商锁定。但 macOS-only 的正式支持与源码构建要求使「覆盖主要人群」尚不成立，整体处于 5–6 档。</p>
+<h4>D11.4 开放标准与行业推动（2 分）</h4>
+<p><strong>得分: 1.2 / 2（60% 档，对应通用标尺 5–6「遵循开放标准但无推动作用」）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>标准推动</td>
+<td>文档显示对接/实现了开放协议：docs/architecture/mcp-runtime-architecture-draft.zh-CN.md（MCP 运行时架构）、openai-responses-incremental-transport.md（OpenAI Responses 增量传输）、model-metadata 从 models.dev 开放目录抓取——均为「遵循/实现」层面，且多处标注 draft，无证据表明对标准本身有推动作用</td>
+</tr>
+<tr>
+<td>科研支撑</td>
+<td>maka eval 的设计（声明式多臂实验、不可变 per-cell 尝试、最小结果内核含 score/usage/cost/duration）具备「可复现基准实验」的科研支撑潜力；但论文引用检索数据不可得（N/A），暂无实证</td>
+</tr>
+<tr>
+<td>行业示范效应</td>
+<td>append-only 事件日志 + Runtime Host 集中执行 + 权限决策留痕的设计范式，在 agent 可审计性/安全方向有「抬高行业水位」的示范潜力；gitoxide-helper、Windows 沙箱 RFC 等文档显示工程实践严谨，但项目过新，同行模仿痕迹无法检索</td>
+</tr>
+</tbody>
+</table>
+<p><strong>关键事实</strong>: 项目遵循了 MCP、OpenAI Responses 等事实标准，并通过 models.dev 联动保持模型元数据开放更新（刷新失败即熔断），体现对开放生态的承诺；Eval 体系的「针对外部主体也使用通用适配器」设计鼓励对比实验，是推动 agent 评估透明化的积极实践。但所有协议对接均在 draft/早期阶段，无标准主导权，评分停在 5–6 档。</p>
+<h4>D11 细则汇总</h4>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>分值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D11.1</td>
+<td>数字公共基础设施属性</td>
+<td>1.2 / 3</td>
+</tr>
+<tr>
+<td>D11.2</td>
+<td>教育与人才价值</td>
+<td>1.5 / 2.5</td>
+</tr>
+<tr>
+<td>D11.3</td>
+<td>普惠与可及性</td>
+<td>1.5 / 2.5</td>
+</tr>
+<tr>
+<td>D11.4</td>
+<td>开放标准与行业推动</td>
+<td>1.2 / 2</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>5.4 / 10</strong></td>
+</tr>
+</tbody>
+</table>
+<h4>结论</h4>
+<p>Apache Maka 处于「孵化期 + 未发布官方 release + 平台覆盖窄」的早期阶段，其社会价值主要表现为<strong>潜力</strong>而非<strong>现实外溢</strong>：下游生态依赖尚未形成（D11.1 偏弱），教学与标准推动缺乏外部采用实证（D11.2/D11.4 中等），但免费开源、本地优先、双语文档与可复现 Eval 设计共同构成了坚实的数字公共产品基因（D11.3 较实）。整体 5.4 分（一般档），属于「有明确公共价值取向、外溢效应待项目成熟后释放」的画像。</p>
+<h2>五、商业化价值判断</h2>
+<h3>5.1 综合价值定位</h3>
+<p>Apache Maka 的综合评分为 <strong>73.9/100</strong>，等级 <strong>A（高商业化潜力）</strong>，价值画像为 <strong>💼 纯商业工具</strong>。这是一个处于 <strong>「技术极强、市场极热、商业化极早期」</strong> 三重特征叠加状态的项目。</p>
+<p><strong>核心价值判断</strong>：Maka 具备成为 AI Agent 基础设施层重要玩家的技术底子与社区势能，但当前所有商业化要素均停留在「潜在」阶段——无付费产品、无企业版、无定价验证、无生产采用案例。其商业化价值不在于当下的收入能力，而在于 <strong>「以 Apache 中立治理 + 事件溯源架构 + 沙箱安全体系」构建的企业级 Agent 运行时壁垒</strong>，这一壁垒在同类竞品中具有稀缺性。</p>
+<h3>5.2 价值构成拆解</h3>
+<table>
+<thead>
+<tr>
+<th>价值维度</th>
+<th>强度</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术资产价值</td>
+<td>★★★★★</td>
+<td>96.5 万行代码、41.9% 测试率、16 个 CI 工作流、ASF 级工程标准</td>
+</tr>
+<tr>
+<td>市场时机价值</td>
+<td>★★★★☆</td>
+<td>AI Agent 市场十亿美元级现量、向百亿美元级扩张；local-first 细分赛道热度极高</td>
+</tr>
+<tr>
+<td>治理与合规价值</td>
+<td>★★★★★</td>
+<td>Apache-2.0 纯净协议 + ASF 孵化框架 + 依赖链合规自动化</td>
+</tr>
+<tr>
+<td>生态势能价值</td>
+<td>★★★☆☆</td>
+<td>3 个月 3.6k stars、85 贡献者，但第三方生态空白</td>
+</tr>
+<tr>
+<td>商业变现价值</td>
+<td>★★☆☆☆</td>
+<td>无任何已实现的变现路径，monetization_distance 为「远」</td>
+</tr>
+</tbody>
+</table>
+<h3>5.3 商业化价值结论</h3>
+<p>Maka 的商业化价值属于 <strong>「高潜力、高不确定」</strong> 类型。其价值兑现高度依赖两个前提：① 完成 Apache 正式 release 并稳定 API；② 将 append-only 执行日志与沙箱权限体系产品化为企业版核心卖点。若两者达成，Maka 有潜力在 AI Agent 运维与审计细分市场建立定价权；若拖延，则面临被 Claude Code、Codex 等背靠大厂资源的竞品挤压的风险。</p>
+<h2>六、商业路径分析</h2>
+<h3>6.1 路径选择逻辑</h3>
+<p>基于价值画像「💼 纯商业工具」的判定，Maka 应 <strong>按 D4 最优路径直接变现</strong>，无需刻意经营社区声誉或走「影响力变现」路线。但受限于项目处于孵化期、无正式 release 的客观现实，商业化路径需分阶段推进。</p>
+<h3>6.2 推荐路径：Open Core 企业版（首选）</h3>
+<table>
+<thead>
+<tr>
+<th>要素</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>核心逻辑</strong></td>
+<td>开源版保留本地优先 + BYO model 的完整单机能力；企业版提供团队协作、集中审计、企业级安全管控</td>
+</tr>
+<tr>
+<td><strong>付费触发点</strong></td>
+<td>① append-only 执行日志的集中化审计与合规报表；② 细粒度沙箱权限策略的中央管理；③ 多 Agent 协作编排；④ 企业级 RBAC/SSO（当前缺失）</td>
+</tr>
+<tr>
+<td><strong>协议支撑</strong></td>
+<td>Apache-2.0 对 Open Core 模式零限制，D4.1 得满分 2.0</td>
+</tr>
+<tr>
+<td><strong>定价参考</strong></td>
+<td>同赛道 Open Core 成功先例可参照（如 GitLab、Grafana 模式），按席位 + 企业功能模块定价</td>
+</tr>
+<tr>
+<td><strong>前置条件</strong></td>
+<td>需完成 Apache 正式 release、补齐 Linux 支持、增加 SSO/LDAP/SAML 与企业级 RBAC</td>
+</tr>
+</tbody>
+</table>
+<h3>6.3 辅助路径：专业服务与支持（短期可启动）</h3>
+<table>
+<thead>
+<tr>
+<th>要素</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>核心逻辑</strong></td>
+<td>在正式商业化产品落地前，以 Apache 项目官方支持、部署咨询、定制开发作为收入验证</td>
+</tr>
+<tr>
+<td><strong>付费触发点</strong></td>
+<td>企业希望在自建环境部署 Maka 但缺乏内部 expertise；需要针对特定场景的沙箱策略定制</td>
+</tr>
+<tr>
+<td><strong>优势</strong></td>
+<td>无需等待正式 release，当前 v0.1.x 即可提供服务；ASF 治理背书增强企业信任</td>
+</tr>
+<tr>
+<td><strong>限制</strong></td>
+<td>收入规模有限，仅作为过渡性现金流</td>
+</tr>
+</tbody>
+</table>
+<h3>6.4 不推荐路径</h3>
+<table>
+<thead>
+<tr>
+<th>路径</th>
+<th>不推荐原因</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SaaS 托管</strong></td>
+<td>local-first + BYO model 的设计与 SaaS 模式存在结构性冲突，D4.2 已识别此约束</td>
+</tr>
+<tr>
+<td><strong>双协议/商业授权</strong></td>
+<td>Apache-2.0 协议纯净，引入双协议将损害 ASF 中立治理的差异化优势</td>
+</tr>
+<tr>
+<td><strong>数据/模型收费</strong></td>
+<td>项目定位为运行时而非模型或数据提供方，缺乏此方向的核心能力</td>
+</tr>
+</tbody>
+</table>
+<h3>6.5 路径时间表建议</h3>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>时间</th>
+<th>关键动作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>孵化期（当前）</td>
+<td>0–6 个月</td>
+<td>完成 Apache 正式 release；补齐 Linux 支持；启动企业版功能规划</td>
+</tr>
+<tr>
+<td>验证期</td>
+<td>6–12 个月</td>
+<td>以专业服务切入 3–5 家种子客户；验证 append-only 日志的付费意愿</td>
+</tr>
+<tr>
+<td>商业化期</td>
+<td>12–24 个月</td>
+<td>发布 Open Core 企业版；建立定价体系与渠道</td>
+</tr>
+</tbody>
+</table>
+<h3>6.6 路径风险对冲</h3>
+<p>若 Open Core 路径受阻（如企业付费意愿不足），可退守 <strong>「技术借鉴与人才引进」</strong> 路径——Maka 的事件溯源架构与沙箱安全设计本身即具有被大厂收购或核心团队被挖角的价值。此对冲策略由价值画像「纯商业工具」的边界条件支撑。</p>
+<h2>七、能力评估：能做什么 &amp; 最适合做什么</h2>
+<h3>7.1 核心能力清单</h3>
+<table>
+<thead>
+<tr>
+<th>能力域</th>
+<th>具体能力</th>
+<th>成熟度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>事件溯源架构</strong></td>
+<td>append-only 执行日志，覆盖模型消息/工具调用/权限决策/终止事件全生命周期</td>
+<td>高（D2 核心创新点）</td>
+</tr>
+<tr>
+<td><strong>沙箱安全体系</strong></td>
+<td>bubblewrap/AppContainer 隔离、细粒度权限审批、凭据库/OAuth PKCE、密钥脱敏</td>
+<td>高（D2/D7 双重验证）</td>
+</tr>
+<tr>
+<td><strong>崩溃恢复</strong></td>
+<td>SQLite 事务、断点续跑、checkpoint，短上下文不删历史</td>
+<td>高（D1 痛点解决）</td>
+</tr>
+<tr>
+<td><strong>多入口统一运行时</strong></td>
+<td>Runtime Host 统一 Desktop/TUI/CLI/Eval 三入口</td>
+<td>中高（D2 架构设计）</td>
+</tr>
+<tr>
+<td><strong>协议兼容</strong></td>
+<td>MCP、OpenAI Responses 对接</td>
+<td>中（draft 阶段）</td>
+</tr>
+<tr>
+<td><strong>工程与测试</strong></td>
+<td>41.9% 测试率、16 个 CI 工作流、跨平台矩阵验证</td>
+<td>极高（D2/D8 双重验证）</td>
+</tr>
+<tr>
+<td><strong>合规治理</strong></td>
+<td>ASF 孵化框架、依赖审计自动化、第三方声明完整</td>
+<td>极高（D6 验证）</td>
+</tr>
+</tbody>
+</table>
+<h3>7.2 最适合做什么</h3>
+<p>基于能力与市场匹配度，Maka 最适合的定位是：</p>
+<p><strong>企业级 AI Agent 的可信运行底座</strong>——具体而言，是面向需要对 Agent 行为进行审计、追溯、管控的企业客户，提供「本地沙箱 + 全量执行日志 + 权限审批」的 Agent 运行时。这一能力组合在竞品中具有稀缺性：Claude Code、Codex 等更侧重交互体验与模型能力，而 Maka 的事件溯源与安全边界设计天然适配金融、政务、企业研发等强合规场景。</p>
+<h3>7.3 能力与商业路径的匹配</h3>
+<table>
+<thead>
+<tr>
+<th>商业路径</th>
+<th>所需核心能力</th>
+<th>Maka 匹配度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Open Core 企业版</td>
+<td>审计日志、RBAC、集中管控</td>
+<td>★★★★☆（审计日志强，RBAC 待补）</td>
+</tr>
+<tr>
+<td>专业服务</td>
+<td>部署能力、架构咨询</td>
+<td>★★★★☆（文档卓越，但平台覆盖窄）</td>
+</tr>
+<tr>
+<td>技术输出/被收购</td>
+<td>架构创新、代码质量</td>
+<td>★★★★★（事件溯源 + 沙箱设计具独特性）</td>
+</tr>
+</tbody>
+</table>
+<h2>八、短板识别：还缺少什么</h2>
+<h3>8.1 商业化关键短板</h3>
+<table>
+<thead>
+<tr>
+<th>短板</th>
+<th>严重程度</th>
+<th>说明</th>
+<th>影响</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>无正式 Apache release</strong></td>
+<td>🔴 高</td>
+<td>项目仍处 Incubating，v0.1.11 版本，API 可能变更</td>
+<td>企业客户无法承诺生产依赖</td>
+</tr>
+<tr>
+<td><strong>平台覆盖狭窄</strong></td>
+<td>🔴 高</td>
+<td>仅 macOS arm64 正式支持，Windows 为无签名预览，Linux 不支持</td>
+<td>企业环境以 Linux 为主，直接阻断大部分企业采用</td>
+</tr>
+<tr>
+<td><strong>无任何变现实践</strong></td>
+<td>🟡 中</td>
+<td>无付费版、无企业版、无商业授权产品</td>
+<td>商业模式停留在纸面，付费意愿未验证</td>
+</tr>
+<tr>
+<td><strong>第三方生态空白</strong></td>
+<td>🟡 中</td>
+<td>无插件、无集成、无衍生项目</td>
+<td>网络效应未形成，切换成本低</td>
+</tr>
+<tr>
+<td><strong>企业级功能缺失</strong></td>
+<td>🟡 中</td>
+<td>无 SSO/LDAP/SAML、无企业级 RBAC、无水平扩展</td>
+<td>企业采购的基本门槛未满足</td>
+</tr>
+<tr>
+<td><strong>可观测性标准接入缺失</strong></td>
+<td>🟢 低</td>
+<td>无 Prometheus/OpenTelemetry 接入</td>
+<td>企业运维集成需额外开发</td>
+</tr>
+</tbody>
+</table>
+<h3>8.2 技术与产品短板</h3>
+<table>
+<thead>
+<tr>
+<th>短板</th>
+<th>严重程度</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>核心文件技术债</strong></td>
+<td>🟡 中</td>
+<td>session-manager.ts 等核心文件超 6000 行，模块职责过重</td>
+</tr>
+<tr>
+<td><strong>API 稳定性风险</strong></td>
+<td>🟡 中</td>
+<td>337 个开放 issue，快速迭代期 API 可能频繁变更</td>
+</tr>
+<tr>
+<td><strong>实际采用规模极低</strong></td>
+<td>🔴 高</td>
+<td>npm 周下载量仅 13，无生产采用证据</td>
+</tr>
+<tr>
+<td><strong>上手门槛偏高</strong></td>
+<td>🟡 中</td>
+<td>D9 得分 5.5，安装需源码构建（Linux），平台支持窄</td>
+</tr>
+</tbody>
+</table>
+<h3>8.3 治理与合规短板</h3>
+<table>
+<thead>
+<tr>
+<th>短板</th>
+<th>严重程度</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>商标与专利未核查</strong></td>
+<td>🟡 中</td>
+<td>D6.3 未执行人工 FTO 分析，商业化前需完成</td>
+</tr>
+<tr>
+<td><strong>CLA/DCO 无显式配置</strong></td>
+<td>🟢 低</td>
+<td>仓库内无 CLA 助手/DCO 显式配置，但 ASF 框架下版权归 ASF 集中控制</td>
+</tr>
+<tr>
+<td><strong>资金来源不透明</strong></td>
+<td>🟡 中</td>
+<td>D8.3 无任何公开资金数据，独立域名 security@maka.app 暗示存在运营实体但未确认</td>
+</tr>
+</tbody>
+</table>
+<h2>九、风险提示</h2>
+<h3>9.1 市场与竞争风险</h3>
+<table>
+<thead>
+<tr>
+<th>风险</th>
+<th>等级</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>大厂竞品挤压</strong></td>
+<td>🔴 高</td>
+<td>Claude Code、Codex、OpenHands 等背靠大厂资源，Maka 在品牌与生态上处于劣势</td>
+</tr>
+<tr>
+<td><strong>市场窗口收窄</strong></td>
+<td>🟡 中</td>
+<td>Agent 技术已进入实质生产期，竞争格局未固化但正在快速收敛</td>
+</tr>
+<tr>
+<td><strong>替代品同质化</strong></td>
+<td>🟡 中</td>
+<td>local-first Agent workspace 赛道热度极高，同质化产品可能快速涌现</td>
+</tr>
+</tbody>
+</table>
+<h3>9.2 技术与产品风险</h3>
+<table>
+<thead>
+<tr>
+<th>风险</th>
+<th>等级</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>孵化期失败</strong></td>
+<td>🟡 中</td>
+<td>Apache 孵化不保证毕业，若项目停滞将严重损害商业信誉</td>
+</tr>
+<tr>
+<td><strong>API 不稳定</strong></td>
+<td>🟡 中</td>
+<td>v0.1.x 阶段 API 可能频繁变更，早期采用者可能流失</td>
+</tr>
+<tr>
+<td><strong>平台支持滞后</strong></td>
+<td>🔴 高</td>
+<td>Linux 不支持直接阻断企业市场，若长期不补齐将丧失先发优势</td>
+</tr>
+</tbody>
+</table>
+<h3>9.3 法律与合规风险</h3>
+<table>
+<thead>
+<tr>
+<th>风险</th>
+<th>等级</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>商标/专利未核查</strong></td>
+<td>🟡 中</td>
+<td>商业化前需完成 FTO 分析，否则存在潜在侵权风险</td>
+</tr>
+<tr>
+<td><strong>第三方补丁维护</strong></td>
+<td>🟢 低</td>
+<td>依赖链存在多个第三方补丁需长期维护，存在供应链风险</td>
+</tr>
+</tbody>
+</table>
+<h3>9.4 治理与可持续性风险</h3>
+<table>
+<thead>
+<tr>
+<th>风险</th>
+<th>等级</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>资金链不透明</strong></td>
+<td>🟡 中</td>
+<td>无公开赞助/融资数据，项目可持续性依赖核心团队投入</td>
+</tr>
+<tr>
+<td><strong>核心维护者依赖</strong></td>
+<td>🟡 中</td>
+<td>核心维护者个人商业化履历未采集，存在单点依赖风险</td>
+</tr>
+</tbody>
+</table>
+<h3>9.5 一票否决相关风险</h3>
+<p>当前未触发任何一票否决条件，但需持续监控：
+- <strong>D8.4 项目可持续性</strong>（当前 3.0/3 分）：若 Apache 孵化停滞或社区分裂，可能触发否决
+- <strong>D4.1 协议限制</strong>（当前 2.0/2 分）：Apache-2.0 协议纯净，此风险极低</p>
+<h2>十、结论与建议</h2>
+<h3>10.1 综合结论</h3>
+<p>Apache Maka 是一个 <strong>技术实力卓越、市场时机正确、但商业化尚未起步</strong> 的 AI Agent 基础设施项目。综合评分 73.9/100（A 级，高商业化潜力），价值画像为「💼 纯商业工具」。项目具备成为企业级 Agent 可信运行底座的稀缺技术资产（事件溯源 + 沙箱安全 + ASF 治理），但受限于孵化期状态、平台覆盖狭窄与零变现实践的客观现实，商业化价值仍处于「潜力」而非「现实」阶段。</p>
+<h3>10.2 分级建议</h3>
+<p><strong>对项目方（Apache Maka 维护团队）：</strong></p>
+<table>
+<thead>
+<tr>
+<th>优先级</th>
+<th>行动</th>
+<th>时间窗口</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P0</td>
+<td>完成 Apache 正式 release，稳定 API</td>
+<td>0–6 个月</td>
+</tr>
+<tr>
+<td>P0</td>
+<td>补齐 Linux 支持（企业环境刚需）</td>
+<td>0–6 个月</td>
+</tr>
+<tr>
+<td>P1</td>
+<td>启动企业版功能规划（RBAC/SSO/集中审计）</td>
+<td>3–9 个月</td>
+</tr>
+<tr>
+<td>P1</td>
+<td>以专业服务切入 3–5 家种子客户验证付费意愿</td>
+<td>6–12 个月</td>
+</tr>
+<tr>
+<td>P2</td>
+<td>完成商标/专利 FTO 分析</td>
+<td>商业化启动前</td>
+</tr>
+<tr>
+<td>P2</td>
+<td>明确资金来源与可持续性保障</td>
+<td>6 个月内</td>
+</tr>
+</tbody>
+</table>
+<p><strong>对潜在商业合作伙伴/投资者：</strong></p>
+<ul>
+<li><strong>短期（0–12 个月）</strong>：建议保持观望或小规模技术合作，等待 Apache 正式 release 与 Linux 支持落地后再评估投入</li>
+<li><strong>中期（12–24 个月）</strong>：若项目完成正式发布且企业版功能规划清晰，可考虑以 Open Core 模式参与商业化</li>
+<li><strong>长期</strong>：Maka 的事件溯源架构与沙箱安全设计具备被大厂收购或核心团队引进的价值，可作为技术资产储备</li>
+</ul>
+<p><strong>对潜在企业用户：</strong></p>
+<ul>
+<li>当前 v0.1.x 版本不建议作为生产依赖，但可评估其在审计与安全设计上的架构优势，作为技术选型储备</li>
+<li>建议关注 Linux 支持与正式 release 进度，两者落地后再启动 PoC</li>
+</ul>
+<h3>10.3 最终评级</h3>
+<p><strong>A 级（高商业化潜力）</strong>——值得投入商业化，但需优先补齐「正式 release + Linux 支持 + 企业级功能」三项关键短板。若 12 个月内完成上述补强，Maka 有潜力在 AI Agent 运维与审计细分市场建立差异化壁垒；若拖延，则面临被大厂竞品挤压与市场窗口收窄的双重风险。</p>
+<h2>十一、项目地址</h2>
+<p><svg class="ri ri-muted" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.001 2C6.47598 2 2.00098 6.475 2.00098 12C2.00098 16.425 4.86348 20.1625 8.83848 21.4875C9.33848 21.575 9.52598 21.275 9.52598 21.0125C9.52598 20.775 9.51348 19.9875 9.51348 19.15C7.00098 19.6125 6.35098 18.5375 6.15098 17.975C6.03848 17.6875 5.55098 16.8 5.12598 16.5625C4.77598 16.375 4.27598 15.9125 5.11348 15.9C5.90098 15.8875 6.46348 16.625 6.65098 16.925C7.55098 18.4375 8.98848 18.0125 9.56348 17.75C9.65098 17.1 9.91348 16.6625 10.201 16.4125C7.97598 16.1625 5.65098 15.3 5.65098 11.475C5.65098 10.3875 6.03848 9.4875 6.67598 8.7875C6.57598 8.5375 6.22598 7.5125 6.77598 6.1375C6.77598 6.1375 7.61348 5.875 9.52598 7.1625C10.326 6.9375 11.176 6.825 12.026 6.825C12.876 6.825 13.726 6.9375 14.526 7.1625C16.4385 5.8625 17.276 6.1375 17.276 6.1375C17.826 7.5125 17.476 8.5375 17.376 8.7875C18.0135 9.4875 18.401 10.375 18.401 11.475C18.401 15.3125 16.0635 16.1625 13.8385 16.4125C14.201 16.725 14.5135 17.325 14.5135 18.2625C14.5135 19.6 14.501 20.675 14.501 21.0125C14.501 21.275 14.6885 21.5875 15.1885 21.4875C19.259 20.1133 21.9999 16.2963 22.001 12C22.001 6.475 17.526 2 12.001 2Z"/></svg> <a href="https://github.com/apache/maka">https://github.com/apache/maka</a></p>
+<hr />
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+</blockquote>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家　<a href="https://www.mova.work">www.mova.work</a></p></body></html>

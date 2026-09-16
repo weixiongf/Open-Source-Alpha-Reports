@@ -25,26 +25,26 @@
 | 18 | [anomalyco/opencode](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/25/opencode/report.html) | 85.5 | S | 开源AI编程代理绝对王者，20万Star+85.5分S级明星资产，技术社区生态全面领先；但零商业化动作是最大短板，须3个月内启动SaaS托管抢占窗口期。 |
 | 19 | [yc-software/qm](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/25/qm/report.html) | 73.5 | A | 高潜力早期AI基建标的，品类先发+企业级安全架构亮眼，但Star与npm下载量300倍反差，需先验证真实用户再谈变现。 |
 | 20 | [freestylefly/awesome-gpt-image-2](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/26/awesome-gpt-image-2/report.html) | 71.5 | A | 变现闭环已跑通、先发优势显著的明星资产，立即投入SaaS+赞助双路径，补齐工程与治理短板即可放大天花板。 |
-| 21 | [mshumer/Claude-of-Duty](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/26/claude-of-duty/) | 52.8 | B | 技术示范价值远高于商业价值，产品化条件完全不具备，建议以技术借鉴为主，暂不投入商业化。 |
-| 22 | [FareedKhan-dev/kimi-k3-in-c](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/26/kimi-k3-in-c/) | 65.4 | A | 技术奇迹级、无竞品卡位，但速度与组织化双短板未补前，只可技术合作不可重金下注。 |
-| 23 | [jundot/omlx](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/26/omlx/) | 77.1 | A | 技术护城河深、社区势能强，但企业安全基线与版本稳定性未达变现门槛，建议先补短板再商业化。 |
-| 24 | [NousResearch/hermes-agent](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/27/hermes-agent/) | 83.4 | S | S级明星资产，Open Core双轨商业化已启动，补企业版功能与商标尽调后即可全力推进。 |
-| 25 | [apache/maka](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/27/maka/) | 73.9 | A | 技术顶级但商业化零起步，等 Linux 支持与正式 release 落地后再评估投入 |
-| 26 | [chaitanyagiri/munder-difflin](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/27/munder-difflin/) | 69.1 | A | 细分赛道绝对领先的明星资产，但零测试与零变现是商业化两大死穴，需6-12个月补齐短板后谨慎启动Open Core验证。 |
-| 27 | [DietrichGebert/ponytail](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/27/ponytail/) | 74.6 | A | 现象级开源资产，品类定义者+量化价值主张已就位，但商业化基础设施为零，6个月内不落地企业版将错失窗口期。 |
-| 28 | [MadsLorentzen/ai-job-search](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/28/ai-job-search/) | 73.4 | A | 技术卓越、社区爆棚的明星开源项目，商业化窗口已开；建议专业服务先行、生态市场跟进，在维护社区信任前提下渐进变现。 |
-| 29 | [tt-a1i/archify](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/28/archify/) | 76.3 | A | Archify 是 AI 代理图表赛道领跑者，技术壁垒与社区势能俱佳，但变现未验证，建议观望企业版落地信号。 |
-| 30 | [santifer/career-ops](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/28/career-ops/) | 74.3 | A |  |
-| 31 | [Alishahryar1/free-claude-code](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/28/free-claude-code/) | 70.4 | A | 社区价值已验证、商业价值待挖掘的明星资产，首选Open Core路径，须先解决CLA、商标与治理三大前置问题。 |
-| 32 | [pathwaycom/arc-task-gen](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/29/arc-task-gen/) | 52.4 | B | 高公共价值、低商业成熟度的研究工具，8.5k Star 验证刚需，但工程与社区短板使其只适合做影响力载体，建议基金会托管。 |
-| 33 | [VoltAgent/awesome-agent-skills](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/29/awesome-agent-skills/) | 82.1 | S | Agent Skills头部流量入口，社区势能现象级、变现已实证，但零代码架构制约平台化，短期吃透赞助、中期必须补技术升级。 |
-| 34 | [AgriciDaniel/claude-obsidian](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/29/claude-obsidian/) | 71.5 | A | 技术顶级、需求真实的明星资产，但维护带宽与变现机制是致命短板，商业化应走周边服务而非功能墙。 |
-| 35 | [tinyhumansai/openhuman](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/29/openhuman/) | 78.2 | A | 个人AI智能体赛道高潜力明星资产，技术护城河深、变现路径清晰，但需立即补CLA法律课并验证付费转化。 |
-| 36 | [omacom/omarchy](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/30/omarchy/) | 67.8 | A | 顶级社区势能+垄断级赛道地位，但工程治理与变现路径空白，宜走影响力变现路线，谨慎推进商业化。 |
-| 37 | [CopilotKit/OpenBot](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/30/openbot/) | 78.8 | A | 商业模式设计满分、技术底子扎实的 AI Agent 治理平台，但 Alpha 阶段与近零采用规模是硬伤，建议验证为先、变现为后。 |
-| 38 | [K-Dense-AI/scientific-agent-skills](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/30/scientific-agent-skills/) | 77.2 | A | AI for Science 明星资产，需求真实产品成熟，建议立即商业化但须先解决混合许可冲突。 |
-| 39 | [dmmulroy/anti-slop](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/31/anti-slop/) | 61.7 | B | 理念验证成功但商业化远未成熟：19天3905星证明市场共鸣，但单人维护、零参与、无Release，当前仅适合技术借鉴与人才引进。 |
-| 40 | [tashfeenahmed/freellmapi](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/31/freellmapi/) | 75.1 | A | 技术过硬、卡位精准但自设个人实验天花板，单点维护风险高，建议Open Core深化并补齐企业级能力后再放大投入。 |
+| 21 | [mshumer/Claude-of-Duty](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/26/claude-of-duty/report.html) | 52.8 | B | 技术示范价值远高于商业价值，产品化条件完全不具备，建议以技术借鉴为主，暂不投入商业化。 |
+| 22 | [FareedKhan-dev/kimi-k3-in-c](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/26/kimi-k3-in-c/report.html) | 65.4 | A | 技术奇迹级、无竞品卡位，但速度与组织化双短板未补前，只可技术合作不可重金下注。 |
+| 23 | [jundot/omlx](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/26/omlx/report.html) | 77.1 | A | 技术护城河深、社区势能强，但企业安全基线与版本稳定性未达变现门槛，建议先补短板再商业化。 |
+| 24 | [NousResearch/hermes-agent](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/27/hermes-agent/report.html) | 83.4 | S | S级明星资产，Open Core双轨商业化已启动，补企业版功能与商标尽调后即可全力推进。 |
+| 25 | [apache/maka](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/27/maka/report.html) | 73.9 | A | 技术顶级但商业化零起步，等 Linux 支持与正式 release 落地后再评估投入 |
+| 26 | [chaitanyagiri/munder-difflin](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/27/munder-difflin/report.html) | 69.1 | A | 细分赛道绝对领先的明星资产，但零测试与零变现是商业化两大死穴，需6-12个月补齐短板后谨慎启动Open Core验证。 |
+| 27 | [DietrichGebert/ponytail](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/27/ponytail/report.html) | 74.6 | A | 现象级开源资产，品类定义者+量化价值主张已就位，但商业化基础设施为零，6个月内不落地企业版将错失窗口期。 |
+| 28 | [MadsLorentzen/ai-job-search](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/28/ai-job-search/report.html) | 73.4 | A | 技术卓越、社区爆棚的明星开源项目，商业化窗口已开；建议专业服务先行、生态市场跟进，在维护社区信任前提下渐进变现。 |
+| 29 | [tt-a1i/archify](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/28/archify/report.html) | 76.3 | A | Archify 是 AI 代理图表赛道领跑者，技术壁垒与社区势能俱佳，但变现未验证，建议观望企业版落地信号。 |
+| 30 | [santifer/career-ops](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/28/career-ops/report.html) | 74.3 | A |  |
+| 31 | [Alishahryar1/free-claude-code](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/28/free-claude-code/report.html) | 70.4 | A | 社区价值已验证、商业价值待挖掘的明星资产，首选Open Core路径，须先解决CLA、商标与治理三大前置问题。 |
+| 32 | [pathwaycom/arc-task-gen](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/29/arc-task-gen/report.html) | 52.4 | B | 高公共价值、低商业成熟度的研究工具，8.5k Star 验证刚需，但工程与社区短板使其只适合做影响力载体，建议基金会托管。 |
+| 33 | [VoltAgent/awesome-agent-skills](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/29/awesome-agent-skills/report.html) | 82.1 | S | Agent Skills头部流量入口，社区势能现象级、变现已实证，但零代码架构制约平台化，短期吃透赞助、中期必须补技术升级。 |
+| 34 | [AgriciDaniel/claude-obsidian](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/29/claude-obsidian/report.html) | 71.5 | A | 技术顶级、需求真实的明星资产，但维护带宽与变现机制是致命短板，商业化应走周边服务而非功能墙。 |
+| 35 | [tinyhumansai/openhuman](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/29/openhuman/report.html) | 78.2 | A | 个人AI智能体赛道高潜力明星资产，技术护城河深、变现路径清晰，但需立即补CLA法律课并验证付费转化。 |
+| 36 | [omacom/omarchy](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/30/omarchy/report.html) | 67.8 | A | 顶级社区势能+垄断级赛道地位，但工程治理与变现路径空白，宜走影响力变现路线，谨慎推进商业化。 |
+| 37 | [CopilotKit/OpenBot](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/30/openbot/report.html) | 78.8 | A | 商业模式设计满分、技术底子扎实的 AI Agent 治理平台，但 Alpha 阶段与近零采用规模是硬伤，建议验证为先、变现为后。 |
+| 38 | [K-Dense-AI/scientific-agent-skills](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/30/scientific-agent-skills/report.html) | 77.2 | A | AI for Science 明星资产，需求真实产品成熟，建议立即商业化但须先解决混合许可冲突。 |
+| 39 | [dmmulroy/anti-slop](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/31/anti-slop/report.html) | 61.7 | B | 理念验证成功但商业化远未成熟：19天3905星证明市场共鸣，但单人维护、零参与、无Release，当前仅适合技术借鉴与人才引进。 |
+| 40 | [tashfeenahmed/freellmapi](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/31/freellmapi/report.html) | 75.1 | A | 技术过硬、卡位精准但自设个人实验天花板，单点维护风险高，建议Open Core深化并补齐企业级能力后再放大投入。 |
 | 41 | [THU-MAIC/OpenMAIC](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/31/openmaic/) | 75.4 | A | A级明星资产，技术壁垒与社区势能俱佳，但付费意愿零验证、示例内容缺失，需6-12个月验证商业化闭环。 |
 
 ---

@@ -1,40 +1,20 @@
-<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>开源项目商业价值分析报告库</title><style>
-:root{--blue:#2563eb;--ink:#0f172a;--dim:#64748b;--line:#e2e8f0;--bg:#f8fafc}
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>开源项目商业价值分析报告库</title><style>
+:root{--blue:#2563eb;--ink:#0f172a;--dim:#64748b;--line:#e2e8f0}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:"Source Han Sans CN","思源黑体 CN","Noto Sans SC",sans-serif;
-  background:var(--bg);color:var(--ink);line-height:1.6;padding:36px 16px 64px}
-.wrap{max-width:1440px;margin:0 auto;width:100%}
-h1{font-size:26px;border-bottom:3px solid var(--blue);padding-bottom:10px;
-  display:flex;align-items:center;flex-wrap:wrap;gap:10px}
-.sub{color:var(--dim);margin:10px 0 20px;font-size:14px}
+  background:#f8fafc;color:var(--ink);line-height:1.6;padding:40px 16px 64px}
+.wrap{max-width:960px;margin:0 auto}
+h1{font-size:26px;border-bottom:3px solid var(--blue);padding-bottom:10px}
+.sub{color:var(--dim);margin:10px 0 26px;font-size:14px}
 .badge{display:inline-block;background:linear-gradient(135deg,#2563eb,#7c3aed);
-  color:#fff;border-radius:14px;padding:5px 14px;font-size:13px}
-/* 月份筛选工具栏 */
-.toolbar{display:flex;align-items:center;justify-content:space-between;
-  gap:12px;margin:0 0 20px;flex-wrap:wrap}
-.toolbar label{font-size:13px;color:var(--dim);display:flex;align-items:center;gap:8px}
-.toolbar select{padding:6px 12px;border:1px solid var(--line);border-radius:8px;
-  background:#fff;color:var(--ink);font-size:13px;font-family:inherit;cursor:pointer}
-.toolbar .hint{color:var(--dim);font-size:12px}
-/* 月份分组卡片 */
-.month-sec{margin-bottom:30px}
-.month-title{display:flex;align-items:center;gap:10px;margin:0 0 10px;
-  font-size:17px;font-weight:700;color:#1e3a8a}
-.month-title::before{content:"";width:4px;height:18px;background:var(--blue);border-radius:2px}
-.month-title .cnt{font-size:12px;color:var(--dim);font-weight:400}
-table{width:100%;table-layout:fixed;border-collapse:collapse;background:#fff;
-  border:1px solid var(--line);border-radius:10px;overflow:hidden}
-th{background:#eff6ff;color:#1e3a8a;text-align:left;padding:9px 12px;font-size:13px;
-  white-space:nowrap}
-td{padding:8px 12px;border-top:1px solid var(--line);font-size:13px;
-  vertical-align:top}
+  color:#fff;border-radius:14px;padding:6px 16px;font-size:13px;margin-left:8px}
+table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);
+  border-radius:10px;overflow:hidden}
+th{background:#eff6ff;color:#1e3a8a;text-align:left;padding:9px 12px;font-size:13px}
+td{padding:8px 12px;border-top:1px solid var(--line);font-size:13px}
 tr:nth-child(even) td{background:#fbfdff}
-/* 列宽：日期/项目/评分不换行，一句话结论可换行 */
-th.c-date,td.c-date{width:92px;white-space:nowrap}
-th.c-proj,td.c-proj{width:24%;white-space:nowrap}
-th.c-score,td.c-score{width:88px;white-space:nowrap}
-td.c-proj a{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-td.c-note{word-break:break-word}
 a{color:var(--blue);text-decoration:none}
 a:hover{text-decoration:underline}
 .g{font-weight:700}
@@ -42,148 +22,127 @@ a:hover{text-decoration:underline}
 .g-C{color:#d97706}.g-D{color:#dc2626}
 .foot{color:var(--dim);font-size:12px;margin-top:22px;border-top:1px dashed var(--line);
   padding-top:14px}
-.credit{text-align:center;color:var(--dim);font-size:13px;margin-top:16px;
-  letter-spacing:1px}
-.credit a{color:var(--dim);text-decoration:none}
-.credit a:hover{color:var(--blue);text-decoration:underline}
-/* 月份快捷按钮 */
-.month-btns{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 20px}
-.month-btn{border:1px solid var(--line);background:#fff;color:var(--ink);
-  border-radius:8px;padding:6px 12px;font-size:12.5px;cursor:pointer;
-  font-family:inherit;transition:all .15s}
-.month-btn i{font-style:normal;color:var(--dim);margin-left:4px;font-size:11px}
-.month-btn:hover{border-color:var(--blue);color:var(--blue)}
-.month-btn.active{background:var(--blue);border-color:var(--blue);color:#fff}
-.month-btn.active i{color:rgba(255,255,255,.8)}
-/* 排序表头 */
-th.sortable{cursor:pointer;user-select:none}
-th.sortable:hover{background:#dbeafe}
-th .arrow{font-size:10px;margin-left:3px}
-/* 滚动加载提示 */
-.loading{text-align:center;color:var(--dim);font-size:13px;padding:18px 0}
-/* 窄屏适配 */
-@media (max-width:720px){
-  th.c-date,td.c-date{width:76px}
-  th.c-proj,td.c-proj{width:32%}
-  th.c-score,td.c-score{width:70px}
-  th,td{padding:8px 8px}
-  h1{font-size:22px}
-}
-</style></head><body><div class="wrap"><h1>开源项目商业价值分析报告库<span class="badge">115 份</span></h1><div class="sub">以商业价值为第一视角的 GitHub 开源项目深度分析档案 · 每日自动更新 · 分析仅反映数据快照时点，项目后续变化与报告不一致属正常现象</div><div class="toolbar"><label>月份筛选：<select id="month-select" onchange="pickMonth(this.value)"></select></label><span class="hint">共 3 个月 · 点项目名直达报告页 · 点表头可排序</span></div><div class="month-btns" id="month-btns"></div><div id="list"></div><div class="loading" id="loader"></div><div class="foot">本页面由 @向量之心 打造的 github_anyliasis 系统自动维护。报告为 AI 辅助生成的第三方独立分析，仅供研究参考，不构成投资建议。</div><div class="credit">@魔法工厂 @向量之心 @南山科学家 @冯伟雄 · <a href="https://www.mova.work">www.mova.work</a></div></div><script>
-var MONTHS=[["2026-09", 72], ["2026-08", 41], ["2026-07", 2]];
-var TOTAL=115;
-var cur='all';
-var sortKey='date',sortAsc=false;
-var cache={};
-var loadN=3;
-var sel=document.getElementById('month-select');
-sel.add(new Option('全部月份（'+TOTAL+' 份）','all'));
-MONTHS.forEach(function(m){sel.add(new Option(m[0]+'（'+m[1]+' 份）',m[0]));});
-var btnsBox=document.getElementById('month-btns');
-var bAll=document.createElement('button');
-bAll.className='month-btn';bAll.dataset.m='all';
-bAll.innerHTML='全部 <i>'+TOTAL+'</i>';
-bAll.onclick=function(){pickMonth('all');};
-btnsBox.appendChild(bAll);
-MONTHS.slice(0,12).forEach(function(m){
-  var b=document.createElement('button');
-  b.className='month-btn';b.dataset.m=m[0];
-  b.innerHTML=m[0]+' <i>'+m[1]+'</i>';
-  b.onclick=function(){pickMonth(m[0]);};
-  btnsBox.appendChild(b);
-});
-var list=document.getElementById('list');
-var loader=document.getElementById('loader');
-function pickMonth(m){
-  cur=m;sel.value=m;
-  var bs=btnsBox.children;
-  for(var i=0;i<bs.length;i++){bs[i].classList.toggle('active',bs[i].dataset.m===m);}
-  list.innerHTML='';
-  visibleMonths().forEach(function(x){if(!cache[x]){fetchMonth(x);}});
-  redraw();
-  updateLoader();
-}
-function visibleMonths(){
-  if(cur==='all'){return MONTHS.slice(0,loadN).map(function(x){return x[0];});}
-  return [cur];
-}
-function fetchMonth(m){
-  fetch('data/reports_'+m+'.json').then(function(r){return r.json();})
-  .then(function(rows){cache[m]=rows;if(visibleMonths().indexOf(m)>=0){redraw();}})
-  .catch(function(){cache[m]=[];if(visibleMonths().indexOf(m)>=0){redraw();}});
-}
-function sortFn(k){
-  if(k==='date'){
-    return sortAsc?function(a,b){return a.d<b.d?-1:(a.d>b.d?1:0);}
-                 :function(a,b){return a.d>b.d?-1:(a.d<b.d?1:0);};
-  }
-  if(k==='score'){
-    return sortAsc?function(a,b){return (Number(a.s)||0)-(Number(b.s)||0);}
-                 :function(a,b){return (Number(b.s)||0)-(Number(a.s)||0);};
-  }
-  return sortAsc?function(a,b){return a.p.localeCompare(b.p);}
-               :function(a,b){return b.p.localeCompare(a.p);};
-}
-function th(k,label){
-  var arrow=sortKey===k?(sortAsc?' ▲':' ▼'):'';
-  var cls=k?('sortable c-'+k):'c-note';
-  return '<th class="'+cls+'"'+(k?' data-sort="'+k+'"':'')+'>'+label+
-         '<span class="arrow">'+arrow+'</span></th>';
-}
-function rowHtml(r){
-  var link=r.h?'<a href="'+r.h+'" title="'+r.p+'">'+r.p+'</a>':r.p;
-  return '<tr><td class="c-date">'+r.d+'</td><td class="c-proj">'+link+'</td>'+
-    '<td class="c-score g g-'+r.g+'">'+r.g+' · '+r.s+'</td>'+
-    '<td class="c-note">'+r.o+'</td></tr>';
-}
-function renderMonth(m){
-  var sec=document.createElement('section');
-  sec.className='month-sec';sec.dataset.m=m;
-  var rows=cache[m].slice().sort(sortFn(sortKey));
-  var h='<div class="month-title">'+m+'<span class="cnt">'+rows.length+' 份报告</span></div>'+
-    '<table><thead><tr>'+th('date','日期')+th('proj','项目')+th('score','评分')+th('','一句话结论')+'</tr></thead><tbody>';
-  rows.forEach(function(r){h+=rowHtml(r);});
-  h+='</tbody></table>';
-  sec.innerHTML=h;
-  var idx=MONTHS.findIndex(function(x){return x[0]===m;});
-  var after=null;
-  for(var j=idx+1;j<MONTHS.length;j++){
-    var e=list.querySelector('[data-m="'+MONTHS[j][0]+'"]');
-    if(e){after=e;break;}
-  }
-  if(after){list.insertBefore(sec,after);}else{list.appendChild(sec);}
-}
-function redraw(){
-  var sy=window.scrollY;
-  list.innerHTML='';
-  visibleMonths().forEach(function(m){if(cache[m]){renderMonth(m);}});
-  window.scrollTo(0,sy);
-}
-list.addEventListener('click',function(ev){
-  var t=ev.target.closest('th.sortable');
-  if(!t){return;}
-  var k=t.getAttribute('data-sort');
-  if(sortKey===k){sortAsc=!sortAsc;}else{sortKey=k;sortAsc=true;}
-  redraw();
-});
-var io=new IntersectionObserver(function(es){
-  es.forEach(function(en){
-    if(en.isIntersecting&&cur==='all'&&loadN<MONTHS.length){
-      var add=Math.min(3,MONTHS.length-loadN);
-      for(var i=0;i<add;i++){
-        var m=MONTHS[loadN+i][0];
-        if(!cache[m]){fetchMonth(m);}
-      }
-      loadN+=add;updateLoader();
-    }
-  });
-},{rootMargin:'300px'});
-io.observe(loader);
-function updateLoader(){
-  if(cur==='all'&&loadN<MONTHS.length){
-    loader.style.display='block';
-    loader.textContent='已加载 '+Math.min(loadN,MONTHS.length)+'/'+MONTHS.length+' 个月 · 继续滚动加载更多…';
-  }else{loader.style.display='none';}
-}
-pickMonth('all');
-</script></body></html>
+</style></head>
+<body><div class="wrap">
+<h1>开源项目商业价值分析报告库<span class="badge">115 份</span></h1>
+<div class="sub">以商业价值为第一视角的 GitHub 开源项目深度分析档案 · 每日自动更新 ·
+分析仅反映数据快照时点，项目后续变化与报告不一致属正常现象</div>
+<table><thead><tr><th>日期</th><th>项目</th><th>评分</th><th>一句话结论</th></tr></thead>
+<tbody><tr><td>2026-09-16</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/16/9router/report.html">decolua/9router</a></td><td class="g g-A">A · 67.7</td><td>需求侧头部明星、变现侧彻底空白，核心卖点依赖正在被上游收回的免费额度，先补治理合规再谈企业版。</td></tr>
+<tr><td>2026-09-16</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/16/botdirectory.ai/report.html">elie222/botdirectory.ai</a></td><td class="g g-B">B · 62.5</td><td>值得借鉴其贡献工作流与 feed 设计，不值得投入商业化资源。</td></tr>
+<tr><td>2026-09-16</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/16/figma-mcp-console/report.html">hoangann2000/figma-mcp-console</a></td><td class="g g-B">B · 61.1</td><td>方向对、上手优秀，但需求验证、变现入口、竞争壁垒三缺，只宜技术借鉴不宜投资。</td></tr>
+<tr><td>2026-09-16</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/16/guizang-ppt-skill/report.html">op7418/guizang-ppt-skill</a></td><td class="g g-B">B · 60.9</td><td>26k Star 的 Agent Skill 范本，但 AGPL 加零付费触发点锁死变现，只宜走赞助与生态服务路线。</td></tr>
+<tr><td>2026-09-16</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/16/no-ai-slop/report.html">petergyang/no-ai-slop</a></td><td class="g g-B">B · 59.5</td><td>127行代码换9862 Star的注意力资产，护城河近零、无付费触发点，不建议投入直接商业化资源。</td></tr>
+<tr><td>2026-09-16</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/16/silirootlogodesign/report.html">auenger/SiliRootLogoDesign</a></td><td class="g g-D">D · 33.0</td><td>存活9分钟、无LICENSE、TAM≈1个客户的内部Logo工具，仅D9易用性7.5分，只宜技术借鉴不宜商业化。</td></tr>
+<tr><td>2026-09-16</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/16/worktrunk/report.html">max-sixty/worktrunk</a></td><td class="g g-A">A · 67.0</td><td>痛点真、迭代猛、上手快，但变现载体为零且上游随时可能内化这一层，买的是窗口期权不是生意。</td></tr>
+<tr><td>2026-09-16</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/16/zrcs/report.html">jadenzhangrobot/zrcs</a></td><td class="g g-D">D · 42.1</td><td>技术底子不差，但法律上不可用、社区上无人用、商业上无设计，当前不具备商业化起步条件。</td></tr>
+<tr><td>2026-09-15</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/15/chat-on-steroids/report.html">totec448-spec/chat-on-steroids</a></td><td class="g g-A">A · 68.2</td><td>技术资产8.9分、商业地基5.0分，窗口与OpenAI政策同生共死，只宜快打快收。</td></tr>
+<tr><td>2026-09-15</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/15/colibri/report.html">JustVugg/colibri</a></td><td class="g g-A">A · 71.3</td><td>技术卓越、社区爆发、法律干净，但变现漏斗从第一层就断了——值得合作，暂不值得直接收购。</td></tr>
+<tr><td>2026-09-15</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/15/dlssg_for_sm86/report.html">sdli1995/dlssg_for_sm86</a></td><td class="g g-C">C · 45.9</td><td>需求真实、技术巧妙，但无 LICENSE、内嵌 NVIDIA 专有二进制、GPLv3 锁死变现，商业价值不可提取。</td></tr>
+<tr><td>2026-09-15</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/15/lime/report.html">limecloud/lime</a></td><td class="g g-B">B · 63.7</td><td>技术资产厚重但商业基础归零，license=null 与 BYO-Key 定位封堵变现路径，只宜技术借鉴或人才引进。</td></tr>
+<tr><td>2026-09-15</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/15/open-code-review/report.html">alibaba/open-code-review</a></td><td class="g g-A">A · 78.2</td><td>技术工程社区合规全线优档，商业侧D4/D5恰为最高权重短板，先补生态与企业治理再以Open Core切入。</td></tr>
+<tr><td>2026-09-15</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/15/tradingagents/report.html">TauricResearch/TradingAgents</a></td><td class="g g-A">A · 66.1</td><td>106K Star 的心智资产可变现但不可防守，须以机构侧增值慢跑，而非产品化冲刺。</td></tr>
+<tr><td>2026-09-14</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/14/pawwork_zhuazhua/report.html">Player-YN/PawWork_ZhuaZhua</a></td><td class="g g-B">B · 56.9</td><td>技术资产大于商业资产：沙箱与审计工程值得借鉴，但变现通路被架构焊死、信任面为零，只宜借鉴或引才，不宜直接商业化。</td></tr>
+<tr><td>2026-09-14</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/14/sepia/report.html">Nanako0129/sepia</a></td><td class="g g-A">A · 67.6</td><td>产品力撑起A级评分，但变现通道结构性失效，且全部数据仅基于14天观察窗口。</td></tr>
+<tr><td>2026-09-14</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/14/spec-kit/report.html">github/spec-kit</a></td><td class="g g-A">A · 78.2</td><td>产品优秀生态强势却无独立变现面，价值在卡位而非收费，窗口期内以中立性换组织级默认流程入口。</td></tr>
+<tr><td>2026-09-14</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/14/text-to-cad/report.html">earthtojake/text-to-cad</a></td><td class="g g-A">A · 72.2</td><td>需求真、法律净、流量猛，但变现零落地、企业就绪度仅6.1，须在12–24个月窗口内跑通制造侧付费闭环。</td></tr>
+<tr><td>2026-09-14</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/14/weknora/report.html">Tencent/WeKnora</a></td><td class="g g-A">A · 79.6</td><td>腾讯背书+微信分发位+A级变现底子，但Open Core无分层、护城河仅工程量，12-24个月窗口内须补分层再商业化。</td></tr>
+<tr><td>2026-09-12</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/12/autoresearch/report.html">EvoMap/AutoResearch</a></td><td class="g g-A">A · 66.6</td><td>A级资产配C级组织：法律与产品设计就绪，组织扩容与产品化封装缺位，先补人再补产品最后谈收入。</td></tr>
+<tr><td>2026-09-12</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/12/frontieragent/report.html">ApodexAI/FrontierAgent</a></td><td class="g g-A">A · 72.8</td><td>变现路径与安全工程达 A 级，但 2,612 Star 属发布脉冲、零 Release、零企业级能力，先验证留存再谈规模。</td></tr>
+<tr><td>2026-09-12</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/12/mono-color-skill/report.html">yanliudesign/mono-color-skill</a></td><td class="g g-B">B · 62.3</td><td>需求真实、定位锋利、上手极简，但开源版即完整版、巴士因子为1，宜走影响力变现而非卖软件。</td></tr>
+<tr><td>2026-09-12</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/12/skills/report.html">jakubkrehel/skills</a></td><td class="g g-B">B · 56.5</td><td>高关注度、低工程化、零独立变现能力的品牌占位型资产，商业价值应通过母体产品兑现。</td></tr>
+<tr><td>2026-09-11</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/11/context-mode/report.html">mksglu/context-mode</a></td><td class="g g-A">A · 70.9</td><td>痛点真、工程硬、17平台分发广，但巴士因子≈1与变现零验证是两座必须翻的山——可投，先补治理与定价。</td></tr>
+<tr><td>2026-09-11</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/11/linux/report.html">torvalds/linux</a></td><td class="g g-S">S · 83.6</td><td>内核本体不可直接变现，但围绕它的下游商业化具备 S 级可行性——投的是生态，不是代码。</td></tr>
+<tr><td>2026-09-11</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/11/m3e-canvas/report.html">lnkiai/m3e-canvas</a></td><td class="g g-B">B · 63.8</td><td>产品优秀合规干净，但变现路径被主动关闭、护城河首周即被克隆，宜作社区声誉资产而非商业标的。</td></tr>
+<tr><td>2026-09-11</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/11/plugins/report.html">openai/plugins</a></td><td class="g g-D">D · 60.9</td><td>Codex 生态的官方说明书与样板间：生态价值极高，商业价值为零，适合学习借鉴，不适合投资变现。</td></tr>
+<tr><td>2026-09-11</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/11/portal-agent/report.html">cozyblaze/portal-agent</a></td><td class="g g-D">D · 34.4</td><td>25分钟活跃窗口、0行源码、根目录无License的一次性实验归档，技术可借鉴，商业价值为零。</td></tr>
+<tr><td>2026-09-10</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/10/codex-with-chatgpt/report.html">XiaoDuoYa/codex-with-chatgpt</a></td><td class="g g-B">B · 63.8</td><td>需求真实、产品力强，但MIT+免费即完整+卖点即省钱，变现路径结构性封死，价值前提全握在OpenAI手里。</td></tr>
+<tr><td>2026-09-10</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/10/commerce-agents/report.html">anthropics/commerce-agents</a></td><td class="g g-A">A · 68.8</td><td>A 级评的是 Anthropic 的技术质量与官方背书，不是本仓库的变现能力——借势而非占有。</td></tr>
+<tr><td>2026-09-10</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/10/i-have-adhd/report.html">ayghri/i-have-adhd</a></td><td class="g g-A">A · 66.0</td><td>34,592 Star 验证真痛点，但 2,498 行代码无付费触发点，宜走影响力变现而非 Open Core。</td></tr>
+<tr><td>2026-09-10</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/10/markitdown/report.html">microsoft/markitdown</a></td><td class="g g-S">S · 80.2</td><td>微软背书+18万Star验证刚需，Azure导流变现路径清晰，治理与AGPL风险可控，S级明星资产值得立即布局。</td></tr>
+<tr><td>2026-09-10</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/10/navierstokesandeuler/report.html">openai/NavierStokesAndEuler</a></td><td class="g g-B">B · 51.8</td><td>高质量研究工件而非商业项目，价值在证明能力而非提供服务，应借鉴方法论而非试图变现。</td></tr>
+<tr><td>2026-09-10</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/10/pi/report.html">earendil-works/pi</a></td><td class="g g-A">A · 78.9</td><td>AI Coding Agent 赛道明星开源资产，技术社区势能扎实但商业化闭环未启动，Open Core 路径清晰待验证。</td></tr>
+<tr><td>2026-09-10</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/10/ruflo/report.html">ruvnet/ruflo</a></td><td class="g g-A">A · 79.6</td><td>高潜力明星资产但商业化执行力为零，先补治理验证再建定价体系，6个月无收入则降级为公共产品策略。</td></tr>
+<tr><td>2026-09-09</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/09/astra-advisor/report.html">DannyMac180/astra-advisor</a></td><td class="g g-B">B · 56.0</td><td>极早期 AI 编排插件，易用性出色但社区空白、护城河薄弱，当前价值是期权而非现金流，建议影响力变现为主。</td></tr>
+<tr><td>2026-09-09</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/09/marketingskills/report.html">coreyhaines31/marketingskills</a></td><td class="g g-A">A · 78.5</td><td>AI营销技能赛道绝对霸主，流量碾压竞品71倍；但0测试+无安全机制是商业化命门，变现须靠生态而非直接付费。</td></tr>
+<tr><td>2026-09-09</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/09/patent-disclosure-skill/report.html">handsomestWei/patent-disclosure-skill</a></td><td class="g g-A">A · 70.4</td><td>精准卡位中国专利AI空白赛道，8.7k Star验证需求，MIT加持变现自由；但工程治理与商业模式未落地，需补齐SaaS化能力方可将势能转化为收入。</td></tr>
+<tr><td>2026-09-09</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/09/skills/report.html">openai/skills</a></td><td class="g g-B">B · 59.7</td><td>OpenAI 官方已弃用的技能目录，26.5K Star 品牌资产救不了零工程化、零护城河的底子——只可借内容做技术参考，不可投入直接商业化。</td></tr>
+<tr><td>2026-09-09</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/09/superpowers/report.html">obra/superpowers</a></td><td class="g g-S">S · 80.6</td><td>AI编码技能层事实标准候选者，S级潜力明星资产；当务之急是把283k Star势能转化为收入流，以MIT底线走服务变现之路。</td></tr>
+<tr><td>2026-09-08</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/08/andrej-karpathy-skills/report.html">multica-ai/andrej-karpathy-skills</a></td><td class="g g-B">B · 55.3</td><td>21万Star的顶级流量入口与行业教科书，但0代码0License0维护，只可作影响力杠杆不可作产品变现。</td></tr>
+<tr><td>2026-09-08</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/08/fmt/report.html">fmtlib/fmt</a></td><td class="g g-A">A · 76.7</td><td>{fmt} 是 C++ 格式化基础设施的明星资产，技术满分但直接变现路径缺失，建议走基金会托管+大厂雇佣模式而非直接商业化。</td></tr>
+<tr><td>2026-09-08</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/08/hyperframes/report.html">heygen-com/hyperframes</a></td><td class="g g-S">S · 80.0</td><td>S级明星资产，立即投入商业化——首选云渲染托管路径，维持Apache-2.0内核开放，3个月内锁定v1.0接口。</td></tr>
+<tr><td>2026-09-07</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/07/academic-research-skills/report.html">Imbad0202/academic-research-skills</a></td><td class="g g-D">D · 63.5</td><td>技术顶级、社区头部，但 CC BY-NC 4.0 一票否决商业化可能——先解决许可问题，再谈变现。</td></tr>
+<tr><td>2026-09-07</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/07/chrome-devtools-mcp/report.html">ChromeDevTools/chrome-devtools-mcp</a></td><td class="g g-A">A · 74.5</td><td>Google 用免费工具锁死 AI 时代浏览器入口的生态核武器——商业价值巨大但归 Google 所有，第三方只能做生态互补。</td></tr>
+<tr><td>2026-09-07</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/07/magnitude/report.html">magnitudedev/magnitude</a></td><td class="g g-A">A · 72.0</td><td>工程与定位俱佳但采用远落后于关注度，6个月内需完成真实用户验证与付费设计，否则窗口期关闭。</td></tr>
+<tr><td>2026-09-07</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/07/open-seo/report.html">every-app/open-seo</a></td><td class="g g-A">A · 74.6</td><td>技术强、模式清晰、热度现象级的AI原生SEO开源明星，但单点维护与收入未验证是6-12个月内必须跨越的两道坎。</td></tr>
+<tr><td>2026-09-07</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/07/skills/report.html">anthropics/skills</a></td><td class="g g-A">A · 70.9</td><td>生态位顶级、工程质量垫底——标准定义权与官方身份构成护城河，补齐 License 与工程短板后商业化空间巨大。</td></tr>
+<tr><td>2026-09-06</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/06/cn-investment-banking-skills/report.html">Qiushen-first/cn-investment-banking-skills</a></td><td class="g g-B">B · 56.5</td><td>领域知识值钱但项目疑似停更、零社区参与、零商业设计，当前不建议投入，建议fork自用或观望。</td></tr>
+<tr><td>2026-09-06</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/06/ipod-emulator/report.html">siggifly/ipod-emulator</a></td><td class="g g-C">C · 44.9</td><td>技术卓越但商业价值极低的Alpha期长尾项目，市场极小、变现路径缺失、企业就绪度1.3/10，建议技术借鉴而非商业化投入。</td></tr>
+<tr><td>2026-09-06</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/06/ipodclickwheelrecomps/report.html">DogParty/iPodClickWheelRecomps</a></td><td class="g g-C">C · 49.6</td><td>技术世界首创但版权死结+单人维护+零商业模式，仅适合技术借鉴与人才引进，不建议商业投入。</td></tr>
+<tr><td>2026-09-06</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/06/tailcat/report.html">tailscale/tailcat</a></td><td class="g g-A">A · 73.6</td><td>tailcat 是 A 级明星资产，最优路径是作为 Tailscale 商业体系的技术引流入口，而非独立变现；需补齐企业级功能与治理短板。</td></tr>
+<tr><td>2026-09-06</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/06/timesfm/report.html">google-research/timesfm</a></td><td class="g g-A">A · 76.4</td><td>TSFM赛道技术标杆，Google云托管已验证变现，但3.0权重非商业许可封死第三方直接商用，仅推荐绕开权重限制的垂直场景路径。</td></tr>
+<tr><td>2026-09-05</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/05/aicodingagentteam/report.html">agentcodinglab/aicodingagentteam</a></td><td class="g g-B">B · 58.7</td><td>架构与工程质量超配但商业验证为零，2天0Star单人项目应先跑通核心路径再谈变现</td></tr>
+<tr><td>2026-09-05</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/05/openclaude/report.html">Gitlawb/openclaude</a></td><td class="g g-D">D · 48.6</td><td>运营能力顶尖但法律根基不合法——89万行派生代码未获Anthropic授权，一票否决商业化；先解决合法性，再谈任何变现。</td></tr>
+<tr><td>2026-09-05</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/05/useagent/report.html">useagenthq/useagent</a></td><td class="g g-B">B · 60.5</td><td>技术质量显著高于阶段预期但外部验证为零的极早期项目，精准卡位+深护城河值得技术借鉴或人才引进，暂不投入直接商业化。</td></tr>
+<tr><td>2026-09-05</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/05/utopia/report.html">deeplethe/utopia</a></td><td class="g g-A">A · 76.8</td><td>技术底座与市场卡位俱佳的明星资产，但商业验证为零——先跑通 v1.0 + 首个付费客户，再谈规模化。</td></tr>
+<tr><td>2026-09-05</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/05/voicestudio/report.html">debpalash/VoiceStudio</a></td><td class="g g-A">A · 66.6</td><td>社区爆发力与工程底子俱佳，双许可通道已铺好，但 Active beta 与 Bus Factor=1 需先补课再商业化。</td></tr>
+<tr><td>2026-09-04</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/04/firecrawl/report.html">firecrawl/firecrawl</a></td><td class="g g-A">A · 78.9</td><td>AI 数据层明星资产，SaaS+私有化双轨变现已获资本验证，补齐法律合规与企业级短板即可规模化扩张。</td></tr>
+<tr><td>2026-09-04</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/04/go-modern-guidelines/report.html">JetBrains/go-modern-guidelines</a></td><td class="g g-A">A · 70.5</td><td>JetBrains 官方背书+蓝海卡位，但变现机制空白、企业就绪度不足，当前宜作生态战略资产而非独立营收标的。</td></tr>
+<tr><td>2026-09-04</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/04/humanizer/report.html">blader/humanizer</a></td><td class="g g-A">A · 70.6</td><td>41K Star 顶级流量+35 条规则知识壁垒，但零商业闭环、工程极简、治理缺失，需在 12-24 个月窗口期内完成 API 服务化转型。</td></tr>
+<tr><td>2026-09-04</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/04/minimind/report.html">jingyaogong/minimind</a></td><td class="g g-B">B · 63.7</td><td>教育价值与社区影响力显著，但工程化与治理短板制约直接商业化，应走影响力变现路径。</td></tr>
+<tr><td>2026-09-04</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/04/praxist/report.html">sapientinc/PRAXIST</a></td><td class="g g-A">A · 79.2</td><td>法律变现设计独特、竞争蓝海明确，但法律合规未验证、商业验证为零，先补法律审查再谈变现。</td></tr>
+<tr><td>2026-09-03</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/03/dsh-better-sidebar/report.html">omdsh-dev/DSH-better-sidebar</a></td><td class="g g-A">A · 67.4</td><td>DSH生态侧边栏底座卡位者，技术扎实生态锁定成形，但变现通道为零且依赖上游alpha期，建议先巩固主导权再谈变现。</td></tr>
+<tr><td>2026-09-03</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/03/dsh-desktop/report.html">dataelement/dsh-desktop</a></td><td class="g g-A">A · 67.7</td><td>高潜力零收入的早期项目，需在DeepSeek官方化前完成付费层设计与生态锁定，窗口期约3-6个月。</td></tr>
+<tr><td>2026-09-03</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/03/openmontage/report.html">calesthio/OpenMontage</a></td><td class="g g-A">A · 68.1</td><td>高潜力低就绪的明星资产：5个月55k Star验证市场，$1.33成片构筑壁垒，但0.1.0版本+License不明决定只能轻变现先行。</td></tr>
+<tr><td>2026-09-03</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/03/sprix-sage-router/report.html">wang2122/sprix-sage-router</a></td><td class="g g-A">A · 69.5</td><td>技术差异化真实、社区热度极高，但零生产验证、企业就绪度不足，建议6个月观察期后再定商业化投入。</td></tr>
+<tr><td>2026-09-02</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/02/ai-engineering-from-scratch/report.html">rohitg00/ai-engineering-from-scratch</a></td><td class="g g-A">A · 76.5</td><td>明星资产级开源AI课程，流量与内容壁垒已就绪，B端培训与认证辅导是付费突破口，商业化时机成熟。</td></tr>
+<tr><td>2026-09-02</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/02/cumora/report.html">yetone/cumora</a></td><td class="g g-A">A · 76.2</td><td>AI agent 协作赛道 A 级项目，变现路径铺设完成但付费验证为零，治理不透明，建议等 beta 定价数据再下注。</td></tr>
+<tr><td>2026-09-01</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/01/claude-plugins-official/report.html">anthropics/claude-plugins-official</a></td><td class="g g-A">A · 79.6</td><td>Anthropic官方插件目录，9个月35.7k Star验证生态爆发力，零直接竞品但独立变现弱——战略价值高，投资价值有限。</td></tr>
+<tr><td>2026-09-01</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/01/dsh-desktop/report.html">anywhere-labs/dsh-desktop</a></td><td class="g g-A">A · 72.2</td><td>技术与企业就绪度已达B端变现水平，但免费定位与资金缺失是前置障碍，建议观望至变现路径明确。</td></tr>
+<tr><td>2026-09-01</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/01/gods-eye-view/report.html">bilawalsidhu/gods-eye-view</a></td><td class="g g-A">A · 69.2</td><td>需求爆发力罕见、品类定义者地位明确，但0测试+2人团队+无付费闭环三重短板，须在6-12个月窗口内完成商业化跨越，高潜力高执行风险。</td></tr>
+<tr><td>2026-08-31</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/31/anti-slop/report.html">dmmulroy/anti-slop</a></td><td class="g g-B">B · 61.7</td><td>理念验证成功但商业化远未成熟：19天3905星证明市场共鸣，但单人维护、零参与、无Release，当前仅适合技术借鉴与人才引进。</td></tr>
+<tr><td>2026-08-31</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/31/freellmapi/report.html">tashfeenahmed/freellmapi</a></td><td class="g g-A">A · 75.1</td><td>技术过硬、卡位精准但自设个人实验天花板，单点维护风险高，建议Open Core深化并补齐企业级能力后再放大投入。</td></tr>
+<tr><td>2026-08-31</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/31/openmaic/report.html">THU-MAIC/OpenMAIC</a></td><td class="g g-A">A · 75.4</td><td>A级明星资产，技术壁垒与社区势能俱佳，但付费意愿零验证、示例内容缺失，需6-12个月验证商业化闭环。</td></tr>
+<tr><td>2026-08-30</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/30/omarchy/report.html">omacom/omarchy</a></td><td class="g g-A">A · 67.8</td><td>顶级社区势能+垄断级赛道地位，但工程治理与变现路径空白，宜走影响力变现路线，谨慎推进商业化。</td></tr>
+<tr><td>2026-08-30</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/30/openbot/report.html">CopilotKit/OpenBot</a></td><td class="g g-A">A · 78.8</td><td>商业模式设计满分、技术底子扎实的 AI Agent 治理平台，但 Alpha 阶段与近零采用规模是硬伤，建议验证为先、变现为后。</td></tr>
+<tr><td>2026-08-30</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/30/scientific-agent-skills/report.html">K-Dense-AI/scientific-agent-skills</a></td><td class="g g-A">A · 77.2</td><td>AI for Science 明星资产，需求真实产品成熟，建议立即商业化但须先解决混合许可冲突。</td></tr>
+<tr><td>2026-08-29</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/29/arc-task-gen/report.html">pathwaycom/arc-task-gen</a></td><td class="g g-B">B · 52.4</td><td>高公共价值、低商业成熟度的研究工具，8.5k Star 验证刚需，但工程与社区短板使其只适合做影响力载体，建议基金会托管。</td></tr>
+<tr><td>2026-08-29</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/29/awesome-agent-skills/report.html">VoltAgent/awesome-agent-skills</a></td><td class="g g-S">S · 82.1</td><td>Agent Skills头部流量入口，社区势能现象级、变现已实证，但零代码架构制约平台化，短期吃透赞助、中期必须补技术升级。</td></tr>
+<tr><td>2026-08-29</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/29/claude-obsidian/report.html">AgriciDaniel/claude-obsidian</a></td><td class="g g-A">A · 71.5</td><td>技术顶级、需求真实的明星资产，但维护带宽与变现机制是致命短板，商业化应走周边服务而非功能墙。</td></tr>
+<tr><td>2026-08-29</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/29/openhuman/report.html">tinyhumansai/openhuman</a></td><td class="g g-A">A · 78.2</td><td>个人AI智能体赛道高潜力明星资产，技术护城河深、变现路径清晰，但需立即补CLA法律课并验证付费转化。</td></tr>
+<tr><td>2026-08-28</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/28/ai-job-search/report.html">MadsLorentzen/ai-job-search</a></td><td class="g g-A">A · 73.4</td><td>技术卓越、社区爆棚的明星开源项目，商业化窗口已开；建议专业服务先行、生态市场跟进，在维护社区信任前提下渐进变现。</td></tr>
+<tr><td>2026-08-28</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/28/archify/report.html">tt-a1i/archify</a></td><td class="g g-A">A · 76.3</td><td>Archify 是 AI 代理图表赛道领跑者，技术壁垒与社区势能俱佳，但变现未验证，建议观望企业版落地信号。</td></tr>
+<tr><td>2026-08-28</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/28/career-ops/report.html">santifer/career-ops</a></td><td class="g g-A">A · 74.3</td><td></td></tr>
+<tr><td>2026-08-28</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/28/free-claude-code/report.html">Alishahryar1/free-claude-code</a></td><td class="g g-A">A · 70.4</td><td>社区价值已验证、商业价值待挖掘的明星资产，首选Open Core路径，须先解决CLA、商标与治理三大前置问题。</td></tr>
+<tr><td>2026-08-27</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/27/hermes-agent/report.html">NousResearch/hermes-agent</a></td><td class="g g-S">S · 83.4</td><td>S级明星资产，Open Core双轨商业化已启动，补企业版功能与商标尽调后即可全力推进。</td></tr>
+<tr><td>2026-08-27</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/27/maka/report.html">apache/maka</a></td><td class="g g-A">A · 73.9</td><td>技术顶级但商业化零起步，等 Linux 支持与正式 release 落地后再评估投入</td></tr>
+<tr><td>2026-08-27</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/27/munder-difflin/report.html">chaitanyagiri/munder-difflin</a></td><td class="g g-A">A · 69.1</td><td>细分赛道绝对领先的明星资产，但零测试与零变现是商业化两大死穴，需6-12个月补齐短板后谨慎启动Open Core验证。</td></tr>
+<tr><td>2026-08-27</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/27/ponytail/report.html">DietrichGebert/ponytail</a></td><td class="g g-A">A · 74.6</td><td>现象级开源资产，品类定义者+量化价值主张已就位，但商业化基础设施为零，6个月内不落地企业版将错失窗口期。</td></tr>
+<tr><td>2026-08-26</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/26/awesome-gpt-image-2/report.html">freestylefly/awesome-gpt-image-2</a></td><td class="g g-A">A · 71.5</td><td>变现闭环已跑通、先发优势显著的明星资产，立即投入SaaS+赞助双路径，补齐工程与治理短板即可放大天花板。</td></tr>
+<tr><td>2026-08-26</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/26/claude-of-duty/report.html">mshumer/Claude-of-Duty</a></td><td class="g g-B">B · 52.8</td><td>技术示范价值远高于商业价值，产品化条件完全不具备，建议以技术借鉴为主，暂不投入商业化。</td></tr>
+<tr><td>2026-08-26</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/26/kimi-k3-in-c/report.html">FareedKhan-dev/kimi-k3-in-c</a></td><td class="g g-A">A · 65.4</td><td>技术奇迹级、无竞品卡位，但速度与组织化双短板未补前，只可技术合作不可重金下注。</td></tr>
+<tr><td>2026-08-26</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/26/omlx/report.html">jundot/omlx</a></td><td class="g g-A">A · 77.1</td><td>技术护城河深、社区势能强，但企业安全基线与版本稳定性未达变现门槛，建议先补短板再商业化。</td></tr>
+<tr><td>2026-08-25</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/25/ai-memory/report.html">akitaonrails/ai-memory</a></td><td class="g g-S">S · 80.8</td><td>立即投入商业化，优先 SaaS 托管 + Open Core 双轨路径，在 1-2 年窗口期内完成付费产品落地与治理结构补强。</td></tr>
+<tr><td>2026-08-25</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/25/ecc/report.html">affaan-m/ECC</a></td><td class="g g-S">S · 85.4</td><td>ECC 是处于商业化黄金窗口期的 S 级明星资产，8 个月 24.3 万 Star 验证市场爆发力，变现已启动但付费数据缺失，需加速验证付费模型并分散单点故障风</td></tr>
+<tr><td>2026-08-25</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/25/omarchy/report.html">basecamp/omarchy</a></td><td class="g g-A">A · 69.4</td><td>品类垄断+顶级团队背书构成核心价值，但工程质量与变现机制是商业化必须跨越的两道坎，短期宜走培训与生态服务路径。</td></tr>
+<tr><td>2026-08-25</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/25/opencode/report.html">anomalyco/opencode</a></td><td class="g g-S">S · 85.5</td><td>开源AI编程代理绝对王者，20万Star+85.5分S级明星资产，技术社区生态全面领先；但零商业化动作是最大短板，须3个月内启动SaaS托管抢占窗口期。</td></tr>
+<tr><td>2026-08-25</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/25/qm/report.html">yc-software/qm</a></td><td class="g g-A">A · 73.5</td><td>高潜力早期AI基建标的，品类先发+企业级安全架构亮眼，但Star与npm下载量300倍反差，需先验证真实用户再谈变现。</td></tr>
+<tr><td>2026-08-24</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/24/crm/report.html">trycompai/crm</a></td><td class="g g-A">A · 72.2</td><td>工程能力顶级、变现路径清晰，但高关注零采用的剪刀差是生死劫，6个月内能否将Star转化为实际用户决定成败。</td></tr>
+<tr><td>2026-08-24</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/24/dsh-anchored-standard/report.html">xiaobright/dsh-anchored-standard</a></td><td class="g g-B">B · 53.5</td><td>高关注度、低商业成熟度的长尾项目——技术理念值得借鉴，但项目已停维、变现路径空白，不建议投入商业化。</td></tr>
+<tr><td>2026-08-24</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/24/ip-as-logo-skill/report.html">s1dashu/ip-as-logo-skill</a></td><td class="g g-A">A · 66.7</td><td>4天3895星验证强需求，细分品类开创者，但工程与治理空白、护城河薄弱，需在6-12个月窗口内快速补齐短板并打通付费闭环。</td></tr>
+<tr><td>2026-08-24</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/24/openlogi/report.html">AprilNEA/OpenLogi</a></td><td class="g g-A">A · 70.8</td><td>技术护城河深、社区势能强，但变现机制空白且商标/依赖法律风险悬而未决，先补短板再谈变现。</td></tr>
+<tr><td>2026-08-23</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/23/codex/report.html">openai/codex</a></td><td class="g g-S">S · 87.5</td><td>OpenAI 官方出品、变现路径已打通的 AI 编程赛道头部资产，技术护城河与社区热度顶级，但 alpha 版本状态和治理封闭是商业化提速的两大绊脚石。</td></tr>
+<tr><td>2026-08-23</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/23/dsh-routing-suite/report.html">yjh051108/dsh-routing-suite</a></td><td class="g g-D">D · 46.8</td><td>高功能价值、极低商业可行性的 DSH 插件套装，无 LICENSE 触发一票否决，应先补合规再做影响力变现。</td></tr>
+<tr><td>2026-08-23</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/23/openviking/report.html">volcengine/OpenViking</a></td><td class="g g-S">S · 80.5</td><td>S级明星资产，技术领先+时机精准+大厂背书，建议立即投入Open Core双轨商业化，但须先补查AGPL合规性。</td></tr>
+<tr><td>2026-08-23</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/23/skills/report.html">mattpocock/skills</a></td><td class="g g-S">S · 80.8</td><td>S级明星资产，23万Star卡位Agent技能标准化窗口，但个人单点依赖与脆弱变现链路是商业化两大坎。</td></tr>
+<tr><td>2026-08-23</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/23/watermarks-remover/report.html">guillaumemeyer/watermarks-remover</a></td><td class="g g-A">A · 70.0</td><td>罕见高热度+强技术底座，但监管逆风、变现空白、单点维护者三大短板，需先验证付费意愿再规模化投入。</td></tr>
+<tr><td>2026-08-22</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/22/deepseek-harness/report.html">deepseek-ai/deepseek-harness</a></td><td class="g g-A">A · 78.1</td><td>高潜力早阶段明星资产：技术顶级、市场窗口明确，但9天项目未验证生产稳定性，短期看API导流、中期看企业版、长期看生态平台化。</td></tr>
+<tr><td>2026-08-22</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/22/deepseek-harness-desktop/report.html">anywhere-labs/deepseek-harness-desktop</a></td><td class="g g-A">A · 75.1</td><td>DSH生态桌面入口卡位精准，8天17.5k Star验证刚需，技术质量顶尖；但商业化为零、采用率极低，变现潜力待验证，建议观望。</td></tr>
+<tr><td>2026-08-22</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/22/diagram-design/report.html">cathrynlavery/diagram-design</a></td><td class="g g-A">A · 76.6</td><td>价值已证明、路径待构建——先发卡位真实，但MIT全开源与薄弱壁垒决定必须走服务+生态位路线，窗口期6-12个月。</td></tr>
+<tr><td>2026-08-22</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/22/moneyprinterturbo/report.html">harry0703/MoneyPrinterTurbo</a></td><td class="g g-A">A · 75.8</td><td>AI短视频开源绝对头部，113k Star碾压竞品18.6倍，但付费转化缺失，需以托管SaaS打通变现闭环。</td></tr>
+<tr><td>2026-08-22</td><td><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/08/22/public-apis/report.html">public-apis/public-apis</a></td><td class="g g-A">A · 77.5</td><td>46.8万Star的开发者流量入口，广告变现已验证但收入单一、治理薄弱——短期可收割，长期需补课。</td></tr>
+<tr><td>2026-07-30</td><td>gin</td><td class="g g-?">? · ?</td><td></td></tr>
+<tr><td>2026-07-30</td><td>pelican</td><td class="g g-?">? · ?</td><td></td></tr></tbody></table>
+<div class="foot">本页面由 github_anyliasis 自动维护。报告为 AI 辅助生成的第三方独立分析，
+仅供研究参考，不构成投资建议。</div>
+</div></body></html>

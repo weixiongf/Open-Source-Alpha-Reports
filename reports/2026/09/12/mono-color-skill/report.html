@@ -1,0 +1,2100 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><title>Mono-color-skill 商业价值分析报告</title><style>/* default — 品牌蓝紫主题（从 md2pdf.py 原 CSS 常量迁出，视觉与历史产物一致） */
+@page { size: A4; margin: 18mm 15mm 20mm 15mm; }
+* { box-sizing: border-box; }
+/* 字体规范：一律开源思源黑体 CN（OFL 免费商用）；正文 Regular/标题 Bold/大字数字 Light */
+body { font-family: "Source Han Sans CN","思源黑体 CN","Noto Sans SC",sans-serif; color:#1e293b; font-size:10.5pt; line-height:1.75; margin:0; }
+.cover { page-break-after: always; text-align:center; padding-top:40px; }
+.cover .kicker { color:#2563eb; letter-spacing:6px; font-size:12pt; font-weight:500; }
+.cover h1 { font-size:26pt; margin:14px 0 6px; }
+.cover .sub { color:#64748b; font-size:11pt; margin-bottom:22px; }
+.badge { display:inline-block; background:linear-gradient(135deg,#2563eb,#7c3aed); color:#fff; border-radius:18px; padding:16px 44px; margin:10px 0 18px; }
+.badge .g { font-size:34pt; font-weight:300; line-height:1; }
+.badge .s { font-size:12pt; opacity:.92; margin-top:4px; }
+.meta { color:#475569; font-size:9.5pt; margin-top:14px; }
+.bars { max-width:620px; margin:20px auto 0; text-align:left; }
+.bar-row { display:flex; align-items:center; gap:8px; margin:5px 0; font-size:9pt; }
+.bar-name { width:110px; text-align:right; color:#334155; font-weight:500; }
+.bar-track { flex:1; height:9px; background:#f1f5f9; border-radius:5px; overflow:hidden; }
+.bar-fill { display:block; height:100%; border-radius:5px; }
+.bar-val { width:30px; font-weight:700; color:#0f172a; }
+.bar-w { width:52px; color:#94a3b8; font-size:8pt; }
+h1 { font-size:17pt; color:#0f172a; border-bottom:3px solid #2563eb; padding-bottom:8px; }
+h2 { font-size:13.5pt; color:#1d4ed8; margin-top:26px; page-break-after: avoid; border-left:5px solid #2563eb; padding-left:10px; }
+h3 { font-size:11.5pt; color:#0f172a; margin-top:18px; page-break-after: avoid; }
+table { border-collapse:collapse; width:100%; margin:10px 0; font-size:9pt; page-break-inside:avoid; }
+th { background:#eff6ff; color:#1e3a8a; }
+th,td { border:1px solid #dbe3ef; padding:5px 8px; text-align:left; }
+tr:nth-child(even) td { background:#f8fafc; }
+code { background:#f1f5f9; border-radius:4px; padding:1px 5px; font-family:"JetBrains Mono","Cascadia Mono",monospace; font-size:9pt; color:#be185d; }
+pre { background:#0f172a; color:#e2e8f0; border-radius:8px; padding:12px 14px; overflow-x:auto; page-break-inside:avoid; }
+pre code { background:none; color:inherit; padding:0; }
+blockquote { border-left:4px solid #93c5fd; background:#eff6ff; margin:10px 0; padding:8px 14px; color:#334155; border-radius:0 8px 8px 0; }
+hr { border:none; border-top:1px dashed #cbd5e1; margin:22px 0; }
+strong { color:#0f172a; }
+.cover .disclaimer { max-width:620px; margin:16px auto 0; color:#64748b; font-size:8.5pt; line-height:1.6; text-align:left; border:1px solid #e2e8f0; border-radius:8px; padding:8px 12px; background:#f8fafc; }
+.credit { color:#2563eb; font-size:10.5pt; font-weight:700; letter-spacing:1px; margin-top:12px; }
+.at-acc { background:#dbeafe; color:#1d4ed8; border-radius:4px; padding:0 4px; font-weight:500; white-space:nowrap; }
+.tail { page-break-inside:avoid; margin-top:26px; border-top:2px solid #2563eb; padding-top:14px; }
+.tail p { color:#64748b; font-size:8.5pt; line-height:1.6; margin:0 0 10px; }
+.tail .credit { text-align:center; margin:0; }
+/* Remix Icon 内联 SVG（icon_mode=remix 时由脚本注入，语义色与评分条一致） */
+.ri { width:1.05em; height:1.05em; vertical-align:-0.18em; display:inline-block; }
+.ri-ok { color:#16a34a; } .ri-warn { color:#d97706; } .ri-bad { color:#dc2626; }
+.ri-muted { color:#64748b; } .ri-star { color:#f59e0b; } .ri-brand { color:#2563eb; }
+.ri-gold { color:#d4a017; } .ri-silver { color:#9ca3af; } .ri-bronze { color:#b45309; }
+/* 屏幕预览：@page 边距仅在打印时生效，浏览器中居中限宽并收边（不影响 PDF 输出） */
+@media screen {
+  body { margin: 0 auto; padding: 28px 36px 56px; max-width: 900px; }
+}
+</style></head><body><div class="cover">
+<div class="kicker">开源项目商业化潜力分析 · 第 93 期</div>
+<h1>GitHub 开源项目 Mono-color-skill<br>商业价值分析报告</h1>
+<div class="sub">yanliudesign/mono-color-skill · 单墨/双墨编辑印刷风 Agent Skill · 九维度加权评估</div>
+<div class="badge"><div class="g">B 级 · 62.3</div><div class="s">综合评分（满分 100）· 中等商业化潜力</div></div>
+<div><svg viewBox="0 0 560 480" width="560" height="480" xmlns="http://www.w3.org/2000/svg"><polygon points="280.0,209.6 299.5,216.7 309.9,234.7 306.3,255.2 290.4,268.6 269.6,268.6 253.7,255.2 250.1,234.7 260.5,216.7" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,179.2 319.1,193.4 339.9,229.4 332.7,270.4 300.8,297.1 259.2,297.1 227.3,270.4 220.1,229.4 240.9,193.4" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,148.8 338.6,170.1 369.8,224.2 359.0,285.6 311.2,325.7 248.8,325.7 201.0,285.6 190.2,224.2 221.4,170.1" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,118.4 358.2,146.8 399.8,218.9 385.3,300.8 321.6,354.3 238.4,354.3 174.7,300.8 160.2,218.9 201.8,146.8" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,88.0 377.7,123.6 429.7,213.6 411.6,316.0 332.0,382.8 228.0,382.8 148.4,316.0 130.3,213.6 182.3,123.6" fill="none" stroke="#e2e8f0" stroke-width="1"/><line x1="280.0" y1="240.0" x2="280.0" y2="88.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="377.7" y2="123.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="429.7" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="411.6" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="332.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="228.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="148.4" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="130.3" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="182.3" y2="123.6" stroke="#d8dee9" stroke-width="1"/><polygon points="280.0,141.2 344.5,163.2 345.9,228.4 357.7,284.8 307.0,314.3 239.5,351.4 185.2,294.7 211.1,227.9 197.0,141.0" fill="rgba(37,99,235,.22)" stroke="#2563eb" stroke-width="2.5"/><circle cx="280.0" cy="141.2" r="3.5" fill="#2563eb"/><circle cx="344.5" cy="163.2" r="3.5" fill="#2563eb"/><circle cx="345.9" cy="228.4" r="3.5" fill="#2563eb"/><circle cx="357.7" cy="284.8" r="3.5" fill="#2563eb"/><circle cx="307.0" cy="314.3" r="3.5" fill="#2563eb"/><circle cx="239.5" cy="351.4" r="3.5" fill="#2563eb"/><circle cx="185.2" cy="294.7" r="3.5" fill="#2563eb"/><circle cx="211.1" cy="227.9" r="3.5" fill="#2563eb"/><circle cx="197.0" cy="141.0" r="3.5" fill="#2563eb"/><text x="280.0" y="44.0" text-anchor="middle" font-size="12.5" fill="#334155" font-weight="600">D1</text><text x="280.0" y="58.0" text-anchor="middle" font-size="11" fill="#64748b">市场需求 6.5</text><text x="406.0" y="89.9" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D2</text><text x="406.0" y="103.9" text-anchor="start" font-size="11" fill="#64748b">技术成熟度 6.6</text><text x="473.0" y="206.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D3</text><text x="473.0" y="220.0" text-anchor="start" font-size="11" fill="#64748b">社区生态 4.4</text><text x="449.7" y="338.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D4</text><text x="449.7" y="352.0" text-anchor="start" font-size="11" fill="#64748b">变现潜力 5.9</text><text x="347.0" y="424.2" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D5</text><text x="347.0" y="438.2" text-anchor="start" font-size="11" fill="#64748b">竞争格局 5.2</text><text x="213.0" y="424.2" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D6</text><text x="213.0" y="438.2" text-anchor="end" font-size="11" fill="#64748b">法律合规 7.8</text><text x="110.3" y="338.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D7</text><text x="110.3" y="352.0" text-anchor="end" font-size="11" fill="#64748b">企业就绪 7.2</text><text x="87.0" y="206.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D8</text><text x="87.0" y="220.0" text-anchor="end" font-size="11" fill="#64748b">团队治理 4.6</text><text x="154.0" y="89.9" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D9</text><text x="154.0" y="103.9" text-anchor="end" font-size="11" fill="#64748b">上手难度 8.5</text></svg></div>
+<div class="bars"><div class="bar-row"><span class="bar-name">D9 上手难度</span>
+<span class="bar-track"><span class="bar-fill" style="width:85.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.5</span><span class="bar-w">权重10%</span></div>
+<div class="bar-row"><span class="bar-name">D6 法律合规</span>
+<span class="bar-track"><span class="bar-fill" style="width:78.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.8</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D7 企业就绪</span>
+<span class="bar-track"><span class="bar-fill" style="width:72.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.2</span><span class="bar-w">权重8%</span></div>
+<div class="bar-row"><span class="bar-name">D2 技术成熟度</span>
+<span class="bar-track"><span class="bar-fill" style="width:66.0%;background:#d97706"></span></span>
+<span class="bar-val">6.6</span><span class="bar-w">权重14%</span></div>
+<div class="bar-row"><span class="bar-name">D1 市场需求</span>
+<span class="bar-track"><span class="bar-fill" style="width:65.0%;background:#d97706"></span></span>
+<span class="bar-val">6.5</span><span class="bar-w">权重13%</span></div>
+<div class="bar-row"><span class="bar-name">D4 变现潜力</span>
+<span class="bar-track"><span class="bar-fill" style="width:59.0%;background:#dc2626"></span></span>
+<span class="bar-val">5.9</span><span class="bar-w">权重18%</span></div>
+<div class="bar-row"><span class="bar-name">D5 竞争格局</span>
+<span class="bar-track"><span class="bar-fill" style="width:52.0%;background:#dc2626"></span></span>
+<span class="bar-val">5.2</span><span class="bar-w">权重12%</span></div>
+<div class="bar-row"><span class="bar-name">D8 团队治理</span>
+<span class="bar-track"><span class="bar-fill" style="width:46.0%;background:#dc2626"></span></span>
+<span class="bar-val">4.6</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D3 社区生态</span>
+<span class="bar-track"><span class="bar-fill" style="width:44.0%;background:#dc2626"></span></span>
+<span class="bar-val">4.4</span><span class="bar-w">权重11%</span></div></div>
+<div class="meta">分析时点 2026-09-12 ｜ 数据来源：GitHub API + 仓库代码实测 ｜ 方法论 v1.3</div>
+<div class="credit">报告出品：@魔法工厂　@向量之心　@南山科学家</div>
+<div class="disclaimer"><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</div>
+</div><h1>Mono-color-skill 商业化潜力分析报告（完整版）</h1>
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家</p>
+<p>方法论版本: v1.3 | 综合评分: <strong>62.3</strong> | 等级: <strong>B（中等商业化潜力）</strong> | 价值画像: 公共产品型</p>
+</blockquote>
+<h2>一、项目概览</h2>
+<h3>1.1 基本信息</h3>
+<ul>
+<li><strong>项目名称 / 仓库地址</strong>：yanliudesign/mono-color-skill</li>
+<li><strong>核心技术栈</strong>：Python（703 行 / 4 个源文件）、零第三方依赖；以 Claude Code / Agent Skill 形态分发（SKILL.md + design-system/*.json + evals 校验契约）</li>
+<li><strong>社区规模速览</strong>：Star 3,024 / Fork 79（Fork 比 2.61%）/ 贡献者 1 人 / 开放 Issue 6 / 近 90 天 PR 4 / 近 90 天关闭 Issue 0 / 正式 Release 0</li>
+<li><strong>分析时点 / 数据来源</strong>：仓库创建于 2026-08-19，最后推送 2026-09-02（仓龄约 24 天）；数据来源为 GitHub 仓库元数据、GitHub Search API 竞品实测与仓库内文件扫描</li>
+</ul>
+<h3>1.2 项目分类标签</h3>
+<table>
+<thead>
+<tr>
+<th>分类维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>开源库 SDK（Claude Code Agent Skill 包，纯 MIT 无变现层）</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>通用/跨行业（设计、媒体内容、品牌营销等泛创意场景）</td>
+</tr>
+<tr>
+<td>目标用户角色</td>
+<td>UI/UX 设计师；非技术用户（内容创作者 / 市场运营）</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>单墨/双墨编辑印刷风格成图生成与生产级提示词产出（海报 / 社媒 / 包装 / 出版 / 纪念品）</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>本地部署（克隆至 ~/.claude/skills/，随宿主 Agent 运行）</td>
+</tr>
+</tbody>
+</table>
+<h3>1.3 一句话定位</h3>
+<blockquote>
+<p>mono-color-skill 是一个 Claude Code / AI Agent 技能包，适用于设计、媒体内容与品牌营销等泛创意场景，主要面向设计师与非技术内容创作者，用于把一句主题或一张照片转译成单墨/双墨编辑印刷风格的成图与生产级提示词。</p>
+</blockquote>
+<hr />
+<h2>二、安装部署与使用指南</h2>
+<blockquote>
+<p>本章节可直接拼入最终报告。经 D9 评估，本项目上手难度为 <strong>🟢 简单（8.5/10）</strong>，因此提供完整可复制的操作步骤与命令。</p>
+</blockquote>
+<h3>1. 环境要求</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>要求</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>宿主 Agent</td>
+<td><strong>Claude Code</strong>（或其他可加载 <code>SKILL.md</code> 的 Agent 环境）</td>
+<td>本项目是 agent skill，不是独立可执行程序；README 明确 "Other agent environments can load <code>SKILL.md</code> as the skill entry point"</td>
+</tr>
+<tr>
+<td>Python</td>
+<td>Python 3（<strong>仅</strong>运行设计系统构建/校验脚本时需要）</td>
+<td>主体使用不依赖 Python；<code>scripts/</code> 下的校验脚本需 <code>python3</code></td>
+</tr>
+<tr>
+<td>第三方依赖</td>
+<td><strong>无</strong></td>
+<td>本地实测 <code>dependencies</code> 为空字典，703 行 Python 未引入外部包</td>
+</tr>
+<tr>
+<td>图像生成工具</td>
+<td>可选</td>
+<td>有则返回生成图 + prompt + recipe；无则仅返回 prompt 并说明限制</td>
+</tr>
+</tbody>
+</table>
+<h3>2. 安装（单条命令）</h3>
+<p>将仓库克隆到 Claude Code 的 skills 目录：</p>
+<pre><code class="language-bash">git clone https://github.com/yanliudesign/mono-color-skill.git \
+    ~/.claude/skills/mono-color
+</code></pre>
+<p>安装完成后<strong>重启 Claude Code</strong>。</p>
+<h3>3. 快速验证（首次成功使用）</h3>
+<p>重启后，直接把下面任意一条自然语言指令粘贴给 Agent（取自 README「Try it」章节，共 13 条可直接复用）：</p>
+<pre><code class="language-text">Use mono-color to make a vertical poster about a midnight convenience store.
+The exact headline is &quot;still open&quot;.
+</code></pre>
+<pre><code class="language-text">Turn this portrait into a cobalt one-ink editorial zine cover.
+Keep the person's identity and expression.
+</code></pre>
+<pre><code class="language-text">Design a Charcoal + Signal Red exhibition poster about concrete architecture.
+Use the red plate only for the date, location, and one geometric interruption.
+</code></pre>
+<p><strong>正常输出形态</strong>（单次运行返回三件交付物）：</p>
+<ol>
+<li>一张生成的栅格图像（当图像生成工具可用时）；</li>
+<li>本次生成所用的完整 production-ready prompt；</li>
+<li>一份 recipe，注明印刷模式、精确墨色配方、版式族、字体配对、印刷工艺与原创性改动。</li>
+</ol>
+<h3>4. 默认行为（开箱即用，无需配置）</h3>
+<p>未指定参数时，Skill 会解析为固定配方：<strong>3:4 画幅、Neutral White 承印色、当代编辑方向、35% 空白纸面</strong>，并使用确定性的调色板与版式规则；根据图像与墨色对比度，承印色可切换为 Cool Gray <code>#E9E9E5</code> 或 Pale Beige <code>#F5F1E8</code>。用户在提示词中的显式选择优先，但受"不超过两色 + 原创性"两条硬约束限制。</p>
+<h3>5. 进阶：设计系统构建与本地校验</h3>
+<p>编辑 <code>design-system/</code> 下的目录文件后，可重新生成目录驱动的完整画板：</p>
+<pre><code class="language-bash">python3 scripts/build_design_system_board.py
+</code></pre>
+<p>在本地运行评测契约与设计系统校验（与 GitHub Actions 在每次 PR 和 push 到 <code>main</code> 时运行的契约一致）：</p>
+<pre><code class="language-bash">python3 scripts/validate_evals.py
+python3 scripts/validate_design_system.py
+</code></pre>
+<hr />
+<h2>三、评分总览</h2>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>权重</th>
+<th>加权得分</th>
+<th>评级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1 市场需求与商业机会</td>
+<td>6.5/10</td>
+<td>13%</td>
+<td>0.85</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D2 技术成熟度与产品质量</td>
+<td>6.6/10</td>
+<td>14%</td>
+<td>0.92</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D3 社区健康度与生态势能</td>
+<td>4.4/10</td>
+<td>11%</td>
+<td>0.48</td>
+<td>差</td>
+</tr>
+<tr>
+<td>D4 商业模式与变现潜力</td>
+<td>5.9/10</td>
+<td>18%</td>
+<td>1.06</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D5 竞争格局与差异化壁垒</td>
+<td>5.2/10</td>
+<td>12%</td>
+<td>0.62</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D6 法律合规与知识产权</td>
+<td>7.8/10</td>
+<td>7%</td>
+<td>0.55</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D7 企业就绪度与可运营性</td>
+<td>7.2/10</td>
+<td>8%</td>
+<td>0.58</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D8 团队治理与可持续性</td>
+<td>4.6/10</td>
+<td>7%</td>
+<td>0.32</td>
+<td>差</td>
+</tr>
+<tr>
+<td>D9 上手难度与易用性</td>
+<td>8.5/10</td>
+<td>10%</td>
+<td>0.85</td>
+<td>优</td>
+</tr>
+<tr>
+<td><strong>综合评分</strong></td>
+<td>—</td>
+<td>100%</td>
+<td><strong>62.3/100</strong></td>
+<td><strong>B（中等商业化潜力）</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>平行维度（不计入综合评分）</strong></p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10 功能价值</td>
+<td>8.3/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>D11 社会价值</td>
+<td>5.9/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>公共价值分</td>
+<td>7.1/10</td>
+<td>(D10+D11)/2</td>
+</tr>
+</tbody>
+</table>
+<p><strong>一票否决检查</strong>：未触发。D6 维度总分 7.8（&gt; 3）；D8.4 细则小分 1.8（&gt; 1）；D4.1 细则小分 2.0（&gt; 0.5）。三项否决检查均完整执行，无 N/A 跳过项。</p>
+<p><strong>价值画像</strong>：🏛️ 公共产品型（综合评分 62.3 &lt; 65，公共价值分 7.1 ≥ 7）。</p>
+<blockquote>
+<p>各维度细则分值构成详见「二、维度评分细则」。</p>
+</blockquote>
+<hr />
+<h2>四、各维度详细分析</h2>
+<h3>D1. 市场需求与商业机会</h3>
+<h3>项目分类标签</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>数据与AI（生成式图像 / Agent Skill 包）</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>通用/跨行业（偏媒体内容、品牌营销、出版、电商包装）</td>
+</tr>
+<tr>
+<td>目标用户角色</td>
+<td>UI/UX设计师、非技术用户（内容创作者/市场运营）</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>内容创作与制作、客户面向产品的视觉物料、原型验证</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>本地部署（克隆至 <code>~/.claude/skills/</code>，随宿主 Agent 运行）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>一句话定位</strong>：mono-color-skill 是一个 Claude Code / AI Agent 技能包，适用于设计、媒体内容与品牌营销等泛创意场景，主要面向设计师与非技术内容创作者，用于把一句主题或一张照片转译成单墨/双墨编辑印刷风格（半色调、Riso 颗粒、留白网格）的成图与生产级提示词。</p>
+<hr />
+<h3>D1.1 目标市场规模与增长性（满分 2.5）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TAM 估算</td>
+<td>直接可触达的是「AI 图像风格/提示词与 Agent Skill」细分层，按付费提示词包、风格预设、模板市场量级判断约为<strong>亿美元级</strong>；其所服务的下游（AI 生成的营销/设计物料、海报与包装视觉）为<strong>百亿美元级</strong>，但项目本身只占据其中极窄的一个风格切面</td>
+</tr>
+<tr>
+<td>增长趋势</td>
+<td>明显扩张：AI 图像生成渗透率持续上升，Claude Skills / Agent Skill 生态处于 2025–2026 的爆发初期；项目上线约 24 天即获 3024 Star，属需求拉动的强信号</td>
+</tr>
+<tr>
+<td>市场层级</td>
+<td>Agent Skill 生态为<strong>新兴蓝海</strong>，但「AI 图像风格提示」本身竞争密集、门槛低</td>
+</tr>
+</tbody>
+</table>
+<p><strong>打分：1.5 / 2.5（60%，对应 5–6 档）</strong></p>
+<p>依据：项目价值集中在「风格层」而非底层能力，直接付费市场为亿美元级；增长性优异但可替代性强、单点价值薄。⚠️ 本项为<strong>类型量级估算，未经外部市场数据验证，置信度低</strong>，未引用任何具体市场规模数字。</p>
+<hr />
+<h3>D1.2 痛点真实性与解决程度（满分 2.5）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>痛点真实性</td>
+<td>真实但偏「锦上添花」：AI 出图风格漂移、难以稳定复现同一种视觉语言，是内容创作者与设计师的日常摩擦点，但不是「非用不可」的存续型刚需</td>
+</tr>
+<tr>
+<td>解决完整度</td>
+<td>在其自设边界内较完整——提供了配方清单（<code>design-system/</code>）、确定性 manifest 默认值、评估契约（<code>evals/</code>）、CI 校验（<code>validate.yml</code>）、中英双语文档与 12 张参考分析板；但只作用于<strong>提示词层</strong>，最终画质仍受宿主图像模型能力约束</td>
+</tr>
+<tr>
+<td>替代成本</td>
+<td>替代品众多且部分更强：Midjourney <code>--sref</code>/风格参考、图像模型内置风格、LoRA 微调、ComfyUI 工作流、以及人类设计师。LoRA 在风格一致性上通常优于提示词工程</td>
+</tr>
+</tbody>
+</table>
+<p><strong>打分：1.5 / 2.5（60%，对应 5–6 档）</strong></p>
+<p>依据：README 明确输出「成图 + 生产级提示词 + recipe」，工程化程度高于同类提示词项目；但无 Issue 反馈数据可佐证用户刚性（90 天内关闭 Issue 0 个、开放 6 个），痛点强度只能从文档自述判断，属方案基本可用、替代品充裕的区间。</p>
+<hr />
+<h3>D1.3 市场时机判断（满分 2.5）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术成熟度曲线</td>
+<td>图像生成已越过期望膨胀期进入实质生产期；Agent Skill 封装形态则刚起步（Claude Skills 为 2025 年末新产物），项目创建于 2026-08-19，正踩在生态形成早期</td>
+</tr>
+<tr>
+<td>竞争密度</td>
+<td>「设计类 Agent Skill」垂直尚无垄断者，格局未定；但通用风格提示词赛道已拥挤，且存在<strong>平台方内置能力吸收</strong>风险（模型厂商把风格控制做进产品）</td>
+</tr>
+<tr>
+<td>监管/标准</td>
+<td>无直接政策驱动；MIT 协议 + 可迁移的 <code>SKILL.md</code> 形态降低了跨 Agent 生态（Claude Code 之外）迁移门槛</td>
+</tr>
+</tbody>
+</table>
+<p><strong>打分：2.0 / 2.5（80%，对应 7–8 档）</strong></p>
+<p>依据：24 天 3024 Star / 79 Fork 是时机契合的强证据，赛道处于成长期且先行者未固化；扣分来自对 Anthropic 宿主生态的强依赖，以及提示词层能力被基础模型商品化的中期风险。</p>
+<hr />
+<h3>D1.4 应用场景广度（满分 2.5）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>行业覆盖</td>
+<td>文档列举用例横跨活动海报、社交媒体封面（小红书/公众号）、品牌物料（明信片、门票、菜单、包装贴）、旅行纪念、书籍与 Zine、诗歌标题页——覆盖媒体内容、电商零售、出版教育、活动营销等多个行业</td>
+</tr>
+<tr>
+<td>场景多样性</td>
+<td>横向通用型「视觉生产工具」，但<strong>锁定单一美学风格</strong>（单墨/双墨编辑印刷），风格外的需求不可服务</td>
+</tr>
+<tr>
+<td>可延展性</td>
+<td>架构可延展：<code>design-system/</code> 将色彩、排版角色、构图几何、印刷瑕疵目录化，同一套引擎理论上可复刻到其他视觉体系；但当前仓库仅含 1 个 Skill</td>
+</tr>
+</tbody>
+</table>
+<p><strong>打分：1.5 / 2.5（60%，对应 5–6 档）</strong></p>
+<p>依据：跨行业用例数量足以进入「多行业可用」区间，但本质是<strong>单一风格垂类工具</strong>而非通用设计基础设施，风格边界明确写进 README 的 “Not this” 章节（禁止全彩、禁止超过两版墨、禁止 3D/渐变/贴纸拼贴），可服务面被主动收窄。</p>
+<hr />
+<h3>本维度结论</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1.1 目标市场规模与增长性</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6 档（60%）</td>
+</tr>
+<tr>
+<td>D1.2 痛点真实性与解决程度</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6 档（60%）</td>
+</tr>
+<tr>
+<td>D1.3 市场时机判断</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8 档（80%）</td>
+</tr>
+<tr>
+<td>D1.4 应用场景广度</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6 档（60%）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>6.5</strong></td>
+<td><strong>6.5 / 10</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>综合判断</strong>：这是一个<strong>时机极佳、但市场天花板与变现距离都不乐观</strong>的创意型资产。需求侧证据（24 天 3024 Star）证明「AI 出图风格可控性」在当下有真实共鸣；供给侧证据（703 行 Python、0 测试文件、0 示例脚本外的商业化设计、0 次 Release、1 位贡献者、MIT 全开源）显示项目<strong>完全未做商业化准备</strong>。真正的商业风险有三点：(1) 价值沉淀在提示词与配方层，被基础模型内置能力吸收的成本极低；(2) 替代方案（LoRA/sref/人类设计师）在风格一致性上更强；(3) 场景虽跨行业，但被单一美学风格封顶，难以横向扩为基础设施。若要变现，最现实的方向不是卖本 Skill，而是把 <code>design-system/</code> 的目录化方法论复制为<strong>多风格 Skill 矩阵 + 托管式出图服务</strong>。</p>
+<p><strong>置信度说明</strong>：D1.1 市场规模为类型量级估算，未经外部数据验证，置信度低；D1.2 缺乏用户反馈数据（无已关闭 Issue、无 Release 讨论），痛点强度判断置信度中低；D1.3、D1.4 基于仓库硬事实与 README 用例，置信度中高。</p>
+<h3>D2. 技术成熟度与产品质量（权重 14%）</h3>
+<h3>维度概述</h3>
+<p><code>mono-color-skill</code> 是一个面向 AI Agent（Claude Skill）的「单色油墨编辑印刷风格」图像生成技能包，本质是<strong>设计系统 + 提示词工程规格 + 契约校验脚本</strong>的组合体，而非传统应用程序。全仓仅 703 行 Python（4 个源码文件），无第三方依赖，目录由 <code>design-system/</code>、<code>evals/</code>、<code>scripts/</code>、<code>examples/</code>、<code>swatches/</code> 构成。</p>
+<p>由于项目不含 Web / 桌面 / 移动端界面，也不提供交互式 CLI（<code>scripts/</code> 为一次性校验脚本），<strong>D2.5 标记为 N/A</strong>，D2 总分按其余 7 项等比缩放。</p>
+<h3>D2.1 产品设计与创新性（1.5 分）→ 1.2 分（80%，7–8 档）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>产品理念</td>
+<td>清晰且克制：「一墨印刷」美学——暖纸底、半调网点摄影、主动负空间、受控排版。四个要素构成自洽的设计语言，不是泛泛的「生成好看图片」</td>
+</tr>
+<tr>
+<td>功能设计</td>
+<td>围绕核心场景组织：<code>SKILL.md</code> 定义技能契约，<code>design-system/</code> 沉淀设计 token 与视觉目录，<code>evals/</code> 定义质量契约，<code>swatches/</code>、<code>examples/</code> 提供可验证产物，信息架构与技能目标高度对齐，几乎无冗余功能</td>
+</tr>
+<tr>
+<td>创新性</td>
+<td>将「视觉设计系统」以可校验契约（evals + schema + CI 门禁）的形式封装进 Agent 技能，而非单纯堆提示词模板，属于模式层面的微创新</td>
+</tr>
+<tr>
+<td>差异化</td>
+<td>美学定位高度垂直（risograph/zine 编辑印刷风），与通用图像生成技能形成明显区隔；上线约两周即获 3024 star，说明产品定位命中了真实需求</td>
+</tr>
+</tbody>
+</table>
+<p>扣分点：产品形态仍偏「提示词 + 风格目录」范畴，缺少交互式调参、预览或可组合的风格引擎，功能纵深有限；创新更多体现在美学取舍而非技术机制。综合给 7–8 档。</p>
+<h3>D2.2 架构设计与工程质量（2 分）→ 1.2 分（60%，5–6 档）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>架构合理性</td>
+<td>对「Agent 技能包」这一形态而言分层清晰：规格层（SKILL.md）／数据层（design-system、swatches）／契约层（evals）／工具层（scripts）／示例层（examples），符合该类项目范式</td>
+</tr>
+<tr>
+<td>模块解耦</td>
+<td>无第三方依赖，4 个脚本各司其职（validate_evals、validate_design_system 等），耦合低，但模块数量少，解耦优势难以体现</td>
+</tr>
+<tr>
+<td>类化/抽象</td>
+<td>未见类/接口体系；脚本为过程式实现。对 703 行规模而言不算抽象不足，但也谈不上抽象设计</td>
+</tr>
+<tr>
+<td>可复用性</td>
+<td>设计系统以 JSON 目录形式抽离，理论上可被其他技能复用；校验脚本为项目专用，通用性弱</td>
+</tr>
+<tr>
+<td>目录管理</td>
+<td>目录命名一致、语义明确、层次扁平，组织规范度良好</td>
+</tr>
+<tr>
+<td>代码量</td>
+<td>703 行 / 4 文件，与「技能包 + 校验器」的功能复杂度基本匹配，既无臃肿也无明显缺失</td>
+</tr>
+<tr>
+<td>复刻难度</td>
+<td><strong>偏低</strong>——核心资产是提示词与设计目录内容，技术实现（JSON 校验）几乎无门槛；真正的护城河在美学调校与风格沉淀（内容型壁垒），而非工程壁垒</td>
+</tr>
+<tr>
+<td>技术债</td>
+<td>未见 TODO/FIXME 密集迹象，亦无历史包袱；但项目仅两周历史，技术债尚未暴露</td>
+</tr>
+</tbody>
+</table>
+<p>综合看：结构规范、无依赖、无债，但代码规模与抽象深度有限，复刻门槛低。给 5–6 档。</p>
+<h3>D2.3 代码整洁性与规范性（1 分）→ 0.6 分（60%，5–6 档）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>代码整洁度</td>
+<td>仅 703 行 4 文件，规模上不可能出现严重冗余；无实测代码片段可深入审查</td>
+</tr>
+<tr>
+<td>命名规范</td>
+<td>脚本命名（<code>validate_evals.py</code>、<code>validate_design_system.py</code>）语义明确、动词开头，符合 Python 惯例</td>
+</tr>
+<tr>
+<td>注释质量</td>
+<td>无直接证据，不做推断</td>
+</tr>
+<tr>
+<td>代码风格</td>
+<td><strong>未采集到任何 lint/format 配置文件（ruff/black/flake8 均无）</strong>，无风格强约束证据；CI 中亦未包含 lint 步骤</td>
+</tr>
+<tr>
+<td>重复率</td>
+<td>规模过小，重复风险低</td>
+</tr>
+</tbody>
+</table>
+<p>因缺乏 lint/format 配置与代码细节实测数据，无法给出 7–8 档评价，按行业平均给 5–6 档。</p>
+<h3>D2.4 安全性（1 分）→ 0.6 分（60%，5–6 档）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>安全编码</td>
+<td>脚本仅做 JSON/契约校验，攻击面极小，本地执行无网络与外部输入解析风险</td>
+</tr>
+<tr>
+<td>注入防护</td>
+<td>无 SQL/命令拼接场景（<code>python -m json.tool</code> 调用为 CI 内固定命令），注入风险低</td>
+</tr>
+<tr>
+<td>密钥/敏感信息</td>
+<td>未发现硬编码密钥迹象；技能包本身不涉及凭据</td>
+</tr>
+<tr>
+<td>依赖安全</td>
+<td><code>dependencies: {}</code>，<strong>零第三方依赖</strong>，供应链风险几乎为零（这是本项目安全侧的实质优势）</td>
+</tr>
+<tr>
+<td>安全扫描</td>
+<td><strong>未集成</strong> Dependabot / CodeQL / Trivy 等；无 <code>SECURITY.md</code></td>
+</tr>
+</tbody>
+</table>
+<p>低攻击面 + 零依赖构成天然安全优势，但仓库层面无任何显式安全实践与扫描配置，只能给 5–6 档。</p>
+<h3>D2.5 UI/UX/UE 人机交互 → <strong>N/A</strong></h3>
+<p>项目为 Agent 技能包（提示词规格 + 校验脚本），仓库内无 Web/桌面/移动界面，也无交互式 CLI（<code>scripts/</code> 均为一次性校验工具）。按规则标记 N/A，不参与计分；D2 总分按 9 分制等比缩放。</p>
+<h3>D2.6 功能完备度与稳定性（1.5 分）→ 0.9 分（60%，5–6 档）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>功能覆盖</td>
+<td>技能规格、设计系统目录、评估契约、示例与色板齐备，核心交付面完整</td>
+</tr>
+<tr>
+<td>版本成熟度</td>
+<td><strong>无任何 Release / Tag</strong>（<code>recent_releases: []</code>），项目创建于 2026-08-19，最近推送 2026-09-02，<strong>仅约两周历史</strong>，处于早期阶段，未达稳定版</td>
+</tr>
+<tr>
+<td>向后兼容</td>
+<td>无版本发布记录，<code>CHANGELOG.md</code> 存在但无正式版本语义，兼容性无法评估</td>
+</tr>
+<tr>
+<td>性能表现</td>
+<td>校验脚本规模极小，性能非瓶颈（本质为静态检查）</td>
+</tr>
+<tr>
+<td>运行环境要求</td>
+<td>极宽松：仅 CI 需要 Python 3.12，运行时无中间件、无 Docker（无 Dockerfile），无特殊硬件依赖（GPU 等由调用方 Agent 侧决定，不属本仓约束）</td>
+</tr>
+<tr>
+<td>硬件要求</td>
+<td>N/A（仓库自身无硬件要求）</td>
+</tr>
+<tr>
+<td>国际化/本地化</td>
+<td>提供 <code>README.md</code> + <code>README.zh.md</code> 中英双语文档，但产品本身（提示词/设计系统）无 i18n/l10n 框架，多语言支持主要体现在文档层</td>
+</tr>
+</tbody>
+</table>
+<p>运行环境宽宽松是明显加分项，但「无任何正式版本 + 两周生命周期 + 90 天关闭 Issue 数为 0」使其在稳定性维度难以进入 7–8 档。给 5–6 档。</p>
+<h3>D2.7 文档与开发者体验（1 分）→ 0.8 分（80%，7–8 档）</h3>
+<p>采集到文档文件：<code>README.md</code>、<code>README.zh.md</code>、<code>SKILL.md</code>、<code>CHANGELOG.md</code>、<code>REFERENCES.md</code>、<code>ASSET-LICENSE.md</code>、<code>design-system/BOARD-DIRECTION.md</code>（共 7 个，规模统计摘要计 5 个）。</p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>文档覆盖</td>
+<td>覆盖度良好：中英双语 README + 技能说明（SKILL.md）+ 变更日志 + 参考来源 + 素材授权说明 + 设计方向文档，对一个技能包而言文档密度高</td>
+</tr>
+<tr>
+<td>文档质量</td>
+<td>具备设计方向说明与引用来源，规格性文档（SKILL.md）是 Agent 消费的核心接口文档；未见交互式教程或架构图证据</td>
+</tr>
+<tr>
+<td>版本同步</td>
+<td><code>CHANGELOG.md</code> 存在，但无版本标签可对照，同步性无法严格验证</td>
+</tr>
+</tbody>
+</table>
+<p>文档是本项目相对最强的工程维度，给 7–8 档。</p>
+<h3>D2.8 测试与质量保障（1 分）→ 0.6 分（60%，5–6 档）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>测试覆盖</td>
+<td><strong>单元测试 0 文件 / 0 行，test_ratio = 0.0%</strong>，无任何测试代码</td>
+</tr>
+<tr>
+<td>CI/CD</td>
+<td>存在 1 条工作流 <code>validate.yml</code>，在 PR 与 main 推送时触发，执行三项检查：评估契约校验、视觉设计系统校验、JSON 语法校验（含 design-system/*.json 全量遍历）——属真实有效的门禁而非空壳</td>
+</tr>
+<tr>
+<td>质量门禁</td>
+<td>有 CI 校验门禁，含 <code>permissions: contents: read</code> 最小权限设置；但<strong>无 lint/静态分析、无安全扫描、无覆盖率要求、无 CODEOWNERS 与代码审查制度</strong></td>
+</tr>
+</tbody>
+</table>
+<p><code>evals/</code> 目录提供的评估契约（<code>evals.json</code> + <code>schema.json</code> + 校验脚本）对本类技能相当于「输出质量回归测试」，是高于纯零测试的实践；但传统测试体系完全空白。介于 3–4 档与 5–6 档之间，鉴于 CI 真实有效且有针对技能输出的评估契约，取 5–6 档。</p>
+<h3>D2 细则打分汇总</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D2.1</td>
+<td>产品设计与创新性</td>
+<td>1.5</td>
+<td>1.2</td>
+<td>80%</td>
+</tr>
+<tr>
+<td>D2.2</td>
+<td>架构设计与工程质量</td>
+<td>2</td>
+<td>1.2</td>
+<td>60%</td>
+</tr>
+<tr>
+<td>D2.3</td>
+<td>代码整洁性与规范性</td>
+<td>1</td>
+<td>0.6</td>
+<td>60%</td>
+</tr>
+<tr>
+<td>D2.4</td>
+<td>安全性</td>
+<td>1</td>
+<td>0.6</td>
+<td>60%</td>
+</tr>
+<tr>
+<td>D2.5</td>
+<td>UI/UX/UE 人机交互</td>
+<td>1</td>
+<td>N/A</td>
+<td>不适用</td>
+</tr>
+<tr>
+<td>D2.6</td>
+<td>功能完备度与稳定性</td>
+<td>1.5</td>
+<td>0.9</td>
+<td>60%</td>
+</tr>
+<tr>
+<td>D2.7</td>
+<td>文档与开发者体验</td>
+<td>1</td>
+<td>0.8</td>
+<td>80%</td>
+</tr>
+<tr>
+<td>D2.8</td>
+<td>测试与质量保障</td>
+<td>1</td>
+<td>0.6</td>
+<td>60%</td>
+</tr>
+<tr>
+<td><strong>小计</strong></td>
+<td></td>
+<td><strong>9（有效）</strong></td>
+<td><strong>5.9</strong></td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>D2 总分（缩放至 10 分）</strong></td>
+<td></td>
+<td></td>
+<td><strong>6.6</strong></td>
+<td>一般偏上</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>缩放计算：(1.2 + 1.2 + 0.6 + 0.6 + 0.9 + 0.8 + 0.6) / 9 × 10 = 5.9 / 9 × 10 ≈ <strong>6.6</strong></p>
+</blockquote>
+<h3>结论</h3>
+<p><code>mono-color-skill</code> 在<strong>产品设计清晰度</strong>与<strong>文档完备度</strong>上表现良好（D2.1、D2.7 均达 7–8 档），目录组织规范、零第三方依赖、CI 门禁真实有效，且上线两周即获 3024 star，说明其美学定位与产品化包装具备真实市场吸引力。</p>
+<p>但作为<strong>可商业化交付的技术产品</strong>，其短板同样明确：</p>
+<ol>
+<li><strong>成熟度不足</strong>——无任何 Release/Tag，项目生命周期仅约两周，尚未形成稳定版本基线，无法承诺兼容性；</li>
+<li><strong>工程纵深浅</strong>——703 行校验脚本，无抽象体系、无测试（0 行测试代码 / 覆盖率 0%）、无 lint/静态分析，复刻门槛低，技术护城河主要来自内容型（美学与提示词调校）而非工程型资产；</li>
+<li><strong>治理设施不完整</strong>——无 SECURITY.md、无 Dependabot/安全扫描、无 CONTRIBUTING、无 CODEOWNERS，单贡献者（1 人）结构使其抗风险能力与协作可持续性受限；</li>
+<li><strong>安全维度</strong>受益于零依赖而风险极低，但缺乏显式安全实践记录。</li>
+</ol>
+<p>综合判断：D2 维度处于<strong>「达到行业平均、可支撑轻量交付但不具备高可靠商业 SLA 能力」</strong>的水平。作为技能/内容型产品，其商业化路径更依赖设计系统内容运营与生态集成（如多 Agent 平台适配、风格包扩展），而非工程质量本身。建议在版本发布（打 v1.0 tag）、补充最小测试集（对 evals 契约做回归断言）、引入 lint 与依赖/安全检查三项上优先补强，可将 D2 提升至 7.5+ 区间。</p>
+<p><strong>置信度说明</strong>：D2.5 判定为 N/A（项目无用户界面）已执行 9 分制缩放；D2.3、D2.4 因未采集到代码正文与 lint/安全配置文件，依赖间接证据推断，置信度中等；其余细项基于 GitHub API 与本地实测硬数据，置信度较高。</p>
+<h3>D3. 社区健康度与生态势能（权重 11%）</h3>
+<p><strong>评估说明</strong>：本项目为 Claude Code / Agent Skill 形态的编辑器图像生成技能，仓库创建于 2026-08-19，最近推送 2026-09-02，距评估基准日（约 2026-09-12）仅 <strong>约 24 天（0.8 个月）</strong>，属于极早期仓库。D3 维度需同时考察「热度」与「社区承载力」，二者在本项目上呈现显著背离，故在各项细则中分别说明。</p>
+<h3>D3.1 社区活跃度指标（满分 3 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Star 增速</td>
+<td>3,024 Star ÷ 0.8 月 ≈ <strong>3,780 Star/月</strong></td>
+<td>远超 &gt;500 阈值，处最高档</td>
+</tr>
+<tr>
+<td>Fork 比率</td>
+<td>79 / 3,024 = <strong>2.61%</strong></td>
+<td>显著低于健康开源项目（10%+），衍生意愿弱</td>
+</tr>
+<tr>
+<td>Issue 活跃度</td>
+<td>近 90 天 PR 4 个、Issue 关闭 0 个、开放 Issue 6 个</td>
+<td>绝对参与量极低</td>
+</tr>
+<tr>
+<td>响应速度</td>
+<td>90 天关闭 Issue = 0，无平均关闭时间数据</td>
+<td>无法证明响应能力，且存在积压苗头</td>
+</tr>
+</tbody>
+</table>
+<p><strong>数据口径说明</strong>：近 90 天 Star 增量未补采成功，按方法论退化为「Star 数 ÷ 项目年龄（月）」。该退化公式对老项目会高估早期红利，但本项目年龄仅 0.8 月，退化值≈项目全周期真实均值，<strong>高估风险极低</strong>，可视为有效读数。</p>
+<p><strong>综合判定</strong>：Star 增速一项达标满分档，但其余三项（Fork 比率、Issue 活跃度、响应速度）均处 3–4 档水平。社区呈现典型的「星标爆炸、参与稀薄」形态——3,024 星仅对应 79 次 Fork、4 个 PR、0 个已关闭 Issue，加星是消费行为而非协作行为。综合取 <strong>60% 档（5–6 分档）</strong>。</p>
+<p><strong>小分：1.8 / 3</strong></p>
+<h3>D3.2 贡献者结构多样性（满分 2.5 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>贡献者数量</td>
+<td><strong>1 人</strong>（GitHub contributors API）</td>
+<td>单人项目</td>
+</tr>
+<tr>
+<td>组织多样性</td>
+<td>无外部组织贡献证据</td>
+<td>不成立</td>
+</tr>
+<tr>
+<td>核心团队 vs 外部 PR 比例</td>
+<td>近 90 天 PR 4 个，但贡献者计数仍为 1，说明 PR 主要来自作者本人或未被合并</td>
+<td>外部贡献尚未成型</td>
+</tr>
+</tbody>
+</table>
+<p><strong>综合判定</strong>：贡献者计数为 1，直接落入「单人项目」档（1–2 档）。4 个 PR 显示存在微弱的外部交互迹象，但未转化为贡献者身份（未合并）。公交代码 703 行、全部集中在 4 个 .py 文件中，进一步印证单一维护者结构。按评分指引取 <strong>20% 档</strong>。</p>
+<blockquote>
+<p>注：按细则约定，「核心人员离开后的传承风险」归 D8.1 巴士因子，本项仅从社区规模视角评估，不重复计分。</p>
+</blockquote>
+<p><strong>小分：0.5 / 2.5</strong></p>
+<h3>D3.3 第三方生态成熟度（满分 3 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>插件/扩展</td>
+<td>无第三方插件、主题或扩展的公开证据</td>
+<td>不成立</td>
+</tr>
+<tr>
+<td>集成生态</td>
+<td>原生以 Claude Code / Agent Skill 形态分发（SKILL.md、Claude Code 徽章），属主流 Agent 平台的接入</td>
+<td>部分成立</td>
+</tr>
+<tr>
+<td>衍生项目</td>
+<td>未发现基于本项目的二次开发或商业产品</td>
+<td>不成立</td>
+</tr>
+<tr>
+<td>教程/课程</td>
+<td>未发现外部教程、课程或系统性博客</td>
+<td>不成立</td>
+</tr>
+</tbody>
+</table>
+<p><strong>综合判定</strong>：本项目自身即为 Claude Code 生态中的一个 Skill 节点，天然接入主流 Agent 工具链，这是唯一的生态锚点；但其自身<strong>尚未生长出任何第三方生态</strong>——无插件市场、无衍生项目、无外部教学材料。4 项考察点中仅 1 项部分成立，且该集成来自宿主平台而非社区外溢。取 <strong>40% 档（3–4 分档）</strong>。</p>
+<p><strong>小分：1.2 / 3</strong></p>
+<h3>D3.4 品牌认知与行业影响力（满分 1.5 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>品牌辨识度</td>
+<td>24 天获 3,024 星，在 Claude Skill / AI Agent 生成设计这一细分圈层内有明显曝光</td>
+<td>小圈层内成立</td>
+</tr>
+<tr>
+<td>行业采用</td>
+<td>README 仅展示作者自产示例图与参考资料索引，<strong>无任何企业用户、案例或背书</strong></td>
+<td>不成立</td>
+</tr>
+<tr>
+<td>媒体覆盖</td>
+<td>未发现技术媒体报道、会议演讲或第三方评述证据</td>
+<td>不成立</td>
+</tr>
+</tbody>
+</table>
+<p><strong>综合判定</strong>：星标量级显示其在细分圈层内具备一定认知度，符合「小圈子内有认知度」的 5–6 档描述；但无企业采用、无媒体背书、无外部评审，不足以进入「领域内有较高认知度 + 知名企业背书」的 7–8 档。取 <strong>60% 档</strong>。</p>
+<p><strong>小分：0.9 / 1.5</strong></p>
+<h3>结论</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D3.1 社区活跃度指标</td>
+<td>3.0</td>
+<td>1.8</td>
+<td>60%（5–6 档）</td>
+</tr>
+<tr>
+<td>D3.2 贡献者结构多样性</td>
+<td>2.5</td>
+<td>0.5</td>
+<td>20%（1–2 档）</td>
+</tr>
+<tr>
+<td>D3.3 第三方生态成熟度</td>
+<td>3.0</td>
+<td>1.2</td>
+<td>40%（3–4 档）</td>
+</tr>
+<tr>
+<td>D3.4 品牌认知与行业影响力</td>
+<td>1.5</td>
+<td>0.9</td>
+<td>60%（5–6 档）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>4.4</strong></td>
+<td><strong>4.4 / 10</strong></td>
+</tr>
+</tbody>
+</table>
+<p>本项目呈现出 AI Agent Skill 类仓库的典型「高势能、低承载」画像：<strong>Star 增速是全场唯一达到卓越档的指标（月化约 3,780），但该热度未转化为任何形式的社区承载力</strong>——贡献者 1 人、Fork 比率 2.61%、90 天 0 个 Issue 关闭、零第三方生态、零企业背书。对商业化的直接含义是：这是一个<strong>潜在客户触达极佳、但社区自生长与生态外溢能力接近于零</strong>的资产。</p>
+<p>需特别提示两点风险：其一，24 天 3,024 星高度符合趋势榜/推荐流驱动的爆发式增长特征，其<strong>留存与转化质量尚未经时间验证</strong>，短期内不宜按稳态社区折价；其二，单人维护结构叠加 6 个未关闭 Issue 的早期积压，若商业化后咨询量上升，响应能力（D3.1 中唯一空缺项）将成为最先爆掉的瓶颈。</p>
+<p>商业化建议：D3 的可用杠杆在 <strong>D3.4 的品牌认知</strong>（3,024 星的曝光红利）而非 D3.1/D3.2/D3.3 的社区资产。应优先把「星标热度」转化为 <strong>留存型触点</strong>（Discord/讨论区、模板分发、Issue 响应 SLA），而非继续依赖一次性曝光；同时因 D3.2 与 D3.3 均处 3 分档以下，任何依赖「社区共建」或「生态分销」的商业模式在本阶段都不成立，宜走作者品牌直营 / 商业化授权路径。</p>
+<p><strong>维度得分：4.4 / 10</strong></p>
+<h3>D4. 商业模式与变现潜力</h3>
+<p><strong>维度得分：5.9 / 10</strong>（满分 10，权重 18%）</p>
+<p>本项目本质上是一个面向 Claude Code / AI Agent 的「视觉提示词技能包」（editorial print skill），由个人设计师单点维护（contributors=1），核心资产是 <code>SKILL.md</code> 的视觉规则、<code>design-system/</code> 的机器可读设计令牌与 <code>evals/</code> 的校验契约。其商业化问题不在于"技术能不能用"，而在于"这个形态能不能收钱"。</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D4.1 协议对变现模式的影响</td>
+<td>2.0</td>
+<td><strong>2.0</strong></td>
+<td>9–10 档（100%）</td>
+<td>LICENSE 为 MIT，无传染性、无云服务限制，Open Core / 双协议 / SaaS / 服务化均无法律阻碍</td>
+</tr>
+<tr>
+<td>D4.2 变现路径清晰度</td>
+<td>3.5</td>
+<td><strong>2.1</strong></td>
+<td>5–6 档（60%）</td>
+<td>存在 3 条潜在路径（付费技能包/模板、设计服务漏斗、赞助），但均无任何落地实现与定价结构</td>
+</tr>
+<tr>
+<td>D4.3 付费转化逻辑</td>
+<td>2.5</td>
+<td><strong>1.0</strong></td>
+<td>3–4 档（40%）</td>
+<td>无功能分层、无企业版、无 gated 能力；产品形态为纯文本提示资产，免费版即完整版</td>
+</tr>
+<tr>
+<td>D4.4 增值服务空间与定价天花板</td>
+<td>2.0</td>
+<td><strong>0.8</strong></td>
+<td>3–4 档（40%）</td>
+<td>无服务端/用量计费载体，客单价受"提示词资产"属性限制，收入扩展性弱</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>5.9</strong></td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h3>逐项分析</h3>
+<h4>D4.1 协议对变现模式的影响 —— 满分，无约束（2.0 / 2.0）</h4>
+<p>仓库 <code>LICENSE</code> 为标准 MIT License（Copyright (c) 2026 Yan Liu），未附加 Commons Clause、未采用 BUSL/SSPL，也未声明 SPDX 之外的补充限制。从<strong>变现模式选择</strong>角度（法律合规风险归 D6.1 评估）：</p>
+<ul>
+<li><strong>Open Core / 闭源衍生</strong>：允许，MIT 无传染性；</li>
+<li><strong>SaaS 托管 / 双协议</strong>：法律上可行，尽管本项目的产品形态使这两条路径实际价值有限（见 D4.2）；</li>
+<li><strong>专业服务与周边销售</strong>：无任何协议摩擦。</li>
+</ul>
+<p>唯一的非纯 MIT 元素是 README 与 <code>ASSET-LICENSE.md</code> 明确声明：<code>examples/</code> 下的原创示例 © 2026 Yan Liu 不适用 MIT，12 张第三方参考资料版权归原作者。这限制的是<strong>图片素材的商业再利用</strong>，不影响代码与技能指令层的商业化，故不构成本细则扣分项（但应记为商业化时的资产边界约束）。</p>
+<blockquote>
+<p>按评分指引，MIT / Apache 2.0 对应 9–10 档 → 100%，得 <strong>2.0 分</strong>。</p>
+</blockquote>
+<h4>D4.2 变现路径清晰度 —— 有潜在路径，尚未验证（2.1 / 3.5）</h4>
+<p>逐一比对七类开源商业化模式：</p>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>可行性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Open Core</td>
+<td><strong>弱可行</strong></td>
+<td>需划分"企业功能"，但本项目的价值几乎全部集中在 <code>SKILL.md</code> + <code>design-system/*.json</code> 这一层，且已 MIT 授权，切分出的闭源层难以形成真实锁定</td>
+</tr>
+<tr>
+<td>SaaS 托管</td>
+<td><strong>不可行</strong></td>
+<td>无服务端组件、依赖为 <code>{}</code>（零依赖）、无 Dockerfile，不存在可托管的运行时</td>
+</tr>
+<tr>
+<td>双协议许可</td>
+<td><strong>不可行</strong></td>
+<td>MIT 已不可撤回地授予全部权利，无商业授权议价空间</td>
+</tr>
+<tr>
+<td>专业服务</td>
+<td><strong>可行（主路径）</strong></td>
+<td>作者为职业设计师（README 署名 Yan Liu / Dreameryanyan，附 LinkedIn、X），该技能天然是品牌视觉、海报/包装/出版物的<strong>获客漏斗</strong>，可导向定制设计、工作坊、企业视觉系统落地</td>
+</tr>
+<tr>
+<td>市场/插件</td>
+<td><strong>部分可行</strong></td>
+<td>作为 "agent-skill" / "claude-skill" 标签下的产品，可进入新兴的 Skill/Prompt 市场（一次性付费技能包、模板包）；已有先例（付费 prompt pack、Notion/Figma 模板市场），单价低但边际成本近零</td>
+</tr>
+<tr>
+<td>认证/生态</td>
+<td><strong>不可行</strong></td>
+<td>单作者、无生态、无合作伙伴体系</td>
+</tr>
+<tr>
+<td>捐赠/赞助</td>
+<td><strong>可行（备选）</strong></td>
+<td>3,024 stars 具备赞助基础，但对照附录 C，Vue.js 级项目的捐赠天花板也仅约 $1M+/年且需极大社区规模，本项目单作者体量远不可及</td>
+</tr>
+</tbody>
+</table>
+<p>判断：<strong>存在至少 2 条可列举路径，但均无任何落地证据</strong>——无付费版本、无定价页、无 Sponsors 链接、无商业授权入口、<code>recent_releases</code> 为空（尚未通过 Release 渠道分发版本化产品）。因此符合"有潜在路径但尚不清晰，需验证"的描述。</p>
+<blockquote>
+<p>5–6 档 → 60%，3.5 × 60% = <strong>2.1 分</strong>。</p>
+</blockquote>
+<h4>D4.3 付费转化逻辑 —— 免费版即完整版，缺少自然触发点（1.0 / 2.5）</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测结论</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>免费→付费触发点</td>
+<td><strong>不存在</strong>。技能的全部能力（8 色单墨 + 9 组双墨配方、7 类排版布局、25%–55% 留白规则、<code>design-system/</code> 全套目录、<code>evals/</code> 校验契约）在免费仓库中一次性完整交付</td>
+</tr>
+<tr>
+<td>付费意愿强度</td>
+<td>目标用户为设计师、独立创作者、小红书/公众号内容运营者、zine/海报制作者。该群体对<strong>成品设计服务</strong>有付费意愿，但对"提示词规则文档"的付费意愿弱，且生成成本由用户的图像模型（Claude/其他）承担，技能本身不承载推理成本，缺乏按量收费的天然锚点</td>
+</tr>
+<tr>
+<td>转化漏斗</td>
+<td>漏斗仅存在于"使用技能 → 认可作者审美 → 联系作者做定制设计"这一<strong>站外、非产品化</strong>路径；仓库内无升级按钮、无 license key、无企业询价入口</td>
+</tr>
+</tbody>
+</table>
+<p>补充负面信号：MIT + 703 行 Python + 4 个源文件 + 零依赖，意味着<strong>任何第三方都可完整 fork 并商用</strong>（Fork 数 79），进一步削弱了从"使用者"到"付费者"的锁定关系。此外 90 天内 issue 关闭数为 0、无 Release，说明项目仍处于单点维护的早期个人作品阶段。</p>
+<p>因此判定为"付费逻辑勉强，用户更愿意用免费版"。</p>
+<blockquote>
+<p>3–4 档 → 40%，2.5 × 40% = <strong>1.0 分</strong>。</p>
+</blockquote>
+<h4>D4.4 增值服务空间与定价天花板 —— 空间有限、天花板偏低（0.8 / 2.0）</h4>
+<ul>
+<li><strong>可叠加增值方向</strong>：① 面向品牌方的定制技能包（企业专属色板/字体/版式令牌固化进 <code>design-system/</code>）；② 设计系统咨询与工作坊；③ 付费进阶模板与示例素材包；④ 优先支持。方向存在，但前两项是<strong>人力密集的咨询型收入</strong>，无法随用户数线性扩展。</li>
+<li><strong>定价天花板约束</strong>：产品交付物是文本提示与 JSON 目录，边际复制成本为零、可被 fork 替换；缺少合规、SLA、审计、多租户等可支撑企业级客单价的属性。一次性技能包的现实定价区间约 $10–50，定制设计服务可到 $500–5,000/项目，但不可规模化重复。</li>
+<li><strong>收入扩展性</strong>：从 per-seat 到 per-usage 均不成立——无用户账号体系、无调用计量点、无托管运行时；仅可能以 enterprise flat fee 形式出售定制设计系统，属项目制而非订阅制。</li>
+</ul>
+<blockquote>
+<p>3–4 档（"增值空间小，客单价低"）→ 40%，2.0 × 40% = <strong>0.8 分</strong>。</p>
+</blockquote>
+<h3>结论</h3>
+<p><strong>D4 维度得分 = (2.0 + 2.1 + 1.0 + 0.8) / 10 × 10 = 5.9 分。</strong></p>
+<p>综合判断：<strong>协议层面完全自由，商业层面尚未启动。</strong> MIT 授权消除了所有变现模式的法律障碍（D4.1 满分），但项目当前是一个"审美资产 + 提示词资产"的个人作品，而非可承载定价的产品：没有可托管的服务、没有可切分的功能层、没有可计量的用量单位，也没有任何已实现的收费入口。3,024 stars 在约两周内积累（2026-08-19 创建，2026-09-02 最后推送）证明需求真实存在，这构成了服务化/内容化的潜在转化基础，但"高关注度 → 收入"的桥接路径完全依赖作者本人的个人品牌与设计服务能力，属于<strong>人力绑定、难规模化</strong>的模式。</p>
+<p><strong>商业化评分区间参照</strong>：本项目更接近附录 C 中 Vue.js（纯社区/赞助模式）与 Strapi（Open Core）之间的低端形态——但缺少 Strapi 那样的企业版功能切分空间，实际可参考性更偏向"个人创作者品牌 + 服务漏斗"。若作者不上线付费技能包/企业定制层，本维度将长期停留在 5–6 分区间。</p>
+<p><strong>关键风险</strong>：MIT + 零依赖 + 单文件核心资产的结构使第三方可低成本 fork 并直接商用，价值捕获能力是主要短板，而非法律或技术限制。</p>
+<h3>D5 竞争格局与差异化壁垒</h3>
+<blockquote>
+<p><strong>验证声明</strong>：本节竞品清单来自 GitHub Search API 实测检索结果（含 stars / pushed_at / archived 字段），均为真实在库仓库。检索返回的 5 条结果中，<code>sv-number/skills</code>（提供 AI Agent 电话号码/短信验证码 API）与本品类无任何功能交集，判定为<strong>搜索噪声</strong>，已从对比表中剔除，不计入竞品数量。<strong>注意：本维度有效可比竞品仅 4 个，其中真正意义上的"直接竞品"仅 1 个</strong>，竞品池偏薄，评分置信度中等。</p>
+</blockquote>
+<h3>D5.1 竞品对比与市场定位（3 分 → 2.4 分，80%，7–8 档）</h3>
+<p><strong>竞品对比表</strong></p>
+<table>
+<thead>
+<tr>
+<th>竞品名称</th>
+<th>类型</th>
+<th>仓库/官网</th>
+<th>验证方式</th>
+<th>Star/用户量</th>
+<th>核心差异</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>op7418/guizang-yingzao-skill</td>
+<td><strong>直接竞品</strong></td>
+<td>github.com/op7418/guizang-yingzao-skill</td>
+<td>GitHub 搜索 API 实测确认（active，2026-09-03 推送）</td>
+<td>407</td>
+<td>同为 Agent Skill 形态、同为"照片/主题 → 编辑设计海报"，聚焦中国古建筑与在地文化，使用 GPT Image；题材与风格域更窄，无独立油墨体系与 §量化版式规则</td>
+</tr>
+<tr>
+<td>smixs/creative-director-skill</td>
+<td>间接竞品</td>
+<td>github.com/smixs/creative-director-skill</td>
+<td>GitHub 搜索 API 实测确认</td>
+<td>199</td>
+<td>提供创意方法论（SIT/TRIZ/横向思维）+ 戛纳评审引擎，输出<strong>创意概念</strong>而非印刷图像；与本项目在"设计决策"环节部分重叠</td>
+</tr>
+<tr>
+<td>likaku/Mck-ppt-design-skill</td>
+<td>间接竞品</td>
+<td>github.com/likaku/Mck-ppt-design-skill</td>
+<td>GitHub 搜索 API 实测确认</td>
+<td>274</td>
+<td>咨询风 PPT 设计系统，70 个版式 + python-pptx；同为"设计系统型 Agent Skill"，但交付物是演示文稿而非单色印刷图像</td>
+</tr>
+<tr>
+<td>Hasasasa/html-to-editable-pptx</td>
+<td>间接竞品</td>
+<td>github.com/Hasasasa/html-to-editable-pptx</td>
+<td>GitHub 搜索 API 实测确认</td>
+<td>65</td>
+<td>HTML 幻灯片 → 可编辑 PPTX 转换；处于设计交付链下游，不涉及视觉风格生成</td>
+</tr>
+</tbody>
+</table>
+<p><strong>定位清晰度</strong>：项目定位高度收敛且可检验——"一墨 / 受控双墨编辑印刷图像"，并给出可执行的量化契约：≤2 块印版、主版 70%–85% 面积、辅版 15%–30%、留白 25%–55%、8 色单墨 + 9 组双墨配方（附 hex）、4 类制版质感（halftone / risograph / cyanotype / photocopy）、7 类字体角色。README 还设有明确的 "Not this" 反例清单。这种"可验证的设计约束"在同类 Agent Skill 中罕见，定位辨识度高于榜单内全部同类项。</p>
+<p><strong>竞争位置</strong>：在"编辑海报生成类 Agent Skill"这一细分中，本项目 3,024 stars 为最近直接竞品（407 stars）的 <strong>7.4 倍</strong>，处于明显领先；但需注意其上位类别（设计/创意类 Agent Skill）已出现 199–407 stars 的密集同类，且整个 agent-skill 品类正处于高速膨胀期。</p>
+<p><strong>评分理由</strong>：有多个竞品，但本项目具备明确且可量化的差异化定位（单/双墨约束 + 量化留白 + 反例清单），并在直接细分中领先——符合 7–8 档"有竞品但本项目有明确差异化定位"。因上位类别拥挤、且直接可比对象仅 1 个，未达 9–10 档。→ 3 × 80% = <strong>2.4</strong></p>
+<h3>D5.2 技术壁垒与网络效应（3 分 → 1.2 分，40%，3–4 档）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测事实</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术壁垒</td>
+<td>无专利、无专有算法、无专有数据集；全部资产为 MIT 许可的 703 行 Python + Markdown/JSON 目录文件；1 名贡献者，无 release</td>
+<td>实质为零</td>
+</tr>
+<tr>
+<td>网络效应</td>
+<td>无插件市场、无用户贡献生态（90 天关闭 Issue 0、评审 PR 4）、无数据回传机制；star 数是<strong>知名度指标而非网络效应</strong></td>
+<td>无</td>
+</tr>
+<tr>
+<td>规模效应</td>
+<td>边际生成成本由底层图像模型承担，本项目不随规模摊薄成本；设计系统目录为静态文件，规模不带来体验增益</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<p><strong>唯一近似"壁垒"</strong>：<code>design-system/</code> 下的机器可读目录（色板 token、字体角色、构图几何、节奏 JSON）与 <code>evals/</code> 评估契约构成了一定的<strong>体系化沉淀</strong>，比纯 prompt 包更难被无意复制。但该目录同样以 MIT 开源、可整目录 fork 改名，不构成商业防御。</p>
+<blockquote>
+<p>注：按方法论归属说明，"从零复刻的工程难度"已在 D2.2 计分，此处不重复计分，仅从商业防御效果评估。</p>
+</blockquote>
+<p><strong>评分理由</strong>：壁垒薄弱、可被一名具备设计能力的开发者在一周内以 fork + 改写复刻，无任何网络或规模护城河——符合 3–4 档。因存在设计目录体系这一弱差异化（非完全无壁垒），未落入 1–2 档。→ 3 × 40% = <strong>1.2</strong></p>
+<h3>D5.3 切换成本与用户粘性（2 分 → 0.8 分，40%，3–4 档）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测事实</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>迁移成本</td>
+<td>安装方式为 <code>git clone</code> 到 <code>~/.claude/skills/</code>，切换 = 删除目录 + 装另一个 skill；无用户数据、无账号、无云端配置</td>
+<td>极低</td>
+</tr>
+<tr>
+<td>深度集成</td>
+<td>产物为"生成图 + 生产级 prompt + recipe"，用户可整段复制带走；除 SKILL.md 触发词外无代码级耦合</td>
+<td>浅</td>
+</tr>
+<tr>
+<td>习惯锁定</td>
+<td>存在弱锁定：油墨命名（Cobalt/Terracotta 等）、双墨配方、recipe 字段格式一旦进入个人或工作室的制版流程，会形成语汇习惯；但该语汇为通用印刷术语，非私有协议</td>
+<td>弱</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分理由</strong>：迁移成本低、用户可轻易切换，仅存在设计语汇层面的弱习惯锁定——符合 3–4 档。无任何数据/集成级锁定，故不给 5–6 档。→ 2 × 40% = <strong>0.8</strong></p>
+<h3>D5.4 护城河可持续性（2 分 → 0.8 分，40%，3–4 档）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测事实</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>护城河趋势</td>
+<td>仓库创建于 2026-08-19、最后推送 2026-09-02，<strong>存续仅约 2 周</strong>；14 天内冲到 3,024 stars，属爆发式增长，尚无 release、贡献者仍为 1 人，优势是否在"加深"缺乏时间证据</td>
+<td>趋势未明，暂不构成加深</td>
+</tr>
+<tr>
+<td>颠覆风险</td>
+<td>双重风险：(1) 复刻风险——MIT 全开源、703 行代码、无专利，竞品可快速跟随（同类已出现 407 stars 的建筑题材对手）；(2) 技术替代——底层图像模型正在快速内化风格控制能力，一旦模型原生支持"单墨 halftone 编辑风"约束，skill 层价值被压缩</td>
+<td>风险高</td>
+</tr>
+<tr>
+<td>时间窗口</td>
+<td>星标爆发集中于 2 周内，符合流行驱动（fad）曲线特征；无社区沉淀、无版本迭代记录支撑长期留存</td>
+<td>窗口较短</td>
+</tr>
+</tbody>
+</table>
+<p><strong>唯一可持续资产</strong>：作者的设计判断力与持续维护（<code>design-system/</code> 目录的迭代、评估契约的扩充）属于<strong>人的壁垒</strong>而非<strong>产品壁垒</strong>，可迁移、可被模仿，但短期内难以被完全复制。</p>
+<p><strong>评分理由</strong>：护城河薄弱且处于形成早期，面临明确的复刻者与技术替代双重风险，符合 3–4 档；因尚未观察到优势"正在削弱"的确切证据（项目太新），未落入 1–2 档。→ 2 × 40% = <strong>0.8</strong></p>
+<h3>D5 维度小结</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>得分率</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D5.1 竞品对比与市场定位</td>
+<td>3</td>
+<td>2.4</td>
+<td>80%</td>
+<td>7–8</td>
+</tr>
+<tr>
+<td>D5.2 技术壁垒与网络效应</td>
+<td>3</td>
+<td>1.2</td>
+<td>40%</td>
+<td>3–4</td>
+</tr>
+<tr>
+<td>D5.3 切换成本与用户粘性</td>
+<td>2</td>
+<td>0.8</td>
+<td>40%</td>
+<td>3–4</td>
+</tr>
+<tr>
+<td>D5.4 护城河可持续性</td>
+<td>2</td>
+<td>0.8</td>
+<td>40%</td>
+<td>3–4</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>5.2</strong></td>
+<td><strong>52%</strong></td>
+<td><strong>5–6 一般</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：<code>mono-color-skill</code> 在竞争格局上呈现<strong>"定位强、壁垒弱"的典型错配</strong>。它的差异化定位是全类别中最锐利的（量化墨版规则 + 反例清单 + 可检验评估契约），并在直接细分中以 7.4 倍 star 领先；但其全部资产为 MIT 开源的 703 行代码与文档，无专利、无数据飞轮、无插件生态、无规模效应，用户切换成本近似为零，且面临"开源复刻 + 底层模型内化风格控制"的双重挤压。<strong>差异化优势真实存在，但防御能力几乎不构成商业化护城河</strong>，其可持续性目前主要寄托于作者个人的设计判断力与先发心智，而非结构性壁垒。</p>
+<h3>D6. 法律合规与知识产权</h3>
+<p><strong>维度得分：7.8 / 10</strong>（权重 7%）</p>
+<p>本维度基于仓库 LICENSE 原文、本地依赖扫描结果（<code>dependencies: {}</code>）、文档清单与贡献者数据评估。项目为单作者、MIT 许可的 AI 图像生成/编辑设计 Skill，代码量 703 行（4 个 Python 文件），依赖链极简，法律面整体干净；主要短板在贡献者协议缺失与商标/专利无法自动核查。</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>档位</th>
+<th>小分</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D6.1 开源协议合规性与商业限制</td>
+<td>3.0</td>
+<td>9–10</td>
+<td><strong>3.0</strong></td>
+<td>LICENSE 为完整标准 MIT 正文，SPDX 标识无歧义，Copyright (c) 2026 Yan Liu 归属明确；无 GPL/AGPL 等 copyleft 条款，无 Commons Clause / BUSL 等商业附加限制，商用、修改、再许可、双协议均无协议层障碍。唯一注意事项：仓库存在独立的 <code>ASSET-LICENSE.md</code>（素材/字体类授权单独管理），其具体条款未在素材中提供，商用素材的可用性需人工核对——该文件的存在本身是授权治理规范化的表现，不构成代码协议障碍</td>
+</tr>
+<tr>
+<td>D6.2 依赖链法律风险</td>
+<td>2.5</td>
+<td>9–10</td>
+<td><strong>2.5</strong></td>
+<td>本地扫描依赖清单为空（无 requirements.txt / pyproject / package.json），703 行 Python 代码未见外部依赖声明，无传染性依赖、无来源不明包，合规审查面接近零。需注明：<strong>无显式依赖清单本身降低了可审查性</strong>（存在未声明的 pip 依赖可能性），但就现有硬事实而言无任何传染性风险</td>
+</tr>
+<tr>
+<td>D6.3 商标与专利风险</td>
+<td>2.5</td>
+<td>5–6</td>
+<td><strong>1.5</strong></td>
+<td>自动化限制：商标检索与专利排查无法由 AI 完成，本仓库无 TRADEMARK 政策文件，无人工核查数据。按方法论默认 5–6 档给 1.5/2.5，<strong>未经人工核查，置信度低</strong>。可观察事实：名称 "mono-color-skill" 为描述性/通用性标识，显著性弱、可注册性偏低；"yanliudesign" 为个人品牌；技术形态为提示词与设计系统 Skill，专利密集度低——以上仅为观察，不构成商标可用性结论</td>
+</tr>
+<tr>
+<td>D6.4 贡献者协议完备性</td>
+<td>2.0</td>
+<td>3–4</td>
+<td><strong>0.8</strong></td>
+<td>无 CONTRIBUTING.md、无 CLA/DCO 配置、无 CODEOWNERS、无 <code>.github/</code> Issue/PR 模板，贡献流程实质缺失。缓解因素：贡献者仅 1 人（Yan Liu），版权高度集中于单一主体，不存在版权分散问题，双协议/商业授权在版权层面可控制。因「无任何贡献协议」为主要事实，落入 3–4 档（贡献流程不规范），未达 5–6 档（有贡献指南但无正式 CLA）之要求</td>
+</tr>
+</tbody>
+</table>
+<p><strong>合计：3.0 + 2.5 + 1.5 + 0.8 = 7.8 / 10</strong></p>
+<h3>结论</h3>
+<ul>
+<li><strong>整体法律面健康，无致命硬伤。</strong> MIT 协议写法规范、无 copyleft 传染、无商业附加条款，几乎不限制任何变现路径（SaaS、企业私有部署、双协议商业授权均无法律障碍）。依赖链极简进一步压低了合规成本。</li>
+<li><strong>主要可管理风险集中在两处</strong>：① 素材授权（<code>ASSET-LICENSE.md</code> 内容未采集），若该 Skill 随包分发字体、纹理或示例图，商业分发前须逐项核对是否允许商用；② 贡献治理空白——当前单作者模式下版权集中反而是优势，但一旦引入外部贡献者，缺少 CLA/DCO 会使后续双协议模式的版权授权链出现瑕疵，建议在开放贡献前补齐 DCO/CLA 与 CONTRIBUTING。</li>
+<li><strong>置信度说明</strong>：D6.3 完全依赖人工核查，D6.2 受"无依赖清单"影响存在轻微盲区，D6.1 受素材授权文件未读取影响。上述三项已按方法论以保守档位处理，实际得分存在约 ±0.5 的上行空间。</li>
+<li><strong>去重声明</strong>：协议类型对变现模式选择的影响已在 D4.1 评估，本维度仅就法律合规障碍计分，未因 MIT 协议类型本身重复加减分。</li>
+</ul>
+<h1>D7. 企业就绪度与可运营性（权重 8%）</h1>
+<p><strong>项目形态判定</strong>：<code>yanliudesign/mono-color-skill</code> 属于 Claude Code / Agent <strong>Skill 包</strong>（提示词系统 + 设计系统 JSON + 少量校验脚本），而非可部署的服务端应用。其运行载体是宿主 Agent 平台（Claude Code 等），因此 D7 中"服务端认证授权""集群/高可用部署"等考察点在本项目形态下<strong>不适用</strong>，按方法论做 N/A 处理并从满分中剔除；保留可评估的运维/升级路径与集成面。</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+<th>核心判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D7.1 运维复杂度与升级路径</td>
+<td>3.0</td>
+<td><strong>2.4</strong></td>
+<td>7–8（80%）</td>
+<td>零运行时组件、零依赖；配置全部文件化；有 CHANGELOG + 版本徽章；CI 契约校验降低升级破坏风险</td>
+</tr>
+<tr>
+<td>D7.2 安全管理与权限控制</td>
+<td>2.5</td>
+<td><strong>N/A</strong></td>
+<td>—</td>
+<td>本地 Agent Skill，无服务端接口，认证/权限/审计由宿主平台承担，无法在本项目范围内评估</td>
+</tr>
+<tr>
+<td>D7.3 可扩展性与高可用能力</td>
+<td>2.5</td>
+<td><strong>N/A</strong></td>
+<td>—</td>
+<td>无服务端进程、无状态存储，不存在水平扩展/集群/故障转移等考察对象</td>
+</tr>
+<tr>
+<td>D7.4 集成兼容与可观测性</td>
+<td>2.0</td>
+<td><strong>1.2</strong></td>
+<td>5–6（60%）</td>
+<td>有机器可读评估契约（evals/evals.json + schema.json）与 CI 校验脚本；但无 REST/gRPC/SDK、无标准监控协议、无结构化日志</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>5.0（剔除 N/A 后）</strong></td>
+<td><strong>3.6</strong></td>
+<td>—</td>
+<td><strong>D7 = 3.6 ÷ 5.0 × 10 = 7.2</strong></td>
+</tr>
+</tbody>
+</table>
+<h3>D7.1 运维复杂度与升级路径（2.4 / 3.0）</h3>
+<p><strong>配置管理</strong>：配置完全文件化——<code>SKILL.md</code> 定义技能行为契约，<code>design-system/*.json</code>（含 <code>BOARD-DIRECTION.md</code> 配套说明）承载设计系统参数，<code>evals/evals.json</code> + <code>evals/schema.json</code> 定义评估契约。实测 <code>dependencies: {}</code>，无环境变量、无配置中心需求，也不存在因配置漂移导致的运行时故障面。此项表现良好。</p>
+<p><strong>运维负担</strong>：实测 <code>has_dockerfile: false</code>、无守护进程、无外部依赖，全部代码仅 703 行 Python（4 个文件）。日常运维实质为零——"运维"退化为宿主平台内的文件同步。这是该形态的天然优势。</p>
+<p><strong>升级路径</strong>：README 顶部有 <code>VERSION-1.2.0</code> 徽章并指向 <code>CHANGELOG.md</code>，说明项目具备版本化发布习惯；<code>.github/workflows/validate.yml</code> 在 <code>push: [main]</code> 与 <code>pull_request</code> 时执行 <code>validate_evals.py</code>、<code>validate_design_system.py</code> 及 JSON 语法校验，构成升级回归防线。<strong>扣分点</strong>：<code>recent_releases: []</code>，无正式 GitHub Release 产物；CHANGELOG 未提供显式迁移/回滚操作说明；回滚实质上依赖 git 历史，无文档化的回退流程。</p>
+<p><strong>数据迁移</strong>：项目无持久化数据层（无 DB、无状态文件），升级不触发任何数据迁移。此为 9–10 档特征之一。</p>
+<p>综合：运维成本极低、无数据迁移负担，但回滚与版本兼容策略未被文档化，未达"升级平滑且支持回滚"的卓越档，落于 7–8 档（80%）。</p>
+<h3>D7.2 安全管理与权限控制（N/A）</h3>
+<p>本项目为运行在用户本机 Agent 环境中的技能包，不暴露网络服务端点，因此 SSO/OAuth/LDAP/SAML 认证与 RBAC/ABAC 权限模型<strong>在本项目边界内不存在实现对象</strong>——这些能力由宿主平台（Claude Code / 企业 AI 平台）提供，故整项标记 N/A，不计入满分。</p>
+<p>需补充说明（不参与计分，供其他维度参考）：实测 <code>has_security_md: false</code>、<code>has_codeowners: false</code>，无安全策略文档；<code>ASSET-LICENSE.md</code> 与 <code>REFERENCES.md</code> 对第三方视觉参考素材的归属与许可做了说明，属合规侧的正面信号，但无数据处理/隐私声明。</p>
+<h3>D7.3 可扩展性与高可用能力（N/A）</h3>
+<p>项目无服务端进程、无数据库、无集群部署形态，水平扩展、故障转移、分布式一致性等考察点均无评估对象。技能以文件形式分发，由宿主平台承载并发与可用性，故整项标记 N/A，不计入满分。</p>
+<h3>D7.4 集成兼容与可观测性（1.2 / 2.0）</h3>
+<p><strong>API 完备性</strong>：无 REST/gRPC/SDK 接口。但其提供 <code>evals/evals.json</code> + <code>evals/schema.json</code> 这一机器可读的评估契约，并有 <code>scripts/validate_evals.py</code>、<code>scripts/validate_design_system.py</code> 作为可被 CI/外部流水线调用的校验入口——构成弱形态的"程序化接口"，属部分满足。</p>
+<p><strong>标准协议</strong>：无 OpenTelemetry、Prometheus、Webhook 等标准协议支持。</p>
+<p><strong>监控告警</strong>：无健康检查端点、无指标暴露（本地执行形态下此项亦难有适用对象）。</p>
+<p><strong>日志体系</strong>：实测无日志库依赖、无结构化日志与日志级别管理。</p>
+<p>结论：在企业集成面，本项目仅具备"契约文件 + CI 校验"级别的可集成性，达到"有 API 但监控/日志薄弱"的 5–6 档（60%）。若从纯服务端视角审视，其集成能力接近"有限"档；考虑到其形态定位，取 60% 为相对公允的判定。</p>
+<h3>结论</h3>
+<p><strong>D7 得分：7.2 / 10</strong>（基于可评估的 5.0 分满分，N/A 项已按规则剔除并等比缩放）。</p>
+<p>该项目在<strong>运维与升级路径</strong>上表现良好：零依赖、零运行时组件使运维成本趋近于零，无持久化数据使升级天然不涉及数据迁移，CHANGELOG 与 CI 契约校验提供了基本的升级安全感；短板在于缺少文档化的回滚机制与正式 Release 流程。而其<strong>安全权限</strong>与<strong>高可用扩展</strong>能力因项目形态（本地 Agent Skill）不构成可评估对象，<strong>集成与可观测性</strong>则只有评估契约这一层，缺少标准协议与监控日志。</p>
+<p>⚠️ <strong>置信度说明</strong>：本维度两项细则（合计 5.0 分，占原满分 8.0 分的 62.5%）标记为 N/A，数据覆盖度较低，D7 分值对最终总分的代表性有限，建议在汇总时按方法论下调该维度结论的置信度。另需注意：若企业客户将此类 Skill 纳入内部 AI 平台统一运营，则认证、审计、可观测性要求将实际落在宿主平台选型上，而非本项目本体——该结论不构成对本项目能力的否定。</p>
+<h3>D8. 团队治理与可持续性</h3>
+<blockquote>
+<p><strong>数据说明</strong>: 本项目 <code>contributors = 1</code>，GitHub 账号为个人账号（<code>yanliudesign</code>），无组织/公司实体信息；无 GOVERNANCE/CONTRIBUTING/CODEOWNERS/SECURITY 文件；无 Release、无公开融资或赞助页面数据。项目创建于 2026-08-19，最近推送 2026-09-02，可观测历史仅约 2 周，趋势类判断置信度受限。</p>
+</blockquote>
+<h3>细则打分</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D8.1 核心维护者能力与背景</td>
+<td>2.5</td>
+<td>1.0</td>
+<td>3–4（40%）</td>
+<td><code>contributors = 1</code>，巴士因子 = 1，<strong>高度依赖单一维护者</strong>；个人账号运营，无企业服务/创业/商业化背景证据；无全职投入的直接证据（无 Release、无 roadmap 交付记录，仅 703 行 Python 代码，2 周内高频推送）。正面信号：2 周内获 3024 Star 说明维护者产品/设计判断力较强，但组织化投入度不成立。</td>
+</tr>
+<tr>
+<td>D8.2 治理模型透明度</td>
+<td>2</td>
+<td>0.8</td>
+<td>3–4（40%）</td>
+<td><strong>无 GOVERNANCE.md、无 CONTRIBUTING.md、无 CODEOWNERS</strong>；非 CNCF/Apache/Linux Foundation 等基金会项目；决策完全由个人主导，79 个 Fork 但外部贡献未体现为多贡献者（contributors=1）。仅有 LICENSE / CHANGELOG / README / REFERENCES / design-system 文档 + 1 个 <code>validate.yml</code> CI，属工程化文档而非治理结构。</td>
+</tr>
+<tr>
+<td>D8.3 资金支持与商业赞助</td>
+<td>2.5</td>
+<td>1.0</td>
+<td>3–4（40%）</td>
+<td>无 GitHub Sponsors / Open Collective / FUNDING 信息，无公司实体、无 VC 或基金会资金证据；纯个人项目，本质上属「几乎无资金支持，靠个人热情驱动」。因公开资金信息缺失，此项判断为<strong>未被反证的负向推定</strong>，置信度中等。</td>
+</tr>
+<tr>
+<td>D8.4 项目可持续性与传承风险</td>
+<td>3</td>
+<td>1.8</td>
+<td>5–6（60%）</td>
+<td>活跃趋势：可观测周期仅 2 周，<code>pushed_at</code> 距今极近，<strong>当前活跃但趋势方向不可判定</strong>；传承风险：巴士因子 = 1、无治理与共同维护者，核心维护者退出后<strong>几乎无社区接管机制</strong>；<code>archived = false</code>，无 deprecated 标记；79/3024 ≈ 2.6% 的低 Fork 比与 6 个开放 Issue、90 天 0 Issue 关闭表明<strong>尚无社区分裂，但也无外部协作生态</strong>。传承风险中等偏高。</td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<p><strong>D8 得分: 4.6 / 10（较弱）</strong></p>
+<p>该项目是一个典型的<strong>「单点高产」型个人项目</strong>：凭借鲜明的设计定位在 2 周内拿到 3024 Star，产品判断力与传播力强（D8.1 的正面因素），但<strong>组织化程度几乎为零</strong>——巴士因子 1、无治理文档、无资金与公司实体、无多贡献者协作记录。这意味着：</p>
+<ol>
+<li><strong>人即项目</strong>：维护者一旦停更或转向，项目将快速停滞，无接管路径；</li>
+<li><strong>商业化主体缺失</strong>：没有任何实体可以承接商业合同、SLA、企业授权或支持收入；</li>
+<li><strong>可观测窗口过短（仅 2 周）</strong>：既无法证实可持续性，也无法判定活跃度趋势方向，本维度整体置信度偏低。</li>
+</ol>
+<p>若要将本项目商业化，<strong>首要动作是引入第二/第三名共同维护者、补齐 CONTRIBUTING/GOVERNANCE 与资金路径（如 Sponsor/商业实体）</strong>，否则团队治理将成为最直接的商业化障碍。此结论需在项目积累 3–6 个月数据后复评。</p>
+<h3>D9. 上手难度与易用性（权重 10%）</h3>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>折算档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D9.1 安装难度</td>
+<td>2.5</td>
+<td><strong>2.5</strong></td>
+<td>100%（9–10）</td>
+<td>安装为<strong>单条 <code>git clone</code> 命令</strong>写入 <code>~/.claude/skills/mono-color</code> + 重启宿主；本地实测 <code>dependencies</code> 为空（<strong>零第三方依赖</strong>），无数据库/编译器/系统级依赖；无平台限制（git 跨平台，Claude Code 覆盖 Windows/macOS/Linux）。唯一环境前提是宿主 Agent 属于该品类的固有运行时，等同于"pip 包需要 Python"</td>
+</tr>
+<tr>
+<td>D9.2 部署与配置难度</td>
+<td>2.5</td>
+<td><strong>2.0</strong></td>
+<td>80%（7–8）</td>
+<td>部署 = 复制文件到 skills 目录，<strong>无服务器/数据库/缓存等外部组件初始化</strong>，无配置文件；但<strong>无 Dockerfile、无 docker-compose、无 Helm</strong>（<code>has_dockerfile: false</code>），缺少标准化容器部署产物；验证需手工粘贴提示词，仓库自身仅提供 <code>python3 scripts/validate_*.py</code> 级别校验，非技术人员在缺图像生成工具时会退化为"只能拿到 prompt"</td>
+</tr>
+<tr>
+<td>D9.3 易用性与操作门槛</td>
+<td>2.5</td>
+<td><strong>2.0</strong></td>
+<td>80%（7–8）</td>
+<td>日常操作即<strong>自然语言提示词</strong>，无需记忆任何命令或参数，README 给出覆盖 12 类场景的 13 条可直接复用示例；默认值明确合理（3:4、Neutral White、35% 空纸面、确定性调色板/版式），开箱即用；无图像生成工具时<strong>显式说明限制</strong>而非报错，属友好降级。扣分点：无 CLI 故无参数补全/智能提示；要精确控制墨色配方、叠印、halftone 等需具备编辑设计词汇；错误反馈实际由宿主 Agent 承担，项目自身未定义面向终端用户的错误提示体系</td>
+</tr>
+<tr>
+<td>D9.4 学习曲线与首体验</td>
+<td>2.5</td>
+<td><strong>2.0</strong></td>
+<td>80%（7–8）</td>
+<td>已安装 Claude Code 的目标用户克隆 + 重启 + 粘贴示例，<strong>首次成功在 10 分钟内</strong>；学习曲线平缓，无需编程与框架知识，Aha Moment 明确（一次提示 = 一张成图 + prompt + recipe）；素材丰富：12 张原创生成示例 + 12 张参考图 + 4 张设计系统分析板 + <code>evals/evals.json</code> 评测样例。扣分点：<strong>无交互式 onboarding/教程</strong>，依赖宿主安装这一前置步骤（对非 Claude Code 用户是小时级前置成本），<code>design-system/</code> 的 catalog 契约概念需额外阅读</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>8.5</strong></td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h3>分析结论</h3>
+<p><strong>上手难度等级：🟢 简单（8.5/10，面向"所有人"）——报告中可给出完整操作步骤与命令。</strong></p>
+<ol>
+<li><strong>安装链路是本项目最强的商业化友好特征。</strong> 零第三方依赖 + 单条 <code>git clone</code>，把"从零到可用"压缩到分钟级。对于一个以视觉风格为核心价值的 agent skill，这消除了传统图像/设计工具（安装庞大运行时、配置 GPU、申请 API Key）最典型的第一道流失关口。</li>
+<li><strong>部署环节零基础设施，但缺少标准化交付物。</strong> 没有 Dockerfile / compose / Helm 并非架构缺陷（无服务端组件），但也意味着<strong>分发依赖"克隆 GitHub 仓库 + 手工放入 Agent 私有目录"这一非标准路径</strong>：无包管理器/技能市场式的一键分发、无版本化升级机制（升级需 <code>git pull</code>）。对个人用户无损，对企业内批量发放 skill 的场景是缺口。</li>
+<li><strong>操作门槛极低，但"用好"存在隐性专业知识门槛。</strong> 提示词完全自然语言化，13 条示例覆盖海报、社媒封面、包装、诗集扉页等场景，非设计师可直接复制改词。然而要复现 README 所展示的风格精度，用户仍需理解 one-ink / two-ink、dominant/accent plate 配比、halftone、overprint 等概念；系统把这些参数封装为确定性默认值缓解了这一点（未指定时自动解析为固定 recipe），因此门槛落在"读一遍 README"而非"学习一套 API"。</li>
+<li><strong>首体验质量受外部条件制约。</strong> 首次成功的上限取决于宿主 Agent 是否接入图像生成工具：具备则一次提示即出图，不具备则只返回 production prompt。README 对此做了显式说明，属于诚实的能力边界披露，但会让部分首次试用者体验不到完整价值——这是 D9 未给满分的主要现实原因。</li>
+<li><strong>文档与示例密度提供了良好的自学闭环。</strong> 双语 README、<code>SKILL.md</code>、<code>REFERENCES.md</code>、<code>CHANGELOG.md</code>、<code>design-system/BOARD-DIRECTION.md</code> 共 7 份文档，配合 12 张原创示例图与 4 张系统分析板，使新用户可在无人工支持的情况下完成从"看懂能做什么"到"自己写提示词"的过渡；不足是缺少交互式引导（onboarding）与视频/分步教程。</li>
+</ol>
+<blockquote>
+<p><strong>置信度说明</strong>：本维度所有细则均有实测或 README 硬事实支撑，无 N/A 项；唯一间接推断项为"非技术人员能否独立完成部署"（依据安装命令步数与依赖清单推断），置信度良好。</p>
+</blockquote>
+<h3>D10 功能价值（使用价值视角）</h3>
+<blockquote>
+<p>平行维度，权重 0%，不计入综合评分，不参与一票否决。仅用于 3.4 价值画像判定。</p>
+</blockquote>
+<p><strong>项目形态判定</strong>：<code>mono-color-skill</code> 不是库/服务，而是一份 <strong>Agent Skill 资产包</strong>——由 <code>SKILL.md</code>（触发规则与视觉系统）+ <code>design-system/*.json</code>（机器可读的色彩/排版/构图/节奏目录）+ <code>scripts/*.py</code>（703 行校验脚本）+ <code>evals/</code> 评估契约组成，向使用者交付「输入一个主题/照片 → 产出可直接投放的图像生成生产级 prompt + 配方 + （在具备生图工具时）栅格图」。因此本维度的效用必须按「创意生产效率增益」而非「基础设施依赖」来标定。</p>
+<h4>细则打分表</h4>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10.1 效用强度</td>
+<td>3</td>
+<td>1.8</td>
+<td>5–6 档（60%）</td>
+<td>效用层级为「分钟级便利工具」的增强形态：把一次性的生图 prompt 试错，替换为一套确定性设计语法（8 个单墨色 + 9 组双墨配方，<code>#2148B8</code>/#C83232 等具体 hex 已固化；7 类版式族；25%–55% 留白、70%–85% 主版占比等硬约束）。对需要 risograph/halftone 编辑风视觉的设计师、自媒体运营者，单次可省数十分钟的风格检索与 prompt 调参。但替代成本极低——一段写得好的风格描述即可近似，无任何工程耦合，不构成项目级依赖。效用确定性较高（README 明确「deterministic palette and layout rules」「stable recipe seed preserves the same marks across retries」），上探 6 档而非 5 档</td>
+</tr>
+<tr>
+<td>D10.2 实际使用规模</td>
+<td>3</td>
+<td>N/A</td>
+<td>—</td>
+<td>实采结果：npm 周下载 N/A、PyPI 月下载 N/A；GitHub Dependents 无数据（该仓库为 <code>git clone</code> 到 <code>~/.claude/skills/</code> 的 Skill 分发形态，不进入任何包管理生态，天然无依赖方计数）。README 未展示任何生产采用案例，仅展示作者自产示例图与参考图。按防幻觉规则，禁止以 Star 数/Forks 数替代下载/依赖量，故本项标 N/A，从本维度满分中剔除</td>
+</tr>
+<tr>
+<td>D10.3 免费可得的完整效用</td>
+<td>2</td>
+<td>2.0</td>
+<td>9–10 档（100%）</td>
+<td>MIT 许可覆盖源码、Skill 指令与脚本；无企业版、无付费墙、无 SaaS 后端、无许可证校验。设计系统目录、评估契约、校验脚本全部开源可读。唯一非 MIT 资产是 <code>examples/</code> 与 12 张第三方参考图（作者声明保留版权），但那是「示例产出」而非「使用能力」，不影响使用者获得完整效用。自托管/本地加载即等价于官方路径（README：其他 Agent 环境加载 <code>SKILL.md</code> 即可）</td>
+</tr>
+<tr>
+<td>D10.4 效用可持续性</td>
+<td>2</td>
+<td>2.0</td>
+<td>9–10 档（100%）</td>
+<td>纯本地文本 + JSON + 脚本形态，<code>dependencies: {}</code> 零第三方依赖，无 Dockerfile、无云服务调用、无闭源组件。MIT 允许自由分叉再维护；<code>scripts/build_design_system_board.py</code> / <code>validate_evals.py</code> 可由任意 Python3 环境重跑，构建可重现；随仓库附 <code>validate.yml</code> CI 契约，分叉者可直接继承校验基线。停维后已固化的调色板、版式规则、prompt 语法仍可长期复用。<strong>唯一外部耦合</strong>是最终栅格图仍依赖使用者所选图像生成模型，但该依赖是通用且可替换的（README 亦说明生图不可用时仅返回 prompt 并声明限制），不构成供应商锁定</td>
+</tr>
+</tbody>
+</table>
+<p><strong>小计</strong>：1.8 + 2.0 + 2.0 = 5.8 / 剩余满分 7 = <strong>8.3</strong>（D10.2 标 N/A 后等比缩放，置信度下调）</p>
+<h4>结论</h4>
+<p>本维度呈现典型的「<strong>高免费完整度 × 低锁定度 × 不可测规模</strong>」结构：</p>
+<ol>
+<li><strong>效用是「知识封装」而非「工程能力」</strong>。项目把印刷设计领域经验（单/双墨色板、halftone/cyanotype/risograph 工艺模拟、非对称编辑网格、字体角色分配）从散落的灵感整理为可校验的机器可读契约，这是其相对「随手写一句 prompt」的真实增量，也是 D10.1 能站在 6 档而非 3–4 档的理由。</li>
+<li><strong>D10.2 的 N/A 是本维度最大的信息缺口</strong>。3024 Star / 79 Fork / 1 贡献者 / 90 天 4 个 PR / 0 个已关闭 Issue 只能读作「关注度信号」，不能读作「使用规模」。Star 与 Fork 比（约 38:1）偏低，提示 Fork 多用于个人定制而非二次分发，实际生产采用证据为零。因此本维度的 8.3 分是在<strong>剔除 30% 权重后的缩放值</strong>，不宜与满分维度直接横向比较。</li>
+<li><strong>与 D4.3（付费转化）的张力在此显性化</strong>。D10.3 满分意味着开源版即全部价值，对应的商业含义是：本项目结构上不存在「把免费用户转化为付费用户」的功能抓手——它的变现路径不在软件本身（见 D1–D9 判断），而在作者的设计服务、内容影响力或个人品牌导流。这不构成本维度失分，恰恰说明「使用价值」与「交换价值」在此项目中天然分离。</li>
+<li><strong>失效风险极低但效用天花板明确</strong>。零依赖 + MIT + 纯本地，使停维后效用近乎永久存续（D10.4 满分）；但效用上限被「用户必须自带生图模型」与「风格单一（单/双墨编辑风）」双重约束，属于深度垂直的窄工具，而非可复用的平台能力。</li>
+</ol>
+<h3>D11 社会价值——正外部性视角（平行维度，权重 0%，不计入综合评分）</h3>
+<blockquote>
+<p>本维度仅用于 3.4 价值画像，不参与综合评分与一票否决。评估视角为「项目对使用者之外的行业/社会外溢贡献」，与 D3.4（品牌影响力→商业势能）、D2.5/D2.6（i18n/无障碍的工程质量）共用部分事实素材，但评价对象不同。</p>
+</blockquote>
+<h3>事实基线</h3>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>实测值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stars / Forks / Contributors</td>
+<td>3024 / 79 / 1</td>
+</tr>
+<tr>
+<td>License</td>
+<td>MIT（代码与技能指令）；examples/ 与第三方参考图另有版权声明（ASSET-LICENSE.md、REFERENCES.md）</td>
+</tr>
+<tr>
+<td>代码量 / 测试</td>
+<td>703 行 Python / 0 行测试</td>
+</tr>
+<tr>
+<td>依赖</td>
+<td>无（dependencies 为空）</td>
+</tr>
+<tr>
+<td>文档</td>
+<td>7 份（含 README.md + README.zh.md 双语、SKILL.md、REFERENCES.md、design-system 说明）</td>
+</tr>
+<tr>
+<td>分发渠道</td>
+<td>无 npm/PyPI 包（下载量 N/A），仅 GitHub clone + SKILL.md 挂载</td>
+</tr>
+<tr>
+<td>下游依赖数</td>
+<td>N/A（未采集到 Dependents 计数）</td>
+</tr>
+</tbody>
+</table>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>档位</th>
+<th>小分</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D11.1 数字公共基础设施属性</td>
+<td>3</td>
+<td>3–4（40%）</td>
+<td><strong>1.2</strong></td>
+<td>无下游依赖链：无包分发（npm/PyPI 均 N/A）、无 Dependents 数据、单一贡献者、703 行脚本，停摆不波及任何软件供应链，非 curl/OpenSSL 式数字底座。正面证据为 MIT 开放许可、零依赖、可被任意 agent 环境挂载复用，具备「可复用数字资产」属性但公共基础设施属性弱。</td>
+</tr>
+<tr>
+<td>D11.2 教育与人才价值</td>
+<td>2.5</td>
+<td>5–6（60%）</td>
+<td><strong>1.5</strong></td>
+<td>无外部课程/教程/awesome 列表采用证据，无 Issue 学习者提问数据；但仓库自身构成高质量范本：SKILL.md 工作流（5 步法）、design-system/ 机读目录、evals/ 断言契约、逐条「Not this」反模式清单，对「如何编写一个 agent skill」这一新兴小圈子具明确学习价值；双语 README 进一步降低理解门槛。影响限于 agent-skill 小众生态。</td>
+</tr>
+<tr>
+<td>D11.3 普惠与可及性</td>
+<td>2.5</td>
+<td>7–8（80%）</td>
+<td><strong>2.0</strong></td>
+<td>将原本需付费设计师/图库/订阅制设计软件才能产出的编辑设计稿（海报、zine、小红书封面、包装、请柬）平权给「会写一句话」的个人与中小团队；替代价格差显著（一次外包设计/图库授权成本 vs 近零）。可及性支持：README 英/中双语，纯文本 prompt 驱动、无 GPU/本地算力要求、零依赖。扣分项：实际使用仍需付费的 Claude Code 类 agent 与图像生成能力接入，无本地/离线替代路径，构成实质性获取门槛。</td>
+</tr>
+<tr>
+<td>D11.4 开放标准与行业推动</td>
+<td>2</td>
+<td>5–6（60%）</td>
+<td><strong>1.2</strong></td>
+<td>遵循并落地新兴的开放的 agent-skill 约定（SKILL.md 入口，宣称可被「其他 agent 环境」加载），但属标准<strong>遵循者而非推动者</strong>；design-system/ 的 Catalog ID 契约与 evals/schema.json 为项目内部契约，未成为行业标准。科研支撑：N/A（无检索到论文引用）。行业示范效应有限：其严谨的原创性边界与署名/授权实践（REFERENCES.md、ASSET-LICENSE.md）对同类技能作者有一定示范价值，但无被广泛模仿的实证。</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td>—</td>
+<td><strong>5.9</strong></td>
+<td>稳定档位：一般偏上（略高于 5–6 档中线）</td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<p>mono-color-skill 的正外部性集中在<strong>「能力平权」</strong>这一条：它把杂志级单/双色编辑设计从「需要设计师或设计软件」变成「一句话 + 一个 agent 即可产出」，配合双语文档与零依赖的纯文本形态，获得了 3024 stars 的快速社区认可，D11.3 是本维度唯一进入 7–8 档的细则。</p>
+<p>但它的社会价值呈<strong>「单点强、面状弱」</strong>结构：</p>
+<ol>
+<li><strong>无基础设施属性</strong>——不存在包分发与下游依赖，停摆（归档/删库）对软件供应链的影响为零，不构成数字公共底座；</li>
+<li><strong>无标准领导力</strong>——它实现的是他人定义的开放技能格式，内部目录契约不具备行业标准地位；</li>
+<li><strong>教育影响力局限</strong>——作为「如何写一个高质量 skill」的范本价值明确，但缺乏课程、教程、被引用等规模化教育证据；</li>
+<li><strong>普惠存在隐性门槛</strong>——免费的是技能包，而非完成一次产出所需的付费 agent 与图像生成能力，欠发达/零预算用户的可及性被削弱。</li>
+</ol>
+<p>因此本维度给 <strong>5.9 / 10</strong>：作为文化创意与设计能力的民主化工具具备真实且可观测的正外部性（突出体现在 3.4 价值画像的「社会价值」侧），但远未达到公共基础设施或标准推动者的量级。该维度权重 0%，不影响综合评分。</p>
+<blockquote>
+<p>置信度说明：Dependents 计数、论文引用、外部教程采用量三项数据缺失（标 N/A 或未采信），D11.1 与 D11.4 的判断基于「无包分发 + 单贡献者 + 无引用证据」的否定性事实，若后续补采到下游依赖或学术引用数据，两项小分存在上调可能。</p>
+</blockquote>
+<h2>五、商业化价值判断</h2>
+<h3>5.1 总体判断</h3>
+<p>mono-color-skill 的综合评分为 <strong>62.3/100，等级 B（中等商业化潜力）</strong>，价值画像为 <strong>🏛️ 公共产品型</strong>。这一组合传递的核心信号是：<strong>项目具备真实且被验证的使用价值，但当前形态下不具备直接的商业变现抓手</strong>。</p>
+<p>D10 功能价值 8.3 分与 D4 商业模式 5.9 分之间的落差，正是这一判断的量化体现——D10.3「免费可得的完整效用」拿到满分 2.0，意味着 MIT 开源版即全部价值，软件本身不存在付费转化抓手；D4.3 付费转化逻辑仅 1.0/2.5、D4.4 增值服务空间仅 0.8/2.0，印证了「使用价值 vs 交换价值」的结构性分离。</p>
+<h3>5.2 支撑商业化的正面因素</h3>
+<ul>
+<li><strong>需求真实性已被市场验证</strong>：24 天内累积 3,024 Star / 79 Fork，月化约 3,780 星，远超 &gt;500 的最高档阈值，证明「AI 出图风格可控」在当下有真实需求牵引，市场时机处于 Agent Skill 生态早期蓝海（D1.1、D3.1）。</li>
+<li><strong>定位清晰度全类别最高</strong>：给出可检验的量化契约——≤2 印版、主版 70%–85%、辅版 15%–30%、留白 25%–55%、8 色单墨 + 9 组双墨 hex 配方、4 类制版质感、7 类字体角色，并附 'Not this' 反例清单（D5.1）。</li>
+<li><strong>协议层零障碍</strong>：标准 MIT 完整正文、SPDX 明确、版权归属清晰，无 copyleft 传染、无 Commons Clause/BUSL 等商业附加条款，Open Core/双协议/SaaS/服务化均无协议障碍，D4.1 满分（D4.1、D6.1）。</li>
+<li><strong>上手与运维成本极低</strong>：单条 git clone 命令安装、零第三方依赖、无 Dockerfile、无守护进程、无持久化数据层，D9 得分 8.5 为全维度最高，D7 得分 7.2（D9.1、D7.1）。</li>
+<li><strong>文档与开发者体验突出</strong>：中英双语 README + SKILL.md + CHANGELOG + REFERENCES + 设计方向文档共 7 份，13 条可直接复用的 Try it 示例，12 张原创示例 + 12 张参考图 + 4 张设计系统分析板（D2.7、D9.4）。</li>
+</ul>
+<h3>5.3 制约商业化的核心因素</h3>
+<ul>
+<li><strong>无任何商业化准备</strong>：MIT 全开源、0 次 Release、1 位贡献者、0 测试文件，仓库内无定价页、企业版、Sponsors 链接或商业授权入口，变现距离远（D1.5、D4.2）。</li>
+<li><strong>免费版即完整版</strong>：8 色单墨/9 组双墨配方、7 类布局、25%–55% 留白规则与 evals 校验契约全部免费交付，无功能分层，付费触发点缺失（D4.3）。</li>
+<li><strong>价值捕获能力弱</strong>：MIT + 703 行 Python + 4 个源文件的轻量结构使第三方可零成本 fork 并商用（79 forks）（D4.4）。</li>
+<li><strong>技术壁垒实质为零</strong>：无专利/专有数据，唯一近似壁垒是 design-system/ 机器可读目录与 evals/ 评估契约，但可整目录 fork 改名（D5.2）。</li>
+<li><strong>社区呈「只加星不参与」形态</strong>：Fork 比仅 2.61%，近 90 天仅 4 个 PR、0 个 Issue 关闭、6 个 Issue 开放，贡献者 1 人，巴士因子为 1（D3.2、D8.1）。</li>
+<li><strong>无商业化承接主体</strong>：无 GitHub Sponsors / Open Collective / 公司实体 / 融资证据，属纯个人热情驱动（D8.3）。</li>
+</ul>
+<h3>5.4 价值画像解读</h3>
+<p>公共价值分 7.1（D10 8.3、D11 5.9）达到「公共产品型」门槛，而综合评分 62.3 未达 65 分。这一画像意味着：<strong>不建议直接变现，应走「影响力变现」路径</strong>——赞助 / 基金会托管 / 大厂雇佣维护者 / 围绕生态做服务与培训。</p>
+<p>需注意 <strong>画像临界</strong>：综合评分 62.3 落在 60–70 临界区间，公共价值分 7.1 落在 6.5–7.5 临界区间，两项均处于边界。若后续补齐商业化设计（如付费模板市场、企业定制设计系统），综合评分有望上探至 65 以上，画像可能转向「💼 纯商业工具」；若维持现状，则「🏛️ 公共产品型」判断成立。两种画像下的路径差异见第六章。</p>
+<hr />
+<h2>六、商业路径分析</h2>
+<h3>6.1 路径选择总原则</h3>
+<p>依据价值画像「🏛️ 公共产品型」，<strong>不建议直接对软件本体变现</strong>。D4 分析明确指出：产品为 Claude Code 技能的纯提示词资产（SKILL.md + design-system/<em>.json），零依赖、无服务端、无 Dockerfile，</em><em>SaaS 托管与双协议模式不可行</em><em>；无账号体系、无用量计量点，</em><em>per-seat / per-usage 计费不成立</em>*。</p>
+<p>因此，商业路径应围绕「作者的设计能力与个人品牌」而非「软件许可」展开。</p>
+<h3>6.2 可行路径（按可行性排序）</h3>
+<p><strong>路径一：设计服务获客漏斗（可行性最高）</strong></p>
+<p>作者为职业设计师，仓库附 LinkedIn/X 个人品牌入口。以免费 MIT 技能包作为流量入口，将使用者转化为定制设计服务客户。D4.2 明确将此列为两条潜在变现路径之一。该路径不依赖软件本身收费，与 MIT 协议无冲突，且直接复用项目已建立的「单墨/双墨编辑印刷」专业认知。</p>
+<p><strong>路径二：付费技能包 / 模板市场（需先补齐产品分层）</strong></p>
+<p>D4.2 列出的另一条路径。但当前 D4.3 付费转化逻辑仅 1.0/2.5，免费版即完整版，无功能分层。若要落地此路径，须先设计出「免费版 vs 付费版」的能力边界（例如扩展墨色配方库、行业专用模板、批量生产工作流），否则无付费触发点。</p>
+<p><strong>路径三：影响力变现（与画像最匹配）</strong></p>
+<p>依据方法论 3.4 对「公共产品型」的路径建议：赞助 / 基金会托管 / 大厂雇佣维护者 / 围绕生态做服务与培训。当前 D8.3 资金支持为 1.0/2.5，无 GitHub Sponsors / Open Collective / 公司实体 / 融资证据，此路径尚处零起点，需先建立赞助入口与治理透明度。</p>
+<p><strong>路径四：捐赠 / 赞助（备选）</strong></p>
+<p>D4.2 将其列为备选路径。门槛最低但天花板也最低，适合作为路径三的过渡形态。</p>
+<h3>6.3 不可行路径（明确排除）</h3>
+<ul>
+<li><strong>SaaS 托管</strong>：无服务端、无 Dockerfile，产品形态不支持（D4.2）。</li>
+<li><strong>双协议 / Open Core</strong>：无企业版功能分层基础，免费版即完整版（D4.3）。</li>
+<li><strong>per-seat / per-usage 计费</strong>：无账号体系、无用量计量点（D4.4）。</li>
+<li><strong>协议层限制导致的不可行</strong>：不存在——MIT 无任何变现路径障碍（D4.1、D6.1）。</li>
+</ul>
+<h3>6.4 路径修正提示（画像临界）</h3>
+<p>若综合评分后续上探至 65 以上（例如通过补齐测试体系、建立 Release 机制、引入第二维护者），画像可能转为「💼 纯商业工具」，届时可按 D4 最优路径直接变现。当前阶段仍应以「影响力变现 + 设计服务漏斗」为主轴。</p>
+<hr />
+<h2>七、能力评估：能做什么 &amp; 最适合做什么</h2>
+<h3>7.1 项目当前能做什麼</h3>
+<p>基于各维度 hard_facts 与 key_findings，项目当前具备以下确定能力：</p>
+<ul>
+<li><strong>风格可控的图像生成提示词产出</strong>：把一句主题或一张照片转译成单墨/双墨编辑印刷风格的成图与生产级提示词（D1 one_liner）。</li>
+<li><strong>量化设计约束的机器可读交付</strong>：8 色单墨 + 9 组双墨 hex 配方、7 类布局、主版 70%–85% / 辅版 15%–30% 占比、25%–55% 留白规则、4 类制版质感、7 类字体角色，全部固化为 machine-readable 目录与校验契约（D5.1、D10.1）。</li>
+<li><strong>零依赖本地运行</strong>：单条 git clone 至 ~/.claude/skills/mono-color 后重启宿主即可用，dependencies 为空，跨平台可用（D9.1）。</li>
+<li><strong>自然语言驱动、无需记忆命令</strong>：README 提供 13 条可直接复用的 Try it 示例，默认值明确（3:4、Neutral White、当代编辑方向、35% 空白纸面）（D9.3）。</li>
+<li><strong>无图像生成能力时的降级输出</strong>：降级为仅返回 production prompt 并说明限制（D9.3）。</li>
+<li><strong>CI 门禁校验</strong>：validate.yml 在 push/PR 触发，校验评估契约、设计系统与 JSON 语法共 3 项（D2.8、D7.1）。</li>
+</ul>
+<h3>7.2 最适合做什么</h3>
+<p>结合 D10 功能价值 8.3 与 D11 社会价值 5.9 的构成，项目最适合的定位是：</p>
+<p><strong>「设计领域知识的开源封装范本 + 非设计师的编辑印刷风格平权工具」</strong></p>
+<ul>
+<li><strong>作为 agent skill 编写范本</strong>：5 步工作流、机读设计系统、断言契约、反模式清单、严谨的署名与授权实践，具小圈子教育价值（D11.2）。</li>
+<li><strong>作为非设计师的普惠工具</strong>：将杂志级单/双色编辑设计能力平权给非设计师个人与中小团队，替代外包设计/图库/订阅软件的价格差显著，英中双语、零依赖、纯文本 prompt 驱动，可及性良好（D11.3，满分 2.0）。</li>
+<li><strong>作为作者个人品牌的专业背书</strong>：以免费工具建立「单墨/双墨编辑印刷」领域的专业认知，反哺设计服务获客（D4.2）。</li>
+</ul>
+<h3>7.3 不适合做什么</h3>
+<ul>
+<li><strong>不适合作为通用设计基础设施</strong>：美学边界被主动收窄（README 'Not this' 禁止全彩、三版以上墨、3D/渐变），难以升格为通用设计基础设施（D1.4）。</li>
+<li><strong>不适合作为数字公共底座</strong>：无下游依赖与包分发（npm/PyPI 下载量 N/A、Dependents N/A、单贡献者、703 行脚本），停摆不波及软件供应链，不具备数字公共基础设施属性（D11.1）。</li>
+<li><strong>不适合作为企业级可部署服务</strong>：无 REST/gRPC/SDK、无 OpenTelemetry/Prometheus/Webhook、无健康检查与结构化日志，集成面薄弱（D7.4）。</li>
+<li><strong>不适合作为行业标准推动者</strong>：仅遵循新兴的开放 agent-skill 约定（SKILL.md），内部 design-system Catalog ID 与 evals schema 属项目内部契约（D11.4）。</li>
+</ul>
+<hr />
+<h2>八、短板识别：还缺少什么</h2>
+<h3>8.1 商业化短板（最致命）</h3>
+<table>
+<thead>
+<tr>
+<th>缺口</th>
+<th>事实依据</th>
+<th>影响维度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>无任何定价/企业版/Sponsors 入口</td>
+<td>仓库内无定价页、企业版、Sponsors 链接或商业授权入口</td>
+<td>D4.2</td>
+</tr>
+<tr>
+<td>无功能分层，免费版即完整版</td>
+<td>8 色单墨/9 组双墨配方、7 类布局、留白规则与 evals 契约全部免费交付</td>
+<td>D4.3</td>
+</tr>
+<tr>
+<td>无账号体系与用量计量点</td>
+<td>per-seat / per-usage 计费不成立</td>
+<td>D4.4</td>
+</tr>
+<tr>
+<td>无商业化承接主体</td>
+<td>无 GitHub Sponsors / Open Collective / 公司实体 / 融资证据</td>
+<td>D8.3</td>
+</tr>
+</tbody>
+</table>
+<h3>8.2 工程质量短板</h3>
+<table>
+<thead>
+<tr>
+<th>缺口</th>
+<th>事实依据</th>
+<th>影响维度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>测试体系完全空白</td>
+<td>0 测试文件 / 0 测试行 / 覆盖率 0%</td>
+<td>D2.8</td>
+</tr>
+<tr>
+<td>无任何 Release/Tag</td>
+<td>0 次 Release，版本成熟度与向后兼容性无法评估</td>
+<td>D2.6</td>
+</tr>
+<tr>
+<td>无文档化回滚流程与版本兼容策略</td>
+<td>有 VERSION 1.2.0 + CHANGELOG.md，但无正式 Release</td>
+<td>D7.1</td>
+</tr>
+<tr>
+<td>无 SECURITY.md / Dependabot / 安全扫描</td>
+<td>has_security_md=false</td>
+<td>D2.4、D7.2</td>
+</tr>
+<tr>
+<td>无显式依赖清单</td>
+<td>dependencies 为空，本身降低可审查性</td>
+<td>D6.2</td>
+</tr>
+</tbody>
+</table>
+<h3>8.3 社区与治理短板</h3>
+<table>
+<thead>
+<tr>
+<th>缺口</th>
+<th>事实依据</th>
+<th>影响维度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>单人维护，巴士因子为 1</td>
+<td>contributors=1，无共同维护者与接管机制</td>
+<td>D8.1</td>
+</tr>
+<tr>
+<td>无治理文件</td>
+<td>无 GOVERNANCE.md / CONTRIBUTING.md / CODEOWNERS / SECURITY.md</td>
+<td>D8.2</td>
+</tr>
+<tr>
+<td>无 CLA / DCO</td>
+<td>has_cla_or_dco=false</td>
+<td>D6.4</td>
+</tr>
+<tr>
+<td>热度未转化为协作</td>
+<td>Fork 比仅 2.61%，近 90 天 4 PR、0 Issue 关闭、6 Issue 开放</td>
+<td>D3.2</td>
+</tr>
+<tr>
+<td>无第三方生态</td>
+<td>无插件、衍生项目、教程课程等自生长生态</td>
+<td>D3.3</td>
+</tr>
+<tr>
+<td>无企业采用与媒体背书</td>
+<td>品牌认知停留在细分圈层</td>
+<td>D3.4</td>
+</tr>
+</tbody>
+</table>
+<h3>8.4 竞争壁垒短板</h3>
+<table>
+<thead>
+<tr>
+<th>缺口</th>
+<th>事实依据</th>
+<th>影响维度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术壁垒实质为零</td>
+<td>MIT 全开源、703 行 Python、1 名贡献者、0 release、无专利/专有数据</td>
+<td>D5.2</td>
+</tr>
+<tr>
+<td>无网络效应与规模效应</td>
+<td>无插件市场、无用户贡献生态、无数据回传</td>
+<td>D5.3</td>
+</tr>
+<tr>
+<td>切换成本极低</td>
+<td>git clone 即装，切换 = 删除目录；产物可直接复制带走</td>
+<td>D5.4</td>
+</tr>
+<tr>
+<td>面临双重颠覆风险</td>
+<td>开源复刻 + 底层图像模型内化风格控制</td>
+<td>D5.4</td>
+</tr>
+</tbody>
+</table>
+<h3>8.5 合规与素材短板</h3>
+<table>
+<thead>
+<tr>
+<th>缺口</th>
+<th>事实依据</th>
+<th>影响维度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>素材/字体授权未采集</td>
+<td>ASSET-LICENSE.md 内容未采集，商用可用性需人工核对（低置信度）</td>
+<td>D6.3</td>
+</tr>
+<tr>
+<td>商标与专利未核查</td>
+<td>无 TRADEMARK 政策文件，未经人工核查、置信度低</td>
+<td>D6.3</td>
+</tr>
+<tr>
+<td>示例图不适用 MIT</td>
+<td>examples/ 原创示例 © 2026 Yan Liu 不适用 MIT；12 张第三方参考资料版权归原权利人</td>
+<td>D4.1</td>
+</tr>
+</tbody>
+</table>
+<h3>8.6 数据置信度短板</h3>
+<ul>
+<li><strong>D10.2 使用规模完全不可测</strong>：npm/PyPI 下载量均为 N/A，Skill 以 git clone 分发，不存在 Dependents 计数，README 无任何生产采用案例。按防幻觉规则标 N/A 并剔除 3 分权重，D10 的 8.3 分为剩余 7 分等比缩放结果，<strong>置信度下降</strong>。</li>
+<li><strong>D7 维度置信度下降</strong>：安全认证与集群高可用两项按 N/A 剔除（占原满分 62.5%）。</li>
+<li><strong>D11 教育与标准两项缺少可量化外部数据支撑</strong>：无学术引用证据（paper_citations N/A）。</li>
+</ul>
+<hr />
+<h2>九、风险提示</h2>
+<h3>9.1 可持续性风险（高）</h3>
+<ul>
+<li><strong>巴士因子为 1</strong>：contributors=1，项目高度依赖单一维护者，无共同维护者与接管机制（D8.1）。</li>
+<li><strong>仓龄极短</strong>：创建至最近推送仅约 2 周（2026-08-19 至 2026-09-02），当前活跃但趋势方向不可判定，传承风险中等偏高（D8.4，细则小分 1.8）。</li>
+<li><strong>无资金支持</strong>：属纯个人热情驱动，缺乏商业化承接主体（D8.3）。</li>
+<li><strong>Issue 积压苗头</strong>：6 个未关闭 Issue，叠加单人维护结构，响应能力是商业化后的首要瓶颈（D3.1）。</li>
+</ul>
+<h3>9.2 竞争与颠覆风险（高）</h3>
+<ul>
+<li><strong>技术壁垒实质为零</strong>：MIT 全开源 + 703 行 Python + 4 个源文件，第三方可零成本 fork 并商用（79 forks 已存在）（D5.2、D4.4）。</li>
+<li><strong>双重颠覆风险</strong>：一方面面临开源复刻，另一方面面临底层图像模型内化风格控制（D5.4）。</li>
+<li><strong>护城河可持续性存疑</strong>：14 天内 star 爆发符合流行驱动曲线，热度可能快速衰减（D5.4）。</li>
+<li><strong>上位类别竞争密集</strong>：设计类 Agent Skill 已出现 199–407 stars 的密集同类，直接竞品 op7418/guizang-yingzao-skill 407 stars（D5.1）。</li>
+</ul>
+<h3>9.3 商业化风险（高）</h3>
+<ul>
+<li><strong>变现距离远</strong>：monetization_distance 标注为「远（无任何变现设计）」（D1）。</li>
+<li><strong>价值捕获能力弱</strong>：免费版即完整版，无付费触发点（D4.3）。</li>
+<li><strong>SaaS 与双协议模式不可行</strong>：产品形态不支持（D4.2）。</li>
+<li><strong>被基础模型商品化风险高</strong>：项目价值集中在提示词与配方层而非底层能力，直接可触达市场仅亿美元级（D1.1）。</li>
+</ul>
+<h3>9.4 合规风险（低-中）</h3>
+<ul>
+<li><strong>素材/字体授权未采集</strong>：ASSET-LICENSE.md 内容未采集，商用可用性需人工核对，<strong>低置信度</strong>（D6.3）。</li>
+<li><strong>商标与专利未核查</strong>：无 TRADEMARK 政策文件，按方法论默认 5-6 档给 1.5/2.5，<strong>未经人工核查、置信度低</strong>；名称 'mono-color-skill' 显著性弱，可注册性偏低（D6.3）。</li>
+<li><strong>示例图与参考图版权</strong>：examples/ 原创示例 © 2026 Yan Liu 不适用 MIT；12 张第三方参考资料版权归原权利人（D4.1）。</li>
+<li><strong>协议层无风险</strong>：MIT 标准完整正文，无 copyleft 传染、无商业附加条款（D6.1）。</li>
+</ul>
+<h3>9.5 数据置信度风险（中）</h3>
+<ul>
+<li>D10.2 使用规模、D7.2/D7.3 安全认证与集群高可用、D11 学术引用等多项为 N/A，相关维度得分经等比缩放，<strong>置信度下降</strong>，解读时需注意。</li>
+</ul>
+<h3>9.6 一票否决检查结论</h3>
+<p><strong>未触发任何一票否决</strong>。D6 维度总分 7.8（&gt; 3）、D8.4 细则小分 1.8（&gt; 1）、D4.1 细则小分 2.0（&gt; 0.5），三项检查均完整执行，无 N/A 跳过项，<strong>一票否决检查完整</strong>。</p>
+<hr />
+<h2>十、结论与建议</h2>
+<h3>10.1 核心结论</h3>
+<p>mono-color-skill 是一个<strong>需求真实、定位清晰、上手极简、但商业化抓手缺失</strong>的早期开源项目。</p>
+<ul>
+<li><strong>综合评分 62.3/100，等级 B（中等商业化潜力）</strong>，未触发一票否决。</li>
+<li><strong>价值画像为 🏛️ 公共产品型</strong>（综合评分 62.3 &lt; 65，公共价值分 7.1 ≥ 7），且处于<strong>画像临界区间</strong>（综合评分落在 60–70，公共价值分落在 6.5–7.5）。</li>
+<li>项目的核心矛盾是 <strong>D10 功能价值 8.3 与 D4 商业模式 5.9 的结构性落差</strong>：开源版即全部价值，软件本身不存在付费转化抓手。</li>
+<li>项目的最大资产是 <strong>24 天 3,024 Star 的市场验证 + 全类别最高的定位清晰度 + 零依赖极简交付</strong>；最大短板是 <strong>单人维护、零测试、零 Release、零商业化设计</strong>。</li>
+</ul>
+<h3>10.2 行动建议</h3>
+<p><strong>若目标是商业化（对应「💼 纯商业工具」画像方向）</strong></p>
+<ol>
+<li><strong>优先补齐商业化设计</strong>：建立付费模板市场或企业定制设计系统入口，设计「免费版 vs 付费版」的能力边界（对应 D4.3、D4.4 短板）。</li>
+<li><strong>建立赞助与承接主体</strong>：开通 GitHub Sponsors / Open Collective，为后续影响力变现铺路（对应 D8.3 短板）。</li>
+<li><strong>补齐工程质量</strong>：建立测试体系（当前 0 测试文件 / 0 测试行）、发布正式 Release、文档化回滚流程与版本兼容策略（对应 D2.8、D2.6、D7.1 短板）。</li>
+<li><strong>引入第二维护者</strong>：降低巴士因子为 1 的风险，建立 CODEOWNERS 与 CONTRIBUTING（对应 D8.1、D8.2 短板）。</li>
+<li><strong>前置合规核查</strong>：人工核对 ASSET-LICENSE.md 素材/字体商用可用性，进行商标与专利核查（对应 D6.3 短板，当前为低置信度）。</li>
+</ol>
+<p><strong>若目标是影响力最大化（对应「🏛️ 公共产品型」画像，与当前状态最匹配）</strong></p>
+<ol>
+<li><strong>走影响力变现路径</strong>：赞助 / 基金会托管 / 大厂雇佣维护者 / 围绕生态做服务与培训（方法论 3.4 对该画像的标准建议）。</li>
+<li><strong>经营设计服务获客漏斗</strong>：以免费 MIT 技能包为流量入口，将使用者转化为定制设计服务客户，复用作者职业设计师身份与 LinkedIn/X 个人品牌（D4.2 路径一）。</li>
+<li><strong>经营社区声誉，避免竭泽而渔</strong>：参照 Elastic 改协议的反噬教训，维持 MIT 承诺，不因短期变现破坏已建立的 3,024 Star 信任基础。</li>
+<li><strong>强化教育价值输出</strong>：将项目作为「如何编写高质量 agent skill」的范本推广（5 步工作流、机读设计系统、断言契约、反模式清单），放大 D11.2 教育价值（当前仅 1.5/2.5，缺外部采用实证）。</li>
+</ol>
+<h3>10.3 风险提示摘要</h3>
+<ul>
+<li><strong>不建议在补齐商业化设计与工程质量短板前直接投入变现</strong>：当前 D4.3 付费转化逻辑 1.0/2.5、D4.4 增值空间 0.8/2.0，直接变现风险高。</li>
+<li><strong>警惕热度衰减</strong>：仓龄仅约 2 周，14 天内 star 爆发符合流行驱动曲线，需持续观察趋势方向（D5.4、D8.4）。</li>
+<li><strong>警惕底层模型内化风险</strong>：项目价值集中在提示词与配方层，被基础模型内置风格能力商品化的风险高（D1.1、D5.4）。</li>
+<li><strong>合规核查不可省略</strong>：素材/字体授权与商标专利两项均为低置信度，商业化前须人工核查（D6.3）。</li>
+</ul>
+<h3>10.4 一句话总结</h3>
+<blockquote>
+<p>mono-color-skill 是一个被市场快速验证、定位清晰、上手极简的设计类 Agent Skill，但当前形态下「开源版即完整版」，<strong>建议按「公共产品型」画像走影响力变现与设计服务漏斗路径，而非直接对软件本体变现</strong>；若决心商业化，须先补齐付费分层、测试体系、Release 机制与第二维护者四项基础工程。</p>
+</blockquote>
+<h2>十一、项目地址</h2>
+<p><svg class="ri ri-muted" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.001 2C6.47598 2 2.00098 6.475 2.00098 12C2.00098 16.425 4.86348 20.1625 8.83848 21.4875C9.33848 21.575 9.52598 21.275 9.52598 21.0125C9.52598 20.775 9.51348 19.9875 9.51348 19.15C7.00098 19.6125 6.35098 18.5375 6.15098 17.975C6.03848 17.6875 5.55098 16.8 5.12598 16.5625C4.77598 16.375 4.27598 15.9125 5.11348 15.9C5.90098 15.8875 6.46348 16.625 6.65098 16.925C7.55098 18.4375 8.98848 18.0125 9.56348 17.75C9.65098 17.1 9.91348 16.6625 10.201 16.4125C7.97598 16.1625 5.65098 15.3 5.65098 11.475C5.65098 10.3875 6.03848 9.4875 6.67598 8.7875C6.57598 8.5375 6.22598 7.5125 6.77598 6.1375C6.77598 6.1375 7.61348 5.875 9.52598 7.1625C10.326 6.9375 11.176 6.825 12.026 6.825C12.876 6.825 13.726 6.9375 14.526 7.1625C16.4385 5.8625 17.276 6.1375 17.276 6.1375C17.826 7.5125 17.476 8.5375 17.376 8.7875C18.0135 9.4875 18.401 10.375 18.401 11.475C18.401 15.3125 16.0635 16.1625 13.8385 16.4125C14.201 16.725 14.5135 17.325 14.5135 18.2625C14.5135 19.6 14.501 20.675 14.501 21.0125C14.501 21.275 14.6885 21.5875 15.1885 21.4875C19.259 20.1133 21.9999 16.2963 22.001 12C22.001 6.475 17.526 2 12.001 2Z"/></svg> <a href="https://github.com/yanliudesign/mono-color-skill">https://github.com/yanliudesign/mono-color-skill</a></p>
+<hr />
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+</blockquote>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家　<a href="https://www.mova.work">www.mova.work</a></p></body></html>

@@ -1,0 +1,2050 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><title>Sepia 商业价值分析报告</title><style>/* default — 品牌蓝紫主题（从 md2pdf.py 原 CSS 常量迁出，视觉与历史产物一致） */
+@page { size: A4; margin: 18mm 15mm 20mm 15mm; }
+* { box-sizing: border-box; }
+/* 字体规范：一律开源思源黑体 CN（OFL 免费商用）；正文 Regular/标题 Bold/大字数字 Light */
+body { font-family: "Source Han Sans CN","思源黑体 CN","Noto Sans SC",sans-serif; color:#1e293b; font-size:10.5pt; line-height:1.75; margin:0; }
+.cover { page-break-after: always; text-align:center; padding-top:40px; }
+.cover .kicker { color:#2563eb; letter-spacing:6px; font-size:12pt; font-weight:500; }
+.cover h1 { font-size:26pt; margin:14px 0 6px; }
+.cover .sub { color:#64748b; font-size:11pt; margin-bottom:22px; }
+.badge { display:inline-block; background:linear-gradient(135deg,#2563eb,#7c3aed); color:#fff; border-radius:18px; padding:16px 44px; margin:10px 0 18px; }
+.badge .g { font-size:34pt; font-weight:300; line-height:1; }
+.badge .s { font-size:12pt; opacity:.92; margin-top:4px; }
+.meta { color:#475569; font-size:9.5pt; margin-top:14px; }
+.bars { max-width:620px; margin:20px auto 0; text-align:left; }
+.bar-row { display:flex; align-items:center; gap:8px; margin:5px 0; font-size:9pt; }
+.bar-name { width:110px; text-align:right; color:#334155; font-weight:500; }
+.bar-track { flex:1; height:9px; background:#f1f5f9; border-radius:5px; overflow:hidden; }
+.bar-fill { display:block; height:100%; border-radius:5px; }
+.bar-val { width:30px; font-weight:700; color:#0f172a; }
+.bar-w { width:52px; color:#94a3b8; font-size:8pt; }
+h1 { font-size:17pt; color:#0f172a; border-bottom:3px solid #2563eb; padding-bottom:8px; }
+h2 { font-size:13.5pt; color:#1d4ed8; margin-top:26px; page-break-after: avoid; border-left:5px solid #2563eb; padding-left:10px; }
+h3 { font-size:11.5pt; color:#0f172a; margin-top:18px; page-break-after: avoid; }
+table { border-collapse:collapse; width:100%; margin:10px 0; font-size:9pt; page-break-inside:avoid; }
+th { background:#eff6ff; color:#1e3a8a; }
+th,td { border:1px solid #dbe3ef; padding:5px 8px; text-align:left; }
+tr:nth-child(even) td { background:#f8fafc; }
+code { background:#f1f5f9; border-radius:4px; padding:1px 5px; font-family:"JetBrains Mono","Cascadia Mono",monospace; font-size:9pt; color:#be185d; }
+pre { background:#0f172a; color:#e2e8f0; border-radius:8px; padding:12px 14px; overflow-x:auto; page-break-inside:avoid; }
+pre code { background:none; color:inherit; padding:0; }
+blockquote { border-left:4px solid #93c5fd; background:#eff6ff; margin:10px 0; padding:8px 14px; color:#334155; border-radius:0 8px 8px 0; }
+hr { border:none; border-top:1px dashed #cbd5e1; margin:22px 0; }
+strong { color:#0f172a; }
+.cover .disclaimer { max-width:620px; margin:16px auto 0; color:#64748b; font-size:8.5pt; line-height:1.6; text-align:left; border:1px solid #e2e8f0; border-radius:8px; padding:8px 12px; background:#f8fafc; }
+.credit { color:#2563eb; font-size:10.5pt; font-weight:700; letter-spacing:1px; margin-top:12px; }
+.at-acc { background:#dbeafe; color:#1d4ed8; border-radius:4px; padding:0 4px; font-weight:500; white-space:nowrap; }
+.tail { page-break-inside:avoid; margin-top:26px; border-top:2px solid #2563eb; padding-top:14px; }
+.tail p { color:#64748b; font-size:8.5pt; line-height:1.6; margin:0 0 10px; }
+.tail .credit { text-align:center; margin:0; }
+/* Remix Icon 内联 SVG（icon_mode=remix 时由脚本注入，语义色与评分条一致） */
+.ri { width:1.05em; height:1.05em; vertical-align:-0.18em; display:inline-block; }
+.ri-ok { color:#16a34a; } .ri-warn { color:#d97706; } .ri-bad { color:#dc2626; }
+.ri-muted { color:#64748b; } .ri-star { color:#f59e0b; } .ri-brand { color:#2563eb; }
+.ri-gold { color:#d4a017; } .ri-silver { color:#9ca3af; } .ri-bronze { color:#b45309; }
+/* 屏幕预览：@page 边距仅在打印时生效，浏览器中居中限宽并收边（不影响 PDF 输出） */
+@media screen {
+  body { margin: 0 auto; padding: 28px 36px 56px; max-width: 900px; }
+}
+</style></head><body><div class="cover">
+<div class="kicker">开源项目商业化潜力分析 · 第 96 期</div>
+<h1>GitHub 开源项目 Sepia<br>商业价值分析报告</h1>
+<div class="sub">Nanako0129/sepia · Agent Skills 标准下的 De-AI 写作技能包 · 九维度加权评估 67.6/100（A 级）</div>
+<div class="badge"><div class="g">A 级 · 67.6</div><div class="s">综合评分（满分 100）· 高商业化潜力</div></div>
+<div><svg viewBox="0 0 560 480" width="560" height="480" xmlns="http://www.w3.org/2000/svg"><polygon points="280.0,209.6 299.5,216.7 309.9,234.7 306.3,255.2 290.4,268.6 269.6,268.6 253.7,255.2 250.1,234.7 260.5,216.7" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,179.2 319.1,193.4 339.9,229.4 332.7,270.4 300.8,297.1 259.2,297.1 227.3,270.4 220.1,229.4 240.9,193.4" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,148.8 338.6,170.1 369.8,224.2 359.0,285.6 311.2,325.7 248.8,325.7 201.0,285.6 190.2,224.2 221.4,170.1" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,118.4 358.2,146.8 399.8,218.9 385.3,300.8 321.6,354.3 238.4,354.3 174.7,300.8 160.2,218.9 201.8,146.8" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,88.0 377.7,123.6 429.7,213.6 411.6,316.0 332.0,382.8 228.0,382.8 148.4,316.0 130.3,213.6 182.3,123.6" fill="none" stroke="#e2e8f0" stroke-width="1"/><line x1="280.0" y1="240.0" x2="280.0" y2="88.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="377.7" y2="123.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="429.7" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="411.6" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="332.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="228.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="148.4" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="130.3" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="182.3" y2="123.6" stroke="#d8dee9" stroke-width="1"/><polygon points="280.0,126.0 355.2,150.3 387.8,221.0 341.9,275.7 312.2,328.6 238.4,354.3 193.1,290.2 197.7,225.5 197.0,141.0" fill="rgba(37,99,235,.22)" stroke="#2563eb" stroke-width="2.5"/><circle cx="280.0" cy="126.0" r="3.5" fill="#2563eb"/><circle cx="355.2" cy="150.3" r="3.5" fill="#2563eb"/><circle cx="387.8" cy="221.0" r="3.5" fill="#2563eb"/><circle cx="341.9" cy="275.7" r="3.5" fill="#2563eb"/><circle cx="312.2" cy="328.6" r="3.5" fill="#2563eb"/><circle cx="238.4" cy="354.3" r="3.5" fill="#2563eb"/><circle cx="193.1" cy="290.2" r="3.5" fill="#2563eb"/><circle cx="197.7" cy="225.5" r="3.5" fill="#2563eb"/><circle cx="197.0" cy="141.0" r="3.5" fill="#2563eb"/><text x="280.0" y="44.0" text-anchor="middle" font-size="12.5" fill="#334155" font-weight="600">D1</text><text x="280.0" y="58.0" text-anchor="middle" font-size="11" fill="#64748b">市场需求 7.5</text><text x="406.0" y="89.9" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D2</text><text x="406.0" y="103.9" text-anchor="start" font-size="11" fill="#64748b">技术成熟度 7.7</text><text x="473.0" y="206.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D3</text><text x="473.0" y="220.0" text-anchor="start" font-size="11" fill="#64748b">社区生态 7.2</text><text x="449.7" y="338.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D4</text><text x="449.7" y="352.0" text-anchor="start" font-size="11" fill="#64748b">变现潜力 4.7</text><text x="347.0" y="424.2" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D5</text><text x="347.0" y="438.2" text-anchor="start" font-size="11" fill="#64748b">竞争格局 6.2</text><text x="213.0" y="424.2" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D6</text><text x="213.0" y="438.2" text-anchor="end" font-size="11" fill="#64748b">法律合规 8.0</text><text x="110.3" y="338.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D7</text><text x="110.3" y="352.0" text-anchor="end" font-size="11" fill="#64748b">企业就绪 6.6</text><text x="87.0" y="206.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D8</text><text x="87.0" y="220.0" text-anchor="end" font-size="11" fill="#64748b">团队治理 5.5</text><text x="154.0" y="89.9" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D9</text><text x="154.0" y="103.9" text-anchor="end" font-size="11" fill="#64748b">上手难度 8.5</text></svg></div>
+<div class="bars"><div class="bar-row"><span class="bar-name">D9 上手难度</span>
+<span class="bar-track"><span class="bar-fill" style="width:85.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.5</span><span class="bar-w">权重10%</span></div>
+<div class="bar-row"><span class="bar-name">D6 法律合规</span>
+<span class="bar-track"><span class="bar-fill" style="width:80.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.0</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D2 技术成熟度</span>
+<span class="bar-track"><span class="bar-fill" style="width:77.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.7</span><span class="bar-w">权重14%</span></div>
+<div class="bar-row"><span class="bar-name">D1 市场需求</span>
+<span class="bar-track"><span class="bar-fill" style="width:75.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.5</span><span class="bar-w">权重13%</span></div>
+<div class="bar-row"><span class="bar-name">D3 社区生态</span>
+<span class="bar-track"><span class="bar-fill" style="width:72.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.2</span><span class="bar-w">权重11%</span></div>
+<div class="bar-row"><span class="bar-name">D7 企业就绪</span>
+<span class="bar-track"><span class="bar-fill" style="width:66.0%;background:#d97706"></span></span>
+<span class="bar-val">6.6</span><span class="bar-w">权重8%</span></div>
+<div class="bar-row"><span class="bar-name">D5 竞争格局</span>
+<span class="bar-track"><span class="bar-fill" style="width:62.0%;background:#d97706"></span></span>
+<span class="bar-val">6.2</span><span class="bar-w">权重12%</span></div>
+<div class="bar-row"><span class="bar-name">D8 团队治理</span>
+<span class="bar-track"><span class="bar-fill" style="width:55.0%;background:#dc2626"></span></span>
+<span class="bar-val">5.5</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D4 变现潜力</span>
+<span class="bar-track"><span class="bar-fill" style="width:47.0%;background:#dc2626"></span></span>
+<span class="bar-val">4.7</span><span class="bar-w">权重18%</span></div></div>
+<div class="meta">分析时点 2026-09-14 ｜ 数据来源：GitHub API + 仓库代码实测 ｜ 方法论 v1.3</div>
+<div class="credit">报告出品：@魔法工厂　@向量之心　@南山科学家</div>
+<div class="disclaimer"><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</div>
+</div><h1>Sepia 商业化潜力分析报告（完整版）</h1>
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家</p>
+<p>方法论版本: v1.3 | 综合评分: <strong>67.6</strong> | 等级: <strong>A（高商业化潜力）</strong> | 价值画像: 纯商业工具</p>
+</blockquote>
+<h2>一、项目概览</h2>
+<h3>1.1 基本信息</h3>
+<ul>
+<li><strong>项目名称 / 仓库地址</strong>：sepia（Nanako0129/sepia）</li>
+<li><strong>核心技术栈</strong>：Python（916 行，2 个文件）+ Markdown 技能/规则文件；零第三方运行时依赖；技术域为 LLM 提示工程 / AI 写作质量 / 叙事学与语篇分析；方法论底座为 StoryScope（arXiv:2604.03136）</li>
+<li><strong>社区规模速览</strong>：Star 2,583 / Fork 165（Fork 比率 6.4%）/ 贡献者 5 人 / Watchers 5 / 开放 Issue 2 个</li>
+<li><strong>分析时点 / 数据来源</strong>：仓库创建于 2026-08-28，最近推送 2026-09-11（项目存续约 14 天）；数据来源为 GitHub 仓库实采指标、GitHub Search API 竞品实测、README 与仓库内文档（37 份）</li>
+</ul>
+<h3>1.2 项目分类标签</h3>
+<table>
+<thead>
+<tr>
+<th>分类维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>数据与AI（AI 写作 / Agent Skill，兼具开发者工具属性）</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>通用/跨行业（主要落点：媒体内容、教育培训、软件研发文档）</td>
+</tr>
+<tr>
+<td>目标用户角色</td>
+<td>内容创作者/小说作者、技术写作者、后端/前端开发者、AI/ML 工程师</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>在 Agent 内进行文本去 AI 味处理：虚构写作的叙事架构修复、专业写作的场合匹配规则</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>本地部署（Skill 文件装入 agent 配置目录，无云端服务）</td>
+</tr>
+</tbody>
+</table>
+<h3>1.3 一句话定位</h3>
+<blockquote>
+<p>sepia 是一个基于 Agent Skills 标准的 De-AI 写作技能包，适用于内容创作与软件研发文档等所有生产书面文本的行业，主要面向小说作者、技术写作者与开发者，用于在叙事架构、语篇流与表层风格三层修复大模型写作的机器味。</p>
+</blockquote>
+<h2>二、安装部署与使用指南</h2>
+<h2>D9 上手难度与易用性（权重 10%）</h2>
+<h3>安装部署与使用指南</h3>
+<blockquote>
+<p>上手难度等级：🟢 <strong>简单（8.5/10）</strong>——一条命令安装、零外部依赖、无需部署服务，可按详细步骤展开。
+以下所有命令与路径均取自项目 README 原文，未作任何补充或改写。</p>
+</blockquote>
+<h4>1. 前置条件与项目形态</h4>
+<ul>
+<li><strong>形态</strong>：sepia 是一个以 Markdown 为载体的 <strong>Agent Skill</strong>（技能包），不是常驻服务/应用，因此<strong>不涉及服务器部署、数据库、缓存或消息队列初始化</strong>，也没有 Dockerfile / docker-compose / Helm Chart（本地实测确认）。</li>
+<li><strong>依赖</strong>：实测依赖清单为空（零第三方依赖），技能本体是标准下的纯 Markdown 文件。</li>
+<li><strong>前置条件</strong>：需要已有一个兼容 Agent Skills 标准的 agent——Claude Code、Codex、Grok Build、Antigravity，或 Skills CLI 支持的 77+ agent 之一。通用安装路线需要本机可用 <code>npx</code>。</li>
+</ul>
+<h4>2. 安装（用户级作用域，任选其一）</h4>
+<p><strong>任意 agent（Skills CLI，77+ agents）</strong></p>
+<pre><code class="language-bash">npx skills add Nanako0129/sepia -g     # -g = user scope; the default is project
+npx skills update sepia -g             # update
+npx skills remove sepia -g             # uninstall
+</code></pre>
+<p><strong>Claude Code</strong></p>
+<pre><code class="language-bash"># install
+claude plugin marketplace add Nanako0129/sepia
+claude plugin install sepia@sepia --scope user
+
+# update
+claude plugin marketplace update sepia
+claude plugin update sepia
+</code></pre>
+<p>（README 补充：会话内的 <code>/plugin install</code> 对话框会让你选作用域，请选择 <strong>User</strong>。）</p>
+<p><strong>Codex</strong></p>
+<pre><code class="language-bash"># install
+codex plugin marketplace add Nanako0129/sepia
+codex plugin add sepia@sepia
+
+# update — refresh the marketplace snapshot, then re-add to pick up the new version
+codex plugin marketplace upgrade sepia
+codex plugin add sepia@sepia
+</code></pre>
+<p><strong>Grok Build</strong></p>
+<pre><code class="language-bash"># install
+grok plugin install Nanako0129/sepia --trust
+
+# update
+grok plugin update
+</code></pre>
+<p>（README 补充：若已装 Claude Code 版 sepia，Grok 也会自动发现，两条路径皆可。）</p>
+<p><strong>Antigravity</strong></p>
+<pre><code class="language-bash"># install directly from GitHub
+agy plugin install https://github.com/Nanako0129/sepia
+</code></pre>
+<p><strong>项目级安装（替代方案）</strong>：当某个仓库需要固定自己的副本时，把 <code>skills/sepia/</code> 提交进该仓库的 <code>.agents/skills/sepia</code>（Codex + Antigravity）或 <code>.claude/skills/sepia</code>（Claude Code）。</p>
+<h4>3. 卸载</h4>
+<pre><code class="language-bash"># Claude Code
+claude plugin uninstall sepia@sepia --scope user
+
+# Codex
+codex plugin remove sepia@sepia
+
+# Grok Build
+grok plugin uninstall sepia
+
+# Antigravity
+agy plugin uninstall sepia
+</code></pre>
+<h4>4. 日常使用</h4>
+<p>安装完成后，在 agent 会话中通过斜杠命令（Claude Code / Grok Build / Antigravity）或 <code>$</code> 前缀命令（Codex）直接调用，无需额外配置：</p>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>Claude Code</th>
+<th>Codex</th>
+<th>Grok Build</th>
+<th>Antigravity</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>write</td>
+<td><code>/sepia-write</code></td>
+<td><code>$sepia-write</code></td>
+<td><code>/sepia-write</code></td>
+<td><code>/sepia-write</code></td>
+<td>创作新文本</td>
+</tr>
+<tr>
+<td>review</td>
+<td><code>/sepia-review</code></td>
+<td><code>$sepia-review</code></td>
+<td><code>/sepia-review</code></td>
+<td><code>/sepia-review</code></td>
+<td>只诊断、不改写</td>
+</tr>
+<tr>
+<td>refactor</td>
+<td><code>/sepia-refactor</code></td>
+<td><code>$sepia-refactor</code></td>
+<td><code>/sepia-refactor</code></td>
+<td><code>/sepia-refactor</code></td>
+<td>最小化就地修改</td>
+</tr>
+<tr>
+<td>recreate</td>
+<td><code>/sepia-recreate</code></td>
+<td><code>$sepia-recreate</code></td>
+<td><code>/sepia-recreate</code></td>
+<td><code>/sepia-recreate</code></td>
+<td>依据事实与意图重写</td>
+</tr>
+<tr>
+<td>hemingway</td>
+<td><code>/sepia-hemingway</code></td>
+<td><code>$sepia-hemingway</code></td>
+<td><code>/sepia-hemingway</code></td>
+<td><code>/sepia-hemingway</code></td>
+<td>以内置海明威语体写/改小说</td>
+</tr>
+</tbody>
+</table>
+<p>通用路由器 <code>/sepia</code>（Claude Code / Grok Build / Antigravity）或 <code>$sepia</code>（Codex）亦可用。</p>
+<h4>5. 已知限制（README 明示，安装前须知）</h4>
+<ul>
+<li>操作包装技能依赖其同级 canonical skill，<strong>不支持单独安装某个包装技能</strong>，需安装完整插件包。</li>
+<li>四个平台之外的 agent 运行时行为<strong>未被作者实际验证</strong>；因技能是标准下的纯 markdown，遇到问题可提 issue。</li>
+<li>各平台安装已验证的含义是「安装完成且 sepia 入口出现」；<strong>入口随后的行为是否与文档一致，未逐平台核验</strong>。</li>
+<li>语音/风格技能的叠加（voice skills）是 <strong>opt-in 实验特性</strong>（v0.4.0 起）——除非你显式告知，否则不会加载外部语体。</li>
+</ul>
+<blockquote>
+<p>说明：项目<strong>未提供</strong> quickstart 脚本或可运行 demo，示例文件数为 0；最快的验证路径即「安装后用 <code>/sepia-review</code> 跑一段自己的草稿」。</p>
+</blockquote>
+<h2>三、评分总览</h2>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>权重</th>
+<th>加权得分</th>
+<th>评级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1 市场需求与商业机会</td>
+<td>7.5/10</td>
+<td>13%</td>
+<td>0.98</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D2 技术成熟度与产品质量</td>
+<td>7.7/10</td>
+<td>14%</td>
+<td>1.08</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D3 社区健康度与生态势能</td>
+<td>7.2/10</td>
+<td>11%</td>
+<td>0.79</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D4 商业模式与变现潜力</td>
+<td>4.7/10</td>
+<td>18%</td>
+<td>0.85</td>
+<td>差</td>
+</tr>
+<tr>
+<td>D5 竞争格局与差异化壁垒</td>
+<td>6.2/10</td>
+<td>12%</td>
+<td>0.74</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D6 法律合规与知识产权</td>
+<td>8.0/10</td>
+<td>7%</td>
+<td>0.56</td>
+<td>优</td>
+</tr>
+<tr>
+<td>D7 企业就绪度与可运营性</td>
+<td>6.6/10</td>
+<td>8%</td>
+<td>0.53</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D8 团队治理与可持续性</td>
+<td>5.5/10</td>
+<td>7%</td>
+<td>0.39</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D9 上手难度与易用性</td>
+<td>8.5/10</td>
+<td>10%</td>
+<td>0.85</td>
+<td>优</td>
+</tr>
+<tr>
+<td><strong>综合评分</strong></td>
+<td>—</td>
+<td>100%</td>
+<td><strong>67.6/100</strong></td>
+<td><strong>A（高商业化潜力）</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>平行维度（不计入综合评分）</strong></p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10 功能价值</td>
+<td>7.7/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>D11 社会价值</td>
+<td>5.9/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>公共价值分</td>
+<td>6.8/10</td>
+<td>(D10+D11)/2</td>
+</tr>
+</tbody>
+</table>
+<p><strong>一票否决检查</strong>：未触发（veto = null）。D6 维度总分 8.0 &gt; 3；D8.4 小分 1.8 &gt; 1；D4.1 小分 2.0 &gt; 0.5。三项否决检查均完整执行，无 N/A 跳过项。</p>
+<p><strong>价值画像</strong>：💼 纯商业工具（综合评分 67.6 ≥ 65，公共价值分 6.8 &lt; 7）。公共价值分 6.8 落在 6.5–7.5 临界区间，标注「画像临界」，详见第五章。</p>
+<h2>四、各维度详细分析</h2>
+<h3>D1. 市场需求与商业机会</h3>
+<h3>分类标签与一句话定位</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>数据与AI（AI 写作质量/Agent Skill）；兼具开发者工具属性</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>通用/跨行业（媒体内容、教育培训、软件研发文档为主要落点）</td>
+</tr>
+<tr>
+<td>目标用户角色</td>
+<td>内容创作者/小说作者、技术写作者、后端/前端开发者（写 release notes、PR 回复、事故复盘）、AI/ML 工程师（提示工程）</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>内容管理、研发流程优化、学习研究、协作沟通（PR/issue 回复）</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>本地部署（Skill 文件装入 agent 配置目录，无云端服务）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>一句话定位</strong>：sepia 是一个基于 Agent Skills 标准的 AI 写作去痕（De-AI）技能包，适用于内容创作与软件研发文档等所有生产书面文本的行业，主要面向小说作者、技术写作者与开发者，用于在叙事架构、语篇流与表层风格三层修复大模型写作的"机器味"。</p>
+<hr />
+<h3>D1.1 目标市场规模与增长性（满分 2.5）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TAM 估算</td>
+<td>落点处于「AI 写作辅助」大盘与「AI 文本去痕/Humanizer」细分之间。大盘为十亿美元级以上，但本项目直接可触达的细分（去 AI 痕迹的开源 Skill）量级明显更小，属千万至亿美元级</td>
+</tr>
+<tr>
+<td>增长趋势</td>
+<td>明确扩张。AI 生成文本量爆发式增长，文本"AI 味"识别与规训成为衍生需求；项目引用的 2025–2026 年论文（StoryScope、Measuring AI Slop、PNAS 2025 等）说明学术侧关注度在快速上升</td>
+</tr>
+<tr>
+<td>市场层级</td>
+<td>新兴/成长期。消费级 humanizer 已是红海（Undetectable AI、StealthGPT 等付费产品），但「Agent Skill 形态、以叙事结构而非词汇替换为切入」的位置尚属空位</td>
+</tr>
+</tbody>
+</table>
+<p><strong>小分：1.5 / 2.5（60%，对应 5–6 档）</strong></p>
+<p><strong>依据</strong>：项目解决的问题对应的是写作质量与文本"人味"这一长期存在、但商业体量中等偏小的细分。Agent Skills 生态（Skills CLI 覆盖 77+ agent）提供了低摩擦的分发扩张通道，且项目 14 天内获得 2583 star 说明需求侧确有拉动；但细分市场本身的付费天花板不高，且相当一部分潜在使用者（个人写作者、开源开发者）付费意愿弱。</p>
+<blockquote>
+<p><strong>数据说明</strong>：本轮无外部市场数据检索可用，上述 TAM 与增长判断为按项目类型/行业类别做的量级估算，<strong>未经外部数据验证，置信度低</strong>；未引用任何具体市场规模数字或来源。</p>
+</blockquote>
+<hr />
+<h3>D1.2 痛点真实性与解决程度（满分 2.5）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>痛点真实性</td>
+<td>真实但非"非用不可"。LLM 生成文本同质化、被读者/平台识别为 AI 写作，是小说作者、内容运营、技术写作者的真实困扰，且已有付费产品验证过付费意愿；但对多数用户仍偏"锦上添花"</td>
+</tr>
+<tr>
+<td>解决完整度</td>
+<td>相对完整。README 明确了三层 pass（叙事架构 / 语篇流 / 表层风格）、30 项诊断 rubric、按模型指纹库、五个文档类型专用规则文件、中英双语节奏校准，并以 behavioral-eval CI 做行为回归；比市面上"换词换句式"的 humanizer 方法论厚度明显更高。但本质是规则/提示层方案，最终输出质量仍取决于执行模型，无内置的"检测器反馈闭环"保证效果</td>
+</tr>
+<tr>
+<td>替代成本</td>
+<td>替代品众多：直接提示模型"写得像人"、手工编辑、商业 humanizer、其他 humanizer 类 Skill。但同类替代品普遍停留在表层风格层，项目自论证（LAMP 条件下改写表层风格后检测率仅从 95.5% 降至 93.9%）说明其切入的架构层确有差异化</td>
+</tr>
+</tbody>
+</table>
+<p><strong>小分：2.0 / 2.5（80%，对应 7–8 档）</strong></p>
+<p><strong>依据</strong>：痛点明确、方案较完整且论证有据（引用 61,608 篇故事的前沿模型检测研究），替代品存在但体验/深度更差，符合 7–8 档描述。未达 9–10 档的原因：一是它不是"非用不可"的行业刚需，二是缺少效果可验证的产品化闭环，三是素材中仅有 2 个开放 Issue，缺少可直接佐证用户痛点强度的 issue 文本证据。</p>
+<hr />
+<h3>D1.3 市场时机判断（满分 2.5）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术成熟度曲线</td>
+<td>底层技术（LLM 写作、提示工程）已越过期望膨胀期进入实质生产期；「AI 文本检测/去痕」的讨论热度由 2025–2026 年一批顶会/期刊论文推动，处于上升段而非回落段</td>
+</tr>
+<tr>
+<td>竞争密度</td>
+<td>消费级 humanizer 赛道竞争密集，但格局未定、无明显垄断者；Agent Skill 这一分发形态本身很新（Skills CLI 覆盖 77+ agent），项目在"agent 原生去痕技能"这一交叉位置属早期占位</td>
+</tr>
+<tr>
+<td>监管/标准</td>
+<td>双向影响：EU AI Act 等透明度要求既可能强化"AI 生成内容需标注"（压制规避类需求），也可能推高合规写作与人工润色需求；Agent Skills 标准（agentskills.io）本身是新标准，正在推动需求</td>
+</tr>
+</tbody>
+</table>
+<p><strong>小分：2.0 / 2.5（80%，对应 7–8 档）</strong></p>
+<p><strong>依据</strong>：项目创建于 2026-08-28，14 天内连发 10 个版本（v0.2.0 → v0.10.0），90 天内 51 个 PR、5 位贡献者，2583 star——切入时机与生态扩张节奏吻合，属"成长期、有先行者但格局未定"。扣分点在于：赛道里已有成熟付费玩家，且项目所处位置与"规避 AI 检测"高度相邻，长期受平台政策与伦理争议影响，存在政策逆风风险。</p>
+<hr />
+<h3>D1.4 应用场景广度（满分 2.5）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>行业覆盖</td>
+<td>广。凡是产出书面文本的行业皆可用，README 显式区分了小说创作与专业写作两条主线</td>
+</tr>
+<tr>
+<td>场景多样性</td>
+<td>横向通用工具。一次安装可覆盖：小说写作/改写、release notes、PR/issue 回复、事故复盘（postmortem）、工单、技术文章，并提供 write / review / refactor / recreate 四种操作模式</td>
+</tr>
+<tr>
+<td>可延展性</td>
+<td>强。通过 <code>references/voice-skills.md</code> 定义了叠加外部语气/品牌风格技能的可组合接口，并内置 Hemingway 风格档案；<code>languages/zh.md</code> 说明可按语言横向扩展校准规则；同一份 canonical SKILL.md 无需分平台 fork 即可跨 77+ agent 分发</td>
+</tr>
+</tbody>
+</table>
+<p><strong>小分：2.0 / 2.5（80%，对应 7–8 档）</strong></p>
+<p><strong>依据</strong>：满足"多行业可用、场景丰富"，且通过 voice-skill 组合接口与语言扩展具备明确的可延展路径。未达 9–10 档（跨行业通用基础设施级）的原因：其能力边界仍严格限定在"书面文本的写作质量"这一单一能力域，不构成其他软件依赖的底层设施。</p>
+<hr />
+<h3>D1 维度结论</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1.1 目标市场规模与增长性</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6（一般）</td>
+</tr>
+<tr>
+<td>D1.2 痛点真实性与解决程度</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8（良好）</td>
+</tr>
+<tr>
+<td>D1.3 市场时机判断</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8（良好）</td>
+</tr>
+<tr>
+<td>D1.4 应用场景广度</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8（良好）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>7.5</strong></td>
+<td><strong>—</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>D1 得分：7.5 / 10</strong></p>
+<p><strong>核心判断</strong>：sepia 处在 AI 写作质量与 Agent Skill 分发通道的交叉位置，需求真实、时机偏早、场景横向可延展，方法论厚度明显优于同类 humanizer，因此痛点、时机、广度三项均落在 7–8 档。其商业化短板集中在市场体量一侧：直接可触达的"去 AI 痕迹"细分属千万至亿美元级，且当前完全免费、无付费层设计（仅 Patreon 捐赠），变现距离较远。此外需注意两点风险：一是所处位置与"规避 AI 内容检测"相邻，受平台政策与监管透明度要求影响；二是方案本质为规则/提示层，缺少可量化的效果验证闭环。</p>
+<p><strong>置信度说明</strong>：市场规模与增长性判断依赖量级估算，未经外部数据验证，置信度低；痛点、时机、广度三项基于 GitHub 实采数据与 README/研究文档，置信度中等。</p>
+<h3>D2 技术成熟度与产品质量（权重 14%）</h3>
+<p><strong>项目类型判定</strong>：本仓库本质是「Agent Skill 内容包 + 少量 Python 工具脚本」，无 Web/GUI/移动端界面，核心交付物是 Markdown 技能规范（<code>skills/**</code>，6 个技能 + references 体系）与多平台插件清单。因此 <strong>D2.5 标记 N/A</strong>，D2 总分按其余 7 项（满分 9 分）等比缩放至 10 分。</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D2.1</td>
+<td>产品设计与创新性</td>
+<td>1.5</td>
+<td>1.2</td>
+<td>7–8（80%）</td>
+</tr>
+<tr>
+<td>D2.2</td>
+<td>架构设计与工程质量</td>
+<td>2.0</td>
+<td>1.6</td>
+<td>7–8（80%）</td>
+</tr>
+<tr>
+<td>D2.3</td>
+<td>代码整洁性与规范性</td>
+<td>1.0</td>
+<td>0.8</td>
+<td>7–8（80%）</td>
+</tr>
+<tr>
+<td>D2.4</td>
+<td>安全性</td>
+<td>1.0</td>
+<td>0.8</td>
+<td>7–8（80%）</td>
+</tr>
+<tr>
+<td>D2.5</td>
+<td>UI/UX/UE 人机交互</td>
+<td>1.0</td>
+<td>N/A</td>
+<td>无用户界面</td>
+</tr>
+<tr>
+<td>D2.6</td>
+<td>功能完备度与稳定性</td>
+<td>1.5</td>
+<td>0.9</td>
+<td>5–6（60%）</td>
+</tr>
+<tr>
+<td>D2.7</td>
+<td>文档与开发者体验</td>
+<td>1.0</td>
+<td>0.8</td>
+<td>7–8（80%）</td>
+</tr>
+<tr>
+<td>D2.8</td>
+<td>测试与质量保障</td>
+<td>1.0</td>
+<td>0.8</td>
+<td>7–8（80%）</td>
+</tr>
+<tr>
+<td><strong>小计</strong></td>
+<td></td>
+<td><strong>9.0（有效）</strong></td>
+<td><strong>6.9</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>D2 总分 = 6.9 ÷ 9 × 10 = 7.7 / 10（良好）</strong></p>
+<hr />
+<h3>逐项判断依据</h3>
+<h4>D2.1 产品设计与创新性 — 1.2 / 1.5（80%）</h4>
+<ul>
+<li><strong>产品理念</strong>：定位清晰且具体——不是泛化的"AI 去味"，而是拆成两条明确赛道：面向虚构写作的<strong>叙事架构修复（narrative-architecture repair）</strong>，面向专业写作的<strong>场合匹配规则（venue-matched rules）</strong>。README/描述明确指向 StoryScope（arXiv:2604.03136）为理论依据，<code>research/storyscope.md</code> 与 <code>research/hemingway.md</code> 佐证理论落地。</li>
+<li><strong>功能设计</strong>：6 个技能（<code>sepia</code>、<code>sepia-write</code>、<code>sepia-refactor</code>、<code>sepia-review</code>、<code>sepia-recreate</code>、<code>sepia-hemingway</code>）构成完整工作流，references 下再按 <strong>pass（style/narrative/discourse/professional）+ domain（release-notes/postmortems/tickets/dev-replies/tech-articles）+ language（zh）+ voice（Hemingway/registry）</strong> 四维正交拆分，信息架构考究，无明显冗余。</li>
+<li><strong>创新性</strong>：三点超出同类"humanizer 提示词"水平——① <code>references/model-fingerprints.md</code> 对<strong>模型指纹</strong>做针对性识别；② 以 <code>evals/</code> + grader 的<strong>行为评测</strong>驱动提示词迭代；③ 一套内容通过 <code>.claude-plugin/</code>、<code>.codex-plugin/</code>、<code>.agents/plugins/</code> 分发到 Claude Code / Codex / Grok Build / Antigravity 及 Skills CLI 兼容的 77+ agent。属"模式创新 + 体验创新"，但底层仍是提示工程，未构成技术突破，故不给 9–10 档。</li>
+</ul>
+<h4>D2.2 架构设计与工程质量 — 1.6 / 2.0（80%）</h4>
+<ul>
+<li><strong>架构合理性</strong>：内容层的分层范式正确——<code>skills/&lt;skill&gt;/SKILL.md</code> 为入口，<code>references/</code> 为共享知识库，<code>evals/</code> 为验证层，<code>research/</code> 为理论层，<code>scripts/</code> 为工具层；对 "Agent Skill" 这一项目类型而言是教科书式结构。多平台插件目录（<code>.claude-plugin</code>/<code>.codex-plugin</code>/<code>.agents/plugins</code>）体现<strong>单一内容源、多宿主分发</strong>的解耦设计。</li>
+<li><strong>模块解耦/抽象</strong>：style-pass、narrative-pass、discourse-pass、professional-pass 四类 pass 相互独立可组合；<code>voices/registry.md</code> 用注册表模式管理声线，扩展新声线无需改动主流程，抽象层次恰当，无过度设计。</li>
+<li><strong>可复用性</strong>：reference 文件被多个 skill 交叉引用（37 个文档文件 vs 6 个技能），公共知识抽离充分。</li>
+<li><strong>代码量与复刻难度</strong>：Python 仅 <strong>2 文件 / 916 行</strong>（其中测试 547 行，源码约 369 行），零第三方依赖；价值密度集中在 Markdown 内容与研究积累而非代码。复刻"形式"极易（复制一份提示词即可），复刻"效果"需复现 10 份 research 文献综述 + 5 类 domain 规则 + 评测梯度，属<strong>中等偏上</strong>门槛，但显著低于算法型项目。</li>
+<li><strong>技术债</strong>：未见 TODO/FIXME 密集区，CI 配置注释详尽（对 <code>CLAUDE_CODE_OAUTH_TOKEN</code> 的 child-process 认证失败问题有完整溯源注释），工程素养较高。</li>
+<li>扣分点：真实代码资产薄，架构评分很大程度建立在内容组织而非软件工程之上。</li>
+</ul>
+<h4>D2.3 代码整洁性与规范性 — 0.8 / 1.0（80%）</h4>
+<ul>
+<li>代码总量小（916 行 / 2 文件），标准库实现，无依赖纠缠，重复代码风险天然低。</li>
+<li><strong>命名与可读性</strong>：CI 脚本中使用 <code>CLAUDE_CODE_WALNUT_SPIRE</code> 等特性开关命名，<code>scripts/check_versions.py</code> 由测试文件 <code>tests/</code> 精确覆盖，代码组织规范。</li>
+<li><strong>注释质量</strong>：从两个 workflow 可见极高的注释密度与准确性——对 <code>expiresAt</code> 元数据性质、阈值 0.7、<code>--model</code> 固定原因等均有解释，属于"解释为什么"而非"复述是什么"的优质注释。</li>
+<li>扣分点：素材中未见 lint/format 配置文件（无 ruff/black/pyproject 证据），代码风格的"强制统一"缺乏可验证证据；抽查样本仅 2 个源文件，覆盖有限。</li>
+</ul>
+<h4>D2.4 安全性 — 0.8 / 1.0（80%）</h4>
+<ul>
+<li><strong>依赖安全</strong>：<code>dependencies</code> 为空（零第三方依赖），从根本上消除了供应链漏洞面，这是该项的主要加分点。</li>
+<li><strong>密钥/敏感信息</strong>：CI 中凭据走 GitHub Secrets（<code>CLAUDE_CODE_OAUTH_TOKEN</code>），并显式使用 <code>umask 077</code> 落盘凭据文件、<code>permissions: contents: read</code> 最小权限、以及"绝不在 fork PR 上触发以免消耗维护者配额"的注释说明——安全意识明显高于平均水平。</li>
+<li><strong>注入/输入校验</strong>：项目本身不处理外部不可信输入流（无 SQL/命令拼接面），风险敞口极小。</li>
+<li>扣分点：<strong>无 SECURITY.md、无 CODEOWNERS、未集成 Dependabot/Snyk/Trivy 等任何安全扫描</strong>，安全策略与漏洞披露流程缺失。</li>
+</ul>
+<h4>D2.5 UI/UX/UE 人机交互 — N/A</h4>
+<p>无 Web/桌面/移动界面，亦非交互式 CLI 产品；交互面为 agent 对技能的调用，属提示词设计而非人机界面设计，按规则标记 N/A，不计入分母。</p>
+<h4>D2.6 功能完备度与稳定性 — 0.9 / 1.5（60%）</h4>
+<ul>
+<li><strong>功能覆盖（强）</strong>：6 个技能覆盖写作/重构/评审/仿写/声线，reference 体系覆盖 4 类 pass、5 类专业场合、多语言与多声线，功能面对于生成式写作工具而言相当完整。</li>
+<li><strong>运行环境（强）</strong>：要求极宽松——仅需一个支持 Agent Skills 的宿主（Claude Code / Codex / Grok Build / Antigravity / Skills CLI 77+ 生态），校验脚本仅需 <code>python3</code> 标准库，<code>ubuntu-latest</code> 自带即用，无 Dockerfile 需求，<strong>无特殊硬件依赖（CPU/内存/GPU 均无门槛）</strong>。</li>
+<li><strong>国际化（强）</strong>：README 提供 en / zh-CN / zh-TW 三语，<code>references/languages/zh.md</code> 表明规则层已做语言分化，i18n/l10n 意识明确。</li>
+<li><strong>版本成熟度（弱，主要扣分项）</strong>：仍处 <strong>v0.10.0</strong>，未达 v1.0；10 个 release 集中在 2026-08-28 至 09-10 共 <strong>13 天</strong>内发布（其中 09-04 单日两次），迭代节奏极快，0.x 阶段无 API/行为稳定性承诺，向后兼容性不可预期。</li>
+<li><strong>稳定性佐证</strong>：仅 2 个开放 Issue、90 天内 5 个 Issue 关闭，缺陷密度低；但 90 天 51 个 PR 的高变更率与"稳定"存在张力。综合落在"主要功能可用、仍在快速演进"的 5–6 档。</li>
+</ul>
+<h4>D2.7 文档与开发者体验 — 0.8 / 1.0（80%）</h4>
+<ul>
+<li><strong>文档覆盖（强）</strong>：37 个文档文件中，README 三语 + CONTRIBUTING + 10 份 research 综述（含 citations、detectors、platforms、ecosystem、storyscope、hemingway、rhythm-syntax）+ 6 份 SKILL.md + 完整 references 层级 + <code>.agents/workflows/sepia.md</code>，对 916 行代码的项目而言文档密度极高。</li>
+<li><strong>文档质量（强）</strong>：<code>research/</code> 下带引用来源与文献整理，<code>references/rubric.md</code> 提供评分 rubric，理论—规则—执行链路可追溯，非"复述功能列表"式文档。</li>
+<li><strong>版本同步（强）</strong>：设有专门的 <code>version-consistency.yml</code> CI 工作流，每次 push/PR 校验版本号一致性，从机制上防止文档与清单版本漂移，这一点优于多数同类项目。</li>
+<li>扣分点：<strong>无 <code>examples/</code> 目录（0 个示例）、无交互式教程</strong>，新用户缺少可直接照抄的端到端样例；亦无 API 文档生成配置。故不给 9–10 档。</li>
+</ul>
+<h4>D2.8 测试与质量保障 — 0.8 / 1.0（80%）</h4>
+<ul>
+<li><strong>测试覆盖</strong>：<code>tests/</code> 1 文件 / <strong>547 行</strong>，相对源码（约 369 行）测试行数比为 <strong>59.7%</strong>，测试代码量超过被测源码，<code>scripts/check_versions.py</code> 的校验逻辑有实质单测保护。</li>
+<li><strong>CI/CD</strong>：2 条流水线且职责分明——<code>version-consistency.yml</code>（push + PR）跑 <code>python3 -m unittest discover</code> 与版本一致性检查；<code>behavioral-eval.yml</code>（push main + 手动）跑 <code>claude plugin eval</code>，含 grader 打分、<strong>无插件基线对照臂（score delta）</strong>、0.7 合格阈值、模型固定以隔离模型迭代噪声并输出 JSON 结果。</li>
+<li><strong>质量门禁</strong>：对提示词类项目而言，<strong>行为评测门禁是超出行业平均的实践</strong>；工作流注释显示维护者会追踪 <code>partialReason=auth_failed</code> 等失败模式并做归因修复。</li>
+<li>扣分点：无覆盖率报告、无 lint/静态分析、无 CODEOWNERS 强制代码审查；单测仅覆盖一个工具脚本，技能主体质量依赖 LLM judge（存在噪声，阈值 0.7 只能容忍一次抖动），判分稳定性有限。</li>
+</ul>
+<hr />
+<h3>结论</h3>
+<p>Sepia 在「Agent Skill 内容包」这一品类内属于<strong>工程规范度与质量意识显著高于同类</strong>的项目：内容分层（skill / pass / domain / language / voice）清晰、零依赖、文档密度极高、CI 同时覆盖版本一致性与行为评测，并具备跨 4+ 宿主的分发架构，D2 得分 <strong>7.7/10（良好）</strong>。</p>
+<p>其主要短板集中在两处：
+1. <strong>版本成熟度</strong>：项目上线仅两周即到 v0.10.0，13 天 10 次发版、90 天 51 个 PR，处于高速演进期，无 v1.0 稳定性承诺，商业化交付需要冻结版本并自行承担行为漂移风险；
+2. <strong>软件工程资产薄</strong>：有效为代码约 369 行、无第三方依赖、无 lint/静态分析/安全扫描配置，复刻"形式"门槛低，护城河主要来自提示词与 research 积累的隐性知识，以及评测梯度，而非可专利化或难以复现的工程实现。</p>
+<p>对商业化的含义：作为<strong>可直接嵌入工作流的技能组件</strong>，其交付成熟度已可用（环境门槛近乎为零、多宿主兼容、有评测护栏），适合快速集成验证；但若作为需要 SLA 与版本兼容承诺的商品，仍需等待 1.0 版本与更明确的兼容性策略。</p>
+<h3>D3. 社区健康度与生态势能（权重 11%）</h3>
+<blockquote>
+<p><strong>评估背景说明</strong>：本项目创建于 2026-08-28，最近推送 2026-09-11，<strong>项目年龄仅约 14 天</strong>。因此「近 90 天」类指标实际只覆盖 14 天的窗口，Star 月增需按 <code>Star 数 ÷ 项目年龄(月)</code> 退化计算，属于<strong>极短窗口外推</strong>，读数为历史速率而非长期稳态，置信度中等，下文已逐项标注。此外本项目本质是「Agent Skill（提示词/协议包）」，核心资产是 SKILL.md 与 references 规则库（37 个文档文件）而非 916 行 Python 代码，社区生态的评价口径按提示词/插件生态衡量。</p>
+</blockquote>
+<h3>D3.1 社区活跃度指标（3 分）——<strong>3.0 分</strong></h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Star 增速</td>
+<td>2583 Star / 约 14 天 ≈ <strong>5,535 Star/月</strong>（退化公式，极短窗口外推）</td>
+<td>远超 9–10 档阈值（&gt;500/月），约 11 倍</td>
+</tr>
+<tr>
+<td>Fork 比率</td>
+<td>165 / 2583 = <strong>6.4%</strong></td>
+<td>处于健康区间（典型 3–10%），衍生意愿真实存在</td>
+</tr>
+<tr>
+<td>Issue/PR 活跃度</td>
+<td>近 90 天（实际 14 天）PR 创建 <strong>51</strong> 个、Issue 关闭 <strong>5</strong> 个；开放 Issue 仅 <strong>2</strong> 个</td>
+<td>PR 密度极高（≈3.6 个/天）；Issue 绝对量小但无积压</td>
+</tr>
+<tr>
+<td>响应速度</td>
+<td>开放 Issue 仅 2 个、无大量积压；补齐数据未提供平均关闭时长</td>
+<td>低积压 + 高频发版（14 天 10 个 Release）间接指向快速响应</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：Star 增速与 PR 密度双双落入最高档，开放 Issue 仅 2 个说明维护者没有让问题堆积，14 天内从 v0.2.0 迭代到 v0.10.0（10 次发版）体现持续的高强度维护节奏。唯一保留意见是 14 天窗口无法证明增速可持续（疑似发布期流量峰值），且 Issue 讨论绝对量偏小（90 天仅关闭 5 个 Issue），社区互动以 PR 为主而非 Issue 讨论。</p>
+<p><strong>得分：3.0 / 3（100%，9–10 档）</strong></p>
+<h3>D3.2 贡献者结构多样性（2.5 分）——<strong>1.5 分</strong></h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>贡献者数量</td>
+<td><strong>5 人</strong>（contributors API）</td>
+<td>落在 5–20 档下沿</td>
+</tr>
+<tr>
+<td>组织多样性</td>
+<td>无 CODEOWNERS、无企业署名；仓库为个人命名空间 <code>Nanako0129/sepia</code></td>
+<td>推断主要来自 1–2 个组织/个人，无多公司参与证据</td>
+</tr>
+<tr>
+<td>核心团队占比</td>
+<td>51 个 PR（14 天）由 5 位贡献者产生，未提供外部 PR 占比数据</td>
+<td>数据不足，无法量化外部贡献比例</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：贡献者数量 5 人，恰好落在「5–20 贡献者，主要来自 1–2 个组织」档（5–6 档）。从组织维度看，仓库归属个人账号、无 CODEOWNERS、无企业贡献者标识，实际组织多样性偏向该档下沿甚至接近「高度依赖 1 人」的边缘。51 个 PR 的高产出更可能来自核心作者的高频自提交，而非广泛的外部贡献者群体。需注意：<strong>核心人员离开后的传承风险属于 D8.1 巴士因子，此处不重复计分</strong>，本项仅就社区规模与组织多样性扣分。</p>
+<p><strong>得分：1.5 / 2.5（60%，5–6 档）</strong></p>
+<h3>D3.3 第三方生态成熟度（3 分）——<strong>1.8 分</strong></h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>插件/扩展</td>
+<td>自身即插件形态：原生插件包覆盖 Claude Code / Codex / Grok Build / Antigravity；提供 <code>voice-skills.md</code> 组合接口（v0.4.0 起）</td>
+<td>有扩展挂载点，但<strong>未见任何第三方插件/扩展实例</strong></td>
+</tr>
+<tr>
+<td>集成生态</td>
+<td>遵循 Agent Skills 规范，可被 77+ 兼容 agent 装载，Skills CLI 一条命令安装</td>
+<td><strong>本项为本维度最强项</strong>，分发渠道极宽</td>
+</tr>
+<tr>
+<td>衍生项目</td>
+<td>未发现基于 sepia 的二次开发项目或商业产品</td>
+<td>无</td>
+</tr>
+<tr>
+<td>教程/课程</td>
+<td>未发现外部教程、课程、博客；37 个文档文件全部在仓库内（含 zh-CN / zh-TW 多语言 README）</td>
+<td>无外部内容生态</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：集成生态是真实且突出的优势——一个诞生 14 天的项目已经打通 4 个主流 agent 平台的原生插件形态，并通过 Skills CLI 触达 77+ agent，这是可直接转化为分发能力的生态势能。但另外三个考察点（第三方插件、衍生项目、外部教程）目前均无实证，生态仍处于「单向被集成」而非「双向繁荣」的阶段，因此整体只能给到 5–6 档。</p>
+<p><strong>得分：1.8 / 3（60%，5–6 档）</strong></p>
+<h3>D3.4 品牌认知与行业影响力（1.5 分）——<strong>0.9 分</strong></h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>品牌辨识度</td>
+<td>2583 Star / 14 天，Topics 覆盖 ai-writing、humanizer、claude-code 等热门标签，中英繁三语 README</td>
+<td>在「De-AI 写作」细分话题内已具备可见度</td>
+</tr>
+<tr>
+<td>行业采用</td>
+<td>README 未见企业用户墙、案例展示或商业背书；无企业 logo / 客户名单</td>
+<td><strong>无任何企业采用或背书证据</strong></td>
+</tr>
+<tr>
+<td>媒体覆盖</td>
+<td>素材中无技术媒体、会议演讲、播客等外部报道证据</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：Star 增速显示其在小圈子内传播迅速，但「被头部企业采用」「频繁出现在技术会议」这两条 7–8 档的硬指标均无证据支撑，因此不能上探到 7–8 档；同时它显然也不是「仅在极小范围已知」（3–4 档）。以 arXiv:2604.03136（StoryScope）研究作为方法论锚点，为其在专业写作工具圈的认知度加分，定为 5–6 档。</p>
+<p><strong>得分：0.9 / 1.5（60%，5–6 档）</strong></p>
+<h3>D3 维度小结</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D3.1 社区活跃度指标</td>
+<td>3.0</td>
+<td><strong>3.0</strong></td>
+<td>9–10（100%）</td>
+</tr>
+<tr>
+<td>D3.2 贡献者结构多样性</td>
+<td>2.5</td>
+<td><strong>1.5</strong></td>
+<td>5–6（60%）</td>
+</tr>
+<tr>
+<td>D3.3 第三方生态成熟度</td>
+<td>3.0</td>
+<td><strong>1.8</strong></td>
+<td>5–6（60%）</td>
+</tr>
+<tr>
+<td>D3.4 品牌认知与行业影响力</td>
+<td>1.5</td>
+<td><strong>0.9</strong></td>
+<td>5–6（60%）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>7.2</strong></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：D3 得分 <strong>7.2/10（良好）</strong>。项目在<strong>流量与维护节奏</strong>上表现卓越（Star 月增约 5,500、14 天 10 次发版、51 个 PR、开放 Issue 仅 2 个），并已建立起<strong>跨 4 个主流 agent 平台 + 77+ agent 的集成分发网</strong>，对商业化而言这意味着一个启动速度极快的潜在客户池。但两项结构性短板同样明显：<strong>贡献者仅 5 人、组织多样性近乎为零</strong>，社区是「一人驱动的高热度」而非「多人协作的生态」；<strong>第三方插件、衍生项目、外部教程、企业背书全部缺位</strong>，生态势能目前是单向的（项目被平台集成，而非第三方围绕项目生长）。此外，全部活跃度读数建立在仅 14 天的观察窗口上，长期可持续性未经检验，<strong>D3 整体置信度：中等</strong>。</p>
+<h3>D4. 商业模式与变现潜力</h3>
+<p><strong>维度得分：4.7 / 10</strong>（满分 10，权重 18%）</p>
+<h3>D4.1 协议对变现模式的影响（2 分）→ <strong>2.0 分（100%）</strong></h3>
+<table>
+<thead>
+<tr>
+<th>判定项</th>
+<th>实测值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LICENSE 文件</td>
+<td><code>MIT License, Copyright (c) 2026 Nanako Tsai</code></td>
+</tr>
+<tr>
+<td>元数据 license 字段</td>
+<td><code>MIT</code></td>
+</tr>
+<tr>
+<td>README 声明</td>
+<td><code>## License — MIT</code></td>
+</tr>
+<tr>
+<td>SPDX 冲突声明</td>
+<td>无（license 字段与 LICENSE 文件一致）</td>
+</tr>
+</tbody>
+</table>
+<p>项目采用标准 MIT 协议，属"无约束"档：Open Core、SaaS 托管、双协议、专业服务、市场/插件等全部变现路径在法律层面均无障碍，且允许闭源衍生与再许可。协议的<strong>法律合规风险</strong>归 D6.1 评估，本细则仅看其对商业路径的约束——结论是零约束。</p>
+<p>需注意一点反直觉的事实：MIT 的完全开放同时也是变现的<strong>削弱项</strong>——它使"用协议换取商业杠杆"（如 Elastic 的 SSPL 转向）这一路径被主动放弃。但这属于变现策略选择问题，不应扣减本细则得分。</p>
+<p><strong>得分：2.0 / 2（9–10 档）</strong></p>
+<hr />
+<h3>D4.2 变现路径清晰度（3.5 分）→ <strong>1.4 分（40%）</strong></h3>
+<p>逐模式评估：</p>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>可行性</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Open Core</td>
+<td>✗ 伪命题</td>
+<td>核心交付物是 <code>skills/sepia/SKILL.md</code> 等纯 Markdown 规则文件（37 个文档文件 vs 仅 2 个 <code>.py</code> 源文件、916 行代码），无"企业功能"可闭源——任何功能分层都可被用户直接复制文本绕过</td>
+</tr>
+<tr>
+<td>SaaS 托管</td>
+<td>✗ 无载体</td>
+<td>仓库无 Dockerfile、无服务端组件、无依赖（<code>dependencies: {}</code>）；技能运行在用户自己的 Agent 与 LLM 配额上，项目方不持有推理链路</td>
+</tr>
+<tr>
+<td>双协议许可</td>
+<td>✗ 未实施</td>
+<td>MIT 之下无任何商业授权入口、无 license key 机制</td>
+</tr>
+<tr>
+<td>专业服务</td>
+<td>△ 理论可行</td>
+<td>"去 AI 味" 存在真实需求（学术、出版、营销文案），StoryScope 论文背书 + <code>research/</code> 证据库可支撑咨询/培训，但仓库中<strong>零迹象</strong>表明在开展此类业务</td>
+</tr>
+<tr>
+<td>市场/插件</td>
+<td>✗ 非平台方</td>
+<td>通过第三方 Skills CLI 分发，抽成权在 skills.sh，不在本项目</td>
+</tr>
+<tr>
+<td>认证/生态</td>
+<td>✗ 无</td>
+<td>无认证体系、无合作伙伴计划</td>
+</tr>
+<tr>
+<td>捐赠/赞助</td>
+<td>✓ 唯一落地</td>
+<td>README 明确 "You can support the project on Patreon"，且正文自认持续性成本仅为维护者时间与模型配额</td>
+</tr>
+</tbody>
+</table>
+<p>结论：项目实际处于<strong>纯捐赠模式</strong>，而方法论附录明确标注该模式"通常不可规模化"（Vue.js 参照量级约 $1M+/年，属社区模式天花板）。唯一商业动作是挂了一个 Patreon 徽章。其余路径均停留于"理论上可以"，无产品化痕迹、无定价页、无商业主体。</p>
+<p><strong>得分：1.4 / 3.5（3–4 档，变现路径模糊，需大量探索）</strong></p>
+<hr />
+<h3>D4.3 付费转化逻辑（2.5 分）→ <strong>0.5 分（20%）</strong></h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>免费到付费的触发点</td>
+<td><strong>不存在</strong>。README 明确 "You can use sepia for free without an account"；无功能门禁、无用量上限、无企业版</td>
+</tr>
+<tr>
+<td>付费意愿强度</td>
+<td>目标用户为开发者/写作者，已自备 Agent 与 LLM API 配额（成本已在他们侧），对"一段可复制的 Markdown 规则"付费意愿天然低</td>
+</tr>
+<tr>
+<td>转化漏斗</td>
+<td>漏斗 = "用户 → 自愿打赏"。GitHub 星标 2583、Fork 165（Fork/Star ≈ 6.4%），Fork 即完整获得全部价值，转化动作被结构性短路</td>
+</tr>
+</tbody>
+</table>
+<p>关键结构性障碍：MIT + 纯文本交付 + 无账号体系，意味着<strong>付费版与免费版在功能上完全等同</strong>，唯一差别是道德感。运营层面也无企业版/付费版功能对比、无定价参照，无从评估转化率。仅存在 Patreon 这一自愿捐赠触发点，强度极弱且被作者本人定位为"覆盖模型配额成本"的众筹，而非商业转化。</p>
+<p><strong>得分：0.5 / 2.5（1–2 档，完全找不到付费触发点）</strong></p>
+<hr />
+<h3>D4.4 增值服务空间与定价天花板（2 分）→ <strong>0.8 分（40%）</strong></h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>增值空间</td>
+<td>概念上可叠：企业风格指南定制、行业 voice profile 训练、编辑部工作坊、跨模型 fingerprint 校准服务、合规/审计级文本评测。但其"证据库"（<code>research/</code> 19 个文件）与 "30-feature rubric" 同为公开 Markdown，可被直接复制作为竞品基础</td>
+</tr>
+<tr>
+<td>定价天花板</td>
+<td>受<strong>买家画像</strong>约束：个人写作者与开发者为主，Patreon 会员制典型客单价 $5–20/月（≈$60–240/年），远低于企业级 SaaS</td>
+</tr>
+<tr>
+<td>收入扩展性</td>
+<td>无 per-seat 承载物（无账号、无席位），难以扩展到 per-usage（推理成本在用户侧）或 enterprise flat fee（无企业采购入口）</td>
+</tr>
+</tbody>
+</table>
+<p>一个可能的例外是"知识付费"路径：项目以 StoryScope 论文（arXiv:2604.03136）与多项 2025–2026 年研究为方法论底座，具备出书/课程/专栏的知识资产禀赋。但知识资产变现与开源项目运营往往解耦，属于维护者个人 IP 而非项目商业模式，且当前无任何实施证据，不能作为已成立的增值空间计分。</p>
+<p><strong>得分：0.8 / 2（3–4 档，增值空间小，客单价低）</strong></p>
+<hr />
+<h3>细分项得分汇总</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D4.1 协议对变现模式的影响</td>
+<td>2.0</td>
+<td><strong>2.0</strong></td>
+<td>100%（9–10 档）</td>
+</tr>
+<tr>
+<td>D4.2 变现路径清晰度</td>
+<td>3.5</td>
+<td><strong>1.4</strong></td>
+<td>40%（3–4 档）</td>
+</tr>
+<tr>
+<td>D4.3 付费转化逻辑</td>
+<td>2.5</td>
+<td><strong>0.5</strong></td>
+<td>20%（1–2 档）</td>
+</tr>
+<tr>
+<td>D4.4 增值服务空间与定价天花板</td>
+<td>2.0</td>
+<td><strong>0.8</strong></td>
+<td>40%（3–4 档）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>4.7</strong></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<p>sepia 在 D4 维度呈现典型的<strong>"协议最优、商业最弱"</strong>反差：MIT 协议扫清了全部法律障碍（D4.1 满分），但项目并未把这一自由度兑换成任何一条可变现的商业路径。核心矛盾在于<strong>交付物形态</strong>——项目 96% 的内容是 Markdown 规则文件（37 个文档 vs 916 行 Python），既无闭源模块可分层，也无服务端可作为收费载体，且运行成本（LLM 推理配额）完全由用户承担。这使 Open Core、SaaS、双协议三条主流路径同时失效，实际落地的只有不可规模化的 Patreon 捐赠。</p>
+<p>从资本视角看，这是一个<strong>研究驱动、作者自筹的社区公益型项目</strong>，其 2583 星标反映的是选题共鸣度（"AI 味"是 2026 年的高热度痛点），而非商业成熟度。近期 10 个版本、2 周内从 v0.2.0 冲到 v0.10.0 的高频迭代节奏，也符合个人/小团队热心维护的特征，而非商业化冲刺。</p>
+<p><strong>若要提升该维度得分，可观察的转折信号是</strong>：出现付费的企业风格指南定制服务、基于 <code>research/</code> 证据库的知识付费产品、或把 30-feature rubric 包装为可计量的文本质量评测 API。在当前素材下这些均未出现，故不打预期分。</p>
+<blockquote>
+<p><strong>置信度说明</strong>：本维度评估基于公开仓库元数据、README 与 LICENSE，未获取任何财务、定价或商业主体信息。D4.2–D4.4 的判断均以"仓库内无相关迹象"为负向证据，存在项目方在仓库外开展商业活动而未被记录的可能。此处如实标注。</p>
+</blockquote>
+<h3>D5. 竞争格局与差异化壁垒</h3>
+<h3>D5.1 竞品对比与市场定位（3 分）</h3>
+<p><strong>竞品验证说明</strong>：本节竞品通过 GitHub Search API 实测验证，确认仓库真实存在且未归档（<code>archived: false</code>），所列 Star 数、最近推送时间均为接口实采。未通过搜索验证的商业人类化 SaaS（如 AI 检测器/改写器类产品）在本次评估中无法确认，故<strong>不纳入对比表</strong>，本节定位判断仅基于下表 5 个已验证的开源竞品。被分析项目 README/docs/CHANGELOG 中<strong>未直接点名任何竞品</strong>（仅以 "Every popular humanizer" 泛指），因此不存在"仓库内引用"验证路径。</p>
+<table>
+<thead>
+<tr>
+<th>竞品名称</th>
+<th>类型</th>
+<th>仓库/官网</th>
+<th>验证方式</th>
+<th>Star/用户量</th>
+<th>核心差异</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>theclaymethod/unslop</td>
+<td>直接竞品</td>
+<td>github.com/theclaymethod/unslop</td>
+<td>GitHub Search API 确认</td>
+<td>410 ⭐ / 推送 2026-09-07</td>
+<td>同为 Agent Skill 形态的「de-AI your writing」；仅做表层风格编辑，无叙事架构层、无按领域（发布说明/PR 回复/复盘/ticket）的分场景规则、无四平台原生打包</td>
+</tr>
+<tr>
+<td>wei125775-lab/deai</td>
+<td>直接竞品</td>
+<td>github.com/wei125775-lab/deai</td>
+<td>GitHub Search API 确认</td>
+<td>3 ⭐ / 推送 2026-09-06</td>
+<td>面向中文网文/文章的单一自包含 Skill（Clean/Refactor/Detect/Write）；语种与场景覆盖窄，无学术证据基座与 per-model 指纹</td>
+</tr>
+<tr>
+<td>liaocaoxuezhe/unslop-zh</td>
+<td>直接竞品</td>
+<td>github.com/liaocaoxuezhe/unslop-zh</td>
+<td>GitHub Search API 确认</td>
+<td>1 ⭐ / 推送 2026-08-27</td>
+<td>unslop 的中文变体，功能面比本体更窄，属长尾跟随者</td>
+</tr>
+<tr>
+<td>zuoyou12/longzu.skillls</td>
+<td>间接竞品</td>
+<td>github.com/zuoyou12/longzu.skillls</td>
+<td>GitHub Search API 确认</td>
+<td>9 ⭐ / 推送 2026-07-28</td>
+<td>走"特定作家文风蒸馏"（江南 × 烽火戏诸侯）路线——目标是<strong>模仿人类风格</strong>，而非 sepia 的"修复 AI 叙事指纹"；技术路径不同（1465 万字语料蒸馏 vs 论文特征工程）</td>
+</tr>
+<tr>
+<td>leoluyi/skills</td>
+<td>间接竞品</td>
+<td>github.com/leoluyi/skills</td>
+<td>GitHub Search API 确认</td>
+<td>1 ⭐ / 推送 2026-09-08</td>
+<td>个人 SKILL.md 合集，聚焦繁体中文写作工具链，非专门去 AI 味产品；构成分发形态上的同类，非功能直竞</td>
+</tr>
+</tbody>
+</table>
+<p><strong>竞争格局判断</strong>：</p>
+<ol>
+<li><strong>品类已成型但极度长尾</strong>。搜索确认存在多个同类「de-AI writing Agent Skill」，但除 unslop（410 ⭐）外，其余竞品集中在 1–9 ⭐ 区间。sepia 以 <strong>2583 ⭐ / 165 fork</strong> 领先最近直接竞品约 <strong>6.3 倍</strong>，是当前该细分品类中事实上的头部项目。</li>
+<li><strong>定位差异化清晰且可验证</strong>。sepia 的主张不是"改词换句"，而是引 StoryScope（arXiv:2604.03136，61,608 篇故事）的实测结论——仅用<strong>叙事结构特征</strong>检测 AI 小说的 macro-F1 达 93.2%，而人工表层改写（LAMP 条件）仅把检出率从 95.5% 降到 93.9%——据此把去 AI 味下沉到"叙事架构层"，再叠加话语层与表层风格层。竞品 unslop/deai/unslop-zh 的描述文本均停留在"de-AI your writing"层面，<strong>未见同等证据基座</strong>。</li>
+<li><strong>第二条差异化轴是场景与生态</strong>。专业写作按 venue 分规则（release notes / PR 回复 / postmortem / ticket / 技术文章），并通过 Skills CLI 覆盖 77+ agent、对 Claude Code / Codex / Grok Build / Antigravity 提供原生插件包——后者在当前经验证的 5 个竞品中均未出现。</li>
+<li><strong>定位风险</strong>：品类门槛低、命名高度同质（unslop / unslop-zh / deai），新进入者持续出现；sepia 的"叙事架构"卖点需要用户理解学术论证，认知成本高于"一键去 AI 味"，可能限制其在低意愿用户中的转化。</li>
+</ol>
+<p><strong>得分：2.4 / 3（7–8 档 → 80%）</strong>——有多个直接竞品，但本项目具备明确且可验证的差异化定位（证据基座 + 场景规则 + 多平台分发），并已在 Star 量级上明显领先。未达 9–10 档，因为直接竞品确实存在，"无直接竞品或明显领先"不成立（领先幅度尚不足以形成品类独占）。</p>
+<hr />
+<h3>D5.2 技术壁垒与网络效应（3 分）</h3>
+<blockquote>
+<p>本节仅评估壁垒的<strong>商业防御效果</strong>；"从零复刻的工程难度"已在 D2.2 计分，此处不重复计分。</p>
+</blockquote>
+<p><strong>技术壁垒</strong>：
+- 资产构成是 markdown 技能文件 + 37 份 research/ 摘要 + 30 特征诊断 rubric + per-model 指纹 + 仅 <strong>916 行 Python / 2 个源文件</strong>。全部以 <strong>MIT</strong> 协议开源，无专利、无算法黑盒、无专属数据集——任何人可整目录复制。
+- 真正的"半壁垒"是<strong>知识密度与维护节奏</strong>：把 13+ 篇一手论文（StoryScope、LAMP、Measuring AI Slop、Reinhart et al.、NarraBench 等）转译为可执行规则，并针对各家厂商公开 prompting guide 建立指纹（README 明确记录"未发布指南的厂商记为 consulted, not guessed"）。这种证据基座需要持续文献投入，复制成本高于抄一份 prompt，但不构成法律或技术锁定。
+- 工程侧有真实质量投入：<code>behavioral-eval.yml</code> + <code>version-consistency.yml</code> 两条 CI、测试 547 行（test_ratio 0.597）、90 天内 10 次发版、51 个 PR。这形成<strong>迭代速度壁垒</strong>，而非技术壁垒。</p>
+<p><strong>网络效应</strong>：
+- 无经典网络效应。不存在用户间交互、UGC 市场、数据飞轮或协同过滤——每个用户的产出不会让其他用户的体验变好。
+- 存在<strong>弱生态种子</strong>：单一 canonical <code>SKILL.md</code> 可在 77+ agent 上加载，降低发行摩擦；v0.4.0 起定义"voice/style skill 叠加接口"并内置 <code>references/voices/registry.md</code>（当前仅 1 个内置 Hemingway profile），理论上可长出第三方 voice 生态。但该接口被明确标注为 <strong>experimental</strong>、"a worked example, not measured evidence"，尚未形成实际生态。</p>
+<p><strong>规模效应</strong>：无。额外用户的边际成本为零，但同样不带来成本下降或体验提升；无云端服务、无算力开销、无数据聚合。</p>
+<p><strong>得分：1.8 / 3（5–6 档 → 60%）</strong>——具备一定壁垒（证据基座 + 高迭代频率 + 多平台分发工程），但 MIT 全量开放使其可被整目录复制，且几乎不存在网络效应与规模效应，属于"浅护城河"。低于 7–8 档，因为技术壁垒与网络效应二者均未达到"较强"。</p>
+<hr />
+<h3>D5.3 切换成本与用户粘性（2 分）</h3>
+<p><strong>迁移成本</strong>：极低。安装与卸载均为单条命令（<code>npx skills add / remove</code>、<code>claude plugin install / uninstall</code>、<code>codex plugin add/remove</code>、<code>grok plugin install/uninstall</code>、<code>agy plugin install/uninstall</code>）。技能本身为纯 markdown，不产生用户数据、不写数据库、无云端账户（README 明确 "You can use sepia for free without an account"）——因此<strong>不存在数据迁移成本</strong>。</p>
+<p><strong>深度集成</strong>：技能以自然语言协议注入 agent 上下文，用户无需改业务代码、无需 SDK 集成、无需部署。唯一略深的形态是 project scope（把 <code>skills/sepia/</code> 提交为 <code>.agents/skills/sepia</code> 或 <code>.claude/skills/sepia</code>），此时技能文件随仓库版本化，构成轻度仓库级依赖；但删除该目录即可回退。</p>
+<p><strong>习惯锁定</strong>：存在习惯性粘性——用户会形成固定的 4 个操作入口（write / review / refactor / recreate）与 <code>/sepia-hemingway</code> 的使用肌肉记忆，重度用户还可能自建 domain/voice 规则引用；但这些都是<strong>习得性</strong>而非<strong>结构性</strong>依赖，竞品（如 unslop）可在数分钟内替换。</p>
+<p><strong>得分：0.8 / 2（3–4 档 → 40%）</strong>——迁移成本低、可即插即用即走，仅有习惯层面的部分粘性，缺少数据/配置/流程锁定。未打到 1–2 档，因为 project-scope 版本化集成与自建 voice/domain 规则确实构成了少量重配成本。</p>
+<hr />
+<h3>D5.4 护城河可持续性（2 分）</h3>
+<p><strong>护城河趋势（增强信号）</strong>：
+- 动量强劲：2583 ⭐ / 165 fork，14 天内从 v0.2.0 连发至 v0.10.0（10 个 release），90 天 51 个 PR、5 位贡献者、2 个 issue 的极低积压。
+- 证据基座持续扩张：research/ 已达 37 份文档、引用 13+ 篇论文，且有 <code>behavioral-eval.yml</code> 对规则改动做行为回归，属于"越迭代越难抄"的资产。
+- 平台覆盖先手：77+ agent 的标准兼容 + 4 平台原生打包，在竞品（最高 410 ⭐）尚未铺开时建立了分发位势。</p>
+<p><strong>削弱 / 颠覆风险（明确存在）</strong>：
+1. <strong>模型指纹时效性风险高</strong>。README 的指纹库绑定具体型号（Claude Fable 5.1/Mythos 5.1、Opus 5/4.8、GPT-5.6、GPT-6 Astra、Gemini 3 系列）。基础模型每轮迭代都会改变"AI 味"特征分布，规则库需要持续追赶，<strong>存在被模型厂商更新节奏拖垮的可能</strong>。
+2. <strong>平台层降维打击</strong>。Claude Code / Codex / Grok 等宿主若在模型侧原生改善文风，或内建 humanizer 能力，作为 prompt 层技能的价值会被直接压缩——这是该品类最典型的颠覆路径。
+3. <strong>可复制性</strong>。MIT 全量开源 + 916 行代码意味着复制门槛极低；长尾竞品（1–9 ⭐ 的三个中文 de-AI skill）已证明模仿行为正在发生。
+4. <strong>需求端的不确定性</strong>。"去 AI 味"是相对性需求，其强度取决于读者/审稿方对 AI 文本的辨别敏感度与容忍度，长期方向不明。</p>
+<p><strong>综合判断</strong>：护城河由"证据资产 + 迭代速度 + 分发先手"组成，短期内难以被单个竞品追平（最近竞品 410 ⭐ vs 2583 ⭐，且无同类证据基座），但面对模型厂商平台层自建能力与快速模型迭代，属于<strong>中等颠覆风险</strong>。</p>
+<p><strong>得分：1.2 / 2（5–6 档 → 60%）</strong>——护城河一般：自身在增强但地基（MIT 内容 + prompt 层定位）易被复制与平台化替代，存在中等颠覆风险。未到 7–8 档，因为宿主平台自建能力与模型迭代是明确且无法由本项目控制的威胁源。</p>
+<hr />
+<h3>D5 维度汇总</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+<th>核心依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D5.1 竞品对比与市场定位</td>
+<td>3</td>
+<td>2.4</td>
+<td>7–8（80%）</td>
+<td>5 个经验证竞品，头部为 unslop（410 ⭐）；sepia 2583 ⭐ 领先 6.3×，定位差异化清晰（叙事架构层 + 场景规则 + 77+ agent 分发）</td>
+</tr>
+<tr>
+<td>D5.2 技术壁垒与网络效应</td>
+<td>3</td>
+<td>1.8</td>
+<td>5–6（60%）</td>
+<td>仅有知识密度与迭代速度形成的浅壁垒；MIT 全量可复制；无网络效应、无规模效应；voice 生态接口仍为 experimental</td>
+</tr>
+<tr>
+<td>D5.3 切换成本与用户粘性</td>
+<td>2</td>
+<td>0.8</td>
+<td>3–4（40%）</td>
+<td>单命令装卸、无账户无数据留存，迁移成本极低；仅 project-scope 版本化与自建规则带来少量重配成本</td>
+</tr>
+<tr>
+<td>D5.4 护城河可持续性</td>
+<td>2</td>
+<td>1.2</td>
+<td>5–6（60%）</td>
+<td>动量强、证据基座扩张；但模型指纹快速过时、宿主平台可能原生内建 humanizer、MIT 可整目录复制</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>6.2</strong></td>
+<td><strong>—</strong></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：sepia 在"去 AI 味 Agent Skill"这一新兴细分品类中已是<strong>事实头部</strong>（2583 ⭐，为最近直接竞品的 6.3 倍），差异化叙事明确且建立在可验证的学术证据上（StoryScope 93.2% macro-F1、叙事结构特征不可被表层改写消除），并占据 77+ agent 的分发先手。但商业防御能力偏弱：全部资产以 MIT 开源、核心为 markdown prompt 层、无数据/账户/集成锁定，切换成本接近零；壁垒主要来自证据维护工作量与发布节奏而非结构性护城河。因此竞争维度评分为 <strong>6.2 / 10（一般偏上）</strong>——"定位领先但防御薄弱"，属于典型的内容型头部项目特征。</p>
+<p><strong>置信度说明</strong>：竞品数据来自 GitHub Search API 实采（5 个均确认存在且未归档），项目自身数据来自 GitHub API + 本地实测，置信度较高；但<strong>商业竞品（人类化 SaaS、AI 检测器）未经本次搜索验证，未纳入对比</strong>，因此 D5.1 的"市场定位"判断存在一定盲区，结论置信度中等。</p>
+<h3>D6. 法律合规与知识产权（权重 7%）</h3>
+<h4>细则打分表</h4>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断摘要</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D6.1 开源协议合规性与商业限制</td>
+<td>3.0</td>
+<td>2.4</td>
+<td>7–8（80%）</td>
+<td>MIT，LICENSE 文件规范无附加条款；但核心资产为衍生自第三方研究/论文的规则文本，存在轻度内容权属注意项</td>
+</tr>
+<tr>
+<td>D6.2 依赖链法律风险</td>
+<td>2.5</td>
+<td>2.5</td>
+<td>9–10（100%）</td>
+<td>无任何声明的第三方代码依赖，无传染性依赖，合规审查成本趋零</td>
+</tr>
+<tr>
+<td>D6.3 商标与专利风险</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6（60%）</td>
+<td>未经人工核查（无商标检索/专利排查数据），按默认档处理，置信度低</td>
+</tr>
+<tr>
+<td>D6.4 贡献者协议完备性</td>
+<td>2.0</td>
+<td>1.6</td>
+<td>7–8（80%）</td>
+<td>有明确的 inbound=outbound 授权声明与极规范的贡献流程；但无 CLA、无 DCO 签署要求</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>8.0</strong></td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h4>D6.1 开源协议合规性与商业限制（2.4/3.0）</h4>
+<p><strong>协议明确性</strong>：仓库根目录存在标准 MIT LICENSE 全文，GitHub API 与本地扫描一致识别为 <code>MIT</code>，SPDX 标识规范，版权人明确（<code>Copyright (c) 2026 Nanako Tsai</code>）。无 Commons Clause、BUSL、非商业条款或自定义附加限制。此为合规性最有利的协议起点。</p>
+<p><strong>copyleft 传染性</strong>：仓库自身无传染性协议，<code>scan</code> 到的依赖清单为空，不构成 GPL/AGPL 传染链（详见 D6.2）。</p>
+<p><strong>扣分项（轻度注意事项，未构成实质障碍）</strong>：
+1. <strong>内容权属</strong>：本项目的主要商业价值不在 916 行 Python（2 个文件），而在 37 个文档型资产——<code>skills/sepia/references/*</code>、<code>skills/sepia-hemingway/</code>、<code>research/*</code>（含 <code>citations-style.md</code>、<code>hemingway.md</code>、<code>sources.md</code>、<code>storyscope.md</code>）。这些规则文本自述「Based on StoryScope (arXiv:2604.03136)」并大量引用第三方来源。MIT 可以覆盖作者自有表达，但<strong>无法为衍生自第三方作品的表达提供权属保证</strong>；若引用段落超出合理引用范围，或论文/原作的许可不支持再分发与商用，则 MIT 的授权在这些内容上可能失效。建议在商业化前对 <code>research/</code> 与 <code>references/</code> 做一次逐文件来源与引用边界审计。
+2. <strong>协议未覆盖商标与专利</strong>：MIT 仅授权著作权，明确不含商标许可，这直接约束商业命名与品牌建设（见 D6.3）。</p>
+<p><strong>结论</strong>：协议本身无传染性、无商业限制，属合规风险最低档；因核心资产存在轻度内容来源衍生问题，落 7–8 档（80%）。按方法论要求，协议类型对变现模式的影响在 D4.1 评估，此处不因「MIT 无法支撑双协议专属授权」重复扣分。</p>
+<h4>D6.2 依赖链法律风险（2.5/2.5）</h4>
+<ul>
+<li><strong>依赖数量</strong>：本地扫描 <code>dependencies = {}</code>，无 <code>requirements.txt</code> / <code>package.json</code> / <code>go.mod</code> 等依赖清单，全仓仅 2 个 Python 文件、916 行代码，可判定为零第三方代码依赖（疑似纯标准库实现）。</li>
+<li><strong>传染性依赖</strong>：不存在 GPL/AGPL 传递依赖，无「无协议」高风险包，无来源不明的包。</li>
+<li><strong>运行时依赖属平台层而非代码层</strong>：项目需要通过 Skills CLI 及 Claude Code / Codex / Grok Build / Antigravity 等宿主平台分发，CI 的 <code>behavioral-eval.yml</code> 使用维护者的 Claude 凭据与订阅配额运行。这部分属<strong>平台服务条款</strong>约束，不属于开源依赖链法律风险，但商业化时需确认各宿主平台对第三方 skill/plugin 分发的条款许可。</li>
+<li>需要留意的非 IP 合规点：产品定位为「De-AI writing / humanizer」，若面向学术、招聘、内容平台等场景，可能与目标平台的服务条款、AI 生成内容披露要求或学术诚信政策冲突。这属于业务合规风险，已在关键发现中标注，不计入本细则（本细则仅评依赖链法律风险）。</li>
+</ul>
+<p><strong>结论</strong>：零依赖、零传染性、来源单一可控，落 9–10 档（100%）。</p>
+<h4>D6.3 商标与专利风险（1.5/2.5，未经人工核查，置信度低）</h4>
+<p><strong>方法与限制</strong>：商标检索与专利排查无法由自动化分析完成，本细则<strong>无人工核查数据</strong>，按方法论要求取 5–6 档默认值（1.5/2.5），不凭模型记忆断言任何商标注册状态或专利归属。</p>
+<p><strong>仅列出供人工核查的风险信号（不作为打分依据）</strong>：
+1. 项目名 <code>sepia</code> 为通用英文词/颜色名，固有显著性弱，单独注册与维权难度需专业检索确认；且需确认 <code>Nanako0129/sepia</code> 与 <code>Nanako Tsai</code> 在目标市场的在先权利状况。
+2. 仓库内存在 <code>skills/sepia-hemingway/</code> 与 <code>skills/sepia/references/voices/hemingway.md</code>，以第三方知名人物/同名商业产品命名风格模块，涉及第三方姓名权/商标权与知名商品名称的可能性，建议商业化前完成命名审查或改名。
+3. 核心技术「叙事架构修复」自述基于 arXiv:2604.03136（StoryScope），该论文及其技术方案的在先专利与许可状态未在仓库中披露，需人工核查。
+4. 仓库未见任何商标使用政策（无 TRADEMARK 文件、README 无商标声明），衍生品/托管服务可自由使用项目名，品牌控制力为零。</p>
+<p><strong>结论</strong>：数据缺失，按默认档 1.5/2.5，<strong>置信度低</strong>，须人工补采后复评。</p>
+<h4>D6.4 贡献者协议完备性（1.6/2.0）</h4>
+<ul>
+<li><strong>CLA/DCO</strong>：未见 CLA 文件、未见 <code>.github/</code> 中的 CLA 机器人配置、CONTRIBUTING 中未要求 DCO <code>Signed-off-by</code> 签署。<strong>这是本细则的主要缺口</strong>。</li>
+<li><strong>版权归属</strong>：LICENSE 版权行为单一署名主体（Nanako Tsai），形式上集中；但 CONTRIBUTING 结尾明确「Contributions are accepted under the repository's MIT license」——这是一条清晰的 <strong>inbound=outbound 授权声明</strong>，保障了贡献代码可被项目继续以 MIT 分发，且无需逐贡献者追授权即可满足 MIT 场景下的合规。局限在于：该声明不等于版权转让，GitHub API 显示贡献者已达 5 人，版权实际分散在各贡献者手中，若未来需要双协议/专有授权（该影响归 D4 评估），缺失 CLA 会构成实质障碍。</li>
+<li><strong>贡献流程</strong>：CONTRIBUTING.md 质量显著高于行业平均——issue-first 强制规则、direct-PR 例外边界、PR 契约模板（Summary/Verification 双段落要求）、验证命令矩阵（<code>claude plugin validate --strict</code>、<code>agy plugin validate</code>、<code>grok plugin validate</code>、<code>jq</code> 校验 manifest）、README 多语言一致性验收标准、私有安全通告渠道与凭据处置规则。流程规范度已达本项上限区间。</li>
+<li><strong>次要缺口</strong>：无 <code>SECURITY.md</code>（安全披露渠道写在 CONTRIBUTING 内，功能上部分替代）、无 <code>CODEOWNERS</code>（5 人协作规模下影响有限）。</li>
+</ul>
+<p><strong>结论</strong>：有基本授权协议与高度规范的贡献流程，但无正式 CLA/DCO，落 7–8 档（80%）。另注：CONTRIBUTING 提及 README 中 Star History 的 <code>sealed_token</code>「intentionally public but still credential-bearing」，属于凭据暴露面管理问题，建议商业化前复核该 token 的权限范围与轮换策略。</p>
+<h4>维度结论</h4>
+<p><strong>D6 得分：8.0 / 10</strong>。这是一个法律基线相当干净的项目：MIT 协议明确规范、无商业附加条款、零第三方依赖、贡献流程规范。商业化路径上的法律障碍<strong>不在协议层，而在三处待办</strong>：(1) <code>research/</code> 与 <code>references/</code> 中衍生于第三方论文与来源的规则文本权属边界未经审计，而这里恰恰是项目的核心资产；(2) 商标/专利完全未经核查，且 <code>hemingway</code> 命名与弱显著性项目名构成可见的命名风险信号；(3) 无 CLA/DCO，版权分散在 5 位贡献者手中，若走双协议/专有授权路线需补齐。三项均属"可管理、需投入合规成本"而非"阻断商业路径"的级别，故整体落 7–8 档偏上沿。D6.3 为默认档占位，人工核查后本维度分数存在上下浮动空间。</p>
+<h3>D7. 企业就绪度与可运营性（权重 8%）</h3>
+<h3>维度概述</h3>
+<p>sepia 的形态是<strong>Agent Skill（内容/协议包）</strong>，而非可部署的服务：2 个 Python 文件共 916 行（其中 547 行是测试，测试占比 59.7%），<strong>运行时零第三方依赖</strong>，无 Dockerfile、无服务进程、无数据库、无网络端点。这一形态决定了本维度的评估需要做重要的适用性裁剪：SSO/RBAC/审计日志、集群部署与故障转移、Prometheus 指标等传统企业运维考察点，在本项目上<strong>大部分由宿主 Agent（Claude Code / Codex / Grok Build / Antigravity）与 Skills CLI 承担</strong>，而非本项目职责。因此本节以"本项目自身可控的部分"为主评分，同时对<strong>真正适用但缺失</strong>的部分（安全披露策略、数据外发说明、发布可观测性）如实扣分。</p>
+<h3>D7.1 运维复杂度与升级路径（3 分）——得分 2.4 / 3（80%）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测证据</th>
+<th>评价</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>配置管理</td>
+<td>无配置文件、无环境变量需求；运行时依赖为 0（<code>dependencies: {}</code>）；接入方式为 Skills CLI 一条命令安装</td>
+<td>优</td>
+</tr>
+<tr>
+<td>运维负担</td>
+<td>无服务进程、无数据库、无常驻进程，日常运维投入趋近于零</td>
+<td>优</td>
+</tr>
+<tr>
+<td>升级路径</td>
+<td>14 天内发布 10 个版本（v0.2.0 → v0.10.0）；设有 <code>version-consistency.yml</code> + <code>scripts/check_versions.py</code> 自动校验多平台清单版本号一致性</td>
+<td>良（见下）</td>
+</tr>
+<tr>
+<td>数据迁移</td>
+<td>无持久化数据，升级不涉及任何数据迁移</td>
+<td>优</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：作为纯静态技能包，其运维负担与数据迁移风险在结构上接近于零——这是本维度最强的一项。版本一致性 CI（<code>python3 -m unittest discover -s tests</code> + <code>check_versions.py</code>）说明发布工程有一定自律，能防止"四平台插件清单版本号漂移"这类在多平台分发中极易发生的低级事故。</p>
+<p><strong>扣分原因</strong>：仓库中<strong>不存在 CHANGELOG.md</strong>（37 个文档文件中无此文件），发布说明仅存在于 GitHub Releases；版本处于 v0.10.0、14 天内连发 10 个 0.x 版本，且 README 明确说明"operation wrappers 依赖同级 canonical skill，不支持单独安装 wrapper"——这类强耦合在快速迭代中存在破坏性变更风险，但仓库未提供版本间迁移/破坏性变更说明或回滚指引。升级本身虽是"重装旧 tag"即可回滚，但该路径未被文档化。</p>
+<h3>D7.2 安全管理与权限控制（2.5 分）——得分 1.0 / 2.5（40%）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测证据</th>
+<th>评价</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>认证授权</td>
+<td>无 SSO/OAuth/LDAP/SAML 实现；认证由宿主 Agent 继承</td>
+<td>不适用（宿主承担）</td>
+</tr>
+<tr>
+<td>权限模型</td>
+<td>无 RBAC/ABAC；无多租户概念</td>
+<td>不适用（无服务端）</td>
+</tr>
+<tr>
+<td>审计日志</td>
+<td>无操作审计、无安全日志</td>
+<td>不适用（宿主承担）</td>
+</tr>
+<tr>
+<td>数据安全</td>
+<td><strong>无 SECURITY.md</strong>（<code>has_security_md: false</code>）、无漏洞披露流程、无数据外发/隐私说明章节；CI 中以 <code>permissions: contents: read</code> 最小权限运行，并以 <code>umask 077</code> 写入凭据文件</td>
+<td>弱</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：本项目自身<strong>不提供任何企业安全控制</strong>，前三点在结构上不适用（无服务端、无账号体系、无多租户），实际适用的是第四点。此处存在两个真实的商业化摩擦点：</p>
+<ol>
+<li><strong>无安全政策与漏洞披露渠道</strong>——企业采购的安全问卷通常要求 <code>SECURITY.md</code>/CVE 流程，本项目缺失（<code>has_security_md: false</code>、<code>has_codeowners: false</code>）。</li>
+<li><strong>无数据处置声明</strong>——技能以 prompt/指令形式注入用户 Agent，会读取用户的稿件与代码上下文。"稿件是否会离开本地/是否被用于训练/是否会外发到第三方"是本类 AI 写作工具在企业场景的<strong>头号采购问题</strong>，README 与文档中均无承诺性说明。</li>
+</ol>
+<p>另一方面需公正指出：运行时零依赖大幅压缩了供应链攻击面（无 npm/PyPI 传递依赖），CI 中亦体现了对密钥的最小权限处理意识，故不判为"无安全机制（1–2 档）"，取 40%。</p>
+<h3>D7.3 可扩展性与高可用能力（2.5 分）——得分 2.0 / 2.5（80%）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测证据</th>
+<th>评价</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>水平扩展</td>
+<td>完全无状态、无共享资源；用户数增长不产生任何中心化负载</td>
+<td>优</td>
+</tr>
+<tr>
+<td>高可用</td>
+<td>无自身服务可宕机；可用性由宿主 Agent 决定</td>
+<td>不适用（宿主承担）</td>
+</tr>
+<tr>
+<td>性能瓶颈</td>
+<td>无自有运行时瓶颈；但发布流水线存在<strong>单点依赖</strong>：<code>behavioral-eval.yml</code> 依赖维护者个人 Claude 订阅额度（<code>CLAUDE_CODE_OAUTH_TOKEN</code>）与早期访问开关（<code>CLAUDE_CODE_WALNUT_SPIRE=1</code>）</td>
+<td>中</td>
+</tr>
+<tr>
+<td>数据一致性</td>
+<td>无分布式状态，不适用</td>
+<td>不适用</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：从"被部署物"角度看，sepia 的水平扩展性是<strong>天然满分</strong>——每个用户在自己的 Agent 里独立加载，不存在扩容、分片、一致性问题。扣分集中在<strong>交付与质量保障链路的可扩展性</strong>：唯一的自动化质量闸门（behavioral eval）依赖维护者的个人订阅配额、一个未公开分发的早期访问功能开关，且被刻意限制为仅 push-to-main（防止 fork PR 消耗配额）。这在维护者单人运作时可行，但<strong>无法被企业或商业团队复现与接管</strong>——即"产品能扩展，但产品的验证能力不能扩展"。</p>
+<h3>D7.4 集成兼容与可观测性（2 分）——得分 1.2 / 2（60%）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测证据</th>
+<th>评价</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>API 完备性</td>
+<td>无 REST/gRPC/OpenAPI/SDK；集成面为 Agent Skills 规范 + Skills CLI（77+ agent）+ 4 个原生插件包</td>
+<td>中（面向本品类的等效接口）</td>
+</tr>
+<tr>
+<td>标准协议</td>
+<td>遵循 agentskills.io 规范（跨平台可移植标准）；无 OpenTelemetry/Prometheus/Webhook</td>
+<td>中</td>
+</tr>
+<tr>
+<td>监控告警</td>
+<td>无内置指标、无健康检查；CI 侧有行为评估（JSON 结果 + 阈值 0.7）与版本一致性检查</td>
+<td>弱</td>
+</tr>
+<tr>
+<td>日志体系</td>
+<td>无结构化日志、无日志级别管理（以 prompt 形式运行，无运行时）</td>
+<td>弱</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：<strong>集成兼容</strong>是本项目在同类产品中的相对强项——"一份 canonical <code>SKILL.md</code>，无 per-platform fork"，通过标准规范一次覆盖 77+ agent，并为 Claude Code / Codex / Grok Build / Antigravity 提供原生插件包装（含 <code>/sepia-*</code> 与 <code>$sepia-*</code> 命令入口）。这在分发与嵌入能力上优于多数同类 humanizer 项目。</p>
+<p>但<strong>可观测性完全缺位</strong>：企业用户采用后无法回答"技能是否被触发""改写效果如何度量""哪条规则在起作用"——虽然本地技能包天然难有 Prometheus 指标，但<strong>效果度量</strong>恰恰是本品类的核心采购依据，而项目仅提供了维护者自用、依赖个人配额的 <code>evals/</code> 套件（3 个 grader：<code>skill-fired</code>、<code>reads-human</code>、<code>no-slop-markers</code>），未沉淀为使用者可复用的评估能力。故取 60%（"有 API 但监控/日志薄弱"）。</p>
+<h3>结论</h3>
+<p><strong>D7 维度得分：6.6 / 10（一般偏上，存在结构性商业化障碍但非致命）</strong></p>
+<ul>
+<li><strong>强项</strong>：零依赖、零配置、零持久化 → 运维成本与数据迁移风险结构性趋近于零；无状态形态自带水平扩展能力；跨平台集成广度（77+ agent + 4 原生插件）在本品类中属领先。</li>
+<li><strong>主要短板（商业化的真实阻力）</strong>：(1) 无 <code>SECURITY.md</code>、无漏洞披露流程、无数据处置/隐私声明，直接卡在企业安全采购问卷上；(2) 无 CHANGELOG 与版本迁移/回滚文档，叠加 14 天 10 版的 0.x 快速迭代，企业锁版本意愿低；(3) 唯一的自动化质量闸门依赖维护者个人订阅与私有功能开关，不可复现、不可接管；(4) 无面向使用者的效果度量与观测能力。</li>
+<li><strong>适用性裁剪说明</strong>：SSO/RBAC/审计日志、集群部署与故障转移、指标协议等考察点在本项目形态下不适用，已由宿主 Agent 承担，故未按"缺失"计零分；本维度评分的实际聚焦点为企业采购中真实适用且缺失的部分。<strong>该裁剪使得本维度评分相对其他服务型项目的可比性下降，置信度中等</strong>。</li>
+</ul>
+<h3>D8. 团队治理与可持续性（权重 7%）</h3>
+<p><strong>评估摘要</strong>：sepia 是一个由个人开发者主导、诞生仅约两周即迅速走红的新兴项目（2,583 Star / 165 Fork，v0.2.0 → v0.10.0 共 10 个版本，均在 2026-08-28 至 2026-09-10 之间发布）。项目在<strong>贡献流程文档化</strong>上表现出远超同期的成熟度，但在<strong>团队规模、组织归属、资金支持、传承机制</strong>四个商业化关键要素上几乎全部空白，属于典型的「高活跃度个人项目」形态。</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D8.1 核心维护者能力与背景</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6（60%）</td>
+<td>仓库归属个人账号 <code>Nanako0129</code>，无组织/公司实体；GitHub API 显示 contributors = 5，近 90 天创建 PR 51 个，说明有一定外部贡献者参与，巴士因子约为 2–3。但 <code>CONTRIBUTING.md</code> 通篇以「获得维护者明确同意」为前置条件（issue-first、维护者可否决非平凡 PR），决策与知识高度集中于单一核心维护者；维护者技术能力有侧面佐证（基于 arXiv:2604.03136 构建方法论、自建 behavioral eval + grader 体系、916 行 Python 与 547 行测试），但<strong>无任何商业化/创业/企业服务背景证据</strong>，投入度是否为全职无法从素材确认。</td>
+</tr>
+<tr>
+<td>D8.2 治理模型透明度</td>
+<td>2.0</td>
+<td>1.2</td>
+<td>5–6（60%）</td>
+<td><strong>无 GOVERNANCE.md、无 CODEOWNERS、无 SECURITY.md、无公开路线图</strong>（本地实测 <code>has_codeowners=false</code>、<code>has_security_md=false</code>，文档清单中亦无治理类文件）；不属于 CNCF/Apache/Linux Foundation 等任何基金会。正面项：<code>CONTRIBUTING.md</code> 极为详实，定义了「source of truth 归属表」、issue 必备字段（问题/影响/验收标准/验证方案/兼容性/维护责任人）、PR Summary+Verification 契约、按改动面分类的验证矩阵、以及 GitHub Security Advisories 私有披露通道，规则公开程度高。但<strong>规则透明 ≠ 决策透明</strong>——最终裁决权集中于单一维护者，外部贡献者无共同决策席位。</td>
+</tr>
+<tr>
+<td>D8.3 资金支持与商业赞助</td>
+<td>2.5</td>
+<td>1.0</td>
+<td>3–4（40%）</td>
+<td>素材中<strong>没有任何资金支持证据</strong>：无 GitHub Sponsors、无 Open Collective、无 VC 融资、无公司实体运营迹象、无组织主页。反向证据明确：<code>CONTRIBUTING.md</code> 载明行为评估（behavioral eval）「使用维护者的 Claude 凭据与订阅配额」，且只在可信 push 或手动触发时运行——说明项目成本由维护者个人订阅承担，属典型的「纯靠热情」形态。因维护者当前极度活跃，不落入 1–2 档。</td>
+</tr>
+<tr>
+<td>D8.4 项目可持续性与传承风险</td>
+<td>3.0</td>
+<td>1.8</td>
+<td>5–6（60%）</td>
+<td>活跃趋势<strong>强劲上升</strong>：2 周内 10 个版本发布（最高频时 1 日 2 版），<code>pushed_at</code> 2026-09-11 距采集日极近；<code>archived=false</code>；开放 Issue 仅 2 个，90 天关闭 5 个，无 Issue 积压；165 Fork 未显示社区分裂迹象（对该类 skill 仓库属正常分发行为）。风险面：项目仅约两周历史，<strong>长期存续完全未经验证</strong>；无基金会/多维护者接管机制，MIT 许可虽为 Fork 接管提供法律可能，但方法论与打包知识集中于一人，传承路径实质未建立。故判为「活跃度健康但传承风险中等」。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>D8 维度总分 = (1.5 + 1.2 + 1.0 + 1.8) / (2.5 + 2.0 + 2.5 + 3.0) × 10 = 5.5</strong></p>
+<h3>结论</h3>
+<p>sepia 呈现出一个<strong>「个体能力极强、组织能力极弱」</strong>的典型早期开源画像。一方面，维护者在两周内完成了从方法论论文转化、多宿主（Claude Code / Codex / Grok / Antigravity）打包、行为评估 grader 体系到三语 README 同步的完整工程闭环，并写出了在成熟项目中都属上乘的 2,000+ 字 <code>CONTRIBUTING.md</code>，CI（<code>behavioral-eval.yml</code>、<code>version-consistency.yml</code>）与测试比（test_ratio 0.597）亦高于同规模项目均值——这些都是可商业化的能力底子。</p>
+<p>另一方面，构成商业化「人」要素的三根支柱全部缺失：<strong>没有团队</strong>（5 名贡献者、无组织归属、决策单点）、<strong>没有治理</strong>（无 GOVERNANCE.md/CODEOWNERS/基金会，决策权不可分享）、<strong>没有钱</strong>（零赞助、零公司实体、评估成本由个人 Claude 订阅承担）。叠加仅两周的项目年龄，当前 165 Fork / 2,583 Star 的热度更像是内容型仓库的一次传播事件，而非可持续的运营资产。</p>
+<p><strong>商业化含义</strong>：若要将 sepia 产品化（如面向团队的写作规范 SaaS、企业级内容合规工具），第一步必须解决的是「人」而非「技术」——引入联合维护者或成立公司实体、明确治理与决策机制、建立资金闭环。在此之前，任何依赖该项目长期存续的商业假设都承担较高的单点失效风险。</p>
+<h3>D9 维度详析</h3>
+<h4>细则打分表</h4>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D9.1 安装难度</td>
+<td>2.5</td>
+<td><strong>2.5</strong></td>
+<td>100%（9–10）</td>
+<td>单条命令即可安装（<code>npx skills add Nanako0129/sepia -g</code>），并提供 Claude Code / Codex / Grok Build / Antigravity 四个平台的官方插件安装器（每条 1–2 个命令）；实测依赖清单为空，无系统级依赖，无 Dockerfile；技能为纯 Markdown，不受 OS/架构限制；覆盖 Skills CLI 支持的 77+ agent</td>
+</tr>
+<tr>
+<td>D9.2 部署与配置难度</td>
+<td>2.5</td>
+<td><strong>2.0</strong></td>
+<td>80%（7–8）</td>
+<td>无服务形态，无需 Docker/K8s/Helm（对本品类非缺陷），部署即"安装进 agent"；初始配置项为零，不会话式配置、无配置文件需要编写；外部依赖初始化量为 0（无 DB/缓存/MQ）；但仍需 npm/npx 或对应 agent CLI 等前置环境，非技术人员难以独立完成；无 quickstart/demo 脚本与预期输出，安装成功与否只能靠"sepia 入口是否出现"目视确认</td>
+</tr>
+<tr>
+<td>D9.3 易用性与操作门槛</td>
+<td>2.5</td>
+<td><strong>2.0</strong></td>
+<td>80%（7–8）</td>
+<td>日常操作门槛极低：安装后仅需 <code>/sepia-write</code>、<code>/sepia-review</code>、<code>/sepia-refactor</code>、<code>/sepia-recreate</code>、<code>/sepia-hemingway</code> 或通用 <code>/sepia</code> 路由器，无需记忆参数；默认可直接使用且免费无需账号，语体叠加为 opt-in 不默认加载，默认策略"每个故事只选 3–5 个动作、留有余量"合理；写作诊断的专业知识由技能自身承载，写作者不必是工程或文学理论专家；但技能自身不提供 CLI 帮助/自动补全，错误处理完全继承宿主 agent，未见定制化友好错误提示；README 明示"不支持单独安装 wrapper"这一失败模式</td>
+</tr>
+<tr>
+<td>D9.4 学习曲线与首体验</td>
+<td>2.5</td>
+<td><strong>2.0</strong></td>
+<td>80%（7–8）</td>
+<td>首次成功时间在分钟级：完成安装后一条斜杠命令即可对草稿跑出 review 结果，无需任何调参；但项目<strong>没有交互式引导/onboarding 流程，也没有 quickstart 章节或可运行的演示</strong>，实测示例文件为 0，README 中无 before/after 文本样例；概念门槛中等——需要理解 Agent Skills / 插件市场的安装语义，且 README 本身较密（三遍协议、30 项诊断 rubric、模型指纹、校准原则），要"用好"仍需阅读文档与 <code>research/</code>、<code>skills/sepia/references/</code> 下 37 份文档，学习曲线"入门平缓、用好偏陡"</td>
+</tr>
+</tbody>
+</table>
+<p><strong>总分：8.5 / 10</strong> → 上手难度等级 🟢 <strong>简单</strong></p>
+<h4>分析</h4>
+<p><strong>优势（支撑高分的事实）</strong></p>
+<ol>
+<li><strong>安装接近"零成本"</strong>：实测 <code>dependencies</code> 为空、无 Dockerfile、无系统级依赖，源码仅 916 行 Python（2 个文件）+ 大量 Markdown 技能定义。安装动作退化为一条 <code>npx skills add</code> 命令，或各平台一条插件安装命令，且同时给出 update / uninstall 命令，闭环完整。</li>
+<li><strong>不存在"部署"环节</strong>：项目不是服务，不涉及数据库/缓存/消息队列初始化、不需要端口与网络配置、不需要多组件编排，配置项为零。这对商业化试用转化是显著利好——从"看到项目"到"跑出结果"只有一条命令之隔。</li>
+<li><strong>平台覆盖广且跨平台</strong>：技能为纯 Markdown，天然跨 Windows/macOS/Linux；Skills CLI 覆盖 77+ agent，四个主流平台另有原生插件安装器，并有项目级安装替代方案（<code>.agents/skills/</code> 或 <code>.claude/skills/</code>）。</li>
+<li><strong>使用门槛被"命令化"到极致</strong>：五类操作全部是一个斜杠命令，语义即操作名（write/review/refactor/recreate），不需要领域参数；文档提供英/繁中/简中三语 README。</li>
+</ol>
+<p><strong>不足（扣分点）</strong></p>
+<ol>
+<li><strong>无 quickstart 与示例</strong>：实测示例文件为 0，README 没有 demo 脚本、没有安装后的验证脚本、没有输入/输出样例，"10 分钟跑通 demo"缺乏官方可执行路径，用户只能自备文本试跑。</li>
+<li><strong>前置环境仍是一道坎</strong>：需要用户已经拥有并配置好 Claude Code / Codex / Grok Build / Antigravity 或任一 Skills CLI 兼容 agent；这一前置门槛把非技术人群挡在门外，也意味着"非开发人员可独立完成部署"不成立。</li>
+<li><strong>文档概念密度偏高</strong>：README 面向读者是懂写作与 AI 文本检测的进阶用户（StoryScope、LAMP、register、discourse pass、model fingerprint 等），要真正用好需要阅读 <code>research/</code>（11 份）与 <code>references/</code> 下的域规则与 rubric 文档，属于"装得上很快、用得好要读"。</li>
+<li><strong>错误处理无自研层</strong>：技能运行在宿主 agent 内，出错信息由宿主决定，项目未见定制化错误提示或修复建议；文档中反而列出若干硬限制（wrapper 不可单独安装、四平台外行为未验证、入口行为未逐平台核验），降低了首次体验的确定性。</li>
+</ol>
+<h4>结论</h4>
+<p>sepia 的上手难度处于 <strong>🟢 简单档（8.5/10）</strong>：安装是一条命令、零依赖、零服务部署、零配置，操作被压缩为几个语义化斜杠命令，且免费无需账号，试用转化门槛极低，构成明显的商业化推广优势。唯一实质短板在于<strong>缺少 quickstart、演示脚本与示例文本</strong>，以及<strong>依赖用户已有的 agent 环境</strong>——这使"第一次成功"容易达成，但"第一次用好"仍需自行阅读密度较高的研究型文档。综合判断：对目标受众（使用 Claude Code / Codex 等 agent 的写作者与内容团队）上手障碍很低；对完全没有 agent 环境的纯业务人员，则需先跨过环境前置门槛。</p>
+<h3>D10 功能价值（使用价值视角）</h3>
+<blockquote>
+<p>平行维度，权重 0%，不计入综合评分。评估 sepia 为使用者创造的效用总量——不问谁愿意付费，只问用它的人省了多少。</p>
+</blockquote>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10.1</td>
+<td>效用强度</td>
+<td>3</td>
+<td>1.8</td>
+<td>5–6 档（60%）</td>
+</tr>
+<tr>
+<td>D10.2</td>
+<td>实际使用规模</td>
+<td>3</td>
+<td>N/A</td>
+<td>数据缺失，无可用实采源</td>
+</tr>
+<tr>
+<td>D10.3</td>
+<td>免费可得的完整效用</td>
+<td>2</td>
+<td>2.0</td>
+<td>9–10 档（100%）</td>
+</tr>
+<tr>
+<td>D10.4</td>
+<td>效用可持续性</td>
+<td>2</td>
+<td>1.6</td>
+<td>7–8 档（80%）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td><strong>5.4 / 7（剔除 N/A 后等比缩放）</strong></td>
+<td><strong>≈ 7.7 / 10</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>N/A 处理：D10.2 因「无任何可实采的使用规模计量」标记 N/A，从满分中剔除，剩余 7 分等比缩放至 10 分制。本维度置信度相应下降，使用规模结论为空缺。</p>
+</blockquote>
+<h3>逐项判断依据</h3>
+<h4>D10.1 效用强度 —— 1.8 / 3（5–6 档）</h4>
+<ul>
+<li><strong>单用户节省量</strong>：sepia 交付的是一套写作/改稿协议（三遍改写：叙事架构 → 语篇流 → 表层风格）+ 30 项诊断 rubric + 分领域规则文件。对专业写作者（release note、PR 回复、postmortem、ticket、技术文章）与虚构写作者，节省的是「反复润色与自我诊断」的时间，量级在<strong>单篇数十分钟到数小时</strong>，而非持续性的成本项。</li>
+<li><strong>效用层级</strong>：属<strong>工具级</strong>而非项目级依赖。916 行代码中主体是 markdown 技能与参考文档，用户随时可以卸载、替换或改用自己的提示词；不存在「移除后系统不可用」的场景。不构成业务命脉级基础设施。</li>
+<li><strong>效用确定性</strong>：中等偏弱。README 自述对四个原生平台仅验证到「安装完成、条目出现」，「条目是否按文档行为运作并未逐平台验证」；行为证据仅为单个 eval 用例（<code>evals/deaify-release-note</code>）。其规则有效性建立在引用的 StoryScope（61,608 篇故事、93.2% macro-F1 叙事结构检测）等研究之上，<strong>证据链是文献级的，不是本项目的实测效果级</strong>。同时效用高度依赖宿主模型是否服从 markdown 指令，且随模型迭代（vendors 的指纹持续变化）而漂移。</li>
+<li><strong>综合</strong>：明确但有限的效率提升，且替代成本低（同生态存在大量 humanizer 提示词/技能，底层模型自身能力也在提升）。落在「5–6 档」上沿。</li>
+</ul>
+<h4>D10.2 实际使用规模 —— N/A</h4>
+<ul>
+<li>GitHub Dependents（Used by）：<strong>无数据</strong>；sepia 作为技能包/插件而非库，不存在依赖方关系。</li>
+<li>包管理下载量：npm 周下载 <strong>N/A</strong>、PyPI 月下载 <strong>N/A</strong>（实采均取不到）。分发渠道为 <code>npx skills add</code>、各平台 plugin marketplace（Claude Code / Codex / Grok Build / Antigravity），<strong>均不公开计数</strong>。</li>
+<li>生产采用证据：README 未列出任何用户案例或生产环境使用报道；无公开采用报道。</li>
+<li>可观测的注意力信号（<strong>不可用作使用规模计分</strong>，仅作背景）：Star 2,583、Fork 165、贡献者 5 人，项目创建于 2026-08-28，实存续仅约两周。</li>
+<li>依据防幻收规则（禁止凭记忆/估算填写下载量与依赖数），本细则标记 <strong>N/A</strong>，不做打分。</li>
+</ul>
+<h4>D10.3 免费可得的完整效用 —— 2.0 / 2（9–10 档）</h4>
+<ul>
+<li><strong>开源版完整性</strong>：MIT 协议，仓库内即全部能力——技能本体 <code>skills/sepia/</code>、五条操作包装（write / review / refactor / recreate / hemingway）、rubric、per-model fingerprints、领域规则、中文校准、<code>research/</code> 证据库，全部公开。<strong>无企业版、无功能分层、无付费墙</strong>。</li>
+<li><strong>自托管完整性</strong>：技能以纯 markdown 形式在用户自己的 agent 会话内本地运行，不存在「官方托管版」这一付费形态，「自托管」与「使用」在本项目中本就是同一件事（<code>commit skills/sepia/</code> 到仓库即可 project scope 固定）。</li>
+<li><strong>无隐性收费</strong>：README 明确「You can use sepia for free without an account. The research behind every rule is open.」唯一资金入口为 Patreon 捐赠，且捐赠对应的是维护者时间与模型配额（文献调研、A/B 测试），<strong>不换取任何功能</strong>。</li>
+<li><strong>与 D4.3 的对照</strong>：本项满分与 D4.3 付费转化逻辑天然反相关——sepia 的「使用价值全量免费」正对应其「交换价值通道近乎为零」。这是价值结构的正常张力，非评分矛盾：作为开源资产，使用者获得的是近乎无摩擦的完整效用；作为商业项目，可捕获的付费意愿极低。</li>
+</ul>
+<h4>D10.4 效用可持续性 —— 1.6 / 2（7–8 档）</h4>
+<ul>
+<li><strong>停维后效用存续</strong>：核心资产是纯 markdown + 916 行 Python（2 个源文件），一旦克隆即永久可用，不依赖任何在线服务端。停维后已安装用户<strong>不会立即归零</strong>。</li>
+<li><strong>供应商锁定</strong>：无闭源专有组件、无云服务依赖、无遥测后端；<code>dependencies: {}</code>（零第三方依赖）。但存在两层<strong>外部耦合</strong>：(1) 效用需经由第三方 agent 平台（Claude Code / Codex / Grok Build / Antigravity / Skills CLI）的 Skill 加载机制才能兑现，平台规范变动会削弱可用性；(2) 其规则针对的是各厂商当前模型的语言指纹，模型迭代会使规则<strong>逐渐失效</strong>，属于需要持续维护才保值的一类效用。</li>
+<li><strong>可分叉维护性</strong>：MIT 协议允许自由分叉；构建可重现（CI 含 <code>behavioral-eval.yml</code> 与 <code>version-consistency.yml</code> 两个工作流，547 行测试 / 59.7% 测试占比在同类技能包中偏高）；文档 37 份、含多语言 README 与 <code>CONTRIBUTING.md</code>，分叉门槛低。</li>
+<li><strong>综合</strong>：主体本地化、可自由分叉，扣分点在于「效用保鲜依赖持续跟进模型变化」与「兑现依赖第三方平台规范」，未达「无任何外部依赖、长期存续」的满档。</li>
+</ul>
+<h3>结论</h3>
+<p><strong>D10 功能价值 ≈ 7.7 / 10（剔除 N/A 细则后缩放；置信度中等偏下）</strong></p>
+<p>sepia 的使用价值画像呈<strong>「效用免费度极高、效用强度中等、效用规模未知」</strong>的形态：</p>
+<ol>
+<li><strong>免费可得的完整效用是本项目的最强项（满分）</strong>。MIT + 无付费墙 + 无托管版差异，使用者拿到的就是全部价值，无任何功能阉割或隐性收费。这与 D4.3 的付费转化判断构成直接互补——价值全部沉淀在使用者一侧，可交换的部分留给了捐赠。</li>
+<li><strong>效用强度温和且被替代成本低</strong>。它解决的是「AI 味」这一真实但软性的质量问题，属于工具级效率提升；有效性证据来自文献引用而非项目自身的规模化实测（仅 1 个 eval 用例，且 README 自述未逐平台验证行为），效用确定性打折。</li>
+<li><strong>可持续性良好但需保鲜</strong>。纯 markdown + 零依赖 + MIT 可分叉，停维不会让现有用户立刻失效；但规则的有效性锚定在「当前模型的指纹」上，是随模型迭代折旧的资产。</li>
+<li><strong>使用规模是核心信息缺口</strong>。无 dependents、无下载计数、无用户案例，2,583 Star / 165 Fork 仅反映短期注意力（项目实存续约两周），不能换算为使用量。该空缺导致本维度在「效用总量」上的结论只能定性，不能定量，报告其余部分若需引用使用规模，应以 N/A 处理而非以 Star 折算。</li>
+</ol>
+<p><strong>使用建议式定位</strong>：对目标用户（写虚构作品的作者、需要写 release note / postmortem / PR 回复的工程师），sepia 是<strong>零成本可试、无锁定可弃、有一定方法论深度</strong>的效率工具；它不是可被依赖的基础设施，其长期价值取决于维护者能否跟上模型演进。</p>
+<h3>D11 社会价值——正外部性评估</h3>
+<blockquote>
+<p><strong>维度定位说明</strong>：本维度为平行维度（权重 0%，不计入综合评分与一票否决），仅用于 3.4 价值画像。与 D3.4（品牌影响力对商业势能的助力）相区分，本节只评估项目对使用者之外的行业与社会的外溢贡献。</p>
+</blockquote>
+<h3>生态位与事实基线</h3>
+<p>sepia 是一个纯 markdown 形态的 <strong>Agent Skill</strong>（附 916 行 Python 辅助代码），通过 Agent Skills 开放规范分发，Skills CLI 覆盖 77+ 种 agent，另为 Claude Code / Codex / Grok Build / Antigravity 提供原生插件封装。它是一个<strong>终端用户工具</strong>而非被引用的库：运行时依赖列表为空，不存在包管理器意义上的下游依赖，停摆不会破坏任何软件供应链。项目另附 <code>research/</code> 目录（15 篇论文摘要 + 引文清单）与三语 README（英 / 繁中 / 简中）。</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>档位</th>
+<th>小分</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D11.1 数字公共基础设施属性</td>
+<td>3</td>
+<td>3–4 档（40%）</td>
+<td><strong>1.2</strong></td>
+<td>无包管理依赖、无下游代码调用，属终端用户工具而非「数字底座」；停摆仅使使用者失去一个写作辅助技能，供应链波及面近零。具备开放（MIT）、可复用、无账号免费等 DPG 形式特征，但缺乏基础设施性</td>
+</tr>
+<tr>
+<td>D11.2 教育与人才价值</td>
+<td>2.5</td>
+<td>5–6 档（60%）</td>
+<td><strong>1.5</strong></td>
+<td><code>research/</code> 系统性消化 StoryScope、LAMP、Measuring AI Slop 等 15 篇论文并转为可执行规则，具知识传播属性；但无外部课程/教程采用证据，非行业教材，学习价值主要限于「AI 写作检测」这一小众方向</td>
+</tr>
+<tr>
+<td>D11.3 普惠与可及性</td>
+<td>2.5</td>
+<td>7–8 档（80%）</td>
+<td><strong>2.0</strong></td>
+<td>README 明示「free without an account」，MIT 开源；商业 humanizer 多为订阅制；三语 README + <code>references/languages/zh.md</code> 中文语料校准（HC3 语料），覆盖英文外的中文写作人群；纯文本技能无硬件门槛。扣分项：使用门槛仍依赖一个有能力的 LLM agent，未真正做到零成本普惠</td>
+</tr>
+<tr>
+<td>D11.4 开放标准与行业推动</td>
+<td>2</td>
+<td>5–6 档（60%）</td>
+<td><strong>1.2</strong></td>
+<td>严格实现 Agent Skills 开放规范，单一 canonical <code>SKILL.md</code>、无 per-platform fork，明确反对碎片化，对新兴开放标准的落地有支撑价值；但属于标准<strong>遵循者/消费者</strong>而非定义者，无学术引用支撑（项目新，引用检索不可得），未见同行模仿的直接证据</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td></td>
+<td><strong>5.9</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<p><strong>D11 = 5.9 / 10（一般，正外部性中等偏上但非基础设施级）</strong></p>
+<ul>
+<li><strong>强项在普惠与开放</strong>：MIT + 免费无账号 + 三语文档 + 中文语料校准，把一个原本被订阅制 humanizer 商业化的能力以零边际成本释放；对中文写作人群的覆盖在同赛道竞品（unslop 410★、longzu.skillls 9★、deai 3★）中较为突出，是该项目社会价值的主要来源。</li>
+<li><strong>弱项在「公共基础设施」属性</strong>：这是一个可被同类 skill 快速替代的终端工具，不存在 curl/OpenSSL 式下游依赖，也不产生标准定义权。其正外部性更接近「公共知识产品 + 教育素材」，而非「数字底座」。</li>
+<li><strong>教育价值的独特性</strong>：<code>research/</code> 目录是本项目区别于所有竞品的社会价值资产——把学术论文的测量结论（叙事结构特征 93.2% macro-F1 可判别 AI 小说、表层改写仅使检测率下降 1.6pt）转为工程规则，对「AI 写作痕迹」这一新兴研究议题有科普与落地示范作用，但尚未形成教学采用规模。</li>
+<li><strong>置信度提示</strong>：<code>依赖计数</code>、<code>npm/pypi 下载量</code>、<code>论文引用</code>均不可得（N/A 相关项已在硬事实中标注），D11.4 的科研支撑考察点数据缺失，该细则评分基于规范实现事实推定，置信度中等。</li>
+</ul>
+<h2>五、商业化价值判断</h2>
+<h3>5.1 综合判断</h3>
+<p>sepia 的综合评分为 <strong>67.6/100，等级 A（高商业化潜力）</strong>，但这一分数的结构极不均衡：<strong>产品力、合规性、易用性三项（D2 7.7 / D6 8.0 / D9 8.5）构成高分底盘，而商业模式（D4 4.7）与团队治理（D8 5.5）构成明显拖累</strong>。加权公式中权重最高的 D4（18%）恰恰是得分最低的维度之一，这意味着项目的商业化短板不是边缘问题，而是位于价值转化的主干道上。</p>
+<h3>5.2 价值画像判定：💼 纯商业工具（临界）</h3>
+<ul>
+<li>综合评分 67.6 ≥ 65，公共价值分 6.8 &lt; 7 → 判定为 <strong>💼 纯商业工具</strong></li>
+<li><strong>画像临界标注</strong>：公共价值分 6.8 落在 6.5–7.5 临界区间。两种画像的路径差异如下：</li>
+<li>若按「纯商业工具」处理：按 D4 最优路径直接变现——但 D4 的实测结论是 Open Core / SaaS / 双协议三条主流路径同时失效，直接变现缺乏抓手。</li>
+<li>若按「公共产品型」处理：走影响力变现（赞助/基金会托管/大厂雇佣维护者/生态服务与培训）——这与项目当前唯一落地的 Patreon 捐赠模式、以及 D11 中「普惠与可及性为本维最强项（2.0/2.5）」的事实更为吻合。</li>
+<li><strong>本报告倾向</strong>：鉴于 D4.2 变现路径清晰度仅 1.4/3.5、D4.3 付费转化逻辑仅 0.5/2.5，项目在「直接变现」方向上的现实抓手远弱于「影响力变现」方向。虽然画像判定为纯商业工具，第六章路径建议将同时保留两条路线并说明取舍。</li>
+</ul>
+<h3>5.3 价值判断的核心矛盾</h3>
+<p>项目呈现一组鲜明的反相关：</p>
+<table>
+<thead>
+<tr>
+<th>强项（价值创造侧）</th>
+<th>弱项（价值捕获侧）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D9 8.5：单命令安装、零依赖、零配置</td>
+<td>D4.3 0.5：无功能门禁、无用量上限、无企业版</td>
+</tr>
+<tr>
+<td>D6 8.0：MIT 全文规范、零传染依赖</td>
+<td>D4.2 1.4：无闭源模块可分层、无服务端可收费</td>
+</tr>
+<tr>
+<td>D10.3 2.0/2.0：免费可得的完整效用满分</td>
+<td>D4.1 2.0：协议零约束但未兑换为任何商业路径</td>
+</tr>
+<tr>
+<td>D2 7.7：内容分层架构优秀、文档质量高于同类</td>
+<td>D4.4 0.8：增值空间与定价天花板双低</td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：sepia 是一个「把价值全部让渡给使用者」的项目——MIT 协议、无账号、无付费层、Fork 即完整获取全部价值（Fork/Star 比 6.4%），转化漏斗被结构性短路。其商业化潜力等级 A 更多来自产品与合规底盘，而非变现通道的成熟度。</p>
+<h2>六、商业路径分析</h2>
+<h3>6.1 路径可行性矩阵</h3>
+<p>基于 D4 实测事实，对主流变现路径逐一评估：</p>
+<table>
+<thead>
+<tr>
+<th>路径</th>
+<th>可行性</th>
+<th>依据（来自评分卡）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Open Core（开源核心 + 闭源增值）</td>
+<td>❌ 失效</td>
+<td>交付物为 37 个 Markdown 文档 vs 仅 2 个 Python 源文件（916 行），无闭源模块可分层</td>
+</tr>
+<tr>
+<td>SaaS / 托管服务</td>
+<td>❌ 失效</td>
+<td>纯本地部署，无服务端可收费；LLM 推理成本完全由用户侧承担，项目方不持有推理链路</td>
+</tr>
+<tr>
+<td>双协议 / 专有授权</td>
+<td>❌ 失效</td>
+<td>无 CLA、无 DCO，版权分散于 5 位贡献者，双协议路径需先补齐 CLA</td>
+</tr>
+<tr>
+<td>per-usage 计费</td>
+<td>❌ 失效</td>
+<td>项目方不持有推理链路，排除按用量计费可能</td>
+</tr>
+<tr>
+<td>捐赠（Patreon）</td>
+<td>⚠️ 已落地但不可规模化</td>
+<td>唯一落地渠道；方法论附录明确该模式通常不可规模化（Vue.js 参照量级约 $1M+/年）</td>
+</tr>
+<tr>
+<td>知识付费（课程/图书/专栏）</td>
+<td>⚠️ 潜在但无证据</td>
+<td>以 StoryScope 及多项 2025–2026 研究为方法论底座，具备知识付费资产禀赋；但属维护者个人 IP 而非项目商业模式，且无任何实施证据</td>
+</tr>
+<tr>
+<td>影响力变现（赞助/基金会托管/大厂雇佣/生态服务培训）</td>
+<td>⚠️ 未验证</td>
+<td>与 D11 普惠属性、Patreon 现状吻合，但项目无基金会隶属、无企业采用或背书证据</td>
+</tr>
+</tbody>
+</table>
+<h3>6.2 路径建议</h3>
+<p><strong>首选路径（若坚持商业化）</strong>：将项目资产从「技能包」向「方法论 IP + 服务」迁移。项目真正的差异化资产不是 916 行 Python，而是 37 份 research 文档所沉淀的叙事学与语篇分析规则体系（D2.1 创新性、D5.2 差异化定位均指向此处）。可变现形态包括：面向专业写作者/内容团队的规则定制与咨询、围绕方法论体系的课程与专栏、企业级写作规范的规则库授权。</p>
+<p><strong>次选路径（若维持开源）</strong>：走影响力变现——争取基金会托管或大厂雇佣维护者，以 D3.3 已具备的 77+ agent 分发通道与四平台原生插件（Claude Code / Codex / Grok Build / Antigravity）作为生态位筹码。</p>
+<p><strong>不建议路径</strong>：直接套用 Open Core / SaaS / 双协议模板——三条路径均因交付物形态（纯 Markdown 规则 + 零依赖本地技能包）而结构性失效。</p>
+<h3>6.3 路径前置条件</h3>
+<p>无论选择哪条路径，均需先补齐以下前置条件（详见第八章）：</p>
+<ol>
+<li>项目年龄仅约 14 天，全部活跃度指标属发布期速率外推，长期可持续性未验证（D3 置信度中等）</li>
+<li>贡献者仅 5 人、个人命名空间、无 CODEOWNERS，社区高度依赖核心作者（D3.2 1.5/2.5、D8.1 1.5/2.5）</li>
+<li>零资金支持，behavioral eval 依赖维护者个人 Claude 凭据与订阅配额，不可复现、不可接管（D7.3、D8.3 1.0/2.5）</li>
+</ol>
+<h2>七、能力评估：能做什么 &amp; 最适合做什么</h2>
+<h3>7.1 项目当前已具备的能力</h3>
+<table>
+<thead>
+<tr>
+<th>能力项</th>
+<th>实测证据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>跨平台分发能力</td>
+<td>单份 canonical SKILL.md 通过 Skills CLI 覆盖 77+ agent，另有 4 个原生插件包（Claude Code / Codex / Grok Build / Antigravity）</td>
+</tr>
+<tr>
+<td>内容分层架构能力</td>
+<td>6 个技能 × (style/narrative/discourse/professional pass) × 5 类 domain × language × voice registry，四维正交解耦</td>
+</tr>
+<tr>
+<td>方法论差异化能力</td>
+<td>以 StoryScope(arXiv:2604.03136) 实测的叙事结构特征（macro-F1 93.2%）为依据，把去 AI 味下沉到叙事架构层；提供 model-fingerprints 模型指纹识别</td>
+</tr>
+<tr>
+<td>极低门槛交付能力</td>
+<td>单命令安装（npx skills add Nanako0129/sepia -g）、零外部依赖、零配置项、无 Dockerfile、无数据库/缓存/消息队列</td>
+</tr>
+<tr>
+<td>质量保障能力</td>
+<td>37 份文档、README 三语（en/zh-CN/zh-TW）、547 行测试（test_ratio 0.597）、2 条 CI（behavioral-eval.yml 带基线对照臂与 0.7 阈值、version-consistency.yml 防版本漂移）</td>
+</tr>
+<tr>
+<td>合规清洁度</td>
+<td>MIT 全文规范、SPDX 标识清晰、零第三方代码依赖、无 GPL/AGPL 传染链</td>
+</tr>
+</tbody>
+</table>
+<h3>7.2 最适合做什么</h3>
+<p><strong>最适合</strong>：作为<strong>个人写作者与小型内容团队的写作质量增强层</strong>，在已有 Agent 环境（Claude Code / Codex / Grok Build / Antigravity 或 Skills CLI 兼容 agent）中即装即用，处理虚构写作的叙事架构修复与专业写作的场合匹配。</p>
+<p><strong>最适合的落地场景</strong>（依据 D1.1 行业落点）：
+- 媒体内容生产中的文本去同质化
+- 教育培训场景的写作教学与范文诊断
+- 软件研发文档的专业语体校准</p>
+<p><strong>不适合</strong>：
+- 需要企业级安全合规背书（无 SECURITY.md、无漏洞披露流程、无数据外发/隐私处置说明）的组织采购场景
+- 需要效果量化验证与 SLA 保障的生产环境（无指标、无健康检查、无结构化日志、无面向使用者的效果度量）
+- 非技术用户独立部署（前置门槛为需已具备兼容 agent 环境，通用路线还需 npx）</p>
+<h3>7.3 能力边界</h3>
+<p>项目的核心能力边界在于：<strong>它是规则/提示层方案，最终输出质量依赖执行模型</strong>（D1.2），项目内无检测器反馈闭环，效果难以量化验证；且 per-model 指纹绑定具体型号（Claude Fable 5.1/Mythos 5.1、GPT-5.6、GPT-6 Astra 等），随模型迭代快速过时（D5.3）。</p>
+<h2>八、短板识别：还缺少什么</h2>
+<h3>8.1 一级短板（阻塞商业化）</h3>
+<p><strong>① 变现通道结构性缺失（D4 = 4.7，权重 18%）</strong></p>
+<ul>
+<li>无企业版、无付费层、无定价页、无商业实体披露</li>
+<li>README 明确 "You can use sepia for free without an account"，付费版与免费版功能完全等同</li>
+<li>交付物形态（37 个 Markdown 文档 vs 2 个 Python 文件）导致 Open Core / SaaS / 双协议三条主流路径同时失效</li>
+<li>Fork 即完整获取全部价值，转化漏斗被结构性短路</li>
+</ul>
+<p><strong>② 团队与治理单点集中（D8 = 5.5）</strong></p>
+<ul>
+<li>个人开发者主导，仓库归属 Nanako0129 个人账号，无组织/公司实体</li>
+<li>贡献者仅 5 人，无 CODEOWNERS，组织多样性近乎为零</li>
+<li>零资金支持（无 GitHub Sponsors / Open Collective / VC / 公司实体）</li>
+<li>无 GOVERNANCE.md、无路线图、不隶属任何基金会</li>
+<li>CONTRIBUTING.md 要求所有非平凡改动须先获维护者明确同意，决策与知识单点集中</li>
+</ul>
+<h3>8.2 二级短板（限制规模化）</h3>
+<p><strong>③ 项目历史极短，长期可持续性未验证（D3 置信度中等）</strong></p>
+<ul>
+<li>项目年龄仅约 14 天，全部活跃度指标（Star 增速 ~5,535/月为退化公式外推）属发布期速率外推</li>
+<li>最新版本 v0.10.0 未达 1.0，10 个 release 集中在 13 天内，无向后兼容承诺</li>
+<li>无 CHANGELOG.md，无破坏性变更说明与回滚路径文档</li>
+</ul>
+<p><strong>④ 企业就绪度缺口（D7 = 6.6）</strong></p>
+<ul>
+<li>无 SECURITY.md、无漏洞披露流程、无数据外发/隐私处置说明，企业安全问卷存在硬缺口</li>
+<li>唯一质量闸门 behavioral-eval 依赖维护者个人 Claude 订阅额度与早期访问开关 CLAUDE_CODE_WALNUT_SPIRE，不可复现、不可接管</li>
+<li>可观测性完全缺位：无指标、无健康检查、无结构化日志、无面向使用者的效果度量</li>
+</ul>
+<p><strong>⑤ 技术壁垒薄弱（D5.2 = 1.8/3）</strong></p>
+<ul>
+<li>916 行 Python + Markdown 技能文件全部 MIT 开源，无专利/数据壁垒，可整目录复制</li>
+<li>无网络效应与规模效应，voice 生态接口仍标注 experimental</li>
+<li>切换成本接近零：单命令安装卸载、无账户、无用户数据留存</li>
+<li>per-model 指纹绑定具体型号，随模型迭代快速过时；宿主 Agent 平台可能原生内建 humanizer 能力形成降维替代</li>
+</ul>
+<h3>8.3 三级短板（体验与合规细节）</h3>
+<p><strong>⑥ 上手体验的最后一公里（D9 主要短板）</strong></p>
+<ul>
+<li>示例文件为 0，无 quickstart/demo 脚本、无输入输出样例、无交互式引导</li>
+<li>README 概念密度高（三遍协议、30 项 rubric、模型指纹、校准原则），用好需阅读 37 份文档</li>
+<li>README 自述四平台外运行时行为与入口行为均未逐平台验证</li>
+</ul>
+<p><strong>⑦ 安全与合规细节缺口</strong></p>
+<ul>
+<li>无 SECURITY.md、无 CODEOWNERS、未集成 Dependabot/Snyk/Trivy 等扫描</li>
+<li>无 CLA、无 DCO 签署要求，版权分散于 5 位贡献者</li>
+<li>商标与专利完全未经人工核查（trademark_search_performed = false、patent_search_performed = false），置信度低</li>
+<li>可见风险信号：项目名 sepia 显著性弱、skills/sepia-hemingway 以第三方知名品牌/人物命名、仓库无任何商标使用政策</li>
+<li>核心资产（37 个文档型规则文件）大量衍生自第三方论文与外部来源，MIT 无法为衍生表达的权属背书，需逐文件来源审计</li>
+<li>CI 行为评估依赖维护者 Claude 凭据，README 内含 credential-bearing 的 Star History sealed_token</li>
+</ul>
+<p><strong>⑧ 使用规模数据缺失（D10.2 = N/A）</strong></p>
+<ul>
+<li>无 GitHub Dependents、无 npm/PyPI 下载计数（实采均 N/A）、分发渠道不公开计数、README 无用户案例</li>
+<li>2,583 Star / 165 Fork 仅为项目存续约两周的短期注意力信号，不可折算为使用量</li>
+</ul>
+<h2>九、风险提示</h2>
+<h3>9.1 高风险</h3>
+<table>
+<thead>
+<tr>
+<th>风险项</th>
+<th>说明</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>变现路径失效风险</strong></td>
+<td>三条主流变现路径（Open Core / SaaS / 双协议）同时结构性失效，唯一落地渠道 Patreon 捐赠方法论上不可规模化</td>
+<td>D4.2 = 1.4/3.5、D4.3 = 0.5/2.5、D4.4 = 0.8/2</td>
+</tr>
+<tr>
+<td><strong>单点依赖风险</strong></td>
+<td>个人账号 + 5 位贡献者 + 无 CODEOWNERS + 零资金支持；behavioral eval 依赖维护者个人凭据与订阅配额，不可接管</td>
+<td>D8.1 = 1.5/2.5、D8.3 = 1.0/2.5、D7.3</td>
+</tr>
+<tr>
+<td><strong>平台降维替代风险</strong></td>
+<td>宿主 Agent 平台可能原生内建 humanizer 能力，形成降维替代</td>
+<td>D5.3 = 0.8/2</td>
+</tr>
+</tbody>
+</table>
+<h3>9.2 中风险</h3>
+<table>
+<thead>
+<tr>
+<th>风险项</th>
+<th>说明</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>模型迭代折旧风险</strong></td>
+<td>per-model 指纹绑定具体型号（Claude Fable 5.1/Mythos 5.1、GPT-5.6、GPT-6 Astra 等），随模型迭代快速过时</td>
+<td>D5.3、D10.4</td>
+</tr>
+<tr>
+<td><strong>监管与平台政策逆风</strong></td>
+<td>产品定位为 De-AI writing/humanizer，在学术、招聘、内容平台场景可能与目标平台服务条款及 AI 内容披露要求冲突</td>
+<td>D6 非 IP 类合规提示、D1.3</td>
+</tr>
+<tr>
+<td><strong>项目存续未验证风险</strong></td>
+<td>项目年龄仅约 14 天，长期存续与接管机制未经验证；全部活跃度指标属发布期速率外推</td>
+<td>D3、D8.4</td>
+</tr>
+<tr>
+<td><strong>知识产权权属风险</strong></td>
+<td>37 个文档型规则文件大量衍生自第三方论文与外部来源，MIT 无法为衍生表达背书；商标与专利未经人工核查</td>
+<td>D6.2、D6.3 = 1.5/2.5</td>
+</tr>
+<tr>
+<td><strong>效果不可验证风险</strong></td>
+<td>规则/提示层方案，输出质量依赖执行模型，无检测器反馈闭环；仅 1 个 eval 用例，0.7 阈值仅容忍一次抖动</td>
+<td>D1.2、D2.8</td>
+</tr>
+</tbody>
+</table>
+<h3>9.3 低风险</h3>
+<table>
+<thead>
+<tr>
+<th>风险项</th>
+<th>说明</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>供应链风险</strong></td>
+<td>零第三方代码依赖，无 GPL/AGPL 传染链，依赖合规成本趋零</td>
+<td>D6.2 = 2.5/2.5</td>
+</tr>
+<tr>
+<td><strong>运维与数据迁移风险</strong></td>
+<td>纯静态技能包，无服务进程、无数据库、运行时零依赖，运维负担结构性趋近于零</td>
+<td>D7.1 = 2.4/3</td>
+</tr>
+<tr>
+<td><strong>协议合规风险</strong></td>
+<td>MIT 全文规范、SPDX 标识清晰、无 Commons Clause/BUSL 等商业附加条款</td>
+<td>D6.1 = 2.4/3</td>
+</tr>
+</tbody>
+</table>
+<h3>9.4 一票否决检查结论</h3>
+<p><strong>未触发任何否决项</strong>：D6 维度总分 8.0（&gt; 3）、D8.4 小分 1.8（&gt; 1）、D4.1 小分 2.0（&gt; 0.5）。三项检查均完整执行，无因分析失败导致的 N/A 跳过，无「一票否决检查不完整」标注。</p>
+<h2>十、结论与建议</h2>
+<h3>10.1 结论</h3>
+<p>sepia 是一个<strong>产品力强、合规清洁、上手极简，但变现通道结构性缺失</strong>的早期开源项目。综合评分 <strong>67.6/100，等级 A（高商业化潜力）</strong>，价值画像为 <strong>💼 纯商业工具（公共价值分 6.8，处于 6.5–7.5 临界区间）</strong>。</p>
+<p>需要特别指出的是：<strong>A 级评分主要由产品力（D2 7.7）、合规性（D6 8.0）、易用性（D9 8.5）三项支撑，而非变现能力</strong>。权重最高的 D4（18%）仅得 4.7 分，是全部九维中的最低分。这意味着「高商业化潜力」的评级应理解为「具备商业化的产品基础」，而非「已具备商业化的通道条件」。</p>
+<p>项目的核心资产不是 916 行 Python 代码，而是 37 份 research 文档沉淀的叙事学与语篇分析规则体系，以及通过 Skills CLI 触达 77+ agent 的分发通道。核心风险是项目年龄仅约 14 天、贡献者仅 5 人、零资金支持，长期可持续性完全未经验证。</p>
+<h3>10.2 建议</h3>
+<p><strong>若目标是商业化变现</strong>：</p>
+<ol>
+<li><strong>优先补齐 CLA/DCO</strong>（D6.4 = 1.6/2）——这是双协议/专有授权路径的前置条件，当前版权分散于 5 位贡献者，不补齐则任何授权路径均不可行。</li>
+<li><strong>将资产从「技能包」向「方法论 IP + 服务」迁移</strong>——围绕 37 份 research 文档的规则体系做定制咨询、课程专栏、企业写作规范规则库授权，而非试图在技能包本身上做 Open Core 分层。</li>
+<li><strong>建立效果度量能力</strong>——当前无指标、无健康检查、无面向使用者的效果度量，仅 1 个 eval 用例。这是企业客户采购的硬门槛，也是定价的依据来源。</li>
+</ol>
+<p><strong>若目标是维持开源影响力</strong>：</p>
+<ol>
+<li><strong>补齐治理结构</strong>——增加 CODEOWNERS、GOVERNANCE.md、SECURITY.md，降低单点依赖（D8.2 = 1.2/2、D7.2 = 1.0/2.5）。</li>
+<li><strong>争取基金会托管或大厂雇佣维护者</strong>——以 77+ agent 分发通道与四平台原生插件作为生态位筹码，走影响力变现路线。</li>
+<li><strong>补充示例与 quickstart</strong>——当前 example_files = 0，是 D9 唯一的实质短板，补齐成本低、收益直接。</li>
+</ol>
+<p><strong>无论哪条路径，均需优先处理</strong>：</p>
+<ul>
+<li><strong>逐文件来源审计</strong> 37 个文档型规则文件，确认衍生自第三方论文与外部来源的内容权属（D6.2）</li>
+<li><strong>复核并轮换</strong> README 中 credential-bearing 的 Star History sealed_token，以及 CI 中依赖维护者个人 Claude 凭据的权限配置（D6、D7.3）</li>
+<li><strong>商标核查</strong>——项目名 sepia 显著性弱、skills/sepia-hemingway 以第三方知名品牌/人物命名、仓库无商标使用政策（D6.3 = 1.5/2.5，未经人工核查，置信度低）</li>
+</ul>
+<p><strong>不建议</strong>：在项目年龄仅约 14 天、贡献者仅 5 人、零资金支持的当前状态下立即投入重资产商业化。建议先以 3–6 个月为观察窗口，验证 Star 增速（当前 ~5,535/月为退化公式外推）与贡献者结构是否可持续，再决定投入力度。</p>
+<h2>十一、项目地址</h2>
+<p><svg class="ri ri-muted" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.001 2C6.47598 2 2.00098 6.475 2.00098 12C2.00098 16.425 4.86348 20.1625 8.83848 21.4875C9.33848 21.575 9.52598 21.275 9.52598 21.0125C9.52598 20.775 9.51348 19.9875 9.51348 19.15C7.00098 19.6125 6.35098 18.5375 6.15098 17.975C6.03848 17.6875 5.55098 16.8 5.12598 16.5625C4.77598 16.375 4.27598 15.9125 5.11348 15.9C5.90098 15.8875 6.46348 16.625 6.65098 16.925C7.55098 18.4375 8.98848 18.0125 9.56348 17.75C9.65098 17.1 9.91348 16.6625 10.201 16.4125C7.97598 16.1625 5.65098 15.3 5.65098 11.475C5.65098 10.3875 6.03848 9.4875 6.67598 8.7875C6.57598 8.5375 6.22598 7.5125 6.77598 6.1375C6.77598 6.1375 7.61348 5.875 9.52598 7.1625C10.326 6.9375 11.176 6.825 12.026 6.825C12.876 6.825 13.726 6.9375 14.526 7.1625C16.4385 5.8625 17.276 6.1375 17.276 6.1375C17.826 7.5125 17.476 8.5375 17.376 8.7875C18.0135 9.4875 18.401 10.375 18.401 11.475C18.401 15.3125 16.0635 16.1625 13.8385 16.4125C14.201 16.725 14.5135 17.325 14.5135 18.2625C14.5135 19.6 14.501 20.675 14.501 21.0125C14.501 21.275 14.6885 21.5875 15.1885 21.4875C19.259 20.1133 21.9999 16.2963 22.001 12C22.001 6.475 17.526 2 12.001 2Z"/></svg> <a href="https://github.com/Nanako0129/sepia">https://github.com/Nanako0129/sepia</a></p>
+<hr />
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+</blockquote>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家　<a href="https://www.mova.work">www.mova.work</a></p></body></html>

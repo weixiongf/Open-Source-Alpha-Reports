@@ -1,0 +1,1994 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><title>Commerce-agents 商业价值分析报告</title><style>/* default — 品牌蓝紫主题（从 md2pdf.py 原 CSS 常量迁出，视觉与历史产物一致） */
+@page { size: A4; margin: 18mm 15mm 20mm 15mm; }
+* { box-sizing: border-box; }
+/* 字体规范：一律开源思源黑体 CN（OFL 免费商用）；正文 Regular/标题 Bold/大字数字 Light */
+body { font-family: "Source Han Sans CN","思源黑体 CN","Noto Sans SC",sans-serif; color:#1e293b; font-size:10.5pt; line-height:1.75; margin:0; }
+.cover { page-break-after: always; text-align:center; padding-top:40px; }
+.cover .kicker { color:#2563eb; letter-spacing:6px; font-size:12pt; font-weight:500; }
+.cover h1 { font-size:26pt; margin:14px 0 6px; }
+.cover .sub { color:#64748b; font-size:11pt; margin-bottom:22px; }
+.badge { display:inline-block; background:linear-gradient(135deg,#2563eb,#7c3aed); color:#fff; border-radius:18px; padding:16px 44px; margin:10px 0 18px; }
+.badge .g { font-size:34pt; font-weight:300; line-height:1; }
+.badge .s { font-size:12pt; opacity:.92; margin-top:4px; }
+.meta { color:#475569; font-size:9.5pt; margin-top:14px; }
+.bars { max-width:620px; margin:20px auto 0; text-align:left; }
+.bar-row { display:flex; align-items:center; gap:8px; margin:5px 0; font-size:9pt; }
+.bar-name { width:110px; text-align:right; color:#334155; font-weight:500; }
+.bar-track { flex:1; height:9px; background:#f1f5f9; border-radius:5px; overflow:hidden; }
+.bar-fill { display:block; height:100%; border-radius:5px; }
+.bar-val { width:30px; font-weight:700; color:#0f172a; }
+.bar-w { width:52px; color:#94a3b8; font-size:8pt; }
+h1 { font-size:17pt; color:#0f172a; border-bottom:3px solid #2563eb; padding-bottom:8px; }
+h2 { font-size:13.5pt; color:#1d4ed8; margin-top:26px; page-break-after: avoid; border-left:5px solid #2563eb; padding-left:10px; }
+h3 { font-size:11.5pt; color:#0f172a; margin-top:18px; page-break-after: avoid; }
+table { border-collapse:collapse; width:100%; margin:10px 0; font-size:9pt; page-break-inside:avoid; }
+th { background:#eff6ff; color:#1e3a8a; }
+th,td { border:1px solid #dbe3ef; padding:5px 8px; text-align:left; }
+tr:nth-child(even) td { background:#f8fafc; }
+code { background:#f1f5f9; border-radius:4px; padding:1px 5px; font-family:"JetBrains Mono","Cascadia Mono",monospace; font-size:9pt; color:#be185d; }
+pre { background:#0f172a; color:#e2e8f0; border-radius:8px; padding:12px 14px; overflow-x:auto; page-break-inside:avoid; }
+pre code { background:none; color:inherit; padding:0; }
+blockquote { border-left:4px solid #93c5fd; background:#eff6ff; margin:10px 0; padding:8px 14px; color:#334155; border-radius:0 8px 8px 0; }
+hr { border:none; border-top:1px dashed #cbd5e1; margin:22px 0; }
+strong { color:#0f172a; }
+.cover .disclaimer { max-width:620px; margin:16px auto 0; color:#64748b; font-size:8.5pt; line-height:1.6; text-align:left; border:1px solid #e2e8f0; border-radius:8px; padding:8px 12px; background:#f8fafc; }
+.credit { color:#2563eb; font-size:10.5pt; font-weight:700; letter-spacing:1px; margin-top:12px; }
+.at-acc { background:#dbeafe; color:#1d4ed8; border-radius:4px; padding:0 4px; font-weight:500; white-space:nowrap; }
+.tail { page-break-inside:avoid; margin-top:26px; border-top:2px solid #2563eb; padding-top:14px; }
+.tail p { color:#64748b; font-size:8.5pt; line-height:1.6; margin:0 0 10px; }
+.tail .credit { text-align:center; margin:0; }
+/* Remix Icon 内联 SVG（icon_mode=remix 时由脚本注入，语义色与评分条一致） */
+.ri { width:1.05em; height:1.05em; vertical-align:-0.18em; display:inline-block; }
+.ri-ok { color:#16a34a; } .ri-warn { color:#d97706; } .ri-bad { color:#dc2626; }
+.ri-muted { color:#64748b; } .ri-star { color:#f59e0b; } .ri-brand { color:#2563eb; }
+.ri-gold { color:#d4a017; } .ri-silver { color:#9ca3af; } .ri-bronze { color:#b45309; }
+/* 屏幕预览：@page 边距仅在打印时生效，浏览器中居中限宽并收边（不影响 PDF 输出） */
+@media screen {
+  body { margin: 0 auto; padding: 28px 36px 56px; max-width: 900px; }
+}
+</style></head><body><div class="cover">
+<div class="kicker">开源项目商业化潜力分析 · 第 80 期</div>
+<h1>GitHub 开源项目 Commerce-agents<br>商业价值分析报告</h1>
+<div class="sub">anthropics/commerce-agents · Claude 商务智能体官方参考蓝图 · 九维度加权评估</div>
+<div class="badge"><div class="g">A 级 · 68.8</div><div class="s">综合评分（满分 100）· 高商业化潜力</div></div>
+<div><svg viewBox="0 0 560 480" width="560" height="480" xmlns="http://www.w3.org/2000/svg"><polygon points="280.0,209.6 299.5,216.7 309.9,234.7 306.3,255.2 290.4,268.6 269.6,268.6 253.7,255.2 250.1,234.7 260.5,216.7" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,179.2 319.1,193.4 339.9,229.4 332.7,270.4 300.8,297.1 259.2,297.1 227.3,270.4 220.1,229.4 240.9,193.4" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,148.8 338.6,170.1 369.8,224.2 359.0,285.6 311.2,325.7 248.8,325.7 201.0,285.6 190.2,224.2 221.4,170.1" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,118.4 358.2,146.8 399.8,218.9 385.3,300.8 321.6,354.3 238.4,354.3 174.7,300.8 160.2,218.9 201.8,146.8" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,88.0 377.7,123.6 429.7,213.6 411.6,316.0 332.0,382.8 228.0,382.8 148.4,316.0 130.3,213.6 182.3,123.6" fill="none" stroke="#e2e8f0" stroke-width="1"/><line x1="280.0" y1="240.0" x2="280.0" y2="88.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="377.7" y2="123.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="429.7" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="411.6" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="332.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="228.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="148.4" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="130.3" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="182.3" y2="123.6" stroke="#d8dee9" stroke-width="1"/><polygon points="280.0,126.0 355.2,150.3 350.4,227.6 369.5,291.7 314.3,334.3 239.5,351.4 195.8,288.6 164.7,219.7 211.6,158.5" fill="rgba(37,99,235,.22)" stroke="#2563eb" stroke-width="2.5"/><circle cx="280.0" cy="126.0" r="3.5" fill="#2563eb"/><circle cx="355.2" cy="150.3" r="3.5" fill="#2563eb"/><circle cx="350.4" cy="227.6" r="3.5" fill="#2563eb"/><circle cx="369.5" cy="291.7" r="3.5" fill="#2563eb"/><circle cx="314.3" cy="334.3" r="3.5" fill="#2563eb"/><circle cx="239.5" cy="351.4" r="3.5" fill="#2563eb"/><circle cx="195.8" cy="288.6" r="3.5" fill="#2563eb"/><circle cx="164.7" cy="219.7" r="3.5" fill="#2563eb"/><circle cx="211.6" cy="158.5" r="3.5" fill="#2563eb"/><text x="280.0" y="44.0" text-anchor="middle" font-size="12.5" fill="#334155" font-weight="600">D1</text><text x="280.0" y="58.0" text-anchor="middle" font-size="11" fill="#64748b">市场需求 7.5</text><text x="406.0" y="89.9" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D2</text><text x="406.0" y="103.9" text-anchor="start" font-size="11" fill="#64748b">技术成熟度 7.7</text><text x="473.0" y="206.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D3</text><text x="473.0" y="220.0" text-anchor="start" font-size="11" fill="#64748b">社区生态 4.7</text><text x="449.7" y="338.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D4</text><text x="449.7" y="352.0" text-anchor="start" font-size="11" fill="#64748b">变现潜力 6.8</text><text x="347.0" y="424.2" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D5</text><text x="347.0" y="438.2" text-anchor="start" font-size="11" fill="#64748b">竞争格局 6.6</text><text x="213.0" y="424.2" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D6</text><text x="213.0" y="438.2" text-anchor="end" font-size="11" fill="#64748b">法律合规 7.8</text><text x="110.3" y="338.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D7</text><text x="110.3" y="352.0" text-anchor="end" font-size="11" fill="#64748b">企业就绪 6.4</text><text x="87.0" y="206.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D8</text><text x="87.0" y="220.0" text-anchor="end" font-size="11" fill="#64748b">团队治理 7.7</text><text x="154.0" y="89.9" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D9</text><text x="154.0" y="103.9" text-anchor="end" font-size="11" fill="#64748b">上手难度 7.0</text></svg></div>
+<div class="bars"><div class="bar-row"><span class="bar-name">D6 法律合规</span>
+<span class="bar-track"><span class="bar-fill" style="width:78.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.8</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D2 技术成熟度</span>
+<span class="bar-track"><span class="bar-fill" style="width:77.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.7</span><span class="bar-w">权重14%</span></div>
+<div class="bar-row"><span class="bar-name">D8 团队治理</span>
+<span class="bar-track"><span class="bar-fill" style="width:77.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.7</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D1 市场需求</span>
+<span class="bar-track"><span class="bar-fill" style="width:75.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.5</span><span class="bar-w">权重13%</span></div>
+<div class="bar-row"><span class="bar-name">D9 上手难度</span>
+<span class="bar-track"><span class="bar-fill" style="width:70.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.0</span><span class="bar-w">权重10%</span></div>
+<div class="bar-row"><span class="bar-name">D4 变现潜力</span>
+<span class="bar-track"><span class="bar-fill" style="width:68.0%;background:#d97706"></span></span>
+<span class="bar-val">6.8</span><span class="bar-w">权重18%</span></div>
+<div class="bar-row"><span class="bar-name">D5 竞争格局</span>
+<span class="bar-track"><span class="bar-fill" style="width:66.0%;background:#d97706"></span></span>
+<span class="bar-val">6.6</span><span class="bar-w">权重12%</span></div>
+<div class="bar-row"><span class="bar-name">D7 企业就绪</span>
+<span class="bar-track"><span class="bar-fill" style="width:64.0%;background:#d97706"></span></span>
+<span class="bar-val">6.4</span><span class="bar-w">权重8%</span></div>
+<div class="bar-row"><span class="bar-name">D3 社区生态</span>
+<span class="bar-track"><span class="bar-fill" style="width:47.0%;background:#dc2626"></span></span>
+<span class="bar-val">4.7</span><span class="bar-w">权重11%</span></div></div>
+<div class="meta">分析时点 2026-09-10 ｜ 数据来源：GitHub API + 仓库代码实测 ｜ 方法论 v1.3</div>
+<div class="credit">报告出品：@魔法工厂　@向量之心　@南山科学家</div>
+<div class="disclaimer"><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</div>
+</div><h1>Commerce-agents 商业化潜力分析报告（完整版）</h1>
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家</p>
+<p>方法论版本: v1.3 | 综合评分: <strong>68.8</strong> | 等级: <strong>A（高商业化潜力）</strong> | 价值画像: 纯商业工具</p>
+</blockquote>
+<h2>一、项目概览</h2>
+<h3>1.1 基本信息</h3>
+<ul>
+<li><strong>项目名称 / 仓库地址</strong>：anthropics/commerce-agents（GitHub: <code>anthropics/commerce-agents</code>）</li>
+<li><strong>核心技术栈</strong>：Python（41,445 行）+ TypeScript/TSX（25,545 行），核心依赖 <code>anthropic==0.122.0</code>、<code>claude-agent-sdk==0.2.139</code>、<code>mcp==1.29.0</code>、<code>fastapi==0.141.1</code>；前端基于 Next.js / React / Tailwind CSS；Python 要求 ≥3.11，Node 要求 22</li>
+<li><strong>社区规模速览</strong>：Star 2,616 / Fork 468（Fork 比率 17.9%）/ 贡献者 1 人 / 开放 Issue 7 个 / Watchers 12 / Release 0 个</li>
+<li><strong>分析时点 / 数据来源</strong>：仓库创建与最近推送均为 2026-09-01（仓库龄约 9 天），数据来自 GitHub API 快照与仓库内文件实采</li>
+</ul>
+<h3>1.2 项目分类标签</h3>
+<table>
+<thead>
+<tr>
+<th>分类维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>开发框架（参考实现 + 脚手架 SDK）</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>电商零售（并覆盖旅游出行、电信通信、媒体内容）</td>
+</tr>
+<tr>
+<td>目标用户角色</td>
+<td>后端开发者、全栈开发者、架构师、AI/ML 工程师</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>对话式商务智能体搭建（购物智能体 + 商家智能体双侧）</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>混合部署（本地部署 + 云原生托管，支持 Messages API / Claude Agent SDK / Managed Agents 三条运行时）</td>
+</tr>
+</tbody>
+</table>
+<h3>1.3 一句话定位</h3>
+<blockquote>
+<p>anthropics/commerce-agents 是一个基于 Claude 的商务智能体参考实现与开发者框架，适用于零售、旅游、电信、娱乐等商务行业，主要面向后端/全栈开发者与架构师，用于快速搭建带安全护栏、来源校验与人工审批门禁的购物智能体与商家智能体。</p>
+</blockquote>
+<hr />
+<h2>二、安装部署与使用指南</h2>
+<blockquote>
+<p>上手难度等级：🟡 <strong>中等</strong>（D9 = 7.0 / 10，面向有技术基础者）。以下仅列出关键步骤与要点，基础环境操作（虚拟环境、npm 用法等）从略。</p>
+</blockquote>
+<h3>1. 环境前置要求</h3>
+<ul>
+<li><strong>Python 3.11+</strong>（所有 pyproject 均声明 <code>requires-python = "&gt;=3.11"</code>）</li>
+<li><strong>Node 22</strong>（README Quick start 明确要求）</li>
+<li><strong><code>ANTHROPIC_API_KEY</code></strong>（必须自备 Claude API Key，否则 demo 无法运行）</li>
+<li>无需数据库 / 缓存 / 消息队列等外部服务；示例后端为仓库内自包含实现</li>
+</ul>
+<h3>2. 运行官方 Demo（推荐首次验证路径）</h3>
+<p>README 给出的完整命令（原样照抄）：</p>
+<pre><code class="language-bash">git clone https://github.com/anthropics/commerce-agents.git &amp;&amp; cd commerce-agents
+python3 -m venv .venv &amp;&amp; source .venv/bin/activate
+pip install -r requirements.txt       # the seven packages and their pinned dependencies
+cp .env.example .env                  # add ANTHROPIC_API_KEY
+(cd examples &amp;&amp; npm ci)               # the eight web apps share one workspace
+python scripts/run_demo.py retail     # API :8000 + storefront :3000
+</code></pre>
+<p>要点：</p>
+<ul>
+<li><code>requirements.txt</code> 中 <strong>7 个本地包以 <code>-e ./...</code> 可编辑方式安装</strong>，其包名在 PyPI 上未注册、且兄弟依赖被钉在索引上不存在的版本，因此<strong>必须整仓克隆后从目录安装</strong>，不能单独 <code>pip install</code> 某一个包。</li>
+<li><code>scripts/install.sh</code> 内部即执行 <code>pip install -r requirements.txt</code> 这一行。</li>
+<li>端口分配：<code>retail</code>（storefront :3000，portal :3100）、<code>travel</code>（:3001 / :3101）、<code>telecom</code>（:3002 / :3102）、<code>entertainment</code>（:3003 / :3103）。</li>
+<li>启动参数：<code>--merchant</code> 只起商户门户，<code>--all</code> 两者都起。</li>
+</ul>
+<h3>3. 其他三种运行方式（按需选一）</h3>
+<pre><code class="language-bash"># Agent SDK 运行时（单轮对话 / 交互式审批）
+python shopping-agent/runtime-agent-sdk/main.py --once &quot;a two-person tent under $250&quot;
+python merchant-agent/runtime-agent-sdk/main.py          # approves staged changes with y/N
+
+# Managed Agents 托管部署（默认 dry run，--live 才真部署）
+scripts/deploy_managed_agent.sh shopping-agent/managed-agents/shopping-agent   # 或 merchant-agent/...
+</code></pre>
+<h3>4. 基于脚手架构建自己的 Agent</h3>
+<pre><code class="language-bash">claude plugin marketplace add anthropics/commerce-agents
+claude plugin install commerce-builder@claude-commerce-agents
+claude
+/scaffold-commerce-agent a shopping assistant for our store
+</code></pre>
+<p>后续命令：<code>/add-commerce-flow</code>、<code>/author-commerce-evals</code>、<code>/review-commerce-agent</code>。</p>
+<h3>5. 验证与自检</h3>
+<pre><code class="language-bash">ruff check . &amp;&amp; ruff format --check . &amp;&amp; pytest &amp;&amp; python scripts/check.py
+python scripts/verify_all.py                        # 上述内容 + 部署 dry run + Web 构建
+python scripts/smoke_chat.py --vertical travel      # 一次真实对话；需要 Key
+</code></pre>
+<h3>6. 部署方案要点（生产化需自行补齐）</h3>
+<ul>
+<li><strong>本项目不提供 Dockerfile / docker-compose / Helm Chart</strong>，容器化与编排需自行构建。</li>
+<li>官方部署路径为 Claude Managed Agents（<code>scripts/deploy_managed_agent.sh</code>，默认 dry run）；<code>docs/deployment.md</code> 覆盖 GCP Vertex AI、AWS Bedrock、Microsoft Foundry 与网关接入。</li>
+<li>接入自有系统需实现 <code>StorefrontBackend</code> / <code>MerchantBackend</code> 接口；<code>docs/backends.md</code> 给出身份与凭证、有序流程、结账等映射指引。</li>
+<li>示例<strong>无鉴权</strong>，MCP Server 绑定回环地址，不应直接暴露公网。</li>
+<li>注意定位：README 声明 this is a reference implementation; it is not maintained and does not accept contributions.</li>
+</ul>
+<h2>三、评分总览</h2>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>权重</th>
+<th>加权得分</th>
+<th>评级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1 市场需求与商业机会</td>
+<td>7.5/10</td>
+<td>13%</td>
+<td>0.975</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D2 技术成熟度与产品质量</td>
+<td>7.7/10</td>
+<td>14%</td>
+<td>1.078</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D3 社区健康度与生态势能</td>
+<td>4.7/10</td>
+<td>11%</td>
+<td>0.517</td>
+<td>差</td>
+</tr>
+<tr>
+<td>D4 商业模式与变现潜力</td>
+<td>6.8/10</td>
+<td>18%</td>
+<td>1.224</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D5 竞争格局与差异化壁垒</td>
+<td>6.6/10</td>
+<td>12%</td>
+<td>0.792</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D6 法律合规与知识产权</td>
+<td>7.8/10</td>
+<td>7%</td>
+<td>0.546</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D7 企业就绪度与可运营性</td>
+<td>6.4/10</td>
+<td>8%</td>
+<td>0.512</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D8 团队治理与可持续性</td>
+<td>7.7/10</td>
+<td>7%</td>
+<td>0.539</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D9 上手难度与易用性</td>
+<td>7.0/10</td>
+<td>10%</td>
+<td>0.700</td>
+<td>良</td>
+</tr>
+<tr>
+<td><strong>综合评分</strong></td>
+<td>—</td>
+<td>100%</td>
+<td><strong>68.8/100</strong></td>
+<td><strong>A（高商业化潜力）</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>平行维度（不计入综合评分）</strong></p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10 功能价值</td>
+<td>7.1/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>D11 社会价值</td>
+<td>6.3/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>公共价值分</td>
+<td>6.7/10</td>
+<td>(D10+D11)/2</td>
+</tr>
+</tbody>
+</table>
+<p><strong>一票否决检查</strong>：未触发。D6 维度总分 7.8（&gt;3）、D8.4 细则小分 2.4（&gt;1）、D4.1 细则小分 2.0（&gt;0.5），三项否决条件均未命中，等级维持 A。</p>
+<hr />
+<h2>四、各维度详细分析</h2>
+<h1>D1. 市场需求与商业机会</h1>
+<h3>分类标签</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>开发框架（AI 智能体参考实现/SDK）；兼具 开发者工具</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>电商零售（核心）、汽车交通/物流（旅游出行）、电信通信、媒体内容（娱乐票务）</td>
+</tr>
+<tr>
+<td>目标用户角色</td>
+<td>后端开发者、全栈开发者、架构师、AI/ML 工程师</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>客户面向产品（购物智能体）、企业内部工具（商家后台智能体）、研发流程优化（脚手架/评审插件）</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>本地部署 + 云原生（Managed Agents 托管），混合部署</td>
+</tr>
+</tbody>
+</table>
+<p><strong>一句话定位</strong>：anthropics/commerce-agents 是一个基于 Claude 的商务智能体参考实现与开发者框架，适用于零售、旅游、电信、娱乐等商务行业，主要面向后端/全栈开发者与架构师，用于快速搭建带安全护栏、来源校验与人工审批门禁的购物智能体与商家智能体。</p>
+<h3>细则打分</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1.1 目标市场规模与增长性</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8（80%）</td>
+<td>对应「智能体化商务 / 对话式商务 + 企业级 AI 智能体」赛道。零售电商本身是千亿美元级存量市场，而生成式 AI 智能体是其增长最快的增量方向，处于成长期蓝海。<strong>外部市场规模数据不可用，以上为按行业类别的量级估算，未经外部数据验证，置信度低。</strong></td>
+</tr>
+<tr>
+<td>D1.2 痛点真实性与解决程度</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6（60%）</td>
+<td>痛点真实——企业自建「可上线的商务智能体」需处理安全护栏、来源校验、写操作审批、后端抽象、评估等硬问题，项目提供了三套运行时、技能、门禁、评估插件的较完整骨架。但 README 明示「业务规则、鉴权、合规由部署方负责」，且无认证、数据全为虚构、单贡献者、<strong>明确声明不维护且不接受贡献</strong>，交付的是骨架而非可用产品；替代品众多（LangChain/CrewAI 等通用框架 + 自建 + 云厂商方案），替代成本中等。</td>
+</tr>
+<tr>
+<td>D1.3 市场时机判断</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8（80%）</td>
+<td>项目创建于 2026-09，恰逢智能体化商务从概念走向落地、行业协议（MCP、托管智能体、各平台代理商务协议）尚未定型的成长期。有 OpenAI/Google/电商平台等先行者，但格局未固化，仍有空位。项目主动内建合规披露（费用披露、受监管费用保护）契合监管趋严方向。</td>
+</tr>
+<tr>
+<td>D1.4 应用场景广度</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8（80%）</td>
+<td>单一代码库覆盖「购物智能体 + 商家智能体」双侧角色，内置 retail / travel / telecom / entertainment 四个可运行垂直行业；README 进一步声明同一后端接口可覆盖 marketplace、账户/合约定价、报价/采购单等变体，横向（行业）与纵向（角色）延展性均较好。局限：核心仍收敛于「商务」领域，非跨行业通用基础设施。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>加权汇总</strong>：2.0 + 1.5 + 2.0 + 2.0 = <strong>7.5 / 10</strong></p>
+<h3>结论</h3>
+<p><strong>需求侧成立且时机有利，但「项目自身」与「市场机会」之间存在明显断层。</strong></p>
+<ul>
+<li><strong>利好</strong>：商务智能体是 2026 年企业 AI 落地最明确的场景之一，零售/旅游/电信/娱乐四个垂直面的示范覆盖了广度，Anthropic 的品牌与「安全护栏 + 审批门禁 + 三运行时」的工程深度，使其在同类参考实现中具备稀缺性；2,614 star、466 fork 显示需求侧关注度真实（创建当天即获此热度）。</li>
+<li><strong>风险</strong>：项目定位是<strong>参考蓝图而非产品</strong>——无鉴权、数据虚构、"not maintained and does not accept contributions"、单贡献者、无 Release、90 天 0 个 Issue 关闭。它本身不构成可独立变现的资产，其商业价值主要体现在为 Anthropic API/托管智能体引流（变现距离远，归属于后续维度评估）。</li>
+<li><strong>置信度声明</strong>：本维度未获取到外部市场规模/竞品数据，D1.1 的市场量级与 D1.3 的竞争密度均为基于项目类型与行业类别的定性估算，<strong>置信度低</strong>。</li>
+</ul>
+<h3>D2. 技术成熟度与产品质量（权重 14%）</h3>
+<p><strong>维度得分: 7.7 / 10</strong></p>
+<p>项目为 Anthropic 官方出品的 commerce agents 参考蓝图，Python（41,445 行）+ TypeScript/TSX（25,545 行）合计 66,990 行代码、415 个源码文件，含 96 个测试文件 / 15,492 行测试代码（测试占比 23.1%）、27 份文档、1 条 CI 流水线。项目形态为「共享库 + 双 Agent 核心 + 双运行时 + 多垂直示例 + 前端 Web 应用」的 monorepo，工程质量整体高于同类参考实现，但尚未形成正式版本发布与多贡献者协作的成熟度。</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D2.1</td>
+<td>产品设计与创新性</td>
+<td>1.5</td>
+<td>1.2</td>
+<td>80%</td>
+</tr>
+<tr>
+<td>D2.2</td>
+<td>架构设计与工程质量</td>
+<td>2</td>
+<td>1.6</td>
+<td>80%</td>
+</tr>
+<tr>
+<td>D2.3</td>
+<td>代码整洁性与规范性</td>
+<td>1</td>
+<td>0.8</td>
+<td>80%</td>
+</tr>
+<tr>
+<td>D2.4</td>
+<td>安全性</td>
+<td>1</td>
+<td>0.8</td>
+<td>80%</td>
+</tr>
+<tr>
+<td>D2.5</td>
+<td>UI/UX/UE 人机交互</td>
+<td>1</td>
+<td>0.8</td>
+<td>80%</td>
+</tr>
+<tr>
+<td>D2.6</td>
+<td>功能完备度与稳定性</td>
+<td>1.5</td>
+<td>0.9</td>
+<td>60%</td>
+</tr>
+<tr>
+<td>D2.7</td>
+<td>文档与开发者体验</td>
+<td>1</td>
+<td>0.8</td>
+<td>80%</td>
+</tr>
+<tr>
+<td>D2.8</td>
+<td>测试与质量保障</td>
+<td>1</td>
+<td>0.8</td>
+<td>80%</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td><strong>7.7</strong></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>D2.5 适用性判定：项目含大量 React 前端（storefront-web / merchant-web，.tsx 18,867 行、.ts 6,678 行），存在真实用户界面，<strong>不标记 N/A</strong>，参与计分。</p>
+</blockquote>
+<h3>逐项判断依据</h3>
+<h4>D2.1 产品设计与创新性 — 1.2 / 1.5（80%）</h4>
+<ul>
+<li><strong>产品理念清晰</strong>：以「购物 Agent（消费者侧）+ 商户 Agent（商家侧）」双主体覆盖电商价值链两端，并以 retail / telecom / entertainment / travel 四个垂直领域示例验证通用性，README 明确定位为「reference blueprint」，边界与目标一致。</li>
+<li><strong>功能设计围绕核心场景</strong>：<code>shopping-agent</code> 覆盖搜索发现、购买研究、结账、客户关怀、记忆个性化；<code>merchant-agent</code> 覆盖目录、定价促销、库存运营、营销活动、业绩洞察，并配有对应 <code>skills/*/SKILL.md</code>。</li>
+<li><strong>创新性明显</strong>：设计上有若干非通用做法——① <strong>变更门控</strong>（<code>propose → preview → approve → apply</code>，<code>StagedChange</code>/<code>ChangeLedger</code>，暂存不触碰实时状态）；② <strong>输出接地与幻觉抑制</strong>（<code>enrichment.py</code> 将模型给出的 metric pick 解析回本次会话工具真正返回的数据，<code>PresentationRefused</code> 拒绝无依据内容）；③ <strong>溯源与权限门控</strong>（<code>approved_change_ids</code>、<code>host_action_change_ids</code>、操作员身份由宿主认证派生，模型无法伪造归因）；④ 工具列表<strong>固定顺序构建</strong>以换取请求字节一致与提示缓存确定性。</li>
+<li><strong>差异化</strong>：相比一般 Agent demo，本项目在「护栏 / 接地 / 溯源」上的工程投入显著，且以 <code>plugins/commerce-builder</code>（Claude Code 插件命令与技能）形式交付开发者工作流。</li>
+<li>未给满分原因：本质仍是参考实现而非可售卖产品，示例数据大量为虚构 fixture，缺面向生产的可配置化（多处硬编码 demo 账户/默认值）。</li>
+</ul>
+<h4>D2.2 架构设计与工程质量 — 1.6 / 2（80%）</h4>
+<ul>
+<li><strong>分层清晰</strong>：<code>commerce-common</code>（共享领域/执行/记忆/流式/围栏）为核心底座；<code>shopping-agent</code>、<code>merchant-agent</code> 各自分层为 <code>core</code>（领域模型+接口+工具契约）、<code>runtime-messages-api</code>（Messages API 编排器）、<code>runtime-agent-sdk</code>（SDK 运行时）、<code>managed-agents</code>（MCP server / 定时摘要）、<code>skills</code>；<code>examples/*</code> 由 <code>api</code>（FastAPI mock 后端）、<code>storefront-web</code>、<code>merchant-web</code>、<code>demo_common</code>（共享 fixture）、<code>web-shared</code>（共享 React 组件库）构成。目录结构规范、命名一致。</li>
+<li><strong>解耦与抽象得当</strong>：<code>StorefrontBackend</code> / <code>MerchantBackend</code> 以 ABC/Protocol 定义契约，示例后端以适配器接入；工具执行器 <code>BaseToolExecutor</code> 提供统一框架，<code>PresentationExtension</code> / <code>DelegateExtension</code> 为扩展点，<code>MemoryStore</code> 为 Protocol 且有 InMemory/JsonFile/Retention 三种实现（装饰器包装）。</li>
+<li><strong>可复用性高</strong>：<code>commerce-common</code> 抽出执行、记忆、围栏、流式协议、prompt 组装、测试假件（<code>testing.py</code> 提供 FakeClient/FakeStream/SpyStore），垂直示例共享 <code>demo_common</code> 与 <code>web-shared</code>。</li>
+<li><strong>复刻难度较高</strong>：双运行时一致性、流式事件协议（AgentEvent/ToolOutcome + SSE）、<code>EagerDispatcher</code> + <code>StreamedRound</code> 状态机、<code>salvage_round</code> 异常恢复、围栏与接地机制，均需相当领域积累才能从零重建。</li>
+<li>扣分原因：<code>shopping-agent</code> 与 <code>merchant-agent</code> 的 prompt / executor / orchestrator / registry 呈镜像重复（同构但各自维护），存在结构性重复；示例内硬编码较多；单仓 66,990 行对参考项目偏大。</li>
+</ul>
+<h4>D2.3 代码整洁性与规范性 — 0.8 / 1（80%）</h4>
+<ul>
+<li>统一由 <strong>ruff check + ruff format --check</strong> 在 CI 强制，风格一致；类型注解完整、普遍使用 <code>from __future__ import annotations</code>；命名语义化（如 <code>_NEARLY_SOLD_OUT_PCT</code>、<code>_RELEASABLE_BUCKETS</code>、<code>snake_case</code> Python / <code>camelCase</code> TS 惯例一致）。</li>
+<li>注释质量高，非显然决策均有说明（CRC32 保证价格条确定性、<code>asyncio.timeout</code> 与 <code>wait_for</code> 取舍、日期锚定原因、禁写原因）。</li>
+<li>未见 TODO/FIXME 密集区；未见明显复制粘贴式重复（但存在跨 Agent 的结构性镜像代码）。</li>
+<li>扣分原因：多个函数偏长（<code>query_metrics</code>、<code>_compute_alerts</code>、<code>handleEvent</code> 约 150 行、<code>stream_turn</code>），部分文件约 300–500 行；设计令牌/魔法数值散落（<code>0.28/0.92</code>、<code>_DEFAULT_ROOMS=12</code>）；若干非空断言与 <code>del session</code> 之类的粗糙写法。</li>
+</ul>
+<h4>D2.4 安全性 — 0.8 / 1（80%）</h4>
+<ul>
+<li><strong>安全编码实践扎实</strong>：记忆写入过滤器拦截卡号/IBAN/邮箱（<code>DEFAULT_BLOCKED_PATTERNS</code>），<code>JsonFileMemoryStore</code> 以 <code>0o600</code> 权限写文件，<code>session_tag</code> 对会话 ID 做 SHA-256 哈希避免日志泄露凭据。</li>
+<li><strong>注入防护到位</strong>：外部数据统一经 <code>Fence.sanitize_text</code> / <code>fence_payload</code> 围栏化；<code>check_analysis_sql</code> 强制只读单条 SELECT、拒绝注释与多语句；测试夹具内置对抗性数据（<code>p-666</code>、<code>ISS-7</code> 等提示注入样本）与前端 <code>QuotedAsData</code> 显式标注用户内容为「数据」。</li>
+<li><strong>权限/归属校验</strong>：<code>OwnershipError</code>、<code>check_apply_change</code> / <code>check_discard_change</code> / provenance gate 限制模型越权；金额由后端计算，成本未知时 <code>margin = None</code> 而非臆测。</li>
+<li><strong>无硬编码密钥</strong>：依赖清单仅含第三方包与版本 pin，未见明文 Token/密码。</li>
+<li>扣分原因：<strong>未集成任何自动化依赖/漏洞扫描</strong>（无 Dependabot/Snyk/Trivy 配置，CI 中仅有 <code>no-pypi-fallback</code> 供应链防抢注 tripwire），仓库无 <code>SECURITY.md</code>；SQL 校验采用正则黑名单方式（已用拒绝注释缓解，但本质仍有绕过面）。</li>
+</ul>
+<h4>D2.5 UI/UX/UE 人机交互 — 0.8 / 1（80%）</h4>
+<ul>
+<li><strong>有真实且成体系的界面</strong>：四个垂直示例各自提供 storefront（消费者侧）与 merchant-web（商家侧）共约 8 个前端应用，另有 <code>web-shared</code> 共享组件库（Pill / Sheet / Sparkline / StatTile / Segmented 等）与 portal 卡片体系。</li>
+<li><strong>交互体验较好</strong>：流式「滴灌」渲染（<code>useAgentTurn</code> 的节流队列与 slot 保留）、生成式组件（VenueMap 座位图、ProductCarousel、ComparisonSpread、ItineraryTimeline、PlanMatrix）、加载骨架屏、空态/错误态均有处理；后端错误消息面向用户可安全展示。</li>
+<li><strong>信息架构清晰</strong>：商户门户按 Home / Catalog / Holds / Bookings 等视图拆分，<code>attentionRank</code> 优先级排序、待办队列与溢出提示降低认知负担。</li>
+<li><strong>可访问性与一致性</strong>：大量 <code>aria-label</code>/<code>role</code>/<code>aria-modal</code>/<code>aria-pressed</code>、键盘事件（Enter/Space）、Escape 与遮罩关闭抽屉；CSS 变量主题令牌（<code>--ok</code>/<code>--ink</code>）与 Tailwind 统一风格。</li>
+<li>扣分原因：部分组件偏大（约 400 行 <code>VenueMap</code>、约 150 行 <code>ProductSheet</code>）；魔法数值散落未集中为设计令牌；未见系统化无障碍测试或 i18n 文案外置；个别前端存在未处理请求失败、非空断言风险。</li>
+</ul>
+<h4>D2.6 功能完备度与稳定性 — 0.9 / 1.5（60%）</h4>
+<ul>
+<li><strong>功能覆盖广而完整</strong>：双 Agent × 双运行时（Messages API / Agent SDK）× 托管形态（MCP server、定时摘要）× 四个垂直示例 × 消费者与商家双侧界面，工具契约、技能包、插件工作流齐备。</li>
+<li><strong>版本成熟度不足</strong>：<code>recent_releases</code> 为空，<strong>无任何 Release/Tag</strong>；仓库创建与最近推送均为 2026-09-01（同日），贡献者仅 1 人，90 天内关闭 Issue 0 个、开放 Issue 7 个——不具备「已发布稳定版（v1.0+）」特征，也无从评估 breaking change 历史。</li>
+<li><strong>运行环境合理</strong>：Python 3.11/3.12 矩阵 + Node 22，依赖 pin 到已验证版本；无 Dockerfile，无容器化交付；无非通用中间件要求。</li>
+<li><strong>硬件要求</strong>：无特殊硬件依赖（无 GPU/TPU/专用加速卡要求），标记 N/A。</li>
+<li><strong>国际化/本地化欠缺</strong>：未见 i18n 框架或多语言资源，文案全部英文；有时区/UTC 时钟上下文（<code>ClockContext</code>）与日期格式化处理，但无 l10n 体系。</li>
+<li>综合功能完备但成熟度未达标，取 5–6 档 → 0.9。</li>
+</ul>
+<h4>D2.7 文档与开发者体验 — 0.8 / 1（80%）</h4>
+<ul>
+<li><strong>文档覆盖度高</strong>：27 份文档，含根 README、<code>CLAUDE.md</code>、<code>docs/backends.md</code>、<code>docs/deployment.md</code>、<code>docs/safety.md</code>，每个包（<code>commerce-common</code>、<code>core</code>、两个 <code>runtime-*</code>、<code>managed-agents</code>）均有独立 README，每个垂直示例有 <code>examples/*/README.md</code>，每个技能有 <code>SKILL.md</code>，插件含 4 条命令文档 + 6 个技能文档。</li>
+<li><strong>文档质量良好</strong>：包含架构与后端接入说明、部署说明、安全说明；<code>requirements.txt</code> 头部注释详细解释 pin 策略与安装方式，CI 说明与验证命令在 README 中可循；<code>scripts/install.sh</code> 提供一键安装。</li>
+<li>扣分原因：无交互式教程，无自动生成的 API 参考（无 sphinx/mkdocs 配置），无 <code>CONTRIBUTING.md</code>、无 <code>CODEOWNERS</code>；部分文档存在与 fixture 手工同步的漂移风险（如 showcase-fixtures 与 <code>data/catalog.json</code>）。</li>
+</ul>
+<h4>D2.8 测试与质量保障 — 0.8 / 1（80%）</h4>
+<ul>
+<li><strong>测试规模可观</strong>：96 个测试文件、15,492 行测试代码，占代码总量 23.1%，<code>conftest.py</code> 提供按角色分发的 pytest fixtures、<code>FakeBackend</code>/<code>FakeMerchantBackend</code> 假对象与含注入攻击样本的丰富测试数据；<code>commerce-common/testing.py</code> 提供 FakeClient/FakeStream/SpyStore 支撑模型层测试。</li>
+<li><strong>CI 体系务实</strong>：<code>.github/workflows/ci.yml</code> 覆盖 ruff lint、ruff format check、pytest、<code>scripts/check.py</code> 仓库一致性校验、Python 3.11/3.12 双版本矩阵；web 侧 <code>npm ci</code> + 全量 build；另有罕见的 <code>no-pypi-fallback</code> 供应链防抢注/防误解析 tripwire；Actions 均按 commit SHA pin。</li>
+<li>扣分原因：无覆盖率报告与覆盖率门禁（无法确认是否 &gt;80%）；web 侧仅 build 未跑前端测试；无安全扫描、无显式代码审查门禁（无 CODEOWNERS）；单贡献者意味着评审独立性有限。</li>
+</ul>
+<h3>结论</h3>
+<p>D2 维度得分 <strong>7.7 / 10</strong>，处于「良好」区间：作为厂商参考蓝图，其架构分层、模块解耦、抽象契约、安全/隐私编码、无幻觉接地机制与 CI 质量门禁均高于同类开源 Agent 项目平均水平，具备支撑商业交付参考的技术底座。</p>
+<p>主要短板集中在<strong>产品化成熟度</strong>：无任何正式版本发布、单一贡献者、国际化缺失、无容器化交付与安全扫描/安全策略文件，以及 <code>shopping-agent</code> / <code>merchant-agent</code> 之间的镜像式结构重复。这些属于可在短期内补齐的工程化缺口，而非架构性缺陷。</p>
+<h3>D3. 社区健康度与生态势能</h3>
+<p><strong>维度结论：4.7 / 10（较弱—一般之间）</strong></p>
+<p>anthropics/commerce-agents 是一个「品牌势能极强、但社区与生态极不成熟」的早期项目。项目创建于 2026-09-01，最近推送同日（2026-09-01T20:41:14Z），快照时（约 2026-09-10）<strong>仓库年龄仅约 9 天</strong>。在极短时间内积累了 2614 Star / 466 Fork 的爆发式关注，但其社区参与（Issue/PR）、贡献者多样性、第三方生态与真实行业采用几乎全部为零。当前社区规模主要是 Anthropic 官方品牌带来的「发布红利」，尚不能视为可支撑商业化的成熟客户池。</p>
+<h3>D3.1 社区活跃度指标（1.8 / 3）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Star 增速</td>
+<td>无近 90 天增量 API 数据，退化为 2614 ÷ 0.3 月 ≈ <strong>8700 / 月</strong></td>
+<td>远超 &gt;500 阈值，但为极年轻项目，发布红利显著，须谨慎解读</td>
+</tr>
+<tr>
+<td>Fork 比率</td>
+<td>466 / 2614 = <strong>17.8%</strong></td>
+<td>高于常见 10–15%，衍生意愿强</td>
+</tr>
+<tr>
+<td>Issue 活跃度</td>
+<td>近 90 天 PR 7 条，Issue closed 0 条，开放 Issue 7 条</td>
+<td>参与度极低</td>
+</tr>
+<tr>
+<td>响应速度</td>
+<td>近 90 天 Issue 关闭数 <strong>0</strong></td>
+<td>无可验证的响应记录</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：Star 增速（退化公式）与 Fork 比率两项表现强劲，指向潜在客户池规模；但社区参与（仅 7 条 PR、0 条 Issue 关闭）与维护响应能力尚无任何实证。四项中两强两弱，综合落在 5–6 档偏上。<strong>注：Star 增速为退化公式（Star 数 ÷ 项目年龄），且项目仅 9 天龄，该值被发布日集中星标严重放大，属高估，应在解读中标注。</strong></p>
+<h3>D3.2 贡献者结构多样性（0.5 / 2.5）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>贡献者数量</td>
+<td><strong>1 人</strong></td>
+<td>单人项目</td>
+</tr>
+<tr>
+<td>组织多样性</td>
+<td>仅 Anthropic 1 家</td>
+<td>无组织多样性</td>
+</tr>
+<tr>
+<td>核心团队占比</td>
+<td>100% 核心团队，外部贡献 ≈ 0</td>
+<td>无外部贡献</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：GitHub API 显示贡献者仅 1 人，符合评分指引中「1–2：单人项目」的最差档位。虽为 Anthropic 官方仓库、内部实际团队可能更大，但就「社区贡献者多样性」这一社区规模视角而言，外部贡献与组织多样性均为零。（核心人员流失风险归 D8.1，此处不重复计分。）</p>
+<h3>D3.3 第三方生态成熟度（1.2 / 3）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>插件/扩展</td>
+<td>仅 <code>plugins/commerce-builder/</code>（<strong>一方</strong> Claude Code 插件）</td>
+<td>无第三方插件</td>
+</tr>
+<tr>
+<td>集成生态</td>
+<td>内建 MCP server、Claude SDK/Managed Agents 集成（均一方）</td>
+<td>无第三方集成</td>
+</tr>
+<tr>
+<td>衍生项目</td>
+<td>无</td>
+<td>无</td>
+</tr>
+<tr>
+<td>教程/课程</td>
+<td>无外部教程（仓库仅 27 个自带文档）</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：项目自身提供了较完整的扩展基础设施（Claude Code 插件、MCP server、Skill 包、Apache-2.0 许可），具备生态延展潜力；但<strong>第三方</strong>生态实际为零——无外部插件、无主流平台集成、无衍生商业项目、无社区教程。落在「几乎无第三方生态」（3–4 档）。</p>
+<h3>D3.4 品牌认知与行业影响力（1.2 / 1.5）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>品牌辨识度</td>
+<td>Anthropic 官方仓库，「Claude Commerce Agents」</td>
+<td>依托头部 AI 品牌，辨识度高</td>
+</tr>
+<tr>
+<td>行业采用</td>
+<td>示例中的企业/品牌均为虚构（ACME），无真实企业采用证据</td>
+<td>无实证采用</td>
+</tr>
+<tr>
+<td>媒体覆盖</td>
+<td>素材未提供会议/媒体报道证据</td>
+<td>无法证实</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：项目由 Anthropic 官方发布，具备「知名企业背书」与强品牌联想（属 7–8 档特征）；但项目本体极新，尚无真实企业采用、无媒体/会议覆盖证据，示例客户全为虚构，未能达到「被头部企业采用」的 9–10 档。综合取 7–8 档（0.8）。</p>
+<h3>维度小结</h3>
+<ul>
+<li><strong>优势</strong>：Anthropic 官方品牌＋爆发式 Star/Fork 增长，潜在关注池规模大；Fork 比率健康；扩展基础设施（插件/MCP/Skill）齐备。</li>
+<li><strong>短板</strong>：贡献者仅 1 人、单一组织；社区参与与响应能力无实证（0 Issue 关闭）；第三方生态完全空白；示例客户全为虚构、无真实采用。</li>
+<li><strong>总体</strong>：当前社区势能<strong>几乎全部来自品牌发布红利，而非自组织社区</strong>。判断置信度中等——项目过新（约 9 天），许多指标属「尚未发生」而非「结构性缺失」，未来 3–6 个月的持续活跃度与外部贡献将决定其真实成色。</li>
+</ul>
+<h3>D4. 商业模式与变现潜力（权重 18%）</h3>
+<p><strong>维度得分：6.8 / 10</strong>（满分 10，无 N/A 细则剔除）</p>
+<h3>D4.1 协议对变现模式的影响 —— 2.0 / 2（100%，9–10 档）</h3>
+<table>
+<thead>
+<tr>
+<th>证据项</th>
+<th>实测值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LICENSE 文件</td>
+<td><code>Apache License 2.0</code>（完整文本，非声明式简写）</td>
+</tr>
+<tr>
+<td>SPDX 标识</td>
+<td>源码头 <code>SPDX-License-Identifier: Apache-2.0</code>（如 <code>requirements.txt</code>）</td>
+</tr>
+<tr>
+<td>版权方</td>
+<td>Copyright 2026 Anthropic PBC</td>
+</tr>
+<tr>
+<td>附属条款</td>
+<td>无 NOTICE 附加限制、无 Commons Clause、无 BUSL/SSPL 转换条款</td>
+</tr>
+</tbody>
+</table>
+<p>Apache 2.0 对变现模式<strong>零约束</strong>：Open Core、SaaS 托管、双协议、专业服务、市场/插件、认证生态全部合法可行，且第 3 条含明确专利授权、第 4(d) 条允许在衍生作品中添加自己的许可条款。第 9 条亦允许对衍生作品收取支持、担保、赔偿责任等费用。这是变现路径上最友好的一档协议，无任何需规避的法律设计（法律合规风险本身归 D6.1 评估，此处仅评商业路径可行性）。</p>
+<h3>D4.2 变现路径清晰度 —— 2.1 / 3.5（60%，5–6 档）</h3>
+<p>本项目在"项目自身"与"下游采用方"两个层面上的变现清晰度差异极大：</p>
+<p><strong>项目自身层面：无变现设计。</strong> README 明确声明："This is a reference implementation; it is not maintained and does not accept contributions."（参考实现，不维护，不接受贡献）。硬事实支持这一判断：贡献者仅 1 人、无任何 Release、无 CONTRIBUTING、无 SECURITY.md、无 CODEOWNERS、无 Dockerfile、7 个 pip 包名刻意保持"在公共索引上未注册"（CI 专门校验这一点）。因此不存在企业版/付费版分层、无定价页、无商业授权、无付费支持通道、无市场或插件抽成机制。对照附录 C，本项目的形态与 Vue.js（纯社区）之外的任何商业样本均不相似，更接近厂商的 developer-relations/蓝图资产。</p>
+<p><strong>间接生态层面：路径可辨认但不属于本仓库。</strong> 其真实商业闭环是"免费参考架构 → 采用方投入工程 → 消耗 Claude API（<code>anthropic==0.122.0</code>、<code>claude-agent-sdk==0.2.139</code>）"，即把变现让渡给母公司的核心按 token 计费业务。对下游采用方（电商平台、SI/咨询方）而言，可辨认的路径包括：① <strong>Open Core</strong>（以其为基座自建企业功能并闭源，Apache 2.0 允许）；② <strong>SaaS 托管</strong>（自建购物/商家 agent 托管服务）；③ <strong>专业服务</strong>（后端对接、评测编写、安全合规评审）；④ <strong>认证/生态</strong>（围绕该蓝图的实施伙伴）。这些都<strong>存在先例可参照</strong>（Supabase、Strapi、GitLab 的形态），但没有任何一条由本项目本体承载，且采用方需自行承担全部维护与演进成本。</p>
+<p>综合档位判定：项目本体无任何商业实体/定价/付费产品承载变现，下游路径虽成立但"尚不清晰、需验证"，符合 5–6 档"有潜在路径但尚不清晰"的描述，未达到 7–8 档"1 条主路径清晰可行"。</p>
+<h3>D4.3 付费转化逻辑 —— 1.5 / 2.5（60%，5–6 档）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>免费→付费触发点</td>
+<td><strong>存在但属外部</strong>：代码零成本，但跑通 demo 必须持有 <code>ANTHROPIC_API_KEY</code>（<code>.env.example</code>），每次模型调用即产生计费；生产化还须自付后端对接与托管成本</td>
+</tr>
+<tr>
+<td>付费意愿强度</td>
+<td>目标客户为零售/电信/旅游/娱乐企业，属于业务系统级采购，付费意愿与预算能力<strong>强</strong>；但付费对象是 Claude API 与实施服务，不是本仓库</td>
+</tr>
+<tr>
+<td>转化漏斗</td>
+<td>链路自然（clone → 装依赖 → 加 key → <code>scripts/run_demo.py retail</code>），但漏斗终点不落在本项目上，本项目自身<strong>无任何升级入口</strong></td>
+</tr>
+</tbody>
+</table>
+<p>项目的"功能分层"是<strong>角色分层而非付费分层</strong>：shopping-agent 与 merchant-agent 均为开源全量交付，<code>enable_*</code> 开关是"关掉你没有的系统"（能力适配），不是"付费才能打开"（商业化闸门）。不过，其面向受监管场景的强约束设计（<code>docs/safety.md</code> 强制规则、provenance gates、商家写入需人工审批、电信受监管费用保护、娱乐 all-in 费用披露）构成"企业级部署"的天然付费理由——这类合规/风控诉求通常只能在企业预算中兑现。因此判为 5–6 档：升级逻辑可辨认，但触发点寄生在第三方计费体系上，不够自然，也非本项目可控。</p>
+<h3>D4.4 增值服务空间与定价天花板 —— 1.2 / 2（60%，5–6 档）</h3>
+<p><strong>增值空间（有明显方向，但需由采用方自建）：</strong> 仓库已把可增值的"接口面"预留得很清楚——<code>StorefrontBackend</code> / <code>MerchantBackend</code> 两个抽象需按企业自有目录、购物车、订单、政策、分析、库存、定价、活动系统实现；<code>docs/backends.md</code> 讲身份与凭据、有序流程、结账、带选项商品；<code>docs/deployment.md</code> 覆盖 GCP Vertex AI、AWS Bedrock、Microsoft Foundry 与网关；<code>plugins/commerce-builder/</code> 提供脚手架、加流程、写评测、审 agent 四条命令。这些正是可持续收费的增值层：后端集成实施、评测工程（tests 达 15,492 行，占 23.1% 代码量，说明"质量工程"是可交付的服务内容）、安全与合规评审、SLA 与托管运维。</p>
+<p><strong>定价天花板与收入扩展性：</strong> 目标客户为年 GMV/用户规模量级的零售、电信、旅游、娱乐企业，同类企业级 agent 项目客单价可达 $10K+/年量级，且收入形态可从"项目制实施"扩展到"per-session/per-resolution 计费"与"enterprise flat fee + 用量"；母公司的 API 用量收入则天然随调用量线性乃至超线性扩展。<strong>但</strong>：本仓库不提供任何商业支持、SLA、企业版或认证体系，且被官方声明为不维护，增值服务只能由采用方或第三方 SI 承接，天花板不由本项目享有，故落在 5–6 档而非 7–8 档。</p>
+<h3>维度结论</h3>
+<ul>
+<li><strong>唯一满分级项是协议</strong>：Apache 2.0 使全部变现路径合法无阻，这是本项目商业化评估中最扎实的一块。</li>
+<li><strong>根本约束不在法律而在定位</strong>：本项目是 Anthropic 的官方参考蓝图（contributors=1、无 Release、README 明示不维护不接受贡献、7 个包刻意不在公共索引注册），自身并无商业实体、定价、企业版或付费支持，其真实变现闭环是把开发者引向 Claude API 与生态落地，价值归属母公司而非仓库。</li>
+<li><strong>对下游采用方而言机会真实存在</strong>：67K 行代码、23.1% 测试占比、4 个可运行垂直行业、面向受监管场景的审批门与 provenance gates、多云部署文档，构成企业级 commerce agent 交付的可复用基座，Open Core / SaaS 托管 / 专业服务三条路径均有先例可循，客单价天花板高。</li>
+<li><strong>评分口径说明</strong>：D4.2–D4.4 按"项目能否支撑变现"而非"是否已在变现"打分。若严格限定为"项目本体的自营收入能力"，三项均可下探一档；反之若按"作为母公司生态资产的转化价值"评估，可上探一档。本报告取中间口径，置信度中等，主要不确定性来自缺少任何商业化意图、定价或企业版素材的直接证据。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D4.1 协议对变现模式的影响</td>
+<td>2.0</td>
+<td>2.0</td>
+<td>100%（9–10）</td>
+</tr>
+<tr>
+<td>D4.2 变现路径清晰度</td>
+<td>3.5</td>
+<td>2.1</td>
+<td>60%（5–6）</td>
+</tr>
+<tr>
+<td>D4.3 付费转化逻辑</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>60%（5–6）</td>
+</tr>
+<tr>
+<td>D4.4 增值服务空间与定价天花板</td>
+<td>2.0</td>
+<td>1.2</td>
+<td>60%（5–6）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>6.8</strong></td>
+<td><strong>一般</strong></td>
+</tr>
+</tbody>
+</table>
+<h3>D5 竞争格局与差异化壁垒（权重 12%）</h3>
+<blockquote>
+<p><strong>验证声明（重要）</strong>：本次评估环境<strong>无可用搜索接口</strong>，且被分析仓库的 README/docs 全文<strong>未点名任何同类竞品</strong>（仅提及 Snowflake、BigQuery、Databricks、Stripe、Slack、Gmail 等 <strong>MCP 集成目标</strong>，属被集成方而非竞品）。因此下表竞品<strong>未经 GitHub Search / Web 搜索验证</strong>，系基于公开市场认知列举，<strong>可能存在偏差</strong>；涉及竞品规模的数据一律标注"未验证"，不参与打分。D5.1 的置信度因此下降。</p>
+</blockquote>
+<h4>D5.1 竞品对比与市场定位（满分 3 分）</h4>
+<p><strong>竞品对比表</strong></p>
+<table>
+<thead>
+<tr>
+<th>竞品名称</th>
+<th>类型</th>
+<th>仓库/官网</th>
+<th>验证方式</th>
+<th>Star/用户量</th>
+<th>核心差异</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LangGraph（LangChain）</td>
+<td>间接竞品</td>
+<td>github.com/langchain-ai/langgraph</td>
+<td><strong>未验证</strong>（环境无搜索接口）</td>
+<td>N/A（未验证）</td>
+<td>通用有状态 Agent 编排框架；不提供商流领域契约、结账语义与商户审批门</td>
+</tr>
+<tr>
+<td>OpenAI Agents SDK</td>
+<td>间接竞品</td>
+<td>github.com/openai/openai-agents-python</td>
+<td><strong>未验证</strong></td>
+<td>N/A（未验证）</td>
+<td>OpenAI 官方 Agent 运行时；模型与生态绑定 OpenAI，非商流垂直</td>
+</tr>
+<tr>
+<td>Google ADK</td>
+<td>间接竞品</td>
+<td>github.com/google/adk-python</td>
+<td><strong>未验证</strong></td>
+<td>N/A（未验证）</td>
+<td>Google 官方 Agent 开发套件；无购物/商户双角色参考实现</td>
+</tr>
+<tr>
+<td>Vercel AI SDK</td>
+<td>间接竞品</td>
+<td>github.com/vercel/ai</td>
+<td><strong>未验证</strong></td>
+<td>N/A（未验证）</td>
+<td>TS 全栈 AI 应用工具链；偏前端流式 UI，无后端商务契约与安全围栏</td>
+</tr>
+<tr>
+<td>Sierra / Salesforce Agentforce 等商业客服与商务 Agent 平台</td>
+<td>直接竞品（商业闭源）</td>
+<td>sierra.ai / salesforce.com/agentforce</td>
+<td><strong>未验证</strong></td>
+<td>N/A（未验证）</td>
+<td>面向企业客户的托管式商务/客服 Agent SaaS；卖点是交付与 SLA，本项目卖点是可自持的开放参考代码</td>
+</tr>
+</tbody>
+</table>
+<p><strong>定位分析</strong></p>
+<ul>
+<li><strong>定位清晰度：高。</strong> README 首句即给出明确边界——"Two commerce agents built on Claude: a <strong>shopping agent</strong> a business embeds in its app for customers, and a <strong>merchant agent</strong> its staff use to run the back office"。这是一个<strong>罕见的双角色（前台导购 + 后台运营）同库、同技能契约</strong>的定位，且明确"defined once（prompt, skills, tool contracts, gates）"运行于 <strong>Messages API / Claude Agent SDK / Managed Agents 三条运行时</strong>，并有 4 个可运行垂直行业（retail/travel/telecom/entertainment）作为同构证明。</li>
+<li><strong>差异化锚点：</strong>（1）<strong>商流领域契约</strong>——<code>StorefrontBackend</code> / <code>MerchantBackend</code> 接口把 catalog/cart/order/policy/analytics/inventory/pricing/campaign 抽象成可替换后端，而非通用工具调用；（2）<strong>安全围栏内建于工具调用层</strong>——fencing、provenance gates、caps、memory validation、商户审批门"run inside the tool call and hold on all three paths"；（3）<strong>写入即暂存</strong>——"every merchant write is staged until a person approves it"；（4）<strong>Claude Code 插件分发</strong>（<code>claude plugin marketplace add anthropics/commerce-agents</code>）把参考实现变成可脚手架化的生产力工具。</li>
+<li><strong>相对劣势：</strong> 项目自我定位为 reference blueprint（"This is a reference implementation; it is not maintained and does not accept contributions"），在商业客户面前需要与<strong>托管交付型 SaaS 竞品</strong>（Sierra/Agentforce 类）正面竞争交付与运维；通用 Agent 框架（LangGraph 等）则在同一批"自建派"开发者中争夺心智。差异化鲜明但<strong>并非无竞品</strong>。</li>
+</ul>
+<p><strong>小分：2.4 / 3（80%，对应 7–8 档）</strong>——有明确且差异化的定位，但存在多个通用框架与商业 SaaS 竞品，未达到"无直接竞品或明显领先"。</p>
+<h4>D5.2 技术壁垒与网络效应（满分 3 分）</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测依据</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术壁垒</td>
+<td>无专利声明；Apache-2.0 全文可复制；<code>requirements.txt</code> 显示 7 个包<strong>刻意不在公共索引注册</strong>（CI 校验包名保持未注册），但这是发布工程约定，不是竞争壁垒</td>
+<td><strong>弱</strong>。真正的壁垒来自上游 Claude 模型能力与 Agent SDK/Managed Agents，而非本仓库自身</td>
+</tr>
+<tr>
+<td>网络效应</td>
+<td>contributors = <strong>1</strong>；无 CONTRIBUTING；README 明示<strong>不接受贡献</strong>；无插件市场、无第三方扩展仓库、无多租户数据回流</td>
+<td><strong>几乎为零</strong>。468 个 Fork 表明"被复制用作模板"，但 Fork 不回流、不构成网络价值</td>
+</tr>
+<tr>
+<td>规模效应</td>
+<td>项目自身无规模效应；仅通过母体 Anthropic 的模型与云侧规模间接受益</td>
+<td><strong>无（项目级）</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>关键判断：</strong> 本项目的防御性本质是"<strong>第一方权威 + 规范示范</strong>"型壁垒：它用 66,990 行代码把"如何安全地做商流 Agent"固化成可抄写的标准答案（<code>docs/safety.md</code> 逐条列出规则及其模块与路径），但<strong>代码可自由复制、无数据飞轮、无社区回流</strong>。竞品可以低成本吸收其设计模式。所谓护城河系在 Anthropic 品牌与 Claude 生态上，而非仓库本身——这一现象已在 D2.2 复刻难度中计分，此处仅从商业防御效果看，结论是<strong>有一定但不深厚</strong>。</p>
+<p><strong>小分：1.8 / 3（60%，对应 5–6 档）</strong></p>
+<h4>D5.3 切换成本与用户粘性（满分 2 分）</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测依据</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>迁移成本</td>
+<td>采用者须实现 <code>StorefrontBackend</code> / <code>MerchantBackend</code> 全套后端方法（商户侧仅读方法即 8 个，另加 listing/inventory/pricing/campaign 写路径），并落位 skills、presentation extensions（垂直示例共 7 个）、host web 应用（8 个 web app 共享 workspace）</td>
+<td><strong>中高</strong>（一旦深度落地）</td>
+</tr>
+<tr>
+<td>深度集成</td>
+<td>安全规则"run inside the tool call"，provenance gates 挡在每一次写入之前；结账交棒给宿主自己的 checkout route</td>
+<td><strong>深</strong>——但这些集成点全部是使用者自己写的代码，不在本仓库侧</td>
+</tr>
+<tr>
+<td>习惯锁定</td>
+<td>README 明确"<strong>Start small</strong>"：试点只实现 search + product details，其余 stub 且"changes no prompt bytes"；系统不具备的能力可用 <code>enable_*</code> 开关整块关掉</td>
+<td><strong>低门槛进入 = 低初始锁定</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>关键判断：</strong> 结构性粘性存在（后端契约 + 安全围栏 + evals + 提示前缀缓存调优的沉没成本），但有两个削弱因素：（1）<strong>Apache-2.0 且模式为 fork-copy</strong>，使用者持有的是自己的分支，切换方向是"重写自己的后端适配层"而非"迁移本仓库数据"，不存在数据锁定；（2）项目<strong>不维护、不接受贡献</strong>，采用者被迫自行承担演进，反而更易在行业标准化时整体换栈。此外 <code>docs/deployment.md</code> 支持 GCP Vertex AI / AWS Bedrock / Microsoft Foundry 与网关，<strong>刻意降低平台侧锁定</strong>——这有利于采用，但同样降低了本项目的粘性。</p>
+<p><strong>小分：1.2 / 2（60%，对应 5–6 档）</strong></p>
+<h4>D5.4 护城河可持续性（满分 2 分）</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测依据</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>护城河趋势</td>
+<td><code>pushed_at</code>（2026-09-01T20:41:14Z）与 <code>created_at</code>（同日 12:30:12Z）几乎同时，<strong>发布后无任何后续推送</strong>；<code>recent_releases</code> 为空；<code>issues_closed_90d</code> = 0</td>
+<td><strong>持平偏弱</strong>——靠 Anthropic 品牌与 Claude 生态扩容被动受益，自身无主动加深</td>
+</tr>
+<tr>
+<td>颠覆风险</td>
+<td>商流 Agent 是 2025–2026 全行业竞速赛道，通用框架（LangGraph/OpenAI Agents SDK/Google ADK）与商业 SaaS（Sierra/Agentforce 类）双向挤压；行业出现<strong>代理式商务/支付协议标准化动向</strong>（如 OpenAI 与 Stripe、Google 各自推动的商务/支付 Agent 协议，<strong>本条未经搜索验证</strong>）。若标准成型，专有蓝图的差异化会被协议兼容性稀释</td>
+<td><strong>中等</strong>——风险不在技术落后，而在"规范被行业标准替代"</td>
+</tr>
+<tr>
+<td>时间窗口</td>
+<td>只要 Claude 保持在第一梯队且 Managed Agents 增长，作为"Claude 原生商流参考实现"的占位可维持；但项目自述不维护，能力项（安全规则、技能、垂直）会随平台与商流实践漂移而过时</td>
+<td><strong>1 年内稳定，2–3 年需实质更新</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>小分：1.2 / 2（60%，对应 5–6 档）</strong></p>
+<h4>D5 结论</h4>
+<p>anthropics/commerce-agents 的竞争地位是<strong>"权威示范者"而非"市场占有者"</strong>：它在"开放、可自持、商流垂直、安全内建、双角色同库"这一细分格位上<strong>几乎没有同构对手</strong>，且具备第一方信任与 Claude Code 插件分发两项非代码优势；但它的护城河<strong>不属于仓库本身</strong>——无专利、无数据壁垒、无社区网络效应（1 位贡献者、不接受贡献）、无规模效应，代码可被自由复制吸收。切换成本来自采用者自己写的后端适配层而非本仓库，标准化风险（代理式商务协议）与商业 SaaS 交付能力构成两条主要威胁。综合落在"高于行业平均但不构成显著商业优势"区间。</p>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D5.1 竞品对比与市场定位</td>
+<td>3</td>
+<td>2.4</td>
+<td>7–8（80%）</td>
+</tr>
+<tr>
+<td>D5.2 技术壁垒与网络效应</td>
+<td>3</td>
+<td>1.8</td>
+<td>5–6（60%）</td>
+</tr>
+<tr>
+<td>D5.3 切换成本与用户粘性</td>
+<td>2</td>
+<td>1.2</td>
+<td>5–6（60%）</td>
+</tr>
+<tr>
+<td>D5.4 护城河可持续性</td>
+<td>2</td>
+<td>1.2</td>
+<td>5–6（60%）</td>
+</tr>
+<tr>
+<td><strong>D5 合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>6.6</strong></td>
+<td><strong>6.6 / 10</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>置信度说明：</strong> 竞品未经搜索验证，D5.1 存在偏差风险；其余三条均以仓库实测硬事实（贡献者数、发布/推送时间、issue 关闭数、许可协议、自述"不维护不接受贡献"、部署文档平台清单）为依据，置信度正常。</p>
+<h3>D6. 法律合规与知识产权（权重 7%）</h3>
+<h3>D6.1 开源协议合规性与商业限制（满分 3 分）——<strong>3.0 / 3</strong></h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>协议明确性</td>
+<td>仓库根目录存在完整标准 <code>LICENSE</code> 文件，正文为 Apache License 2.0 全文；GitHub API 返回 <code>license: Apache-2.0</code>；<code>requirements.txt</code>、各 <code>pyproject.toml</code>（commerce-common、merchant-agent/<em>、shopping-agent/</em>）均标注 <code>SPDX-License-Identifier: Apache-2.0</code> / <code>license = { text = "Apache-2.0" }</code>，SPDX 标识规范、一致。</td>
+</tr>
+<tr>
+<td>copyleft 传染性</td>
+<td>项目自身及全部子包均为 Apache-2.0，无 GPL/AGPL/LGPL 等传染性协议。</td>
+</tr>
+<tr>
+<td>商业附加条款</td>
+<td>无 Commons Clause、BUSL、SSPL、非商业限制或任何附加条款；Apache-2.0 第 3 条自带专利授权与专利报复终止条款，对商业化友好。</td>
+</tr>
+<tr>
+<td>合规可管理性</td>
+<td>Apache-2.0 为宽松许可，允许闭源再分发、SaaS 化与商业转售，仅需保留版权/许可声明。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：协议明确、无传染性、无附加限制，属"协议明确规范，无传染性风险，无商业附加条款"（9–10 档 → 100%）。<strong>得 3.0 分</strong>。</p>
+<blockquote>
+<p>说明：本细则按方法论要求回避协议类型对变现模式的重复扣分（该影响归 D4.1），仅评估法律合规侧——结论为无实质法律障碍。</p>
+</blockquote>
+<h3>D6.2 依赖链法律风险（满分 2.5 分）——<strong>2.5 / 2.5</strong></h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>依赖协议审查</td>
+<td>Python 侧 37 个 pin（anthropic、pydantic、fastapi、starlette、uvicorn、httpx、mcp、cryptography、pyjwt、jsonschema、pyyaml、python-dotenv 等）逐项均为 MIT / BSD / Apache-2.0 / PSF 类宽松协议；Node 侧 next、react、react-dom、tailwindcss、<code>@tailwindcss/postcss</code>、<code>typescript</code>（Apache-2.0）、<code>@types/*</code> 亦均为 MIT/Apache-2.0。<strong>依赖链中未发现任何 GPL/AGPL 等传染性协议</strong>。</td>
+</tr>
+<tr>
+<td>依赖数量</td>
+<td>直接声明的仓库内子包 7 个（均为本仓 editable 本地包，非外部索引解析）；第三方直接依赖约 12–15 个，其余为传递依赖。整体规模中等，均在主流可信发行源。</td>
+</tr>
+<tr>
+<td>依赖来源</td>
+<td>全部来自 PyPI 官方与 npm 官方注册表的头部维护方（Anthropic、Pydantic、Encode/FastAPI、Vercel、Meta），无来源不明或高风险包。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：无传染性依赖，来源可靠，虽 pin 集合规模偏中等，但"需注意的依赖"几近为零（9–10 档 → 100%）。<strong>得 2.5 分</strong>。</p>
+<h3>D6.3 商标与专利风险（满分 2.5 分）——<strong>1.5 / 2.5（N/A 折算，置信度低）</strong></h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>商标可用性</td>
+<td><strong>未做人工商标检索。</strong> 项目名"commerce-agents"为通用描述性词组，托管于 anthropics 组织下，但无法在无核查数据下断言其可注册性。</td>
+</tr>
+<tr>
+<td>专利风险</td>
+<td>Apache-2.0 含明示专利授权，可在贡献者专利范围内降低风险；但本领域（Agent/电商对话）专利排查无法由 AI 自动完成，<strong>不做断言</strong>。</td>
+</tr>
+<tr>
+<td>商标政策</td>
+<td>仓库内未见独立商标使用政策文件；LICENSE 第 6 条为 Apache-2.0 标准"不授予商标许可"条款（默认保护，非项目自定友好政策）。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：按方法论强制约束，商标检索与专利排查无法自动完成、素材中无人工核查数据，<strong>默认按 5–6 档给 1.5/2.5（60%），标注「未经人工核查，置信度低」</strong>。<strong>得 1.5 分</strong>。</p>
+<h3>D6.4 贡献者协议完备性（满分 2 分）——<strong>0.8 / 2</strong></h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CLA/DCO</td>
+<td>实测 <code>has_contributing: false</code>、无 CLA/DCO 配置；未见任何贡献者许可协议。</td>
+</tr>
+<tr>
+<td>版权归属</td>
+<td>版权集中且清晰：代码头部统一标注 <code>Copyright 2026 Anthropic PBC</code>，提交者仅 1 人（Anthropic），版权未分散——这一集中度客观上利于双协议/再许可模式。</td>
+</tr>
+<tr>
+<td>贡献流程</td>
+<td>无 <code>CONTRIBUTING.md</code>、无 <code>CODEOWNERS</code>、无 <code>.github/</code> 贡献模板（<code>has_codeowners: false</code>），贡献流程未建立。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：无任何正式贡献协议或流程（低于 5–6 档"有贡献指南但无正式 CLA"），但版权归属集中清晰、并非"版权分散/混乱"（高于 1–2 档）。归入 3–4 档"贡献流程不规范"（40%）。<strong>得 0.8 分</strong>。</p>
+<blockquote>
+<p>权衡：本仓为公司单主体参考蓝图、非社区共建型项目，版权集中是加分项；但一旦开放外部贡献，缺乏 CLA/DCO 将带来版权稀释与双许可管理风险，故不宜按 5–6 档计。</p>
+</blockquote>
+<h3>D6 维度小结</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D6.1 协议合规性与商业限制</td>
+<td>3.0</td>
+<td>3.0</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>D6.2 依赖链法律风险</td>
+<td>2.5</td>
+<td>2.5</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>D6.3 商标与专利风险</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>60%（N/A 折算，置信度低）</td>
+</tr>
+<tr>
+<td>D6.4 贡献者协议完备性</td>
+<td>2.0</td>
+<td>0.8</td>
+<td>40%</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>7.8</strong></td>
+<td><strong>7.8 / 10</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：D6 维度法律基本盘稳固——Apache-2.0 协议清晰规范、含专利授权、无附加条款，依赖链彻底无 copyleft 传染，"协议 + 依赖"两项法律硬指标接近满分，不构成商业化障碍。主要不确定性集中在两处软性短板：其一，商标/专利风险因无人工核查数据而无法确证（D6.3 按规则折算，置信度低）；其二，缺失 CLA/DCO、CONTRIBUTING、CODEOWNERS 等贡献者治理设施，版权虽集中于 Anthropic 利于再许可，但开放贡献后存在版权管理风险。综合得分 <strong>7.8/10</strong>，属"良好"档，无阻断性法律硬伤。<strong>置信度：中</strong>（受 D6.3 未经核查影响）。</p>
+<h3>D7. 企业就绪度与可运营性</h3>
+<p><strong>一句话判断</strong>: 项目为企业集成提供了高质量的<strong>领域层护栏与多运行时接口</strong>（三次运行时 + MCP + 类型化后端契约 + 强安全围栏），但<strong>企业运营底座整体缺失或显式外推给部署方</strong>——无内置认证/SSO、无发布与升级机制、无集群/高可用方案、无指标/追踪导出。作为「参考蓝图」这一产品定位决定了它在 D7 维度天然偏弱。</p>
+<blockquote>
+<p><strong>背景约束（影响解读）</strong>: README 明确声明 "Business rules, authorization, and compliance are the deployment's"——即授权与合规被有意划归部署方。本维度仍按「项目实际提供了什么」打分，该声明会压低 D7.2/D7.3 的得分，但在报告结论中已如实标注。</p>
+</blockquote>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>核心依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D7.1 运维复杂度与升级路径</td>
+<td>3</td>
+<td>1.8</td>
+<td>5–6（60%）</td>
+<td>配置清晰（.env + pydantic-settings），但 0 release、无 CHANGELOG、无迁移机制、无容器化产物</td>
+</tr>
+<tr>
+<td>D7.2 安全管理与权限控制</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6（60%）</td>
+<td>领域级审批门控 + 围栏/脱敏优秀；但无 SSO/LDAP/SAML、无 RBAC、无独立审计日志、无加密存储</td>
+</tr>
+<tr>
+<td>D7.3 可扩展性与高可用能力</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6（60%）</td>
+<td>回合循环按参数传态、MemoryStore 可插拔（利于水平扩展）；但无集群/故障转移方案，示例状态全在进程内</td>
+</tr>
+<tr>
+<td>D7.4 集成兼容与可观测性</td>
+<td>2</td>
+<td>1.6</td>
+<td>7–8（80%）</td>
+<td>三运行时 + MCP + 类型化 Backend 契约 + health + 结构化事件流；缺 Prometheus/OTel/指标导出</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>6.4</strong></td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>D7.1 运维复杂度与升级路径（1.8 / 3）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判定</th>
+<th>证据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>配置管理</td>
+<td>部分满足</td>
+<td><code>.env.example</code>（仅 <code>ANTHROPIC_API_KEY</code>）；依赖含 <code>pydantic-settings==2.15.0</code>、<code>python-dotenv==1.2.2</code>；<code>ShoppingAgentConfig</code> / <code>MerchantAgentConfig</code> 为显式代码配置类。<strong>无配置中心/远程配置支持</strong></td>
+</tr>
+<tr>
+<td>运维负担</td>
+<td>较轻</td>
+<td>定位为库/蓝图而非可部署服务；<code>scripts/install.sh</code> 与 <code>run_demo.py</code> 封装了安装与启动；依赖全部精确 pin（<code>anthropic==0.122.0</code>、<code>fastapi==0.141.1</code> 等）</td>
+</tr>
+<tr>
+<td>升级路径</td>
+<td><strong>缺失</strong></td>
+<td><code>recent_releases: []</code>（<strong>零发布</strong>）；文档清单中<strong>无 CHANGELOG</strong>；7 个包均为未注册到公共索引的本地 editable 包，升级需手动改 pin（requirements.txt 注释明示「edit it here and in the pyproject」）；<strong>无回滚机制描述</strong></td>
+</tr>
+<tr>
+<td>数据迁移</td>
+<td>无机制</td>
+<td>无 DB/持久化 schema；<code>JsonFileMemoryStore</code> 无 schema 版本或迁移逻辑；<code>purge_generation</code> 仅做乐观并发控制，非迁移工具</td>
+</tr>
+<tr>
+<td>容器化/编排</td>
+<td><strong>缺失</strong></td>
+<td><code>has_dockerfile: false</code>；无 Helm/K8s manifest；<code>docs/deployment.md</code> 指向 Managed Agents 等「其他平台」，即部署外推</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断</strong>: 配置管理与安装可重复性达到可接受水平（pip pin + 安装/校验脚本 + CI 三重校验），但<strong>没有发布、没有版本演进记录、没有迁移与回滚路径</strong>——对企业而言「升级」这一问题在项目侧完全无答案。落在 5–6 档「需一定运维投入，升级需手动操作」。</p>
+<hr />
+<h3>D7.2 安全管理与权限控制（1.5 / 2.5）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判定</th>
+<th>证据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>认证授权</td>
+<td><strong>缺失（外推）</strong></td>
+<td>README：授权属于 deployment 职责；<code>MerchantSessionContext.operator</code>「由主机从自身认证派生」；依赖中存在 <code>pyjwt==2.13.0</code>、<code>cryptography==50.0.0</code>，但<strong>无 SSO/OAuth/LDAP/SAML 实现或配置</strong></td>
+</tr>
+<tr>
+<td>权限模型</td>
+<td>领域级有效，非 RBAC</td>
+<td>写入走 staged→preview→approve→apply（<code>ChangeLedger</code>）；<code>gates.py</code> 提供 <code>check_apply_change</code> / <code>check_discard_change</code> / <code>check_listing_provenance</code> / <code>check_listing_record_read</code> / <code>take_discard_actor_kind</code>；<code>ActorKind</code> + <code>approved_change_ids</code> / <code>host_action_change_ids</code> 防止模型自我归因为操作员。<strong>无角色/属性级 RBAC/ABAC</strong></td>
+</tr>
+<tr>
+<td>审计日志</td>
+<td>部分</td>
+<td>变更账本保留 staged/applied/discarded 与 actor 类型、会话溯源（<code>seen_listings</code>/<code>seen_changes</code>）；<code>session_tag</code> = SHA-256 前 12 位避免日志泄露凭据。<strong>无独立、可导出的操作审计流水</strong></td>
+</tr>
+<tr>
+<td>数据安全</td>
+<td>部分</td>
+<td><code>Fence.sanitize_text</code> 全字段清洗；<code>DEFAULT_BLOCKED_PATTERNS</code> 拦截卡号/IBAN/邮箱；<code>JsonFileMemoryStore</code> 以 <code>0o600</code> 落盘；<code>check_analysis_sql</code> 强制只读单条 SELECT；<code>RETENTION</code> 包装器。<strong>无静态加密/密钥管理/KMS 集成</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断</strong>: 若把「Agent 写入的授权与防注入」作为安全核心，本项目属行业上游（围栏、溯源、审批门控、PII 过滤一应俱全，且有 <code>docs/safety.md</code>）；但企业安全四要件中 <strong>SSO、RBAC、审计、加密全部缺失或被显式外推</strong>，对企业采购是硬伤。取 5–6 档。</p>
+<hr />
+<h3>D7.3 可扩展性与高可用能力（1.5 / 2.5）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判定</th>
+<th>证据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>水平扩展</td>
+<td>架构上具备雏形</td>
+<td>回合循环 <code>stream_turn(messages, session, state)</code> 状态外置、无进程内会话全局；<code>MemoryStore</code> 为 <code>Protocol</code>，可替换为共享后端；<code>RetentionMemoryStore</code> 为装饰器式包装</td>
+</tr>
+<tr>
+<td>高可用</td>
+<td><strong>缺失</strong></td>
+<td>无集群部署、无 leader 选举、无故障转移配置；示例宿主为单进程 <code>uvicorn</code>（如 travel 首页错误提示直接暴露 <code>uvicorn ... --port 8001</code>）</td>
+</tr>
+<tr>
+<td>性能瓶颈/单点</td>
+<td>存在单点</td>
+<td>示例后端状态全在进程内（<code>SessionCarts</code>、<code>_trip_plans</code>、<code>InMemoryMemoryStore</code>、ticketing <code>TicketingEngine</code> 内存状态机）；<code>sweep</code> 在票务引擎每次公开调用执行，<code>_offer_next</code> 使用 <code>entries.pop(0)</code> 为 O(n)</td>
+</tr>
+<tr>
+<td>数据一致性</td>
+<td>局部机制</td>
+<td>记忆写用 <code>purge_generation</code> 做乐观并发；无跨实例一致性方案、无分布式锁</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断</strong>: 库的核心（回合循环、后端契约、记忆契约）在设计上<strong>利于</strong>水平扩展——状态由宿主注入而非库内全局持有。但项目<strong>未提供任何集群/高可用/分布式一致性方案或验证</strong>，示例一律单进程内存态。落在 5–6 档「单机性能可接受，扩展需改造」。</p>
+<hr />
+<h3>D7.4 集成兼容与可观测性（1.6 / 2）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判定</th>
+<th>证据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>API 完备性</td>
+<td><strong>强</strong></td>
+<td>三种运行时：Messages API（<code>ShoppingAgent</code> / <code>MerchantAgent</code>）、Claude Agent SDK、Managed Agents；后端契约为显式抽象（<code>StorefrontBackend</code> / <code>MerchantBackend</code> ABC）；工具契约以 JSON Schema 声明并按固定顺序生成（<code>tools/registry.py</code>）；<code>run_analysis</code> 委托工具带 schema-as-code 校验。<strong>无 OpenAPI 规范文件、无 gRPC、无官方客户端 SDK</strong></td>
+</tr>
+<tr>
+<td>标准协议</td>
+<td>良好</td>
+<td>支持 <strong>MCP</strong>（<code>mcp==1.29.0</code>；<code>merchant-mcp-server</code>、<code>storefront-mcp-server</code>）；事件流以 <strong>SSE</strong> 输出（<code>commerce_common/streaming.py</code> 的 <code>to_sse</code>）。<strong>无 OpenTelemetry、无 Prometheus 端点、无 Webhook</strong></td>
+</tr>
+<tr>
+<td>监控告警</td>
+<td>基础</td>
+<td><code>demo_common/storefront.py</code> 与 <code>merchant.py</code> 暴露 <code>health</code> 端点；有 <code>usage_totals</code> 用量累计。<strong>无指标导出、无告警规则、无 tracing</strong></td>
+</tr>
+<tr>
+<td>日志体系</td>
+<td>良好</td>
+<td>统一结构化事件模型 <code>AgentEvent</code>（<code>text_delta</code> / <code>tool_call</code> / <code>tool_result</code> / <code>ui</code> / <code>cart_update</code> / <code>change_update</code> / <code>progress</code> / <code>turn_complete</code> / <code>error</code>）；标准 <code>logging</code> 全链路使用；工具调用/结果与用量可追踪</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断</strong>: 作为「集成型参考实现」，接口面明显高于平均——多运行时、MCP、类型化后端契约、结构化事件流与健康检查齐备；短板在<strong>可观测性仅到 health + 结构化事件，未对接 Prometheus/OTel 等行业标准监控/追踪栈</strong>。取 7–8 档。</p>
+<hr />
+<h3>结论</h3>
+<p><strong>D7 = 6.4 / 10（一般，达到行业平均线附近）</strong></p>
+<ul>
+<li><strong>强项集中在「集成面」与「Agent 域安全」</strong>: 三次运行时 + MCP + 显式 Backend 契约（D7.4 得分最高，1.6/2）；写入审批门控、溯源、围栏与 PII 过滤构成真正差异化的安全能力（虽不足以补齐企业四要件）。</li>
+<li><strong>薄弱集中在「运营底座」</strong>: 零发布、无 CHANGELOG、无迁移/回滚、无容器与编排产物（D7.1）；无 SSO/RBAC/审计/加密，且授权被显式划给部署方（D7.2）；无集群/高可用/分布式一致性方案（D7.3）。</li>
+<li><strong>定位性解释</strong>: 仓库自我定位为 "reference blueprint"，<code>created_at</code> 与 <code>pushed_at</code> 同为 2026-09-01、<code>contributors: 1</code>、<code>recent_releases: []</code>——典型的<strong>单日首版参考实现</strong>，尚未进入产品化运营阶段。企业客户若采用，需自行补齐认证、审计、持久化与高可用，这些工作量不可忽略。</li>
+<li><strong>置信度</strong>: 中。CI/文档/代码摘要证据充分，但<strong>无真实生产部署、无 release 记录、无性能压测数据</strong>，D7.1/D7.3 的部分判断基于「证据缺失」而非「实测失败」。</li>
+</ul>
+<h3>D8. 团队治理与可持续性</h3>
+<h3>总体判断</h3>
+<p><code>anthropics/commerce-agents</code> 是 Anthropic 官方发布的企业级参考蓝图仓库（源码头部多处标注 "Copyright 2026 Anthropic PBC"），其团队治理与资金基础呈现出<strong>典型的「大厂官方项目」特征</strong>:资金与商业能力极强、技术背景顶级,但作为一个新近发布的参考型仓库,其在社区治理透明度、贡献者开放度和传承机制文档化方面几乎空白。二者形成鲜明的「强公司背书 vs. 弱社区治理」反差。</p>
+<h3>D8.1 核心维护者能力与背景（2.5 分）</h3>
+<p><strong>得分:2.0 / 2.5(80%,7–8 档)</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术能力</td>
+<td>强</td>
+<td>归属 <code>anthropics</code> 组织,由 Anthropic 官方维护;仓库含 66,990 行代码、Python/TS/TSX 三语言、23.1% 测试占比、完整 CI,工程完成度高</td>
+</tr>
+<tr>
+<td>商业经验</td>
+<td>强</td>
+<td>Anthropic 是全球头部大模型公司,具备成熟的 API 商业化与企业服务经验("Claude"、"managed-agents" 等企业级形态明确)</td>
+</tr>
+<tr>
+<td>投入度</td>
+<td>全职(推定)</td>
+<td>官方仓库,版权归属 Anthropic PBC,内容量(7 个 Python 包 + 多语言示例 + 插件体系)远超业余投入可承载范围</td>
+</tr>
+<tr>
+<td>巴士因子</td>
+<td>不可验证</td>
+<td>GitHub API 显示 <code>contributors = 1</code>,且无 <code>CODEOWNERS</code>;虽公司主体可保障「组织级」巴士因子,但个体层证据薄弱</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评述</strong>:作为 Anthropic 官方出品,技术能力与商业经验处于行业顶端,投入度近乎可确认为全职团队作业。但 GitHub 侧仅暴露 1 名贡献者、且缺少 CODEOWNERS,无法证实「巴士因子 ≥5」的卓越档门槛,故落于 7–8 档。</p>
+<h3>D8.2 治理模型透明度（2 分）</h3>
+<p><strong>得分:0.8 / 2.0(40%,3–4 档)</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>治理文档</td>
+<td>缺失</td>
+<td>无 <code>GOVERNANCE.md</code>、无 <code>CONTRIBUTING.md</code>、无 <code>CODEOWNERS</code>、无 <code>SECURITY.md</code>、无公开路线图文档</td>
+</tr>
+<tr>
+<td>开放程度</td>
+<td>低</td>
+<td>属公司闭源式主导的参考蓝图,外部贡献者参与决策的机制未文档化</td>
+</tr>
+<tr>
+<td>基金会/组织</td>
+<td>无</td>
+<td>归属 Anthropic 独资组织,非 CNCF/Apache/Linux Foundation 成员项目</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评述</strong>:仓库文档极为丰富(43 个 README/markdown,含 CLAUDE.md、deployment/safety/backends 等),但<strong>这些是「使用文档」而非「治理文档」</strong>。项目本质是 Anthropic 单向发布的商业蓝图,不承诺社区共治,治理透明度符合 3–4 档「治理不透明、决策由核心团队主导」。</p>
+<h3>D8.3 资金支持与商业赞助（2.5 分）</h3>
+<p><strong>得分:2.5 / 2.5(100%,9–10 档)</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>现有资金</td>
+<td>极充足</td>
+<td>由 Anthropic 直接持有与运营,母公司具备大规模 VC 融资(Google/Amazon 等)与稳定营收</td>
+</tr>
+<tr>
+<td>赞助收入</td>
+<td>N/A(不适用)</td>
+<td>官方仓库不依赖 GitHub Sponsors/Open Collective</td>
+</tr>
+<tr>
+<td>商业实体</td>
+<td>有</td>
+<td>版权主体明确为 Anthropic PBC,存在实际运营实体</td>
+</tr>
+<tr>
+<td>资金可持续性</td>
+<td>高</td>
+<td>无资金链断供风险,可持续性由公司主体保障</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评述</strong>:资金维度是本项目最强项。由头部 AI 公司全职团队维护,资金与商业实体的可持续性远超行业平均,完全符合 9–10 档「有 VC 支持或大公司全职团队,资金充足」。</p>
+<h3>D8.4 项目可持续性与传承风险（3 分）</h3>
+<p><strong>得分:2.4 / 3.0(80%,7–8 档)</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>活跃趋势</td>
+<td>无法判定趋势</td>
+<td>仓库创建时间与最近推送均为 <code>2026-09-01</code>,为「当日新建+当日推送」的全新仓库,无历史时间序列可判断上升/平稳/下降</td>
+</tr>
+<tr>
+<td>维护延续性</td>
+<td>较强</td>
+<td>由 Anthropic 官方所有,组织层面传承风险低;但无 GOVERNANCE/CODEOWNERS,社区接管机制未定义</td>
+</tr>
+<tr>
+<td>历史信号</td>
+<td>健康</td>
+<td><code>archived = false</code>,无 deprecated/unmaintained 标记</td>
+</tr>
+<tr>
+<td>分叉风险</td>
+<td>无分裂迹象</td>
+<td>466 Fork 对 2,616 Star(Fork/Star ≈ 17.8%),属参考蓝图类仓库「拿来自用/二次开发」的正常外溢,非社区分裂信号;开放 Issue 仅 7 个,无积压</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评述</strong>:项目活跃度处于「全新且刚被推送」状态,短期无停滞风险;背靠 Anthropic 使其传承风险显著低于同规模社区项目。但 0 次 Release、90 天内 0 个 Issue 关闭、仅 1 名暴露贡献者,表明其维护节奏与传承机制尚未经过时间验证,故不达 9–10 卓越档,落于 7–8 档。</p>
+<h3>小结</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D8.1 核心维护者能力与背景</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>80%(7–8)</td>
+</tr>
+<tr>
+<td>D8.2 治理模型透明度</td>
+<td>2.0</td>
+<td>0.8</td>
+<td>40%(3–4)</td>
+</tr>
+<tr>
+<td>D8.3 资金支持与商业赞助</td>
+<td>2.5</td>
+<td>2.5</td>
+<td>100%(9–10)</td>
+</tr>
+<tr>
+<td>D8.4 项目可持续性与传承风险</td>
+<td>3.0</td>
+<td>2.4</td>
+<td>80%(7–8)</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>7.7</strong></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>维度得分:7.7 / 10</strong></p>
+<p><strong>核心结论</strong>:D8 维度整体表现「良好偏高」。最大优势在于<strong>资金与商业实体的绝对确定性</strong>——Anthropic 官方背书的参考蓝图,资金来源与团队稳定性几乎无风险,这为任何基于该项目的商业化落地提供了极高的组织安全性。主要短板集中在<strong>治理透明度与传承机制</strong>:零治理文档、零贡献指南、仅 1 名暴露贡献者、无 Release,意味着项目不适合作为「社区共治型」资产来依赖;其定位更接近「大厂发布的样板参考」,商业价值需依附 Anthropic 生态而非项目自身治理。资金维度满分拉高了整体得分,若剥离公司背书,单看项目自治能力则显著偏弱。</p>
+<p><strong>数据置信度说明</strong>:贡献者数(1)、新建仓库无活跃趋势、无 Release 等构成中等程度的数据局限,已通过「大公司全职团队」的定性事实予以交叉印证;无 N/A 细则,维度得分无需缩放。</p>
+<h3>D9. 上手难度与易用性 详析</h3>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D9.1 安装难度</td>
+<td>2.5</td>
+<td><strong>1.5</strong></td>
+<td>5–6（60%）</td>
+<td>无 Docker，无双运行时一键安装；须 <code>git clone</code> + venv + <code>pip install -r requirements.txt</code> + <code>npm ci</code>，<strong>同时要求 Python 3.11+ 与 Node 22</strong> 两套工具链；7 个本地包在 PyPI 未注册、必须从目录 editable 安装；命令均为 Unix 风格（<code>source .venv/bin/activate</code>），无 Windows 指引。无系统级/外部服务依赖（无 DB/缓存），依赖已全量 pin，且有 <code>scripts/install.sh</code> 收敛安装动作</td>
+</tr>
+<tr>
+<td>D9.2 部署与配置难度</td>
+<td>2.5</td>
+<td><strong>1.5</strong></td>
+<td>5–6（60%）</td>
+<td><strong>无 Dockerfile / docker-compose / Helm Chart</strong>（<code>has_dockerfile: false</code>），无标准化容器部署；但配置极简（仅 <code>.env</code> 填 <code>ANTHROPIC_API_KEY</code>，<code>brand_name</code> / <code>enable_*</code> 开关为可选）；无外部组件初始化；<code>python scripts/run_demo.py retail</code> 可快速拉起 demo（API :8000 + 前端 :3000）；Managed Agents 部署脚本默认 dry run。面向人群仍为开发者，非技术人员无法独立完成</td>
+</tr>
+<tr>
+<td>D9.3 易用性与操作门槛</td>
+<td>2.5</td>
+<td><strong>2.0</strong></td>
+<td>7–8（80%）</td>
+<td>日常操作为单命令（<code>run_demo.py retail</code> / <code>--merchant</code> / <code>--all</code>）；提供 8 个 Next.js 图形界面（storefront + merchant portal）+ SDK 运行时 <code>--once</code> 单轮与 <code>y/N</code> 审批控制台；Claude Code 插件命令支持自然语言触发（"naming it is optional"）与交互式问答；<code>enable_*</code> 开关可关掉业务不需要的系统并自动移除对应工具与提示词，默认开箱可用；但仓库未提供错误提示友好度的相关证据，实现自有后端仍需专业背景</td>
+</tr>
+<tr>
+<td>D9.4 学习曲线与首体验</td>
+<td>2.5</td>
+<td><strong>2.0</strong></td>
+<td>7–8（80%）</td>
+<td>文档极丰富：27 个文档文件，含根 README 两套 Quick start、4 个 vertical README（各带 <code>Try</code> 章节，列出 <code>smoke_chat.py</code> 运行的对话轮次与"好答案"标准）、<code>docs/backends.md</code> / <code>deployment.md</code> / <code>safety.md</code>、5 个 SKILL.md + 多份包级 README；首个成功体验为跑通 retail demo，按文档 30 分钟内可达；但"构建自己的 agent"需理解 skills、tool contracts、provenance gates、fencing、backend 接口、MCP 等多重概念，学习曲线在深度使用阶段明显转陡</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>7.0</strong></td>
+<td>🟡 中等</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h3>分析结论</h3>
+<p><strong>总分 7.0 / 10，上手难度等级 🟡 中等</strong>，处于该区间上沿。</p>
+<p><strong>加分项（使其明显优于多数多组件 Agent 框架）：</strong></p>
+<ol>
+<li><strong>零外部服务依赖</strong>——无数据库、缓存、消息队列需要单独安装与初始化，安装链路的失败面被大幅收窄。</li>
+<li><strong>依赖全量 pin 且自带安装脚本</strong>——<code>requirements.txt</code> 钉死 38 个第三方包版本，<code>scripts/install.sh</code> 封装安装动作，可复现性好。</li>
+<li><strong>首体验路径短且文档化</strong>——<code>python scripts/run_demo.py retail</code> 一条命令即可拉起 API + 前端，且提供 4 个完整 vertical、8 个 Web 应用与 <code>smoke_chat.py</code> 冒烟脚本，"拿来看效果"的门槛很低。</li>
+<li><strong>入门引导层次完整</strong>——从"跑 demo"到"插件脚手架生成自己的 agent"再到"实现 backend 接口"三级路径都有对应文档，Claude Code 插件还提供交互式 <code>/scaffold-commerce-agent</code> 问答式搭建。</li>
+</ol>
+<p><strong>减分项（限制其进入 🟢 简单区）：</strong></p>
+<ol>
+<li><strong>无容器化交付</strong>——无 Dockerfile、无 docker-compose、无 Helm，企业内最常见的"一条 <code>docker run</code> 试一下"路径缺失，运维需自行封装。</li>
+<li><strong>双工具链门槛</strong>——Python 3.11+ 与 Node 22 缺一不可（8 个 Next.js 应用共享 workspace，<code>npm ci</code> 体量不小），对仅有 Python 环境的团队构成额外负担。</li>
+<li><strong>包安装方式非标</strong>——7 个包名在 PyPI 未注册，兄弟依赖被钉到索引上不存在的版本，只能整仓 editable 安装，用户无法按常规 <code>pip install &lt;name&gt;</code> 试用。</li>
+<li><strong>强 API Key 与领域知识门槛</strong>——必须自备 <code>ANTHROPIC_API_KEY</code> 才能跑通任何 demo；真正落地需实现 <code>StorefrontBackend</code> / <code>MerchantBackend</code>，涉及 skills、tool contracts、provenance gates、fencing、MCP 等概念，非本领域开发者需要数天级学习。</li>
+<li><strong>平台覆盖偏 Unix</strong>——所有安装命令为 macOS/Linux 风格，未提供 Windows 对应指引。</li>
+</ol>
+<p><strong>商业化含义：</strong> 该项目作为"参考蓝图"的商业化定位是<strong>技术选型评估与开发者采用</strong>，而非终端产品交付。7.0 分意味着它已跨过"能在半小时内看到效果"的第一道转化门槛，适合面向有 Python/Node 能力的工程团队做 POC；但要进入企业生产环境，容器化交付、包发布、鉴权补齐（示例无鉴权、MCP 绑回环）与自有 backend 实现仍是必须由采用方自行承担的工程量。README 亦明确声明其为 reference implementation、不再维护且不接受贡献，采用者应视其为一次性参考实现而非可长期依赖的依赖项。</p>
+<h3>D10. 功能价值（使用价值视角）</h3>
+<blockquote>
+<p>平行维度，权重 0%，不计入综合评分。本节仅用于 3.4 价值画像判定。</p>
+</blockquote>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10.1</td>
+<td>效用强度</td>
+<td>3</td>
+<td>1.8</td>
+<td>60%（5–6 一般）</td>
+<td>项目级加速器，非业务命脉级依赖</td>
+</tr>
+<tr>
+<td>D10.2</td>
+<td>实际使用规模</td>
+<td>3</td>
+<td>N/A</td>
+<td>—</td>
+<td>关键使用规模指标全部缺失，无法补采</td>
+</tr>
+<tr>
+<td>D10.3</td>
+<td>免费可得的完整效用</td>
+<td>2</td>
+<td>1.6</td>
+<td>80%（7–8 良好）</td>
+<td>全量 Apache-2.0，无付费墙，但依赖自有 Anthropic Key</td>
+</tr>
+<tr>
+<td>D10.4</td>
+<td>效用可持续性</td>
+<td>2</td>
+<td>1.6</td>
+<td>80%（7–8 良好）</td>
+<td>代码本地可存续可分叉，但核心效用锚定 Anthropic API</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td><strong>5.0 / 7（剔除 N/A 后）</strong></td>
+<td><strong>≈ 7.1</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>D10.1 效用强度（1.8 / 3，60%）</h3>
+<p><strong>得分为「5–6 一般」档：明确但有限的效率提升。</strong></p>
+<ul>
+<li><strong>实际效用形态</strong>：本仓库不是可 <code>pip install</code> 即用的成品库——七个包在公共索引上<strong>未注册</strong>（requirements.txt 明确说明「the seven names are unregistered there」），必须从目录可编辑安装。它交付的效用是<strong>蓝图 + 可运行参考 + 脚手架</strong>，而非开箱即用的运行时依赖。</li>
+<li><strong>单用户节省量可观</strong>：66,990 行代码（Python 41,445 + TS/TSX 25,545）、4 个完整垂直行业（retail/travel/telecom/entertainment）、8 个可跑通的 Web 应用、<code>docs/safety.md</code> 逐条列出「每条安全规则及其所在模块与代码路径」。对正在自建购物/商家 Agent 的团队，这省下的是<strong>架构设计 + 安全围栏 + 工具契约</strong>的数周工作，而非「几分钟便利工具」。</li>
+<li><strong>但不能定为项目级依赖</strong>：README 首行自述 "Reference blueprint"，并在 License 段明确 "This is a reference implementation; <strong>it is not maintained and does not accept contributions</strong>"。用户必须自行实现 <code>StorefrontBackend</code> / <code>MerchantBackend</code> 才能产生任何真实业务动作（README: "a deployment implements StorefrontBackend over its catalog, cart, order, and policy systems"）。效用是<strong>借鉴/克隆/改造</strong>，不是长期运行时挂载。</li>
+<li><strong>效用确定性中等偏高</strong>：<code>scripts/verify_all.py</code>、<code>scripts/smoke_chat.py</code>、CI 双版本 Python + 8 个 Web 应用构建，说明「跑起来」是确定可复现的；但「跑起来 → 变成我司线上 Agent」之间存在用户侧的大量未定工作。</li>
+</ul>
+<p>综合：显著高于「锦上添花」，但未达「项目级依赖」的稳定挂载关系，落在 5–6 档上沿。</p>
+<h3>D10.2 实际使用规模（N/A）</h3>
+<p><strong>这是本维度最大的信息缺口，标记 N/A 而非勉强打分。</strong></p>
+<ul>
+<li><strong>依赖方数量</strong>：GitHub Dependents（Used by）计数<strong>未采到</strong>；补采 JSON 中无该字段。</li>
+<li><strong>下载/拉取量</strong>：npm 周下载、PyPI 月下载均为 <code>N/A</code>。且此 N/A 具有结构性原因——七个 pip 包<strong>故意不注册</strong>到公共索引，CI 甚至专门检查「the package names stay unregistered on the public index」，因此<strong>天然不存在可观测的包下载量</strong>，这不是采集疏漏而是项目形态决定的无信号。</li>
+<li><strong>生产采用证据</strong>：README 用户案例全部为<strong>虚构</strong>（"Every company, brand, product, and person here is fictional; the only company is ACME"），不能作为生产采用证据。</li>
+<li><strong>仅有的间接信号</strong>：2,616 Star / 468 Fork / 12 Watcher / 1 位贡献者 / 90 天内 7 个 PR、0 个 Issue 关闭。Star 与 Fork 数反映关注度而非使用深度，且仓库创建于 2026-09-01，<strong>当日即最后推送</strong>（pushed_at 2026-09-01T20:41:14Z），数据窗口极短。</li>
+</ul>
+<p>按防幻觉规则，使用规模数据必须实采、禁止凭模型记忆填写，本项标 <strong>N/A</strong>，从维度满分中剔除后等比缩放，并在置信度上予以标注。</p>
+<h3>D10.3 免费可得的完整效用（1.6 / 2，80%）</h3>
+<p><strong>得分为「7–8 良好」档：核心价值免费可得，无功能阉割。</strong></p>
+<ul>
+<li><strong>开源版即完整价值</strong>：Apache License 2.0，本地实测确认 <code>LICENSE</code> 文件存在；仓库<strong>不含任何 enterprise/paid 目录</strong>，无付费档功能对比，无 license-key 门控代码。</li>
+<li><strong>自托管完整性</strong>：README 明确 "Each is defined once (prompt, skills, tool contracts, gates) and runs on the Messages API, the Claude Agent SDK, and Managed Agents"——三条运行路径下 prompt、skills、工具契约、gates <strong>完全一致</strong>，不存在「自托管版少几条 flows」的设计。<code>docs/deployment.md</code> 覆盖 GCP Vertex AI、AWS Bedrock、Microsoft Foundry 与网关，自托管路径完整。</li>
+<li><strong>扣分点（未给满的理由）</strong>：<strong>无隐性收费，但存在「无 Key 不可用」的硬依赖</strong>。<code>.env</code> 必须填 <code>ANTHROPIC_API_KEY</code>，<code>scripts/smoke_chat.py</code> 注释 "one live conversation; needs a key"，<code>anthropic==0.122.0</code>、<code>claude-agent-sdk==0.2.139</code> 为直接依赖。用户拿到的代码是完整的，但<strong>要让效用真正发生，必须付费购买 Anthropic 推理</strong>。这不是功能阉割，却是「免费可得」的边界——免费的是软件，不免费的是使其工作的算力。</li>
+<li><strong>与 D4.3 的对照</strong>：D10.3 高达 80% 而 D4.3（付费转化）结构性偏低，正是方法论预判的「使用价值 vs 交换价值」正常张力——Anthropic 的商业动机在于<strong>卖推理 token 与 Managed Agents 托管</strong>，而非卖这份代码，因此慷慨开源与自身变现逻辑并不冲突。</li>
+</ul>
+<h3>D10.4 效用可持续性（1.6 / 2，80%）</h3>
+<p><strong>得分为「7–8 良好」档：主体本地化，少量可替换的外部依赖。</strong></p>
+<ul>
+<li><strong>停维后效用存续</strong>：项目实际上<strong>已经停止维护</strong>（"not maintained"），但代码仍在 GitHub 上完整可得、可克隆、可运行。作为蓝图的价值不会随时间归零，反而随团队自建 Agent 的需求增长而持续。这点显著优于纯在线 SaaS 形态。</li>
+<li><strong>可分叉维护性优良</strong>：Apache-2.0 授予完整的修改与再分发权；<code>requirements.txt</code> 将全部第三方依赖<strong>精确 pin 到测试版本</strong>（anthropic==0.122.0、pydantic==2.13.4、fastapi==0.141.1 等 39 项），构建可重现性极好；<code>scripts/install.sh</code> 一键装齐；CI 存在（ci.yml）。社区完全有能力 fork 并续维护。</li>
+<li><strong>扣分点——供应商锁定实体存在</strong>：效用核心锚定在 Anthropic 生态。三条运行路径中，<strong>Messages API 与 Agent SDK 路径直连 Anthropic 模型</strong>；<strong>Managed Agents 路径更是 Anthropic 的托管服务</strong>（<code>scripts/deploy_managed_agent.sh ... --live deploys</code>），停维后托管侧一旦下线，该路径效用直接归零。此外 <code>claude-agent-sdk==0.2.139</code>、<code>anthropic==0.122.0</code> 属闭源/专有组件，替换为其他模型供应商需要重写 prompt 适配、工具契约映射与多轮循环，成本不低。文档虽支持 Vertex/Bedrock/Foundry 等替代平台，但那些平台上的模型仍是 Claude。</li>
+</ul>
+<p>综合：本地代码层可持续性优秀，模型层存在实质性的单供应商依赖，故取 80% 而非满分。</p>
+<hr />
+<h3>结论</h3>
+<p><strong>D10 功能价值（使用价值视角）：≈ 7.1 / 10（剔除 N/A 后等比缩放；置信度中，因 D10.2 使用规模无信号）。</strong></p>
+<p>价值画像定位为：<strong>「高价值蓝图，低商业闭合」型资产</strong>。它把构建 commerce agent 最难的部分——安全围栏（fencing、provenance gates、caps、审批门）、工具契约设计、多垂直行业建模、缓存与评测试范式——全部开源并配 23.1% 的测试覆盖与 4 个可运行垂直样例，对自建团队是实打实的数周级工作量节省，且明确声明「not maintained」，不设增长承诺。同时它<strong>刻意不注册任何包到公共索引</strong>，也<strong>不提供任何生产采用案例</strong>，因此其使用规模在数据上不可观测，本维度只能给出结构性判断而非量化判断。</p>
+<p>其效用结构呈现明显张力：<strong>免费可得的完整度极高（80%）</strong>，但<strong>效用的真正兑付必须经由 Anthropic 的付费推理服务（D10.4 的锁定点）</strong>——这正是「开源慷慨」与「卖 token」两种商业逻辑在同一资产上的共存方式，也是 D10 高分并不必然转化为 D1–D9 商业高分的结构性原因。</p>
+<hr />
+<h3>D11 社会价值——正外部性视角（权重 0%，平行维度）</h3>
+<blockquote>
+<p>本维度为平行维度，权重 0%，不计入综合评分与一票否决，仅用于 3.4 价值画像。评价视角为「项目对行业/社会的外溢贡献本身」，与 D3.4（品牌影响力 → 商业势能）及 D2.5/D2.6（i18n/无障碍的工程质量）在素材上部分重叠但结论独立。</p>
+</blockquote>
+<h3>项目定位与外溢形态</h3>
+<p><code>anthropics/commerce-agents</code> 是 Anthropic 发布的<strong>参考蓝图（reference blueprint）</strong>，用同一套库（prompt、skills、tool contracts、gates）在 Messages API / Claude Agent SDK / Managed Agents 三条运行路径上，分别实现「购物 agent」与「商家 agent」，并附四个可运行的垂直示例（retail / travel / telecom / entertainment）。这一形态决定了它的正外部性<strong>不在「被依赖」而在「被抄用/被学习」</strong>：它是一份工业级范本，而非软件供应链的底座。README 明确声明「This is a reference implementation; it is not maintained and does not accept contributions」，进一步说明其公共品属性是「知识资产」而非「基础设施」。</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D11.1 数字公共基础设施属性</td>
+<td>3</td>
+<td><strong>1.2</strong></td>
+<td>3–4（40%）</td>
+<td>不具备「数字底座」特征。七个包在 PyPI 上<strong>刻意不注册</strong>（README 与 requirements.txt 明确说明 "the seven names are unregistered there"），下游无法以依赖方式引入，供应链停摆影响≈0；contributors=1、无 release、仓库创建与最近推送同为 2026-09-01，属单日快照式发布。虽有 2616 star / 468 fork，反映的是「被拷贝/被参考」而非「被依赖」。公共品属性成立（Apache-2.0、开放可复用、服务公共利益），但强度落在最低档区间。</td>
+</tr>
+<tr>
+<td>D11.2 教育与人才价值</td>
+<td>2.5</td>
+<td><strong>2.0</strong></td>
+<td>7–8（80%）</td>
+<td>项目本身即为教学/示范产物：27 份文档含 <code>docs/safety.md</code>（逐条规则对应模块与路径）、<code>docs/backends.md</code>、<code>docs/deployment.md</code>，四个垂直各有 README + 「Try」示例回合；<code>scripts/smoke_chat.py</code>、<code>screenshot_tour.py</code> 提供可复现实验路径。另配 Claude Code 插件 <code>commerce-builder</code>（scaffold / add-flow / author-evals / review 四个命令 + 6 个 SKILL），把「如何造一个 commerce agent」沉淀为可操作教材。源码本身是工程范本：66,990 行中含 15,492 行测试（test_ratio 23.1%）、单 CI workflow 覆盖双 Python 版本与八个前端构建。<strong>扣分项</strong>：仓库过新，外部教程/课程/教学采用数据无法采集，尚无证据显示已被第三方教学体系吸收。</td>
+</tr>
+<tr>
+<td>D11.3 普惠与可及性</td>
+<td>2.5</td>
+<td><strong>1.5</strong></td>
+<td>5–6（60%）</td>
+<td>显著降低了「自建 commerce agent」的工程成本——中小团队可零授权费（Apache-2.0）复用一套含安全护栏、审批门、分阶段变更、四行业示例的完整骨架，本可对标企业级定制开发的投入。<strong>但普惠被三重门槛削弱</strong>：①底座能力仍是付费的 Anthropic API（<code>anthropic==0.122.0</code>、<code>claude-agent-sdk</code>），并非「近零成本获得能力」；②受益者是具备 Python 3.11+/Node 22 工程能力的商家与开发者，属 B 端人群，非欠发达地区终端用户；③素材中<strong>无任何 i18n/多语言/无障碍支持证据</strong>（topics 为空、文档未提及），前端为 8 个 TSX 应用，未提供可及性声明。README 另注明 "the examples have no authentication"，属演示定位而非可分发产品。</td>
+</tr>
+<tr>
+<td>D11.4 开放标准与行业推动</td>
+<td>2</td>
+<td><strong>1.6</strong></td>
+<td>7–8（80%）</td>
+<td>标准推动有实据：依赖 <code>mcp==1.29.0</code>，shopping/merchant 两侧均自带 MCP server（<code>storefront-mcp-server</code>、<code>merchant-mcp-server</code>），Managed Agents 清单可挂载第三方 commerce 平台 MCP，即对 MCP 这一开放协议有实现与推广；文档亦明确把「官方 connector / 平台自带 MCP server」作为集成目标，防止单一厂商锁定。行业示范效应明确：以「一次定义、三路径运行」「写操作一律 staged + 人工审批」「provenance gates 前置」为设计主张，属可被同行模仿的工程范式，468 fork 佐证抄用意愿。<strong>扣分项</strong>：项目遵循而非定义标准，未主导协议演进；<strong>科研支撑无法评估</strong>（论文引用检索不可得，标 N/A 且不予给分）。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>合计：1.2 + 2.0 + 1.5 + 1.6 = 6.3 / 10</strong></p>
+<h3>结论</h3>
+<p>该项目的社会价值<strong>典型地体现为「教育与范式外溢」，而非「基础设施外溢」</strong>：它不构成任何软件供应链上的关键依赖（包刻意不注册、单贡献者、无 release、明确不维护），但其作为 Anthropic 官方参考蓝图，把 commerce agent 的架构、安全护栏与四行业落地范式文档化、可运行化，并配套 Claude Code 脚手架，对行业水位与人才培育有实质推动；同时它实现了 MCP 开放协议并保留多平台部署（Vertex AI / Bedrock / Foundry）出口，具备防锁定取向。</p>
+<p>受限之处在于：能力底座依赖付费 API，使「能力平权化」止步于工程成本层面；无 i18n/无障碍证据，受益面锁定在 B 端开发者；仓库过新（创建即推送、无社区沉淀），外部采用与教学渗透数据全部缺失，D11.2（7–8 档）与 D11.4（7–8 档）的判断主要基于<strong>设计意图与内部素材丰度</strong>，而非外部采用实证。</p>
+<p><strong>置信度：中低。</strong> 关键外溢证据（Dependents 计数、第三方教程/课程数、论文引用、下载量）全部不可得；若后续出现外部教学采用或下游实质性复用，D11.2/D11.4 有上调空间；反之若生态仅停留在 fork 抄用而无二次分发，D11.1 将进一步下探至 1–2 档。</p>
+<h2>五、商业化价值判断</h2>
+<p><strong>综合评分 68.8/100，等级 A（高商业化潜力）；公共价值分 6.7/10，价值画像为「💼 纯商业工具」。</strong></p>
+<p>本项目呈现出一种高度特殊的商业化形态：<strong>它本身不是一件可售卖的商品，而是一份由 Anthropic 官方发布的、面向商务智能体赛道的「高完成度参考蓝图」</strong>。判断其商业化价值必须区分两个主体：</p>
+<p><strong>（1）对 Anthropic 母公司而言，商业价值明确且高。</strong> 项目以 Apache-2.0 完全开放，无任何付费墙，但跑通 demo 必须持有 <code>ANTHROPIC_API_KEY</code>，核心依赖锁定 <code>anthropic==0.122.0</code> 与 <code>claude-agent-sdk==0.2.139</code>。真实变现闭环是间接的：免费参考架构 → 采用方投入工程 → 消耗 Claude API 与托管智能体服务，收入归属母公司而非仓库本身。D4 明确指出「收入归属母公司而非仓库」，D1 亦判定「项目自身商业价值主要是为 Anthropic API/托管智能体引流」。</p>
+<p><strong>（2）对第三方采用方而言，价值在于「数周级工作量节省」。</strong> D10 判定其对自建 commerce agent 的团队构成数周级工作量节省，且 4 个完整垂直行业 + 安全围栏文档 + 23.1% 测试覆盖可直接复用。但采用方需自行承担全部维护成本（README 明示 not maintained、不接受贡献），并自行实现鉴权、合规与后端集成。</p>
+<p><strong>（3）本体商业化能力接近零。</strong> 项目无企业版、无定价、无付费支持、无 Release、无 CHANGELOG、无 Dockerfile，7 个 pip 包刻意不在公共索引注册并由 CI 校验，D1 直接判定「作为参考实现，其直接变现能力接近零」。</p>
+<p><strong>画像临界说明</strong>：综合评分 68.8 落在 65–70 区间，公共价值分 6.7 落在 6.5–7.5 区间，<strong>两项均处于画像临界区</strong>。若按「纯商业工具」画像，路径为按 D4 最优路径直接变现；若按「公共产品型」画像，则应走影响力变现（赞助/基金会托管/大厂雇佣维护者/生态服务与培训）。考虑到本项目由 Anthropic 全额资助、无独立变现主体、且定位为参考蓝图而非可依赖资产，<strong>「纯商业工具」画像更贴合实际</strong>，但其公共外溢（教育范本、MCP 标准实现）不可忽视，路径设计上应两者兼顾。</p>
+<hr />
+<h2>六、商业路径分析</h2>
+<p>基于 D4（变现路径清晰度 2.1/3.5、付费转化逻辑 1.5/2.5、增值服务空间 1.2/2）与 D5（护城河不属于仓库本身）的判断，本项目可辨认的商业路径如下：</p>
+<h3>路径一：生态引流变现（Anthropic 视角，最贴合现状）</h3>
+<ul>
+<li><strong>逻辑</strong>：以免费参考架构降低商务智能体开发门槛，将采用方导入 Claude API 与 Managed Agents 托管服务。</li>
+<li><strong>依据</strong>：D4 指出「免费参考架构 → 采用方投入工程 → 消耗 Claude API」为真实变现闭环；D1 指出项目「主动内建费用披露、受监管费用保护等合规能力，契合监管收紧方向」。</li>
+<li><strong>可行性</strong>：高。这是项目设计的原生意图，且 D8 显示 Anthropic 资金与大公司全职团队支持满格，商业化组织风险极低。</li>
+</ul>
+<h3>路径二：下游采用方 Open Core / SaaS 托管（第三方视角）</h3>
+<ul>
+<li><strong>逻辑</strong>：采用方基于 Apache-2.0 闭源自建企业版，或提供 SaaS 托管服务。</li>
+<li><strong>依据</strong>：D4.1 取满分——「Apache-2.0 协议对变现模式零约束，Open Core/SaaS/双协议/专业服务/生态认证全部合法可行」，且有 Supabase、Strapi、GitLab 等先例。</li>
+<li><strong>可行性</strong>：中。D4 明确「需承担全部维护成本，路径尚不清晰」；D7 显示无 Dockerfile/K8s manifest、无 SSO/OAuth/LDAP/SAML、无 RBAC/ABAC、无独立审计流水，企业化改造工作量大。</li>
+</ul>
+<h3>路径三：专业服务与实施（第三方视角）</h3>
+<ul>
+<li><strong>逻辑</strong>：围绕后端集成、评测工程、安全合规评审、多云部署、SLA 提供增值服务。</li>
+<li><strong>依据</strong>：D4 指出「增值空间方向明确（后端集成、评测工程、安全合规评审、多云部署、SLA），tests 占比 23.1%、docs/safety.md 与 provenance gates 面向受监管企业场景，客单价天花板高但不由本项目享有」。</li>
+<li><strong>可行性</strong>：中高。D5 指出「采用者需实现 StorefrontBackend/MerchantBackend 全套后端与安全围栏，沉没成本真实」，为服务商创造了真实需求。</li>
+</ul>
+<h3>路径四：影响力变现（公共产品型备选）</h3>
+<ul>
+<li><strong>逻辑</strong>：赞助 / 基金会托管 / 大厂雇佣维护者 / 围绕生态做服务与培训。</li>
+<li><strong>依据</strong>：D11 判定教育价值为最强项（27 份文档 + 四垂直 README「Try」回合 + 6 个 SKILL + 4 个 Claude Code 插件命令 + smoke_chat/screenshot_tour 脚本）。</li>
+<li><strong>可行性</strong>：低-中。项目由 Anthropic 官方主导且明示不维护，外部主体难以接管。</li>
+</ul>
+<p><strong>路径优先级建议</strong>：路径一为现状最优解；路径三为第三方最现实的切入点；路径二需先补齐 D7 企业就绪度短板；路径四仅作为公共价值外溢的补充。</p>
+<hr />
+<h2>七、能力评估：能做什么 &amp; 最适合做什么</h2>
+<h3>7.1 项目当前具备的核心能力</h3>
+<table>
+<thead>
+<tr>
+<th>能力项</th>
+<th>具体表现</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>双角色智能体框架</td>
+<td>同一仓库同时交付前台 shopping agent 与后台 merchant agent，共用 prompt/skills/tool contracts/gates</td>
+<td>D5.1</td>
+</tr>
+<tr>
+<td>三运行时兼容</td>
+<td>一次定义跑通 Messages API、Claude Agent SDK、Managed Agents 三条运行时</td>
+<td>D5.1</td>
+</tr>
+<tr>
+<td>四垂直行业同构验证</td>
+<td>retail / travel / telecom / entertainment 四个可运行垂直行业，8 个 Web 应用</td>
+<td>D1.1、D9.4</td>
+</tr>
+<tr>
+<td>变更门控机制</td>
+<td>propose→preview→approve→apply（StagedChange/ChangeLedger 不触碰实时状态）</td>
+<td>D2.1</td>
+</tr>
+<tr>
+<td>输出接地与幻觉抑制</td>
+<td>enrichment 将模型 pick 解析回会话内已返回数据，PresentationRefused 拒绝无依据内容</td>
+<td>D2.1</td>
+</tr>
+<tr>
+<td>Agent 域安全能力</td>
+<td>PII 过滤器（卡号/IBAN/邮箱）、内存文件 0o600 权限、会话 ID SHA-256 哈希、外部数据围栏化、analyze SQL 强制只读单条 SELECT</td>
+<td>D2.4、D7.2</td>
+</tr>
+<tr>
+<td>供应链防护</td>
+<td>7 个 pip 包刻意不在公共索引注册并由 CI 校验，含 no-pypi-fallback 防抢注 tripwire</td>
+<td>D2.8、D4.4</td>
+</tr>
+<tr>
+<td>测试与 CI</td>
+<td>96 测试文件 / 15,492 行（占比 23.1%），CI 含 ruff lint + format check + pytest + 仓库一致性检查 + npm 全量 build</td>
+<td>D2.8</td>
+</tr>
+<tr>
+<td>开放标准实现</td>
+<td>依赖并实现 MCP（mcp==1.29.0），两侧均自建 MCP server，保留 Vertex AI/Bedrock/Foundry 多平台部署出口</td>
+<td>D11.4</td>
+</tr>
+<tr>
+<td>教学与文档资产</td>
+<td>27 份文档（safety/backends/deployment 指南）+ 四垂直 README「Try」回合 + 6 个 SKILL + 4 个 Claude Code 插件命令</td>
+<td>D11.2</td>
+</tr>
+</tbody>
+</table>
+<h3>7.2 最适合做什么</h3>
+<ol>
+<li><strong>作为商务智能体项目的起点脚手架</strong>：D9 显示首体验路径短（<code>python scripts/run_demo.py retail</code> 拉起 API :8000 + storefront :3000），入门引导丰富，适合团队快速验证商务智能体可行性。</li>
+<li><strong>作为受监管行业智能体的安全设计范本</strong>：D2.1 的变更门控、输出接地、溯源机制构成「区别于普通 Agent demo 的差异化」，D4 指出 docs/safety.md 与 provenance gates 面向受监管企业场景。</li>
+<li><strong>作为 MCP / Agent SDK 的教学与培训素材</strong>：D11.2 判定教育价值为最强项，构成「可运行、可复现的教学范本」。</li>
+<li><strong>作为企业内部商务智能体平台的架构参考</strong>：D2.2 的 monorepo 分层（commerce-common 共享底座 + 双 Agent 分层 + 四垂直示例 + web-shared 组件库）与 ABC/Protocol 契约解耦设计具备直接借鉴价值。</li>
+</ol>
+<h3>7.3 不适合做什么</h3>
+<ul>
+<li><strong>不适合作为可直接依赖的运行时库</strong>：D10.1 明确指出「交付形态是参考蓝图+脚手架而非可直接依赖的运行时库——七个 pip 包故意不注册公共索引，效用是克隆改造，非长期挂载」。</li>
+<li><strong>不适合直接用于生产环境</strong>：D1 明确「无鉴权、全部公司/商品/人物为虚构、checkout 不下单不扣款、商家写操作暂存待人审批」；D7 显示无 SSO/OAuth/LDAP/SAML、无 RBAC/ABAC、无独立审计流水、无静态加密。</li>
+<li><strong>不适合作为长期维护的开源社区项目</strong>：README 明示 not maintained and does not accept contributions。</li>
+</ul>
+<hr />
+<h2>八、短板识别：还缺少什么</h2>
+<h3>8.1 社区与生态短板（D3 = 4.7，最弱维度）</h3>
+<ul>
+<li><strong>贡献者结构单一</strong>：contributors=1，全部来自 Anthropic，外部贡献与组织多样性为零（单人项目档）。</li>
+<li><strong>社区参与极低</strong>：近 90 天 PR 7 条、Issue 关闭 0 条、开放 Issue 7 条，无可验证的维护响应记录。</li>
+<li><strong>第三方生态完全空白</strong>：无外部插件/集成/衍生项目/教程，仅有 Anthropic 一方插件、MCP server 与 Skill 包。</li>
+<li><strong>Star 增速被高估</strong>：D3 指出 Star 增速（退化公式 ≈8700/月）被发布红利严重放大，属高估；468 个 Fork「只说明被当模板抄写，不回流价值」（D5.2）。</li>
+</ul>
+<h3>8.2 企业就绪度短板（D7 = 6.4）</h3>
+<ul>
+<li><strong>运营底座缺失</strong>：0 release、无 CHANGELOG、无迁移/回滚机制、无 Dockerfile/K8s manifest。</li>
+<li><strong>认证与权限体系缺失</strong>：README 明确 authorization 属 deployment 职责；无 SSO/OAuth/LDAP/SAML、无 RBAC/ABAC、无独立审计流水、无静态加密。</li>
+<li><strong>可观测性不足</strong>：仅到 health + 结构化事件，未对接 Prometheus/OpenTelemetry，无指标导出与告警。</li>
+<li><strong>高可用缺失</strong>：无集群/高可用/故障转移方案，所有示例后端状态均在进程内（SessionCarts、InMemoryMemoryStore、TicketingEngine），存在单点。</li>
+</ul>
+<h3>8.3 治理透明度短板（D8.2 = 0.8/2）</h3>
+<ul>
+<li>无 GOVERNANCE.md / CONTRIBUTING.md / CODEOWNERS / SECURITY.md，决策机制未文档化，属公司单向主导。</li>
+<li>巴士因子与传承机制无法验证，工程能力虽强但自治/共治证据薄弱。</li>
+<li>D8 指出「43 份 markdown 均为使用文档而非治理文档」。</li>
+</ul>
+<h3>8.4 商业模式短板（D4 = 6.8）</h3>
+<ul>
+<li><strong>本体无变现设施</strong>：无企业版、无定价、无付费支持、无 Release。</li>
+<li><strong>路径尚不清晰</strong>：D4 指出下游三条路径「需承担全部维护成本，路径尚不清晰」。</li>
+<li><strong>付费触发点外生</strong>：D4 指出「免费到付费触发点存在但外生：跑通 demo 必须持有 ANTHROPIC_API_KEY，功能分层是角色分层与能力开关而非付费闸门」。</li>
+</ul>
+<h3>8.5 竞争壁垒短板（D5 = 6.6）</h3>
+<ul>
+<li><strong>护城河不属于仓库本身</strong>：Apache-2.0 全文可复制、无专利/数据壁垒；网络效应与规模效应均近乎为零。</li>
+<li><strong>粘性来自使用者自写代码而非数据锁定</strong>：Apache-2.0 + fork-copy 模式 + 「Start small」试点路径 + 多平台部署出口，使初始锁定低、平台锁定被主动削弱。</li>
+<li><strong>竞品验证受限</strong>：环境无搜索接口，README/docs 未点名任何同类竞品，竞品对比表整体标注「未验证」，D5.1 分数置信度下降。</li>
+</ul>
+<h3>8.6 法律合规短板（D6 = 7.8，但存在局部缺口）</h3>
+<ul>
+<li><strong>贡献者治理设施缺失</strong>：无 CONTRIBUTING.md / CLA / DCO / CODEOWNERS（D6.4 仅 0.8/2）。</li>
+<li><strong>商标/专利风险未经人工核查</strong>：按方法论默认 5-6 档给 1.5/2.5，置信度低。</li>
+</ul>
+<h3>8.7 易用性短板（D9 = 7.0）</h3>
+<ul>
+<li><strong>无容器化交付路径</strong>：无 Dockerfile / docker-compose / Helm，容器化需采用方自行构建。</li>
+<li><strong>双工具链门槛</strong>：安装需 Python 3.11+ 与 Node 22，7 个本地包在 PyPI 未注册、必须整仓 editable 安装，无法单独 pip install。</li>
+<li><strong>深度使用概念门槛高</strong>：需掌握 skills、tool contracts、gates、MCP、backend 接口等概念。</li>
+</ul>
+<hr />
+<h2>九、风险提示</h2>
+<h3>9.1 项目可持续性风险（中高）</h3>
+<ul>
+<li><strong>官方明示不维护</strong>：README 明示「not maintained and does not accept contributions」，contributors=1、无 Release、issues_closed_90d=0。</li>
+<li><strong>单点依赖</strong>：D8 指出「GitHub API 仅暴露 1 名贡献者且无 Release，巴士因子与传承机制无法验证」。</li>
+<li><strong>缓解因素</strong>：D10.4 指出「停维不影响代码层存续」，但 Managed Agents 路径效用锚定 Anthropic 托管服务。<strong>一票否决未触发（D8.4 = 2.4 &gt; 1），但需持续关注。</strong></li>
+</ul>
+<h3>9.2 平台锁定风险（中）</h3>
+<ul>
+<li><strong>能力依赖付费 Anthropic API</strong>：D10.3 指出「效用兑付硬依赖 ANTHROPIC_API_KEY 付费推理」。</li>
+<li><strong>缓解因素</strong>：D5.3 指出「docs/deployment.md 支持 Vertex AI/Bedrock/Microsoft Foundry，使初始锁定低、平台锁定被主动削弱」。</li>
+</ul>
+<h3>9.3 竞争窗口风险（中）</h3>
+<ul>
+<li><strong>窗口约 1 年内稳定</strong>：D5.4 指出「行业在代理式商务/支付协议层面存在标准化竞争（未验证），且被通用框架与商业 SaaS（客服/商务 Agent 平台）双向挤压，窗口约 1 年内稳定」。</li>
+<li><strong>替代品众多</strong>：D1.2 指出「通用智能体框架等替代品众多，替代成本中等」。</li>
+</ul>
+<h3>9.4 数据与验证置信度风险（中）</h3>
+<ul>
+<li><strong>多项关键数据缺失</strong>：D10.2 使用规模标 N/A（Dependents 未采到、npm/PyPI 下载结构性不存在、README 用户案例全为虚构）；D11 科研引用数据不可得。</li>
+<li><strong>竞品对比未验证</strong>：D5 竞品对比表整体标注「未验证」。</li>
+<li><strong>市场规模为定性估算</strong>：D1 指出「市场规模与竞争密度均无外部数据支撑，D1.1/D1.3 为定性量级估算，置信度低」。</li>
+<li><strong>商标状态未核查</strong>：D6 指出「商标/专利风险未经人工核查，按方法论默认 5-6 档给 1.5/2.5，置信度低」。</li>
+</ul>
+<h3>9.5 生产环境使用风险（高）</h3>
+<ul>
+<li><strong>无鉴权、示例数据虚构、checkout 不下单不扣款</strong>（D1）。</li>
+<li><strong>无企业认证与权限体系、无独立审计流水、无静态加密</strong>（D7.2）。</li>
+<li><strong>所有示例后端状态均在进程内，存在单点</strong>（D7.1）。</li>
+</ul>
+<h3>9.6 合规与监管风险（低-中）</h3>
+<ul>
+<li><strong>正面因素</strong>：D1 指出「项目主动内建费用披露、受监管费用保护等合规能力，契合监管收紧方向」；D6 显示依赖链无任何 GPL/AGPL 等 copyleft 传染源，Apache-2.0 第 3 条含明示专利授权。</li>
+<li><strong>待关注</strong>：D6.4 贡献者协议完备性仅 0.8/2，无 CLA/DCO/CODEOWNERS。</li>
+</ul>
+<hr />
+<h2>十、结论与建议</h2>
+<h3>10.1 核心结论</h3>
+<p><strong>anthropics/commerce-agents 是一个综合评分 68.8/100、等级 A（高商业化潜力）、价值画像为「💼 纯商业工具」的官方参考蓝图项目。</strong> 其商业化价值高度特殊：<strong>本体无直接变现能力，真实价值在于为 Anthropic API 与托管智能体引流，以及为下游采用方节省数周级工程投入。</strong></p>
+<p>项目的核心优势在于<strong>技术质量与设计创新性</strong>（D2 = 7.7，变更门控、输出接地、溯源机制构成差异化）、<strong>法律合规基础扎实</strong>（D6 = 7.8，Apache-2.0 无商业限制、依赖链零 copyleft）、<strong>团队背书强</strong>（D8 = 7.7，Anthropic 官方全额资助）。核心短板在于<strong>社区生态近乎空白</strong>（D3 = 4.7，单贡献者、零外部生态）、<strong>企业就绪度不足</strong>（D7 = 6.4，无认证/权限/可观测性/高可用）、<strong>治理透明度缺失</strong>（D8.2 = 0.8/2）。</p>
+<p><strong>一票否决检查完整且未触发</strong>：D6 = 7.8 &gt; 3、D8.4 = 2.4 &gt; 1、D4.1 = 2.0 &gt; 0.5，等级维持 A。</p>
+<h3>10.2 分主体建议</h3>
+<p><strong>对 Anthropic（项目方）</strong>：
+1. <strong>维持现状即可</strong>——项目定位为参考蓝图而非产品，当前形态已实现引流目标，无需追加产品化投入。
+2. <strong>建议补充治理设施</strong>：添加 CONTRIBUTING.md / SECURITY.md / CODEOWNERS，即使不接受贡献，也能提升企业采用方的信任度（对应 D6.4、D8.2 短板）。
+3. <strong>建议补充容器化交付</strong>：添加 Dockerfile / docker-compose，降低采用方上手门槛（对应 D7.1、D9.1 短板）。</p>
+<p><strong>对第三方采用方</strong>：
+1. <strong>明确使用边界</strong>：将其作为<strong>起点脚手架与架构参考</strong>，而非可直接依赖的运行时库（D10.1 明确判定）。
+2. <strong>优先复用安全设计</strong>：变更门控（propose→preview→approve→apply）、输出接地（enrichment + PresentationRefused）、PII 过滤、SQL 只读校验等机制可直接借鉴，是项目最具差异化价值的部分。
+3. <strong>预留企业化改造预算</strong>：需自行补齐鉴权（SSO/OAuth/LDAP/SAML）、RBAC/ABAC、审计流水、可观测性（Prometheus/OpenTelemetry）、高可用方案、容器化交付。
+4. <strong>关注平台锁定</strong>：虽然项目支持 Vertex AI/Bedrock/Foundry 多平台部署，但核心能力仍锚定 Claude API，需评估多云策略。</p>
+<p><strong>对潜在服务商</strong>：
+1. <strong>切入点明确</strong>：后端集成、评测工程、安全合规评审、多云部署、SLA 是 D4 指出的明确增值方向，客单价天花板高。
+2. <strong>注意窗口期</strong>：D5 判定窗口约 1 年内稳定，需快速建立服务能力与案例。</p>
+<h3>10.3 风险提示汇总</h3>
+<table>
+<thead>
+<tr>
+<th>风险类型</th>
+<th>等级</th>
+<th>关键依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目可持续性</td>
+<td>中高</td>
+<td>README 明示不维护、contributors=1、无 Release</td>
+</tr>
+<tr>
+<td>平台锁定</td>
+<td>中</td>
+<td>能力依赖付费 Anthropic API，但支持多平台部署出口</td>
+</tr>
+<tr>
+<td>竞争窗口</td>
+<td>中</td>
+<td>窗口约 1 年内稳定，被通用框架与商业 SaaS 双向挤压</td>
+</tr>
+<tr>
+<td>数据置信度</td>
+<td>中</td>
+<td>使用规模 N/A、竞品未验证、市场规模为定性估算</td>
+</tr>
+<tr>
+<td>生产环境使用</td>
+<td>高</td>
+<td>无鉴权、无企业认证、状态进程内单点</td>
+</tr>
+<tr>
+<td>合规监管</td>
+<td>低-中</td>
+<td>内建合规能力为正面因素，但贡献者协议缺失</td>
+</tr>
+</tbody>
+</table>
+<h3>10.4 最终建议</h3>
+<p><strong>综合评分 68.8/100、等级 A，但「A」的含义在此项目中需重新解读</strong>：它反映的是<strong>技术质量与官方背书的高水准</strong>，而非<strong>本体变现能力的高水准</strong>。任何试图直接商业化本仓库本体的尝试都将面临「无付费设施、无维护承诺、无社区生态」的三重障碍。</p>
+<p><strong>最优策略是「借势而非占有」</strong>：Anthropic 借其引流 Claude API，第三方借其节省工程投入并围绕其构建服务能力。项目本身作为一份高质量的、可运行的教学与架构范本，其价值已充分兑现；将其视为「可长期依赖的商业资产」则与项目定位相悖。</p>
+<p><strong>画像临界提示</strong>：综合评分 68.8 与公共价值分 6.7 均处临界区，若未来项目转向社区共治或引入外部维护者，画像可能向「⭐ 明星资产」迁移；若维持当前单向主导形态，则「💼 纯商业工具」画像将持续成立。建议在 6-12 个月后重新评估。</p>
+<h2>十一、项目地址</h2>
+<p><svg class="ri ri-muted" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.001 2C6.47598 2 2.00098 6.475 2.00098 12C2.00098 16.425 4.86348 20.1625 8.83848 21.4875C9.33848 21.575 9.52598 21.275 9.52598 21.0125C9.52598 20.775 9.51348 19.9875 9.51348 19.15C7.00098 19.6125 6.35098 18.5375 6.15098 17.975C6.03848 17.6875 5.55098 16.8 5.12598 16.5625C4.77598 16.375 4.27598 15.9125 5.11348 15.9C5.90098 15.8875 6.46348 16.625 6.65098 16.925C7.55098 18.4375 8.98848 18.0125 9.56348 17.75C9.65098 17.1 9.91348 16.6625 10.201 16.4125C7.97598 16.1625 5.65098 15.3 5.65098 11.475C5.65098 10.3875 6.03848 9.4875 6.67598 8.7875C6.57598 8.5375 6.22598 7.5125 6.77598 6.1375C6.77598 6.1375 7.61348 5.875 9.52598 7.1625C10.326 6.9375 11.176 6.825 12.026 6.825C12.876 6.825 13.726 6.9375 14.526 7.1625C16.4385 5.8625 17.276 6.1375 17.276 6.1375C17.826 7.5125 17.476 8.5375 17.376 8.7875C18.0135 9.4875 18.401 10.375 18.401 11.475C18.401 15.3125 16.0635 16.1625 13.8385 16.4125C14.201 16.725 14.5135 17.325 14.5135 18.2625C14.5135 19.6 14.501 20.675 14.501 21.0125C14.501 21.275 14.6885 21.5875 15.1885 21.4875C19.259 20.1133 21.9999 16.2963 22.001 12C22.001 6.475 17.526 2 12.001 2Z"/></svg> <a href="https://github.com/anthropics/commerce-agents">https://github.com/anthropics/commerce-agents</a></p>
+<hr />
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+</blockquote>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家　<a href="https://www.mova.work">www.mova.work</a></p></body></html>

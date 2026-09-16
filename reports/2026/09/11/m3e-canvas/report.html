@@ -1,0 +1,1782 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><title>M3e-canvas 商业价值分析报告</title><style>/* default — 品牌蓝紫主题（从 md2pdf.py 原 CSS 常量迁出，视觉与历史产物一致） */
+@page { size: A4; margin: 18mm 15mm 20mm 15mm; }
+* { box-sizing: border-box; }
+/* 字体规范：一律开源思源黑体 CN（OFL 免费商用）；正文 Regular/标题 Bold/大字数字 Light */
+body { font-family: "Source Han Sans CN","思源黑体 CN","Noto Sans SC",sans-serif; color:#1e293b; font-size:10.5pt; line-height:1.75; margin:0; }
+.cover { page-break-after: always; text-align:center; padding-top:40px; }
+.cover .kicker { color:#2563eb; letter-spacing:6px; font-size:12pt; font-weight:500; }
+.cover h1 { font-size:26pt; margin:14px 0 6px; }
+.cover .sub { color:#64748b; font-size:11pt; margin-bottom:22px; }
+.badge { display:inline-block; background:linear-gradient(135deg,#2563eb,#7c3aed); color:#fff; border-radius:18px; padding:16px 44px; margin:10px 0 18px; }
+.badge .g { font-size:34pt; font-weight:300; line-height:1; }
+.badge .s { font-size:12pt; opacity:.92; margin-top:4px; }
+.meta { color:#475569; font-size:9.5pt; margin-top:14px; }
+.bars { max-width:620px; margin:20px auto 0; text-align:left; }
+.bar-row { display:flex; align-items:center; gap:8px; margin:5px 0; font-size:9pt; }
+.bar-name { width:110px; text-align:right; color:#334155; font-weight:500; }
+.bar-track { flex:1; height:9px; background:#f1f5f9; border-radius:5px; overflow:hidden; }
+.bar-fill { display:block; height:100%; border-radius:5px; }
+.bar-val { width:30px; font-weight:700; color:#0f172a; }
+.bar-w { width:52px; color:#94a3b8; font-size:8pt; }
+h1 { font-size:17pt; color:#0f172a; border-bottom:3px solid #2563eb; padding-bottom:8px; }
+h2 { font-size:13.5pt; color:#1d4ed8; margin-top:26px; page-break-after: avoid; border-left:5px solid #2563eb; padding-left:10px; }
+h3 { font-size:11.5pt; color:#0f172a; margin-top:18px; page-break-after: avoid; }
+table { border-collapse:collapse; width:100%; margin:10px 0; font-size:9pt; page-break-inside:avoid; }
+th { background:#eff6ff; color:#1e3a8a; }
+th,td { border:1px solid #dbe3ef; padding:5px 8px; text-align:left; }
+tr:nth-child(even) td { background:#f8fafc; }
+code { background:#f1f5f9; border-radius:4px; padding:1px 5px; font-family:"JetBrains Mono","Cascadia Mono",monospace; font-size:9pt; color:#be185d; }
+pre { background:#0f172a; color:#e2e8f0; border-radius:8px; padding:12px 14px; overflow-x:auto; page-break-inside:avoid; }
+pre code { background:none; color:inherit; padding:0; }
+blockquote { border-left:4px solid #93c5fd; background:#eff6ff; margin:10px 0; padding:8px 14px; color:#334155; border-radius:0 8px 8px 0; }
+hr { border:none; border-top:1px dashed #cbd5e1; margin:22px 0; }
+strong { color:#0f172a; }
+.cover .disclaimer { max-width:620px; margin:16px auto 0; color:#64748b; font-size:8.5pt; line-height:1.6; text-align:left; border:1px solid #e2e8f0; border-radius:8px; padding:8px 12px; background:#f8fafc; }
+.credit { color:#2563eb; font-size:10.5pt; font-weight:700; letter-spacing:1px; margin-top:12px; }
+.at-acc { background:#dbeafe; color:#1d4ed8; border-radius:4px; padding:0 4px; font-weight:500; white-space:nowrap; }
+.tail { page-break-inside:avoid; margin-top:26px; border-top:2px solid #2563eb; padding-top:14px; }
+.tail p { color:#64748b; font-size:8.5pt; line-height:1.6; margin:0 0 10px; }
+.tail .credit { text-align:center; margin:0; }
+/* Remix Icon 内联 SVG（icon_mode=remix 时由脚本注入，语义色与评分条一致） */
+.ri { width:1.05em; height:1.05em; vertical-align:-0.18em; display:inline-block; }
+.ri-ok { color:#16a34a; } .ri-warn { color:#d97706; } .ri-bad { color:#dc2626; }
+.ri-muted { color:#64748b; } .ri-star { color:#f59e0b; } .ri-brand { color:#2563eb; }
+.ri-gold { color:#d4a017; } .ri-silver { color:#9ca3af; } .ri-bronze { color:#b45309; }
+/* 屏幕预览：@page 边距仅在打印时生效，浏览器中居中限宽并收边（不影响 PDF 输出） */
+@media screen {
+  body { margin: 0 auto; padding: 28px 36px 56px; max-width: 900px; }
+}
+</style></head><body><div class="cover">
+<div class="kicker">开源项目商业化潜力分析 · 第 88 期</div>
+<h1>GitHub 开源项目 M3e-canvas<br>商业价值分析报告</h1>
+<div class="sub">lnkiai/m3e-canvas · 浏览器端 M3E 草图转 vibe-coding 提示词工具 · 九维度加权评估</div>
+<div class="badge"><div class="g">B 级 · 63.8</div><div class="s">综合评分（满分 100）· 中等商业化潜力</div></div>
+<div><svg viewBox="0 0 560 480" width="560" height="480" xmlns="http://www.w3.org/2000/svg"><polygon points="280.0,209.6 299.5,216.7 309.9,234.7 306.3,255.2 290.4,268.6 269.6,268.6 253.7,255.2 250.1,234.7 260.5,216.7" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,179.2 319.1,193.4 339.9,229.4 332.7,270.4 300.8,297.1 259.2,297.1 227.3,270.4 220.1,229.4 240.9,193.4" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,148.8 338.6,170.1 369.8,224.2 359.0,285.6 311.2,325.7 248.8,325.7 201.0,285.6 190.2,224.2 221.4,170.1" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,118.4 358.2,146.8 399.8,218.9 385.3,300.8 321.6,354.3 238.4,354.3 174.7,300.8 160.2,218.9 201.8,146.8" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,88.0 377.7,123.6 429.7,213.6 411.6,316.0 332.0,382.8 228.0,382.8 148.4,316.0 130.3,213.6 182.3,123.6" fill="none" stroke="#e2e8f0" stroke-width="1"/><line x1="280.0" y1="240.0" x2="280.0" y2="88.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="377.7" y2="123.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="429.7" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="411.6" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="332.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="228.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="148.4" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="130.3" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="182.3" y2="123.6" stroke="#d8dee9" stroke-width="1"/><polygon points="280.0,126.0 351.3,155.0 378.8,222.6 341.9,275.7 303.9,305.7 237.4,357.1 206.3,282.6 197.7,225.5 197.0,141.0" fill="rgba(37,99,235,.22)" stroke="#2563eb" stroke-width="2.5"/><circle cx="280.0" cy="126.0" r="3.5" fill="#2563eb"/><circle cx="351.3" cy="155.0" r="3.5" fill="#2563eb"/><circle cx="378.8" cy="222.6" r="3.5" fill="#2563eb"/><circle cx="341.9" cy="275.7" r="3.5" fill="#2563eb"/><circle cx="303.9" cy="305.7" r="3.5" fill="#2563eb"/><circle cx="237.4" cy="357.1" r="3.5" fill="#2563eb"/><circle cx="206.3" cy="282.6" r="3.5" fill="#2563eb"/><circle cx="197.7" cy="225.5" r="3.5" fill="#2563eb"/><circle cx="197.0" cy="141.0" r="3.5" fill="#2563eb"/><text x="280.0" y="44.0" text-anchor="middle" font-size="12.5" fill="#334155" font-weight="600">D1</text><text x="280.0" y="58.0" text-anchor="middle" font-size="11" fill="#64748b">市场需求 7.5</text><text x="406.0" y="89.9" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D2</text><text x="406.0" y="103.9" text-anchor="start" font-size="11" fill="#64748b">技术成熟度 7.3</text><text x="473.0" y="206.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D3</text><text x="473.0" y="220.0" text-anchor="start" font-size="11" fill="#64748b">社区生态 6.6</text><text x="449.7" y="338.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D4</text><text x="449.7" y="352.0" text-anchor="start" font-size="11" fill="#64748b">变现潜力 4.7</text><text x="347.0" y="424.2" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D5</text><text x="347.0" y="438.2" text-anchor="start" font-size="11" fill="#64748b">竞争格局 4.6</text><text x="213.0" y="424.2" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D6</text><text x="213.0" y="438.2" text-anchor="end" font-size="11" fill="#64748b">法律合规 8.2</text><text x="110.3" y="338.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D7</text><text x="110.3" y="352.0" text-anchor="end" font-size="11" fill="#64748b">企业就绪 5.6</text><text x="87.0" y="206.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D8</text><text x="87.0" y="220.0" text-anchor="end" font-size="11" fill="#64748b">团队治理 5.5</text><text x="154.0" y="89.9" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D9</text><text x="154.0" y="103.9" text-anchor="end" font-size="11" fill="#64748b">上手难度 8.5</text></svg></div>
+<div class="bars"><div class="bar-row"><span class="bar-name">D9 上手难度</span>
+<span class="bar-track"><span class="bar-fill" style="width:85.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.5</span><span class="bar-w">权重10%</span></div>
+<div class="bar-row"><span class="bar-name">D6 法律合规</span>
+<span class="bar-track"><span class="bar-fill" style="width:82.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.2</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D1 市场需求</span>
+<span class="bar-track"><span class="bar-fill" style="width:75.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.5</span><span class="bar-w">权重13%</span></div>
+<div class="bar-row"><span class="bar-name">D2 技术成熟度</span>
+<span class="bar-track"><span class="bar-fill" style="width:73.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.3</span><span class="bar-w">权重14%</span></div>
+<div class="bar-row"><span class="bar-name">D3 社区生态</span>
+<span class="bar-track"><span class="bar-fill" style="width:66.0%;background:#d97706"></span></span>
+<span class="bar-val">6.6</span><span class="bar-w">权重11%</span></div>
+<div class="bar-row"><span class="bar-name">D7 企业就绪</span>
+<span class="bar-track"><span class="bar-fill" style="width:56.0%;background:#dc2626"></span></span>
+<span class="bar-val">5.6</span><span class="bar-w">权重8%</span></div>
+<div class="bar-row"><span class="bar-name">D8 团队治理</span>
+<span class="bar-track"><span class="bar-fill" style="width:55.0%;background:#dc2626"></span></span>
+<span class="bar-val">5.5</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D4 变现潜力</span>
+<span class="bar-track"><span class="bar-fill" style="width:47.0%;background:#dc2626"></span></span>
+<span class="bar-val">4.7</span><span class="bar-w">权重18%</span></div>
+<div class="bar-row"><span class="bar-name">D5 竞争格局</span>
+<span class="bar-track"><span class="bar-fill" style="width:46.0%;background:#dc2626"></span></span>
+<span class="bar-val">4.6</span><span class="bar-w">权重12%</span></div></div>
+<div class="meta">分析时点 2026-09-11 ｜ 数据来源：GitHub API + 仓库代码实测 ｜ 方法论 v1.3</div>
+<div class="credit">报告出品：@魔法工厂　@向量之心　@南山科学家</div>
+<div class="disclaimer"><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</div>
+</div><h1>M3e-canvas 商业化潜力分析报告（完整版）</h1>
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家</p>
+<p>方法论版本: v1.3 | 综合评分: <strong>63.8</strong> | 等级: <strong>B（中等商业化潜力）</strong> | 价值画像: 长尾项目</p>
+</blockquote>
+<h2>一、项目概览</h2>
+<h3>1.1 基本信息</h3>
+<ul>
+<li><strong>项目名称 / 仓库地址</strong>：lnkiai/m3e-canvas</li>
+<li><strong>核心技术栈</strong>：TypeScript（主语言），Next.js + React 纯前端静态应用；运行时依赖仅 5 个（html-to-image、motion、next、react、react-dom），开发依赖 7 个；无后端，数据存于 localStorage</li>
+<li><strong>社区规模速览</strong>：Star 5,872 / Fork 570 / 贡献者 10 / Watchers 21 / 开放 Issue 12 / 90 天内新建 PR 40</li>
+<li><strong>分析时点 / 数据来源</strong>：仓库创建于 2026-09-02，最后推送 2026-09-09（仓库龄约 7–9 天）；数据来源为 GitHub 仓库实采与各维度评分卡硬事实</li>
+</ul>
+<h3>1.2 项目分类标签</h3>
+<table>
+<thead>
+<tr>
+<th>分类维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>开发者工具（设计工具 / AI 提示工程）</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>通用/跨行业</td>
+</tr>
+<tr>
+<td>目标用户角色</td>
+<td>前端开发者 / UI-UX 设计师 / 移动端开发者</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>浏览器端 Material 3 Expressive 界面草图与原型设计，并导出 vibe-coding 提示词</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>本地部署 / 云原生（静态导出，无后端，可 SaaS 就绪）</td>
+</tr>
+</tbody>
+</table>
+<h3>1.3 一句话定位</h3>
+<blockquote>
+<p>M3E Canvas 是一个浏览器端的 Material 3 Expressive 界面草图与原型工具，适用于移动与 Web 应用的设计研发场景，主要面向使用 AI 编程工具的开发者与 UI 设计师，用于把拖拽勾画的界面草图一键转换为可直接交给 Claude Code、Cursor 等工具的 vibe-coding 提示词。</p>
+</blockquote>
+<hr />
+<h2>二、安装部署与使用指南</h2>
+<blockquote>
+<p>上手难度等级：🟢 <strong>简单（8.5 / 10）</strong> —— 面向所有人。终端用户可零安装直接体验；自托管仅需 3 条 npm 命令，无任何外部服务依赖。</p>
+</blockquote>
+<h3>1. 零安装路径（推荐给设计/产品/非技术用户）</h3>
+<p>本项目是纯前端应用，「No backend (localStorage)」——所有设计数据存在浏览器本地，无需安装、无需注册：</p>
+<ul>
+<li>在线版：<code>https://lnkiai.github.io/m3e-canvas/</code>（README 顶部 Live demo 徽章与「Open the app」链接）</li>
+<li>打开即用：拖放组件 → 连线 → 预览点击 → 复制提示词，粘贴给 Claude Code / Codex / Gemini CLI / Cursor 等任意接受提示词的 AI 编程工具。</li>
+</ul>
+<h3>2. 本地运行 / 自托管（3 条命令）</h3>
+<p>README「Develop」章节原文命令：</p>
+<pre><code class="language-bash">npm install
+npm run dev        # http://localhost:3000
+npm run build      # static export to ./out
+</code></pre>
+<ul>
+<li><code>npm run dev</code> 起本地开发服务器（默认 <code>http://localhost:3000</code>）。</li>
+<li><code>npm run build</code> 产出静态站点到 <code>./out</code>；<code>package.json</code> 中另提供 <code>npm start</code>（即 <code>npx serve out</code>）用于本地托管静态产物，以及 <code>npm run typecheck</code>（<code>tsc --noEmit -p .</code>）、<code>npm test</code>（<code>vitest run</code>）。</li>
+</ul>
+<p><strong>环境前置</strong>：仅需 Node.js。<code>package.json</code> 的 <code>engines</code> 字段要求：</p>
+<pre><code>&quot;node&quot;: &quot;^22.12.0 || ^24.0.0 || &gt;=26.0.0&quot;
+</code></pre>
+<p>即需 Node 22.12 及以上，<strong>Node 20/18 不在支持范围内</strong>（README 未显式提示该版本门槛，仅 <code>package.json</code> 有约束）。</p>
+<p><strong>运行时依赖</strong>：5 个（<code>html-to-image</code>、<code>motion</code>、<code>next</code>、<code>react</code>、<code>react-dom</code>），全部由 npm 自动拉取；无数据库、缓存、消息队列等外部组件需要初始化。</p>
+<h3>3. 子路径部署（GitHub Pages 等）</h3>
+<p>README 原文说明：</p>
+<blockquote>
+<p>若要部署在子路径下（例如 GitHub Pages 的项目站点），请在构建时设置 <code>NEXT_PUBLIC_BASE_PATH=/仓库名</code>。</p>
+</blockquote>
+<p>仓库自带 <code>.github/workflows/deploy.yml</code>，在每次 push 到 <code>main</code> 时自动设置该变量、构建并把 <code>out/</code> 发布到 GitHub Pages；<code>.github/workflows/ci.yml</code> 负责 CI。</p>
+<h3>4. 日常使用要点</h3>
+<ul>
+<li>主要操作全部为图形界面：拖放组件、磁吸连接、图层面板拖拽调序、一键「整理」（再按一次撤销）、预览中点击/滑动跳转、导出提示词或 PNG。</li>
+<li>键盘快捷键（README 原表）：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>V</code> / <code>H</code></td>
+<td>Select / hand tool (hold <code>Space</code> to pan)</td>
+</tr>
+<tr>
+<td>Wheel, <code>Ctrl</code> + wheel</td>
+<td>Pan, zoom</td>
+</tr>
+<tr>
+<td><code>+</code> <code>-</code> <code>0</code></td>
+<td>Zoom in, zoom out, fit</td>
+</tr>
+<tr>
+<td><code>Ctrl+Z</code> / <code>Ctrl+Shift+Z</code></td>
+<td>Undo / redo</td>
+</tr>
+<tr>
+<td><code>Ctrl+D</code></td>
+<td>Duplicate</td>
+</tr>
+<tr>
+<td>Arrows (<code>Shift</code> = 8dp)</td>
+<td>Nudge</td>
+</tr>
+<tr>
+<td><code>Ctrl</code> + drag</td>
+<td>Move without snapping (no guides, no 4dp grid)</td>
+</tr>
+<tr>
+<td><code>Delete</code></td>
+<td>Delete part or screen</td>
+</tr>
+<tr>
+<td><code>P</code></td>
+<td>Preview</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>可选 AI 辅助：填入自有密钥（OpenAI、Claude、Gemini 或 DeepSeek），密钥仅存于浏览器、请求直连服务商，无中转服务器。</li>
+<li>手机端为受限编辑器：单屏固定、仅按钮，编辑在底部面板完成；多屏完整编辑需桌面浏览器。</li>
+</ul>
+<h3>5. 部署方案概要（无容器化选项）</h3>
+<ul>
+<li>未提供 <code>Dockerfile</code>、<code>docker-compose.yml</code> 或 Helm Chart（<code>has_dockerfile: false</code>），官方部署路径为<strong>静态导出 + 静态托管</strong>（GitHub Pages 为默认示例）。</li>
+<li>可配置项极少：唯一构建期变量为可选的 <code>NEXT_PUBLIC_BASE_PATH</code>。</li>
+</ul>
+<h3>6. 注意事项</h3>
+<ul>
+<li>强制 Node 22.12+，旧版本 Node 环境会因 <code>engines</code> 约束失败。</li>
+<li>手机端功能为桌面端子集，跨端体验不一致。</li>
+<li>多语言文档齐全（README 含日/中/韩/英四语），另有 <code>CONTRIBUTING.md</code>、<code>AGENTS.md</code>、<code>CLAUDE.md</code>、<code>public/agent.md</code> 等。</li>
+</ul>
+<h2>三、评分总览</h2>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>权重</th>
+<th>加权得分</th>
+<th>评级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1 市场需求与商业机会</td>
+<td>7.5/10</td>
+<td>13%</td>
+<td>0.975</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D2 技术成熟度与产品质量</td>
+<td>7.3/10</td>
+<td>14%</td>
+<td>1.022</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D3 社区健康度与生态势能</td>
+<td>6.6/10</td>
+<td>11%</td>
+<td>0.726</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D4 商业模式与变现潜力</td>
+<td>4.7/10</td>
+<td>18%</td>
+<td>0.846</td>
+<td>差</td>
+</tr>
+<tr>
+<td>D5 竞争格局与差异化壁垒</td>
+<td>4.6/10</td>
+<td>12%</td>
+<td>0.552</td>
+<td>差</td>
+</tr>
+<tr>
+<td>D6 法律合规与知识产权</td>
+<td>8.2/10</td>
+<td>7%</td>
+<td>0.574</td>
+<td>优</td>
+</tr>
+<tr>
+<td>D7 企业就绪度与可运营性</td>
+<td>5.6/10</td>
+<td>8%</td>
+<td>0.448</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D8 团队治理与可持续性</td>
+<td>5.5/10</td>
+<td>7%</td>
+<td>0.385</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D9 上手难度与易用性</td>
+<td>8.5/10</td>
+<td>10%</td>
+<td>0.850</td>
+<td>优</td>
+</tr>
+<tr>
+<td><strong>综合评分</strong></td>
+<td>—</td>
+<td>100%</td>
+<td><strong>63.8/100</strong></td>
+<td><strong>B（中等商业化潜力）</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>平行维度（不计入综合评分）</strong></p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10 功能价值</td>
+<td>7.2/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>D11 社会价值</td>
+<td>5.4/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>公共价值分</td>
+<td>6.3/10</td>
+<td>(D10+D11)/2</td>
+</tr>
+</tbody>
+</table>
+<p><strong>一票否决检查</strong>：未触发（D6 维度总分 8.2 &gt; 3；D8.4 小分 1.8 &gt; 1；D4.1 小分 2.0 &gt; 0.5），无否决项，无检查不完整项。</p>
+<blockquote>
+<p>各维度细则分值构成详见「二、维度评分细则」。</p>
+</blockquote>
+<hr />
+<h2>四、各维度详细分析</h2>
+<h3>D1. 市场需求与商业机会</h3>
+<p><strong>一句话定位</strong>: M3E Canvas 是一个浏览器端的 Material 3 Expressive 界面草图与原型工具，适用于移动应用与 Web 应用的设计/研发场景，主要面向使用 AI 编程工具的开发者与 UI 设计师，用于把拖拽勾画的界面草图一键转换为可直接粘贴给 Claude Code、Cursor 等工具的「vibe-coding」提示词。</p>
+<p><strong>分类标签（1.6.1 体系）</strong></p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>开发者工具、前端与UI、数据与AI（提示工程）</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>通用/跨行业</td>
+</tr>
+<tr>
+<td>目标用户角色</td>
+<td>前端开发者、UI/UX设计师、移动端开发者</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>原型验证、研发流程优化、内容管理（设计产出）</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>本地部署、云原生（静态站点，可 SaaS 就绪）</td>
+</tr>
+</tbody>
+</table>
+<h4>细则打分</h4>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断摘要</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1.1 目标市场规模与增长性</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8 档（80%）</td>
+<td>处于设计工具 + AI 编程双增长赛道，但项目自身可触达的细分面窄</td>
+</tr>
+<tr>
+<td>D1.2 痛点真实性与解决程度</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8 档（80%）</td>
+<td>设计→代码交接是真实长期痛点，方案完整，但替代品众多</td>
+</tr>
+<tr>
+<td>D1.3 市场时机判断</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8 档（80%）</td>
+<td>踩中 vibe coding 与 M3 Expressive 双热点，格局未定，但拥挤</td>
+</tr>
+<tr>
+<td>D1.4 应用场景广度</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6 档（60%）</td>
+<td>行业无边界，但功能场景单一（草图→提示词），延展性受限</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>7.5</strong></td>
+<td>—</td>
+<td><strong>7.5 / 10</strong></td>
+</tr>
+</tbody>
+</table>
+<h4>D1.1 目标市场规模与增长性（2.0 / 2.5）</h4>
+<ul>
+<li><strong>TAM 估算</strong>: 项目横跨两个市场——(a) UI 设计/原型工具（成熟且规模达十亿美元级），(b) AI 编程辅助（增长最快的一档）。但其自身只落在「设计草图 → 提示词」这一极窄切口上，且当前只支持 Material 3 Expressive 一种设计语言、Android/Web 两个目标栈，真正可触达的用户是「用 AI 编程工具开发 M3 风格应用的开发者/设计师」这一子集。<strong>估算未经外部数据验证，置信度低</strong>。</li>
+<li><strong>增长趋势</strong>: 明确扩张。AI 编程工具与「vibe coding」范式在 2025–2026 处于高速渗透期，设计侧的需求随之上行。</li>
+<li><strong>市场层级</strong>: 处于成长期/新兴蓝海交汇处，尚无针对「M3 草图 → AI 提示词」的定型品类。</li>
+<li><strong>依据</strong>: topics 中的 <code>vibe-coding</code>、<code>design-tool</code>、<code>prompt</code>；README 明确对接 Claude Code / Codex / Gemini CLI / Cursor 四大工具链；上线即登 Trendshift 日榜第一，7 天内涨至 5.8k+ star，说明需求侧存在真实关注度。</li>
+</ul>
+<p><strong>档位判定</strong>: 赛道增长明确但项目可触达的细分市场有限，落 7–8 档（80%）。未达 9–10，因为不存在「百亿美元级、赛道明确」的直接对应关系。</p>
+<h4>D1.2 痛点真实性与解决程度（2.0 / 2.5）</h4>
+<ul>
+<li><strong>痛点真实性</strong>: 「设计稿→可执行代码/规格」的交接断裂是行业级老痛点；AI 编程工具兴起后派生出新痛点——<strong>模型需要足够结构化、足够具体的上下文才能一次生成到位</strong>，而手工写提示词成本高、易漏项。项目正是切在这个新痛点上，且属于「用了能明显省事」而非「必须用」的层级。</li>
+<li><strong>解决完整度</strong>: 方案相当完整——覆盖 30+ 种 M3 组件、磁吸连接、主题四轴（色彩/形状/字体/动效）、多屏与导航流、图层与编组、预览、PNG 导出、分享链接、甚至为 AI agent 提供 <code>agent.md</code> 描述协议；提示词支持日/英/中/韩四语并可选 Android 或 Web 目标栈。此外做了浏览器端 BYO-Key 的 AI 辅助（OpenAI/Claude/Gemini/DeepSeek），无服务端中转。</li>
+<li><strong>替代成本</strong>: 替代品众多且强——Figma + 插件生态、v0.dev、Lovable、Bolt、Figma Make、Anima、Locofy 等；但这些工具多偏向「直接生成代码」，与「生成可粘贴进任意 AI 编程工具的提示词」定位有差异。同时，AI 编程工具自身正在内化「界面理解」能力，构成长期替代威胁。</li>
+<li><strong>依据</strong>: README 功能清单完整度极高；22,547 行代码、16.6% 测试占比、2 条 CI 流水线，说明工程落地不是玩票；7 天 40 个 PR、10 位贡献者，社区参与真实。</li>
+</ul>
+<p><strong>档位判定</strong>: 明确痛点 + 较完整方案 + 有替代品但体验更差（对 M3 场景而言更专精），落 7–8 档（80%）。未达 9–10，因为并非「非用不可」，且替代路径充裕。</p>
+<h4>D1.3 市场时机判断（2.0 / 2.5）</h4>
+<ul>
+<li><strong>技术成熟度曲线</strong>: 「提示词驱动编程」已越过纯概念期进入实质生产期（Claude Code / Cursor / Codex 已是日常工具）；Material 3 Expressive 是 Google 2025 年发布的新设计语言，仍处早期扩散阶段。项目恰在两者交叉点开局。</li>
+<li><strong>竞争密度</strong>: 设计→代码赛道有先行者（Figma Make、v0、Lovable），但「开源、纯前端、无后端、输出提示词而非直接出码、且深度绑定 M3 Expressive」的定位几乎无同量级对手，格局未固化。</li>
+<li><strong>监管/标准</strong>: 无强监管约束；Google 对 Material 3 Expressive 的官方推进本身就是需求侧的顺风。</li>
+<li><strong>依据</strong>: 项目创建于 2026-09-02、最近推送 2026-09-09，仅 7 天；无正式 release；同期依赖 Next.js 16 / React 19 等最新栈，属于「贴着前沿发布」。</li>
+</ul>
+<p><strong>档位判定</strong>: 成长期、有先行者但空位明确，落 7–8 档（80%）。未给 9–10，因为该窗口竞争异常拥挤，且 AI 工具内化同类能力的速度可能快于工具自身成长速度，时机红利窗口偏窄。</p>
+<h4>D1.4 应用场景广度（1.5 / 2.5）</h4>
+<ul>
+<li><strong>行业覆盖</strong>: 无行业边界——任何做 Android / Web 应用 UI 的行业都可用，属通用/跨行业。</li>
+<li><strong>场景多样性</strong>: 偏窄。核心能力高度收敛于「勾画 M3 界面 → 产出提示词」这一条链路，衍生场景（PNG 导出、分享链接、AI 草图代理）均是该链路的附属，而非独立场景。编辑器本身也仅支持 M3 一种设计语言、Android/Web 两个目标。</li>
+<li><strong>可延展性</strong>: 有一定迁移空间（理论上可扩展到 iOS/HIG、其他设计体系、其他目标栈），但当前实现未体现，属「潜在可延展」而非「已延展」。</li>
+<li><strong>依据</strong>: topics 全部围绕 material-3 / design-tool / prompt，无跨领域标签；依赖列表极简（html-to-image、motion、next、react），代码 100% 为 .ts/.tsx 前端实现，无服务端与数据侧能力。</li>
+</ul>
+<p><strong>档位判定</strong>: 行业覆盖广但功能场景单一、延展未落地，落 5–6 档（60%）。</p>
+<h4>结论</h4>
+<p>D1 维度得分 <strong>7.5 / 10</strong>。项目踩在「AI 编程 + 设计工具」两个高速增长市场的交叉点上，痛点真实、方案完整、时机贴近前沿，具备明确的商业机会窗口。主要制约在于：(1) 可触达细分市场窄，且只覆盖 Material 3 Expressive 单一设计语言；(2) 替代品矩阵拥挤，且头部 AI 编程工具存在内化同类能力的风险；(3) 应用场景收敛于单条链路，横向延展尚未兑现。此外，项目为 MIT 许可、无后端、无付费层、仅靠 GitHub Sponsors 支持，<strong>变现路径在项目自身设计上距离很远</strong>，D1 的「付费意愿」部分只能依赖外部工具链生态（如企业级私有化、托管协作、团队版）来承接。</p>
+<blockquote>
+<p><strong>置信度说明</strong>: 本次评估未进行外部市场规模检索，D1.1 的 TAM 判断基于项目类型/行业类别的量级估算，<strong>未经外部数据验证，置信度低</strong>；D1.2–D1.4 依据 README、topics、功能清单、代码/CI/Issue 等仓库内硬事实，置信度中高。</p>
+</blockquote>
+<h3>D2 技术成熟度与产品质量（权重 14%）</h3>
+<p><strong>项目定位</strong>: <code>m3e-canvas</code> 是一个浏览器端的 Material 3 Expressive 界面草图工具，可将设计稿转换为 "vibe-coding" 提示词。技术栈为 Next.js 16 + React 19 + TypeScript + motion + Tailwind，纯前端静态站点（GitHub Pages 部署），含丰富 Web UI。</p>
+<h3>细则打分</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D2.1 产品设计与创新性</td>
+<td>1.5</td>
+<td>1.2</td>
+<td>80%</td>
+<td>产品理念清晰：在浏览器中草图化 M3E 界面并「一键转提示词」，打通设计→AI 编码链路，定位区隔于 Figma 类通用设计工具。功能围绕设计画布+主题令牌+提示词导出展开，含图层/分组/自动布局(Tidy)/AI 面板等，取舍得当。差异化点在于 Material 3 Expressive 令牌体系与 prompt 导出的组合，但本质仍是设计工具形态，非品类级重构</td>
+</tr>
+<tr>
+<td>D2.2 架构设计与工程质量</td>
+<td>2.0</td>
+<td>1.6</td>
+<td>80%</td>
+<td>目录分层清晰（app/、components/、lib/、docs/），51 个源文件按功能拆分。<code>lib/</code> 抽离充分：tokens(875)/i18n(770)/tidy(597)/prompt(524)/color/shapes/rail/project/share 等高内聚模块，耦合可控。<code>components/</code> 按领域组织（Inspector/M3Node/Preview/Layers/ColorPanel…）。22,547 行与功能复杂度匹配。复刻门槛较高：涉及 M3E 令牌系统、Lab/Lch 色彩科学与对比度算法、SVG 路径形变、自动布局算法、动画状态机，需较强领域积累。轻微扣分：<code>app/page.tsx</code>(794)、<code>ui.tsx</code>(1129) 偏大</td>
+</tr>
+<tr>
+<td>D2.3 代码整洁性与规范性</td>
+<td>1.0</td>
+<td>0.8</td>
+<td>80%</td>
+<td>TypeScript 强类型 + CI 内 <code>npm run typecheck</code> 门禁；命名一致且语义化（translateSnapshot/migrateGroups/schemeFromSeed 等）；i18n、主题、色彩均抽象为独立模块，未见明显复制粘贴。扣分点：devDependencies 中未见 ESLint/Prettier 等风格工具，风格约束主要依赖 TS 类型系统</td>
+</tr>
+<tr>
+<td>D2.4 安全性</td>
+<td>1.0</td>
+<td>0.6</td>
+<td>60%</td>
+<td>纯前端静态应用，无后端/SQL/命令执行面，注入类风险天然极低；含 SECURITY.md；依赖均为最新大版本（Next 16.3.4 / React 19.2.8）；未见硬编码密钥（AI Key 由用户在 <code>lib/ai.ts</code> 中本地管理）。扣分点：未集成 Dependabot/Snyk/Trivy 等安全扫描，无 CODEOWNERS，BYOK 密钥的客户端存储策略无明确说明</td>
+</tr>
+<tr>
+<td>D2.5 UI/UX/UE 人机交互</td>
+<td>1.0</td>
+<td>0.8</td>
+<td>80%</td>
+<td>本项目为含 Web UI 的交互式设计工具，适用。UI 本身即 M3 Expressive 的「自举」实现，组件化程度高（ui.tsx 提供 Slider/Toggle/Section/Dialog 等完整控件库）；支持深色/对比度、<code>useReducedMotion</code> 无障碍动效降级、响应式移动端布局(Mobile.tsx)、多语言切换、加载指示器与确认对话框。扣分点：无实测截图佐证视觉精细度，无显式无障碍审计证据</td>
+</tr>
+<tr>
+<td>D2.6 功能完备度与稳定性</td>
+<td>1.5</td>
+<td>0.9</td>
+<td>60%</td>
+<td>功能覆盖丰富：画布/图层/分组、色彩与主题面板、AI 辅助、prompt 多语言生成、分享链接、PNG 导出、自动布局。运行环境宽松（Node 22，纯静态浏览器运行，无特殊硬件依赖），i18n 支持完善。<strong>主要短板：无任何 Release/Tag，项目创建至最近推送仅约 1 周，无稳定版 v1.0，缺少向后兼容承诺，成熟度尚未验证</strong></td>
+</tr>
+<tr>
+<td>D2.7 文档与开发者体验</td>
+<td>1.0</td>
+<td>0.8</td>
+<td>80%</td>
+<td>文档集较完整：README、CONTRIBUTING、CODE_OF_CONDUCT、SECURITY、PULL_REQUEST_TEMPLATE，另有面向 AI 开发者的 AGENTS.md/CLAUDE.md/public/agent.md，体现现代工程规范。扣分点：无 API 参考文档、无交互式教程，示例文件为 0，docs/ 目录内容单薄</td>
+</tr>
+<tr>
+<td>D2.8 测试与质量保障</td>
+<td>1.0</td>
+<td>0.6</td>
+<td>60%</td>
+<td>有实质性测试体系：20 个测试文件 / 3,736 行（test_ratio 0.166），含快照测试（components/<strong>snapshots</strong>），使用 vitest。CI 质量门禁扎实：ci.yml 执行 typecheck → test → build，PR 触发且支持 fork；deploy.yml 自动化部署。扣分点：测试代码占比偏低，无覆盖率报告佐证 &gt;50%，仅单层质量门禁</td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<p><strong>D2 总分 = 1.2 + 1.6 + 0.8 + 0.6 + 0.8 + 0.9 + 0.8 + 0.6 = 7.3 / 10（良好，高于平均）</strong></p>
+<p>本项目在<strong>工程实现层面展现出与其短暂历史不相称的成熟度</strong>——架构分层清晰、<code>lib/</code> 抽取充分、TypeScript 强类型配 CI 门禁、文档与贡献规范齐全，测试与部署流水线均已落地，代码规模（22.5k 行）与功能复杂度匹配，复刻门槛较高构成一定技术护城河。UI 作为 M3 Expressive 的自举实现，交互与无障碍考量（reduced-motion、响应式、i18n）达到良好水平。</p>
+<p><strong>主要商业化制约集中在「成熟度验证」而非「工程质量」</strong>：项目创建仅约 1 周、无任何正式 Release、无向后兼容承诺，稳定性未经真实场景检验；同时缺少代码风格工具、安全扫描与覆盖率门禁。作为可支撑商业化交付的技术基底，其<strong>下限扎实（架构与流程健全）</strong>，但需经历时间沉淀、版本发布与质量度量的补强，才可视为生产就绪。综合评为 <strong>7.3 分</strong>。</p>
+<h3>D3. 社区健康度与生态势能</h3>
+<blockquote>
+<p><strong>重要前提</strong>：本项目创建于 2026-09-02，最近推送 2026-09-09，<strong>仓库年龄仅约 9 天</strong>。这是一个「超新星型」项目——Star 增速爆炸式增长，但贡献者沉淀、第三方生态、版本发布等滞后型指标尚不具备观察窗口。以下打分已对「时间窗口不足」这一点做标注，供综合报告修正。</p>
+</blockquote>
+<h3>D3.1 社区活跃度指标（满分 3 分）→ <strong>9 / 10（100%，得 3.0）</strong></h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Star 增速</td>
+<td>90 天增量 ≈ 5,872（全部 Star 均在 9 天窗口内产生）÷3 ≈ <strong>1,957 星/月</strong>（或按 5,872/9 天 ≈ 652 星/天）</td>
+<td>远超 9–10 档阈值（&gt;500/月），且获 Trendshift 每日 #1</td>
+</tr>
+<tr>
+<td>Fork 比率</td>
+<td>570 / 5,872 = <strong>9.7%</strong></td>
+<td>处于健康区间下沿，衍生意愿中等偏上（设计工具类项目常有「fork 自部署」动机）</td>
+</tr>
+<tr>
+<td>Issue 活跃度</td>
+<td>90 天 PR 新建 <strong>40</strong> 个（9 天内）；Issue 关闭 12、开放 12</td>
+<td>单位时间活跃度极高，社区参与度强</td>
+</tr>
+<tr>
+<td>响应速度</td>
+<td>开放 Issue 12 与已关闭 12 数量相当；无平均关闭时间硬数据</td>
+<td>无法直接量化，按「高活跃 + 快速消化」推断，但<strong>响应速度一项为推断值</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>说明</strong>：Star 增速阈值被显著突破，但须警惕「单次病毒式发布」带来的脉冲式增长——9 天数据不足以证明社区活跃度的<strong>可持续性</strong>。故给 9 分（100% 档），未给满分 10。</p>
+<h3>D3.2 贡献者结构多样性（满分 2.5 分）→ <strong>5-6 档（60%，得 1.5）</strong></h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>贡献者数量</td>
+<td>GitHub API 显示 <strong>10 名贡献者</strong>；9 天内 40 个 PR</td>
+<td>落在 5–20 人区间，但人均 PR 高达 4 个，参与深度不错</td>
+</tr>
+<tr>
+<td>组织多样性</td>
+<td>无企业/多组织贡献数据；项目署名 <code>lnkiai</code>，疑似单一主体主导</td>
+<td>缺乏多组织证据，倾向 1–2 个组织</td>
+</tr>
+<tr>
+<td>核心团队占比</td>
+<td>无 PR 作者归属细分数据</td>
+<td>无法量化，保守处理</td>
+</tr>
+</tbody>
+</table>
+<p><strong>说明</strong>：10 名贡献者对 9 天龄项目而言不算低，但「组织多样性」是该项目明显短板——目前尚无证据表明存在跨公司协作。按「5–20 贡献者，主要来自 1–2 个组织」判 60%。</p>
+<h3>D3.3 第三方生态成熟度（满分 3 分）→ <strong>3-4 档（40%，得 1.2）</strong></h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>插件/扩展</td>
+<td>无插件市场、无主题/扩展生态</td>
+<td>无</td>
+</tr>
+<tr>
+<td>集成生态</td>
+<td>项目<strong>自身</strong>支持 Claude Code / Codex / Gemini CLI / Cursor 等作为输出目标（是它去适配别人，而非被集成）</td>
+<td>被动侧无集成</td>
+</tr>
+<tr>
+<td>衍生项目</td>
+<td>无</td>
+<td>无</td>
+</tr>
+<tr>
+<td>教程/课程</td>
+<td>无 releases（<code>recent_releases: []</code>）、无外部课程证据；仅 README 自带 4 语言文档</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<p><strong>说明</strong>：9 天龄项目不可能形成生态，此处客观判为「几乎无第三方生态」（3–4 档，40%）。<strong>这是本维度最大失分项，但属时间窗口不足导致的滞后指标</strong>，建议在最终报告中对本项目做「生态观察期」备注。</p>
+<h3>D3.4 品牌认知与行业影响力（满分 1.5 分）→ <strong>5-6 档（60%，得 0.9）</strong></h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>品牌辨识度</td>
+<td>README 挂 <strong>Trendshift 每日 #1</strong> 徽章；9 天 5,872 Star；4 语言 README</td>
+<td>在 design-tool / vibe-coding 细分圈层内已具强辨识度</td>
+</tr>
+<tr>
+<td>行业采用</td>
+<td>无知名企业采用/背书证据</td>
+<td>缺失</td>
+</tr>
+<tr>
+<td>媒体覆盖</td>
+<td>Trendshift 榜单本身即媒体曝光，但无技术会议/权威媒体报道硬证据</td>
+<td>中等</td>
+</tr>
+</tbody>
+</table>
+<p><strong>说明</strong>：病毒式热度带来强「话题品牌力」，但缺乏「知名企业背书」这一 7–8 档关键条件，故落 60% 档。</p>
+<h3>本章结论</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D3.1 社区活跃度</td>
+<td>3.0</td>
+<td>3.0</td>
+</tr>
+<tr>
+<td>D3.2 贡献者结构多样性</td>
+<td>2.5</td>
+<td>1.5</td>
+</tr>
+<tr>
+<td>D3.3 第三方生态成熟度</td>
+<td>3.0</td>
+<td>1.2</td>
+</tr>
+<tr>
+<td>D3.4 品牌认知与行业影响力</td>
+<td>1.5</td>
+<td>0.9</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>6.6</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>D3 得分：6.6 / 10（一般偏上）</strong></p>
+<p><strong>核心判断</strong>：这是一个<strong>「流量指标爆表、沉淀指标空白」</strong>的极端不对称案例。Star 增速、Issue/PR 活跃度已达卓越档，但贡献者多样性、第三方生态、版本发布等成熟度指标因仓库仅 9 天龄而几乎为零。对商业化的含义是：<strong>该项目证明了极强的获客与话题引爆能力（社区即潜在客户池的「入口」已打通），但尚未形成可依赖的生态护城河与外部协作网络。</strong> 建议在综合报告中将其标注为「高势能、低沉淀」，并设置 3–6 个月后再评估的观察期；若届时 Star 增速回落至 100–500/月区间且贡献者仍集中于 1–2 个组织，则应下调评级。置信度：<strong>中</strong>（Star 增速为强信号，但响应速度与组织多样性存在推断成分）。</p>
+<h3>D4. 商业模式与变现潜力</h3>
+<h3>细则评分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D4.1 协议对变现模式的影响</td>
+<td>2</td>
+<td>2.0</td>
+<td>100% (9–10)</td>
+<td>LICENSE 为 MIT（<code>Copyright (c) 2026 lnkiai</code>），无任何传染性或限制性条款；Open Core、SaaS 托管、双协议、专业服务、市场抽成等所有变现路径均无障碍，法律上不构成任何约束</td>
+</tr>
+<tr>
+<td>D4.2 变现路径清晰度</td>
+<td>3.5</td>
+<td>1.4</td>
+<td>40% (3–4)</td>
+<td>项目<strong>明确声明</strong>"free and MIT-licensed, and stays that way""<strong>No feature is behind sponsorship</strong>"，即主动排除 Open Core 与功能分层收费。当前唯一实际路径为 GitHub Sponsors 捐赠（仅 1 位赞助者 Yspritan），属"通常不可规模化"模式。理论上的 SaaS/团队协作路径需从零自建后端，且与作者公开承诺相冲突，尚无先例</td>
+</tr>
+<tr>
+<td>D4.3 付费转化逻辑</td>
+<td>2.5</td>
+<td>0.5</td>
+<td>20% (1–2)</td>
+<td>不存在免费→付费触发点：所有功能（含可选 AI 辅助）完全免费，AI 辅助采用"自带密钥（BYOK）"直连 OpenAI/Claude/Gemini/DeepSeek，平台方不承载也不截留该价值。用户没有任何"不得不付费"的场景，转化漏斗实际不存在</td>
+</tr>
+<tr>
+<td>D4.4 增值服务空间与定价天花板</td>
+<td>2</td>
+<td>0.8</td>
+<td>40% (3–4)</td>
+<td>产品为纯静态 Next.js 导出、无后端、无账号体系（数据仅存 localStorage）。增值方向（云同步、团队协作、企业设计系统集成、托管式 prompt 服务）在概念上存在，但均需新增基础设施且违背当前免费承诺。缺乏 per-seat/per-usage 计费载体，定价天花板低，收入扩展性差</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>4.7</strong></td>
+<td>—</td>
+<td>维度得分 = 4.7 / 10 × 10 = <strong>4.7</strong></td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<p>M3E Canvas 在<strong>协议层面完全开放</strong>（MIT），这为任何商业化尝试保留了最大的法律自由度——本项给满分。但项目在<strong>实际变现设计上几乎处于空白</strong>：作者在 README 中以最强措辞（"stays that way""No feature is behind sponsorship"）主动放弃了 Open Core 与功能付费这一开源商业化的主路径，唯一收入来源是社区捐赠。</p>
+<p>从产品形态看，其"无后端 + localStorage + 纯静态导出 + BYOK"的架构选型，本质上是一个<strong>面向个人的效率工具/引流型开源项目</strong>，而非可承载企业级交易的商业基础设施。它在 AI 编程（vibe-coding）浪潮中拥有良好的生态位与流量（5.8K stars、Trendshift 日榜第一），具备"设计工具→prompt 生成"的独特价值，但当前并未设计任何捕获该价值的机制。</p>
+<p>综合来看，D4 维度得分 <strong>4.7</strong>，属"较弱"区间：不构成根本性法律障碍（MIT 无约束），但也不具备清晰、可行、可持续的商业模式。若未来作者改变策略（例如推出团队协作托管版、企业设计系统集成服务或将 prompt 模板/组件市场平台化），本项目具备向上重估的商业潜力；但<strong>基于现有素材中的硬事实</strong>，无法判定其已有任何可规模化的变现路径。</p>
+<h3>D5. 竞争格局与差异化壁垒（权重 12%）</h3>
+<blockquote>
+<p>项目成立于 2026-09-02，最后一次推送 2026-09-09，<strong>仅 7 天仓龄</strong>（GitHub API 实测），Star 已达 5,872、Fork 570、Contributor 10。任何关于"护城河"的判断都必须放在这个极短的时间窗口内审视。</p>
+</blockquote>
+<h3>D5.1 竞品对比与市场定位（3 分）</h3>
+<h4>竞品对比表</h4>
+<table>
+<thead>
+<tr>
+<th>竞品名称</th>
+<th>类型</th>
+<th>仓库/官网</th>
+<th>验证方式</th>
+<th>Star/用户量</th>
+<th>核心差异</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>xiangjiaowei/m3e-canvas</td>
+<td>直接竞品</td>
+<td>github.com/xiangjiaowei/m3e-canvas</td>
+<td>GitHub 搜索确认</td>
+<td>5</td>
+<td>描述文字与本项目<strong>逐字相同</strong>，疑似复刻/改名仓库</td>
+</tr>
+<tr>
+<td>smartworldarafath/Material-3-Expressive-Screen-UI</td>
+<td>直接竞品</td>
+<td>github.com/smartworldarafath/Material-3-Expressive-Screen-UI</td>
+<td>GitHub 搜索确认</td>
+<td>2</td>
+<td>同一定位（M3E 浏览器设计 → AI 提示词），措辞改写</td>
+</tr>
+<tr>
+<td>mozahid24k/aiappdesign</td>
+<td>直接竞品</td>
+<td>github.com/mozahid24k/aiappdesign</td>
+<td>GitHub 搜索确认</td>
+<td>0</td>
+<td>描述文字逐字相同，无独立声量</td>
+</tr>
+<tr>
+<td>mannie09/marsh-stitch</td>
+<td>直接竞品</td>
+<td>github.com/mannie09/marsh-stitch</td>
+<td>GitHub 搜索确认</td>
+<td>0</td>
+<td>描述逐字相同 + Vercel 部署，命名借用 Google "Stitch"</td>
+</tr>
+<tr>
+<td>matraic/m3e</td>
+<td>间接竞品</td>
+<td>github.com/matraic/m3e</td>
+<td>仓库内引用（README "See also"）</td>
+<td>—</td>
+<td>Lit Web Components 形式的 M3E 组件库，是"消费端"而非设计工具</td>
+</tr>
+<tr>
+<td>Beer CSS</td>
+<td>间接竞品</td>
+<td>beercss.com</td>
+<td>仓库内引用（README "See also"）</td>
+<td>—</td>
+<td>纯 CSS 的 Material Design 3 框架，另一条"把草图落地"的技术路径</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>说明</strong>：以上 4 个 GitHub 竞品均由 GitHub Search API 实测确认存在且未归档。二者并未列入本表的商业级间接竞品（Google Stitch、Vercel v0、Figma Make、Lovable 等通用 AI 生成 UI 工具）为业界公认存在，但本轮<strong>未经独立搜索验证</strong>，故只在定性讨论中提及，不进入验证表格。</p>
+</blockquote>
+<h4>市场定位分析</h4>
+<p><strong>定位清晰度：高。</strong> README 用一句话锁定了三重差异化：
+1. <strong>垂直到 Material 3 Expressive 规范</strong>——不是通用 UI 画板，而是内置 M3E 组件目录（按钮/FAB/导航栏/搜索栏/滑杆等 30+ 部件）与 M3E 四条轴（Color/Shape/Type/Motion）；
+2. <strong>输出目标是"提示词"而非代码</strong>——产物是可粘贴到 Claude Code / Codex / Gemini CLI / Cursor 的自然语言 brief，中/英/日/韩四语，且区分 Android 与 Web 目标栈；
+3. <strong>零后端</strong>——纯静态 Next.js 导出、localStorage 存储、自带 API Key 直连（README 徽章明确标注 <code>backend-none (localStorage)</code>）。</p>
+<p><strong>竞争烈度：直接竞品形同虚设，但概念零门槛。</strong>
+- 4 个直接竞品 Star 分别为 5 / 2 / 0 / 0，全部在项目发布后 3–7 天内出现（pushed_at 2026-09-05 ~ 09-09），且<strong>描述文字逐字照抄</strong>。这说明本项目在自己开辟的微品类中是绝对领先者（5,872 vs ≤5），但也说明<strong>该品类被复刻的心理/技术门槛近乎为零</strong>。
+- 真正的竞争压力来自市场外围：通用 AI 设计/生成工具（Google Stitch、v0、Figma Make 等）体量远超本项目数个数量级，且"把草图变成 AI 提示词"只是它们的一个子功能，随时可能被原生吸收。
+- README 主动把 matraic/m3e、Beer CSS 列为"See also"而非竞品，把自身定位为"上游草图工具"、它们是"下游落地实现"，定位划分清晰、无正面对撞。</p>
+<p><strong>判分</strong>：本项目在微品类内定位独特且遥遥领先，但差异化建立在一层薄功能之上，且被低星克隆批量复制，说明"鲜明"而非"牢固"。落 <strong>5–6 档（60%）</strong>。</p>
+<p><strong>小分：1.8 / 3</strong></p>
+<hr />
+<h3>D5.2 技术壁垒与网络效应（3 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术壁垒</td>
+<td><strong>弱。</strong> 全客户端 Next.js 16 + React 19 应用，MIT 许可，无后端、无私有数据、无专利。核心资产是 M3E 组件渲染 + 提示词生成逻辑，均由 22,547 行 TS/TSX 实现，工程体量不小但属于"可读代码即可复刻"的范畴。Loading Indicator 系从 material-components-android（Apache-2.0）移植，并在 <code>NOTICE</code> 中声明，本身不构成自有壁垒。</td>
+</tr>
+<tr>
+<td>网络效应</td>
+<td><strong>几乎为零。</strong> 无账号体系、无云端数据、无插件市场、无用户间协作。唯一沾边的是"分享链接"（把设计编码进 URL）与 <code>public/agent.md</code>（让编码 agent 读规范后生成草图），属于单向模板分发，不产生"用户越多、价值越大"的飞轮。</td>
+</tr>
+<tr>
+<td>规模效应</td>
+<td><strong>无。</strong> 静态站点，边际成本恒定，用户规模不带来成本或体验优势。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>关键反证</strong>：项目发布 7 天内即出现 4 个描述逐字相同的复刻仓库，直接证明该产品的<strong>从零复刻路径已被走通且成本极低</strong>。22.5k LOC 与 16.6% 测试率体现的是工程质量，而非商业防御力（复刻工程难度已在 D2.2 计分，此处不重复计算）。</p>
+<p><strong>判分</strong>：无专利/数据/生态类壁垒，无网络效应，无规模效应，易被复制。落 <strong>3–4 档（40%）</strong>。</p>
+<p><strong>小分：1.2 / 3</strong></p>
+<hr />
+<h3>D5.3 切换成本与用户粘性（2 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>迁移成本</td>
+<td><strong>低。</strong> 产物是"文本提示词"，复制即走；设计存于浏览器 localStorage，<strong>分享链接功能本身就把设计做成了可携带资产</strong>——设计者几乎零成本即可把作品转移到他人画布或另一工具继续。</td>
+</tr>
+<tr>
+<td>深度集成</td>
+<td><strong>无。</strong> 工具独立运行，不接入用户的 CI/CD、代码库或设计系统；不注入任何 SDK/依赖。用户拿到的最终产物（prompt）具有完全的可移植性。</td>
+</tr>
+<tr>
+<td>习惯锁定</td>
+<td><strong>弱。</strong> 会形成"先在 M3E Canvas 画草图 → 再喂给 AI 编码工具"的个人工作流习惯，但该习惯不绑定本项目——任何同类草图工具都能无缝替代同一环节。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判分</strong>：设计产物高度可移植、无账号、无数据锁定，属"即插即用"型工具，仅靠 localStorage 中的历史草图和 M3E 部件熟悉度形成极轻微粘性。落 <strong>3–4 档（40%）</strong>。</p>
+<p><strong>小分：0.8 / 2</strong></p>
+<hr />
+<h3>D5.4 护城河可持续性（2 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>护城河趋势</td>
+<td><strong>在削弱。</strong> 4 个克隆在首周内集中出现，且作者主动采用 MIT 彻底放弃许可壁垒，不存在通过"收紧许可/闭源"加深护城河的路径；GitHub Sponsors 是唯一变现钩子，但 README 明确"无任何功能因赞助而受限"，无法转化为锁定。</td>
+</tr>
+<tr>
+<td>颠覆风险</td>
+<td><strong>高。</strong>（a）通用 AI 设计工具（Google Stitch、v0、Figma Make 等）只要原生支持 M3E 组件与提示词导出，即可覆盖本项目全部价值；（b）AI 编码 agent 自身能力增强，可能让"先出提示词再写代码"的中间环节变得多余；（c）克隆者以近乎零成本蚕食长尾用户。</td>
+</tr>
+<tr>
+<td>时间窗口</td>
+<td><strong>短。</strong> 优势目前只剩"首周 5,872 Star 的注意力红利 + M3E 部件目录的完成度领先"，未见到任何可延伸为长期壁垒的动作（无付费层、无云端、无生态协议）。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判分</strong>：护城河正在快速削弱，存在明确的潜在颠覆者（大型 AI 设计平台）与现实的蚕食者（克隆仓库）。落 <strong>3–4 档（40%）</strong>。</p>
+<p><strong>小分：0.8 / 2</strong></p>
+<hr />
+<h3>D5 维度结论</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D5.1 竞品对比与市场定位</td>
+<td>3</td>
+<td>1.8</td>
+<td>5–6 档（60%）</td>
+</tr>
+<tr>
+<td>D5.2 技术壁垒与网络效应</td>
+<td>3</td>
+<td>1.2</td>
+<td>3–4 档（40%）</td>
+</tr>
+<tr>
+<td>D5.3 切换成本与用户粘性</td>
+<td>2</td>
+<td>0.8</td>
+<td>3–4 档（40%）</td>
+</tr>
+<tr>
+<td>D5.4 护城河可持续性</td>
+<td>2</td>
+<td>0.8</td>
+<td>3–4 档（40%）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>4.6</strong></td>
+<td><strong>D5 = 4.6 / 10</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>核心结论</strong>：m3e-canvas 在"Material 3 Expressive 草图 → AI 提示词"这一自创微品类中拿下了压倒性的先发身位（5,872 Star vs 直接竞品 ≤5），定位清晰、差异化表述明确。但该定位建立在<strong>纯客户端、MIT、零数据资产</strong>的薄层功能之上：发布首周即被 4 个逐字照抄的仓库复刻，无网络效应、无规模效应、无迁移成本，且面临通用 AI 设计平台的降维覆盖风险。<strong>竞争壁垒整体偏弱（4.6/10），是四个维度中最显著的商业化短板之一</strong>——先发窗口真实存在但极短，能否在窗口关闭前把"注意力"转化为"资产"（云端数据/协作/生态协议），决定其商业化的可持续性。</p>
+<p><strong>置信度说明</strong>：GitHub 竞品数据为 API 实测，高置信；商业级间接竞品（Stitch/v0/Figma Make 等）未经独立搜索验证，相关判断为定性推断，置信度中等。</p>
+<h3>D6. 法律合规与知识产权</h3>
+<p>本项目为纯前端工具类项目（MIT 许可），依赖极少且全部为宽松协议；主要法律注意事项集中在与 Google "Material 3 Expressive" 品牌相关的商标使用，以及缺少正式 CLA/DCO。这些均不构成阻断商业路径的硬伤，但商标项须人工核查。</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D6.1 开源协议合规性与商业限制</td>
+<td>3</td>
+<td>3.0</td>
+<td>9–10（100%）</td>
+<td>LICENSE 文件为完整规范 MIT 文本，<code>package.json</code> 含 SPDX 声明 <code>"license": "MIT"</code>；无 Commons Clause / BUSL / 商业附加条款；MIT 为宽松协议，无 copyleft 传染性；协议本身不对任何变现模式构成法律障碍</td>
+</tr>
+<tr>
+<td>D6.2 依赖链法律风险</td>
+<td>2.5</td>
+<td>2.5</td>
+<td>9–10（100%）</td>
+<td>运行时依赖仅 5 个（html-to-image、motion、next、react、react-dom），devDependencies 7 个；全部为主流 npm 包，均为 MIT/Apache-2.0 等宽松协议，无 GPL/AGPL 等传染性依赖；依赖面小、来源可靠，合规审查成本极低</td>
+</tr>
+<tr>
+<td>D6.3 商标与专利风险</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6（60%）</td>
+<td><strong>未经人工核查，置信度低</strong>。无商标检索/专利排查数据，按规则默认 5–6 档。需人工重点确认：项目名 "m3e-canvas" 及 "Material 3 Expressive" 描述引用 Google Material Design 品牌，项目内无独立商标使用政策文件（无 TRADEMARKS），亦无专利相关声明</td>
+</tr>
+<tr>
+<td>D6.4 贡献者协议完备性</td>
+<td>2</td>
+<td>1.2</td>
+<td>5–6（60%）</td>
+<td>存在结构完善的 CONTRIBUTING.md（含流程、约定、PR 模板、行为准则、CI 校验），并明确声明「By contributing you agree that your changes are licensed under the project's MIT license」（inbound=outbound 授权条款）；但<strong>无正式 CLA、无 DCO 签署机制、无 CODEOWNERS</strong>，版权声明集中于 "Copyright (c) 2026 lnkiai"（相对可控，但已有 10 位贡献者，双协议模式需回联授权）</td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<ul>
+<li><strong>总分：8.2 / 10</strong>（3.0 + 2.5 + 1.5 + 1.2，满分 10）。</li>
+<li><strong>核心优势</strong>：MIT 宽松协议 + 极简且全宽松的依赖链，法律合规层面几乎无实质障碍，商用与闭源分发、SaaS 化、双许可等模式在协议上均可行；版权归属集中于单一实体 "lnkiai"，有利于后续商业化控制。</li>
+<li><strong>主要风险点</strong>：
+  1. <strong>商标（最需人工介入）</strong>：项目围绕 Google 的 "Material 3 Expressive / Material Design" 品牌构建，M3E 术语与 Google 品牌高度绑定，可能受 Google 品牌使用政策约束（项目内未提供任何商标政策声明）。此项未经人工核查，置信度低，商业化前应做正式商标检索与品牌合规审查。
+  2. <strong>贡献者协议</strong>：仅有 CONTRIBUTING.md 中的授权条款，缺少正式 CLA/DCO。若拟采用开放核心/双许可模式，需补签 CLA 或对历史贡献者补授权，否则版权链存在瑕疵。</li>
+<li><strong>总体判断</strong>：D6 维度为「良好」，无阻断性法律硬伤，主要待办为商标人工核查与贡献者协议补强。</li>
+</ul>
+<h3>D7. 企业就绪度与可运营性</h3>
+<p>m3e-canvas 本质是一个<strong>纯前端、无后端的静态 Web 应用</strong>（自述 "backend: none (localStorage)"），所有数据保存在浏览器 localStorage，分享通过 URL hash 编码。这一架构底色决定了本维度的评分特征：运维与扩展负担天然极低，但企业级的多用户安全与集成能力几乎完全缺失。</p>
+<h3>D7.1 运维复杂度与升级路径（3 分 → 1.8 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测情况</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>配置管理</td>
+<td>仅一个构建期环境变量 <code>NEXT_PUBLIC_BASE_PATH</code>（用于 GitHub Pages 子路径），无运行时配置、无配置中心</td>
+</tr>
+<tr>
+<td>运维负担</td>
+<td>静态站点，<code>deploy.yml</code> 推送 main 后自动构建并发布到 GitHub Pages，日常运维人力近乎为零</td>
+</tr>
+<tr>
+<td>升级路径</td>
+<td>无 releases / 无 tag / 无 CHANGELOG，升级=重新部署 main；无正式版本号与回滚机制（仅能靠 git 回退）</td>
+</tr>
+<tr>
+<td>数据迁移</td>
+<td>代码中含 <code>migrateGroups</code>（app/page.tsx）、<code>isProject</code>/<code>readProject</code>（lib/project.ts）等本地存储格式校验与迁移逻辑，存量数据结构升级在客户端完成</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断</strong>：作为静态站点，运维成本确实极低，配置面极小；但工程侧缺乏任何版本发布纪律（<code>recent_releases: []</code>、无 CHANGELOG），升级路径依赖"重新部署 main"这一黑盒方式，且回滚只能依赖 git 历史。数据迁移虽在客户端有处理，但无版本化 schema 说明。综合处于"运维成本可控但升级机制不规范"区间。</p>
+<h3>D7.2 安全管理与权限控制（2.5 分 → 1.0 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测情况</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>认证授权</td>
+<td>无任何 SSO/OAuth/LDAP/SAML；无用户账号体系。仅有"自带 API Key"（OpenAI/Claude/Gemini/DeepSeek）的 AI 助手调用</td>
+</tr>
+<tr>
+<td>权限模型</td>
+<td>无 RBAC/ABAC，单机单用户模型，不存在多用户权限概念</td>
+</tr>
+<tr>
+<td>审计日志</td>
+<td>无操作审计、无安全日志</td>
+</tr>
+<tr>
+<td>数据安全</td>
+<td>密钥仅存于浏览器本地、请求直连 provider（"no server in between"），URL hash 分享为明文可解析格式；无加密存储、密钥管理或传输加密的工程实现（依赖托管方 HTTPS）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断</strong>：仓库含 <code>SECURITY.md</code>（漏洞披露流程，属开源治理而非企业安全能力），但认证、授权、审计、加密四要素均缺失。BYO-Key + 无服务端的设计在隐私上略有加分，但不构成企业安全体系。处于"安全机制薄弱"档。</p>
+<blockquote>
+<p>说明：该产品面向个人/团队设计师的本地绘图场景，多用户认证授权在架构上不适用，但作为"企业就绪度"评估项仍构成商业化落地的明显缺口，故按缺失评估而非 N/A。</p>
+</blockquote>
+<h3>D7.3 可扩展性与高可用能力（2.5 分 → 2.0 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测情况</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>水平扩展</td>
+<td>纯静态资源（Next.js 静态导出至 <code>out/</code>），天然可由 CDN/静态托管横向分发，无有状态服务</td>
+</tr>
+<tr>
+<td>高可用</td>
+<td>依赖 GitHub Pages 等高可用静态托管，无需应用侧集群/故障转移逻辑</td>
+</tr>
+<tr>
+<td>性能瓶颈</td>
+<td>无共享数据库、无服务端单点；瓶颈仅在前端渲染（M3Node/Prompt 等组件复杂度）</td>
+</tr>
+<tr>
+<td>数据一致性</td>
+<td>无分布式共享状态，数据按浏览器隔离（localStorage），一致性问题不适用</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断</strong>：无状态静态架构使其在"横向扩展/高可用"上具备天然优势（无需改造），这是本维度中表现最好的一项。但项目未提供任何专门的高可用部署配置或文档，能力来自架构本身而非显式工程保障，故不给满分。</p>
+<h3>D7.4 集成兼容与可观测性（2 分 → 0.8 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测情况</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>API 完备性</td>
+<td>无 REST/gRPC/公开 SDK；仅有内部模块 <code>buildPrompt</code>、<code>shareLink</code> 等库函数，不对外暴露编程接口</td>
+</tr>
+<tr>
+<td>标准协议</td>
+<td>无 OpenTelemetry/Prometheus/Webhook；仅自定义 URL hash 分享格式与 AI provider 直连</td>
+</tr>
+<tr>
+<td>监控告警</td>
+<td>无内置指标、无健康检查、无告警</td>
+</tr>
+<tr>
+<td>日志体系</td>
+<td>无结构化日志/日志级别管理（纯浏览器端），仅 CI 输出 typecheck/test/build 结果</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断</strong>：除"URL 分享链接"与"BYO-Key AI 直连"这两处有限集成外，无 API/SDK、无标准可观测协议、无监控与结构化日志，集成能力有限。处于 3–4 档。</p>
+<h3>结论</h3>
+<p><strong>D7 维度得分 = 1.8 + 1.0 + 2.0 + 0.8 = 5.6 / 10（一般）</strong></p>
+<p>m3e-canvas 的企业就绪度呈现明显两极分化：<strong>无服务端静态架构</strong>使其运维成本与水平扩展/高可用能力天然优秀；但<strong>作为付费方核心诉求的企业级安全（认证/授权/审计/加密）、版本化升级、集成与可观测能力几乎全部缺失</strong>。它更适合作为个人效率工具/开源项目商业化（如赞助、SaaS 化托管），若要切入企业市场，需补齐 SSO+RBAC+审计、版本发布与回滚、以及基于 OpenTelemetry 的可观测体系。本维度未出现数据缺失项，无需 N/A 缩放，评分置信度正常。</p>
+<h3>D8. 团队治理与可持续性</h3>
+<blockquote>
+<p><strong>权重</strong>: 7% ｜ <strong>本维度得分</strong>: 5.5 / 10（一般）｜ <strong>置信度</strong>: 低（维护者背景与资金数据缺失）</p>
+</blockquote>
+<h3>数据概览（硬事实）</h3>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>实测值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>创建时间</td>
+<td>2026-09-02（至最后推送仅约 1 周）</td>
+</tr>
+<tr>
+<td>最近推送</td>
+<td>2026-09-09</td>
+</tr>
+<tr>
+<td>贡献者数</td>
+<td>10</td>
+</tr>
+<tr>
+<td>90 天 PR 数</td>
+<td>40</td>
+</tr>
+<tr>
+<td>90 天关闭 Issue</td>
+<td>12</td>
+</tr>
+<tr>
+<td>开放 Issue</td>
+<td>12</td>
+</tr>
+<tr>
+<td>Fork / Star</td>
+<td>570 / 5872（约 9.7%）</td>
+</tr>
+<tr>
+<td>Watchers</td>
+<td>21</td>
+</tr>
+<tr>
+<td>归档标记</td>
+<td>false</td>
+</tr>
+<tr>
+<td>近期 Release</td>
+<td>0</td>
+</tr>
+<tr>
+<td>CODEOWNERS</td>
+<td>无</td>
+</tr>
+<tr>
+<td>治理/贡献文档</td>
+<td>CONTRIBUTING.md、CODE_OF_CONDUCT.md、SECURITY.md、PR 模板、AGENTS.md、CLAUDE.md</td>
+</tr>
+</tbody>
+</table>
+<h3>D8.1 核心维护者能力与背景（满分 2.5，得分 1.5）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术能力</td>
+<td>项目采用 Next.js 16 / React 19 / TypeScript / Vitest，代码 2.2 万行、测试 3736 行（测试比 16.6%），CI（ci.yml / deploy.yml）配置齐全，工程水准明显高于业余玩具项目</td>
+</tr>
+<tr>
+<td>商业经验</td>
+<td><strong>无任何证据</strong>——组织 <code>lnkiai</code> 无可见的公司背景、融资或企业服务记录，公开材料未提及创始人履历</td>
+</tr>
+<tr>
+<td>投入度</td>
+<td>一周内 40 个 PR、10 名贡献者、持续推送，活跃度极高，但无法确认是否有全职投入者</td>
+</tr>
+<tr>
+<td>巴士因子</td>
+<td>贡献者 10 人，理论巴士因子 ≥3，但项目仅存在约 1 周，贡献者结构（核心 vs. 路过）无法从素材判断，稳定性未知</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断</strong>: 工程能力和活跃度表现良好，具备「团队投入度高」的某些特征；但商业经验完全缺证、是否有全职投入无法确认、巴士因子无法证实。落在「业余投入但活跃、巴士因子 2–3」的 5–6 档 → 按满分 2.5 × 60% = <strong>1.5</strong>。</p>
+<h3>D8.2 治理模型透明度（满分 2，得分 1.2）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>治理文档</td>
+<td>有 CONTRIBUTING.md（内容详实、含多语言摘要与代码地图）、CODE_OF_CONDUCT.md（Contributor Covenant 2.1）、SECURITY.md、PR 模板；<strong>但无 GOVERNANCE.md、无 CODEOWNERS、无独立路线图文件</strong></td>
+</tr>
+<tr>
+<td>开放程度</td>
+<td>贡献流程清晰（先开 Issue 讨论大改动、CI 三件套检查、Discussions 入口），但决策机制由核心团队主导，无外部贡献者参与治理的明文机制</td>
+</tr>
+<tr>
+<td>基金会/组织</td>
+<td>不属于 CNCF / Apache / Linux Foundation 等任何基金会</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断</strong>: 社区健康卫生文件（CoC + Security + Contributing）完备，属于「有简单贡献指南、决策由核心团队主导」的 5–6 档；缺治理章程与代码归属机制，未达 7–8 档。按满分 2 × 60% = <strong>1.2</strong>。</p>
+<h3>D8.3 资金支持与商业赞助（满分 2.5，得分 1.0）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>现有资金</td>
+<td>无任何公司、基金会或 VC 支持的信息</td>
+</tr>
+<tr>
+<td>赞助收入</td>
+<td>素材中无 GitHub Sponsors 页面、Open Collective 或任何赞助渠道证据</td>
+</tr>
+<tr>
+<td>商业实体</td>
+<td>组织 <code>lnkiai</code> 背景不明，无公开运营实体信息</td>
+</tr>
+<tr>
+<td>资金可持续性</td>
+<td>项目为纯前端静态站（无服务端、无账号），运行成本极低，但人力投入无资金支撑</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断</strong>: 无任何可见资金、赞助或商业实体，符合「几乎无资金支持，纯靠热情」的 3–4 档 → 满分 2.5 × 40% = <strong>1.0</strong>。需要说明：项目仅约 1 周大，尚未有时间建立资金渠道，故此分含较高不确定性；由于缺少 Sponsors/Open Collective 实采数据，本项置信度偏低。</p>
+<h3>D8.4 项目可持续性与传承风险（满分 3，得分 1.8）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>活跃趋势</td>
+<td><strong>方向为强上升</strong>：一周内 5.8k Star、40 个 PR、10 名贡献者，无停滞迹象（活跃度绝对值归 D3.1，此处仅看趋势）</td>
+</tr>
+<tr>
+<td>维护延续性</td>
+<td>MIT 许可、文档齐全、社区初步形成，具备被社区接管的制度基础；但仅 1 周历史，无「核心团队退出后被接管」的任何先例</td>
+</tr>
+<tr>
+<td>历史信号</td>
+<td>archived=false，无 deprecated/unmaintained 标记</td>
+</tr>
+<tr>
+<td>分叉风险</td>
+<td>570 fork / 5872 star（约 10%），处于正常区间，无社区分裂信号；但 0 个 Release 意味着无版本锚点</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断</strong>: 趋势向上、无负面历史信号，但项目极度年轻，可持续性与传承机制<strong>完全未经时间验证</strong>，存在「昙花一现」风险。落在「活跃度有波动、传承风险中等」的 5–6 档 → 满分 3 × 60% = <strong>1.8</strong>。</p>
+<h3>结论</h3>
+<p>M3E Canvas 展现了典型的「新星项目」特征：一周内斩获近 6k Star、10 名贡献者、40 个 PR，工程规范（测试、CI、多语言文档、CoC/Security）明显优于同年龄项目，说明背后团队具备不错的工程素养与社区运营意识。但 D8 所关心的<strong>人</strong>的维度上短板清晰：</p>
+<ol>
+<li><strong>时间太短</strong>——仅约 1 周历史，任何关于可持续性、传承、巴士因子的判断都缺乏验证；</li>
+<li><strong>商业与资金完全空白</strong>——无公司实体、无融资、无赞助渠道，商业化所需的组织资源为零；</li>
+<li><strong>治理仅到「卫生文件」层级</strong>——有 CONTRIBUTING/CoC/Security，但缺 GOVERNANCE.md、CODEOWNERS 与路线图，决策仍由核心团队黑箱主导，且不依托任何基金会。</li>
+</ol>
+<p>综合得分 <strong>5.5 / 10（一般）</strong>：作为「有热情、有工程力、但无组织与资金后盾的超新星项目」，其持续经营能力尚待观察。若后续能补充治理章程、建立贡献者梯队与商业化实体，该维度有较大上行空间；反之，vibe-coding 类工具赛道竞争激烈，单靠热度难言可持续。</p>
+<blockquote>
+<p><strong>置信度说明</strong>: 核心维护者个人履历、全职/业余状态、资金与赞助情况均无实采数据，D8.3 尤甚。若补充维护者 GitHub 个人页、Sponsors/Open Collective 页面后，本维度评分可能显著调整。</p>
+</blockquote>
+<h3>D9. 上手难度与易用性（权重 10%）</h3>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D9.1 安装难度</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>80%（7–8 档）</td>
+<td>标准 npm 流程（<code>npm install</code>），5 个运行时依赖全部自包含，无系统级依赖、无外部服务；跨 Windows/macOS/Linux。扣分点：无 Docker/一键脚本；<code>engines</code> 强制 Node <code>^22.12.0 \|\| ^24.0.0 \|\| &gt;=26.0.0</code>，旧 Node 环境直接失败，且 README 未在安装章节提示该门槛。</td>
+</tr>
+<tr>
+<td>D9.2 部署与配置难度</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>80%（7–8 档）</td>
+<td><code>npm run build</code> 产出静态 <code>out/</code>，零外部组件初始化（无 DB/缓存/MQ），唯一可选配置为 <code>NEXT_PUBLIC_BASE_PATH</code>；自带 <code>deploy.yml</code> 自动发布到 GitHub Pages；官方在线 demo 可直接访问。扣分点：无 Docker/Compose/Helm 等标准化容器部署，自托管需自行准备静态托管环境。</td>
+</tr>
+<tr>
+<td>D9.3 易用性与操作门槛</td>
+<td>2.5</td>
+<td>2.5</td>
+<td>100%（9–10 档）</td>
+<td>产品本身就是浏览器 GUI 工具，非 CLI/库：拖放式操作、磁吸连接、图层拖拽排序、一键 Tidy（可撤销）、对齐辅助线、Undo/Redo、快捷键、7 套预设配色与动态配色，默认配置即用；提供四语界面与四语提示词输出，无需记忆命令或参数。</td>
+</tr>
+<tr>
+<td>D9.4 学习曲线与首体验</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>80%（7–8 档）</td>
+<td>在线 demo 使首次成功使用接近零成本（分钟级）；README 含 <code>docs/story.gif</code>/<code>story.mp4</code> 端到端走查视频、预览/提示词截图与完整快捷键表，四语说明。扣分点：无交互式 onboarding/教程流程，仓库示例文件数为 0（无模板项目），生成本项目自身仍需 npm/Node 前置知识。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>总分：8.5 / 10 → 上手难度等级 🟢 简单（面向所有人）</strong></p>
+<h3>分析</h3>
+<ol>
+<li>
+<p><strong>「零安装试用」是该维度最大的商业优势</strong>。产品形态是浏览器应用而非开发框架，README 首屏即给出在线版链接与「Open the app」，非技术用户（设计师、产品、商务）无需任何安装即可完整体验全流程，直接消除了试用转化的第一道门槛，这也是 5.5k+ Star 快速积累的合理支撑之一。</p>
+</li>
+<li>
+<p><strong>依赖极简是结构性优势</strong>。全局仅 5 个运行时依赖，且明确标注「No backend (localStorage)」——没有数据库、缓存、消息中间件需要初始化，也就没有「部署到可用状态」这一步的典型卡点。对比同类需要拉起后端与存储的设计/协作工具，部署侧几乎无运维负担。</p>
+</li>
+<li>
+<p><strong>唯一实质门槛是 Node 版本</strong>。<code>engines</code> 要求 Node 22.12+（排除 Node 18/20 LTS），但 README 的 Develop 章节只写了 3 条 npm 命令，未提示版本要求，用户可能在 <code>npm install</code> 阶段遭遇不友好的 engine 报错。这是低成本可修复的体验缺口。</p>
+</li>
+<li>
+<p><strong>缺少容器化交付</strong>。没有 Dockerfile / docker-compose / Helm，自托管用户需自行解决静态托管（GitHub Pages 由官方 workflow 覆盖，其他环境需自行配置）。对于企业内网试用的场景，这构成一定摩擦，但不影响个人与团队快速验证。</p>
+</li>
+<li>
+<p><strong>引导侧属于「文档充分、流程缺环」</strong>。四语 README + 演示视频 + 快捷键表 + 多份规范文档（CONTRIBUTING/AGENTS/CLAUDE/agent.md）使资料密度高于平均，但缺少交互式 onboarding 与示例模板工程（示例文件数 0），新用户需通过自己动手摸索建立「Aha Moment」；手机端功能为桌面端子集，跨端认知需额外说明。整体 30 分钟内可完成首次成功产出，未达到「10 分钟 + 交互式引导」的满分档。</p>
+</li>
+</ol>
+<h3>结论</h3>
+<p>D9 得分 <strong>8.5 / 10</strong>，等级为 🟢 <strong>简单</strong>，构成正向商业优势：终端用户零安装即用、自托管链路短且无外部依赖，是低摩擦转化的典型形态。报告中的「安装部署与使用指南」可提供完整命令与操作步骤（已在正文给出）。后续提升空间集中在两处低成本项：在 README 显著位置标注 Node 版本要求，以及补充一份 Dockerfile/静态托管多方案说明，即可向 9 分档靠拢。</p>
+<h3>D10 功能价值（使用价值视角）</h3>
+<blockquote>
+<p>平行维度，权重 0%，不计入综合评分。本节只回答一个问题：用它的人省了/赚了多少。</p>
+</blockquote>
+<h3>项目定位与效用场景</h3>
+<p>M3E Canvas 是一个纯浏览器端（静态 Next.js 导出、无后端、localStorage 存储）的设计工具：拖放 Material 3 Expressive 组件 → 磁吸连接 / 多屏跳转预览 → 一键输出自然语言提示词（日/英/中/韩），交给 Claude Code、Codex、Cursor 等 AI 编程工具生成 Android 或 Web 应用。效用集中在一个非常具体的细分工作流上：<strong>「M3 界面草图 → AI 可执行提示词」的中间环节</strong>。</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>分值</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10.1 效用强度</td>
+<td>3</td>
+<td><strong>1.8</strong></td>
+<td>5–6（60%）</td>
+<td>提供明确但有限的效率提升：省去「画草图 + 手写结构化提示词」的时间，组件库（30+ M3 部件）、磁吸连接、跳转/滑动预览、四语言提示词输出构成真实可用性。但效用层级为「分钟级便利工具」，非项目级依赖/业务命脉；替代路径多（Figma / 白板 / 直接手写 prompt），效用确定性依赖用户正处于 M3 Expressive + AI 编码这一特定情境。</td>
+</tr>
+<tr>
+<td>D10.2 实际使用规模</td>
+<td>3</td>
+<td><strong>1.8</strong></td>
+<td>5–6（60%）</td>
+<td>实采：stars 5872、forks 570、contributors 10。npm 周下载量 N/A（本项目为静态站点而非可安装库）；作为应用型项目无 GitHub Dependents 语义；无生产采用报道、无 releases、项目仅创建于 2026-09-02（约 1 周）。star 量级可观（Trendshift 当日 #1）但存在病毒式刷榜可能，实际使用深度与留存无法验证，故取中位偏保守。</td>
+</tr>
+<tr>
+<td>D10.3 免费可得的完整效用</td>
+<td>2</td>
+<td><strong>2.0</strong></td>
+<td>9–10（100%）</td>
+<td>MIT 许可；README 明示「No feature is behind sponsorship」「free and MIT-licensed, and stays that way」。AI 辅助为可选 BYO-key（OpenAI/Claude/Gemini/DeepSeek），密钥仅存本地、直连服务商；静态可自托管，开源版即全部价值，无任何功能阉割或付费墙。</td>
+</tr>
+<tr>
+<td>D10.4 效用可持续性</td>
+<td>2</td>
+<td><strong>1.6</strong></td>
+<td>7–8（80%）</td>
+<td>核心能力 100% 本地化运行（静态站点、无后端、localStorage），停维后既有用户效用长期存续；MIT + 完整前端源码可自由分叉维护。扣分点：字体从 Google Fonts CDN 加载、Loading Indicator 为 Apache-2.0 移植组件，存在少量可替换的外部依赖，未达「零外部依赖」满分档。</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>7.2</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<p><strong>D10 功能价值 = 7.2 / 10（良好档，平行维度，不计入综合评分）。</strong></p>
+<p>价值结构呈现典型的「使用价值高、交换价值低」形态：D10.3 拿到满分（开源版即全部价值、无付费墙），与付费转化逻辑天然反相关——这也解释了为何该项目商业变现有难度（仅靠 GitHub Sponsors），但并不削弱其功能价值本身。</p>
+<p>需重点标注的置信度风险：<strong>项目过于年轻（创建至最近推送仅约 1 周），D10.2 的全部规模指标均缺失（npm 下载量 N/A、无 dependents、无 releases），stars 5872 的含金量与留存无法验证</strong>，很可能混入 Trendshift 榜单带来的脉冲式关注。因此 D10.2 取保守中位。其余三项基于 README 功能描述与本地仓库实采（MIT、静态导出、依赖清单）判断，可信度较高。整体画像为：<strong>一个细分场景下真心好用、完全免费、极度可自持，但效用面窄、真实使用规模未证的效率工具。</strong></p>
+<h3>D11 社会价值——正外部性视角（平行维度，权重 0%）</h3>
+<blockquote>
+<p>本维度为平行维度，权重 0%，不计入综合评分与一票否决，仅用于 3.4 价值画像。评估视角为「项目对使用者之外的行业与社会的外溢贡献」，与 D3.4（品牌对商业势能的助力）及 D2.5/D2.6（工程质量视角的 i18n/无障碍）区分。</p>
+</blockquote>
+<p><strong>项目定位判断</strong>：m3e-canvas 是一款面向终端用户的浏览器端 Material 3 Expressive 界面草图工具，输入为设计草稿、输出为 AI 编程提示词。它<strong>不是库/框架</strong>，不构成任何下游代码依赖；其正外部性主要体现在「能力普惠」与「开放设计标准的实践」两个方向。</p>
+<h3>D11.1 数字公共基础设施属性（满分 3）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测依据</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>关键依赖地位</td>
+<td>无 Dependents 数据；项目为独立 Web 应用（Next.js 静态导出），非可被 import 的库</td>
+<td>不成立</td>
+</tr>
+<tr>
+<td>停摆影响面</td>
+<td>停摆仅影响用户本地浏览器内的草稿（localStorage），波及范围极小，不触及软件供应链</td>
+<td>极小</td>
+</tr>
+<tr>
+<td>数字公共产品属性</td>
+<td>MIT 许可、无后端、源码开放可复用，具备部分 DPG「开放/可复用」特征，但服务对象为设计效率而非公共基础设施</td>
+<td>部分符合</td>
+</tr>
+</tbody>
+</table>
+<p><strong>小分：1.2 / 3（40% 档，对应 3–4 分区间）</strong></p>
+<p>判断依据：项目无任何下游依赖，不属于 curl/OpenSSL 式的「数字底座」，停摆对社会供应链影响微乎其微。但其开源（MIT）、静态、可自托管的形态仍带有基础公共工具属性（任何人可 fork 自建），故不落入 1–2「孤立且无公共属性」档，取 3–4 档。</p>
+<h3>D11.2 教育与人才价值（满分 2.5）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测依据</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>教学采用</td>
+<td>未见任何教程/课程/awesome 列表收录证据（项目创建仅约 1 周）</td>
+<td>无证据</td>
+</tr>
+<tr>
+<td>门槛降低效应</td>
+<td>将「M3 界面设计 + 提示词撰写」合并为一步，显著降低非设计背景开发者上手成本；<code>public/agent.md</code> 为编码代理协作提供了可复用的示范文本</td>
+<td>有实际效果</td>
+</tr>
+<tr>
+<td>源码学习价值</td>
+<td>22,547 行 Next.js 16 / React 19 / TypeScript，测试占比 16.6%，含 AGENTS.md / CLAUDE.md / CONTRIBUTING.md，是较完整的现代前端工程范本</td>
+<td>中等</td>
+</tr>
+</tbody>
+</table>
+<p><strong>小分：1.0 / 2.5（40% 档，对应 3–4 分区间）</strong></p>
+<p>判断依据：项目本身可作为 Next.js 16 + React 19 的工程学习样本来阅读，且作为「设计→提示词」工具客观上降低了入门门槛；但缺乏任何被教学/课程/教程生态采用的证据（项目过于年轻），未形成「行业教材」效应，故取 3–4 档。</p>
+<h3>D11.3 普惠与可及性（满分 2.5）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测依据</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>能力平权化</td>
+<td>免费 MIT、纯浏览器运行、无需后端与服务器，个人/中小团队/欠发达地区可零成本获得「M3 界面设计 + 提示词生成」能力</td>
+<td>强</td>
+</tr>
+<tr>
+<td>替代价格差</td>
+<td>对标 Figma 等付费协作设计工具（付费席位订阅）及专业 UI 设计人力成本，本项目免费提供近似「设计草稿 + 可交付提示词」价值</td>
+<td>显著</td>
+</tr>
+<tr>
+<td>可及性支持</td>
+<td>UI 与提示词输出支持日/英/中/韩 4 种语言；提供手机端专用简易编辑器；静态站可部署于 GitHub Pages，硬件门槛低；未见明确无障碍（a11y）专项声明</td>
+<td>较好但有短板</td>
+</tr>
+</tbody>
+</table>
+<p><strong>小分：2.0 / 2.5（80% 档，对应 7–8 分区间）</strong></p>
+<p>判断依据：免费 + 无后端 + 四语 i18n + 低硬件门槛 + 手机端可用，把原本需要付费设计工具与专业技能的「界面设计→代码提示词」流程平权给个人与中小团队，普惠效果明确；扣分项在于多屏幕完整功能仅限桌面浏览器（手机端功能受限），且未见系统性无障碍支持，故取 7–8 档而非 9–10。</p>
+<h3>D11.4 开放标准与行业推动（满分 2）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测依据</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>标准推动</td>
+<td>严格实现 Google 的开放设计标准 Material 3 Expressive（Loading Indicator 移植自 material-components-android，Apache-2.0）；输出的提示词可指向 Android 或 Web 技术栈，有助避免单一厂商锁定</td>
+<td>遵循并落地开放标准</td>
+</tr>
+<tr>
+<td>科研支撑</td>
+<td>无论文引用/学术使用证据（数据不可得，标 N/A）</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>行业示范效应</td>
+<td>「设计草图 → vibe-coding 提示词」及 <code>agent.md</code> 代理协作协议属较新模式，但项目过新、竞品多为同模式克隆件，尚未形成被广泛模仿的行业范式</td>
+<td>早期</td>
+</tr>
+</tbody>
+</table>
+<p><strong>小分：1.2 / 2（60% 档，对应 5–6 分区间）</strong></p>
+<p>判断依据：项目完整实现并推广了 Material 3 Expressive 这一开放设计标准，且以平台无关的提示词输出降低对特定设计工具的锁定，具备标准落地价值；但它属于标准的<strong>遵循者/实现者</strong>而非定义者，学术支撑不可得，行业示范效应尚在早期，故取 5–6「遵循开放标准但无显著推动作用」档。</p>
+<h3>D11 细则分值汇总</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D11.1</td>
+<td>数字公共基础设施属性</td>
+<td>3</td>
+<td>1.2</td>
+<td>40%（3–4 档）</td>
+</tr>
+<tr>
+<td>D11.2</td>
+<td>教育与人才价值</td>
+<td>2.5</td>
+<td>1.0</td>
+<td>40%（3–4 档）</td>
+</tr>
+<tr>
+<td>D11.3</td>
+<td>普惠与可及性</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>80%（7–8 档）</td>
+</tr>
+<tr>
+<td>D11.4</td>
+<td>开放标准与行业推动</td>
+<td>2</td>
+<td>1.2</td>
+<td>60%（5–6 档）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td><strong>5.4</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<p>m3e-canvas 的正外部性呈现<strong>「普惠强、基建弱」的鲜明特征</strong>：</p>
+<ul>
+<li><strong>优势（普惠）</strong>：D11.3 得分最高。免费 MIT 许可、无后端纯静态、四语言 i18n、手机端可用、低硬件门槛，使其把「界面设计 + AI 提示词生成」这一原本依赖付费设计工具与专业技能的能力平权给个人与中小团队，替代价格差显著。</li>
+<li><strong>短板（基建）</strong>：D11.1 得分最低。项目是<strong>终端用户应用而非代码依赖库</strong>，无任何 Dependents，不构成数字底座，停摆对软件供应链几乎无影响，仅在「开源可自托管」层面具备弱公共产品属性。</li>
+<li><strong>中性项</strong>：D11.2 因项目过年轻（创建至推送仅约 1 周）缺乏教学/教程生态证据；D11.4 属开放标准 Material 3 的忠实实现者而非定义者，示范效应尚在早期。</li>
+</ul>
+<p><strong>综合 D11 评分：5.4 / 10（一般偏上）</strong>。核心价值在于「用免费开源把昂贵的设计+提示词能力普惠化」，而非供应链级的公共基础设施属性。</p>
+<blockquote>
+<p><strong>置信度说明</strong>：本维度依赖的外部数据（Dependents 计数、教程/课程生态、论文引用）均不可得，D11.1/D11.2 判断主要基于项目形态与本地实测事实推断，置信度中等偏低。四项细则均基于素材可核事实打分，无 N/A 剔除，满分保持 10。</p>
+</blockquote>
+<h2>五、商业化价值判断</h2>
+<p><strong>综合评分 63.8/100，等级 B（中等商业化潜力）；公共价值分 6.3/10，价值画像判定为「📦 长尾项目」。</strong></p>
+<h3>5.1 核心判断</h3>
+<p>M3E Canvas 是一个<strong>流量指标爆表、沉淀指标空白</strong>的早期项目。它在极短时间内（约 7–9 天）积累了 5,872 Star、570 Fork，并登上 Trendshift 日榜第一，Star 增速折算约 1,957 星/月，远超社区活跃度最高档阈值（500/月）。但这一热度尚未转化为任何可持续的商业资产：</p>
+<ul>
+<li><strong>变现机制为零</strong>：MIT 协议 + 纯前端无后端 + 仅 GitHub Sponsors（当前仅 1 位赞助者），作者明确声明「永久免费、无功能置于赞助之后」，主动排除了 Open Core / 功能分层收费路径（D4 得分 4.7，为九维最低之一）。</li>
+<li><strong>护城河近乎不存在</strong>：无技术/数据/生态壁垒，无网络效应亦无规模效应，首周即被批量克隆——4 个直接竞品描述逐字照抄，但 Star 仅 5/2/0/0（D5 得分 4.6）。切换成本极低，产物为可复制文本提示词。</li>
+<li><strong>产品本身质量与体验优秀</strong>：D2（7.3）、D9（8.5）、D6（8.2）三项表现突出，工程成熟度显著高于项目年龄，终端用户零安装即可通过官方在线 demo 完整体验。</li>
+</ul>
+<h3>5.2 价值画像说明</h3>
+<p>公共价值分 6.3 落在 6.5–7.5 临界区间下方边缘，综合评分 63.8 落在 60–70 临界区间内，<strong>判定为「画像临界」</strong>：</p>
+<ul>
+<li>按当前计算落入 <strong>📦 长尾项目</strong>（综合评分 &lt; 65 且公共价值分 &lt; 7），对应路径为「技术借鉴或人才引进，不投入商业化」。</li>
+<li>但公共价值分 6.3 距 7 仅差 0.7，且 D10 功能价值达 7.2（开源版即全部价值、停维后效用长期存续、可自由分叉），若后续生态沉淀（教程、衍生项目、外部采用）补足，画像有向 <strong>🏛️ 公共产品型</strong> 迁移的空间——届时路径应转为「影响力变现」：赞助 / 基金会托管 / 大厂雇佣维护者 / 围绕生态做服务与培训。</li>
+</ul>
+<p><strong>两种画像下的路径差异</strong>：长尾项目画像下不建议投入商业化资源；公共产品型画像下不建议直接变现，但值得以低成本的社区声誉经营维持影响力。鉴于项目仅约 1 周历史，建议设 3–6 个月生态观察期后复评，暂不锁定单一画像。</p>
+<hr />
+<h2>六、商业路径分析</h2>
+<h3>6.1 路径可行性排序</h3>
+<p>基于 D4 硬事实（MIT 无变现约束、无后端无账号、BYOK 直连、仅 Sponsors），可行路径按现实性排序：</p>
+<table>
+<thead>
+<tr>
+<th>路径</th>
+<th>可行性</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>捐赠 / 赞助（GitHub Sponsors）</strong></td>
+<td>当前唯一已实现路径</td>
+<td>作者明确声明 donation-only；当前仅 1 位赞助者，收入规模可忽略</td>
+</tr>
+<tr>
+<td><strong>影响力变现（赞助 / 基金会托管 / 大厂雇佣维护者 / 生态服务与培训）</strong></td>
+<td>中</td>
+<td>契合公共产品型画像；项目在 vibe-coding 生态位高流量（5.8K stars、Trendshift 日榜第一），但无教程/课程/学术引用生态证据</td>
+</tr>
+<tr>
+<td><strong>SaaS 化 / 托管增值</strong></td>
+<td>低</td>
+<td>无后端、无账号、数据仅存 localStorage，缺乏 per-seat / per-usage 计费载体；静态导出可 SaaS 就绪但无付费触发点</td>
+</tr>
+<tr>
+<td><strong>Open Core / 功能分层</strong></td>
+<td>已被主动排除</td>
+<td>作者声明「No feature is behind sponsorship」，主动放弃该路径</td>
+</tr>
+<tr>
+<td><strong>企业版 / 私有化部署</strong></td>
+<td>低</td>
+<td>完全缺失企业安全要素（无 SSO/OAuth/LDAP/SAML、无 RBAC/ABAC、无审计日志），无 Dockerfile/Helm，企业内网自托管需自行准备托管环境</td>
+</tr>
+<tr>
+<td><strong>AI 能力变现</strong></td>
+<td>不可行</td>
+<td>AI 辅助采用 BYO-Key 直连第三方模型，平台不承载也不截留该价值</td>
+</tr>
+</tbody>
+</table>
+<h3>6.2 路径修正建议</h3>
+<p>按价值画像规则，<strong>长尾项目画像下不投入商业化</strong>；若观察期内生态沉淀改善、画像迁移至公共产品型，则路径应修正为「影响力变现」而非直接变现。任何情况下均<strong>不建议</strong>走 Open Core 或企业版路线——前者与作者公开承诺冲突（参照 Elastic 改协议的反噬教训），后者与产品架构（无后端、无账号、无企业安全要素）根本性不匹配。</p>
+<hr />
+<h2>七、能力评估：能做什么 &amp; 最适合做什么</h2>
+<h3>7.1 能做什么（已验证能力）</h3>
+<ul>
+<li><strong>浏览器端零安装设计</strong>：提供官方在线 demo（lnkiai.github.io/m3e-canvas），终端用户零安装即可完整体验，试用转化门槛极低（D9.1/D9.3）。</li>
+<li><strong>M3 Expressive 界面草图与原型</strong>：30+ 组件、四轴主题、多屏导航流，UI 为 M3E 自举实现，含 reduced-motion 无障碍降级、响应式移动端（D2.1/D2.5）。</li>
+<li><strong>草图 → vibe-coding 提示词导出</strong>：四语提示词输出、agent.md 协议，打通设计稿到 AI 编程工具的规格交接断裂（D1.2）。</li>
+<li><strong>可选 AI 辅助</strong>：BYO-Key 直连第三方模型，平台不截留价值（D4.3）。</li>
+<li><strong>极简部署</strong>：Next.js 静态导出到 ./out，GitHub Pages 由 deploy.yml 自动化；运行时依赖仅 5 个，无数据库/缓存/消息队列等外部组件（D9.2）。</li>
+<li><strong>多语言与普惠可及</strong>：README 四语（英/日/中/韩），UI 与提示词支持四语，手机端可用（D11.3 达 80%）。</li>
+</ul>
+<h3>7.2 最适合做什么</h3>
+<p><strong>最适合作为「个人与中小团队的免费设计-提示词转换便利工具」持续运营，而非作为商业产品变现。</strong></p>
+<p>理由：其效用面狭窄但真实（分钟级便利工具，非项目级/命脉级依赖，易被 Figma + 手写 prompt 替代，D10.1）；开源版即全部价值（D10.3 满分）；静态无后端架构使其停维后效用长期存续、可自由分叉（D10.4）。这类项目的最优归宿是<strong>社区声誉资产 + 生态服务载体</strong>，而非独立商业实体。</p>
+<hr />
+<h2>八、短板识别：还缺少什么</h2>
+<h3>8.1 商业化短板（致命级）</h3>
+<ol>
+<li><strong>无任何付费层与计费载体</strong>：无后端、无账号、数据仅存 localStorage，缺乏 per-seat / per-usage 计费基础（D4.2/D4.3）。</li>
+<li><strong>变现路径被主动关闭</strong>：作者声明永久免费、无功能置于赞助之后，唯一路径为 GitHub Sponsors（当前仅 1 位赞助者）（D4.2）。</li>
+<li><strong>护城河缺失</strong>：无技术/数据/生态壁垒，无网络效应与规模效应，首周即被批量克隆（4 个直接竞品描述逐字照抄）（D5.2/D5.3）。</li>
+<li><strong>颠覆风险高</strong>：大型通用 AI 设计工具（Stitch/v0/Figma Make 等）可原生吸收该功能，MIT + 无付费层使其无加深护城河的路径，先发窗口极短（D5.4）。</li>
+</ol>
+<h3>8.2 产品与工程短板</h3>
+<ol start="5">
+<li><strong>版本成熟度空白</strong>：项目创建仅约 1 周，0 个 Release/Tag、无稳定版、无 CHANGELOG，稳定性与向后兼容性未经验证（D2.6/D7.1）。</li>
+<li><strong>安全工程缺失</strong>：无 Dependabot/Snyk/Trivy 等安全扫描，无 ESLint/Prettier 代码风格工具（D2.3/D2.4）。</li>
+<li><strong>测试佐证不足</strong>：测试占比 16.6%，无覆盖率报告佐证 &gt;50%（D2.8）。</li>
+<li><strong>企业就绪度为零</strong>：无 SSO/OAuth/LDAP/SAML、无 RBAC/ABAC、无审计日志、无加密与密钥管理；无 REST/gRPC/公开 SDK、无 OpenTelemetry/Prometheus/Webhook、无监控告警与健康检查、无结构化日志（D7.2/D7.4）。</li>
+<li><strong>无容器化交付</strong>：无 Dockerfile / docker-compose / Helm，企业内网自托管需自行准备托管环境（D9.2）。</li>
+<li><strong>Node 版本要求苛刻且未提示</strong>：engines 要求 Node ^22.12.0 || ^24.0.0 || &gt;=26.0.0（排除 Node 18/20 LTS），但 README 安装章节未提示，存在踩坑风险（D9.2）。</li>
+<li><strong>缺少 onboarding 素材</strong>：无交互式 onboarding、无示例模板工程（示例文件数 0）（D9.4）。</li>
+</ol>
+<h3>8.3 社区与治理短板</h3>
+<ol start="12">
+<li><strong>生态沉淀空白</strong>：无 releases、无插件/扩展、无衍生项目、无外部教程，集成关系为项目单向适配 AI 编码工具而非被集成（D3.3）。</li>
+<li><strong>贡献者结构单一</strong>：仅 10 名贡献者，组织多样性无证据（疑似单一主体 lnkiai 主导）（D3.2）。</li>
+<li><strong>治理仅达卫生文件层级</strong>：无 GOVERNANCE.md、无 CODEOWNERS、无路线图，不属于任何基金会（D8.2）。</li>
+<li><strong>资金与组织资源为零</strong>：无任何可见资金支持、赞助渠道或商业实体（D8.3）。</li>
+<li><strong>贡献者协议不完备</strong>：有 CONTRIBUTING.md 并声明 inbound=outbound MIT，但无正式 CLA、无 DCO、无 CODEOWNERS；10 位贡献者下双协议模式需补授权（D6.4）。</li>
+<li><strong>商标风险未核查</strong>：项目名与描述绑定 Google「Material 3 Expressive / Material Design」品牌，无独立商标政策文件，商标风险未经人工核查，置信度低（D6.3）。</li>
+</ol>
+<hr />
+<h2>九、风险提示</h2>
+<h3>9.1 高风险</h3>
+<ul>
+<li><strong>护城河崩塌风险（高）</strong>：无技术/数据/生态壁垒，MIT + 无付费层使其无加深护城河的路径；大型通用 AI 设计工具可原生吸收该功能，先发窗口极短（D5.4）。</li>
+<li><strong>变现路径结构性缺失（高）</strong>：无后端、无账号、无计费载体，且作者主动排除 Open Core；唯一路径 GitHub Sponsors 当前仅 1 位赞助者（D4.2/D4.3）。</li>
+<li><strong>项目极年轻、可持续性未经时间验证（高）</strong>：仓库龄约 7–9 天，0 Release，无版本锚点；D8.4 小分 1.8（未触发否决，但传承机制完全未经验证）（D8.1/D8.4）。</li>
+</ul>
+<h3>9.2 中风险</h3>
+<ul>
+<li><strong>流量真实性风险（中）</strong>：Star 增长可能含 Trendshift 脉冲式刷榜；npm 下载量 N/A、无 dependents、无 releases，真实使用深度未证（D10.2/D10.4）。</li>
+<li><strong>商标风险（中）</strong>：项目名与描述绑定 Google 品牌，无独立商标政策文件，风险未经人工核查，置信度低（D6.3）。</li>
+<li><strong>生态观察期风险（中）</strong>：整体呈「流量指标爆表、沉淀指标空白」的高度不对称，属高势能低沉淀，建议设 3–6 个月生态观察期后复评（D3）。</li>
+<li><strong>贡献者授权风险（中）</strong>：无 CLA/DCO，10 位贡献者下若未来切换双协议模式需补授权（D6.4）。</li>
+</ul>
+<h3>9.3 低风险</h3>
+<ul>
+<li><strong>法律合规风险（低）</strong>：MIT 宽松协议，无商业附加条款，无 copyleft 传染；运行时依赖 5 个、devDependencies 7 个全部为 MIT/Apache-2.0 宽松协议，合规成本极低（D6.1/D6.2）。</li>
+<li><strong>供应链风险（低）</strong>：终端用户应用而非依赖库，无任何下游 Dependents，停摆对软件供应链影响极小（D11.1）。</li>
+<li><strong>运维风险（低）</strong>：纯前端无后端架构，静态站点自动部署，运维负担极低；无状态架构天然支持横向扩展与高可用（D7.1/D7.3）。</li>
+</ul>
+<hr />
+<h2>十、结论与建议</h2>
+<h3>10.1 结论</h3>
+<p>M3E Canvas 是一个<strong>产品体验优秀、法律合规干净、上手门槛极低，但商业化基础结构性缺失</strong>的早期开源项目。综合评分 <strong>63.8/100（B 级，中等商业化潜力）</strong>，公共价值分 <strong>6.3/10</strong>，价值画像判定为 <strong>📦 长尾项目（画像临界）</strong>，未触发一票否决。</p>
+<p>其核心矛盾在于：<strong>高流量势能（5,872 Star、Trendshift 日榜第一、约 1,957 星/月增速）与零商业沉淀（无付费层、无后端、无账号、无护城河、仅 1 位赞助者）之间的巨大落差</strong>。项目在自创的「M3 Expressive 草图 → AI 提示词」微品类中处于绝对领先（对头部直接竞品 Star 领先 1,174 倍），但该微品类概念复刻门槛近乎为零，首周即被批量克隆，且面临大型通用 AI 设计工具的原生吸收风险。</p>
+<h3>10.2 建议</h3>
+<p><strong>对潜在商业化投入方：</strong></p>
+<ol>
+<li><strong>不建议直接投入商业化资源</strong>。按长尾项目画像，优先考虑技术借鉴或人才引进；D4（4.7）与 D5（4.6）两项核心商业维度均处低位，且变现路径被作者公开承诺主动关闭。</li>
+<li><strong>设 3–6 个月生态观察期后复评</strong>。重点观察三项沉淀指标：是否出现首个 Release/Tag、是否形成外部教程/衍生项目、贡献者组织多样性是否改善。若公共价值分升至 7 以上且生态沉淀补足，画像可迁移至公共产品型，届时转为「影响力变现」路径（赞助 / 基金会托管 / 大厂雇佣维护者 / 生态服务与培训）。</li>
+<li><strong>若坚持介入，唯一合理切口是生态服务与培训</strong>，而非产品变现——围绕 M3E + vibe-coding 工作流做教程、课程、咨询，避免与作者「永久免费」承诺正面冲突（参照 Elastic 改协议的反噬教训）。</li>
+</ol>
+<p><strong>对项目维护者：</strong></p>
+<ol start="4">
+<li><strong>补齐版本锚点</strong>：尽快发布首个 Release/Tag 与 CHANGELOG，建立升级与回滚机制，这是当前最紧迫的工程短板（0 Release 是 D2/D7/D8 三项失分的共同来源）。</li>
+<li><strong>补强安全与规范工具链</strong>：接入 Dependabot/Snyk 等安全扫描，引入 ESLint/Prettier，补充覆盖率报告。</li>
+<li><strong>完善贡献者协议</strong>：补充 CLA 或 DCO 与 CODEOWNERS，为未来任何协议或治理调整预留授权基础。</li>
+<li><strong>核查商标风险</strong>：就项目名与描述对 Google「Material 3 Expressive / Material Design」品牌的使用做人工法律核查。</li>
+<li><strong>在 README 安装章节提示 Node 版本要求</strong>（^22.12.0 || ^24.0.0 || &gt;=26.0.0），降低踩坑率。</li>
+<li><strong>经营社区声誉而非急于变现</strong>：项目当前最大资产是细分圈层的品牌辨识度与高流量，应通过教程、示例模板工程、交互式 onboarding 将流量转化为沉淀，避免竭泽而渔。</li>
+</ol>
+<h2>十一、项目地址</h2>
+<p><svg class="ri ri-muted" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.001 2C6.47598 2 2.00098 6.475 2.00098 12C2.00098 16.425 4.86348 20.1625 8.83848 21.4875C9.33848 21.575 9.52598 21.275 9.52598 21.0125C9.52598 20.775 9.51348 19.9875 9.51348 19.15C7.00098 19.6125 6.35098 18.5375 6.15098 17.975C6.03848 17.6875 5.55098 16.8 5.12598 16.5625C4.77598 16.375 4.27598 15.9125 5.11348 15.9C5.90098 15.8875 6.46348 16.625 6.65098 16.925C7.55098 18.4375 8.98848 18.0125 9.56348 17.75C9.65098 17.1 9.91348 16.6625 10.201 16.4125C7.97598 16.1625 5.65098 15.3 5.65098 11.475C5.65098 10.3875 6.03848 9.4875 6.67598 8.7875C6.57598 8.5375 6.22598 7.5125 6.77598 6.1375C6.77598 6.1375 7.61348 5.875 9.52598 7.1625C10.326 6.9375 11.176 6.825 12.026 6.825C12.876 6.825 13.726 6.9375 14.526 7.1625C16.4385 5.8625 17.276 6.1375 17.276 6.1375C17.826 7.5125 17.476 8.5375 17.376 8.7875C18.0135 9.4875 18.401 10.375 18.401 11.475C18.401 15.3125 16.0635 16.1625 13.8385 16.4125C14.201 16.725 14.5135 17.325 14.5135 18.2625C14.5135 19.6 14.501 20.675 14.501 21.0125C14.501 21.275 14.6885 21.5875 15.1885 21.4875C19.259 20.1133 21.9999 16.2963 22.001 12C22.001 6.475 17.526 2 12.001 2Z"/></svg> <a href="https://github.com/lnkiai/m3e-canvas">https://github.com/lnkiai/m3e-canvas</a></p>
+<hr />
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+</blockquote>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家　<a href="https://www.mova.work">www.mova.work</a></p></body></html>

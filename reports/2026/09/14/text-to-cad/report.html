@@ -1,0 +1,1602 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><title>Text-to-cad 商业价值分析报告</title><style>/* default — 品牌蓝紫主题（从 md2pdf.py 原 CSS 常量迁出，视觉与历史产物一致） */
+@page { size: A4; margin: 18mm 15mm 20mm 15mm; }
+* { box-sizing: border-box; }
+/* 字体规范：一律开源思源黑体 CN（OFL 免费商用）；正文 Regular/标题 Bold/大字数字 Light */
+body { font-family: "Source Han Sans CN","思源黑体 CN","Noto Sans SC",sans-serif; color:#1e293b; font-size:10.5pt; line-height:1.75; margin:0; }
+.cover { page-break-after: always; text-align:center; padding-top:40px; }
+.cover .kicker { color:#2563eb; letter-spacing:6px; font-size:12pt; font-weight:500; }
+.cover h1 { font-size:26pt; margin:14px 0 6px; }
+.cover .sub { color:#64748b; font-size:11pt; margin-bottom:22px; }
+.badge { display:inline-block; background:linear-gradient(135deg,#2563eb,#7c3aed); color:#fff; border-radius:18px; padding:16px 44px; margin:10px 0 18px; }
+.badge .g { font-size:34pt; font-weight:300; line-height:1; }
+.badge .s { font-size:12pt; opacity:.92; margin-top:4px; }
+.meta { color:#475569; font-size:9.5pt; margin-top:14px; }
+.bars { max-width:620px; margin:20px auto 0; text-align:left; }
+.bar-row { display:flex; align-items:center; gap:8px; margin:5px 0; font-size:9pt; }
+.bar-name { width:110px; text-align:right; color:#334155; font-weight:500; }
+.bar-track { flex:1; height:9px; background:#f1f5f9; border-radius:5px; overflow:hidden; }
+.bar-fill { display:block; height:100%; border-radius:5px; }
+.bar-val { width:30px; font-weight:700; color:#0f172a; }
+.bar-w { width:52px; color:#94a3b8; font-size:8pt; }
+h1 { font-size:17pt; color:#0f172a; border-bottom:3px solid #2563eb; padding-bottom:8px; }
+h2 { font-size:13.5pt; color:#1d4ed8; margin-top:26px; page-break-after: avoid; border-left:5px solid #2563eb; padding-left:10px; }
+h3 { font-size:11.5pt; color:#0f172a; margin-top:18px; page-break-after: avoid; }
+table { border-collapse:collapse; width:100%; margin:10px 0; font-size:9pt; page-break-inside:avoid; }
+th { background:#eff6ff; color:#1e3a8a; }
+th,td { border:1px solid #dbe3ef; padding:5px 8px; text-align:left; }
+tr:nth-child(even) td { background:#f8fafc; }
+code { background:#f1f5f9; border-radius:4px; padding:1px 5px; font-family:"JetBrains Mono","Cascadia Mono",monospace; font-size:9pt; color:#be185d; }
+pre { background:#0f172a; color:#e2e8f0; border-radius:8px; padding:12px 14px; overflow-x:auto; page-break-inside:avoid; }
+pre code { background:none; color:inherit; padding:0; }
+blockquote { border-left:4px solid #93c5fd; background:#eff6ff; margin:10px 0; padding:8px 14px; color:#334155; border-radius:0 8px 8px 0; }
+hr { border:none; border-top:1px dashed #cbd5e1; margin:22px 0; }
+strong { color:#0f172a; }
+.cover .disclaimer { max-width:620px; margin:16px auto 0; color:#64748b; font-size:8.5pt; line-height:1.6; text-align:left; border:1px solid #e2e8f0; border-radius:8px; padding:8px 12px; background:#f8fafc; }
+.credit { color:#2563eb; font-size:10.5pt; font-weight:700; letter-spacing:1px; margin-top:12px; }
+.at-acc { background:#dbeafe; color:#1d4ed8; border-radius:4px; padding:0 4px; font-weight:500; white-space:nowrap; }
+.tail { page-break-inside:avoid; margin-top:26px; border-top:2px solid #2563eb; padding-top:14px; }
+.tail p { color:#64748b; font-size:8.5pt; line-height:1.6; margin:0 0 10px; }
+.tail .credit { text-align:center; margin:0; }
+/* Remix Icon 内联 SVG（icon_mode=remix 时由脚本注入，语义色与评分条一致） */
+.ri { width:1.05em; height:1.05em; vertical-align:-0.18em; display:inline-block; }
+.ri-ok { color:#16a34a; } .ri-warn { color:#d97706; } .ri-bad { color:#dc2626; }
+.ri-muted { color:#64748b; } .ri-star { color:#f59e0b; } .ri-brand { color:#2563eb; }
+.ri-gold { color:#d4a017; } .ri-silver { color:#9ca3af; } .ri-bronze { color:#b45309; }
+/* 屏幕预览：@page 边距仅在打印时生效，浏览器中居中限宽并收边（不影响 PDF 输出） */
+@media screen {
+  body { margin: 0 auto; padding: 28px 36px 56px; max-width: 900px; }
+}
+</style></head><body><div class="cover">
+<div class="kicker">开源项目商业化潜力分析 · 第 98 期</div>
+<h1>GitHub 开源项目 Text-to-cad<br>商业价值分析报告</h1>
+<div class="sub">earthtojake/text-to-cad · CAD/CAE/CAM 的 AI Agent 技能库 · 九维度加权评估</div>
+<div class="badge"><div class="g">A 级 · 72.2</div><div class="s">综合评分（满分 100）· 高商业化潜力</div></div>
+<div><svg viewBox="0 0 560 480" width="560" height="480" xmlns="http://www.w3.org/2000/svg"><polygon points="280.0,209.6 299.5,216.7 309.9,234.7 306.3,255.2 290.4,268.6 269.6,268.6 253.7,255.2 250.1,234.7 260.5,216.7" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,179.2 319.1,193.4 339.9,229.4 332.7,270.4 300.8,297.1 259.2,297.1 227.3,270.4 220.1,229.4 240.9,193.4" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,148.8 338.6,170.1 369.8,224.2 359.0,285.6 311.2,325.7 248.8,325.7 201.0,285.6 190.2,224.2 221.4,170.1" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,118.4 358.2,146.8 399.8,218.9 385.3,300.8 321.6,354.3 238.4,354.3 174.7,300.8 160.2,218.9 201.8,146.8" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,88.0 377.7,123.6 429.7,213.6 411.6,316.0 332.0,382.8 228.0,382.8 148.4,316.0 130.3,213.6 182.3,123.6" fill="none" stroke="#e2e8f0" stroke-width="1"/><line x1="280.0" y1="240.0" x2="280.0" y2="88.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="377.7" y2="123.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="429.7" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="411.6" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="332.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="228.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="148.4" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="130.3" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="182.3" y2="123.6" stroke="#d8dee9" stroke-width="1"/><polygon points="280.0,118.4 280.0,240.0 392.3,220.2 374.8,294.7 314.3,334.3 240.0,350.0 199.7,286.4 178.2,222.1 206.7,152.7" fill="rgba(37,99,235,.22)" stroke="#2563eb" stroke-width="2.5"/><circle cx="280.0" cy="118.4" r="3.5" fill="#2563eb"/><circle cx="280.0" cy="240.0" r="3.5" fill="#2563eb"/><circle cx="392.3" cy="220.2" r="3.5" fill="#2563eb"/><circle cx="374.8" cy="294.7" r="3.5" fill="#2563eb"/><circle cx="314.3" cy="334.3" r="3.5" fill="#2563eb"/><circle cx="240.0" cy="350.0" r="3.5" fill="#2563eb"/><circle cx="199.7" cy="286.4" r="3.5" fill="#2563eb"/><circle cx="178.2" cy="222.1" r="3.5" fill="#2563eb"/><circle cx="206.7" cy="152.7" r="3.5" fill="#2563eb"/><text x="280.0" y="44.0" text-anchor="middle" font-size="12.5" fill="#334155" font-weight="600">D1</text><text x="280.0" y="58.0" text-anchor="middle" font-size="11" fill="#64748b">市场需求 8.0</text><text x="406.0" y="89.9" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D2</text><text x="406.0" y="103.9" text-anchor="start" font-size="11" fill="#64748b">技术成熟度 N/A</text><text x="473.0" y="206.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D3</text><text x="473.0" y="220.0" text-anchor="start" font-size="11" fill="#64748b">社区生态 7.5</text><text x="449.7" y="338.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D4</text><text x="449.7" y="352.0" text-anchor="start" font-size="11" fill="#64748b">变现潜力 7.2</text><text x="347.0" y="424.2" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D5</text><text x="347.0" y="438.2" text-anchor="start" font-size="11" fill="#64748b">竞争格局 6.6</text><text x="213.0" y="424.2" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D6</text><text x="213.0" y="438.2" text-anchor="end" font-size="11" fill="#64748b">法律合规 7.7</text><text x="110.3" y="338.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D7</text><text x="110.3" y="352.0" text-anchor="end" font-size="11" fill="#64748b">企业就绪 6.1</text><text x="87.0" y="206.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D8</text><text x="87.0" y="220.0" text-anchor="end" font-size="11" fill="#64748b">团队治理 6.8</text><text x="154.0" y="89.9" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D9</text><text x="154.0" y="103.9" text-anchor="end" font-size="11" fill="#64748b">上手难度 7.5</text></svg></div>
+<div class="bars"><div class="bar-row"><span class="bar-name">D1 市场需求</span>
+<span class="bar-track"><span class="bar-fill" style="width:80.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.0</span><span class="bar-w">权重13%</span></div>
+<div class="bar-row"><span class="bar-name">D6 法律合规</span>
+<span class="bar-track"><span class="bar-fill" style="width:77.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.7</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D3 社区生态</span>
+<span class="bar-track"><span class="bar-fill" style="width:75.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.5</span><span class="bar-w">权重11%</span></div>
+<div class="bar-row"><span class="bar-name">D9 上手难度</span>
+<span class="bar-track"><span class="bar-fill" style="width:75.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.5</span><span class="bar-w">权重10%</span></div>
+<div class="bar-row"><span class="bar-name">D4 变现潜力</span>
+<span class="bar-track"><span class="bar-fill" style="width:72.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.2</span><span class="bar-w">权重18%</span></div>
+<div class="bar-row"><span class="bar-name">D8 团队治理</span>
+<span class="bar-track"><span class="bar-fill" style="width:68.0%;background:#d97706"></span></span>
+<span class="bar-val">6.8</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D5 竞争格局</span>
+<span class="bar-track"><span class="bar-fill" style="width:66.0%;background:#d97706"></span></span>
+<span class="bar-val">6.6</span><span class="bar-w">权重12%</span></div>
+<div class="bar-row"><span class="bar-name">D7 企业就绪</span>
+<span class="bar-track"><span class="bar-fill" style="width:61.0%;background:#d97706"></span></span>
+<span class="bar-val">6.1</span><span class="bar-w">权重8%</span></div>
+<div class="bar-row"><span class="bar-name">D2 技术成熟度</span>
+<span class="bar-track"><span class="bar-fill" style="width:0.0%;background:#dc2626"></span></span>
+<span class="bar-val">N/A</span><span class="bar-w">权重14%</span></div></div>
+<div class="meta">分析时点 2026-09-14 ｜ 数据来源：GitHub API + 仓库代码实测 ｜ 方法论 v1.3</div>
+<div class="credit">报告出品：@魔法工厂　@向量之心　@南山科学家</div>
+<div class="disclaimer"><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</div>
+</div><h1>Text-to-cad 商业化潜力分析报告（完整版）</h1>
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家</p>
+<p>方法论版本: v1.3 | 综合评分: <strong>72.2</strong> | 等级: <strong>A（高商业化潜力）</strong> | 价值画像: 明星资产</p>
+</blockquote>
+<h2>一、项目概览</h2>
+<h3>1.1 基本信息</h3>
+<ul>
+<li><strong>项目名称 / 仓库地址</strong>：earthtojake/text-to-cad</li>
+<li><strong>项目描述</strong>：A library of agent skills for CAD, CAE and CAM</li>
+<li><strong>核心技术栈</strong>：Python（主语言，219,628 行）+ JavaScript（106,675 行），总代码量 331,663 行 / 1,609 个源文件；核心依赖 build123d、cadquery-ocp、ezdxf、shapely（Python 侧）与 three、react、next（JS 侧）</li>
+<li><strong>开源协议</strong>：MIT（Copyright © 2026 Thompson Labs LLC），仓库内共 15 份 LICENSE 一致声明</li>
+<li><strong>社区规模速览</strong>：Star 15,574 / Fork 1,608 / 贡献者 15 人 / Watchers 87 / 开放 Issue 24 个；近 90 天新建 PR 256 个、关闭 Issue 37 个</li>
+<li><strong>项目年龄</strong>：约 4.77 个月（2026-04-22 创建，2026-09-13 最后推送）</li>
+<li><strong>分析时点 / 数据来源</strong>：基于 GitHub 仓库元数据、仓库内文件（LICENSE / pyproject / CI workflows / docs / models 语料）与 GitHub Search API 竞品检索结果；部分指标（下载量、Dependents、学术引用、响应时长）无法实采，已标 N/A</li>
+</ul>
+<h3>1.2 项目分类标签</h3>
+<table>
+<thead>
+<tr>
+<th>分类维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>开发者工具（AI Agent Skills for CAD/CAE/CAM），开源库 SDK + 本地部署技能包</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>通用/跨行业（机械工程、机器人、制造、航空航天、汽车、3D 打印）</td>
+</tr>
+<tr>
+<td>目标用户角色</td>
+<td>AI/ML 工程师、后端开发者、机器人/机械工程师、架构师</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>自然语言/图像驱动的 CAD 建模、工程图纸生成、机器人描述文件（URDF/SRDF/SDF）生成、切片与打印下发、制造下单校验</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>本地部署（技能本地运行 + 本地浏览器 Viewer），无 Dockerfile / docker-compose / Helm 产物</td>
+</tr>
+</tbody>
+</table>
+<h3>1.3 一句话定位</h3>
+<blockquote>
+<p>text-to-cad 是一套面向 CAD/CAE/CAM 的 AI Agent 技能库，适用于机械设计、机器人研发与增材制造场景，主要面向机器人/机械工程师与 AI Agent 开发者，用于将自然语言或图像请求转为可交付的 CAD 模型、工程图纸、机器人描述文件与可打印 G-code，并完成查看、校验与交接。</p>
+</blockquote>
+<hr />
+<h2>二、安装部署与使用指南</h2>
+<blockquote>
+<p><strong>D9 上手难度等级：🟡 中等（面向有技术基础者）</strong> — 安装为一条命令，但运行依赖需 Python 3.11+ 环境与 agent 宿主；无容器化部署方案，部分 skill 依赖外部 CLI/硬件。以下几处关键步骤取自仓库原文（README / requirements.txt / pyproject.toml），未含基础环境搭建细节。</p>
+</blockquote>
+<h2>前置条件</h2>
+<ul>
+<li><strong>Python 3.11+</strong>：<code>packages/cadgen/pyproject.toml</code> 中 <code>requires-python = "&gt;=3.11"</code></li>
+<li><strong>agent 宿主</strong>：Codex（需 0.142.0 或更新）/ Claude Code / Grok Build</li>
+<li><strong>npx</strong>：用于 Skills CLI 安装路径</li>
+</ul>
+<h2>安装方式</h2>
+<h3>方式一：Skills CLI（README 标注的 preferred installation path）</h3>
+<pre><code class="language-bash">npx skills add earthtojake/text-to-cad
+</code></pre>
+<p>README 说明：<strong>更新使用同一条命令</strong>（<code>add</code> 会重新拉取并覆盖已安装内容）；<code>npx skills update</code> 仅刷新 lockfile 中已存在的 skill，会漏掉新增 skill。移除某个 skill：</p>
+<pre><code class="language-bash">npx skills remove &lt;skill&gt;
+</code></pre>
+<h3>方式二：Provider 原生插件</h3>
+<pre><code class="language-bash"># Codex（requires Codex 0.142.0 or newer）
+codex plugin marketplace add earthtojake/text-to-cad
+codex plugin add cad@text-to-cad
+
+# Claude Code
+claude plugin marketplace add earthtojake/text-to-cad
+claude plugin install cad@text-to-cad
+
+# Grok Build
+grok plugin install earthtojake/text-to-cad --trust
+grok plugin enable cad
+</code></pre>
+<blockquote>
+<p>README 提示：新装的 skill 不出现时需重启 agent。</p>
+</blockquote>
+<h2>运行时依赖（各 skill 通过 requirements.txt 声明）</h2>
+<ul>
+<li><code>skills/cad/requirements.txt</code>：<code>cadgen[snapshot]==0.5.1</code></li>
+<li><code>skills/cad-viewer/requirements.txt</code>：<code>cadgen==0.5.1</code></li>
+<li><code>skills/dxf|sdf|srdf|urdf/requirements.txt</code>：<code>cadgen[snapshot]==0.5.1</code></li>
+<li><code>skills/dfam-check/requirements.txt</code>：<code>trimesh</code>、<code>numpy</code>、<code>rtree</code>、<code>scipy</code>、<code>networkx</code>、<code>lxml</code></li>
+<li><code>packages/cadgen</code> 运行依赖：<code>build123d</code>、<code>cadquery-ocp</code>、<code>ezdxf</code>、<code>shapely</code>；<code>snapshot</code> extra 额外需 <code>playwright</code>（较大安装 + 浏览器下载）</li>
+<li>CLI 入口：<code>cadgen = "cadgen.cli:main"</code></li>
+</ul>
+<h2>部署注意</h2>
+<ul>
+<li><strong>无 Dockerfile / docker-compose / Helm</strong>（本地实测 <code>has_dockerfile: false</code>），仓库面向本地 agent 环境而非服务器编排部署。</li>
+<li><code>G-code</code> skill 依赖 "real slicer CLIs"；<code>Bambu Labs</code> 依赖本地打印机——这两类 skill 需额外的外部工具/硬件。</li>
+<li>仓库 <code>models/</code>（fixture corpus）以 LFS 指针形式下发，README 明确其 <strong>not needed to use the skills</strong>。</li>
+</ul>
+<h2>三、评分总览</h2>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>权重</th>
+<th>加权得分</th>
+<th>评级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1 市场需求与商业机会</td>
+<td>8.0/10</td>
+<td>13%</td>
+<td>1.04</td>
+<td>优</td>
+</tr>
+<tr>
+<td>D2 技术成熟度与产品质量</td>
+<td>N/A</td>
+<td>14%</td>
+<td>—</td>
+<td>分析失败（scorecard_rebuilt_by_regex）</td>
+</tr>
+<tr>
+<td>D3 社区健康度与生态势能</td>
+<td>7.5/10</td>
+<td>11%</td>
+<td>0.83</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D4 商业模式与变现潜力</td>
+<td>7.2/10</td>
+<td>18%</td>
+<td>1.30</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D5 竞争格局与差异化壁垒</td>
+<td>6.6/10</td>
+<td>12%</td>
+<td>0.79</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D6 法律合规与知识产权</td>
+<td>7.7/10</td>
+<td>7%</td>
+<td>0.54</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D7 企业就绪度与可运营性</td>
+<td>6.1/10</td>
+<td>8%</td>
+<td>0.49</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D8 团队治理与可持续性</td>
+<td>6.8/10</td>
+<td>7%</td>
+<td>0.48</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D9 上手难度与易用性</td>
+<td>7.5/10</td>
+<td>10%</td>
+<td>0.75</td>
+<td>良</td>
+</tr>
+<tr>
+<td><strong>综合评分</strong></td>
+<td>—</td>
+<td>100%</td>
+<td><strong>72.2/100</strong></td>
+<td><strong>A（高商业化潜力）</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>说明：D2 技术成熟度维度分析失败（标记 N/A，scorecard_rebuilt_by_regex），未参与加权计算，综合评分基于其余 8 个维度按原始权重归一化后得出，评分置信度相应下降。</p>
+</blockquote>
+<p><strong>平行维度（不计入综合评分）</strong></p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10 功能价值</td>
+<td>8.6/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>D11 社会价值</td>
+<td>6.9/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>公共价值分</td>
+<td>7.8/10</td>
+<td>(D10+D11)/2</td>
+</tr>
+</tbody>
+</table>
+<p><strong>一票否决检查</strong>：未触发。D6 维度总分 7.7 &gt; 3；D8.4 细则小分 2.4 &gt; 1；D4.1 细则小分 2.0 &gt; 0.5。否决检查项无 N/A 缺失（D8.3 为 N/A 但不属于否决检查项）。</p>
+<p><strong>价值画像</strong>：⭐ 明星资产（综合评分 72.2 ≥ 65 且公共价值分 7.8 ≥ 7）。</p>
+<hr />
+<h2>四、各维度详细分析</h2>
+<h3>D1. 市场需求与商业机会</h3>
+<h3>1.6 项目分类标签</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>开发者工具（AI Agent Skills）；次要：数据与AI</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>通用/跨行业（机械工程、机器人、制造、航空航天、汽车、3D 打印）</td>
+</tr>
+<tr>
+<td>目标用户角色</td>
+<td>AI/ML 工程师、后端开发者、机器人/机械工程师、架构师</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>研发流程优化、原型验证、数据处理与分析（几何数据）、内容管理（模型/图纸资产）</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>本地部署（技能本地安装运行，Viewer 为本地浏览器预览）；次要：混合部署</td>
+</tr>
+</tbody>
+</table>
+<p><strong>一句话定位</strong>：text-to-cad 是一套面向 CAD/CAE/CAM 的 AI Agent 技能库，适用于机械设计、机器人研发与增材制造场景，主要面向机器人/机械工程师与 AI Agent 开发者，用于把自然语言/图像请求转成可交付的 CAD 模型、工程图纸、机器人描述文件与可打印 G-code，并完成查看、校验与交接。</p>
+<hr />
+<h3>D1.1 目标市场规模与增长性（2.5 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TAM 估算</td>
+<td>底层 CAD/CAE/CAM/PLM 属十亿美元级以上规模，AI 辅助设计为其中增长最快的子集</td>
+<td>项目横跨 MCAD、工程图纸、切片/3D 打印、机器人描述文件（URDF/SRDF/SDF）、零件采购（SendCutSend、step.parts）等多条工程链路</td>
+</tr>
+<tr>
+<td>增长趋势</td>
+<td>扩张</td>
+<td>项目 5 个月内 15,574 Star / 1,608 Fork；近 90 天 256 个 PR、37 个 Issue 关闭、10 次发布（v0.5.1→0.4.21），迭代节奏与真实需求同步放大</td>
+</tr>
+<tr>
+<td>市场层级</td>
+<td>新兴蓝海 + 成长期叠加</td>
+<td>「Text-to-CAD / Agent Skills for Engineering」尚无开源事实标准，<code>text-to-cad</code> 话题标签本身即新造品类</td>
+</tr>
+</tbody>
+</table>
+<p><strong>打分：2.0 / 2.5（7–8 档，80%）</strong>。底层机械工程软件（CAD/CAE/CAM）为十亿美元级且处于 AI 化增长期，赛道方向明确；但需注意本项目是「技能库/上层 Agent 能力层」，其可货币化的市场面窄于底层 CAD 软件本体。<strong>外部市场规模数据不可用，以上为按行业类别的量级估算，未经外部数据验证，置信度低。</strong></p>
+<hr />
+<h3>D1.2 痛点真实性与解决程度（2.5 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>痛点真实性</td>
+<td>真实且专业级</td>
+<td>URDF/SRDF/SDF 手写易错、MoveIt2 碰撞/规划组配置繁琐、STEP 零件反复查找重绘、G-code 切片参数靠经验——均为机器人/机械工程师日常摩擦点</td>
+</tr>
+<tr>
+<td>解决完整度</td>
+<td>较完整，覆盖「生成→查看→校验→交付」闭环</td>
+<td>11 个技能覆盖 CAD 建模、CAD Viewer 预览、step.parts 选型、DXF 图纸、URDF/SRDF/SDF、DfAM 可打印性检查、G-code 切片、Bambu Labs 打印、SendCutSend 上传前校验</td>
+</tr>
+<tr>
+<td>替代成本</td>
+<td>替代品多但体验更重</td>
+<td>传统 GUI CAD（SolidWorks/Fusion 360）成熟但需手工建模；托管式 text-to-CAD（如云端生成服务）强绑定厂商；CadQuery/build123d 需自行编写脚本</td>
+</tr>
+</tbody>
+</table>
+<p><strong>打分：2.0 / 2.5（7–8 档，80%）</strong>。痛点真实、链路覆盖完整，且以「技能」形式嵌入用户既有 Agent 工作流，形成体验差异。扣分点：几何保真度与生产可用性无法从素材中验证（真实零件能否直接进入加工仍待证明），且对习惯 GUI 建模的工程师并非「非用不可」。</p>
+<hr />
+<h3>D1.3 市场时机判断（2.5 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术成熟度曲线</td>
+<td>LLM/Agent 生成可加工几何仍处期望膨胀期向实质生产期过渡阶段</td>
+<td>项目创建于 2026-04-22，恰好踩在 Agent Skills / 插件生态（Codex ≥0.142.0、Claude Code、Grok Build 原生插件安装）爆发初期</td>
+</tr>
+<tr>
+<td>竞争密度</td>
+<td>先行者已现但格局未定</td>
+<td>Autodesk/Siemens/PTC 等传统厂商与云端 text-to-CAD 服务均在布局，但开源侧「工程领域 Agent 技能标准」尚空缺位</td>
+</tr>
+<tr>
+<td>监管/标准</td>
+<td>中性偏正</td>
+<td>STEP/STL/3MF/URDF/SDF 均为成熟行业格式，降低了采纳门槛；无强制政策驱动，也无私自造格式的迁移阻力</td>
+</tr>
+</tbody>
+</table>
+<p><strong>打分：2.0 / 2.5（7–8 档，80%）</strong>。时机处于成长期早段：技术路线（Agent + 工程格式）已被验证可行，但生成结果的工程可靠性尚未越过「实质生产期」，且巨头已开始入场但未固化。</p>
+<hr />
+<h3>D1.4 应用场景广度（2.5 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>行业覆盖</td>
+<td>多行业</td>
+<td>仓库内已有 f1/f14d/falcon_heavy（汽车/航天）、hypercar/motorbike（交通）、tendon_hand/qdd_actuator（机器人）、moonwatch/lyra/juno（消费/教育）等模型语料</td>
+</tr>
+<tr>
+<td>场景多样性</td>
+<td>横向通用能力 + 纵向工艺专用</td>
+<td>横向：CAD 建模、DXF 图纸、URDF/SRDF/SDF；纵向：DfAM 可打印性检查、G-code 切片、Bambu Labs 打印、SendCutSend 钣金下单</td>
+</tr>
+<tr>
+<td>可延展性</td>
+<td>强</td>
+<td>同一 Agent 技能范式可从 CAD 迁移到 CAM/CAE、从机器人描述文件迁移到仿真与运动规划</td>
+</tr>
+</tbody>
+</table>
+<p><strong>打分：2.0 / 2.5（7–8 档，80%）</strong>。可服务机械、机器人、航空航天、汽车、消费硬件、教育等多个行业，场景覆盖设计—制造—交付全链。未给满：仍属「机械/机器人工程域专用能力」，不是数据库级的跨行业通用基础设施，且依赖具备工程背景的使用者。</p>
+<hr />
+<h3>D1 维度结论</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1.1 目标市场规模与增长性</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8</td>
+</tr>
+<tr>
+<td>D1.2 痛点真实性与解决程度</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8</td>
+</tr>
+<tr>
+<td>D1.3 市场时机判断</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8</td>
+</tr>
+<tr>
+<td>D1.4 应用场景广度</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>8.0</strong></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>总体判断</strong>：text-to-cad 落在一个规模够大（CAD/CAE/CAM 十亿美元级且被 AI 重估）、痛点真实（工程文件手写与精密几何生成）、时机靠前（Agent 技能生态爆发初期）、场景横跨多行业（机械/机器人/制造）的交叉位置，四细则均衡无短板，构成明确的商业化基本面。</p>
+<p><strong>主要风险</strong>：① 变现距离偏中——项目为 MIT 开源技能库，本身不含付费点，商业价值需通过托管服务、企业版/私有化支持或云化 SaaS 重新搭建；② 工程可信度未经验证——生成几何能否直接进入真实加工/装配链，素材中无从证明，这是决定其从「开发者玩具」走向「生产工具」的关键；③ 巨头入场后，开源技能层可能被上游 Agent 平台或 CAD 厂商的产品化能力挤压。</p>
+<p><strong>数据置信度说明</strong>：D1.1 的市场规模判断为行业类别量级估算，外部数据不可用，未引用任何具体市场规模数字，置信度低；其余细则基于 GitHub 实采数据与仓库文件结构，置信度中高。</p>
+<h3>D2 技术成熟度与产品质量（权重 14%）</h3>
+<p>本项目为单体仓库型「CAD/CAE/CAM Agent 技能库」：Python 引擎包 <code>packages/cadgen</code>、JS/TS 渲染库 <code>packages/cadgen-js</code>、React 三维查看器 <code>apps/viewer</code>、文档站 <code>apps/docs</code>、11 个技能包 <code>skills/</code>，以及 15+ 个参数化模型工程 <code>models/</code>。硬事实：总代码 331</p>
+<h3>D3. 社区健康度与生态势能（权重 11%）</h3>
+<p><strong>维度结论</strong>: 该项目在社区活跃度上表现卓越（Star 增速、PR 吞吐量均远超通用阈值），但项目仅成立约 5 个月，贡献者规模（15 人）与第三方生态仍处于早期成长阶段，成熟度与品牌沉淀尚未完全匹配其流量热度。综合得分 <strong>7.5 / 10</strong>。</p>
+<h3>D3.1 社区活跃度指标（满分 3 分）— <strong>3.0 分</strong></h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Star 增速</td>
+<td>约 <strong>3,265 Star/月</strong>（退化公式：15574 ÷ 约 4.77 月龄）</td>
+<td>远超 &gt;500 阈值</td>
+</tr>
+<tr>
+<td>Fork 比率</td>
+<td>1608 / 15574 ≈ <strong>10.3%</strong></td>
+<td>衍生意愿健康</td>
+</tr>
+<tr>
+<td>Issue/PR 活跃度</td>
+<td>近 90 天 PR <strong>256 个</strong>、Issue 关闭 <strong>37 个</strong></td>
+<td>极高参与度</td>
+</tr>
+<tr>
+<td>响应速度</td>
+<td>未采集到平均关闭时间；近 1 个月发布 <strong>10 个 Release</strong>，pushed_at 距评估日仅 1 天</td>
+<td>维护响应极快</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>数据说明</strong>：真实「近 90 天 Star 增量」未能补采，此处采用退化的「Star 数 ÷ 项目年龄」公式估算。由于本项目月龄仅约 4.77 个月，退化公式的高估偏差有限，但该值仍属历史平均口径，须在报告中标注。即便按最保守的档位折算，其增速也远超 9–10 档阈值（&gt;500/月）。Fork 比率 10.3% 处于健康区间；256 个 PR/90 天（约 2.8 个/日）配合高频发版，显示社区和维护者均高度活跃。按评分指引属「Star 月增 &gt;500，社区极度活跃」→ 100%。</p>
+</blockquote>
+<p><strong>小分：3.0 / 3（100%，9–10 档）</strong></p>
+<hr />
+<h3>D3.2 贡献者结构多样性（满分 2.5 分）— <strong>1.5 分</strong></h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>贡献者数量</td>
+<td><strong>15 人</strong></td>
+<td>落入 5–20 区间</td>
+</tr>
+<tr>
+<td>组织多样性</td>
+<td>无数据（仓库归属个人 <code>earthtojake</code>，未见多组织证据）</td>
+<td>无法确认</td>
+</tr>
+<tr>
+<td>核心团队占比</td>
+<td>90 天 256 PR / 15 贡献者 ≈ 17 PR/人，呈核心团队高集中特征</td>
+<td>核心团队主导</td>
+</tr>
+</tbody>
+</table>
+<p>项目归属个人账号，贡献者共 15 人，未采集到跨组织贡献者证据；高强度的 PR 吞吐（256/90 天）与仅 15 名贡献者的组合，指向「核心团队高度主导、外部贡献尚在培育」的结构。按评分指引「5–20 贡献者，主要来自 1–2 个组织」→ 60%。距 7–8 档（20–50 贡献者）尚有明显差距，且项目月龄短，贡献者基数仍在积累。</p>
+<p><strong>小分：1.5 / 2.5（60%，5–6 档）</strong></p>
+<hr />
+<h3>D3.3 第三方生态成熟度（满分 3 分）— <strong>1.8 分</strong></h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>插件/扩展</td>
+<td>官方内置 10+ 个 skill（CAD/URDF/SRDF/SDF/DXF/G-code/DfAM 等），但<strong>均为第一方</strong>，无第三方插件市场证据</td>
+<td>少量第三方扩展</td>
+</tr>
+<tr>
+<td>集成生态</td>
+<td>集成 STEP/STL/3MF/GLB/URDF/SDF/SRDF、MoveIt2、SendCutSend（商业制造服务）、切片器 CLI</td>
+<td>有一定集成</td>
+</tr>
+<tr>
+<td>衍生项目</td>
+<td>无二次开发/商业衍生品的明确证据</td>
+<td>无</td>
+</tr>
+<tr>
+<td>教程/课程</td>
+<td>官网 www.texttocad.dev + 160 个文档文件 + Discord 社区</td>
+<td>有官方文档</td>
+</tr>
+</tbody>
+</table>
+<p>项目通过 10+ 个 skill 覆盖 CAD/CAE/CAM 全链路，并集成 MoveIt2、SendCutSend 等外部工具，具备一定集成生态雏形；但 skill 库为第一方自建，未观察到第三方插件市场、第三方 skill 或成功衍生商业产品，外部教程/课程亦无证据。项目成立仅约 5 个月，生态尚属早期。按评分指引落于「少量第三方扩展」→ 60%。</p>
+<p><strong>小分：1.8 / 3（60%，5–6 档）</strong></p>
+<hr />
+<h3>D3.4 品牌认知与行业影响力（满分 1.5 分）— <strong>1.2 分</strong></h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>品牌辨识度</td>
+<td>「text-to-cad」为领域通用概念词，5 个月斩获 1.55 万 Star，辨识度较高</td>
+<td>领域内较高认知</td>
+</tr>
+<tr>
+<td>行业采用</td>
+<td>未采集到知名企业采用/背书的明确证据</td>
+<td>无证据</td>
+</tr>
+<tr>
+<td>媒体覆盖</td>
+<td>无技术会议/媒体报道的直接证据；有官网与 Discord 社区</td>
+<td>有限</td>
+</tr>
+</tbody>
+</table>
+<p>项目在 5 个月内积累 1.55 万 Star 并快速建立官网与 Discord 社区，在 AI Agent × CAD 细分领域已具备较高认知度；但缺乏头部企业采用、会议演讲或技术媒体报道等硬证据，尚不足以支撑「行业知名品牌」的 9–10 档判定。按评分指引「领域内有较高认知度」→ 80%。</p>
+<p><strong>小分：1.2 / 1.5（80%，7–8 档）</strong></p>
+<hr />
+<h3>维度评分汇总</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D3.1 社区活跃度指标</td>
+<td>3.0</td>
+<td>3.0</td>
+<td>9–10 档（100%）</td>
+</tr>
+<tr>
+<td>D3.2 贡献者结构多样性</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6 档（60%）</td>
+</tr>
+<tr>
+<td>D3.3 第三方生态成熟度</td>
+<td>3.0</td>
+<td>1.8</td>
+<td>5–6 档（60%）</td>
+</tr>
+<tr>
+<td>D3.4 品牌认知与行业影响力</td>
+<td>1.5</td>
+<td>1.2</td>
+<td>7–8 档（80%）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>7.5</strong></td>
+<td><strong>良好（7–8 档边界）</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>核心判断</strong>: 该项目呈现出典型的「流量爆发型早期项目」特征——Star 增速与 PR 吞吐量达卓越水平，但其社区贡献者基数（15 人）与第三方生态仍显著滞后于流量热度。作为商业化分析，需警惕两点：① Star 增速为退化公式估算，真实性待 90 天增量补采校验；② 生态势能（潜在客户池）目前主要体现为「关注度」而非「参与度」与「衍生开发生态」，商业转化路径尚待验证。<strong>证据置信度中等</strong>（贡献者组织多样性、响应时长、企业采用等关键项数据缺失）。</p>
+<h3>D4. 商业模式与变现潜力</h3>
+<p><strong>维度得分：7.2 / 10</strong></p>
+<p>本项目由 Thompson Labs LLC（公司主体，而非个人）持有，采用 MIT 协议，位于 CAD/CAE/CAM + 机器人这个高客单价工程软件赛道，且已具备"技能库 + 核心包（packages/cadgen）+ 本地 viewer + 官方文档站（texttocad.dev）+ 制造侧集成（SendCutSend / Bambu Labs）"的完整结构。变现潜力客观存在，但<strong>仓库内未见任何付费版、企业版或商业授权条款的痕迹</strong>，所有变现路径均处于"潜在可行但未验证"状态——这是本维度得分的核心约束。</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D4.1 协议对变现模式的影响</td>
+<td>2.0</td>
+<td><strong>2.0</strong></td>
+<td>100%（9–10）</td>
+<td>MIT License（根目录及 apps/viewer、packages/cadgen、全部 skills/<em> 均为 MIT，Copyright © 2026 Thompson Labs LLC）。无传染性、允许闭源衍生、允许 SaaS 托管、允许双协议/Open Core 拆分，</em><em>所有变现路径法律上无障碍</em>*</td>
+</tr>
+<tr>
+<td>D4.2 变现路径清晰度</td>
+<td>3.5</td>
+<td><strong>2.1</strong></td>
+<td>60%（5–6）</td>
+<td>存在多条<strong>可识别但未落地</strong>的路径：①Open Core（cadgen 核心包 + 企业级 skills 闭源）；②SaaS（texttocad.dev 目前仅为文档站，viewer 明确为 local 本地预览，未托管）；③制造侧交易/佣金（sendcutsend 下单校验、bambu-labs 打印托管）。无定价页、无 "Pro/Enterprise" 分层，属"有潜在路径、需验证"</td>
+</tr>
+<tr>
+<td>D4.3 付费转化逻辑</td>
+<td>2.5</td>
+<td><strong>1.5</strong></td>
+<td>60%（5–6）</td>
+<td>全部 skills 以 MIT 免费分发，<code>npx skills add</code> 一次安装即完整可用，免费版近乎无功能阉割 → 触发点不自然。但目标客户（机械/机器人工程师、硬件初创）付费意愿高（对标 SolidWorks/Onshape 数千美元/席/年），存在"托管算力 / 团队协作 / 合规校验"等合理升级锚点</td>
+</tr>
+<tr>
+<td>D4.4 增值服务空间与定价天花板</td>
+<td>2.0</td>
+<td><strong>1.6</strong></td>
+<td>80%（7–8）</td>
+<td>增值方向明确：云端 CAD 生成算力、团队级模型库/版本管理、DfAM 可制造性合规报告、供应链与打印农场集成、企业 SLA。工程软件赛道客单价 $1K–10K/席/年为行业常态，天花板高。但均无实际产品化证据</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>7.2</strong></td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h3>分项结论</h3>
+<p><strong>D4.1 — 协议无约束，变现自由度最高。</strong> MIT 是本维度最有利的协议类型：既无 GPL/AGPL 的传染性限制，也无 SSPL/BUSL 对云服务的封锁，Open Core、SaaS、双协议、闭源衍生四条主流路径全部合法可行。MIT 高星库亦允许商业公司在不贡献回代码的前提下嵌套增值层。该细则给满分。</p>
+<p><strong>D4.2 — 路径可识别但零商业信号。</strong> 项目形态与 Vercel/Next.js（框架开源 + 平台服务）、Strapi（Open Core）存在结构类比：核心 <code>cadgen</code> 包 + 上层 skills 可作开源引流，viewer 目前只做本地预览，天然留出"云端托管/团队协作"的商业化缺口；<code>step-parts</code>（标准件库）、<code>sendcutsend</code>（板材下单校验）、<code>bambu-labs</code>（打印任务托管）则指向平台抽成或供应链佣金模式。但这些<strong>全部只是技术能力，GitHub 素材中没有任何定价、订阅、企业版或商业授权信息</strong>，无法判定哪条路径已被团队选定。按"有潜在路径但尚不清晰"档取 60%。</p>
+<p><strong>D4.3 — 免费版过于完整，付费触发点不自然。</strong> 这是本项目最弱的一环：整个技能库采用 MIT 一次性免费分发，用户安装后即获得 CAD/DXF/URDF/SRDF/SDF/G-code/DfAM 全套能力，不存在"免费不够用"的功能墙。可能的付费触发点只能来自软件之外的价值（云端算力、多人协作、合规背书、SLA），属于需要重新设计商业产品才能建立，而非从现有仓库自然生长。客户画像（工程师、机器人团队、硬件公司）付费能力与意愿确实强，故未跌至 3–4 档，取 60%。</p>
+<p><strong>D4.4 — 赛道天花板高，但增值层为空。</strong> CAD/CAE/CAM 与机器人描述文件是典型的高价值工程软件领域，对标产品客单价普遍在 $1K–10K/席/年量级，企业级更可达 $10K+/年。项目横跨"设计—校验—切片—下单—打印"完整制造链，可叠加的增值面（合规报告、团队模型管理、供应链集成、私有化部署）宽。判断为"有明确增值方向，客单价 $1K–10K/年"档，取 80%；未给更高档，是因为这些增值服务目前<strong>完全未被产品化，也无任何定价或客户证据</strong>。</p>
+<h3>总体判断</h3>
+<p><strong>优势</strong>：MIT 协议零约束 + 公司实体持有（Thompson Labs LLC）+ 高价值工程赛道 + 15.5K star 的强分发势能 + 制造链下游集成（下单/打印）已具备商业化接口。</p>
+<p><strong>风险</strong>：仓库素材层面<strong>看不到任何商业模式的落地证据</strong>——无付费分层、无企业版、无定价、无商业授权说明、无 SaaS 托管（viewer 明确定位为 local 预览）。变现高度依赖团队后续产品化能力，短期内属于"潜力股"而非"已成型的商业项目"。若未来出现托管服务或企业版分层，D4.2 与 D4.3 有显著上修空间。</p>
+<blockquote>
+<p>数据缺口声明：本维度缺少定价信息、付费版功能对比、商业授权条款等关键证据，全部基于公开仓库结构与行业对标推断，置信度中等。</p>
+</blockquote>
+<h3>D5 竞争格局与差异化壁垒</h3>
+<h3>D5.1 竞品对比与市场定位（满分 3 分）</h3>
+<p><strong>检索与验证说明</strong>：本轮竞品信息全部来自 GitHub Search API 实测返回结果（<code>verified: true</code>），检索方向为「agent skills / 技能库」生态位。需要明确的是：<strong>检索未返回与本项目同处 CAD/CAE/CAM 垂直领域的直接竞品</strong>，返回结果均为通用型 agent skills 库或 agent 开发框架，因此下表中的「直接竞品」一栏为空，列表内项目按「间接竞品（同一 agent-skills 安装入口与注意力市场的竞争者）」归类。该事实本身即为 D5.1 的核心判断依据，同时也意味着<strong>本轮检索对细分赛道的覆盖可能不完整</strong>，评分需保留保守空间。</p>
+<p><strong>竞品对比表</strong></p>
+<table>
+<thead>
+<tr>
+<th>竞品名称</th>
+<th>类型</th>
+<th>仓库/官网</th>
+<th>验证方式</th>
+<th>Star/用户量</th>
+<th>核心差异</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>K-Dense-AI/scientific-agent-skills</td>
+<td>间接竞品（通用 agent skills 库，科学计算向）</td>
+<td>github.com/K-Dense-AI/scientific-agent-skills</td>
+<td>GitHub 搜索确认</td>
+<td>44,747 Star</td>
+<td>165 个通用科学技能，宣称 19 万科学家使用；<strong>不涉及 CAD/几何内核与制造文件格式</strong>，走「广度+科研垂类」路线</td>
+</tr>
+<tr>
+<td>anbeime/skill</td>
+<td>间接竞品（技能商店/聚合分发）</td>
+<td>github.com/anbeime/skill</td>
+<td>GitHub 搜索确认</td>
+<td>6,640 Star</td>
+<td>技能聚合与分发平台（含文档、内容、编程、ML 分类），是<strong>分发渠道型</strong>选手，与本项目「自研垂直技能」模式不同</td>
+</tr>
+<tr>
+<td>wuyoscar/GPT-Image2-Skill</td>
+<td>间接竞品（单点技能包）</td>
+<td>github.com/wuyoscar/GPT-Image2-Skill</td>
+<td>GitHub 搜索确认</td>
+<td>5,349 Star</td>
+<td>图像生成方向单技能包 + CLI，与 CAD 无重叠，仅争夺「skills 生态注意力」</td>
+</tr>
+<tr>
+<td>google-antigravity/antigravity-sdk-python</td>
+<td>间接竞品（agent 框架/底座）</td>
+<td>github.com/google-antigravity/antigravity-sdk-python</td>
+<td>GitHub 搜索确认</td>
+<td>3,377 Star</td>
+<td>厂商级 agent SDK，属<strong>平台方</strong>；技能库依附于此类平台分发，存在被平台内置能力替代的风险</td>
+</tr>
+<tr>
+<td>ScrapeCreators/social-media-research-skills</td>
+<td>间接竞品（垂直 agent skills 库，社媒研究向）</td>
+<td>github.com/ScrapeCreators/social-media-research-skills</td>
+<td>GitHub 搜索确认</td>
+<td>2,314 Star</td>
+<td>与本项目结构最相似的「垂直技能库」范式（垂类 + 多技能），但领域为社媒研究，验证了「垂直技能库」这一模式已被复制</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>技术路径背景（未在本轮搜索中验证，不计入竞品表）</strong>：代码化 CAD（脚本生成 B-Rep/网格）、传统 CAD 厂商的 AI 助手、以及各 agent 平台内置的模型生成能力，都构成潜在间接替代路径。上述方向未在本轮 GitHub 检索中获得可验证数据，故不作为竞品表条目，仅作为 D5.4 颠覆风险讨论的背景。</p>
+</blockquote>
+<p><strong>定位清晰度</strong>：<strong>高</strong>。README 首行即锚定 "A library of agent skills for CAD, CAE and CAM"，11 个技能沿工程链路串联——建模（CAD）→ 预览（CAD Viewer）→ 外购件（step.parts）→ 二维图（DXF）→ 机器人描述（URDF/SRDF/SDF）→ 可制造性（DfAM Check）→ 工艺文件（G-code）→ 设备执行（Bambu Labs），并以 STEP 为主输出、兼顾 STL/3MF/GLB/DXF/G-code。这是一个<strong>围绕机械工程/机器人硬件的纵深工作流</strong>，而非通用技能超市，与上表 5 个竞品（通用科学、聚合商店、单点图像、平台 SDK、社媒研究）在定位上不重叠。</p>
+<p><strong>综合判断</strong>：在可验证的检索范围内，本项目在「CAD/CAE/CAM agent skills」细分定位上是<strong>独特且无明显直接竞品</strong>的，但其所依附的「agent skills 安装入口」生态竞争极为激烈（头部同类库 Star 达 44,747，为本项目的 2.9 倍），且平台方（agent SDK / Codex / Claude Code / Grok）掌握分发咽喉。定位独特但生态位受制于人，取 <strong>7–8 档（80%）</strong>。</p>
+<p><strong>小分：2.4 / 3</strong></p>
+<hr />
+<h3>D5.2 技术壁垒与网络效应（满分 3 分）</h3>
+<p><strong>技术壁垒（中等）</strong>：
+- 工程体量构成事实门槛：331,663 行代码 / 1,609 个源文件 / 15 名贡献者 / 4 条 CI 工作流；测试 65,607 行、测试占比 19.8%，是可工程化维护的规模。
+- 领域 know-how 集中在「真实工具链集成」而非算法：G-code 技能驱动<strong>真实切片器 CLI</strong>，Bambu Labs 技能做到「干跑 → 上传 → 谨慎启动本地打印任务」的硬件闭环，DfAM Check 按工艺测量壁厚/悬垂/支撑体积/成型方向，URDF/SRDF/SDF 覆盖 MoveIt2 规划组与仿真世界描述——这些是跨格式、跨工具的工程集成经验，复刻需要相当时间。
+- <strong>但</strong>：MIT 许可、无专利声明、无独占数据（<code>models/</code> 为 LFS 指针的公开夹具语料），底层几何能力依赖 <code>cadgen</code> 包（各技能 <code>requirements.txt</code> 锁定其发布版本），核心算法并不为本项目私有。<strong>无专利/数据壁垒证据</strong>。</p>
+<p><strong>网络效应（弱）</strong>：
+- 存在轻度的<strong>分发侧网络效应</strong>：通过 Skills CLI 与 Codex / Claude Code / Grok 三套 plugin marketplace 触达，用户越多、技能被引用越多、越容易被上游平台收录。
+- 存在<strong>工作流组合效应</strong>：11 个技能可串联成「建模→校验→切片→打印」的闭环，用户用得越深、技能间组合价值越高。
+- 但缺少真正的<strong>双边/数据飞轮</strong>：没有用户贡献的模型库市集、没有随使用量增长而变强的共享数据（贡献者仅 15 人、Watchers 87，社区网络规模小），生态价值仍由维护方单边生产。</p>
+<p><strong>规模效应（弱至中）</strong>：技能为文本 + Python 脚本，复制边际成本近零，规模扩大主要带来发布节奏优势而非成本优势。</p>
+<p><strong>综合判断</strong>：有一定壁垒（工程量 + 垂直工具链 know-how + 平台分发位）但不深厚，无专利/数据护城河，网络效应偏弱。取 <strong>5–6 档（60%）</strong>。</p>
+<p><strong>小分：1.8 / 3</strong></p>
+<hr />
+<h3>D5.3 切换成本与用户粘性（满分 2 分）</h3>
+<ul>
+<li><strong>迁移成本（中低）</strong>：安装方式为 <code>npx skills add earthtojake/text-to-cad</code> 或对应平台 plugin 命令，卸载为 <code>npx skills remove &lt;skill&gt;</code>，<strong>即插即用、可一键移除</strong>，不存在账号、云数据或历史资产的迁移负担。</li>
+<li><strong>深度集成（中）</strong>：技能通常落在项目仓库内并与 agent 配置共存（仓库自带 <code>AGENTS.md</code>、<code>CLAUDE.md</code>、<code>.claude-plugin/marketplace.json</code>），机器人项目还需要 URDF/SRDF/SDF 与 MoveIt2 规划语义对齐——一旦进入硬件工程流程，替换意味着重新校准提示词、校验规则与交付契约。0.4→0.5 提供了专门的迁移文档（<code>docs/migrations/migrating-0.4-to-0.5.md</code>），说明版本演进本身也在制造轻度路径依赖。</li>
+<li><strong>反粘性因素（重要）</strong>：产出物是<strong>行业标准格式</strong>（STEP/STL/3MF/GLB/DXF/G-code/URDF），用户可以随时带着产物离开；技能本质是提示词 + 脚本，可被模型或竞品以较低成本重写。标准格式既是采纳门槛低的原因，也是锁定弱的根源。</li>
+<li><strong>习惯锁定</strong>：当前 15,574 Star / 1,608 Fork 显示已有一定采用面，但 Issue 仅 24 个开放、90 天关闭 37 个，尚未观察到组织级流程依赖的证据。</li>
+</ul>
+<p><strong>综合判断</strong>：迁移成本中等偏低，存在部分粘性（工作流组合 + 项目内集成 + 配置），但标准输出格式与可一键卸载显著削弱锁定。取 <strong>5–6 档（60%）</strong>。</p>
+<p><strong>小分：1.2 / 2</strong></p>
+<hr />
+<h3>D5.4 护城河可持续性（满分 2 分）</h3>
+<ul>
+<li><strong>趋势（增强）</strong>：迭代节奏极快——90 天 256 个 PR、近期连续发布 v0.5.1(2026-09-08)、v0.5.0(2026-09-05)、0.4.21–0.4.28 密集小版本，技能数量持续扩充（11 个，覆盖 CAD→CAM 全链路），最新推送 2026-09-13 与采集日同期。<strong>先发身位与技能覆盖广度在扩大</strong>。</li>
+<li><strong>颠覆风险（中高）</strong>：三重依赖——① 上游 agent 平台（Codex / Claude Code / Grok）若内置 CAD 技能或收窄插件生态，本项目被「平台化吸收」；② 底层几何内核（<code>cadgen</code>）非自研，上游变动可直接传导；③ 通用模型能力提升 + 通用技能库（如 44.7k Star 的科学技能库）向工程垂类扩张，会压缩细分技能库的独特性。此外，传统 CAD/代码化 CAD 与商业 CAD 厂商的 AI 助手亦是潜在跨界者（该方向本轮未取得可验证数据，仅记为风险项）。</li>
+<li><strong>时间窗口</strong>：在无专利、无数据飞轮、无排他分发协议的前提下，其优势主要由<strong>迭代速度 + 垂直 know-how 积累 + STEP 主输出的工程完整性</strong>支撑，可维持约 12–24 个月；若上游平台不整合该能力且团队维持当前 PR 节奏，窗口可延展。</li>
+</ul>
+<p><strong>综合判断</strong>：护城河趋势向上但基础不深，面临明确的平台依赖型颠覆风险，属「优势真实但可被结构性削弱」。取 <strong>5–6 档（60%）</strong>。</p>
+<p><strong>小分：1.2 / 2</strong></p>
+<hr />
+<h3>细则打分汇总</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>核心判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D5.1 竞品对比与市场定位</td>
+<td>3</td>
+<td>2.4</td>
+<td>7–8 档（80%）</td>
+<td>检索未发现同领域直接竞品，垂直定位（CAD/CAE/CAM 全链路 11 技能、STEP 主输出）清晰；但上层 agent-skills 生态头部体量为本项目 2.9 倍，分发受制于平台</td>
+</tr>
+<tr>
+<td>D5.2 技术壁垒与网络效应</td>
+<td>3</td>
+<td>1.8</td>
+<td>5–6 档（60%）</td>
+<td>有工程量（33.2 万行、19.8% 测试）与真实工具链 know-how（切片器 CLI、Bambu 硬件闭环、MoveIt2 语义）壁垒；但 MIT 开源、无专利、依赖 cadgen，网络效应弱（15 贡献者 / 87 Watchers）</td>
+</tr>
+<tr>
+<td>D5.3 切换成本与用户粘性</td>
+<td>2</td>
+<td>1.2</td>
+<td>5–6 档（60%）</td>
+<td>一键安装/卸载，产物为标准格式（STEP/URDF/G-code），迁移成本中低；项目内集成与工作流组合提供部分粘性，无数据锁定</td>
+</tr>
+<tr>
+<td>D5.4 护城河可持续性</td>
+<td>2</td>
+<td>1.2</td>
+<td>5–6 档（60%）</td>
+<td>90 天 256 PR、密集发版，优势仍在增强；但存在平台依赖与内核依赖的双重颠覆风险，窗口约 12–24 个月</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>6.6</strong></td>
+<td>—</td>
+<td>定位独特、壁垒中等、锁定偏弱、趋势向上但脆弱</td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<p><strong>D5 得分：6.6 / 10（介于“一般”与“良好”之间）</strong></p>
+<p>text-to-cad 在竞争格局上呈现一个鲜明的「<strong>窄赛道领先、宽生态受制</strong>」结构：</p>
+<ol>
+<li><strong>优势</strong>：在 CAD/CAE/CAM agent skills 这一细分定位上，本轮可验证的检索<strong>未发现直接竞品</strong>，11 个技能沿「设计→校验→制造→执行」的完整工程链路排布，加之以 STEP 为主输出并兼容 STL/3MF/GLB/DXF/URDF/SDF/SRDF/G-code，形成了有别于通用技能库的清晰差异化。90 天 256 个 PR 的高迭代速度与 15,574 Star 的采用面，说明该定位已被市场初步认可。</li>
+<li><strong>短板</strong>：护城河以「工程量 + 垂直集成经验 + 迭代速度」构成，<strong>缺少专利、独占数据与双边网络效应</strong>；产品产出为标准格式、可一键装卸，用户切换成本不高；同时其分发高度依赖 Codex / Claude Code / Grok 等第三方 agent 平台，几何内核依赖 <code>cadgen</code>，一旦上游自建同类能力，本项目面临被平台吸收的结构性风险。</li>
+<li><strong>商业化含义</strong>：该项目适合走「<strong>垂直深度换生态位</strong>」路线——护城河应通过持续扩宽制造侧闭环（工艺校验、切片、设备执行）、沉淀可复用的工程夹具与验证契约、以及建立跨平台的技能分发位来加厚，而非依赖单点算法。若长期停留在「提示词 + 脚本库」形态，其防御力将随上游模型与平台能力的提升而被稀释。</li>
+</ol>
+<blockquote>
+<p><strong>置信度说明</strong>：本维度评分基于 GitHub Search API 实测竞品数据（5 个已验真项目）与仓库实测指标。由于检索结果未覆盖 CAD 垂直赛道的全部同类项目（可能为关键词覆盖所限），D5.1 已按保守取档，存在<strong>中等程度的不确定性</strong>；D5.2–D5.4 的判断主要依赖仓库可观测事实，置信度较高。</p>
+</blockquote>
+<h3>D6. 法律合规与知识产权（权重 7%，得分 7.7/10）</h3>
+<h4>细则打分表</h4>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>对应档位</th>
+<th>判断依据摘要</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D6.1 开源协议合规性与商业限制</td>
+<td>3.0</td>
+<td><strong>3.0</strong></td>
+<td>9–10（100%）</td>
+<td>MIT 协议明确规范，SPDX 标识齐全，零 copyleft 传染，无商业附加条款</td>
+</tr>
+<tr>
+<td>D6.2 依赖链法律风险</td>
+<td>2.5</td>
+<td><strong>2.0</strong></td>
+<td>7–8（80%）</td>
+<td>无传染性依赖，来源可靠；但前端 Next.js 生态传递依赖面偏大，审查量不小</td>
+</tr>
+<tr>
+<td>D6.3 商标与专利风险</td>
+<td>2.5</td>
+<td><strong>1.5</strong></td>
+<td>5–6（60%）</td>
+<td>未经人工核查，按规则取默认档；无商标政策文件，模型资产含第三方命名风险</td>
+</tr>
+<tr>
+<td>D6.4 贡献者协议完备性</td>
+<td>2.0</td>
+<td><strong>1.2</strong></td>
+<td>5–6（60%）</td>
+<td>CONTRIBUTING.md 详实，但无 CLA/DCO、无 CODEOWNERS，版权分散</td>
+</tr>
+</tbody>
+</table>
+<p><strong>加权贡献</strong>: 7.7 × 7% = 0.54</p>
+<hr />
+<h4>D6.1 开源协议合规性与商业限制（3.0/3.0）</h4>
+<p><strong>协议明确性 — 优秀。</strong> 仓库根目录 <code>LICENSE</code> 为完整 MIT 文本，且 <code>apps/viewer/</code>、<code>packages/cadgen/</code> 及 12 个 <code>skills/*</code> 子目录各自携带内容一致的 MIT 副本（实测共 15 份 LICENSE 文件），不存在子模块协议与主协议不一致的隐性风险。<code>packages/cadgen/pyproject.toml</code> 中 <code>license = "MIT"</code> 配合 <code>license-files = ["LICENSE"]</code>，SPDX 标识规范；GitHub API 同样识别为 <code>MIT</code>。<code>apps/docs/package.json</code>、<code>apps/viewer/package.json</code>、<code>packages/cadgen-js/package.json</code> 均显式声明 <code>"license": "MIT"</code>。</p>
+<p><strong>copyleft 传染性 — 无。</strong> 全部直接依赖均为宽松协议：<code>build123d</code>、<code>cadquery-ocp</code>（Apache-2.0），<code>ezdxf</code>（MIT），<code>shapely</code>、<code>trimesh</code>、<code>numpy</code>、<code>scipy</code>、<code>networkx</code>、<code>lxml</code>（BSD 系），<code>three</code>、<code>three-mesh-bvh</code>、<code>meshoptimizer</code>、<code>react</code>、<code>next</code>（MIT）。依赖链中未发现 GPL/AGPL/LGPL 传染性协议。</p>
+<p><strong>商业附加条款 — 无。</strong> 未发现 Commons Clause、BUSL、Elastic License、SSPL 或任何"非商业使用"限制。MIT 授予完整的 use / copy / modify / merge / publish / distribute / sublicense / sell 权利，SaaS 托管、闭源二次开发、open-core 双协议等模式在法律上均无障碍。</p>
+<p><strong>唯一需留意</strong>：MIT 不含明示专利授权条款（弱于 Apache-2.0），对工程/CAD 这类可能存在软件专利的领域，长期看略有敞口——但这属于 D6.3 专利范畴，不影响本细则满分判定。</p>
+<hr />
+<h4>D6.2 依赖链法律风险（2.0/2.5）</h4>
+<p><strong>协议面干净。</strong> 遍历全部可见依赖清单（<code>packages/cadgen/pyproject.toml</code>、各 <code>skills/*/requirements.txt</code>、三个 <code>package.json</code>），未发现任何 GPL/AGPL 类传染性依赖，也未发现来源不明或非主流的包。</p>
+<p><strong>依赖规模中等偏大：</strong>
+- Python 侧直接依赖精简——<code>cadgen</code> 仅声明 <code>build123d</code>、<code>cadquery-ocp</code>、<code>ezdxf</code>、<code>shapely</code> 4 项（外加 <code>playwright</code> 可选 extra）；但 <code>skills/dfam-check</code> 另引入 <code>trimesh</code>、<code>numpy</code>、<code>rtree</code>、<code>scipy</code>、<code>networkx</code>、<code>lxml</code> 6 项，这些包各自的传递依赖（OCC 内核绑定等）体量可观。
+- JS 侧是主要合规面积：<code>apps/docs/package.json</code> 13 个运行时依赖 + 13 个 devDependencies（含 <strong>Next.js 16 + React 19 + shadcn/radix-ui</strong> 生态），<code>apps/viewer</code> 10 + 9 项，<code>packages/cadgen-js</code> 3 + 1 项。Next.js/Turbopack 系的传递依赖树可达数百个包。</p>
+<p><strong>来源可靠性高</strong>：全部来自 PyPI/npm 官方源的主流维护包，且有 <code>.github/dependabot.yml</code> 配置（每周分组更新，minor + patch 自动提 PR），具备持续跟踪上游协议变更的机制。综合而言——无实质法律障碍，但"依赖少"的满分条件不成立，审查工作量偏大，取 7–8 档。</p>
+<hr />
+<h4>D6.3 商标与专利风险（1.5/2.5）</h4>
+<blockquote>
+<p><strong>⚠️ 未经人工核查，置信度低。</strong> 商标检索与专利排查无法由 AI 自动完成，本节未获取人工核查数据，按评分规则取 5–6 档默认值，<strong>不对商标/专利的注册状态作任何断言</strong>。</p>
+</blockquote>
+<p>以下是<strong>需人工核查的风险点清单</strong>（仅为排查线索，非结论）：</p>
+<ol>
+<li><strong>项目名称</strong>：<code>text-to-cad</code> 属于描述性通用词组，商标显著性可能较弱；同时仓库 slug 为 <code>earthtojake/text-to-cad</code>，而 LICENSE 版权方为 <strong>Thompson Labs LLC</strong>，主题标签亦含 <code>text-to-cad</code>——主体命名与商标归属的对应关系需人工确认。</li>
+<li><strong>商标政策缺失</strong>：<code>doc_files</code> 清单中无 <code>TRADEMARK.md</code> / <code>TRADEMARKS.md</code>，README 商标声明情况未获取。这意味着<strong>无商标使用政策限制衍生品使用项目名称</strong>——对下游商业采用者反而是宽松的，但对权利人自身的品牌控制不利。此项在评分指引中属"友好度"考察，实际影响中性偏正。</li>
+<li><strong>模型资产的第三方命名风险</strong>：<code>models/</code> 目录包含 <code>f14d</code>、<code>falcon_heavy</code>、<code>juno</code>、<code>lyra</code>、<code>motorbike</code>、<code>f1</code>、<code>w16</code>、<code>thang010146</code> 等多个以真实产品/第三方作品命名的 CAD 模型，并附有 <code>PROVENANCE.md</code>、<code>REFERENCES.md</code>、<code>RESEARCH.md</code>、<code>DIMENSIONS.md</code> 等溯源文档。这类内容可能触及第三方商标、外观设计权或商业秘密，是本项目<strong>最值得前置排查的 IP 面</strong>，而非代码或协议本身。</li>
+<li><strong>专利面</strong>：项目核心是 build123d/OCC 内核之上的 STEP-first 生成与 agent 编排层，未发现自研算法存在明显专利主张迹象；但 CAD 内核（OCC 系）与 mesh/BVH 相关技术领域的在先专利情况仍需专业检索。</li>
+</ol>
+<hr />
+<h4>D6.4 贡献者协议完备性（1.2/2.0）</h4>
+<p><strong>贡献流程规范度高。</strong> <code>CONTRIBUTING.md</code> 内容极为详实，覆盖本地检出、开发环境搭建、源码边界法则（skill 间不得互相 import、不得回指仓库根）、分支布局、release 双工作流（<code>release-prepare.yml</code> / <code>release-publish.yml</code>）、<code>build-test</code> 演练分支、cutover runbook、迭代循环与 Git hygiene，并明确 "main requires a PR with the Version Check / Test (Linux) / Test (Windows) status checks"。CI 侧 4 个 workflow（<code>test.yml</code>、<code>deploy-docs.yml</code>、<code>release-prepare.yml</code>、<code>release-publish.yml</code>）为流程提供了强制门禁。</p>
+<p><strong>但正式的贡献者权利让渡机制缺位：</strong>
+- <strong>无 CLA</strong>：未发现 CLA 配置文件或 CLA Assistant 集成。
+- <strong>无 DCO</strong>：CONTRIBUTING.md 与可见配置中均未要求 commit sign-off。
+- <strong>无 CODEOWNERS</strong>：实测 <code>has_codeowners: false</code>，与 CONTRIBUTING 中"<code>require_code_owner_reviews: false</code>"一致。
+- <strong>版权分散风险</strong>：贡献者已达 <strong>15 人</strong>，近 90 天创建 PR <strong>256 个</strong>，说明外部贡献活跃。缺少 CLA/DCO 意味着每位贡献者保留其贡献的著作权，未来若要切换为双协议（open-core / 商业许可）或进行专有再许可，需逐个回溯取得授权，<strong>版权不可集中控制</strong>——这对商业化路径是一项实质性（虽非致命）障碍。</p>
+<p>按评分指引"有贡献指南但无正式 CLA"落入 5–6 档，取 1.2/2.0。</p>
+<hr />
+<h4>结论</h4>
+<p><strong>D6 综合得分 7.7/10（良好）。</strong> 本维度不存在法律硬伤：MIT 协议清晰一致、零 copyleft 传染、零商业限制性附加条款，法律上任何主流变现模式（SaaS、闭源增强、open-core、双协议）都不被阻断，这是该项目的显著优势。扣分集中在两处可管理但需行动的事项：</p>
+<ol>
+<li><strong>贡献者权利链不完整（1.2/2.0，最大短板）</strong>——活跃的外部贡献（15 人 / 90 天 256 PR）叠加无 CLA/DCO，使版权无法集中，直接制约未来双协议或专有许可的可行性。建议尽快引入 DCO（成本低于 CLA 且对贡献者友好）并补齐 CODEOWNERS。</li>
+<li><strong>依赖审查面积偏大（2.0/2.5）</strong>——前端 Next.js 生态传递依赖树庞大，虽全为宽松协议，但企业级采购的 SBOM/协议审查工作量不可忽略；现有 Dependabot 配置是良好基础。</li>
+</ol>
+<p><strong>商标与专利（1.5/2.5）为低置信度占位分</strong>，需人工执行两项前置动作：① 对 "text-to-cad" / "Thompson Labs" 进行商标检索；② 对 <code>models/</code> 下以真实产品命名的模型资产（falcon_heavy、f14d、juno 等）的来源与授权做逐项溯源核查——鉴于仓库已提供 <code>PROVENANCE.md</code> 等文档，此项成本可控。</p>
+<h3>D7. 企业就绪度与可运营性</h3>
+<blockquote>
+<p>说明：本项目本质是「agent 技能库 + CAD 构建/查看工具链」（Python 包 <code>cadgen</code> + JS 包 <code>cadgen-js</code> + 本地 Viewer），并非多租户在线服务。其"运维/权限/扩展"语义与企业级 SaaS 不同，评估时以"能否进入企业 CAD 流水线并长期托付"为落点。</p>
+</blockquote>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D7.1 运维复杂度与升级路径</td>
+<td>3</td>
+<td>2.4</td>
+<td>7–8（80%）</td>
+<td>配置以 CLI 参数 + 环境变量为主（<code>apps/viewer/.env.example</code> 提供 <code>VIEWER_PYTHON</code>/<code>VIEWER_BACKEND_URL</code>/<code>VIEWER_ALLOWED_HOSTS</code> 等），无配置中心；作为本地工具无长驻服务，运维负担低；发布工程异常成熟——<code>release-prepare.yml</code>（版本 PR）→ <code>release-publish.yml</code>（发布）+ <code>build-test</code> 预演分支（不可逆步骤跳过），VERSION/包元数据/技能 pin 三处同步，发布前在干净 venv 安装 wheel 实测、校验 wheel 内容；产物写入用原子替换（<code>replace_atomic</code>/<code>write_bytes_atomic</code>），缓存内容寻址可选；升级路径有真实迁移文档 <code>docs/migrations/migrating-0.4-to-0.5.md</code>。扣分为：数据/工程迁移需人工按文档执行（非自动），回滚依赖 pip 版本回退而非内建机制</td>
+</tr>
+<tr>
+<td>D7.2 安全管理与权限控制</td>
+<td>2.5</td>
+<td>1.0</td>
+<td>3–4（40%）</td>
+<td>无认证授权体系（无 SSO/OAuth/LDAP/SAML）、无 RBAC/ABAC 权限模型、无操作审计日志——作为本地单用户工具这是"缺失"而非"缺陷"。数据安全侧有实际工程：<code>validate_local_host</code> 默认拒绝非私有/回环地址（SSRF 防护，需 <code>--allow-nonprivate-host</code> 显式放行）、<code>path_is_inside_or_equal</code>/<code>sanitize_remote_name</code> 防路径穿越、Bambu 打印支持 TLS（<code>--tls-verify</code> 默认关，以主机地址限制作补偿控制）、<code>access_code</code> 日志脱敏、全链路输入归一化（<code>normalize*</code>/<code>toFiniteNumber</code>/<code>clamp</code>）。<code>SECURITY.md</code> 提供漏洞披露渠道。但身份、权限、审计、密钥管理四项核心企业能力均不具备</td>
+</tr>
+<tr>
+<td>D7.3 可扩展性与高可用能力</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6（60%）</td>
+<td>定位为单机批处理/本地工具：无集群部署、无故障转移、无分布式一致性设计——按"扩展需改造"计。单机侧有可观工程：<code>ThreadPoolExecutor</code> 并行产物任务、测试并发受控（<code>CADGEN_TEST_JOBS=4</code>，每个内核解释器约 450MB 显式标注）、<code>op_memo.py</code> 提供线程安全 + 磁盘持久化的 CAD 运算缓存（昂贵内核操作的性能瓶颈缓解）、<code>cadgen.coordination</code> 提供跨进程哨兵（<code>test_coordination.py</code> 有对应断言）、几何计算以函数式纯函数 + <code>lru_cache</code>/<code>functools.cache</code> 降低重复开销。瓶颈明确为 CAD 内核单进程内存/CPU，横向扩展需引入任务分发层</td>
+</tr>
+<tr>
+<td>D7.4 集成兼容与可观测性</td>
+<td>2</td>
+<td>1.2</td>
+<td>5–6（60%）</td>
+<td>集成面强：输出/输入覆盖 STEP、STL、3MF、GLB、DXF、G-code，机器人侧 URDF、SDF、SRDF（MoveIt2）等行业标准格式；CLI 提供 <code>cadgen</code>/<code>inspect</code>/<code>viewer</code>/<code>snapshot</code>/<code>export</code>/<code>doctor</code> 等多动词，支持 JSON 结构化结果与 <code>FindingsReport</code> 带错误码的收集式校验；有 Python(<code>cadgen</code>) 与 JS(<code>cadgen-js</code>) 双编程 API。可观测性薄弱：无 REST/OpenAPI/gRPC 正式接口，无 OpenTelemetry/Prometheus 指标导出，无健康检查端点（<code>doctor</code> 为功能自检而非健康探针）；有阶段计时（<code>buildModelMs</code>/<code>renderMs</code>/<code>captureMs</code>）、<code>cli_progress</code> 进度标签与 <code>cli_logging.CliLogger</code> 日志，但无结构化日志级别体系与告警能力</td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<p><strong>加权得分：6.1 / 10</strong>（(2.4 + 1.0 + 1.5 + 1.2) ÷ 10 × 10，四项均有效，无 N/A）。</p>
+<ul>
+<li>强项集中在 <strong>D7.1 运维/发布工程</strong>：工业化程度远超同类开源项目——发布预演分支、三处版本一致性校验、发布前干净环境 wheel 实测、原子写入、显式迁移文档，构成本项目最扎实的企业可托付基础。</li>
+<li><strong>最明显短板为 D7.2</strong>：完全缺失企业身份与权限审计体系，若作为企业内部多团队/多用户共享服务部署，会直接构成合规与权限隔离障碍；当前形态更适配"单用户本地/CI 流水线工具"。</li>
+<li><strong>D7.3/D7.4 属"够用但不企业级"</strong>：单机性能与并发有工程化处理，行业标准格式集成是真实商业优势；但无分布式/高可用设计与正式可观测性接口，规模化部署需二次改造。</li>
+<li>整体而言，项目在企业"可运营性"上呈现<strong>发布工程成熟、平台能力缺位</strong>的分裂特征——适配深度的单点/流水线嵌入，暂不适配需要 SSO、RBAC、审计与分布式扩展的企业平台级采购场景。</li>
+</ul>
+<h3>D8. 团队治理与可持续性</h3>
+<p><strong>维度定位</strong>: 该项目为个人账号 <code>earthtojake</code> 名下、创建仅约 4.7 个月（2026-04-22 创建，2026-09-13 最后推送）的高速增长型仓库，工程化程度远超同规模开源项目，但组织形态、治理结构与资金来源信息高度缺失。本维度评估以「可验证事实优先」，对无法取证的资金维度标记 N/A。</p>
+<h4>D8.1 核心维护者能力与背景（满分 2.5）</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测依据</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术能力</td>
+<td>331,663 行代码 / 1,609 源文件，Python 219,628 行 + JS/TS 111k+ 行；测试 306 文件 / 65,607 行（测试占比 19.8%）；4 条 CI（含 Linux/Windows 双平台测试、发布流水线）；存在以单元测试强制执行的架构「法律」（<code>test_package_boundaries.py</code>、<code>test_skill_self_containment.py</code>）</td>
+<td>强，明显高于同类平均</td>
+</tr>
+<tr>
+<td>商业经验</td>
+<td>素材中无任何创业/企业服务/公司背景信息；仓库为个人账号，无组织实体页</td>
+<td>无法证实</td>
+</tr>
+<tr>
+<td>投入度</td>
+<td>90 天 256 个 PR、约 3 周内 10 次发版（0.4.21→v0.5.1）、<code>release-prepare</code>/<code>release-publish</code> 双工作流 + <code>build-test</code> 演练分支 + PyPI trusted publishing（OIDC），并公开维护「Cutover runbook」</td>
+<td>接近全职级投入</td>
+</tr>
+<tr>
+<td>巴士因子</td>
+<td>15 名贡献者、1,608 fork，但合并通过 PAT 由 Owner 单点执行，方向决策高度中心化</td>
+<td>约 2–3，无法确证 ≥3</td>
+</tr>
+</tbody>
+</table>
+<p><strong>小分：1.5 / 2.5（60%，对应 5–6 档）</strong></p>
+<p><strong>判断依据</strong>：技术能力与投入度两项证据充分且显著优于行业平均；但「商业经验」完全无据可依，「巴士因子 ≥3」亦不能从贡献者数量直接外推（个人账号 + PAT 单人合并流程）。按 7–8 档要求「团队投入度高 + 有一定商业经验 + 巴士因子 ≥3」三项同时成立，本项仅前一项完全成立，故不上 80% 档，取 60% 档。</p>
+<h4>D8.2 治理模型透明度（满分 2）</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测依据</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>治理文档</td>
+<td>有 CONTRIBUTING.md（极详尽，含分支策略、发布流程、源码边界法）、SECURITY.md、AGENTS.md、CLAUDE.md、迁移文档；<strong>无 GOVERNANCE.md、无 ROADMAP、无 CODEOWNERS</strong></td>
+<td>过程文档强，治理文档缺</td>
+</tr>
+<tr>
+<td>开放程度</td>
+<td>外部可 fork/PR，<code>main</code> 受保护（要求 <code>Version Check</code>、<code>Test (Linux)</code>、<code>Test (Windows)</code> 三项检查、禁强推/删除）；但发布合并经 API 由 Owner 单方完成，无外部贡献者参与决策的机制文档</td>
+<td>决策由核心（单一）维护者主导</td>
+</tr>
+<tr>
+<td>基金会/组织</td>
+<td>不属于 CNCF / Apache / LF，个人账号托管，无中立治理实体</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<p><strong>小分：1.2 / 2.0（60%，对应 5–6 档）</strong></p>
+<p><strong>判断依据</strong>：项目在「工程流程」层面的透明度相当高（发布流程、分支保护规则、安全策略、甚至一次性 cutover 运行手册都公开），符合 5–6 档中「有贡献指南、决策由核心团队主导」；但因缺少 GOVERNANCE.md/CODEOWNERS/路线图、无任何基金会或组织背书、决策权集中于单一账号，未达到 7–8 档「有基本治理结构、决策较透明（多主体）」的标准。</p>
+<h4>D8.3 资金支持与商业赞助（满分 2.5）</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测依据</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>现有资金</td>
+<td>未采集到任何 VC / 公司 / 基金会资助信息</td>
+<td>数据缺失</td>
+</tr>
+<tr>
+<td>赞助收入</td>
+<td>未采集到 GitHub Sponsors / Open Collective / FUNDING.yml 数据</td>
+<td>数据缺失</td>
+</tr>
+<tr>
+<td>商业实体</td>
+<td>仓库归属个人账号 <code>earthtojake</code>，非组织；仅有 PyPI 发行物 <code>cadgen</code> 与可信发布配置</td>
+<td>数据缺失</td>
+</tr>
+<tr>
+<td>资金可持续性</td>
+<td>无任何可推断依据</td>
+<td>数据缺失</td>
+</tr>
+</tbody>
+</table>
+<p><strong>小分：N/A</strong></p>
+<p><strong>判断依据</strong>：素材中不存在任何可采信的资金线索（既无赞助入口数据，也无组织/公司实体数据），依「N/A 统一规则」不臆测为「无资金」（不因数据缺失打 0/低分），标记 N/A。该细则从维度满分中剔除，本维度置信度相应下降。需注意：个人账号托管 + 无基金会背书本身并不构成资金证据，仅作为 D8.1/D8.2 的旁证。</p>
+<h4>D8.4 项目可持续性与传承风险（满分 3）</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测依据</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>活跃趋势（方向）</td>
+<td>创建 4.7 个月即达 15,574 star；90 天 256 PR；最近 3 周内 10 次发版；<code>pushed_at</code> 距采集中位仅数日</td>
+<td>明显<strong>上升</strong></td>
+</tr>
+<tr>
+<td>维护延续性</td>
+<td>MIT 许可、无历史遗留分支纠葛（<code>develop</code>/<code>release</code> 已清理、镜像已归档计划化）；15 贡献者 + 1,608 fork 提供一定兜底，但无治理继承机制</td>
+<td>中等</td>
+</tr>
+<tr>
+<td>历史信号</td>
+<td><code>archived: false</code>，无 deprecated/unmaintained 标记，持续发版</td>
+<td>健康</td>
+</tr>
+<tr>
+<td>分叉风险</td>
+<td>1,608 fork（fork/star ≈ 10.3%，属正常区间），无社区分裂/敌对 fork 迹象</td>
+<td>低</td>
+</tr>
+<tr>
+<td>Issue 积压</td>
+<td>24 open vs. 90 天关闭 37，堆积可控</td>
+<td>健康</td>
+</tr>
+</tbody>
+</table>
+<p><strong>小分：2.4 / 3.0（80%，对应 7–8 档）</strong></p>
+<p><strong>判断依据</strong>：活跃度趋势明确向上、无废弃信号、Issue 积压健康、无分裂风险，均指向 9–10 档；但 9–10 档要求「治理完善可传承」，而本项目治理高度依赖单一 Owner（无 CODEOWNERS、无继承安排），核心人员退出的接管路径未制度化，故回落至 7–8 档。</p>
+<hr />
+<h4>维度小结</h4>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D8.1 核心维护者能力与背景</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6 档（60%）</td>
+</tr>
+<tr>
+<td>D8.2 治理模型透明度</td>
+<td>2.0</td>
+<td>1.2</td>
+<td>5–6 档（60%）</td>
+</tr>
+<tr>
+<td>D8.3 资金支持与商业赞助</td>
+<td>2.5</td>
+<td>N/A</td>
+<td>数据缺失，剔除</td>
+</tr>
+<tr>
+<td>D8.4 项目可持续性与传承风险</td>
+<td>3.0</td>
+<td>2.4</td>
+<td>7–8 档（80%）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>7.5（有效）</strong></td>
+<td><strong>5.1</strong></td>
+<td><strong>6.8 / 10</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论（6.8 / 10，一般偏良好）</strong>：</p>
+<p>正面的硬事实非常突出——4.7 个月即积累 15,574 star、90 天 256 个 PR、日均级别的高频迭代、Linux/Windows 双平台 CI 与成熟的发布/OIDC 供应链，说明背后维护者的技术执行力与投入度处于开源项目前 10% 水平，项目短期活跃趋势明确向上，传承的<strong>技术</strong>条件（模块化、政策测试、MIT 许可）良好。</p>
+<p>制约商业化评估的核心是<strong>治理与资金的不可验证性</strong>：
+1. <strong>单点依赖显著</strong>——个人账号、无组织实体、无 CODEOWNERS/GOVERNANCE.md，合并与发布经 PAT 由 Owner 单方完成，巴士因子无法证明 ≥3，一旦核心维护者退出，接管路径未制度化；
+2. <strong>无中立治理背书</strong>——不属于任何基金会，缺少外部多方决策机制，难以与「企业可依赖」的标准对齐；
+3. <strong>资金维度完全无数据</strong>——无法判断是否存在公司/VC/赞助支撑，该 2.5 分按规则剔除，导致本维度评分置信度下降（有效满分从 10 降至 7.5）。</p>
+<p>对商业化而言，该项目目前更像「高能力个人/小团队 + 重度自动化」的高势能项目：<strong>短期势能与技术可持续性强，但制度可持续性（人、钱、治理）证据薄弱</strong>，建议后续补采 Owner 个人页、FUNDING 配置、赞助/融资信息与提交者集中度（top-1 commit 占比）后再复核 D8.1/D8.3。</p>
+<h3>D9 上手难度与易用性 分析</h3>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D9.1 安装难度</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>80% (7–8)</td>
+<td>首选路径为单条 <code>npx skills add earthtojake/text-to-cad</code>，并额外提供 Codex/Claude Code/Grok 三种插件安装方式，属包管理器一键安装；但底层运行时依赖非自包含——cadgen 直接依赖 build123d / cadquery-ocp（含原生 OCC 二进制）/ ezdxf / shapely，<code>snapshot</code> extra 还需 playwright + 浏览器下载；要求 Python ≥3.11，Codex 需 0.142.0+。未达"无外部依赖、全平台覆盖"的 9–10 档。</td>
+</tr>
+<tr>
+<td>D9.2 部署与配置难度</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>60% (5–6)</td>
+<td>无 Dockerfile / docker-compose / Helm 等标准化部署产物，无面向服务器的一键部署；但基础 CAD skill 无需数据库/缓存/消息队列等外部组件初始化，配置项少。各 skill 依赖分散在独立 requirements.txt 中（含 dfam-check 的 6 个额外包），G-code 需外部 slicer CLI、Bambu Labs 需本地硬件；面向 agent 宿主 + Python 环境，非技术人员（运维/产品）难以独立完成。快速验证有 demo GIF 但无明确 quickstart 脚本。</td>
+</tr>
+<tr>
+<td>D9.3 易用性与操作门槛</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>80% (7–8)</td>
+<td>核心交互为自然语言/图片请求（"Creates and edits CAD models from plain-language or image requests"），并提供 CAD Viewer 浏览器预览（<code>cadgen viewer</code>）与 <code>cadgen</code> CLI，操作门槛显著低于传统 CAD；skill 内建校验环节（DfAM 可打印性、SendCutSend 上传前校验、G-code 验证）。但部分能力仍需专业配置（slicer/printer profile、CAD 结果正确性判断），错误提示质量在素材中无直接证据。</td>
+</tr>
+<tr>
+<td>D9.4 学习曲线与首体验</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>80% (7–8)</td>
+<td>安装一条命令即完成；示例资源丰富（32 个示例文件 + <code>models/</code> 下 f14d、hypercar、tendon_hand 等大量模型语料 + 160 个文档文件 + Docs 站点），学习曲线平缓，有"自然语言出 CAD"的清晰 Aha Moment。但缺乏明确标注的交互式教程/onboarding 流程，且使用前需先具备可运行的 agent 宿主与 Python 环境，存在概念门槛（agent skills、CAD/URDF 等）。</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>7.5</strong></td>
+<td>🟡 <strong>中等</strong></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h3>分析结论</h3>
+<p><strong>总体判定：🟡 中等（7.5/10）—— 面向有技术基础者。</strong></p>
+<p><strong>优势（拉高分数）</strong>
+1. <strong>安装路径清晰、一键化</strong>：README 将 <code>npx skills add earthtojake/text-to-cad</code> 明确标注为 preferred installation path，并提供 Codex / Claude Code / Grok Build 三种原生插件命令，覆盖主流 agent 宿主。
+2. <strong>交互范式易用</strong>：以自然语言/图片为输入生成 CAD 工件，配合 CAD Viewer 浏览器可视化，显著降低传统 CAD 的操作门槛。
+3. <strong>示例与文档极为丰富</strong>：160 个文档文件、32 个示例文件、<code>models/</code> 下覆盖 F1、F-14D、Falcon Heavy、机器人手等多领域模型语料，为模仿学习提供充足素材。</p>
+<p><strong>短板（限制分数）</strong>
+1. <strong>运行时依赖重且不自包含</strong>：cadgen 直接依赖 <code>build123d</code>、<code>cadquery-ocp</code>（原生 OCC 二进制）、<code>ezdxf</code>、<code>shapely</code>；<code>snapshot</code> extra 引入 playwright 及浏览器下载，安装体积与时长不可忽略。
+2. <strong>无标准化部署产物</strong>：本地实测 <code>has_dockerfile: false</code>，仓库无 docker-compose/Helm，无面向生产环境的一键部署，部署验证依赖人工搭建 Python + agent 环境。
+3. <strong>skill 间依赖异质</strong>：各 skill 自带 requirements.txt（dfam-check 额外 6 个包），G-code 需外部 slicer CLI、Bambu Labs 需本地打印机，跨 skill 使用时环境初始化成本叠加。
+4. <strong>前置概念门槛</strong>：使用前须理解 agent skills 机制并具备可运行的 agent 宿主，非开发/非技术角色难以独立完成端到端流程。</p>
+<p><strong>商业化启示</strong>：该项目在"交互易用性"和"示例丰富度"上具备商业优势，Aha Moment 触发快；但安装链路的最后一公里（Python 原生依赖 + playwright + 部分 skill 的外部工具/硬件）构成试用转化摩擦。若面向非技术用户（如机械工程师、产品/商务）推广，建议优先补充容器化/托管化部署方案与一键 demo 脚本，可显著提升首体验转化率。</p>
+<h3>D10 功能价值——使用价值视角</h3>
+<blockquote>
+<p>平行维度：权重 0%，不计入综合评分，仅用于 3.4 价值画像判定。</p>
+</blockquote>
+<h4>细则打分表</h4>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10.1 效用强度</td>
+<td>3</td>
+<td><strong>2.4</strong></td>
+<td>7–8 档（80%）</td>
+<td>覆盖「CAD 建模 → STEP/STL/3MF/GLB 导出 → DXF 下料 → 可打印性检查 → G-code 切片 → 打印下发 → URDF/SRDF/SDF 机器人描述」的完整链路（11 个 skill），把「自然语言/图片 → 可交付工程文件」的重复劳动压缩掉；对机械/机器人团队属项目级依赖，单件可省数小时至数天的手工建模与描述文件编写。但效用兑现高度依赖宿主 Agent（Claude Code / Codex / Grok Build）与生成几何的可用性，需人工复核（项目自身提供 CAD Viewer + DfAM Check + SendCutSend 预检即为对冲这一不确定性），故未达 9–10 的「业务命脉级、稳定可预期」</td>
+</tr>
+<tr>
+<td>D10.2 实际使用规模</td>
+<td>3</td>
+<td><strong>N/A</strong></td>
+<td>—</td>
+<td>本项规定的三项硬指标全部缺失：GitHub Dependents 未采集（N/A）、npm 周下载量 N/A、PyPI 月下载量 N/A（该项目不以独立包发布，而是经 <code>npx skills add</code> 分发 skill 目录，无公开计数口径）；README 亦未列示第三方生产环境采用案例（<code>models/</code> 下的 F1、Falcon Heavy、腱驱灵巧手等均为作者自有验证语料）。依防幻觉规则禁止估算，标 N/A，从维度满分中剔除</td>
+</tr>
+<tr>
+<td>D10.3 免费可得的完整效用</td>
+<td>2</td>
+<td><strong>2.0</strong></td>
+<td>9–10 档（100%）</td>
+<td>MIT 许可，全部 11 个 skill、本地 CAD Viewer 应用（约 10.7 万行 JS）、模型语料、CI 与测试（19.8% 测试占比）均在仓内公开，无企业版/付费墙/额度限制；文档站与 Discord 仅为辅助，非价值前置条件。安装即得全部能力，自托管与官方分发路径等价</td>
+</tr>
+<tr>
+<td>D10.4 效用可持续性</td>
+<td>2</td>
+<td><strong>1.6</strong></td>
+<td>7–8 档（80%）</td>
+<td>主体本地化：skill 是仓内文件、生成物是本地 STEP/STL/G-code、预览走本地浏览器，停维后已安装的 skill 与既有模型继续可用，MIT 允许自由分叉，构建/测试脚本可复现。扣分项：各 skill 的 <code>requirements.txt</code> 均钉住外部 <code>cadgen</code> 发布版本，G-code/Bambu 链路依赖本机第三方切片器与厂商打印机生态，SendCutSend 为第三方服务，且价值最终须经闭源宿主 Agent 才能兑现——属「少量可替换的外部依赖」而非完全自足</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>7（D10.2 剔除后）</strong></td>
+<td><strong>6.0</strong></td>
+<td></td>
+<td><strong>6.0 ÷ 7 × 10 = 8.6</strong></td>
+</tr>
+</tbody>
+</table>
+<h4>结论</h4>
+<p><strong>D10 功能价值（使用价值）= 8.6 / 10（置信度中等偏低，因 D10.2 使用规模不可实采）。</strong></p>
+<p>该项目的效用形态是「工程工作流的自动化前置层」：它不生产新算法，而是把文本/图像到 CAD、机器人描述、可制造 G-code 的整条手工链路封装成 Agent 可直接调用的 skill，并为每一步配套校验（DfAM 壁厚/悬垂、SendCutSend 上传前预检、切片 CLI 真机验证）。对目标用户（机械设计、机器人、增材制造团队）而言，这属于典型的<strong>项目级依赖</strong>：不用则回退到逐件手工建模与手写 URDF/SDF，替代成本高且不可替代性来自链路完整性而非单点功能，故 D10.1 落在 7–8 档。</p>
+<p><strong>价值结构的核心张力</strong>：D10.3 拿到满分（2.0），意味着开源版即全部价值、无任何功能阉割；这几乎必然对应 D4.3 的低分——项目缺乏把使用价值转化为交换价值的抓手（无付费层、无托管服务、无企业功能切分）。同时 D10.4 的 80% 也说明价值高度可携带：即便仓库停维，已安装的 skill、本地生成物与模型语料仍长期可用，商业方难以通过「停服」制造锁定。换言之，这是一个<strong>使用价值极高、可提取的交换价值极低</strong>的典型样本，其商业想象空间只能来自生态位（skill 分发入口、企业级支持/托管/合规）而非功能阉割。</p>
+<p><strong>数据缺口与置信度声明</strong>：D10.2 因 Dependents、npm/PyPI 下载量三者均无法实采而标 N/A，维度按剩余 7 分等比缩放（这是 8.6 高于直观感受的主要来源）。作为<strong>未计分的旁证</strong>：15,574 Star、1,608 Fork、15 位贡献者、近 90 天 256 个 PR / 37 个已关闭 Issue、活跃发版至 v0.5.1（2026-09-08），显示关注度与迭代活跃度显著，但 Star/Fork 不等于生产使用量，故未折算入分。若后续补采到 Dependents 或分发侧下载计数（预计落在 5–6 档区间），本维度将回落至约 7.8 分区间。</p>
+<h1>D11. 社会价值——正外部性评估</h1>
+<blockquote>
+<p><strong>平行维度说明</strong>: 本维度权重 0%，不计入综合评分与一票否决，仅用于 3.4 价值画像。评估视角聚焦"项目对使用者之外的行业与社会的外溢贡献"，与 D3.4（品牌→商业势能）及 D2.5/D2.6（工程质量视角）区分。</p>
+</blockquote>
+<h3>D11.1 数字公共基础设施属性（3 分）</h3>
+<p><strong>评估</strong>: 该项目是一套面向 AI Agent 的 CAD/CAE/CAM 技能库（<code>npx skills add</code> 安装 / Codex·Claude Code·Grok 插件），托管于 MIT 协议。其性质是"终端工具链"而非"运行时依赖库"——没有证据表明存在下游软件将其作为依赖项（GitHub Dependents 计数未采集到，本地 <code>dependencies</code> 字段为空）。停摆影响面：使用者将失去一套现成的 CAD 技能包，但同类替代（K-Dense-AI/scientific-agent-skills 44.7k star、anbeime/skill 6.6k star 等）充足，软件供应链不受波及。因此不符合 curl/OpenSSL 式数字底座特征。但项目在 AI-CAD 细分领域具备真实的生态位（15,574 star / 1,608 fork，领域内头部），并非孤立项目。</p>
+<p><strong>小分</strong>: 1.8 / 3（60%，5-6 档）
+<strong>依据</strong>: 有一定生态采纳（1,608 fork、领域头部），但无可证实的下游依赖，可替代性强，停摆影响微小。</p>
+<h3>D11.2 教育与人才价值（2.5 分）</h3>
+<p><strong>评估</strong>: 项目具有异常丰富的文档与示例资产——160 个文档文件，含完整 README、CONTRIBUTING、SECURITY、SKILL.md 技能说明、迁移指南（0.4→0.5），以及 <code>models/</code> 下大量真实工程范例（F1、Falcon Heavy、腱驱动机械手 tendon_hand、hypercar、motorbike 等，附带 BRIEF/REPORT/RESEARCH/HANDOFF 等工程笔记）。这使代码本身成为"CAD-as-Code + Agent Skill 工程化"的良好范本，对学习"如何为 Agent 编写结构化技能"有参考价值。总代码 331,663 行、测试占比 19.8%，工程规范度高。但未采集到外部课程/教程/awesome 列表等教学采纳证据，教学影响目前限于 AI-Agent 与 CAD 自动化这一小圈子。</p>
+<p><strong>小分</strong>: 1.5 / 2.5（60%，5-6 档）
+<strong>依据</strong>: 文档与示例资产丰富、源码具备研读价值，但缺乏被广泛用作教学/入门路径的外部证据，影响限于细分圈层。</p>
+<h3>D11.3 普惠与可及性（2.5 分）</h3>
+<p><strong>评估</strong>: 普惠效应显著。传统 CAD 工具（SolidWorks/CATIA/AutoCAD 等）年授权费用动辄数千美元，本项目以 MIT 协议免费提供自然语言驱动的 CAD/机器人描述生成能力（CAD、DXF、G-code、URDF/SDF 等），使个人与中小团队以近零成本获得原本昂贵的设计与制造前处理能力，替代价格差极大。但可及性存在明确门槛：需 Python 3.11+、需配置支持 Skill 的 Agent 运行环境（Codex/Claude Code/Grok），且未采集到 i18n/多语言/无障碍支持的证据，因此"面向所有人、可及性支持完善"尚未达成。</p>
+<p><strong>小分</strong>: 2.0 / 2.5（80%，7-8 档）
+<strong>依据</strong>: 显著降低昂贵 CAD 能力的获得门槛、替代价格差巨大；但受技术门槛（Agent 环境/Python）与缺少 i18n/无障碍证据的限制。</p>
+<h3>D11.4 开放标准与行业推动（2 分）</h3>
+<p><strong>评估</strong>: 项目大量实现并推广开放格式与标准：STEP、STL、3MF、GLB、DXF、G-code（制造侧），以及 URDF、SDF、SRDF（ROS/MoveIt2 机器人描述栈）。以 STEP 为主输出、并覆盖机器人学事实标准，有助于防止厂商锁定、促进 CAD/机器人工具链间的互操作。行业示范效应上，"以 Skill 库形式组织 AI Agent 能力"这一工程范式具有一定被同行模仿的潜力。学术引用方面无检索数据，标 N/A，不作为扣分项。项目本身不定义/主导标准，属"实现并推广重要开放标准"层级。</p>
+<p><strong>小分</strong>: 1.6 / 2（80%，7-8 档）
+<strong>依据</strong>: 实现并推广 STEP/STL/3MF/URDF/SDF/SRDF 等多项重要开放标准，具备互操作与防锁定价值；未主导标准制定，学术引用 N/A。</p>
+<h3>D11 细则分值汇总</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>小分</th>
+<th>满分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D11.1</td>
+<td>数字公共基础设施属性</td>
+<td>1.8</td>
+<td>3</td>
+<td>60%（5-6 档）</td>
+</tr>
+<tr>
+<td>D11.2</td>
+<td>教育与人才价值</td>
+<td>1.5</td>
+<td>2.5</td>
+<td>60%（5-6 档）</td>
+</tr>
+<tr>
+<td>D11.3</td>
+<td>普惠与可及性</td>
+<td>2.0</td>
+<td>2.5</td>
+<td>80%（7-8 档）</td>
+</tr>
+<tr>
+<td>D11.4</td>
+<td>开放标准与行业推动</td>
+<td>1.6</td>
+<td>2</td>
+<td>80%（7-8 档）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>6.9</strong></td>
+<td><strong>10</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<p><strong>D11 社会价值（正外部性）= 6.9 / 10</strong>（平行维度，权重 0%，不并入综合评分）。</p>
+<p>项目最强的正外部性在于<strong>普惠与开放标准</strong>：以 MIT 免费提供自然语言驱动的 CAD/机器人设计能力，替代了年费数千美元的商业 CAD 工具，并通过 STEP/STL/3MF/URDF/SDF/SRDF 等开放格式推动工具链互操作、防止厂商锁定。教育与示例资产（160 份文档 + F1/Falcon Heavy/tendon_hand 等真实模型）为其增色。短板在于<strong>数字公共基础设施属性偏弱</strong>——它是终端技能库而非供应链依赖，无下游依赖证据、可替代性强；同时缺 i18n/无障碍证据，限制了普惠的"全覆盖"层位。总体属于"细分领域的重要公共性工具"，具有良好但不卓越的社会外溢价值。</p>
+<p><strong>置信度说明</strong>: Dependents 计数、下载量、学术引用、i18n/无障碍均在素材中缺失（N/A），D11.1 与 D11.4 的判断基于生态位与格式实现的间接推断，置信度中等。</p>
+<h2>五、商业化价值判断</h2>
+<p><strong>综合评分 72.2/100，等级 A（高商业化潜力），价值画像为 ⭐ 明星资产。</strong></p>
+<p>text-to-cad 的商业化价值建立在三个相互支撑的事实之上：</p>
+<p><strong>第一，需求侧真实且专业级。</strong> D1 给出 8.0/10 的高分，四个细则（目标市场规模、痛点真实性、时机、场景广度）均取满分档。URDF/SRDF/SDF 手写易错、STEP 零件选型、G-code 切片参数经验化，都是机器人/机械工程师的日常摩擦；11 个技能覆盖「生成→预览→校验→切片→下单/打印」完整闭环，仓库内 f1/f14d/falcon_heavy、hypercar/motorbike、tendon_hand/qdd_actuator 等语料横跨汽车/航空航天/机器人/消费硬件，能力可向 CAE 与运动规划延展。项目创建于 2026-04，恰逢 Codex/Claude Code/Grok 原生插件与 Skills 生态爆发，开源侧尚无事实标准。</p>
+<p><strong>第二，法律与分发条件对变现完全开放。</strong> D6 得 7.7/10，MIT 协议在 15 处一致声明，无 copyleft 传染、无 Commons Clause/BUSL 类商业附加条款，Open Core/SaaS/双协议/闭源衍生路径全部可行；依赖链零 GPL/AGPL。D4 得 7.2/10，且项目由公司实体 Thompson Labs LLC 持有而非个人账号，暗示存在商业化意图。分发势能已被验证：15,574 Star / 1,608 Fork / 90 天 256 PR。</p>
+<p><strong>第三，功能价值极高但几乎 100% 免费可得。</strong> D10 得 8.6/10，11 个技能打通全链路，对机械与机器人团队构成项目级依赖；但 MIT + 全部 skill/本地 Viewer/模型语料开源，无付费墙、无额度限制。这一结构决定了价值只能通过<strong>生态位</strong>（skill 分发入口、企业支持/托管/合规）变现，无法通过功能阉割或停服锁定提取。</p>
+<p><strong>制约因素同样清晰：</strong> D5 仅 6.6/10，GitHub Search API 实测未返回同领域直接竞品（定位独特），但护城河结构脆弱——MIT 开源、无专利与独占数据、几何内核依赖 cadgen 包、贡献者仅 15 人、Watchers 87，网络效应弱；分发依赖 Codex/Claude Code/Grok 三方平台，存在被平台内置能力吸收与通用技能库向工程垂类扩张的双重颠覆风险，窗口约 12–24 个月。D7 仅 6.1/10，完全无企业身份/权限/审计体系（无 SSO/OAuth/LDAP、无 RBAC、无审计日志），是进入多用户企业部署场景的核心障碍。D8 得 6.8/10，治理高度集中于单一维护者，无 GOVERNANCE.md、无 CODEOWNERS、无路线图，巴士因子无法证实 ≥3。</p>
+<p><strong>结论：这是一个「流量与工程体量已就位、变现零落地」的明星资产。</strong> 商业化不是「能不能做」的问题，而是「在 12–24 个月窗口内能否把免费流量转化为付费闭环」的问题。</p>
+<hr />
+<h2>六、商业路径分析</h2>
+<p>基于 D4 识别的可行路径与 D5 的护城河结构，建议按以下优先级推进：</p>
+<h3>路径一（首选）：制造侧交易闭环 / 佣金</h3>
+<p>D4 已识别出真实的下游集成证据：SendCutSend（下单校验）、Bambu Labs（打印托管）。这是本项目<strong>最自然、与免费开源不冲突</strong>的变现点——技能本身免费，价值在「从模型到实物」的最后一公里。建议将下单校验、切片参数优化、打印队列托管做成付费增值层，按交易抽佣或订阅收费。该路径不触碰 MIT 协议边界，且直接强化 D5 所指的「制造侧闭环」防御工事。</p>
+<h3>路径二：企业版 / 私有化支持</h3>
+<p>对标客单价 $1K–10K/席/年（D4 定价天花板判断）。但<strong>必须先补齐 D7 指出的企业就绪短板</strong>：SSO/OAuth/LDAP、RBAC、审计日志、REST/OpenAPI 或 gRPC 接口、OTel/Prometheus 可观测性、健康检查端点。当前项目为单机工具，无分布式/高可用设计，横向扩展需引入任务分发层。企业版是天花板最高但前置投入最大的路径。</p>
+<h3>路径三：SaaS 托管（texttocad.dev）</h3>
+<p>当前 texttocad.dev 仅为文档站，viewer 明确为本地预览。托管化需要解决计算资源成本与几何内核授权问题，且与「本地部署」的核心卖点存在张力。建议作为中期选项，而非首发路径。</p>
+<h3>路径四：Open Core（cadgen 核心包）</h3>
+<p>技术上可行（MIT 允许），但 D4 明确指出「全部 skills 以 MIT 免费一次性分发，免费版近乎无功能阉割，付费触发点不自然」。若走此路，需重新设计功能边界，风险是引发社区反噬。</p>
+<h3>路径修正（依据价值画像）</h3>
+<p>作为 ⭐ 明星资产，<strong>必须同时经营社区声誉，避免竭泽而渔</strong>。参照 Elastic 改协议的反噬教训：本项目 15,574 Star 的势能来自 MIT 的完全开放承诺，任何收紧协议或对既有免费功能设墙的动作都可能摧毁分发优势。建议优先选择路径一（不改变开源边界），谨慎对待路径四。</p>
+<h3>分发位防御（D5 建议）</h3>
+<p>商业化应通过<strong>加厚制造侧闭环与跨平台分发位</strong>来强化防御，而非依赖单点算法。当前分发依赖 Codex/Claude Code/Grok 三方平台，建议主动拓展更多宿主 Agent 渠道，降低单一平台风险。</p>
+<hr />
+<h2>七、能力评估：能做什么 &amp; 最适合做什么</h2>
+<h3>7.1 当前已具备的能力</h3>
+<ul>
+<li><strong>全链路 CAD/CAE/CAM 技能覆盖</strong>：11 个技能打通「文本/图片 → STEP/STL/3MF/DXF → 可打印性检查 → G-code → 打印机下发 → URDF/SRDF/SDF」（D10）</li>
+<li><strong>多领域工程语料</strong>：仓库内含 f1/f14d/falcon_heavy、hypercar/motorbike、tendon_hand/qdd_actuator 等真实模型，横跨汽车/航空航天/机器人/消费硬件（D1）</li>
+<li><strong>行业标准格式原生支持</strong>：STEP、STL、3MF、GLB、DXF、G-code、URDF、SDF、SRDF（D7）</li>
+<li><strong>多入口交互</strong>：CLI 多动词（cadgen/inspect/viewer/snapshot/export/doctor）+ Python/JS 双 API + JSON 结构化输出 + 自然语言/图片请求 + 浏览器 Viewer（D7、D9）</li>
+<li><strong>工业化发布工程</strong>：release-prepare/release-publish 双阶段 + build-test 预演分支，VERSION/包元数据/技能 pin 三处同步校验，4 条 CI（Linux+Windows），PyPI trusted publishing（D7、D8）</li>
+<li><strong>扎实的防御性安全编码</strong>：validate_local_host 默认拒非私有地址（SSRF 防护）、path_is_inside_or_equal/sanitize_remote_name 防路径穿越、access_code 日志脱敏、SECURITY.md 披露渠道（D7）</li>
+<li><strong>低操作门槛</strong>：单条命令 <code>npx skills add earthtojake/text-to-cad</code> 安装，3 种插件渠道（Codex/Claude Code/Grok Build），核心交互为自然语言，门槛远低于传统 CAD（D9）</li>
+<li><strong>丰富文档资产</strong>：160 份文档 + 32 个示例文件（D9、D11）</li>
+</ul>
+<h3>7.2 最适合做什么</h3>
+<p><strong>最适合：为机器人/机械工程团队提供「自然语言 → 可交付工程产物」的 AI Agent 技能层，并通过制造侧闭环（下单/打印）实现变现。</strong></p>
+<p>理由：D1 显示痛点最集中在 URDF/SRDF/SDF 手写与 G-code 参数经验化；D4 显示唯一已落地的下游集成正是 SendCutSend 与 Bambu Labs；D10 显示效用为「链路段覆盖型」，对机械与机器人团队构成项目级依赖。三者交汇指向同一场景。</p>
+<p><strong>次适合：作为 AI Agent 生态中的 CAD/CAE/CAM 垂类技能标准入口</strong>，通过跨平台分发位建立生态位。</p>
+<p><strong>不适合：</strong> 直接对标传统 CAD 软件做全功能替代（D5 显示无直接竞品但也无正面竞争能力）；面向多用户企业级部署直接销售（D7 显示身份/权限/审计体系完全缺失）。</p>
+<hr />
+<h2>八、短板识别：还缺少什么</h2>
+<table>
+<thead>
+<tr>
+<th>短板</th>
+<th>证据来源</th>
+<th>严重度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>商业化零落地</strong></td>
+<td>D4：仓库内无任何付费版、企业版、定价页或商业授权信息；paid_tier_evidence / pricing_evidence / commercial_license_evidence 均为「无」</td>
+<td>高</td>
+</tr>
+<tr>
+<td><strong>企业身份/权限/审计体系完全缺失</strong></td>
+<td>D7：无 SSO/OAuth/LDAP、无 RBAC、无审计日志，是进入多用户企业部署场景的核心障碍</td>
+<td>高</td>
+</tr>
+<tr>
+<td><strong>可观测性薄弱</strong></td>
+<td>D7：无 REST/OpenAPI/gRPC、无 OTel/Prometheus 指标、无健康检查端点；仅有阶段计时、进度标签与 CliLogger</td>
+<td>高</td>
+</tr>
+<tr>
+<td><strong>治理高度集中，巴士因子未证实</strong></td>
+<td>D8：仓库归属个人账号 earthtojake，无 GOVERNANCE.md、无 CODEOWNERS、无路线图；合并/发布经 PAT 由 Owner 单方执行</td>
+<td>高</td>
+</tr>
+<tr>
+<td><strong>贡献者结构单一</strong></td>
+<td>D3：贡献者仅 15 人，未见跨组织贡献证据，核心团队高度主导</td>
+<td>中</td>
+</tr>
+<tr>
+<td><strong>第三方生态未成形</strong></td>
+<td>D3：10+ skill 全为第一方自建，无第三方插件市场、衍生项目或外部课程证据</td>
+<td>中</td>
+</tr>
+<tr>
+<td><strong>无标准化部署产物</strong></td>
+<td>D9/D7：无 Dockerfile / docker-compose / Helm，无法面向服务器一键部署</td>
+<td>中</td>
+</tr>
+<tr>
+<td><strong>运行时依赖非自包含</strong></td>
+<td>D9：cadgen 依赖 build123d/cadquery-ocp/ezdxf/shapely，snapshot extra 还需 playwright + 浏览器下载，要求 Python&gt;=3.11</td>
+<td>中</td>
+</tr>
+<tr>
+<td><strong>版权分散阻碍双协议/专有再许可</strong></td>
+<td>D6：无 CLA、无 DCO sign-off、无 CODEOWNERS，而贡献者已达 15 人、90 天创建 PR 256 个</td>
+<td>中</td>
+</tr>
+<tr>
+<td><strong>商标与专利未核查</strong></td>
+<td>D6：无 TRADEMARK 政策文件，项目名为描述性通用词，显著性存疑；商标专利未经人工核查（低置信度）</td>
+<td>中</td>
+</tr>
+<tr>
+<td><strong>第三方真实产品命名模型存在 IP 风险</strong></td>
+<td>D6：models/ 下含 f14d、falcon_heavy、juno、lyra、f1、w16 等以第三方真实产品命名的 CAD 模型</td>
+<td>中</td>
+</tr>
+<tr>
+<td><strong>付费触发点不自然</strong></td>
+<td>D4：全部 skills 以 MIT 免费一次性分发，免费版近乎无功能阉割</td>
+<td>中</td>
+</tr>
+<tr>
+<td><strong>无分布式/高可用设计</strong></td>
+<td>D7：为单机工具，横向扩展需引入任务分发层</td>
+<td>低</td>
+</tr>
+<tr>
+<td><strong>技术成熟度维度未评估</strong></td>
+<td>D2：分析失败（scorecard_rebuilt_by_regex），技术质量与安全性未经系统评估</td>
+<td>待补</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>九、风险提示</h2>
+<h3>9.1 平台依赖风险（高）</h3>
+<p>D5 明确指出：分发依赖 Codex/Claude Code/Grok 三方平台，存在<strong>被平台内置能力吸收</strong>与<strong>通用技能库向工程垂类扩张</strong>的双重颠覆风险，窗口约 12–24 个月。一旦宿主平台原生内置 CAD 技能，本项目的分发优势可能迅速消解。</p>
+<h3>9.2 变现窗口风险（高）</h3>
+<p>D1 指出「传统 CAD 巨头与云端 text-to-CAD 服务已开始入场」。项目当前开源侧无事实标准，但这一窗口不会长期敞开。D4 显示商业化零落地，若不能在窗口内建立付费闭环，流量优势可能无法转化为商业价值。</p>
+<h3>9.3 治理与传承风险（高）</h3>
+<p>D8 显示：仓库归属个人账号，无 GOVERNANCE.md、无 CODEOWNERS、无路线图，合并/发布经 PAT 由 Owner 单方执行，巴士因子无法证实 ≥3，核心人员退出的接管路径未制度化。虽然 D8.4 得 2.4 分（未触发否决），但治理风险实质存在。</p>
+<h3>9.4 知识产权风险（中）</h3>
+<p>D6 指出：models/ 下含 f14d、falcon_heavy、juno、lyra、f1、w16 等以第三方真实产品命名的 CAD 模型，并附 PROVENANCE/REFERENCES/RESEARCH 溯源文档，<strong>是本项目最值得前置人工排查的 IP 风险面</strong>（非代码或协议层面）。此外，无 CLA/DCO 导致版权分散，构成双协议/专有再许可的实质性障碍；商标与专利未经人工核查。</p>
+<h3>9.5 企业采用风险（中）</h3>
+<p>D7 显示完全无企业身份/权限/审计体系，D3 显示无头部企业采用、会议或媒体报道背书，成熟度滞后于流量。企业客户采购前会要求这些能力。</p>
+<h3>9.6 社区反噬风险（中）</h3>
+<p>作为 ⭐ 明星资产，15,574 Star 的势能来自 MIT 的完全开放承诺。D4 指出「免费版近乎无功能阉割，付费触发点不自然」。任何收紧协议或对既有免费功能设墙的动作都可能引发社区反噬（参照 Elastic 改协议教训）。</p>
+<h3>9.7 数据置信度风险（中）</h3>
+<p>多项关键指标无法实采：D10.2 因 GitHub Dependents、npm 周下载、PyPI 月下载三项全部无法实采而标 N/A；D8.3 资金/赞助数据完全缺失标 N/A；D11 学术引用、Dependents、下载量均缺失；D3 响应时长、组织多样性、企业采用数据缺失；D6 商标专利未经人工核查。<strong>D2 技术成熟度维度分析失败，技术质量与安全性未经系统评估</strong>，综合评分置信度相应下降。</p>
+<h3>9.8 工程可信度风险（中）</h3>
+<p>D1 指出「生成几何能否直接进入真实加工链在素材中无法验证」。这是产品核心价值主张的关键未验证项。</p>
+<hr />
+<h2>十、结论与建议</h2>
+<h3>10.1 结论</h3>
+<p><strong>text-to-cad 是一个综合评分 72.2/100、等级 A（高商业化潜力）、价值画像为 ⭐ 明星资产的开源项目。</strong></p>
+<p>它的商业化基础扎实：需求真实且专业级（D1 8.0）、法律条件完全开放（D6 7.7）、分发势能已验证（15,574 Star / 90 天 256 PR）、功能价值极高（D10 8.6）、上手门槛低（D9 7.5）。项目由公司实体 Thompson Labs LLC 持有，暗示商业化意图。</p>
+<p>它的核心矛盾是：<strong>功能价值几乎 100% 免费可得（D10 8.6），而商业化零落地（D4 显示无任何付费版/定价页/商业授权）</strong>。这决定了变现必须走生态位路线，不能走功能阉割路线。</p>
+<p>它的主要制约是：护城河结构脆弱（D5 6.6，依赖三方平台分发，窗口 12–24 个月）、企业就绪度不足（D7 6.1，无身份/权限/审计）、治理高度集中（D8 6.8，巴士因子未证实）。</p>
+<h3>10.2 建议</h3>
+<p><strong>立即行动（0–6 个月）</strong></p>
+<ol>
+<li><strong>优先落地制造侧交易闭环</strong>：基于已有的 SendCutSend 与 Bambu Labs 集成，设计下单校验/打印托管的付费增值层。这是唯一不触碰 MIT 边界、且直接强化护城河的路径。</li>
+<li><strong>前置 IP 排查</strong>：对 models/ 下以第三方真实产品命名的 CAD 模型（f14d、falcon_heavy、juno、lyra、f1、w16）进行法律审查，这是最值得优先处理的风险面。</li>
+<li><strong>补齐治理基础设施</strong>：添加 GOVERNANCE.md、CODEOWNERS、路线图，引入 CLA 或 DCO 以解决版权分散问题，为后续双协议/专有再许可留出空间。</li>
+<li><strong>补做 D2 技术成熟度评估</strong>：当前技术质量与安全性未经系统评估，这是投资决策的关键缺口。</li>
+</ol>
+<p><strong>中期推进（6–18 个月）</strong></p>
+<ol start="5">
+<li><strong>补齐企业就绪能力</strong>：SSO/OAuth/LDAP、RBAC、审计日志、REST/OpenAPI 或 gRPC 接口、OTel/Prometheus 可观测性、健康检查端点。这是打开企业版路径（对标 $1K–10K/席/年）的前置条件。</li>
+<li><strong>拓展跨平台分发位</strong>：主动接入更多宿主 Agent 渠道，降低对 Codex/Claude Code/Grok 三方平台的单一依赖。</li>
+<li><strong>建立第三方生态</strong>：当前 10+ skill 全为第一方自建，无第三方插件市场。开放技能扩展机制可增强网络效应与切换成本。</li>
+</ol>
+<p><strong>长期经营（持续）</strong></p>
+<ol start="8">
+<li><strong>经营社区声誉，避免竭泽而渔</strong>：作为明星资产，15,574 Star 的势能源于 MIT 的完全开放承诺。任何收紧协议的动作都需极度谨慎（参照 Elastic 教训）。</li>
+<li><strong>验证工程可信度</strong>：证明生成几何能直接进入真实加工链，这是产品核心价值主张的关键验证项。</li>
+</ol>
+<p><strong>不建议</strong></p>
+<ul>
+<li>不建议直接对标传统 CAD 软件做全功能替代（D5 显示无正面竞争能力）。</li>
+<li>不建议在补齐企业就绪能力前直接销售企业版。</li>
+<li>不建议走「功能阉割式」Open Core 路径（D4 显示付费触发点不自然，且存在社区反噬风险）。</li>
+</ul>
+<h2>十一、项目地址</h2>
+<p><svg class="ri ri-muted" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.001 2C6.47598 2 2.00098 6.475 2.00098 12C2.00098 16.425 4.86348 20.1625 8.83848 21.4875C9.33848 21.575 9.52598 21.275 9.52598 21.0125C9.52598 20.775 9.51348 19.9875 9.51348 19.15C7.00098 19.6125 6.35098 18.5375 6.15098 17.975C6.03848 17.6875 5.55098 16.8 5.12598 16.5625C4.77598 16.375 4.27598 15.9125 5.11348 15.9C5.90098 15.8875 6.46348 16.625 6.65098 16.925C7.55098 18.4375 8.98848 18.0125 9.56348 17.75C9.65098 17.1 9.91348 16.6625 10.201 16.4125C7.97598 16.1625 5.65098 15.3 5.65098 11.475C5.65098 10.3875 6.03848 9.4875 6.67598 8.7875C6.57598 8.5375 6.22598 7.5125 6.77598 6.1375C6.77598 6.1375 7.61348 5.875 9.52598 7.1625C10.326 6.9375 11.176 6.825 12.026 6.825C12.876 6.825 13.726 6.9375 14.526 7.1625C16.4385 5.8625 17.276 6.1375 17.276 6.1375C17.826 7.5125 17.476 8.5375 17.376 8.7875C18.0135 9.4875 18.401 10.375 18.401 11.475C18.401 15.3125 16.0635 16.1625 13.8385 16.4125C14.201 16.725 14.5135 17.325 14.5135 18.2625C14.5135 19.6 14.501 20.675 14.501 21.0125C14.501 21.275 14.6885 21.5875 15.1885 21.4875C19.259 20.1133 21.9999 16.2963 22.001 12C22.001 6.475 17.526 2 12.001 2Z"/></svg> <a href="https://github.com/earthtojake/text-to-cad">https://github.com/earthtojake/text-to-cad</a></p>
+<hr />
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+</blockquote>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家　<a href="https://www.mova.work">www.mova.work</a></p></body></html>

@@ -1,0 +1,2110 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><title>Spec-kit 商业价值分析报告</title><style>/* default — 品牌蓝紫主题（从 md2pdf.py 原 CSS 常量迁出，视觉与历史产物一致） */
+@page { size: A4; margin: 18mm 15mm 20mm 15mm; }
+* { box-sizing: border-box; }
+/* 字体规范：一律开源思源黑体 CN（OFL 免费商用）；正文 Regular/标题 Bold/大字数字 Light */
+body { font-family: "Source Han Sans CN","思源黑体 CN","Noto Sans SC",sans-serif; color:#1e293b; font-size:10.5pt; line-height:1.75; margin:0; }
+.cover { page-break-after: always; text-align:center; padding-top:40px; }
+.cover .kicker { color:#2563eb; letter-spacing:6px; font-size:12pt; font-weight:500; }
+.cover h1 { font-size:26pt; margin:14px 0 6px; }
+.cover .sub { color:#64748b; font-size:11pt; margin-bottom:22px; }
+.badge { display:inline-block; background:linear-gradient(135deg,#2563eb,#7c3aed); color:#fff; border-radius:18px; padding:16px 44px; margin:10px 0 18px; }
+.badge .g { font-size:34pt; font-weight:300; line-height:1; }
+.badge .s { font-size:12pt; opacity:.92; margin-top:4px; }
+.meta { color:#475569; font-size:9.5pt; margin-top:14px; }
+.bars { max-width:620px; margin:20px auto 0; text-align:left; }
+.bar-row { display:flex; align-items:center; gap:8px; margin:5px 0; font-size:9pt; }
+.bar-name { width:110px; text-align:right; color:#334155; font-weight:500; }
+.bar-track { flex:1; height:9px; background:#f1f5f9; border-radius:5px; overflow:hidden; }
+.bar-fill { display:block; height:100%; border-radius:5px; }
+.bar-val { width:30px; font-weight:700; color:#0f172a; }
+.bar-w { width:52px; color:#94a3b8; font-size:8pt; }
+h1 { font-size:17pt; color:#0f172a; border-bottom:3px solid #2563eb; padding-bottom:8px; }
+h2 { font-size:13.5pt; color:#1d4ed8; margin-top:26px; page-break-after: avoid; border-left:5px solid #2563eb; padding-left:10px; }
+h3 { font-size:11.5pt; color:#0f172a; margin-top:18px; page-break-after: avoid; }
+table { border-collapse:collapse; width:100%; margin:10px 0; font-size:9pt; page-break-inside:avoid; }
+th { background:#eff6ff; color:#1e3a8a; }
+th,td { border:1px solid #dbe3ef; padding:5px 8px; text-align:left; }
+tr:nth-child(even) td { background:#f8fafc; }
+code { background:#f1f5f9; border-radius:4px; padding:1px 5px; font-family:"JetBrains Mono","Cascadia Mono",monospace; font-size:9pt; color:#be185d; }
+pre { background:#0f172a; color:#e2e8f0; border-radius:8px; padding:12px 14px; overflow-x:auto; page-break-inside:avoid; }
+pre code { background:none; color:inherit; padding:0; }
+blockquote { border-left:4px solid #93c5fd; background:#eff6ff; margin:10px 0; padding:8px 14px; color:#334155; border-radius:0 8px 8px 0; }
+hr { border:none; border-top:1px dashed #cbd5e1; margin:22px 0; }
+strong { color:#0f172a; }
+.cover .disclaimer { max-width:620px; margin:16px auto 0; color:#64748b; font-size:8.5pt; line-height:1.6; text-align:left; border:1px solid #e2e8f0; border-radius:8px; padding:8px 12px; background:#f8fafc; }
+.credit { color:#2563eb; font-size:10.5pt; font-weight:700; letter-spacing:1px; margin-top:12px; }
+.at-acc { background:#dbeafe; color:#1d4ed8; border-radius:4px; padding:0 4px; font-weight:500; white-space:nowrap; }
+.tail { page-break-inside:avoid; margin-top:26px; border-top:2px solid #2563eb; padding-top:14px; }
+.tail p { color:#64748b; font-size:8.5pt; line-height:1.6; margin:0 0 10px; }
+.tail .credit { text-align:center; margin:0; }
+/* Remix Icon 内联 SVG（icon_mode=remix 时由脚本注入，语义色与评分条一致） */
+.ri { width:1.05em; height:1.05em; vertical-align:-0.18em; display:inline-block; }
+.ri-ok { color:#16a34a; } .ri-warn { color:#d97706; } .ri-bad { color:#dc2626; }
+.ri-muted { color:#64748b; } .ri-star { color:#f59e0b; } .ri-brand { color:#2563eb; }
+.ri-gold { color:#d4a017; } .ri-silver { color:#9ca3af; } .ri-bronze { color:#b45309; }
+/* 屏幕预览：@page 边距仅在打印时生效，浏览器中居中限宽并收边（不影响 PDF 输出） */
+@media screen {
+  body { margin: 0 auto; padding: 28px 36px 56px; max-width: 900px; }
+}
+</style></head><body><div class="cover">
+<div class="kicker">开源项目商业化潜力分析 · 第 97 期</div>
+<h1>GitHub 开源项目 Spec-kit<br>商业价值分析报告</h1>
+<div class="sub">github/spec-kit · GitHub 官方 SDD 工具包与 CLI · 九维度加权评估</div>
+<div class="badge"><div class="g">A 级 · 78.2</div><div class="s">综合评分（满分 100）· 高商业化潜力</div></div>
+<div><svg viewBox="0 0 560 480" width="560" height="480" xmlns="http://www.w3.org/2000/svg"><polygon points="280.0,209.6 299.5,216.7 309.9,234.7 306.3,255.2 290.4,268.6 269.6,268.6 253.7,255.2 250.1,234.7 260.5,216.7" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,179.2 319.1,193.4 339.9,229.4 332.7,270.4 300.8,297.1 259.2,297.1 227.3,270.4 220.1,229.4 240.9,193.4" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,148.8 338.6,170.1 369.8,224.2 359.0,285.6 311.2,325.7 248.8,325.7 201.0,285.6 190.2,224.2 221.4,170.1" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,118.4 358.2,146.8 399.8,218.9 385.3,300.8 321.6,354.3 238.4,354.3 174.7,300.8 160.2,218.9 201.8,146.8" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,88.0 377.7,123.6 429.7,213.6 411.6,316.0 332.0,382.8 228.0,382.8 148.4,316.0 130.3,213.6 182.3,123.6" fill="none" stroke="#e2e8f0" stroke-width="1"/><line x1="280.0" y1="240.0" x2="280.0" y2="88.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="377.7" y2="123.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="429.7" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="411.6" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="332.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="228.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="148.4" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="130.3" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="182.3" y2="123.6" stroke="#d8dee9" stroke-width="1"/><polygon points="280.0,118.4 367.0,136.4 408.7,217.3 369.5,291.7 314.3,334.3 235.3,362.8 190.5,291.7 145.3,216.2 201.8,146.8" fill="rgba(37,99,235,.22)" stroke="#2563eb" stroke-width="2.5"/><circle cx="280.0" cy="118.4" r="3.5" fill="#2563eb"/><circle cx="367.0" cy="136.4" r="3.5" fill="#2563eb"/><circle cx="408.7" cy="217.3" r="3.5" fill="#2563eb"/><circle cx="369.5" cy="291.7" r="3.5" fill="#2563eb"/><circle cx="314.3" cy="334.3" r="3.5" fill="#2563eb"/><circle cx="235.3" cy="362.8" r="3.5" fill="#2563eb"/><circle cx="190.5" cy="291.7" r="3.5" fill="#2563eb"/><circle cx="145.3" cy="216.2" r="3.5" fill="#2563eb"/><circle cx="201.8" cy="146.8" r="3.5" fill="#2563eb"/><text x="280.0" y="44.0" text-anchor="middle" font-size="12.5" fill="#334155" font-weight="600">D1</text><text x="280.0" y="58.0" text-anchor="middle" font-size="11" fill="#64748b">市场需求 8.0</text><text x="406.0" y="89.9" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D2</text><text x="406.0" y="103.9" text-anchor="start" font-size="11" fill="#64748b">技术成熟度 8.9</text><text x="473.0" y="206.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D3</text><text x="473.0" y="220.0" text-anchor="start" font-size="11" fill="#64748b">社区生态 8.6</text><text x="449.7" y="338.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D4</text><text x="449.7" y="352.0" text-anchor="start" font-size="11" fill="#64748b">变现潜力 6.8</text><text x="347.0" y="424.2" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D5</text><text x="347.0" y="438.2" text-anchor="start" font-size="11" fill="#64748b">竞争格局 6.6</text><text x="213.0" y="424.2" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D6</text><text x="213.0" y="438.2" text-anchor="end" font-size="11" fill="#64748b">法律合规 8.6</text><text x="110.3" y="338.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D7</text><text x="110.3" y="352.0" text-anchor="end" font-size="11" fill="#64748b">企业就绪 6.8</text><text x="87.0" y="206.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D8</text><text x="87.0" y="220.0" text-anchor="end" font-size="11" fill="#64748b">团队治理 9.0</text><text x="154.0" y="89.9" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D9</text><text x="154.0" y="103.9" text-anchor="end" font-size="11" fill="#64748b">上手难度 8.0</text></svg></div>
+<div class="bars"><div class="bar-row"><span class="bar-name">D8 团队治理</span>
+<span class="bar-track"><span class="bar-fill" style="width:90.0%;background:#16a34a"></span></span>
+<span class="bar-val">9.0</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D2 技术成熟度</span>
+<span class="bar-track"><span class="bar-fill" style="width:89.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.9</span><span class="bar-w">权重14%</span></div>
+<div class="bar-row"><span class="bar-name">D3 社区生态</span>
+<span class="bar-track"><span class="bar-fill" style="width:86.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.6</span><span class="bar-w">权重11%</span></div>
+<div class="bar-row"><span class="bar-name">D6 法律合规</span>
+<span class="bar-track"><span class="bar-fill" style="width:86.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.6</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D1 市场需求</span>
+<span class="bar-track"><span class="bar-fill" style="width:80.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.0</span><span class="bar-w">权重13%</span></div>
+<div class="bar-row"><span class="bar-name">D9 上手难度</span>
+<span class="bar-track"><span class="bar-fill" style="width:80.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.0</span><span class="bar-w">权重10%</span></div>
+<div class="bar-row"><span class="bar-name">D4 变现潜力</span>
+<span class="bar-track"><span class="bar-fill" style="width:68.0%;background:#d97706"></span></span>
+<span class="bar-val">6.8</span><span class="bar-w">权重18%</span></div>
+<div class="bar-row"><span class="bar-name">D7 企业就绪</span>
+<span class="bar-track"><span class="bar-fill" style="width:68.0%;background:#d97706"></span></span>
+<span class="bar-val">6.8</span><span class="bar-w">权重8%</span></div>
+<div class="bar-row"><span class="bar-name">D5 竞争格局</span>
+<span class="bar-track"><span class="bar-fill" style="width:66.0%;background:#d97706"></span></span>
+<span class="bar-val">6.6</span><span class="bar-w">权重12%</span></div></div>
+<div class="meta">分析时点 2026-09-14 ｜ 数据来源：GitHub API + 仓库代码实测 ｜ 方法论 v1.3</div>
+<div class="credit">报告出品：@魔法工厂　@向量之心　@南山科学家</div>
+<div class="disclaimer"><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</div>
+</div><h1>Spec-kit 商业化潜力分析报告（完整版）</h1>
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家</p>
+<p>方法论版本: v1.3 | 综合评分: <strong>78.2</strong> | 等级: <strong>A（高商业化潜力）</strong> | 价值画像: 明星资产</p>
+</blockquote>
+<h2>一、项目概览</h2>
+<h3>1.1 基本信息</h3>
+<ul>
+<li><strong>项目名称 / 仓库地址</strong>：Spec Kit（<code>github/spec-kit</code>）</li>
+<li><strong>核心技术栈</strong>：Python（<code>requires-python &gt;=3.11</code>），CLI 基于 typer / click / rich / readchar 构建；9 个运行期依赖全部为主流 PyPI 纯 Python 包；代码总量 178,872 行（323 个源文件），测试 159 文件 / 115,845 行，test_ratio 0.652，18 条 CI workflow</li>
+<li><strong>社区规模速览</strong>：Star 136,385 / Fork 12,252（fork 比率 8.98%）/ 贡献者 285 / Watchers 704 / Open Issues 320；近 90 天新建 PR 1,094、关闭 Issue 553；28 天内发布 10 个 release</li>
+<li><strong>许可</strong>：MIT（版权人 Copyright GitHub, Inc.），无商业附加条款</li>
+<li><strong>分析时点 / 数据来源</strong>：项目创建于 2025-08-21，最近推送 2026-09-12，最新版本 v1.0.6（2026-09-10），首个稳定版 v1.0.0（2026-08-21）；数据来源为 GitHub 仓库元数据、仓库内文档与依赖清单、各维度分析阶段的实采与检索结果</li>
+</ul>
+<h3>1.2 项目分类标签</h3>
+<table>
+<thead>
+<tr>
+<th>分类维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>开发者工具（AI 辅助软件工程 / Spec-Driven Development 工具链，CLI + 开源生态）</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>通用/跨行业</td>
+</tr>
+<tr>
+<td>目标用户角色</td>
+<td>全栈开发者 / 后端开发者 / 产品经理 / 架构师 / 安全工程师</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>在写代码前把意图固化为可执行规格、计划与任务链；覆盖 greenfield / brownfield / 并行探索 / 缺陷修复 / 非软件创意评估</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>本地部署（支持 air-gapped 离线安装，CI / agent harness 非交互模式）；无服务端、无数据库</td>
+</tr>
+</tbody>
+</table>
+<h3>1.3 一句话定位</h3>
+<blockquote>
+<p>Spec Kit 是一个开源的规格驱动开发（SDD）工具包与 CLI，适用于任何使用 AI 编码 agent 的软件团队与行业，主要面向开发者、产品经理与架构师，用于在写代码之前把意图固化为可执行的规格、计划与任务链，让 AI agent 产出可控、可验证、可维护的软件。</p>
+</blockquote>
+<hr />
+<h2>二、安装部署与使用指南</h2>
+<blockquote>
+<p>Spec Kit 是一个 Python CLI 工具（<code>specify-cli</code>，MIT 协议），用于为 AI 编码代理引导 Spec-Driven Development（SDD）工作流。以下命令均取自仓库 README 与 <code>pyproject.toml</code> 原文。</p>
+</blockquote>
+<h3>1. 环境准备（Prerequisites）</h3>
+<p>README 明确列出以下前置条件：</p>
+<ul>
+<li><strong>Linux / macOS / Windows</strong></li>
+<li>一个受支持的 AI 编码代理（Spec Kit 支持 30+ 集成）</li>
+<li><a href="https://docs.astral.sh/uv/">uv</a>（推荐）或 <a href="https://pipx.pypa.io/">pipx</a>（持久安装）</li>
+<li><strong>Python 3.11+</strong>（<code>pyproject.toml</code> 中 <code>requires-python = "&gt;=3.11"</code>）</li>
+<li><a href="https://git-scm.com/downloads">Git</a></li>
+</ul>
+<h3>2. 安装 Specify CLI</h3>
+<p>README 的 SDD Quickstart 给出单条安装命令（需将 <code>vX.Y.Z</code> 替换为最新 release tag，保留前缀 <code>v</code>）：</p>
+<pre><code class="language-bash">uv tool install specify-cli --from git+https://github.com/github/spec-kit.git@vX.Y.Z
+</code></pre>
+<p>也可以直接从 PyPI 安装：</p>
+<pre><code class="language-bash">uv tool install specify-cli
+</code></pre>
+<p>文档中还提供了其他安装路径：<code>docs/install/uv.md</code>、<code>docs/install/pipx.md</code>、<code>docs/install/pypi.md</code>、<code>docs/install/air-gapped.md</code>（离线/气隙环境）、<code>docs/install/one-time.md</code>，以及汇总的 <code>docs/installation.md</code>（含验证、升级、排障）。</p>
+<h3>3. 初始化项目</h3>
+<pre><code class="language-bash">specify init my-project --integration copilot
+cd my-project
+</code></pre>
+<p>面向 CI 或无法发送方向键的 PTY 环境，使用 <code>--non-interactive</code> 避免初始化时卡在交互选择器；向非空目录初始化时叠加 <code>--force</code>：</p>
+<pre><code class="language-bash">specify init my-project --non-interactive --ignore-agent-tools
+specify init --here --force --non-interactive --integration claude
+</code></pre>
+<p>查看可用集成列表：</p>
+<pre><code class="language-bash">specify integration list
+</code></pre>
+<h3>4. CLI 自管理（检查更新 / 升级）</h3>
+<pre><code class="language-bash"># 检查是否有更新（只读，不修改任何东西）
+specify self check
+
+# 预览将要执行的操作，但不实际升级
+specify self upgrade --dry-run
+
+# 原地升级到最新稳定版（自动识别 uv tool / pipx 安装）
+specify self upgrade
+
+# 或固定到指定 release tag（替换 vX.Y.Z[suffix]）
+specify self upgrade --tag vX.Y.Z[suffix]
+</code></pre>
+<p>环境变量 <code>SPECIFY_UPGRADE_TIMEOUT_SECS</code> 可用于限制安装子进程的运行时长。</p>
+<h3>5. 核心 SDD 工作流（在项目目录中启动 AI 编码代理后执行）</h3>
+<p>README 的 SDD Quickstart 流程（多数代理以 <code>/speckit.*</code> 斜杠命令形式暴露；Codex CLI 与 Command Code 的 skills 模式使用 <code>$speckit-*</code>；GitHub Copilot CLI 使用 <code>/agents</code> 选择代理）：</p>
+<pre><code class="language-bash"># 0. 确立项目原则（每个项目一次性）
+/speckit.constitution Create principles focused on code quality, testing standards, user experience consistency, and performance requirements
+
+# 1. 定义要构建什么
+/speckit.specify Build an application that can help me organize my photos in separate photo albums. ...
+
+# 2. 制定技术实现计划
+/speckit.plan The application uses Vite with minimal number of libraries. ...
+
+# 3. 拆解为可执行任务
+/speckit.tasks
+
+# 4. 执行实现
+/speckit.implement
+
+# 5. 实现与规格/计划/任务的收敛校验（重复 4↔5 直至报告 Converged）
+/speckit.converge
+</code></pre>
+<p>可选的增强命令：<code>/speckit.clarify</code>、<code>/speckit.analyze</code>、<code>/speckit.checklist</code>、<code>/speckit.taskstoissues</code>。若集成支持 skills 模式，可传 <code>--integration &lt;agent&gt; --integration-options="--skills"</code> 安装 agent skills 而非斜杠命令提示文件。</p>
+<h3>6. 可选扩展：Bug 修复与想法评估</h3>
+<pre><code class="language-bash">specify extension add bug
+/speckit-bug-assess &quot;&lt;bug report&gt;&quot; slug=login-crash
+/speckit-bug-fix slug=login-crash
+/speckit-bug-test slug=login-crash
+
+specify extension add assess
+/speckit-assess-intake &quot;&lt;idea&gt;&quot; slug=offline-mode
+/speckit-assess-research slug=offline-mode
+/speckit-assess-define slug=offline-mode
+/speckit-assess-shape slug=offline-mode
+/speckit-assess-decide slug=offline-mode
+</code></pre>
+<h3>7. 扩展 / 预设 / 角色包（Bundle）</h3>
+<pre><code class="language-bash">specify extension search
+specify extension add &lt;extension-name&gt;
+specify preset search
+specify preset add &lt;preset-name&gt;
+
+specify bundle search [&lt;query&gt;]
+specify bundle info &lt;bundle-id&gt;
+specify bundle install &lt;bundle-id&gt;
+specify bundle list
+specify bundle update &lt;bundle-id&gt;     # 或 --all
+specify bundle remove &lt;bundle-id&gt;
+specify bundle catalog list|add|remove
+specify bundle validate --path ./my-bundle
+specify bundle build --path ./my-bundle
+</code></pre>
+<p><code>examples/bundles/</code> 下提供四份可直接阅读的示例 bundle manifest（product manager、business analyst、security researcher、developer）。</p>
+<h3>部署方案要点小结</h3>
+<p>Spec Kit 本体是<strong>单机 CLI 工具，无服务端、无数据库/缓存/消息队列等外部组件</strong>；安装后通过 <code>specify init</code> 在目标项目中生成 <code>.specify/</code> 工件与代理命令文件即可使用。<code>pyproject.toml</code> 的 <code>force-include</code> 段落将模板、命令、脚本（bash/powershell/python）、扩展、工作流、预设与社区目录快照全部打包进 wheel，因此 <code>specify init</code> 可在<strong>无网络（气隙/企业内网）</strong>环境下工作。素材中未出现 Dockerfile、docker-compose.yml 或 Helm Chart，本项目不提供容器化部署路径。</p>
+<h3>升级与维护</h3>
+<p>参见 <code>docs/upgrade.md</code>。升级时建议将 Spec Kit 工具链更新与 <code>specs/</code> 特性工件的演进分开处理（见 <code>docs/guides/evolving-specs.md</code> 的 brownfield 循环）。</p>
+<h2>三、评分总览</h2>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>权重</th>
+<th>加权得分</th>
+<th>评级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1 市场需求与商业机会</td>
+<td>8.0/10</td>
+<td>13%</td>
+<td>1.04</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D2 技术成熟度与产品质量</td>
+<td>8.9/10</td>
+<td>14%</td>
+<td>1.25</td>
+<td>优</td>
+</tr>
+<tr>
+<td>D3 社区健康度与生态势能</td>
+<td>8.6/10</td>
+<td>11%</td>
+<td>0.95</td>
+<td>优</td>
+</tr>
+<tr>
+<td>D4 商业模式与变现潜力</td>
+<td>6.8/10</td>
+<td>18%</td>
+<td>1.22</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D5 竞争格局与差异化壁垒</td>
+<td>6.6/10</td>
+<td>12%</td>
+<td>0.79</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D6 法律合规与知识产权</td>
+<td>8.6/10</td>
+<td>7%</td>
+<td>0.60</td>
+<td>优</td>
+</tr>
+<tr>
+<td>D7 企业就绪度与可运营性</td>
+<td>6.8/10</td>
+<td>8%</td>
+<td>0.54</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D8 团队治理与可持续性</td>
+<td>9.0/10</td>
+<td>7%</td>
+<td>0.63</td>
+<td>优</td>
+</tr>
+<tr>
+<td>D9 上手难度与易用性</td>
+<td>8.0/10</td>
+<td>10%</td>
+<td>0.80</td>
+<td>良</td>
+</tr>
+<tr>
+<td><strong>综合评分</strong></td>
+<td>—</td>
+<td>100%</td>
+<td><strong>78.2/100</strong></td>
+<td><strong>A（高商业化潜力）</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>平行维度（不计入综合评分）</strong></p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10 功能价值</td>
+<td>8.2/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>D11 社会价值</td>
+<td>7.0/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>公共价值分</td>
+<td>7.6/10</td>
+<td>(D10+D11)/2</td>
+</tr>
+</tbody>
+</table>
+<p><strong>一票否决检查</strong>：未触发。D6 维度总分 8.6（&gt; 3）；D8.4 细则小分 2.4（&gt; 1）；D4.1 细则小分 2.0（&gt; 0.5）。三项否决检查均完整执行，无 N/A 跳过项。</p>
+<p><strong>价值画像</strong>：⭐ 明星资产（综合评分 78.2 ≥ 65 且公共价值分 7.6 ≥ 7）。综合评分未落入 60–70 临界区间，公共价值分 7.6 亦不在 6.5–7.5 临界区间，画像判定明确，无需标注临界。</p>
+<blockquote>
+<p>各维度细则分值构成详见「四、各维度详细分析」。</p>
+</blockquote>
+<hr />
+<h2>四、各维度详细分析</h2>
+<h3>D1. 市场需求与商业机会（权重 13%）</h3>
+<h3>1.6 项目分类标签</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>开发者工具（主）· 数据与AI（AI 编码流程层）</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>通用/跨行业</td>
+</tr>
+<tr>
+<td>目标用户角色</td>
+<td>全栈开发者 · 后端开发者 · 产品经理 · 架构师（bundles 显式覆盖 PM / 业务分析师 / 安全研究员 / 开发者四类角色）</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>研发流程优化 · 原型验证 · 学习研究 · 企业内部工具（air-gapped 离线安装支持）</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>本地部署（CLI + 项目内模板/命令文件）· 混合部署（CI/agent harness 非交互模式）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>一句话定位</strong>：Spec Kit 是一个开源的规格驱动开发（SDD）工具包与 CLI，适用于任何使用 AI 编码 agent 的软件团队与行业，主要面向开发者、产品经理与架构师，用于在写代码之前把意图固化为可执行的规格、计划与任务链，从而让 AI agent 产出可控、可验证、可维护的软件。</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>小分</th>
+<th>满分</th>
+<th>档位</th>
+<th>判断依据摘要</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1.1 目标市场规模与增长性</td>
+<td>2.0</td>
+<td>2.5</td>
+<td>7–8（80%）</td>
+<td>对应 AI 编码工具/研发效能赛道，十亿美元级以上且高速扩张；但项目本身为 MIT 免费层，直接可触达付费面需经由 GitHub Copilot 生态</td>
+</tr>
+<tr>
+<td>D1.2 痛点真实性与解决程度</td>
+<td>2.0</td>
+<td>2.5</td>
+<td>7–8（80%）</td>
+<td>"agent 直出代码 → 不可控、不可维护"是明确痛点，方案完整（constitution→specify→plan→tasks→implement→converge）；但替代品众多且非强制刚需</td>
+</tr>
+<tr>
+<td>D1.3 市场时机判断</td>
+<td>2.0</td>
+<td>2.5</td>
+<td>7–8（80%）</td>
+<td>SDD 品类 2025 年随 agent 成熟而兴起，项目 1 年即到 1.0.0，格局未定；但先行者已密集（Kiro/OpenSpec/BMAD/各 agent 自带 plan 模式）</td>
+</tr>
+<tr>
+<td>D1.4 应用场景广度</td>
+<td>2.0</td>
+<td>2.5</td>
+<td>7–8（80%）</td>
+<td>跨行业、跨角色、跨 30+ agent，覆盖 greenfield/brownfield，并外溢到 bug 修复与"非软件创意评估"；但属流程层工具，非运行时基础设施</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>8.0</strong></td>
+<td><strong>10</strong></td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h3>D1.1 目标市场规模与增长性（2.0 / 2.5）</h3>
+<ul>
+<li><strong>TAM 估算（估算，未经外部数据验证，置信度中低）</strong>：项目问题域落在"AI 辅助软件工程 / AI 编码工具"赛道，量级为十亿美元级并向百亿美元级演进（无外部检索数据，仅按品类量级判断，不引用具体机构数字）。</li>
+<li><strong>增长趋势</strong>：扩张。硬证据在于项目自身的采纳曲线——2025-08-21 创建，至 2026-09 已达 136,385 stars、12,252 forks、285 contributors、近 90 天 1,094 个 PR、553 个 issue 关闭，且从 v0.16.x 快速迭代到 v1.0.0（2026-08-21）、v1.0.6（2026-09-10）。这种 adoption 速度本身就是下游市场扩张的强代理指标。</li>
+<li><strong>市场层级</strong>：成长期。SDD 作为一个"品类"在 2025–2026 才成形，尚未进入成熟红海。</li>
+<li><strong>减分点</strong>：项目自身是 MIT 免费 CLI，其"可直接变现的 TAM"远小于"它所服务的 TAM"；付费面主要在 agent/Copilot 订阅与生态位，而非本仓库。</li>
+</ul>
+<h3>D1.2 痛点真实性与解决程度（2.0 / 2.5）</h3>
+<ul>
+<li><strong>痛点真实性</strong>：真实且被广泛讨论。README 明确针对"agent 从报告直接跳到补丁、缺少诊断验证"（bug 工作流）与"一次性 prompt 生成代码"（SDD 工作流）两类失控场景。136k stars、12k forks、1,094 PR/90 天的社区投入，是需求真实性的硬性旁证——伪需求项目无法维持这种贡献密度。</li>
+<li><strong>解决完整度</strong>：较完整。提供 constitution → specify → plan → tasks → implement → converge 的闭环，附 clarify / analyze / checklist 质量门；并通过 extension / preset / bundle 三级扩展体系（含优先级解析栈与离线目录快照）覆盖定制需求；<code>specify bundle install</code> 可一键为 PM/BA/安全/开发四种角色配置完整栈。</li>
+<li><strong>替代成本</strong>：低—中。替代品包括各 agent 自带的 plan 模式、AWS Kiro、OpenSpec、BMAD-METHOD、Tessl，以及"直接用自然语言提示"这一零成本方案。</li>
+<li><strong>减分点</strong>：规格驱动并非"非用不可"，对多数个人开发者是流程偏好而非生存刚需；且方案本质是"提示词工程 + 模板 + CLI 脚手架"的组合，技术护城河偏浅，易被 agent 厂商内建功能吸收。</li>
+</ul>
+<h3>D1.3 市场时机判断（2.0 / 2.5）</h3>
+<ul>
+<li><strong>技术成熟度曲线</strong>：恰在拐点。LLM 已具备可用的规格解析与长链任务执行能力，agent 从"期望膨胀期"向"实质生产期"迁移，spec-kit 正是这一阶段的方法论配套产物（README 中"1.0.0 只是一个数字，价值已从稳定性转向适应性"的表述也印证 agent 迭代成本下降这一前提）。</li>
+<li><strong>竞争密度</strong>：中等偏密。品类仅 1–2 年历史，尚无垄断者，但先行者已多（云厂商 SDD 产品、开源 SDD 框架、agent 内置规划模式）。GitHub/Microsoft 的分发能力（Copilot 集成、30+ agent 集成列表）构成显著卡位优势。</li>
+<li><strong>监管/标准</strong>：无明显政策驱动；但"行业标准/组织合规"是潜需求，preset 机制显式支持合规追踪与强制审计门（如"合规导向的 spec 格式""强制安全评审门"），属于可由企业治理需求拉动的方向。</li>
+<li><strong>结论</strong>：处于品类早期、格局未定，属良好时机；但"爆发前夜"级别的独占窗口已被多方同时争抢，未给满分。</li>
+</ul>
+<h3>D1.4 应用场景广度（2.0 / 2.5）</h3>
+<ul>
+<li><strong>行业覆盖</strong>：几乎所有行业（通用/跨行业），无行业绑定；文档明确包含 air-gapped / 企业离线安装路径，指向政府、金融等强合规行业可用。</li>
+<li><strong>场景多样性</strong>：极宽。覆盖 greenfield 0→1、并行方案探索、brownfield 遗留系统现代化与迭代增强；除主流程外还内建 bug 修复（assess→fix→test）与创意评估（intake→research→define→shape→decide→go/clarify/kill，且不限于软件）两条旁支工作流。</li>
+<li><strong>可延展性</strong>：强。extension/preset/bundle 三级机制 + 优先级解析栈 + 离线社区目录，使能力可迁移到 Jira 集成、代码评审、V-Model 可追溯性等相邻场景；CI 中已存在 <code>add-community-extension/preset/bundle</code> 的自动化工作流，说明生态扩展被工程化支持。</li>
+<li><strong>减分点</strong>：定位在研发"流程层"而非运行时基础设施，未被其他系统作为依赖调用；对不使用 AI agent 的团队价值接近于零。</li>
+</ul>
+<h3>结论</h3>
+<p>Spec Kit 处在一个 <strong>真实、高速扩张、且时机尚早</strong> 的市场位置上：它不是伪需求，而是被 136k stars/12k forks/285 贡献者在 13 个月内用行动投票验证过的真需求；其应用面横跨所有行业、所有 AI agent（30+ 集成）与所有研发阶段（新建、迭代、现代化、缺陷修复），并已通过 bundles 把适用角色从开发者扩展到 PM/BA/安全。主要商业化折价来自三点：(1) 项目本身 MIT 全免费，无直接收费面，价值主要通过 GitHub Copilot 生态与"事实标准"地位兑现；(2) 解决方案技术护城河偏浅，agent 厂商内建规划能力可能侵蚀需求；(3) 替代品密集，用户切换成本低。综合判断为 <strong>8.0/10</strong>——市场需求与广度是该项目最扎实的维度之一，但"市场大"不等于"本项目能直接变现"。</p>
+<p><strong>数据置信度说明</strong>：无外部市场规模检索数据，D1.1 的 TAM 量级为品类估算（未验证，置信度中低）；D1.2–D1.4 判断均基于仓库内硬事实（stars/forks/contributors/PR 与 issue 吞吐/发布节奏/文档与扩展体系）与 README 明述能力。</p>
+<h3>D2. 技术成熟度与产品质量（权重 14%）</h3>
+<p><strong>评估对象</strong>: github/spec-kit（GitHub 官方 Spec-Driven Development 工具包）
+<strong>核心证据</strong>: 178,872 行 Python（323 个源文件）· 159 个测试文件 / 115,845 行测试代码（test_ratio 0.652）· 18 个 CI workflow · 120 个文档文件 · 285 位贡献者 · MIT · 已发布 v1.0.0→v1.0.6（2026-08-21 ~ 2026-09-10）· Python ≥ 3.11 · 90 天内 1094 个 PR、关闭 553 个 Issue</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>得分档位</th>
+<th>小分</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D2.1</td>
+<td>产品设计与创新性</td>
+<td>1.5</td>
+<td>100%</td>
+<td><strong>1.50</strong></td>
+<td>SDD 方法论的开创性实现，定义并主导了一个新开发范式；GitHub 官方背书、136k star、生态（30+ Agent 集成 / 扩展 / 预设 / bundle / 工作流）差异化显著</td>
+</tr>
+<tr>
+<td>D2.2</td>
+<td>架构设计与工程质量</td>
+<td>2.0</td>
+<td>80%</td>
+<td><strong>1.60</strong></td>
+<td>分层清晰、抽象恰当（IntegrationBase/StepBase/CatalogStackBase）、复刻难度高；但存在 5500+/4700+/3000+ 行超大文件、跨模块私有符号导入、多套 catalog 逻辑重复等债务</td>
+</tr>
+<tr>
+<td>D2.3</td>
+<td>代码整洁性与规范性</td>
+<td>1.0</td>
+<td>80%</td>
+<td><strong>0.80</strong></td>
+<td>命名规范、类型注解完整、注释详尽（引用 issue 号）、ruff 配置并锁定安全规则；但部分函数 &gt;200 行、存在复制粘贴（render/shim/catalog 校验）</td>
+</tr>
+<tr>
+<td>D2.4</td>
+<td>安全性</td>
+<td>1.0</td>
+<td>100%</td>
+<td><strong>1.00</strong></td>
+<td>独立的 <code>_download_security.py</code>（有界下载/防 zip bomb/路径穿越/ZIP64 拒绝/SSRF/重定向校验），<code>shell=False</code> 强制、凭据清洗、SHA-256 校验、CodeQL+security workflow、SECURITY.md</td>
+</tr>
+<tr>
+<td>D2.5</td>
+<td>UI/UX/UE 人机交互</td>
+<td>1.0</td>
+<td>80%</td>
+<td><strong>0.80</strong></td>
+<td>交互式 CLI：自研 BannerGroup、StepTracker 进度、方向键选择面板、Rich 转义防注入、错误提示带 Tip/Suggestion，终端体验良好（判定为适用）</td>
+</tr>
+<tr>
+<td>D2.6</td>
+<td>功能完备度与稳定性</td>
+<td>1.5</td>
+<td>80%</td>
+<td><strong>1.20</strong></td>
+<td>功能极完整且已发布 1.0+，跨平台（bash/powershell/python）、支持 air-gapped、硬件无特殊要求；但 3 周内迭代 7 个版本、CLI 输出为英文硬编码、i18n 仅限文档</td>
+</tr>
+<tr>
+<td>D2.7</td>
+<td>文档与开发者体验</td>
+<td>1.0</td>
+<td>100%</td>
+<td><strong>1.00</strong></td>
+<td>120 个文档文件，含 concepts/guides/install/reference/quickstart，DocFX 部署到 GitHub Pages，README + 中文版 + CHANGELOG/CONTRIBUTING/DEVELOPMENT/SECURITY/AGENTS</td>
+</tr>
+<tr>
+<td>D2.8</td>
+<td>测试与质量保障</td>
+<td>1.0</td>
+<td>100%</td>
+<td><strong>1.00</strong></td>
+<td>115,845 行测试（含 unit/integration/contract/parity/e2e），pytest+pytest-cov，test/lint/codeql/security/extension-version-guard 多层门禁</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10.0</strong></td>
+<td></td>
+<td><strong>8.90</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>D2.5 判定为<strong>适用</strong>：项目虽为 CLI，但具备方向键选择、进度追踪、面板化输出等交互式终端体验，符合方法论中"交互式 CLI 适用"的界定。</p>
+</blockquote>
+<h3>结论</h3>
+<p><strong>D2 = 8.90 / 10（卓越偏上，接近"远超行业平均"）</strong></p>
+<p><strong>优势</strong>：
+1. <strong>产品创新性顶尖</strong>——Spec Kit 是 Spec-Driven Development 范式的定义者，围绕"constitution→specify→plan→tasks→implement"构建了完整工具链，并覆盖 30+ AI Agent 集成，差异化和生态护城河极强。
+2. <strong>工程安全实践处于第一梯队</strong>——从有界下载、安全解压、符号链接/路径穿越防御到凭据清洗、常量时间比较、CodeQL 与 security workflow，安全编码已成为系统性工程而非零星修补。
+3. <strong>质量保障体系完备</strong>——65% 的高测试代码比、跨 bash/powershell/python 的 parity 测试、多 workflow 质量门禁，且已进入 v1.0.x 稳定迭代期。
+4. <strong>文档与可复刻难度双高</strong>——面向开发者与企业的文档体系完善；工作流引擎、表达式沙箱、多 Agent 集成矩阵带来显著的技术门槛。</p>
+<p><strong>短板与风险</strong>：
+1. <strong>代码规模偏大</strong>——178,872 行（323 文件）对 CLI 引导工具而言体量庞大，多个核心模块达 3000~5500 行，存在臃肿与可维护性隐忧，构成"代码量与功能复杂度匹配度"的扣分项。
+2. <strong>模块化债务</strong>——跨模块导入私有符号、catalog/校验/渲染逻辑多处重复、循环依赖靠大量 lazy import 规避，静态分析友好度下降。
+3. <strong>国际化不足</strong>——CLI 面向全球却输出英文硬编码，仅文档提供 zh-CN，对全球化商业交付有影响。
+4. <strong>迭代节奏快</strong>——3 周内 7 个 release 且存在布局迁移逻辑，向后兼容性需持续观察。</p>
+<p><strong>商业化交付判断</strong>：技术成熟度<strong>足以支撑商业化交付</strong>，安全性与质量保障是显著加分项；主要改进方向是拆分超大模块、抽离公共逻辑、补齐 CLI 层 i18n。</p>
+<h3>D3. 社区健康度与生态势能</h3>
+<p><strong>维度权重</strong>: 11% | <strong>维度得分</strong>: 8.6 / 10</p>
+<p>spec-kit 是 GitHub 官方发起的 SDD（Spec-Driven Development）工具链项目，上线约一年即积累 13.6 万 Star、285 名贡献者，并已建成带社区目录（community catalog）的扩展/Preset/Bundle 插件体系。社区规模与生态势能在本评估中处于「远超行业平均」区间，是该项目的核心商业化资产之一（社区≈潜在客户池）。</p>
+<h3>D3.1 社区活跃度指标（满分 3 分，得分 3.0）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Star 增速</td>
+<td>约 10,739 Star/月（退化口径：136,381 ÷ 12.7 个月）</td>
+<td>远超 &gt;500/月 的 9–10 档阈值</td>
+</tr>
+<tr>
+<td>Fork 比率</td>
+<td>12,252 / 136,381 = <strong>8.98%</strong></td>
+<td>衍生意愿强，处于健康区间上沿</td>
+</tr>
+<tr>
+<td>Issue 活跃度</td>
+<td>近 90 天 PR 1,094 个 + Issue 关闭 553 个 ≈ <strong>18.3 事件/天</strong></td>
+<td>社区参与度极高</td>
+</tr>
+<tr>
+<td>响应速度</td>
+<td>90 天内关闭 553 个 Issue、仅 320 个开放；近 28 天发布 10 个 release（约 2.3 个/周）</td>
+<td>维护节奏高频，积压比例低，间接显示响应迅速</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判定依据</strong>：
+- Star 增速使用「Star 数 ÷ 项目年龄(月)」的退化公式计算。需注意：本项目创建于 2025-08-21、最近推送 2026-09-12，年龄仅约 12.7 个月，属于<strong>年轻项目</strong>，退化公式不会产生老项目那种「低估近期增速」的典型偏差，因此该口径下的 10,739 Star/月 具有较高可信度。即便考虑早期曝光红利，其量级仍在 9–10 档阈值（&gt;500/月）的 20 倍以上。
+- Issue 平均关闭时间未直接采集到（GitHub API 未返回该字段），但「90 天关闭 553 个 / 当前开放 320 个」的存留比、叠加每周 2+ 次的 release 节奏，可合理判定响应能力处于活跃档位。该指标为<strong>间接推断</strong>，置信度中等。
+- Fork 比率 8.98% 表明相当比例的访客有实际二次修改/派生意图，而非单纯「收藏式」Star。</p>
+<p><strong>得分</strong>：3.0 / 3.0（100%，9–10 档）</p>
+<h3>D3.2 贡献者结构多样性（满分 2.5 分，得分 2.0）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>贡献者数量</td>
+<td><strong>285 名贡献者</strong>；近 90 天 1,094 个 PR</td>
+<td>远超「50+ 活跃贡献者」上限，社区规模充足</td>
+</tr>
+<tr>
+<td>组织多样性</td>
+<td>项目归属 <code>github</code> 组织；README 明确强调「shaped by far more people than those who started it」，并设有社区扩展/包目录</td>
+<td>呈社区驱动特征，但缺少数组织归属的直接统计</td>
+</tr>
+<tr>
+<td>核心团队占比</td>
+<td>无 PR 作者组织归属的直接数据</td>
+<td><strong>数据缺失</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>判定依据</strong>：
+- 贡献者总量 285 人（GitHub API <code>contributors</code> 字段口径为累计去重贡献者），配合 90 天 1,094 个 PR 的高流量，可以支撑「活跃贡献者规模落在 50+ 档」的判断。
+- 但本项目由 GitHub 官方主导发起，长期存在明显的「单一主导厂商 + 外部社区」结构，与评分指引中 9–10 档「来自 10+ 组织、外部贡献占比高」的要求尚有差距；外部贡献者的组织来源无法从素材中量化验证。
+- 按 7–8 档（20–50 贡献者、来自 5+ 组织）判定偏保守，但考虑到 285 人规模已远超该档上限、且社区扩展生态显示外部参与，取 80% 档位。</p>
+<blockquote>
+<p>说明：本细则仅从社区规模视角评估；「核心维护者离开后的传承风险」归 D8.1 巴士因子，此处不重复计分。</p>
+</blockquote>
+<p><strong>得分</strong>：2.0 / 2.5（80%，7–8 档）</p>
+<h3>D3.3 第三方生态成熟度（满分 3 分，得分 2.4）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测证据</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>插件/扩展</td>
+<td>内置 <code>extensions/</code>（git、agent-context、assess、bug）、<code>presets/</code>（lean、constitution-sync）、<code>bundles/</code>（含 <code>catalog.community.json</code> 社区目录）；文档含 <code>docs/community/extensions.md</code>、<code>presets.md</code>、<code>bundles.md</code></td>
+<td>拥有<strong>可安装的插件市场雏形</strong>（<code>specify extension add &lt;name&gt;</code> / <code>specify preset add &lt;name&gt;</code>）</td>
+</tr>
+<tr>
+<td>集成生态</td>
+<td>README 专章 "Supported AI Coding Agent Integrations"；<code>docs/reference/integrations.md</code>；<code>specify init --integration copilot</code> 等多 Agent 接入；18 个 CI workflow（含 publish-pypi、codeql、lint）</td>
+<td>已与主流 AI 编码 Agent 深度集成并进入 CI/CD 链路</td>
+</tr>
+<tr>
+<td>衍生项目</td>
+<td>存在社区贡献扩展/包/预设的提交工作流（add-community-extension/bundle/preset），但<strong>无成功商业衍生品证据</strong></td>
+<td>有社区衍生，无商业衍生</td>
+</tr>
+<tr>
+<td>教程/课程</td>
+<td><code>docs/community/walkthroughs.md</code>、<code>docs/community/friends.md</code>、README 中 Video Overview；外部教程/课程数据未采集</td>
+<td>官方教程完善，外部课程未验证</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判定依据</strong>：
+- 该项目已从「单一 CLI 工具」演进为「核心 + 扩展 + 预设 + 角色化 Bundle」的平台化架构，并建立了社区目录（community catalog）与配套的社区提交流水线（<code>add-community-*.lock.yml</code>），这是第三方生态成熟度的强信号。
+- 未达到 9–10 档的核心缺口在于：缺少「成功商业衍生品」与「被主流云平台/IDE 官方集成」的直接证据，插件市场仍以官方内置 + 社区目录为主，而非独立繁荣的第三方市场。
+- 归入 7–8 档（有一定数量的插件和集成），取 80%。</p>
+<p><strong>得分</strong>：2.4 / 3.0（80%，7–8 档）</p>
+<h3>D3.4 品牌认知与行业影响力（满分 1.5 分，得分 1.2）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测证据</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>品牌辨识度</td>
+<td>由 <code>github</code> 官方组织发布；一年内 13.6 万 Star；README 以「Spec Kit Turns One — and Ships 1.0.0」里程碑与主维护者周年博客强化品牌叙事</td>
+<td>在 AI 编码 / SDD 领域具备高辨识度</td>
+</tr>
+<tr>
+<td>行业采用</td>
+<td>项目归属 GitHub，README 设「Does Spec Kit Use Spec Kit?」自证章节；但<strong>具体企业采用名单未采集</strong></td>
+<td>有头部厂商背书，企业采用清单缺失</td>
+</tr>
+<tr>
+<td>媒体覆盖</td>
+<td>主维护者个人博客周年文、官方 GitHub Pages 文档站；技术媒体/会议报道未采集</td>
+<td>数据不足</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判定依据</strong>：
+- 品牌层面表现突出：GitHub 官方出品 + 一年 13.6 万 Star + 1.0.0 里程碑传播，使其在 AI 辅助开发领域具备明确的领域内认知度，符合 7–8 档「领域内有较高认知度，有知名企业背书」。
+- 未取 9–10 档的原因：素材中缺少头部企业采用案例清单、技术会议演讲、媒体覆盖等硬证据，无法确认「频繁出现在技术会议」与「被头部企业广泛采用」。
+- 考虑品牌势能实际上接近顶格，但依据证据从严，取 80%。</p>
+<p><strong>得分</strong>：1.2 / 1.5（80%，7–8 档）</p>
+<h3>维度小结</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D3.1 社区活跃度指标</td>
+<td>3.0</td>
+<td>3.0</td>
+<td>9–10（100%）</td>
+</tr>
+<tr>
+<td>D3.2 贡献者结构多样性</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8（80%）</td>
+</tr>
+<tr>
+<td>D3.3 第三方生态成熟度</td>
+<td>3.0</td>
+<td>2.4</td>
+<td>7–8（80%）</td>
+</tr>
+<tr>
+<td>D3.4 品牌认知与行业影响力</td>
+<td>1.5</td>
+<td>1.2</td>
+<td>7–8（80%）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>8.6</strong></td>
+<td><strong>良好偏卓越</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：spec-kit 的社区与生态势能是其最突出的商业化资产。13.6 万 Star（约 10,739 Star/月的退化口径增速）、8.98% Fork 比率、18.3 事件/天的 90 天互动量，共同构成一个量级庞大的<strong>开发者潜在客户池</strong>；285 名贡献者与「核心+扩展+预设+Bundle+社区目录」的平台化架构，则说明项目已具备生态自生长能力。主要短板有二：一是贡献者组织多样性数据不透明、项目仍带有明显的 GitHub 单一主导厂商色彩（D3.2 未达顶档）；二是第三方生态虽已成体系，但<strong>缺乏可验证的商业衍生品与企业采用清单</strong>，意味着「生态势能」向「付费转化」的证据链尚未闭合（D3.3、D3.4）。此外，Star 增速采用退化公式估算、Issue 平均关闭时间为间接推断，建议在商业化决策报告中标注该置信度限制。</p>
+<h3>D4. 商业模式与变现潜力（权重 18%）</h3>
+<blockquote>
+<p><strong>核心判断</strong>：Spec Kit 是 GitHub（微软）官方出品的战略性开源工具，采用 MIT 协议、面向全组织、并通过 PyPI 公开分发。它本身<strong>没有直接收费点</strong>，其商业逻辑属于典型的"以开源工具培育/强化付费生态（GitHub Copilot、GitHub Enterprise）"的互补品战略，而非独立变现的产品。这决定了"商业模式的清晰度"更多体现在<strong>战略价值捕获路径</strong>，而非<strong>产品自身收入</strong>。</p>
+</blockquote>
+<h3>D4.1 协议对变现模式的影响（满分 2 分）</h3>
+<p><strong>实测硬事实</strong>：
+- <code>LICENSE</code> 文件为 <strong>MIT License</strong>，Copyright GitHub, Inc.；
+- <code>extensions/template/LICENSE</code> 同样为 MIT 模板；
+- <code>pyproject.toml</code> 中 <code>pyproject</code> 无 SPDX 冲突声明，PyPI 包名 <code>specify-cli</code>；
+- 无任何附加条款、无 CLA 强制商业化限制、无 SSPL/BUSL 型限制。</p>
+<p><strong>判断</strong>：MIT 是最宽松的协议类型，对 Open Core、SaaS 托管、双协议、专业服务、市场/插件抽成等<strong>全部变现路径均无法律约束</strong>。协议层面不构成任何商业化障碍。</p>
+<table>
+<thead>
+<tr>
+<th>评分档</th>
+<th>得分</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>9–10 档（100%）</td>
+<td><strong>2 / 2</strong></td>
+<td>MIT，所有变现路径无障碍</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>D4.2 变现路径清晰度（满分 3.5 分）</h3>
+<p><strong>实测硬事实</strong>：
+- <strong>市场/插件路径基础扎实</strong>：项目内置完整的生态分发架构——<code>specify extension/preset/bundle</code> 体系，<code>bundle.yml</code> 清单、<code>specify bundle validate/build</code> 打包工具链、<strong>优先级目录栈（project &gt; user &gt; built-in）</strong> 与 <strong>安装策略（<code>install-allowed</code> / <code>discovery-only</code>）</strong>、社区目录快照 <code>bundles/catalog.community.json</code>、社区提交 issue 模板（<code>bundle_submission.yml</code>）、以及 <code>extensions/EXTENSION-PUBLISHING-GUIDE.md</code>、<code>presets/PUBLISHING.md</code> 两套发布指南。这套架构在形态上等价于 VS Code / Obsidian 的插件市场。
+- <strong>企业向路径已有配套</strong>：<code>docs/install/air-gapped.md</code>（离线/气隙安装）、wheel 中 <code>force-include</code> 核心资产以支持无网络环境、README 明确面向 "your whole organization"、<code>Experimental Goals</code> 中列出 "Enterprise constraints / 组织约束 / 合规要求"、内置 <code>presets</code> 支持合规导向的 spec 格式与安全审查门禁。
+- <strong>专业化服务/生态认证路径</strong>：作为 GitHub 官方项目，天然具备企业级支持、培训、认证的落地渠道（复用 GitHub Enterprise 销售体系）。
+- <strong>SaaS 托管路径弱</strong>：本项目是本地 CLI + 模板 + 命令资产的工具，无服务端组件，托管型变现不适用。
+- <strong>Open Core / 双协议路径未见</strong>：仓库中不存在企业版闭源模块或商业授权声明，CLI 功能完全开源。</p>
+<p><strong>判断</strong>：项目具备"市场/生态 + 企业增值"这一主路径的<strong>架构基础</strong>，且其母体（GitHub/Microsoft）拥有现成的企业销售渠道与先例（Next.js→Vercel、.NET→Microsoft 生态）可参照。但<strong>项目自身未设置任何收费 SKU、未启用收入分成、未做功能分层</strong>，变现路径是"间接的、由母体承接的"，而非项目自身的清晰收入线。</p>
+<table>
+<thead>
+<tr>
+<th>评分档</th>
+<th>得分</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5–6 档（60%）</td>
+<td><strong>2.1 / 3.5</strong></td>
+<td>生态/市场架构与企业增值方向明确，但均为间接路径、无直接收费点，尚需母体产品承接验证</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>D4.3 付费转化逻辑（满分 2.5 分）</h3>
+<p><strong>实测硬事实</strong>：
+- <strong>无付费分层</strong>：README/文档中不存在 "Pro / Enterprise / Paid" 版本，无功能门控；
+- <strong>无付费触发点</strong>：CLI、模板、扩展、预设、捆绑包、气隙安装、合规门禁等均免费且 MIT；
+- <strong>主动支持竞品</strong>：README 明确支持 <strong>30+ AI Coding Agent</strong>（Claude Code、Codex CLI、Cursor 等），<code>specify init --integration copilot</code> 仅为默认选项之一；工具的价值"不依赖于任何单一 agent"，这显著稀释了向 GitHub Copilot 的锁定与转化力；
+- <strong>潜在组织级触发点</strong>：面向"全组织"的规模化部署、SSO/合规、气隙环境、企业设计系统等需求，可自然指向 GitHub Enterprise / Copilot Business/Enterprise 的席位采购——但这是<strong>组织级、间接</strong>的触发，且与 Spec Kit 的直接因果关系较弱。</p>
+<p><strong>判断</strong>：从项目自身看，用户"永远不需要为 Spec Kit 付费"，也不存在"免费不够用→升级"的自然触发点；转化发生在母体的其他产品上，因果链长、归属度低。属于"付费逻辑勉强、用户更愿意用免费版"的情形。</p>
+<table>
+<thead>
+<tr>
+<th>评分档</th>
+<th>得分</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5–6 档（60%）</td>
+<td><strong>1.5 / 2.5</strong></td>
+<td>存在组织级间接转化逻辑（→Copilot/Enterprise 席位），但项目自身无任何付费触发点，且 agent 中立性削弱锁定</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>D4.4 增值服务空间与定价天花板（满分 2 分）</h3>
+<p><strong>实测硬事实</strong>：
+- <strong>增值方向明确</strong>：企业级 SLA/支持、私有目录托管（<code>discovery-only</code> 内部源）、合规预设（regulatory traceability）、安全审查门禁、组织级 bundle 分发、培训/咨询——这些都能映射到母体付费产品；
+- <strong>可扩展的收入维度</strong>：可从 per-seat（Copilot/Enterprise 席位）扩展到 org-wide flat fee（Enterprise 协议），大型组织客单价可超 $10K+/年；
+- <strong>天花板约束</strong>：上述收入<strong>不可直接归属</strong>于 Spec Kit，需依附于 GitHub Copilot（约 $19–39/席位/月）与 GitHub Enterprise（约 $21–39/席位/月）的既有定价；项目自身无独立定价权，纯工具层面无客单价。</p>
+<p><strong>判断</strong>：增值空间真实存在（合规、气隙、私有目录、SLA、培训），且借由母体的 per-seat 定价具备向上扩展潜力，但<strong>定价权与收入归属均在母体产品侧</strong>，项目自身的定价天花板与收入扩展性无法独立评估。</p>
+<table>
+<thead>
+<tr>
+<th>评分档</th>
+<th>得分</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5–6 档（60%）</td>
+<td><strong>1.2 / 2</strong></td>
+<td>增值方向与企业级客单价空间存在，但依附母体产品，项目自身无定价权与独立 SKU</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>D4 维度汇总</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D4.1 协议对变现模式的影响</td>
+<td>2.0</td>
+<td><strong>2.0</strong></td>
+<td>100%（9–10 档）</td>
+</tr>
+<tr>
+<td>D4.2 变现路径清晰度</td>
+<td>3.5</td>
+<td><strong>2.1</strong></td>
+<td>60%（5–6 档）</td>
+</tr>
+<tr>
+<td>D4.3 付费转化逻辑</td>
+<td>2.5</td>
+<td><strong>1.5</strong></td>
+<td>60%（5–6 档）</td>
+</tr>
+<tr>
+<td>D4.4 增值服务空间与定价天花板</td>
+<td>2.0</td>
+<td><strong>1.2</strong></td>
+<td>60%（5–6 档）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>6.8</strong></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：Spec Kit 的 D4 得分为 <strong>6.8 / 10（一般偏上）</strong>。其商业模式的本质是<strong>"战略性互补品"</strong>——以 MIT 协议、零门槛的免费开发工具培育并强化 GitHub Copilot / GitHub Enterprise 的付费生态，而非自身作为收费产品。协议层面（MIT）无任何约束是其最大优势；生态与市场架构（extensions / presets / bundles + 目录栈 + 安装策略 + 发布流程）已具备插件市场的完整骨架，企业向能力（气隙安装、合规预设、组织约束）也已内置。但其<strong>直接变现路径缺失</strong>：无付费 SKU、无功能分层、无收入分成，且刻意保持对 30+ AI agent 的中立性，削弱了向 Copilot 的锁定与转化。因此该项目适合被评估为"母体生态战略资产"，其商业价值需在 GitHub Copilot/Enterprise 的合并口径下衡量——若作为独立产品审视，其变现能力仅为行业平均。</p>
+<p><strong>主要风险/不确定性</strong>：
+1. 收入归属度低，难以独立核算 Spec Kit 的商业贡献；
+2. Agent 中立定位可能进一步稀释母体产品的转化优势；
+3. 若 GitHub 未来转向 Open Core（企业版闭源模块），D4.2/D4.3 有上调空间（参照 Elastic/Redis 路径）。</p>
+<h1>D5. 竞争格局与差异化壁垒</h1>
+<p><strong>维度得分:6.6 / 10</strong>(D5.1 2.4/3 + D5.2 1.8/3 + D5.3 1.2/2 + D5.4 1.2/2)</p>
+<hr />
+<h3>D5.1 竞品对比与市场定位(2.4 / 3)</h3>
+<h3>竞品验证说明(重要)</h3>
+<p>本次竞品采集使用 GitHub Search API 关键词检索,返回结果如下(<strong>已通过 API 确认仓库真实存在</strong>),但<strong>逐条核实后发现命中质量极低</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>竞品名称</th>
+<th>类型</th>
+<th>仓库/官网</th>
+<th>验证方式</th>
+<th>Star/用户量</th>
+<th>核心差异</th>
+<th>是否构成竞品</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>redhat-cop/openshift-toolkit</td>
+<td>—</td>
+<td>github.com/redhat-cop/openshift-toolkit</td>
+<td>GitHub 搜索确认</td>
+<td>236★</td>
+<td>OpenShift 代码示例集合,2022 年后停更</td>
+<td>❌ 关键词误命中,与 SDD 无关</td>
+</tr>
+<tr>
+<td>Waveform-Analytics/science-spec-kit</td>
+<td>衍生(fork)</td>
+<td>github.com/Waveform-Analytics/science-spec-kit</td>
+<td>GitHub 搜索确认</td>
+<td>4★</td>
+<td>描述为自己项目的描述改写("For SCIENCE!")</td>
+<td>❌ 本项目 fork,非独立竞品</td>
+</tr>
+<tr>
+<td>dan1901/spec-mix-fk</td>
+<td>衍生(fork)</td>
+<td>github.com/dan1901/spec-mix-fk</td>
+<td>GitHub 搜索确认</td>
+<td>2★</td>
+<td>描述与本项目逐字相同,已归档</td>
+<td>❌ fork 改名,非竞品</td>
+</tr>
+<tr>
+<td>admrotob/malware-analysis-toolkit</td>
+<td>—</td>
+<td>github.com/admrotob/malware-analysis-toolkit</td>
+<td>GitHub 搜索确认</td>
+<td>1★</td>
+<td>Windows Sandbox 配置</td>
+<td>❌ 关键词误命中</td>
+</tr>
+<tr>
+<td>mahiguch/madrkit</td>
+<td>间接相关</td>
+<td>github.com/mahiguch/madrkit</td>
+<td>GitHub 搜索确认</td>
+<td>1★</td>
+<td>Markdown 架构决策记录(MADR)工具</td>
+<td>⚠️ 方法论相邻,非同一问题</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>结论</strong>:本次 GitHub 搜索(基于 description 关键词)未能命中任何<strong>有效直接竞品</strong>,返回的 5 条中 2 条为本项目 fork、2 条为无关项目关键词误命中、1 条为方法论相邻工具。这说明该搜索策略<strong>不足以支撑竞品对比</strong>,而非"市场上没有竞品"。</p>
+</blockquote>
+<h3>补充竞品清单(未经本次搜索验证,存在偏差风险)</h3>
+<p>以下为同类赛道中<strong>据领域知识可知存在</strong>的项目/产品。<strong>本次未通过 GitHub Search API 或 Web 搜索逐一验证其当前状态,Star 数/用户量未知</strong>,引用前必须复核:</p>
+<table>
+<thead>
+<tr>
+<th>竞品名称</th>
+<th>类型</th>
+<th>仓库/官网(待复核)</th>
+<th>验证方式</th>
+<th>Star/用户量</th>
+<th>核心差异</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AWS Kiro</td>
+<td>直接竞品(商业)</td>
+<td>kiro.dev</td>
+<td>⚠️ 未验证</td>
+<td>—</td>
+<td>商业 spec-driven <strong>IDE</strong>,与 AWS 生态绑定;本项目为 agent-agnostic 的 CLI + 模板层</td>
+</tr>
+<tr>
+<td>OpenSpec</td>
+<td>直接竞品(开源)</td>
+<td>github.com/Fission-AI/OpenSpec</td>
+<td>⚠️ 未验证</td>
+<td>—</td>
+<td>面向 AI 编码助手的 spec 工作流,定位相近</td>
+</tr>
+<tr>
+<td>BMAD-METHOD</td>
+<td>直接竞品(开源)</td>
+<td>github.com/bmad-code-org/BMAD-METHOD</td>
+<td>⚠️ 未验证</td>
+<td>—</td>
+<td>Agentic Agile 全流程(BMAD 角色体系),覆盖面更广、更重</td>
+</tr>
+<tr>
+<td>Agent OS</td>
+<td>直接竞品(开源)</td>
+<td>github.com/buildermethods/agent-os</td>
+<td>⚠️ 未验证</td>
+<td>—</td>
+<td>为 AI Agent 提供 spec/standards 上下文层</td>
+</tr>
+<tr>
+<td>Tessl</td>
+<td>间接竞品(商业)</td>
+<td>tessl.io</td>
+<td>⚠️ 未验证</td>
+<td>—</td>
+<td>"Spec-driven AI native development",走商业化平台路线</td>
+</tr>
+<tr>
+<td>cc-sdd</td>
+<td>直接竞品(开源)</td>
+<td>github.com/gotalab/cc-sdd</td>
+<td>⚠️ 未验证</td>
+<td>—</td>
+<td>Kiro 风格 SDD 工作流,但绑定单一 Agent(Claude Code)</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>防幻觉声明</strong>:上表 6 项<strong>均未经本次搜索验证</strong>,仅作为定位参照,不参与硬数据计分。若需正式结论,须补做 GitHub Search API + Web 搜索验证。</p>
+</blockquote>
+<h3>定位清晰度评估</h3>
+<p><strong>本项目定位明确且高度差异化</strong>,依据 README 原文硬事实:</p>
+<ol>
+<li><strong>"with any AI coding agent"——厂商中立</strong>:README 明确 "works with 30+ AI coding agents — both CLI tools and IDE-based assistants",并支持 <code>--integration</code> 多 Agent 切换。这直接区别于 Kiro(绑定 AWS IDE)、cc-sdd(绑定 Claude Code)等单 Agent 方案。</li>
+<li><strong>"or bring your own"——流程可替换</strong>:通过 extensions / presets / bundles 三层机制,允许替换核心流程模板,而非锁定作者方法论。</li>
+<li><strong>GitHub 官方出品 + MIT 许可</strong>:136,385★ / 12,252 fork / 285 贡献者,是该赛道事实上的<strong>品类定义者与分发中心</strong>。</li>
+<li><strong>"built for your whole organization"</strong>:角色化 Bundle(PM / BA / 安全研究员 / 开发者)+ 离线安装 + 企业合规预设,明确切入组织级场景。</li>
+</ol>
+<p><strong>扣分理由</strong>:尽管本项目处于 OSS 领先地位,但该赛道<strong>已形成多方竞争</strong>(商业 IDE、其他开源方法论框架、平台化产品并存),并非"无直接竞品"的独占格局;且本项目相对竞品的差异化主要来自<strong>中立性与生态广度</strong>而非不可复制的技术优势。</p>
+<p><strong>小分:2.4 / 3(80% 档,对应 7–8 分档)</strong>——"有竞品但本项目有明确差异化定位"。</p>
+<hr />
+<h3>D5.2 技术壁垒与网络效应(1.8 / 3)</h3>
+<h3>技术壁垒:薄弱</h3>
+<table>
+<thead>
+<tr>
+<th>核查项</th>
+<th>实测事实</th>
+<th>壁垒判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>核心资产形态</td>
+<td>Python CLI(178,872 行)+ Markdown 模板/命令文件</td>
+<td>模板为纯文本,可逐字复制</td>
+</tr>
+<tr>
+<td>专利/专有算法</td>
+<td>无(补采数据与仓库内容均未体现专利)</td>
+<td>无专利壁垒</td>
+</tr>
+<tr>
+<td>许可</td>
+<td>MIT</td>
+<td>允许任意 fork 与商用二次分发</td>
+</tr>
+<tr>
+<td>实际被复刻情况</td>
+<td>已出现 <code>science-spec-kit</code>、<code>spec-mix-fk</code> 等 fork/改名版本</td>
+<td>复刻门槛极低</td>
+</tr>
+<tr>
+<td>依赖栈</td>
+<td>typer / click / rich / pyyaml / pathspec 等通用库</td>
+<td>无独占依赖</td>
+</tr>
+</tbody>
+</table>
+<p>CLI 的核心逻辑是<strong>文件脚手架生成 + 模板解析</strong>,不含模型、不含私有数据、不含需要长期积累的算法资产。<code>specify init</code> 的输出是<strong>写入用户项目的 Markdown 与脚本</strong>——这意味着产物本身即公开可读、可迁移。</p>
+<h3>网络效应:中等偏弱,但真实存在</h3>
+<p><strong>存在的网络效应</strong>:</p>
+<ul>
+<li><strong>生态目录效应</strong>:bundles 走"优先级排序的 catalog stack"(project &gt; user &gt; built-in),并内置 <code>bundles/catalog.community.json</code> 社区目录快照,携带 install-policy(<code>install-allowed</code> / <code>discovery-only</code>)——<strong>扩展越多 → 目录越有价值 → 吸引更多扩展作者</strong>,是典型双边网络效应雏形。</li>
+<li><strong>集成广度</strong>:30+ AI Agent 集成意味着每新增一个 Agent,既有用户的迁移价值提升;反之 Agent 厂商也有动力适配本项目。</li>
+<li><strong>贡献者规模</strong>:285 名贡献者、90 天 1,094 个 PR、553 个 issue 关闭、git 内含独立的 <code>add-community-extension.lock.yml</code> 等 18 个 CI workflow —— 贡献吞吐量对同期项目属高位。</li>
+</ul>
+<p><strong>削弱网络效应的因素</strong>:</p>
+<ul>
+<li><strong>无数据飞轮</strong>:项目不收集用户数据,也不因用户增多而让模型/推荐变好。</li>
+<li><strong>无锁定型网络</strong>:扩展与预设是<strong>安装期写入本地文件</strong>的,用户无需联网、无需注册、无中央账户体系,不存在"离开即失去社交资产"的效应。</li>
+<li><strong>规模不带来成本优势</strong>:纯本地 CLI,边际成本恒为零,但也因此<strong>规模扩大不产生任何成本护城河</strong>。</li>
+</ul>
+<h3>结论</h3>
+<p><strong>无技术壁垒 + 中等强度生态网络效应</strong>,构成"单一护城河且不深"的组合,符合 5–6 分档("有一定壁垒但不深厚")。</p>
+<p><strong>小分:1.8 / 3(60% 档,对应 5–6 分档)</strong>。</p>
+<hr />
+<h3>D5.3 切换成本与用户粘性(1.2 / 2)</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测分析</th>
+<th>粘性判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>迁移成本(个人开发者)</strong></td>
+<td>产物是 <code>specs/</code> 下的 Markdown + <code>.specify/</code> 配置,<strong>格式公开、无私有编码</strong>;换用其他工具理论上可手工搬运</td>
+<td>低</td>
+</tr>
+<tr>
+<td><strong>迁移成本(组织)</strong></td>
+<td>需重建 <code>constitution.md</code>、预设模板、Bundle 组合、CI 中的 <code>specify</code> 调用与 agentic workflow(仓库内即含 feature-assess / bug-fix / bug-test 等多个 .lock.yml)</td>
+<td>中高</td>
+</tr>
+<tr>
+<td><strong>深度集成度</strong></td>
+<td><code>specify init</code> 会把命令文件<strong>写入 Agent 目录</strong>(如 <code>.claude/commands/</code>、<code>.github/prompts/</code>),并注册 slash command / agent skill;集成有实际深度,但均为<strong>文件级</strong>而非 API/服务级</td>
+<td>中等</td>
+</tr>
+<tr>
+<td><strong>习惯锁定</strong></td>
+<td>SDD 是<strong>流程性依赖</strong>:团队一旦把"constitution → specify → plan → tasks → implement → converge"嵌入研发流程,替换等于重做工程流程并重新培训全员</td>
+<td>中高</td>
+</tr>
+<tr>
+<td><strong>反例(降低粘性)</strong></td>
+<td>项目自身强调"bring your own process",且扩展/预设可随时 <code>remove</code>(非破坏性);许可 MIT,无商业合约约束</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>关键判断</strong>:粘性来源不是<strong>技术锁定</strong>,而是<strong>组织流程惯性</strong>。单人项目可一天内切换;已按角色 Bundle 编排团队工作流的组织,切换成本接近"重做研发流程"。项目自身定位为"可被替换的流程层",这既是卖点也是粘性上限。</p>
+<p><strong>小分:1.2 / 2(60% 档,对应 5–6 分档)</strong>——"迁移成本中等,有部分粘性"。</p>
+<hr />
+<h3>D5.4 护城河可持续性(1.2 / 2)</h3>
+<h3>优势增强信号(实测)</h3>
+<ul>
+<li><strong>迭代速度极快</strong>:v1.0.0(2026-08-21)→ v1.0.6(2026-09-10),<strong>20 天内发布 6 个版本</strong>;90 天 1,094 个 PR。项目仍在加速而非收敛。</li>
+<li><strong>生态机制刚成型</strong>:extensions / presets / bundles 三层体系 + 目录栈 + 安装策略,是 1.0 后才完备的能力,护城河<strong>正在被构筑</strong>。</li>
+<li><strong>品类定义者地位</strong>:136,385★、12,252 fork、285 贡献者,已成为 SDD 话题的默认引用对象。</li>
+<li><strong>GitHub 官方背书 + Copilot 生态</strong>:分发渠道与默认可见性极强。</li>
+<li><strong>Dogfooding 闭环</strong>:项目自身用 Spec Kit 开发 Spec Kit(<code>feature-assess</code> workflow),方法论自我验证。</li>
+</ul>
+<h3>颠覆风险信号</h3>
+<ol>
+<li><strong>平台方下沉(最大风险)</strong>:AI 编码 Agent / IDE 厂商(AWS Kiro、Anthropic Claude Code、Cursor 等)完全有能力把 spec-driven 流程<strong>原生化</strong>。一旦主流 IDE 内置 spec 工作流,第三方流程工具的存在空间将被大幅压缩。<strong>Kiro 的 spec-driven IDE 已是明牌挑战者。</strong></li>
+<li><strong>流程层天然可商品化</strong>:SDD 的载体是 Markdown 提示词模板,竞争者可用更低成本复刻核心命令集,差异化主要靠生态和品牌而非能力。</li>
+<li><strong>赛道拥挤度上升</strong>:同类开源方法论框架(多个,须复核)在同一时间窗内争夺"AI 开发方法论"标准位。</li>
+<li><strong>技术变革敞口</strong>:若 Agent 能力演进到"无需显式 spec 即可高质量产出",整个品类的价值前提会被削弱——项目自身在 README 中亦承认 "1.0.0 is now just a number",价值从<strong>稳定性</strong>转向<strong>适应性</strong>,反映其对不确定性的清醒认知。</li>
+</ol>
+<h3>结论</h3>
+<p>护城河<strong>当前稳定且仍在加深</strong>(生态机制、迭代速度、品牌),但同时面临<strong>明确的、来自平台方的中长期颠覆风险</strong>。属于典型的"中性偏乐观"格局:短期(1–2 年)优势清晰,中长期取决于 Agent 厂商是否选择自建而非集成——而项目"agent-agnostic"的中立定位恰恰是对冲这一风险的核心策略。</p>
+<p><strong>小分:1.2 / 2(60% 档,对应 5–6 分档)</strong>——"护城河一般,有中等颠覆风险"。</p>
+<hr />
+<h3>结论</h3>
+<p><strong>github/spec-kit 在 D5 维度得分 6.6 / 10</strong>,呈现"<strong>定位清晰、生态领先,但技术壁垒与锁定力薄弱</strong>"的典型开源方法论项目特征:</p>
+<ul>
+<li><strong>强项(D5.1)</strong>:作为 SDD 品类的定义者,GitHub 官方出品 + agent-agnostic 中立定位 + 30+ Agent 集成 + extensions/presets/bundles 生态,差异化定位明确,在 OSS 阵营中明显领先。</li>
+<li><strong>弱项(D5.2)</strong>:核心技术资产是 MIT 许可的 Python CLI 与 Markdown 模板,<strong>无专利、无算法、无数据飞轮</strong>,已被实际 fork/改名;护城河几乎全部来自生态网络效应与品牌。</li>
+<li><strong>中性(D5.3、D5.4)</strong>:切换成本来自组织流程惯性而非技术锁定,对个人用户极低、对组织团队中等偏高;护城河当前稳定加深,但面对 IDE/Agent 厂商"原生集成 spec 流程"的中长期颠覆风险。</li>
+</ul>
+<p><strong>置信度提示</strong>:本维度 D5.1 的竞品对比<strong>存在显著数据缺口</strong>——GitHub Search API 返回的 5 条结果经核实均不构成有效直接竞品,补充竞品清单<strong>未经搜索验证</strong>。因此 D5.1 的判断部分依赖领域知识与仓库内文本(README 明确定位、docs/community/friends.md 的存在),该细则置信度低于其余三项。建议后续补齐 GitHub Search API 多关键词检索 + Web 搜索验证后再复核 D5.1 得分。</p>
+<h3>商业化启示</h3>
+<ul>
+<li><strong>不适合靠技术授权变现</strong>:无壁垒可授权。</li>
+<li><strong>适合靠生态位与分发变现</strong>:作为组织级 SDD 标准的入口(角色 Bundle、企业预设、合规模板),价值在于"成为团队默认流程"而非"技术领先"。</li>
+<li><strong>时间窗口敏感</strong>:中立定位是本项目对抗平台方下沉的唯一结构性优势,应尽快把生态目录转化为组织级采用惯性,在 IDE 原生 spec 能力普及前锁定企业客户流程。</li>
+</ul>
+<h3>D6. 法律合规与知识产权</h3>
+<p><strong>维度得分: 8.6 / 10</strong>（权重 7%）</p>
+<h3>D6.1 开源协议合规性与商业限制（满分 3 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测情况</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>协议明确性</td>
+<td>根目录存在标准 MIT LICENSE 文件，版权人明确为 "Copyright GitHub, Inc."；GitHub API 与本地采集均识别为 MIT；扩展模板另附独立 MIT LICENSE（<code>extensions/template/LICENSE</code>）</td>
+<td>明确规范</td>
+</tr>
+<tr>
+<td>copyleft 传染性</td>
+<td>项目自身为 MIT（非 copyleft）；运行时不依赖任何 GPL/AGPL 组件（详见 D6.2）</td>
+<td>无传染风险</td>
+</tr>
+<tr>
+<td>商业附加条款</td>
+<td>未发现 Commons Clause、BUSL、SSPL 等限制商业使用的附加条款；README、LICENSE、pyproject.toml 中无任何商业限制声明</td>
+<td>无附加限制</td>
+</tr>
+</tbody>
+</table>
+<p>MIT 是宽松许可中最适合商业化的档位之一：允许闭源再分发、允许 SaaSS 化、允许双协议（项目版权集中于 GitHub, Inc.，法律主体单一）。唯一可挑之处是 <code>pyproject.toml</code> 未显式声明 <code>license</code> / <code>license-files</code> 字段（PEP 621 规范项），属工程规范细节而非法律障碍。按评分指引应为 9–10 档。</p>
+<blockquote>
+<p>说明：协议类型对<strong>变现模式选择</strong>的影响已在 D4.1 评估，本细则不重复计分；此处仅确认其在法律合规层面无传染范围、无附加条款、可管理性极高。</p>
+</blockquote>
+<p><strong>小分: 3.0 / 3.0（100%，9–10 档）</strong></p>
+<h3>D6.2 依赖链法律风险（满分 2.5 分）</h3>
+<p>运行时依赖清单（来自 <code>pyproject.toml</code>，共 9 项）：</p>
+<table>
+<thead>
+<tr>
+<th>依赖</th>
+<th>用途</th>
+<th>协议</th>
+<th>风险</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>typer&gt;=0.24.0</td>
+<td>CLI 框架</td>
+<td>MIT</td>
+<td>无</td>
+</tr>
+<tr>
+<td>click&gt;=8.2.1</td>
+<td>CLI 底层</td>
+<td>BSD-3-Clause</td>
+<td>无</td>
+</tr>
+<tr>
+<td>rich</td>
+<td>终端渲染</td>
+<td>MIT</td>
+<td>无</td>
+</tr>
+<tr>
+<td>platformdirs</td>
+<td>平台目录</td>
+<td>MIT</td>
+<td>无</td>
+</tr>
+<tr>
+<td>readchar</td>
+<td>单字符输入</td>
+<td>MIT</td>
+<td>无</td>
+</tr>
+<tr>
+<td>pyyaml&gt;=6.0</td>
+<td>YAML 解析</td>
+<td>MIT</td>
+<td>无</td>
+</tr>
+<tr>
+<td>packaging&gt;=23.0</td>
+<td>版本解析</td>
+<td>Apache-2.0 / BSD-2</td>
+<td>无</td>
+</tr>
+<tr>
+<td>pathspec&gt;=0.12.0</td>
+<td>gitignore 匹配</td>
+<td>MPL-2.0</td>
+<td>弱 copyleft，文件级，未修改源码则无义务</td>
+</tr>
+<tr>
+<td>json5&gt;=0.13.0</td>
+<td>JSON5 解析</td>
+<td>Apache-2.0</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>传染性依赖数量</strong>: 0 个 GPL/AGPL/SSPL 类强传染依赖；仅 <code>pathspec</code> 为 MPL-2.0（文件级弱 copyleft，作为未修改的库依赖使用不触发源码开放义务，属行业惯例可接受范围）。</li>
+<li><strong>依赖数量</strong>: 运行时 9 个、测试 2 个（pytest / pytest-cov，均为 MIT），合计 11 个，规模很小，合规审查成本低。</li>
+<li><strong>依赖来源</strong>: 全部为主流 PyPI 上的高知名度包，维护者均为可信组织/个人，无来源不明的包、无 git URL 直装、无私有 index。</li>
+<li><strong>配套治理</strong>: 项目设有 <code>security.yml</code>、<code>codeql.yml</code> 工作流，并在 CONTRIBUTING.md 中提供 <code>pip-audit --require-hashes</code> 的哈希锁定审计快照（<code>.github/security-audit-requirements.txt</code>），依赖来源可追溯、可复现。</li>
+</ul>
+<p>传递依赖未逐条实测（无 lock 文件全量依赖树数据），但基于线性小体量依赖集与成熟上游，风险极低。按评分指引为 9–10 档。</p>
+<p><strong>小分: 2.5 / 2.5（100%，9–10 档）</strong></p>
+<h3>D6.3 商标与专利风险（满分 2.5 分）</h3>
+<p><strong>⚠️ 未经人工核查，置信度低。</strong> 商标检索（USPTO/EUIPO/CNIPA）与专利 FTO 排查无法通过自动化手段完成，本报告不基于模型记忆对 "Spec Kit" / "specify" 名称的商标可注册性或项目所属技术领域（AI 辅助软件开发、代码生成工作流）的专利风险作任何断言。</p>
+<p>可供人工核查的线索（非结论）：
+- 项目归属为 <strong>GitHub, Inc.</strong>（Microsoft 旗下），"GitHub" 及其相关标识本身为强注册商标；项目对外分发时名称使用需注意 GitHub 品牌使用政策，而非 "Spec Kit" 自身的可注册性。
+- "Spec Kit" 为通用描述性词汇组合（Specification + Kit），在多数司法辖区可能面临<strong>显著性不足</strong>从而难以独立注册为商标的问题；同时其描述性也降低了侵犯他人在先商标权的概率。
+- 仓库内 <strong>未发现独立的 TRADEMARK.md 或商标使用政策文件</strong>（文档清单中无该项），即项目未对衍生品/商业分叉的名称使用作出明确约束，这对商业分叉方是中性偏有利的（无额外名称限制），但也意味着无官方名称保护背书。</p>
+<p>按自动化限制规则，本细则默认落入 5–6 档。</p>
+<p><strong>小分: 1.5 / 2.5（60%，5–6 档，未经人工核查）</strong></p>
+<h3>D6.4 贡献者协议完备性（满分 2 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测情况</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CLA/DCO</td>
+<td><strong>无独立 CLA 文件、无 CLA Assistant 配置</strong>；CONTRIBUTING.md 顶部声明 "Contributions to this project are released to the public under the project's open source license"，并链接 GitHub Terms of Service §6（inbound=outbound 条款）。属于<strong>隐式 inbound=outbound 贡献协议</strong>，而非正式 CLA 或显式 DCO sign-off 要求</td>
+<td>有基本协议，无正式 CLA</td>
+</tr>
+<tr>
+<td>版权归属</td>
+<td>LICENSE 版权人为单一实体 <strong>"Copyright GitHub, Inc."</strong>，贡献经 ToS §6 归入仓库许可，版权高度集中且可控——若未来需要双协议/商业授权，法律主体清晰，谈判与再授权路径通畅</td>
+<td>有利</td>
+</tr>
+<tr>
+<td>贡献流程</td>
+<td>CONTRIBUTING.md 极为详尽：分支命名规范、取证门槛（evidence gate）、7 维评审评分表、triage/author 标签体系、AI 贡献披露强制要求、AI 辅助 PR 的关闭标准；另有 CODE_OF_CONDUCT.md、PULL_REQUEST_TEMPLATE.md、SECURITY.md、SUPPORT.md、AGENTS.md、<code>.github/skills/</code> 技能文档；社区扩展目录另设 <code>integrations/CONTRIBUTING.md</code> 与自动化校验工作流</td>
+<td>规范程度高于行业平均</td>
+</tr>
+</tbody>
+</table>
+<p>扣分点在于：inbound=outbound 依赖 GitHub 平台条款的<strong>默示推定</strong>，在贡献者并非通过 GitHub PR 渠道提交、或未来变更托管平台时，版权链的确定性弱于显式 CLA/DCO；且 285 名贡献者的版权虽通过 ToS 汇聚，但缺少显式的版权转让/许可确认环节。</p>
+<p>按评分指引，介于「7–8 有基本贡献协议和流程」与「9–10 有完善 CLA/DCO」之间，因缺失正式 CLA/DCO 归入 7–8 档。</p>
+<p><strong>小分: 1.6 / 2.0（80%，7–8 档）</strong></p>
+<h3>D6 维度小结</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D6.1 开源协议合规性与商业限制</td>
+<td>3.0</td>
+<td>3.0</td>
+<td>9–10</td>
+</tr>
+<tr>
+<td>D6.2 依赖链法律风险</td>
+<td>2.5</td>
+<td>2.5</td>
+<td>9–10</td>
+</tr>
+<tr>
+<td>D6.3 商标与专利风险</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6（未经人工核查）</td>
+</tr>
+<tr>
+<td>D6.4 贡献者协议完备性</td>
+<td>2.0</td>
+<td>1.6</td>
+<td>7–8</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>8.6</strong></td>
+<td><strong>8.6 / 10</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>: 本项目在 D6 维度处于<strong>良好偏卓越</strong>水平（8.6/10）。作为 GitHub, Inc. 官方发起的项目，其法律基础面显著优于同类开源工具：MIT 宽松许可 + 零 copyleft 传染 + 无商业附加条款，意味着<strong>所有主流商业化路径（SaaS、企业版闭源增强、双协议、托管服务、咨询/培训）在法律上均无协议层硬障碍</strong>；9 项运行时依赖全部为宽松许可，合规审查成本极低；版权集中于单一法律实体，为未来双协议或商业授权保留了最大弹性。</p>
+<p>主要减分来自两处<strong>非阻断性</strong>因素：其一，商标与专利状态无法自动核查，按规则保守取 5–6 档（1.5/2.5），这是<strong>数据可得性限制而非项目缺陷</strong>，需人工商标检索后修正；其二，项目采用 GitHub ToS inbound=outbound 的隐式贡献协议而非显式 CLA/DCO，版权链在平台外场景下的确定性稍弱，但 285 名贡献者 + 单一版权人的结构仍使版权可控性处于行业上游。</p>
+<p><strong>总体判断：无法律硬伤，不构成商业化阻断。</strong> 建议商业化前补齐两项人工尽职调查——(1) 目标市场（US/EU/CN）对 "Spec Kit" 与 "GitHub Spec Kit" 的商标检索；(2) 若走企业闭源增强路线，由法务复核 GitHub ToS §6 对贡献代码再许可的边界。</p>
+<h3>D7. 企业就绪度与可运营性</h3>
+<blockquote>
+<p><strong>维度定位说明</strong>：spec-kit（specify-cli）是一个纯本地 CLI 开发者工具（MIT、Python ≥3.11、依赖仅 typer/click/rich/pyyaml/packaging/pathspec/json5 等 9 个），<strong>不存在服务端、数据库或常驻进程</strong>。因此 D7.3（水平扩展/高可用/集群）所评估的对象在本项目中整体不适用，按方法论标记 N/A 并从维度满分中剔除，其余细则得分等比缩放（维度置信度相应下调）。</p>
+</blockquote>
+<h3>D7.1 运维复杂度与升级路径（3 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>配置管理</td>
+<td>良好</td>
+<td>采用 <code>pyproject.toml</code> + <code>.specify/</code> 下 YAML/JSON（<code>integration.json</code>、<code>init-options.json</code>、<code>*-catalogs.yml</code>）+ 大量 <code>SPECKIT_*</code> 环境变量；<code>_agent_config</code> 提供脚本类型等白名单。CLI 工具无需配置中心，属合理形态</td>
+</tr>
+<tr>
+<td>运维负担</td>
+<td>极低</td>
+<td>无服务端组件、无数据库、无常驻进程，运维模型即"安装在开发者机器上"。<code>specify check</code> 提供自诊断，<code>specify integration status</code> 提供只读健康报告</td>
+</tr>
+<tr>
+<td>升级路径</td>
+<td>良好</td>
+<td><code>_version.py</code> 实现 <code>specify self</code> 自升级：安装方式三级探测（路径前缀→editable→uv/pipx 注册表）、生成 <code>UpgradePlan</code>、子进程执行并 <code>_verify_upgrade</code> 二次校验；<code>docs/upgrade.md</code> 有专门文档；发布节奏快（v1.0.0 于 2026-08-21，到 v1.0.6 于 2026-09-10，约 1 个月内 7 个补丁版本）</td>
+</tr>
+<tr>
+<td>数据迁移/回滚</td>
+<td>良好</td>
+<td>基于 SHA-256 的 <code>IntegrationManifest</code> 追踪受管文件，升级时保留用户已修改文件（仅哈希未变才删除），<code>shared_infra</code> 做陈旧文件清理；<code>integration_switch</code> 采用两阶段提交 + 失败回滚；但<strong>包级升级本身无显式回滚</strong>，需回退版本号重装</td>
+</tr>
+</tbody>
+</table>
+<p><strong>小分：8 / 10 → 2.4 / 3</strong>（"运维成本可控、升级基本平滑"，未达"自动回滚 + 数据自动迁移"的 9–10 档）</p>
+<hr />
+<h3>D7.2 安全管理与权限控制（2.5 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>认证授权</td>
+<td>部分具备</td>
+<td><code>authentication/</code> 模块支持 GitHub / Azure DevOps 的 token 获取（<code>open_url</code>、az cli、client-credentials、<code>_StripAuthOnRedirect</code> 防重定向泄露）；但服务于"访问私有 catalog/registry"，<strong>无面向企业用户的 SSO/LDAP/SAML</strong></td>
+</tr>
+<tr>
+<td>权限模型</td>
+<td>缺失</td>
+<td>无 RBAC/ABAC；工具为单用户本地 CLI，无角色概念</td>
+</tr>
+<tr>
+<td>审计日志</td>
+<td>缺失</td>
+<td>无操作审计、无安全日志留存</td>
+</tr>
+<tr>
+<td>数据安全</td>
+<td>良好</td>
+<td><code>_download_security.py</code> 全套：HTTPS/localhost 强制、SHA-256 常量时间校验（<code>hmac.compare_digest</code>）、ZIP/tar 安全解压（防 zip bomb、路径穿越、ZIP64、控制字符）、响应大小上限；路径限制到项目根（逐级符号链接检查）；<code>_version._scrubbed_env</code> 剥离 <code>GH_*</code>/<code>GITHUB_*</code> 凭据；但无静态加密（无数据存储，属 N/A）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>小分：5 / 10 → 1.5 / 2.5</strong>（"有简单认证，权限管理粗粒度"——实际是"有凭据处理、无企业权限体系"）</p>
+<hr />
+<h3>D7.3 可扩展性与高可用能力（2.5 分）</h3>
+<blockquote>
+<p><strong>N/A</strong>：本项目为本地 CLI，无水平扩展、集群部署、故障转移、单点故障、分布式一致性等适用对象。其"扩展性"表现为插件架构（extensions/presets/bundles/workflows），但该能力已由 D5/D6 类维度覆盖，与本细则的服务器扩缩容语义不同。按方法论，本细则标记 N/A，不计入评分，不判 0 分。</p>
+</blockquote>
+<p><strong>小分：N/A</strong></p>
+<hr />
+<h3>D7.4 集成兼容与可观测性（2 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>API 完备性</td>
+<td>良好</td>
+<td>无 REST/gRPC 服务端 API，但提供稳定的机器可消费接口：<code>--json</code> 输出（<code>integration_status</code>、<code>preset_list</code>、<code>integration_list</code>、<code>bundle --json</code> 等）、<code>_feature_capabilities</code> 能力标志、结构化状态报告（<code>build_integration_status_report</code> 产出稳定 JSON，findings 分级 ok/warning/error）</td>
+</tr>
+<tr>
+<td>标准协议</td>
+<td>缺失</td>
+<td>无 OpenTelemetry/Prometheus 导出；但提供 agent 运行时<strong>事件/钩子机制</strong>（<code>events.py</code> 的 <code>session_start</code>/<code>pre_tool_use</code> 等，<code>__speckit_event__</code> 标记所有权），可对接各 AI 编码代理，属私有协议</td>
+</tr>
+<tr>
+<td>监控告警</td>
+<td>部分具备</td>
+<td>无指标/告警；<code>specify check</code> 与 <code>integration status</code> 承担健康检查角色，检测清单缺失、受管文件被改/丢失、路径不安全、多集成冲突</td>
+</tr>
+<tr>
+<td>日志体系</td>
+<td>部分具备</td>
+<td>使用 Python <code>logging</code>，有级别区分；<code>--json</code> 保证 stdout 可解析、错误走 stderr；但无统一结构化日志框架，CLI 场景下要求不高</td>
+</tr>
+</tbody>
+</table>
+<p><strong>小分：6 / 10 → 1.2 / 2</strong>（"有 API 但监控/日志薄弱"）</p>
+<hr />
+<h3>结论</h3>
+<ul>
+<li><strong>维度得分（剔除 N/A 细则后等比缩放）</strong>：(2.4 + 1.5 + 1.2) ÷ (3 + 2.5 + 2) × 10 = <strong>6.8 / 10</strong></li>
+<li><strong>核心判断</strong>：作为<strong>纯本地 CLI 开发者工具</strong>，spec-kit 的"可运营性"天然优良——无服务端运维负担、升级通过 <code>specify self</code> 平滑完成、基于哈希清单的受管文件机制在升级时保护用户改动、并配有 <code>docs/upgrade.md</code> 与 <code>air-gapped.md</code> 使升级与离线部署路径清晰。供应链与下载安全（SHA-256 校验、路径穿越防护、凭据清洗）达到同类工具的较高水准。</li>
+<li><strong>主要短板</strong>：面向<strong>企业级多用户治理</strong>的能力薄弱——无 SSO/RBAC/审计日志，无标准可观测协议（OTel/Prometheus），无集群/高可用概念。这与其"个人与团队本地开发辅助工具"的定位一致，但对"企业级付费客户"的集中化管控需求构成障碍，是商业化（尤其企业版/托管服务方向）需要补齐的方向。</li>
+<li><strong>置信度说明</strong>：D7.3 整体不适用导致维度权重经缩放，且安全/可观测性判断部分依据代码摘要（非全量代码），整体置信度中等。若项目后续推出托管/团队协作形态，应重新评估 D7.2–D7.4。</li>
+</ul>
+<h3>D8. 团队治理与可持续性（权重 7%）</h3>
+<p><strong>目的</strong>: 评估项目背后的团队是否具备持续运营和商业化的能力——人是最关键的商业化要素。</p>
+<h4>细则打分表</h4>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D8.1 核心维护者能力与背景</td>
+<td>2.5</td>
+<td>2.5</td>
+<td>9–10（100%）</td>
+<td>仓库归属于 <strong><code>github</code> 组织</strong>（GitHub, Inc. / Microsoft），属厂商一方（first-party）项目，维护者为公司全职团队而非业余志愿者；CODE_OF_CONDUCT 与 SECURITY.md 均指向 <code>opensource@github.com</code> / <code>opensource-security@github.com</code> 的官方开源团队流程；贡献者 285 人，bus factor 远高于 5；团队具备成熟的企业级开源运营与产品化经验（Copilot/devcontainer/Codespaces 生态联动）</td>
+</tr>
+<tr>
+<td>D8.2 治理模型透明度</td>
+<td>2.0</td>
+<td>1.6</td>
+<td>7–8（80%）</td>
+<td>治理过程文档化程度较高：CONTRIBUTING.md 含正式的 <strong>evidence gate</strong>、7 维 × 0–2 分的 <strong>triage rubric（满分 14）</strong>、verdict/author 双标签体系、分支命名规范、AI 贡献强制披露政策；另有 RELEASE-PROCESS.md、CODE_OF_CONDUCT（Contributor Covenant v1.4）、SECURITY.md、SUPPORT.md、<code>.specify/memory/constitution.md</code>、18 个 CI 工作流（codeql/security/publish-pypi/stale）。<strong>扣分项</strong>：目录中无 GOVERNANCE.md，无正式的多方治理委员会，不属于 CNCF/Apache/Linux Foundation 等中立基金会，最终决策权归属 GitHub 核心团队（商业实体主导），未达到「决策完全透明 + 知名基金会」的 9–10 档</td>
+</tr>
+<tr>
+<td>D8.3 资金支持与商业赞助</td>
+<td>2.5</td>
+<td>2.5</td>
+<td>9–10（100%）</td>
+<td>项目由 <strong>GitHub（Microsoft）作为大公司全职团队运营</strong>，属于公司战略投入而非依赖捐赠；发布链路自动化（publish-pypi.yml、release.yml、release-trigger.yml）与 PyPI 上 <code>specify-cli</code> 包的持续发布（v1.0.7.dev0）表明有工程化资源投入；资金/人力可持续性明确优于「靠赞助或志愿者」的档位。注：素材未提供 GitHub Sponsors / Open Collective 明细，但公司实体支撑本身已满足最高档判定条件</td>
+</tr>
+<tr>
+<td>D8.4 项目可持续性与传承风险</td>
+<td>3.0</td>
+<td>2.4</td>
+<td>7–8（80%）</td>
+<td>趋势明确向上：创建于 2025-08-21，2026-08-21 发布 v1.0.0 后 3 周内连发 v1.0.1→v1.0.6（最近一次 2026-09-10），近 90 天新建 PR 1,094 件、关闭 Issue 553 件；<code>archived: false</code>，最近推送 2026-09-12，无 deprecated/unmaintained 标记。<strong>扣分项</strong>：项目仅约 13 个月历史，尚未经历传承周期考验；无 GOVERNANCE.md 或基金会中立托管，存在单一厂商（GitHub）战略调整风险；Fork 12,252（约为 Star 的 9.0%）以定制/模板使用为主，未见社区分裂信号，但开源可 fork（MIT）同时意味着厂商弃养时社区具备接管能力</td>
+</tr>
+</tbody>
+</table>
+<h4>结论</h4>
+<p><strong>D8 维度得分：9.0 / 10（满分 10，权重组内无 N/A 项）。</strong></p>
+<p>spec-kit 在「人」这一商业化最关键的要素上表现突出，属于<strong>厂商一方开源项目中的第一梯队</strong>：</p>
+<ol>
+<li>
+<p><strong>团队能力强、投入度高</strong>。项目归属于 <code>github</code> 组织，由 GitHub 官方开源团队维护（安全与行为准则均走 GitHub 官方邮箱与流程），配合 285 名贡献者和 18 条 CI 流水线，具备全职、专业化的运营特征。bus factor 显著高于 5，不存在「依赖单一业余维护者」的典型风险。</p>
+</li>
+<li>
+<p><strong>资金与资源可持续性明确</strong>。项目由 GitHub（Microsoft）以战略投入方式运营，并已建立 PyPI 发布、release 自动化、CodeQL/安全审计等企业级工程基建，不依赖捐赠或社区众筹，资金可持续性处于最高档。</p>
+</li>
+<li>
+<p><strong>治理透明度良好但非中立</strong>。CONTRIBUTING.md 中的 evidence gate、7 维 triage rubric、双标签体系、AI 贡献披露政策，其过程透明度实际上高于多数同规模开源项目；但缺少 GOVERNANCE.md、无基金会托管，决策最终由 GitHub 核心团队主导，治理得分因此落在 7–8 档。</p>
+</li>
+<li>
+<p><strong>增长势头强劲，传承机制经组织化保障而非制度化保障</strong>。发布 cadence 密集（近 3 周 7 个版本）、Issue 吞吐健康（90 天关闭 553 件，存量 320 件）、活跃度持续上升，无停滞或分裂迹象。残余风险主要来自项目年轻（约 13 个月）与<strong>单一厂商依赖</strong>——若 GitHub 调整战略，项目虽可凭 MIT 许可与 1.2 万 Fork 由社区接管，但当前并无成文的传承/移交机制。</p>
+</li>
+</ol>
+<p><strong>商业化视角提示</strong>：本维度不构成商业化障碍，反而构成显著优势（可预期的一手厂商背书与长期维护承诺）。但需注意：该优势与 GitHub 平台强绑定，商业模式上更适合「跟随厂商生态」的定位，而非独立第三方治理的路径。</p>
+<h3>D9. 上手难度与易用性 详析</h3>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D9.1 安装难度</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>80%（7–8 档）</td>
+<td>包管理器单条命令安装（<code>uv tool install specify-cli</code>），亦可从 PyPI 安装；9 个运行期依赖全部为纯 Python 包（typer/click/rich/platformdirs/readchar/pyyaml/packaging/pathspec/json5），核心资产已强制打包进 wheel；但需前置 <code>uv</code> 或 <code>pipx</code>、Python 3.11+、Git，并强制要求一个 AI 编码代理，非「零外部依赖」</td>
+</tr>
+<tr>
+<td>D9.2 部署与配置难度</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>80%（7–8 档）</td>
+<td>无服务端组件、无数据库/缓存/消息队列初始化；初始化仅需 1 个关键参数（<code>--integration</code>）；README 提供 3 条命令级别的 quickstart，10 分钟内可跑通；但仓库不含 Dockerfile/docker-compose/Helm，未提供标准化容器化部署路径</td>
+</tr>
+<tr>
+<td>D9.3 易用性与操作门槛</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>80%（7–8 档）</td>
+<td>日常操作以自然语言斜杠命令为主（<code>/speckit.specify</code> 等），CLI 基于 typer/click/rich，依赖 <code>readchar</code> 提供方向键交互选择器；默认配置合理（<code>specify init my-project --integration copilot</code> 即可）；<code>specify self upgrade</code> 对 uvx/源码检出会给出「路径特定的指引」而非直接运行安装器，错误处理有一定设计；但错误提示的友好度与自动补全能力缺乏直接素材佐证</td>
+</tr>
+<tr>
+<td>D9.4 学习曲线与首体验</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>80%（7–8 档）</td>
+<td>首次成功路径短（安装 → <code>init</code> → 代理内执行 5 步），README 提供 SDD Quickstart、Bug/Assess 两套 Quickstart、配套 YouTube 视频概览与 <code>spec-driven.md</code> 完整方法论；但需先自行准备好 AI 编码代理（含其鉴权/配置），且 SDD 的 constitution→specify→plan→tasks→implement→converge 多阶段概念有一定认知门槛；<code>examples/bundles/</code> 明确说明是「bundle 打包示例，而非填好的生成式特性规格」，可照抄的成品示例有限</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>8.0</strong></td>
+<td>🟢 简单</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h3>分析</h3>
+<p><strong>安装链路极为精简，但有真实前置条件。</strong> <code>uv tool install specify-cli</code>（或 <code>uv tool install specify-cli --from git+...@vX.Y.Z</code>）是单条命令式安装，走 uv/pipx/PyPI 三条主流包管理通道，<code>pyproject.toml</code> 中 9 个运行期依赖全部为纯 Python 包，无 C 扩展、无编译器、无系统库需求。<code>force-include</code> 段落把模板、命令、bash/powershell/python 脚本、扩展、工作流、预设与社区目录快照全部打进 wheel，并注明「so <code>specify init</code> works without network access (air-gapped / enterprise)」，<code>docs/install/air-gapped.md</code> 亦为这一场景提供了专门文档。扣分点在于：需要先安装 uv 或 pipx，<code>requires-python = "&gt;=3.11"</code> 抬高了 Python 版本下限，且<strong>必须搭配一个受支持的 AI 编码代理</strong>才能真正完成后续流程——这不是纯 <code>pip install</code> 级别的零门槛。</p>
+<p><strong>部署几乎无运维成本，但缺少容器化路径。</strong> 本项目是无服务端的本地 CLI，不存在数据库、缓存、消息队列等外部组件需要初始化，<code>specify init my-project --integration copilot</code> 之后 <code>cd my-project</code> 即可用；面向 CI/无键盘 PTY 环境还提供了 <code>--non-interactive</code> 与 <code>--force</code>（<code>specify init --here --force --non-interactive --integration claude</code>）。然而按评分指引，9–10 档要求 docker-compose/Helm 级别的一键部署，仓库中未见 Dockerfile、docker-compose.yml 或 Helm Chart（18 个 CI workflow 全部面向代码质量、发布、PyPI 发布与社区目录，而非容器化交付），故落在 7–8 档。</p>
+<p><strong>使用体验以「自然语言命令」为核心，是显著加分项。</strong> 安装完成后，用户的日常操作几乎不涉及记忆复杂参数——在项目目录启动 AI 代理后输入 <code>/speckit.specify &lt;自然语言描述&gt;</code>、<code>/speckit.plan &lt;技术栈描述&gt;</code>、<code>/speckit.tasks</code> 即可。CLI 本身基于 typer/click/rich 构建，依赖 <code>readchar</code> 实现方向键交互式选择器（README 特别提示 CI 环境因无法发送方向键需要 <code>--non-interactive</code>，侧面印证了交互层的存在）。自管理命令 <code>specify self check / upgrade / upgrade --dry-run / upgrade --tag</code> 设计清晰，且对 uvx 临时运行和源码检出会「produce path-specific guidance instead of running an installer」，说明错误/异常路径有针对性提示。面向上手的分层也做了工作：<code>specify bundle search|info|install</code> 提供 product manager、business analyst、security researcher、developer 四类角色包，并在 <code>examples/bundles/</code> 给出示例 manifest，让非开发角色也能一键获得成套配置。不足之处是素材中未见命令补全（shell completion）与运行时错误提示样例的直接证据，无法确认其错误信息友好度达到 9–10 档。</p>
+<p><strong>首体验路径短但存在「代理前置」这一隐性台阶。</strong> 从安装到第一次跑通的核心路径为：安装 CLI → <code>specify init</code> → 在项目目录启动 AI 代理 → <code>/speckit.constitution</code> → <code>/speckit.specify</code>，命令条数极少。配套材料相当丰富：README 内嵌 SDD/Bug/Assess 三套 Quickstart、YouTube 视频概览、<code>docs/quickstart.md</code>、<code>spec-driven.md</code>（完整方法论）、<code>docs/concepts/*</code>（sdd、spec-of-specs、spec-persistence、complex-features）、<code>docs/guides/*</code>（evolving-specs、existing-projects、monorepo）、社区 walkthroughs，全仓 120 个文档文件。制约因素是：AI 编码代理的安装与鉴权由用户自理，且 SDD 本身是一套需要理解「规格先行、多轮收敛」的新方法论（README 自述为 multi-step refinement 而非一次性生成），对完全陌生的用户存在概念学习成本；此外可照抄的成品示例有限——<code>examples/bundles/</code> 被明确标注为打包示例而非生成好的特性规格，规模统计中「示例: 0 文件」。综合判断首次成功约在 30 分钟量级，落在 7–8 档。</p>
+<h3>结论</h3>
+<p>D9 得分 <strong>8.0 / 10</strong>，上手难度等级 <strong>🟢 简单</strong>。Spec Kit 的安装是标准的包管理器单条命令，运行期依赖全为纯 Python 包且核心资产内置可离线运行，无任何数据库/中间件部署负担；使用侧以自然语言斜杠命令为主，交互友好、默认配置即用。主要短板是缺少 Docker/Compose/Helm 等容器化交付路径，以及对「已就绪的 AI 编码代理 + Python 3.11+」存在硬性前置要求。鉴于等级为「简单」，报告中的安装部署章节可提供完整命令步骤与配置说明。本维度基于 README、<code>pyproject.toml</code>、文档清单与仓库文件统计评估，未做实际安装验证，置信度中等偏上。</p>
+<h3>D10 功能价值——使用价值视角（平行维度，权重 0%，不计入综合评分）</h3>
+<blockquote>
+<p>本维度只问「用它的人省了/赚了多少」，不问「有多少人愿意付钱」。D10 与 D1–D9 商业评分正交，结果仅用于 3.4 价值画像判定。</p>
+</blockquote>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>档位</th>
+<th>小分</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10.1</td>
+<td>效用强度</td>
+<td>3</td>
+<td>5–6 档（60%）</td>
+<td><strong>1.8</strong></td>
+<td>效用层级为「项目级流程脚手架」而非运行时依赖：产物是 <code>.specify/</code>、<code>specs/</code> 下的 Markdown 模板与 30+ 智能体集成目录中的 slash-command/skill 提示文件。用它能省下的是「搭脚手架 + 写结构化提示」的数小时到数天，且通过 constitution→specify→plan→tasks→implement→converge 的流程收敛减少返工，但本质上是模板 + 提示词工程，团队完全可以手工复制模板与提示达到类似效果，替代成本低。效用确定性受第三方 AI 智能体能力与用户执行纪律影响，非稳定可预期。未见 README 或文档给出量化的时间/成本节省数据。</td>
+</tr>
+<tr>
+<td>D10.2</td>
+<td>实际使用规模</td>
+<td>3</td>
+<td>7–8 档（80%）</td>
+<td><strong>2.4</strong></td>
+<td>实采硬指标：Star 136,385、Fork 12,252、贡献者 285、近 90 天新建 PR 1,094 个、关闭 Issue 553 个、开放 Issue 320 个——参与度和分叉规模处于开源项目头部区间，README 明示面向「whole organization」并支持 30+ AI 编码智能体。作为 CLI 引导工具不存在「Dependents」语义（非库依赖），GitHub Dependents 计数不适用；PyPI 月下载量与 npm 周下载量实采均为 N/A（<code>{"pypi_monthly_downloads": "N/A", "npm_weekly_downloads": "N/A"}</code>）。因缺少下载量/依赖方这一最直接的使用规模证据，未给到 9–10 档（百万级依赖方或月下载千万级），本项置信度中等。</td>
+</tr>
+<tr>
+<td>D10.3</td>
+<td>免费可得的完整效用</td>
+<td>2</td>
+<td>9–10 档（100%）</td>
+<td><strong>2.0</strong></td>
+<td>MIT 协议，无企业版/付费墙/托管 SaaS。全部核心能力随 wheel 打包：<code>pyproject.toml</code> 的 <code>force-include</code> 显式内置 templates、commands、bash/powershell/python 脚本、extensions（git/agent-context/assess/bug）、workflows/speckit、presets（lean/constitution-sync）与社区目录快照，注释明确「works without network access (air-gapped / enterprise)」。PyPI 与 git tag 两种安装方式均免费，自托管/离线部署即完整效用。与 D4.3（付费转化）预期呈现强反相关。</td>
+</tr>
+<tr>
+<td>D10.4</td>
+<td>效用可持续性</td>
+<td>2</td>
+<td>9–10 档（100%）</td>
+<td><strong>2.0</strong></td>
+<td>完全本地化运行的 Python CLI，依赖仅 9 个主流宽松协议 OSS 包（typer/click/rich/platformdirs/readchar/pyyaml/packaging/pathspec/json5），无闭源组件、无强制云服务。生成物是落在用户仓库里的 Markdown 与脚本，可离线初始化，停维后已安装的 CLI 与模板继续可用。MIT 协议允许自由分叉；hatchling 构建 + 6.5 万行测试（test_ratio 0.652）+ 18 条 CI 工作流（含 publish-pypi、release）保证构建可重现与可维护性。唯一缓性风险是各智能体 CLI 的文件格式/命令约定若变更，集成目录可能需跟随适配，但不影响工具本身存续。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>D10 合计：8.2 / 10</strong>（细则均无 N/A，满分 10 分全额参与）</p>
+<h3>结论</h3>
+<p>Spec Kit 的效用画像呈「<strong>中高强度 + 超大使用规模 + 完全免费 + 高可持续</strong>」的形态，8.2 分落在「良好」区间上沿：</p>
+<ol>
+<li><strong>单位效用中等、聚合效用巨大</strong>。D10.1 只给到 6 档，因为它是流程脚手架而非运行时基础设施——效用可被手工复制、且依赖第三方智能体的实际表现；但 D10.2 显示 13.6 万 Star、1.2 万 Fork、285 位贡献者、90 天 1,094 个新 PR 的量级，说明它已成为 AI 辅助开发工作流领域的事实标准入口，被采纳的总效用非常大。</li>
+<li><strong>「使用价值 vs 交换价值」张力最典型的一个样本</strong>。D10.3 满分（开源版即全部价值，含离线/air-gapped 打包）与 D10.4 满分（纯本地、MIT、可自由分叉）共同意味着：使用者拿到的价值几乎无折损，但项目本身把交换价值几乎全部让渡给了社区——这正是商业维度可能低估它、而使用价值维度必须补齐的信息。</li>
+<li><strong>数据缺口与置信度</strong>。本维度最主要的硬事实缺口是 PyPI 月下载量与 GitHub Dependents（两者均 N/A），因此 D10.2 依赖 Star/Fork/贡献者/PR 活跃度作为代理，未敢触及 9–10 档；若后续补采到 PyPI 月下载量，本项存在上调至 2.7–3.0 的空间，维度总分可能升至 ~8.5–8.8。</li>
+</ol>
+<h3>D11 社会价值（正外部性）评估 — github/spec-kit</h3>
+<blockquote>
+<p>平行维度：权重 0%，不计入综合评分与一票否决，仅用于 3.4 价值画像。数据置信度：中（Dependents 计数、PyPI 月下载量不可得；判断基于架构事实 + 生态可见性）。</p>
+</blockquote>
+<h3>D11.1 数字公共基础设施属性（3 分）</h3>
+<p><strong>得分：1.8 / 3（60% 档）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>事实依据</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>关键依赖地位</td>
+<td>无下游软件以 spec-kit 为运行时/构建依赖；其生态位是「开发期脚手架 + 方法论工具」</td>
+<td>非 curl/OpenSSL 式数字底座</td>
+</tr>
+<tr>
+<td>停摆影响面</td>
+<td>停摆不会破坏任何软件供应链——已初始化的项目、已生成的 spec/plan/task 文件仍可独立使用</td>
+<td>影响面小</td>
+</tr>
+<tr>
+<td>数字公共产品属性</td>
+<td>MIT 许可、模板与命令资产完全开放可复用；<code>pyproject.toml</code> 显式把 core_pack（模板/命令/bash/powershell/python 脚本/扩展/工作流/预设/社区目录快照）打包进 wheel，支持 <strong>air-gapped / 企业离线</strong> 安装，符合「开放、可复用、服务公共利益」的 DPG 特征</td>
+<td>公共产品属性强</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判定</strong>：三个考察点分化明显——DPG 属性强，但关键依赖与停摆影响面均弱。项目是 SDD 领域的「参考实现与流程基础设施」（GitHub 官方背书、30+ 编码代理集成、community extensions/presets/bundles 生态 + <code>docs/community/friends.md</code> 的衍生项目清单），但它是<strong>开发期一次性调用</strong>而非供应链底座，消停后软件仍能运行。综合取 5–6 档（有一定下游生态但可替代性强，且不构成供应链依赖）。缺 Dependents 硬计数，未上调。</p>
+<h3>D11.2 教育与人才价值（2.5 分）</h3>
+<p><strong>得分：2.0 / 2.5（80% 档）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>事实依据</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>教学采用</td>
+<td>独立的 <code>spec-driven.md</code> 方法论全文、docs 站点（GitHub Pages）、<code>quickstart</code>、<code>walkthroughs</code>、YouTube 视频总览；docs 目录 120 个文档、含 <code>concepts/</code>、<code>guides/</code>、<code>reference/</code> 分层</td>
+<td>强</td>
+</tr>
+<tr>
+<td>门槛降低效应</td>
+<td>把「结构化规格驱动开发」这一原属高成熟度团队的方法标准化为一组 slash 命令（<code>/speckit.constitution → specify → plan → tasks → implement → converge</code>），并提供角色化示例 bundle（product-manager / business-analyst / security-r… / developer），任何人开箱即用</td>
+<td>强</td>
+</tr>
+<tr>
+<td>源码学习价值</td>
+<td>178,872 行 Python、323 源文件、测试占比 65.2%、ruff 安全姿态锁定（禁 shell=True）、CodeQL/security/lint CI；<code>AGENTS.md</code>、<code>CONTRIBUTING.md</code>、<code>.github/skills/</code> 技能文档</td>
+<td>中上（工程范本价值有，但非教学型代码库）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判定</strong>：项目本体即「方法论教科书 + 落地工具」，教育属性是其核心外溢价值；未见外部课程/教程硬计数，但以 13.6 万 Star 与官方文档体系推断教学使用广泛，取 7–8 档。</p>
+<h3>D11.3 普惠与可及性（2.5 分）</h3>
+<p><strong>得分：2.0 / 2.5（80% 档）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>事实依据</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>能力平权化</td>
+<td>MIT + PyPI/uv/pipx 免费安装；把原本依赖资深工程师经验的规格化流程，以近零成本交付给个人与中小团队</td>
+<td>强</td>
+</tr>
+<tr>
+<td>替代价格差</td>
+<td>无同等「SDD 工具链」付费对标品（竞品检索仅命中 fork/仿制品，无商业等价物）；但<strong>有效使用仍依赖付费 AI 编码代理</strong>，工具本身不消除该成本</td>
+<td>中性偏正</td>
+</tr>
+<tr>
+<td>可及性支持</td>
+<td>跨平台（Linux/macOS/Windows）；<strong>厂商中立</strong>——支持 30+ AI 编码代理（避免锁定单一供应商，含 <code>$speckit-*</code> skills 模式与 <code>/agents</code> 模式）；离线/内网安装（air-gapped）；但 i18n 仅 README 提供英文 + 简体中文双语，正文文档以英文为主，无多语言文档矩阵、无无障碍专项声明；硬件门槛为 Python 3.11+ / uv / git</td>
+<td>中上，i18n 明显短板</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判定</strong>：显著降低获得门槛且高度厂商中立，覆盖「任何 AI 代理 + 任意技术栈」的主流人群，但受 AI 代理付费门槛与 i18n 覆盖局限，未达「完善可及性支持」，取 7–8 档。</p>
+<h3>D11.4 开放标准与行业推动（2 分）</h3>
+<p><strong>得分：1.2 / 2（60% 档）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>事实依据</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>标准推动</td>
+<td>未定义正式协议/规范标准（无 RFC/规范文档）；但强力推行开放、代理无关的 SDD 流程，以 30+ 集成 + 优先级叠加的 extension/preset/bundle 机制对抗单一 AI 厂商锁定</td>
+<td>有实质防锁定作用，非正式标准</td>
+</tr>
+<tr>
+<td>科研支撑</td>
+<td>无可核验的论文引用数据（外部检索不可得）</td>
+<td>N/A（不作加分）</td>
+</tr>
+<tr>
+<td>行业示范效应</td>
+<td>已出现衍生/仿制项目（<code>Waveform-Analytics/science-spec-kit</code>、<code>dan1901/spec-mix-fk</code> 等 fork 变体）、<code>docs/community/friends.md</code> 列出在其上构建的项目；「spec-driven」成为 AI 编码代理领域的通用术语</td>
+<td>示范效应存在但以社区复制为主</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判定</strong>：遵循并推广开放流程、具备反锁定与示范价值，但无标准制定与科研引用实证，取 5–6 档（推广开放实践但无标准化主导地位）。</p>
+<h3>细则分值汇总</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D11.1</td>
+<td>数字公共基础设施属性</td>
+<td>3</td>
+<td>1.8</td>
+<td>60%</td>
+</tr>
+<tr>
+<td>D11.2</td>
+<td>教育与人才价值</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>80%</td>
+</tr>
+<tr>
+<td>D11.3</td>
+<td>普惠与可及性</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>80%</td>
+</tr>
+<tr>
+<td>D11.4</td>
+<td>开放标准与行业推动</td>
+<td>2</td>
+<td>1.2</td>
+<td>60%</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td><strong>7.0</strong></td>
+<td><strong>70%</strong></td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<p><strong>D11 得分 7.0 / 10（权重 0%，不计入综合评分）。</strong> Spec Kit 的正外部性呈现鲜明的「强公共品、弱供应链」画像：它不是任何软件的数字底座（停摆不波及供应链），但作为 GitHub 背书的开放方法论工具，把「规格驱动开发」这一工程实践平权化给了个人与中小团队，并以 MIT + 离线可装 + 30+ 代理中立的设计，在教育（方法论教材 + 角色化示例）与防厂商锁定两个方向形成显著外溢。主要短板在于：i18n 仅中英双语 README、文档以英文为主、有效使用仍依赖付费 AI 代理，且无标准制定与科研引用的硬实证。</p>
+<p><strong>置信度说明</strong>：Dependents 计数、PyPI 月下载量与论文引用不可得，D11.1 与 D11.4 的判断基于架构事实（wheel 打包 core_pack、air-gapped 支持）与生态可见性推断，置信度中等；若后续补入 Dependents 计数与学术引用数据，D11.1/D11.4 存在 ±0.4 分浮动空间。</p>
+<h2>五、商业化价值判断</h2>
+<p><strong>结论：这是一个"商业价值高、但独立变现能力弱"的项目——它的价值兑现路径不在自身收费，而在其所处的生态位。</strong></p>
+<p><strong>支撑高价值判断的证据：</strong></p>
+<ol>
+<li><strong>需求真实性由社区投入强度硬性验证</strong>（D1）：项目创建仅约 12.7 个月即积累 136,385 Star / 12,252 Fork / 285 贡献者，近 90 天 1,094 PR、553 Issue 关闭，28 天内 10 个 release。这不是营销驱动的热度，而是持续的人力投入。</li>
+<li><strong>品类时机良好</strong>（D1）：SDD 是 2025–2026 随 AI 编码 agent 成熟而兴起的新品类，格局未定；项目一年内从 v0.16.x 迭代至 v1.0.0/v1.0.6，已发布稳定版。</li>
+<li><strong>产品质量处于第一梯队</strong>（D2 = 8.9，全维度最高之一）：独立 <code>_download_security.py</code> 提供有界下载、防 zip bomb、路径穿越、SSRF、重定向校验，强制 <code>shell=False</code>、凭据清洗、SHA-256 校验，配合 CodeQL + security workflow；test_ratio 0.652、18 条 CI 多层门禁、120 个文档文件。</li>
+<li><strong>法律面干净</strong>（D6 = 8.6）：MIT 协议无商业附加条款、无 copyleft 传染，9 项运行时依赖全部为 MIT/BSD/Apache-2.0/MPL-2.0，零 GPL/AGPL 强传染依赖，合规审查成本极低。</li>
+<li><strong>团队与资金可持续性强</strong>（D8 = 9.0，全维度最高）：归属 github 组织（GitHub, Inc. / Microsoft），厂商一方全职团队运营，bus factor 远高于 5，具备 PyPI 发布、release 自动化、CodeQL/安全审计等企业级工程基建。</li>
+</ol>
+<p><strong>压制价值判断的关键事实：</strong></p>
+<ol>
+<li><strong>无直接收费面</strong>（D4 = 6.8，权重最高的维度却得分偏低）：MIT 全开源、PyPI/uv 免费分发，<code>monetization_sku_count = 0</code>，无付费分层、无功能门控。项目是 GitHub（微软）的<strong>战略性 OSS</strong>，采用"互补品"模式——免费工具强化 Copilot / Enterprise 付费生态，自身无独立客单价，定价权与收入归属均在母体产品侧。</li>
+<li><strong>主动削弱锁定</strong>（D4）：项目支持 30+ AI agent 集成（含竞品），大幅削弱向 Copilot 的锁定与转化能力。这是中立定位的战略代价。</li>
+<li><strong>护城河偏浅</strong>（D5 = 6.6）：无技术壁垒——MIT 许可、纯 Markdown 模板 + Python 脚手架、无专利/无算法/无数据飞轮，且已被实际 fork 改名。粘性来源是组织流程惯性而非技术锁定。</li>
+<li><strong>方案可被替代</strong>（D1/D10）：本质为提示词 + 模板 + CLI 脚手架，替代品众多（Kiro、OpenSpec、BMAD、agent 内置 plan 模式、纯提示词），且面临 IDE/Agent 厂商将 spec 流程原生化的明确中长期颠覆风险。</li>
+<li><strong>企业治理能力缺口</strong>（D7 = 6.8）：无 SSO/LDAP/SAML、无 RBAC/ABAC、无审计日志，可观测性仅到 CLI 级（<code>--json</code> 输出、<code>specify check</code>），无 OpenTelemetry/Prometheus 等标准协议。</li>
+</ol>
+<p><strong>综合判断</strong>：78.2 分落在 A 级（65–79）区间，属于"可投入商业化，需补齐少量短板"。但必须清醒认识到：<strong>这个分数的主要贡献来自产品质量、社区势能与团队背景，而非变现能力</strong>。D4（18% 权重）仅得 6.8、D5（12% 权重）仅得 6.6，两个与"赚钱"最直接相关的维度恰恰是短板所在。因此，本项目的商业化不应理解为"把 Spec Kit 卖出去"，而应理解为"围绕 Spec Kit 的生态位做价值捕获"。</p>
+<hr />
+<h2>六、商业路径分析</h2>
+<p><strong>画像修正说明</strong>：价值画像为 ⭐ 明星资产（综合评分 78.2，公共价值分 7.6），按方法论 3.4 的路径修正建议——<strong>正常商业化，同时经营社区声誉，避免竭泽而渔</strong>。这一点对本项目尤为关键：项目采用 MIT 协议且主动支持 30+ 竞品 agent，任何试图收紧协议或制造锁定的动作都会直接摧毁其"厂商中立"这一唯一结构性优势（D5 明确指出"中立定位是对抗平台下沉的唯一结构性优势，存在时间窗口"）。</p>
+<h3>路径一：生态位变现（推荐，与项目定位最契合）</h3>
+<p>项目已具备完整的插件市场骨架：extensions / presets / bundles 三级扩展体系 + 优先级目录栈 + install-allowed / discovery-only 安装策略 + 发布与社区提交流水线 + 社区目录（<code>catalog.community.json</code>）。企业向能力也已内置：气隙/离线安装、合规预设、组织级 bundle 分发（README 实验目标明确列出 Enterprise constraints）。</p>
+<p><strong>可行方向</strong>：私有目录托管、组织级 bundle 分发服务、合规预设定制、培训与实施服务。D4 明确指出这些增值方向"真实"，但<strong>定价权与收入归属均在母体产品侧</strong>——因此该路径的现实形态是"由 GitHub 生态承接变现"，而非项目自身独立收费。</p>
+<h3>路径二：影响力变现（备选，风险对冲）</h3>
+<p>若独立变现受阻，项目的公共价值属性（D11 = 7.0，公共价值分 7.6）提供了第二条路：赞助、基金会托管、大厂雇佣维护者、围绕生态做服务与培训。项目当前不隶属 CNCF/Apache/LF 等中立基金会（D8），且无 GOVERNANCE.md，这是该路径的主要障碍。</p>
+<h3>路径三：事实标准卡位（战略级，非直接收入）</h3>
+<p>D5 的商业化启示明确指出："无技术授权价值，价值在于成为组织级 SDD 默认流程入口。" 项目的真正商业意义在于卡位——在 IDE/Agent 厂商将 spec 流程原生化之前，成为组织级 SDD 的默认流程入口。这需要以中立性和生态开放性换取采用速度，<strong>存在明确的时间窗口</strong>。</p>
+<h3>不推荐的路径</h3>
+<ul>
+<li><strong>协议变更 / 功能门控</strong>：会直接摧毁中立定位，且与 GitHub 的战略意图相悖（参照 Elastic 改协议的反噬教训）。</li>
+<li><strong>技术授权</strong>：D5 明确"无技术授权价值"——无专利、无算法、无数据飞轮。</li>
+<li><strong>独立 SaaS 化</strong>：项目为纯本地 CLI，无服务端、无数据库，D7.3（水平扩展/高可用/集群）整体不适用已标记 N/A，SaaS 化等于重做一个产品。</li>
+</ul>
+<hr />
+<h2>七、能力评估：能做什么 &amp; 最适合做什么</h2>
+<h3>7.1 项目当前已具备的能力</h3>
+<table>
+<thead>
+<tr>
+<th>能力项</th>
+<th>证据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>完整的 SDD 流程编排</td>
+<td>constitution → specify → plan → tasks → implement → converge 全链路</td>
+</tr>
+<tr>
+<td>广泛的 agent 兼容性</td>
+<td>30+ AI 编码 agent 集成，agent-agnostic 中立定位</td>
+</tr>
+<tr>
+<td>三级扩展体系</td>
+<td>extensions / presets / bundles + 优先级目录栈 + 安装策略 + 社区目录与提交流水线</td>
+</tr>
+<tr>
+<td>企业离线部署</td>
+<td>支持 air-gapped 离线安装，wheel 通过 force-include 内置 templates/commands/scripts/extensions/workflows/presets 与社区目录快照</td>
+</tr>
+<tr>
+<td>供应链安全</td>
+<td>HTTPS 强制、SHA-256 常量时间校验、ZIP/tar 安全解压、路径穿越与符号链接防护、凭据环境变量清洗、CodeQL + security workflow</td>
+</tr>
+<tr>
+<td>升级与回滚保护</td>
+<td><code>specify self</code> 三级安装方式探测、SHA-256 清单追踪受管文件（仅哈希未变才删除）、integration_switch 两阶段提交 + 回滚</td>
+</tr>
+<tr>
+<td>角色化交付</td>
+<td>product manager / business analyst / security researcher / developer 四类角色 bundle 与示例 manifest</td>
+</tr>
+<tr>
+<td>低门槛上手</td>
+<td>单条命令 <code>uv tool install specify-cli</code>；<code>specify init my-project --integration copilot</code> 一条命令初始化；README 内嵌三套 Quickstart + YouTube 视频 + 完整方法论文档</td>
+</tr>
+</tbody>
+</table>
+<h3>7.2 最适合做什么</h3>
+<p><strong>最适合：成为组织级 SDD 的默认流程入口，以中立性换取采用广度。</strong></p>
+<p>理由：项目的差异化不在技术深度（D5 明确"无技术壁垒"），而在<strong>生态位</strong>——它是唯一同时满足"GitHub 官方出品 + 136k Star 品牌认知 + 30+ agent 中立集成 + MIT 无约束"的 SDD 工具。对于需要跨多个 AI 编码 agent 统一流程规范的中大型组织，这种中立性是刚需；对于单一 agent 用户，替代品众多。</p>
+<p><strong>次适合：作为 AI 辅助软件工程方法论的公共教育与参考实现。</strong> D11 指出"教育外溢为核心价值"——独立方法论文档 <code>spec-driven.md</code> + 120 个文档 + 分层 docs 站点 + 角色化示例 bundle，把结构化 SDD 流程降门槛给个人与中小团队。</p>
+<p><strong>不适合：作为独立商业产品直接售卖。</strong> 无付费层、无功能门控、无独立客单价，且主动支持竞品 agent。</p>
+<hr />
+<h2>八、短板识别：还缺少什么</h2>
+<h3>8.1 变现层短板（最致命）</h3>
+<ul>
+<li><strong>零收费 SKU</strong>：<code>monetization_sku_count = 0</code>，无付费分层、无功能门控，定价权与收入归属均在母体产品侧（D4）</li>
+<li><strong>主动削弱转化</strong>：支持 30+ AI agent（含竞品），大幅削弱向 Copilot 的锁定与转化（D4）</li>
+<li><strong>付费转化预期偏低</strong>：D4.3 仅 1.5/2.5，D4.4 仅 1.2/2.0；D10 明确指出"使用价值与交换价值强烈反相关：D10.3/D10.4 满分对应 D4.3 付费转化预期偏低"（D4/D10）</li>
+</ul>
+<h3>8.2 壁垒层短板</h3>
+<ul>
+<li><strong>无技术壁垒</strong>：MIT 许可、纯 Markdown 模板 + Python 脚手架、无专利/无算法/无数据飞轮，且已被实际 fork 改名（D5）</li>
+<li><strong>粘性依赖流程惯性</strong>：个人开发者迁移成本低，仅已按角色 Bundle 编排团队流程的组织迁移成本中高（D5）</li>
+<li><strong>中长期颠覆风险明确</strong>：IDE/Agent 厂商将 spec 流程原生化（Kiro 等已入局）（D5）</li>
+<li><strong>竞品验证数据缺口</strong>：本次 GitHub Search API 返回的 5 条候选经逐条核实全部无效（2 条为本项目 fork、2 条关键词误命中、1 条方法相邻），补充竞品清单未经搜索验证，D5.1 置信度偏低（D5）</li>
+</ul>
+<h3>8.3 企业就绪度短板</h3>
+<ul>
+<li><strong>无企业级身份与权限</strong>：无 SSO/LDAP/SAML、无 RBAC/ABAC、无审计日志；认证仅服务于私有 catalog/registry 的 token 获取（D7）</li>
+<li><strong>可观测性仅 CLI 级</strong>：提供 <code>--json</code> 稳定输出、<code>specify check</code> 与 integration status 健康报告，但无 OpenTelemetry/Prometheus 等标准协议与指标告警（D7）</li>
+<li><strong>无容器化交付路径</strong>：仓库中未出现 Dockerfile / docker-compose.yml / Helm Chart，18 个 CI workflow 聚焦代码质量与发布而非容器化部署（D9）</li>
+<li><strong>包级升级无显式回滚机制</strong>（D7）</li>
+</ul>
+<h3>8.4 工程质量短板</h3>
+<ul>
+<li><strong>代码体量偏大</strong>：178,872 行，多个核心模块 3000~5500 行（presets/<strong>init</strong>.py 5500+、extensions/<strong>init</strong>.py 4700+、workflows/_commands.py 3000+、events.py 1900+），存在跨模块私有符号导入与 catalog/render 逻辑重复（D2）</li>
+<li><strong>i18n 不完整</strong>：CLI 输出英文硬编码，i18n 仅限文档（README 中英双语）（D2/D11）</li>
+<li><strong>迭代节奏过快带来兼容性风险</strong>：3 周内迭代 7 个版本，含布局迁移逻辑，兼容性需持续观察（D2）</li>
+</ul>
+<h3>8.5 治理与合规短板</h3>
+<ul>
+<li><strong>无中立基金会归属</strong>：vendor-owned（github org），不隶属 CNCF/Apache/LF（D8）</li>
+<li><strong>无 GOVERNANCE.md</strong>：治理过程文档虽成熟（CONTRIBUTING.md 含 evidence gate、7 维 triage rubric、verdict/author 双标签体系、AI 贡献强制披露），但缺少成文治理章程（D8）</li>
+<li><strong>无独立 CLA</strong>：依赖 GitHub ToS §6 inbound=outbound 隐式贡献协议；无 DCO 显式要求（D6）</li>
+<li><strong>商标与专利状态未经人工核查</strong>：仓库内无 TRADEMARK.md 商标政策文件，D6.3 按规则保守取 5–6 档，置信度低（D6）</li>
+<li><strong>无成文传承/移交机制</strong>：项目仅约 13 个月历史，存在单一厂商（GitHub）战略依赖（D8）</li>
+</ul>
+<h3>8.6 数据缺口</h3>
+<ul>
+<li>PyPI 月下载量、npm 周下载量、GitHub Dependents 均为 N/A（D10/D11），D10.2 以 Star/Fork/贡献者/PR 活跃度作代理，D10 整体置信度中等</li>
+<li>企业采用清单、技术会议与媒体覆盖等品牌硬证据缺失（D3）</li>
+<li>缺少成功商业衍生品证据（D3）</li>
+</ul>
+<hr />
+<h2>九、风险提示</h2>
+<h3>9.1 高风险</h3>
+<table>
+<thead>
+<tr>
+<th>风险</th>
+<th>依据</th>
+<th>影响</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>平台下沉颠覆</strong></td>
+<td>D5：IDE/Agent 厂商将 spec 流程原生化的明确中长期颠覆风险（Kiro 等已入局）</td>
+<td>一旦主流 agent 内建 spec 流程，项目的独立价值被大幅压缩</td>
+</tr>
+<tr>
+<td><strong>无独立变现能力</strong></td>
+<td>D4：<code>monetization_sku_count = 0</code>，定价权与收入归属均在母体产品侧</td>
+<td>无法作为独立商业标的估值；商业化收益需经 GitHub 生态间接兑现</td>
+</tr>
+<tr>
+<td><strong>护城河可被复制</strong></td>
+<td>D5：无专利/无算法/无数据飞轮，已被实际 fork 改名</td>
+<td>竞争者可以零成本复制核心方案</td>
+</tr>
+</tbody>
+</table>
+<h3>9.2 中风险</h3>
+<table>
+<thead>
+<tr>
+<th>风险</th>
+<th>依据</th>
+<th>影响</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>单一厂商战略依赖</strong></td>
+<td>D8：vendor-owned（github org），无成文传承/移交机制</td>
+<td>若 GitHub 战略调整或停止投入，项目可持续性受冲击</td>
+</tr>
+<tr>
+<td><strong>快速迭代的兼容性风险</strong></td>
+<td>D2：3 周内迭代 7 个版本，含布局迁移逻辑</td>
+<td>企业用户升级成本与稳定性风险</td>
+</tr>
+<tr>
+<td><strong>企业治理能力不足</strong></td>
+<td>D7：无 SSO/RBAC/审计日志，可观测性仅 CLI 级</td>
+<td>大型企业采购评审可能受阻</td>
+</tr>
+<tr>
+<td><strong>竞品情报不完整</strong></td>
+<td>D5：5 条候选竞品经核实全部无效，补充清单未经搜索验证</td>
+<td>竞争格局判断置信度偏低，可能低估竞争压力</td>
+</tr>
+</tbody>
+</table>
+<h3>9.3 低风险 / 需关注</h3>
+<table>
+<thead>
+<tr>
+<th>风险</th>
+<th>依据</th>
+<th>影响</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>商标与专利未核查</strong></td>
+<td>D6：无 TRADEMARK.md，D6.3 置信度低</td>
+<td>商业化前需完成人工尽调</td>
+</tr>
+<tr>
+<td><strong>贡献协议为隐式</strong></td>
+<td>D6：无独立 CLA，依赖 GitHub ToS §6</td>
+<td>再许可边界需复核</td>
+</tr>
+<tr>
+<td><strong>i18n 不完整</strong></td>
+<td>D2/D11：CLI 输出英文硬编码</td>
+<td>非英语市场渗透受限</td>
+</tr>
+<tr>
+<td><strong>代码体量与模块耦合</strong></td>
+<td>D2：178,872 行，核心模块 3000~5500 行，存在私有符号跨模块导入与逻辑重复</td>
+<td>长期维护成本上升</td>
+</tr>
+</tbody>
+</table>
+<h3>9.4 风险缓释建议</h3>
+<ul>
+<li>商业化前完成两项人工尽调：<strong>目标市场商标检索</strong>、<strong>GitHub ToS §6 贡献代码再许可边界复核</strong>（D6 明确建议）</li>
+<li>补齐竞品情报：以人工检索替代失效的 GitHub Search API 结果，重新验证 D5.1 结论</li>
+<li>若走影响力变现路径，优先推动中立基金会托管与 GOVERNANCE.md 成文</li>
+</ul>
+<hr />
+<h2>十、结论与建议</h2>
+<h3>10.1 核心结论</h3>
+<p><strong>Spec Kit 是一个综合评分 78.2（A 级，高商业化潜力）、价值画像为 ⭐ 明星资产的开源项目，但它的商业化逻辑与常规开源项目截然不同。</strong></p>
+<p>它的高分来自产品质量（D2 = 8.9）、社区势能（D3 = 8.6）、法律洁净度（D6 = 8.6）与团队背景（D8 = 9.0）；它的低分集中在变现能力（D4 = 6.8）与竞争壁垒（D5 = 6.6）——而这两个维度恰恰是"商业化"一词的核心。项目无付费 SKU、无技术壁垒、主动支持 30+ 竞品 agent，且面临 IDE/Agent 厂商将 spec 流程原生化的明确中长期颠覆风险。</p>
+<p><strong>因此，本项目的商业化不应理解为"把 Spec Kit 卖出去"，而应理解为"在窗口期内，围绕其生态位做价值捕获"。</strong> 它的真正资产不是代码，而是"GitHub 官方出品 + 136k Star + 30+ agent 中立集成 + MIT 无约束"这一组合所构成的<strong>组织级 SDD 默认流程入口的卡位机会</strong>。</p>
+<h3>10.2 分角色建议</h3>
+<p><strong>对 GitHub / 微软（项目持有方）：</strong>
+- 维持 MIT 与中立定位不动摇——这是对抗平台下沉的唯一结构性优势，任何收紧都会自毁长城
+- 加速生态目录与 bundle 分发的企业化，把 Enterprise constraints 从"实验目标"推进为"可交付能力"
+- 补齐企业治理短板（SSO/RBAC/审计日志/标准可观测性），这是企业采购的硬门槛
+- 考虑推动中立基金会托管或至少发布 GOVERNANCE.md，以对冲单一厂商战略依赖风险</p>
+<p><strong>对潜在商业化合作方 / 服务商：</strong>
+- 不要试图直接售卖 Spec Kit 本身，而是围绕它做<strong>服务层变现</strong>：私有目录托管、组织级 bundle 定制、合规预设、SDD 培训与实施
+- 抓住时间窗口——在主流 agent 内建 spec 流程之前，帮助中大型组织完成流程落地，形成组织流程惯性这一真实粘性来源
+- 注意 D5 提示的粘性特征：个人开发者迁移成本低，价值集中在"已按角色 Bundle 编排团队流程的组织"</p>
+<p><strong>对投资者 / 战略评估方：</strong>
+- 本项目不适合作为独立商业标的估值（无独立客单价、无技术壁垒、无收入归属）
+- 其价值应放在 GitHub Copilot / Enterprise 生态的整体估值框架内考量
+- 若评估其技术借鉴价值：SDD 流程设计、三级扩展体系、供应链安全实现（<code>_download_security.py</code>）是可直接复用的高质量参考</p>
+<p><strong>对技术团队 / 采用方：</strong>
+- 上手门槛低（单条命令安装、一条命令初始化），但存在硬性前置条件：需 uv 或 pipx、Python 3.11+、Git，以及一个受支持的 AI 编码代理
+- 无容器化交付路径，若需容器化需自行封装
+- 迭代节奏快（3 周 7 个版本），生产采用建议锁定版本并关注兼容性</p>
+<h3>10.3 一句话总结</h3>
+<blockquote>
+<p><strong>Spec Kit 是一个"产品优秀、生态强势、但天生不适合独立变现"的明星资产——它的商业价值在于卡位，不在于收费；抓住 IDE/Agent 厂商内建 spec 流程之前的时间窗口，以中立性换取组织级默认流程入口地位，是唯一正确的商业化姿势。</strong></p>
+</blockquote>
+<h2>十一、项目地址</h2>
+<p><svg class="ri ri-muted" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.001 2C6.47598 2 2.00098 6.475 2.00098 12C2.00098 16.425 4.86348 20.1625 8.83848 21.4875C9.33848 21.575 9.52598 21.275 9.52598 21.0125C9.52598 20.775 9.51348 19.9875 9.51348 19.15C7.00098 19.6125 6.35098 18.5375 6.15098 17.975C6.03848 17.6875 5.55098 16.8 5.12598 16.5625C4.77598 16.375 4.27598 15.9125 5.11348 15.9C5.90098 15.8875 6.46348 16.625 6.65098 16.925C7.55098 18.4375 8.98848 18.0125 9.56348 17.75C9.65098 17.1 9.91348 16.6625 10.201 16.4125C7.97598 16.1625 5.65098 15.3 5.65098 11.475C5.65098 10.3875 6.03848 9.4875 6.67598 8.7875C6.57598 8.5375 6.22598 7.5125 6.77598 6.1375C6.77598 6.1375 7.61348 5.875 9.52598 7.1625C10.326 6.9375 11.176 6.825 12.026 6.825C12.876 6.825 13.726 6.9375 14.526 7.1625C16.4385 5.8625 17.276 6.1375 17.276 6.1375C17.826 7.5125 17.476 8.5375 17.376 8.7875C18.0135 9.4875 18.401 10.375 18.401 11.475C18.401 15.3125 16.0635 16.1625 13.8385 16.4125C14.201 16.725 14.5135 17.325 14.5135 18.2625C14.5135 19.6 14.501 20.675 14.501 21.0125C14.501 21.275 14.6885 21.5875 15.1885 21.4875C19.259 20.1133 21.9999 16.2963 22.001 12C22.001 6.475 17.526 2 12.001 2Z"/></svg> <a href="https://github.com/github/spec-kit">https://github.com/github/spec-kit</a></p>
+<hr />
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+</blockquote>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家　<a href="https://www.mova.work">www.mova.work</a></p></body></html>

@@ -1,0 +1,1712 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><title>Plugins 商业价值分析报告</title><style>/* default — 品牌蓝紫主题（从 md2pdf.py 原 CSS 常量迁出，视觉与历史产物一致） */
+@page { size: A4; margin: 18mm 15mm 20mm 15mm; }
+* { box-sizing: border-box; }
+/* 字体规范：一律开源思源黑体 CN（OFL 免费商用）；正文 Regular/标题 Bold/大字数字 Light */
+body { font-family: "Source Han Sans CN","思源黑体 CN","Noto Sans SC",sans-serif; color:#1e293b; font-size:10.5pt; line-height:1.75; margin:0; }
+.cover { page-break-after: always; text-align:center; padding-top:40px; }
+.cover .kicker { color:#2563eb; letter-spacing:6px; font-size:12pt; font-weight:500; }
+.cover h1 { font-size:26pt; margin:14px 0 6px; }
+.cover .sub { color:#64748b; font-size:11pt; margin-bottom:22px; }
+.badge { display:inline-block; background:linear-gradient(135deg,#2563eb,#7c3aed); color:#fff; border-radius:18px; padding:16px 44px; margin:10px 0 18px; }
+.badge .g { font-size:34pt; font-weight:300; line-height:1; }
+.badge .s { font-size:12pt; opacity:.92; margin-top:4px; }
+.meta { color:#475569; font-size:9.5pt; margin-top:14px; }
+.bars { max-width:620px; margin:20px auto 0; text-align:left; }
+.bar-row { display:flex; align-items:center; gap:8px; margin:5px 0; font-size:9pt; }
+.bar-name { width:110px; text-align:right; color:#334155; font-weight:500; }
+.bar-track { flex:1; height:9px; background:#f1f5f9; border-radius:5px; overflow:hidden; }
+.bar-fill { display:block; height:100%; border-radius:5px; }
+.bar-val { width:30px; font-weight:700; color:#0f172a; }
+.bar-w { width:52px; color:#94a3b8; font-size:8pt; }
+h1 { font-size:17pt; color:#0f172a; border-bottom:3px solid #2563eb; padding-bottom:8px; }
+h2 { font-size:13.5pt; color:#1d4ed8; margin-top:26px; page-break-after: avoid; border-left:5px solid #2563eb; padding-left:10px; }
+h3 { font-size:11.5pt; color:#0f172a; margin-top:18px; page-break-after: avoid; }
+table { border-collapse:collapse; width:100%; margin:10px 0; font-size:9pt; page-break-inside:avoid; }
+th { background:#eff6ff; color:#1e3a8a; }
+th,td { border:1px solid #dbe3ef; padding:5px 8px; text-align:left; }
+tr:nth-child(even) td { background:#f8fafc; }
+code { background:#f1f5f9; border-radius:4px; padding:1px 5px; font-family:"JetBrains Mono","Cascadia Mono",monospace; font-size:9pt; color:#be185d; }
+pre { background:#0f172a; color:#e2e8f0; border-radius:8px; padding:12px 14px; overflow-x:auto; page-break-inside:avoid; }
+pre code { background:none; color:inherit; padding:0; }
+blockquote { border-left:4px solid #93c5fd; background:#eff6ff; margin:10px 0; padding:8px 14px; color:#334155; border-radius:0 8px 8px 0; }
+hr { border:none; border-top:1px dashed #cbd5e1; margin:22px 0; }
+strong { color:#0f172a; }
+.cover .disclaimer { max-width:620px; margin:16px auto 0; color:#64748b; font-size:8.5pt; line-height:1.6; text-align:left; border:1px solid #e2e8f0; border-radius:8px; padding:8px 12px; background:#f8fafc; }
+.credit { color:#2563eb; font-size:10.5pt; font-weight:700; letter-spacing:1px; margin-top:12px; }
+.at-acc { background:#dbeafe; color:#1d4ed8; border-radius:4px; padding:0 4px; font-weight:500; white-space:nowrap; }
+.tail { page-break-inside:avoid; margin-top:26px; border-top:2px solid #2563eb; padding-top:14px; }
+.tail p { color:#64748b; font-size:8.5pt; line-height:1.6; margin:0 0 10px; }
+.tail .credit { text-align:center; margin:0; }
+/* Remix Icon 内联 SVG（icon_mode=remix 时由脚本注入，语义色与评分条一致） */
+.ri { width:1.05em; height:1.05em; vertical-align:-0.18em; display:inline-block; }
+.ri-ok { color:#16a34a; } .ri-warn { color:#d97706; } .ri-bad { color:#dc2626; }
+.ri-muted { color:#64748b; } .ri-star { color:#f59e0b; } .ri-brand { color:#2563eb; }
+.ri-gold { color:#d4a017; } .ri-silver { color:#9ca3af; } .ri-bronze { color:#b45309; }
+/* 屏幕预览：@page 边距仅在打印时生效，浏览器中居中限宽并收边（不影响 PDF 输出） */
+@media screen {
+  body { margin: 0 auto; padding: 28px 36px 56px; max-width: 900px; }
+}
+</style></head><body><div class="cover">
+<div class="kicker">开源项目商业化潜力分析 · 第 89 期</div>
+<h1>GitHub 开源项目 Plugins<br>商业价值分析报告</h1>
+<div class="sub">openai/plugins · Codex 官方插件示例集与 marketplace 清单 · 九维度加权评估</div>
+<div class="badge"><div class="g">D 级 · 60.9</div><div class="s">综合评分（满分 100）· 极低商业化潜力</div></div>
+<div><svg viewBox="0 0 560 480" width="560" height="480" xmlns="http://www.w3.org/2000/svg"><polygon points="280.0,209.6 299.5,216.7 309.9,234.7 306.3,255.2 290.4,268.6 269.6,268.6 253.7,255.2 250.1,234.7 260.5,216.7" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,179.2 319.1,193.4 339.9,229.4 332.7,270.4 300.8,297.1 259.2,297.1 227.3,270.4 220.1,229.4 240.9,193.4" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,148.8 338.6,170.1 369.8,224.2 359.0,285.6 311.2,325.7 248.8,325.7 201.0,285.6 190.2,224.2 221.4,170.1" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,118.4 358.2,146.8 399.8,218.9 385.3,300.8 321.6,354.3 238.4,354.3 174.7,300.8 160.2,218.9 201.8,146.8" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,88.0 377.7,123.6 429.7,213.6 411.6,316.0 332.0,382.8 228.0,382.8 148.4,316.0 130.3,213.6 182.3,123.6" fill="none" stroke="#e2e8f0" stroke-width="1"/><line x1="280.0" y1="240.0" x2="280.0" y2="88.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="377.7" y2="123.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="429.7" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="411.6" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="332.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="228.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="148.4" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="130.3" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="182.3" y2="123.6" stroke="#d8dee9" stroke-width="1"/><polygon points="280.0,126.0 341.6,166.6 395.3,219.7 336.6,272.7 312.2,328.6 249.3,324.3 215.5,277.2 160.2,218.9 231.1,181.8" fill="rgba(37,99,235,.22)" stroke="#2563eb" stroke-width="2.5"/><circle cx="280.0" cy="126.0" r="3.5" fill="#2563eb"/><circle cx="341.6" cy="166.6" r="3.5" fill="#2563eb"/><circle cx="395.3" cy="219.7" r="3.5" fill="#2563eb"/><circle cx="336.6" cy="272.7" r="3.5" fill="#2563eb"/><circle cx="312.2" cy="328.6" r="3.5" fill="#2563eb"/><circle cx="249.3" cy="324.3" r="3.5" fill="#2563eb"/><circle cx="215.5" cy="277.2" r="3.5" fill="#2563eb"/><circle cx="160.2" cy="218.9" r="3.5" fill="#2563eb"/><circle cx="231.1" cy="181.8" r="3.5" fill="#2563eb"/><text x="280.0" y="44.0" text-anchor="middle" font-size="12.5" fill="#334155" font-weight="600">D1</text><text x="280.0" y="58.0" text-anchor="middle" font-size="11" fill="#64748b">市场需求 7.5</text><text x="406.0" y="89.9" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D2</text><text x="406.0" y="103.9" text-anchor="start" font-size="11" fill="#64748b">技术成熟度 6.3</text><text x="473.0" y="206.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D3</text><text x="473.0" y="220.0" text-anchor="start" font-size="11" fill="#64748b">社区生态 7.7</text><text x="449.7" y="338.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D4</text><text x="449.7" y="352.0" text-anchor="start" font-size="11" fill="#64748b">变现潜力 4.3</text><text x="347.0" y="424.2" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D5</text><text x="347.0" y="438.2" text-anchor="start" font-size="11" fill="#64748b">竞争格局 6.2</text><text x="213.0" y="424.2" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D6</text><text x="213.0" y="438.2" text-anchor="end" font-size="11" fill="#64748b">法律合规 5.9</text><text x="110.3" y="338.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D7</text><text x="110.3" y="352.0" text-anchor="end" font-size="11" fill="#64748b">企业就绪 4.9</text><text x="87.0" y="206.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D8</text><text x="87.0" y="220.0" text-anchor="end" font-size="11" fill="#64748b">团队治理 8.0</text><text x="154.0" y="89.9" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D9</text><text x="154.0" y="103.9" text-anchor="end" font-size="11" fill="#64748b">上手难度 5.0</text></svg></div>
+<div class="bars"><div class="bar-row"><span class="bar-name">D8 团队治理</span>
+<span class="bar-track"><span class="bar-fill" style="width:80.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.0</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D3 社区生态</span>
+<span class="bar-track"><span class="bar-fill" style="width:77.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.7</span><span class="bar-w">权重11%</span></div>
+<div class="bar-row"><span class="bar-name">D1 市场需求</span>
+<span class="bar-track"><span class="bar-fill" style="width:75.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.5</span><span class="bar-w">权重13%</span></div>
+<div class="bar-row"><span class="bar-name">D2 技术成熟度</span>
+<span class="bar-track"><span class="bar-fill" style="width:63.0%;background:#d97706"></span></span>
+<span class="bar-val">6.3</span><span class="bar-w">权重14%</span></div>
+<div class="bar-row"><span class="bar-name">D5 竞争格局</span>
+<span class="bar-track"><span class="bar-fill" style="width:62.0%;background:#d97706"></span></span>
+<span class="bar-val">6.2</span><span class="bar-w">权重12%</span></div>
+<div class="bar-row"><span class="bar-name">D6 法律合规</span>
+<span class="bar-track"><span class="bar-fill" style="width:59.0%;background:#dc2626"></span></span>
+<span class="bar-val">5.9</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D9 上手难度</span>
+<span class="bar-track"><span class="bar-fill" style="width:50.0%;background:#dc2626"></span></span>
+<span class="bar-val">5.0</span><span class="bar-w">权重10%</span></div>
+<div class="bar-row"><span class="bar-name">D7 企业就绪</span>
+<span class="bar-track"><span class="bar-fill" style="width:49.0%;background:#dc2626"></span></span>
+<span class="bar-val">4.9</span><span class="bar-w">权重8%</span></div>
+<div class="bar-row"><span class="bar-name">D4 变现潜力</span>
+<span class="bar-track"><span class="bar-fill" style="width:43.0%;background:#dc2626"></span></span>
+<span class="bar-val">4.3</span><span class="bar-w">权重18%</span></div></div>
+<div class="meta">分析时点 2026-09-11 ｜ 数据来源：GitHub API + 仓库代码实测 ｜ 方法论 v1.3</div>
+<div class="credit">报告出品：@魔法工厂　@向量之心　@南山科学家</div>
+<div class="disclaimer"><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</div>
+</div><h1>Plugins 商业化潜力分析报告（完整版）</h1>
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家</p>
+<p>方法论版本: v1.3 | 综合评分: <strong>60.9</strong> | 等级: <strong>D（极低商业化潜力）</strong> | 价值画像: 长尾项目 | 【一票否决】D4.1协议一票否决</p>
+</blockquote>
+<h2>一、项目概览</h2>
+<h3>1.1 基本信息</h3>
+<ul>
+<li><strong>项目名称 / 仓库地址</strong>：openai/plugins（OpenAI Plugins）</li>
+<li><strong>核心技术栈</strong>：JavaScript 为主语言；实际代码构成以 Python 为主（135,475 行），另有 JS 17,197 行、TS 15,084 行、TSX 10,779 行、JSX 1,895 行、Swift 568 行；技术领域为 AI Agent / LLM 工具集成（Codex 插件、SKILL.md、MCP）</li>
+<li><strong>社区规模速览</strong>：Star 6,383 / Fork 839（Fork 比率 13.1%）/ 贡献者 61 人 / Watchers 73 / 开放 Issue 38 个</li>
+<li><strong>分析时点 / 数据来源</strong>：仓库创建于 2026-03-04，最近推送 2026-09-08（项目年龄约 6.2 个月）；数据来源为 GitHub API 与仓库本地实测（含 LICENSE、CI workflow、依赖清单等文件级核查）</li>
+</ul>
+<h3>1.2 项目分类标签</h3>
+<table>
+<thead>
+<tr>
+<th>分类维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>开发者工具（开源库 SDK：官方示例集 + 插件市场清单）</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>通用/跨行业（示例覆盖设计、知识管理、开发、媒体、生物医药等）</td>
+</tr>
+<tr>
+<td>目标用户角色</td>
+<td>AI/ML 工程师、全栈开发者、移动端开发者</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>AI 辅助开发、Codex 插件构建与第三方工具集成</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>本地部署（随 Codex 客户端加载）为主，兼可云原生调用</td>
+</tr>
+</tbody>
+</table>
+<h3>1.3 一句话定位</h3>
+<blockquote>
+<p>openai/plugins 是一个 Codex 官方插件示例与插件市场仓库，适用于 AI 辅助开发与跨行业第三方工具集成场景，主要面向 AI/ML 工程师与全栈开发者，用于快速理解并构建接入 Figma、Notion、Adobe、Airtable、Netlify、Expo 等能力的 Codex 插件。</p>
+</blockquote>
+<hr />
+<h2>二、安装部署与使用指南</h2>
+<blockquote>
+<p><strong>说明</strong>:本仓库为 OpenAI Codex 的插件示例集合(curated collection of Codex plugin examples),本身不是一个可安装的单体应用,而是由若干插件包(<code>plugins/&lt;name&gt;/</code>)构成的 marketplace。README 未提供任何安装命令,以下步骤仅基于素材中实际出现的文件与脚本原文。</p>
+</blockquote>
+<h3>部署形态概要</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>素材事实</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>仓库定位</td>
+<td>Codex plugin 示例集合,每个插件位于 <code>plugins/&lt;name&gt;/</code></td>
+</tr>
+<tr>
+<td>必备清单文件</td>
+<td><code>.codex-plugin/plugin.json</code>(必需);可选 <code>skills/</code>、<code>.app.json</code>、<code>.mcp.json</code>、插件级 <code>agents/</code>、<code>commands/</code>、<code>hooks.json</code>、<code>assets/</code></td>
+</tr>
+<tr>
+<td>Marketplace 入口</td>
+<td>默认 <code>.agents/plugins/marketplace.json</code>,指向 <code>plugins/</code> 目录;API key 登录用户使用独立入口 <code>.agents/plugins/api_marketplace.json</code></td>
+</tr>
+<tr>
+<td>统一安装脚本</td>
+<td>无(未检测到 Dockerfile / CI workflow / 顶层 install 脚本)</td>
+</tr>
+<tr>
+<td>依赖形态</td>
+<td>按插件分散:Python 走 <code>requirements.txt</code>,前端/Node 走 <code>package.json</code>,无根级依赖清单</td>
+</tr>
+</tbody>
+</table>
+<h3>依赖准备(按插件分别进行)</h3>
+<p>各插件自带独立依赖清单,需按目标插件分别处理,例如:</p>
+<ul>
+<li><code>plugins/boltz-api-cli/skills/boltz-protein-design/scripts/requirements.txt</code>: <code>gemmi==0.7.5</code>、<code>numpy</code>(按 Python 版本分支)</li>
+<li><code>plugins/creative-production/requirements.txt</code>: <code>Pillow&gt;=10.0</code></li>
+<li><code>plugins/public-equity-investing/skills/earnings-preview/requirements.txt</code>: <code>pandas&gt;=2.0</code>、<code>numpy&gt;=1.24</code>、<code>openpyxl&gt;=3.1</code>、<code>PyYAML&gt;=6.0</code>、<code>python-dateutil&gt;=2.8</code></li>
+<li><code>plugins/shopify/skills/shopify-hydrogen/package.json</code>: <code>@shopify/hydrogen</code>、<code>react-router</code>、<code>typescript</code> 等</li>
+<li><code>plugins/vercel/skills/vercel-services/references/fastapi-vite/backend/pyproject.toml</code>: <code>requires-python = "&gt;=3.12"</code>,<code>fastapi[standard]&gt;=0.128.1</code></li>
+</ul>
+<h3>可用的仓库内置命令(摘自各 package.json,未做任何改写)</h3>
+<pre><code class="language-bash"># plugins/plugin-eval — 插件/技能评测 CLI(Node &gt;= 20)
+node ./scripts/plugin-eval.js analyze
+node ./scripts/plugin-eval.js guide
+node ./scripts/plugin-eval.js report
+node ./scripts/plugin-eval.js compare
+node ./scripts/plugin-eval.js explain-budget
+node ./scripts/plugin-eval.js init-benchmark
+node ./scripts/plugin-eval.js benchmark
+
+# plugins/product-design — 原型引导
+npm run prototype:bootstrap
+npm run test:sites-contract
+
+# plugins/product-design/templates/prototype — 原型模板
+npm run dev
+npm run build
+npm run preview
+
+# plugins/data-analytics — 数据组件构建/预览
+npm run build
+npm run dev
+npm run preview:widgets
+npm run typecheck
+</code></pre>
+<h3>上手路径(中等难度,关键步骤)</h3>
+<ol>
+<li>通过 Codex 宿主环境加载本仓库的 marketplace(<code>.agents/plugins/marketplace.json</code>),而非执行仓库级安装。</li>
+<li>按需选定目标插件,阅读其 <code>SKILL.md</code>(如 <code>plugins/build-ios-apps/skills/ios-app-intents/SKILL.md</code> 及 <code>references/</code> 下的细分文档)。</li>
+<li>若插件附带 <code>requirements.txt</code> 或 <code>package.json</code>,先完成该插件的依赖安装;若涉及 MCP,还需配置对应的 <code>.mcp.json</code> 与凭证。</li>
+<li>使用插件内 <code>package.json</code> 声明的脚本做本地验证(如 <code>npm run dev</code> / <code>npm run build</code>)。</li>
+<li>自定义插件开发可参考 <code>.agents/skills/plugin-creator/SKILL.md</code> 与 <code>.agents/skills/plugin-creator/references/plugin-json-spec.md</code>。</li>
+</ol>
+<h3>注意事项</h3>
+<ul>
+<li>README <strong>没有</strong> quickstart、安装命令或 10 分钟跑通路径,首次成功使用依赖对 Codex 插件机制(manifest、marketplace、skills)的前置理解。</li>
+<li>各插件依赖栈差异大(Python 3.12+ / Node &gt;= 20 / Swift / Vite / Shopify / Expo),无统一环境基线,需逐插件核对。</li>
+<li>本仓库 0 个 CI workflow,无自动化安装验证,踩坑无官方流水线兜底。</li>
+</ul>
+<h2>三、评分总览</h2>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>权重</th>
+<th>加权得分</th>
+<th>评级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1 市场需求与商业机会</td>
+<td>7.5/10</td>
+<td>13%</td>
+<td>0.98</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D2 技术成熟度与产品质量</td>
+<td>6.3/10</td>
+<td>14%</td>
+<td>0.88</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D3 社区健康度与生态势能</td>
+<td>7.7/10</td>
+<td>11%</td>
+<td>0.85</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D4 商业模式与变现潜力</td>
+<td>4.3/10</td>
+<td>18%</td>
+<td>0.77</td>
+<td>差</td>
+</tr>
+<tr>
+<td>D5 竞争格局与差异化壁垒</td>
+<td>6.2/10</td>
+<td>12%</td>
+<td>0.74</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D6 法律合规与知识产权</td>
+<td>5.9/10</td>
+<td>7%</td>
+<td>0.41</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D7 企业就绪度与可运营性</td>
+<td>4.9/10</td>
+<td>8%</td>
+<td>0.39</td>
+<td>差</td>
+</tr>
+<tr>
+<td>D8 团队治理与可持续性</td>
+<td>8.0/10</td>
+<td>7%</td>
+<td>0.56</td>
+<td>优</td>
+</tr>
+<tr>
+<td>D9 上手难度与易用性</td>
+<td>5.0/10</td>
+<td>10%</td>
+<td>0.50</td>
+<td>中</td>
+</tr>
+<tr>
+<td><strong>综合评分</strong></td>
+<td>—</td>
+<td>100%</td>
+<td><strong>60.9/100</strong></td>
+<td><strong>等级 D（极低商业化潜力）</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>一票否决已触发</strong>：D4.1（协议对变现模式的影响）细则小分为 0.4 分，落入「无协议或严重限制性协议」档（≤0.5 分），等级强制降为 <strong>D</strong>。综合评分 60.9 分仍照常展示。一票否决检查完整（D6、D8.4 均正常评分，无 N/A 项）。</p>
+</blockquote>
+<p><strong>平行维度（不计入综合评分）</strong></p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10 功能价值</td>
+<td>5.4/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>D11 社会价值</td>
+<td>5.9/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>公共价值分</td>
+<td>5.7/10</td>
+<td>(D10+D11)/2</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>各维度细则分值构成详见「四、各维度详细分析」。</p>
+</blockquote>
+<hr />
+<h2>四、各维度详细分析</h2>
+<h3>D1. 市场需求与商业机会</h3>
+<h3>项目分类标签</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>开发者工具 / 数据与AI（AI Agent 插件生态）</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>通用/跨行业（示例覆盖设计、知识管理、移动/Web 开发、视频媒体、生物医药等）</td>
+</tr>
+<tr>
+<td>目标用户</td>
+<td>AI/ML 工程师、全栈开发者、移动端开发者、DevOps/运维工程师</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>研发流程优化、API服务集成、原型验证、学习研究</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>本地部署（随 Codex 客户端加载）/ 混合部署</td>
+</tr>
+</tbody>
+</table>
+<p><strong>一句话定位</strong>：openai/plugins 是一个 Codex 官方插件示例与插件市场（marketplace.json）仓库，适用于 AI 辅助开发与第三方工具集成场景，主要面向 AI/ML 工程师与全栈开发者，用于快速理解并构建接入 Figma、Notion、Adobe、Airtable、Netlify、Expo 等外部能力的 Codex 插件。</p>
+<hr />
+<h3>D1.1 目标市场规模与增长性（2.5 分）→ <strong>2.0 / 2.5</strong></h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TAM 估算</td>
+<td>对应「AI 编码 Agent / 开发者工具集成生态」赛道。该赛道属十亿美元级以上并高速增长；但本仓库自身的可触达对象是「Codex 插件作者」，是其中较窄的开发者子集（<strong>估算未经外部数据验证，置信度低</strong>）</td>
+</tr>
+<tr>
+<td>增长趋势</td>
+<td>明显扩张：仓库创建于 2026-03，6 个月内获 6.4k star / 839 fork / 61 contributors，90 天新增 62 个 PR，说明生态侧供给端正在快速涌入</td>
+</tr>
+<tr>
+<td>市场层级</td>
+<td>成长期偏早期的新兴生态，标准尚未固化</td>
+</tr>
+</tbody>
+</table>
+<p><strong>依据</strong>：项目本身是「官方参考实现 + 市场清单」，其价值锚定在 AI 编码 Agent 插件生态的规模与增速上，而非独立产品的付费市场。生态扩张信号（contributors 61、90d PR 62）明确，但仓库无 topics、无 license，缺乏可量化的商业需求侧数据（下载量、付费转化等）。按「十亿美元级、处于增长期」档位打 80%。</p>
+<hr />
+<h3>D1.2 痛点真实性与解决程度（2.5 分）→ <strong>1.5 / 2.5</strong></h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>痛点真实性</td>
+<td>真实但受众窄：第三方工具接入 Codex 需要理解 <code>plugin.json</code> 清单、<code>skills/</code>、<code>.mcp.json</code>、<code>hooks.json</code> 等约定，官方示例显著降低上手门槛</td>
+</tr>
+<tr>
+<td>解决完整度</td>
+<td>提供了 marketplace.json、plugin-creator SKILL、插件规范文档、12+ 个可运行插件样例，作为「参考实现」较为完整；但它本身不是 SDK/框架，不提供版本化 API、无 release、无 CI</td>
+</tr>
+<tr>
+<td>替代成本</td>
+<td>替代品众多：OpenAI 官方规范文档、社区 MCP server 目录、Anthropic Claude Skills/Plugins 生态、各类第三方插件仓库</td>
+</tr>
+</tbody>
+</table>
+<p><strong>依据</strong>：属于「锦上添花到明确痛点之间」——开发者完全可以照文档从零写，或从别处拷贝插件；本仓库的不可替代性主要来自「OpenAI 官方出品」的权威性而非技术刚性。仓库 90 天内关闭 0 个 issue、无 release、无 CI workflow，也缺少可佐证用户「非用不可」的深度反馈信号。按「方案基本可用、替代品较多」档位打 60%。</p>
+<hr />
+<h3>D1.3 市场时机判断（2.5 分）→ <strong>2.0 / 2.5</strong></h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术成熟度曲线</td>
+<td>MCP 与 Agent Skills 已在 2024–2025 完成概念验证并被开发者接受，插件化集成正从「期望膨胀期」走向「实质生产期」</td>
+</tr>
+<tr>
+<td>竞争密度</td>
+<td>格局未定：Anthropic Skills/MCP 生态在「技能」范式上具先发心智，OpenAI 以平台方身份后发入场，尚未形成垄断；OpenAI 掌握 Codex 客户端分发权，具备拉动生态的杠杆</td>
+</tr>
+<tr>
+<td>监管/标准</td>
+<td>无直接监管压力，但行业事实标准（MCP、SKILL.md、plugin.json）正在形成期，标准红利与风险并存</td>
+</tr>
+</tbody>
+</table>
+<p><strong>依据</strong>：入场时点处于成长期早段，恰在 Agent 插件标准形成的前夜，官方主导有助于抢占事实标准。风险在于 Codex 插件格式尚未被外部生态广泛采纳，且仓库 6 个月无 release、无 CI，产品化节奏偏慢。按「成长期、有先行者但格局未定」档位打 80%。</p>
+<hr />
+<h3>D1.4 应用场景广度（2.5 分）→ <strong>2.0 / 2.5</strong></h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>行业覆盖</td>
+<td>广：设计（Figma、Adobe）、知识管理（Notion、Airtable）、移动开发（build-ios-apps、build-macos-apps、expo）、Web/部署（build-web-apps、Netlify）、视频媒体（remotion、google-slides）、生物医药（boltz-api-cli 蛋白设计与小分子筛选）</td>
+</tr>
+<tr>
+<td>场景多样性</td>
+<td>横向通用：插件平台 + 示例集本身是跨行业基础设施式能力，各插件为纵向专用</td>
+</tr>
+<tr>
+<td>可延展性</td>
+<td>强：<code>plugin.json</code> + <code>skills/</code> + <code>.mcp.json</code> 的骨架可直接迁移到任意第三方 API 场景</td>
+</tr>
+</tbody>
+</table>
+<p><strong>依据</strong>：示例已覆盖 6+ 个行业方向的 12+ 个插件，且 <code>boltz-api-cli</code> 等样例证明该插件格式可延伸到生物医药等高度专业领域，具备「跨行业通用基础设施」特征。扣分点在于每个插件自身场景窄，且无任何第三方插件收录，延展性目前主要停留在「格式可扩展」而非「生态已扩展」。按「多行业可用、场景丰富」档位打 80%。</p>
+<hr />
+<h3>D1 维度结论</h3>
+<ul>
+<li><strong>加权得分：7.5 / 10</strong>（2.5×80% + 2.5×60% + 2.5×80% + 2.5×80%）</li>
+<li><strong>优势</strong>：身处高速增长的 AI 编码 Agent 插件生态，由平台方 OpenAI 官方主导，天然占据标准制定与分发的有利位置；插件格式跨行业可延展，示例横跨设计、生产力、移动/Web 开发、视频、生物医药。</li>
+<li><strong>短板</strong>：项目定位是「官方示例集 + 市场清单」而非产品，痛点属于加速型而非刚性；<strong>仓库无 LICENSE（默认保留所有权利），第三方商业化复用存在法律障碍</strong>；无 release、无 CI、90 天关闭 0 issue，产品化与维护成熟度低；无 topics，需求侧缺乏可量化外部数据。</li>
+<li><strong>数据置信度：低</strong>。未获取外部市场规模报告；全部判断基于仓库元数据与文件结构推断，TAM 数字为量级估算。</li>
+</ul>
+<h3>D2 技术成熟度与产品质量</h3>
+<p><strong>项目定位</strong>：<code>openai/plugins</code> 是 OpenAI 官方的 Agent 技能/插件聚合仓库（monorepo），以 <code>plugins/&lt;厂商或领域&gt;/skills/&lt;技能&gt;/SKILL.md + scripts/ + references/</code> 的约定组织，覆盖 62 个插件目录（Slack/Figma/Stripe/Shopify 等 SaaS 集成，以及 codex-security、ngs-analysis、public-equity-investing、data-analytics 等领域工作流）。整体技术形态是「文档驱动的技能包 + 可执行脚本 + 少量嵌入式 Web Widget」，而非单一可交付软件产品。</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D2.1 产品设计与创新性</td>
+<td>1.5</td>
+<td>1.2</td>
+<td>80%</td>
+<td>产品理念清晰：把「Agent 能力」封装为可声明、可组合、可评审的插件单元，<code>SKILL.md</code> 契约 + <code>plugin-json-spec.md</code> 规范构成一套可复用的插件元协议；功能围绕真实工作流（财务建模、NGS 分析、QC 报告转 Slides/Docs）设计而非泛化堆砌。差异化体现在官方维护的技能注册表与「确定性、可审计、缺输入即输出 input required 而不臆造数值」的设计取向（如 <code>materialize_public_equity_sensitivities.py</code>、三表模型 <code>skill_core.py</code>）。但相当比例的插件本质是第三方 API 的封装脚本，创新集中在形态而非算法；仓库是集合体而非单一产品，产品边界较模糊</td>
+</tr>
+<tr>
+<td>D2.2 架构设计与工程质量</td>
+<td>2</td>
+<td>1.2</td>
+<td>60%</td>
+<td>宏观分层合理：插件目录自治，跨技能公共逻辑有抽离（<code>ngs_run_utils</code>/<code>ngs_visualization_utils</code>/<code>ngs_planner_utils</code>/<code>ngs_resource_gate</code>、<code>shared/dashboard</code>、<code>shared/artifact_packager</code>、<code>shared/script_utils</code>），codex-security 采用依赖注入（<code>DeepScanDependencies</code>）+ 迁移式 schema + 两阶段提交，抽象水平较高。但问题显著：<strong>无根级依赖清单（dependencies 为空）、无 pyproject/包结构，多处 <code>sys.path.insert</code> 硬编码相对路径导致模块脆弱</strong>；单文件巨型化普遍（<code>analytics-app/App.tsx</code> 约 4000+ 行、<code>workbench_db.py</code> 2900+ 行、<code>datascience-chart-widget.js</code> 2600+ 行、<code>finalize_scan_contract.py</code>/<code>preflight.py</code> 2000+ 与 1500+ 行）；同类 NGS 流水线脚本大量结构重复，插件间未共享；发现明确死代码（<code>shouldUseSplitLayout</code> 恒 false、<code>shouldColorBarsByCategory</code> 恒 false）；<code>workbench_schema.py</code> 的 repair 函数与迁移 SQL 重复。复刻难度分化：安全工作台与确定性财务引擎门槛较高，其余多为 CLI 包装脚本，易复刻</td>
+</tr>
+<tr>
+<td>D2.3 代码整洁性与规范性</td>
+<td>1</td>
+<td>0.6</td>
+<td>60%</td>
+<td>命名与注释整体规范（<code>from __future__ import annotations</code>、类型注解广泛、docstring 与不变量注释到位，如 <code>merge_saved_results</code> 的检查点不变量说明）。但整洁度不稳定：<code>except Exception</code> 宽泛捕获多处出现（<code>run_fastq_assay_package.py</code>、<code>report_to_google_slides.py</code>、<code>map_locus_to_gene.py</code>），<code>normalize_rsid</code> 存在 <code>replace("rs","rs")</code> 冗余，模块级可变状态过多（widget/<code>app.js</code> 的 <code>state</code> 与多个全局 <code>let</code>），魔法数字未提取（<code>chart_title_score</code> 的 0.8/2.0/4.0、ZAxis <code>[72, 420]</code>），<code>write_summary</code>/<code>write_manifest</code> 被重复调用，前端存在大量 <code>any</code> 弱类型。整体「可读但非统一高标准」</td>
+</tr>
+<tr>
+<td>D2.4 安全性</td>
+<td>1</td>
+<td>0.6</td>
+<td>60%</td>
+<td>代码级安全实践在关键模块相当扎实：<code>finalize_scan_contract.py</code>/<code>deep_scan_workbench.py</code> 做 TOCTOU 防护（lstat+fstat 比对 dev/ino）、<code>O_NOFOLLOW</code>、路径穿越与 Windows 保留名校验、<code>0600</code> 权限 + fsync + <code>os.replace</code> 原子写、拒绝 NaN/Infinity 与超 2^53 整数；<code>report_projection.py</code> 细致的 Markdown 转义与动态代码围栏防逃逸；<code>preflight.py</code> 与 <code>content_agent_client.py</code> 的密钥脱敏、token 优先走环境变量/<code>*_FILE</code>、剥离 <code>.mdl</code> 源资产；NGS 脚本普遍用参数列表而非 shell、<code>shlex.quote</code>。但存在中低风险项：<code>create_comps_template.py</code> 的 <code>pick</code> 值可直写单元格、未见 CSV 公式注入防护；<code>_multipart_body</code> 整文件读入内存；<code>bash -lc</code> 调用 rg；<strong>无 Dependabot/Snyk/Trivy 等任何安全扫描集成，无依赖清单可供漏洞审计</strong></td>
+</tr>
+<tr>
+<td>D2.5 UI/UX/UE 人机交互</td>
+<td>1</td>
+<td>0.6</td>
+<td>60%</td>
+<td>项目含实际 UI：<code>analytics-app</code>（React + Recharts + Lexical 富文本编辑器）、<code>datascience-*</code> Widget、mood-board-app、public-equity dashboard 渲染器、plugin-eval 渲染层。交互能力不弱：多图表类型（line/area/bar/stacked/scatter/pie/funnel/waterfall/heatmap/sparkline）、可拖拽分栏与布局画布、Portal tooltip、拖拽手势与自动滚动、IndexedDB 视图缓存、乐观删除队列、ErrorBoundary 与 storage fallback；dashboard 渲染器实现了 WCAG 相对亮度/对比度计算并自动加深前景色，具备无障碍意识。扣分点：UI 为宿主内嵌 Widget，视觉与导航一致性受宿主约束；存在死代码路径（分栏逻辑恒 false）；轴标签策略、高度计算等大量启发式魔法数字；前端类型化弱，影响可维护的体验迭代</td>
+</tr>
+<tr>
+<td>D2.6 功能完备度与稳定性</td>
+<td>1.5</td>
+<td>0.9</td>
+<td>60%</td>
+<td>功能覆盖面宽（62 个插件，每个技能有 <code>SKILL.md</code> 能力声明 + <code>references/</code> 深度资料），核心工作流端到端可用（计划-执行-产物清单-可视化）。但<strong>无任何正式 Release/Tag（recent_releases 为空），处于未发布 1.0 的持续演进状态</strong>；<code>workbench_schema.py</code> 含 <code>normalize_pre_release_migrations</code> 与 repair 系列，说明 schema 仍在破坏性调整；90 天开 PR 62 个、关闭 Issue 0 个，38 个开放 Issue 长期积压，反映稳定性与问题收敛能力不足。运行环境要求分化严重：一部分技能纯标准库即可，另一部分（ngs-analysis、nvidia/omniverse、build-ios/macos-apps）强依赖外部重型工具链（samtools/bcftools/fgbio/QIIME2/Salmon、Docker、uv、OpenUSD/Kit、R 包、渲染服务 token），环境门槛高。性能有已知隐患（hostPoll 250ms×80 次轮询、JSON 序列化克隆、整文件入内存）。未见 i18n/l10n 框架，文档与提示词均为英文</td>
+</tr>
+<tr>
+<td>D2.7 文档与开发者体验</td>
+<td>1</td>
+<td>0.8</td>
+<td>80%</td>
+<td>文档体量极大（3035 个文档文件），且文档即产品介质：每个技能含 <code>SKILL.md</code> 主说明 + <code>references/</code> 规范细节（如 Figma Plugin API 类型声明、SwiftUI 性能审计的 WWDC 参考、Boltz API 参考），并有 <code>.agents/skills/plugin-creator/SKILL.md</code> 与 <code>plugin-json-spec.md</code> 指导插件创作，148 个示例文件。配备 preflight/manifest/env 输出与 run_log 便于排障。扣分点：缺少仓库级架构总览与贡献/版本变更文档（无 CHANGELOG），无交互式教程与 API 参考生成配置，无 license 导致文档使用边界不清</td>
+</tr>
+<tr>
+<td>D2.8 测试与质量保障</td>
+<td>1</td>
+<td>0.4</td>
+<td>40%</td>
+<td>存在一定测试资产（96 个测试文件 / 11,966 行），但测试占比仅 6.6%，覆盖核心引擎级模块（如 codex-security、财务建模）为主，大量插件脚本无测试入口。<strong>CI workflows 数量为 0</strong>，无自动化构建/测试/发布流水线，无覆盖率门禁、无静态分析（lint/format 配置未见）、无安全扫描、无依赖更新机器人。质量保障基本依赖人工评审，与商业化交付要求差距明显</td>
+</tr>
+</tbody>
+</table>
+<p><strong>D2 合计：6.3 / 10</strong>（D2.5 适用，无需 N/A 缩放）</p>
+<h3>结论</h3>
+<p><code>openai/plugins</code> 的技术成熟度呈现<strong>「局部卓越、整体未产品化」的双面性</strong>：</p>
+<ul>
+<li><strong>亮点</strong>：插件化技能协议（SKILL.md + plugin.json + references + scripts）是一套有清晰设计意图的产品形态；领域型技能（Codex Security 工作台、三表/DCF 确定性财务引擎、NGS 流水线）在架构抽象、安全编码、审计可追溯性上达到高水准，具备真实技术护城河与复刻门槛；文档量与文档质量远超同类开源项目。</li>
+<li><strong>短板</strong>：作为交付物仍处于 pre-1.0 阶段——无 Release、无 License、无 CI、无依赖清单、无安全扫描，测试覆盖仅 6.6%；代码规模 18.1 万行与大量 1000–4000 行巨型文件、跨插件重复脚本、死代码并存的现状，直接制约可维护性与可扩展性；部分插件对外部重型工具链的强依赖使运行环境要求苛刻。</li>
+<li><strong>商业化影响</strong>：该仓库更适合作为「技能生态与参考实现的集合」被集成方消费，而非可直接承诺 SLA 的成品。要支撑商业化交付，需优先补齐 CI/测试门禁/依赖与许可证治理、收敛巨型文件与重复脚本、明确版本节奏与兼容性承诺。</li>
+</ul>
+<h3>D3. 社区健康度与生态势能（权重 11%）</h3>
+<p><strong>数据基准</strong>:stars 6,383 / forks 839 / open issues 38 / contributors 61 / 近 90 天新建 PR 62 / 近 90 天关闭 Issue 0 / releases 0 / watchers 73 / 项目年龄 6.2 个月(2026-03-04 创建,2026-09-08 最后推送)。</p>
+<h3>D3.1 社区活跃度指标（3 分）—— 得分 1.8 / 3（60%）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Star 增速</td>
+<td>近 90 天增量缺失,退化计算:6,383 ÷ 6.2 月 ≈ <strong>1,029 Star/月</strong></td>
+<td>数值落入 9–10 档(&gt;500),但为历史平均,<strong>严重受 OpenAI 官方仓库首发红利的品牌效应抬升</strong>,须大幅折价</td>
+</tr>
+<tr>
+<td>Fork 比率</td>
+<td>839 / 6,383 = <strong>13.1%</strong></td>
+<td>显著高于典型 5–10% 区间,衍生意愿强</td>
+</tr>
+<tr>
+<td>Issue/PR 活跃度</td>
+<td>近 90 天新建 PR <strong>62 个</strong>(≈20.7/月);开放 Issue 38 个</td>
+<td>提交侧活跃度中等偏上,但 Issue/PR 比失衡</td>
+</tr>
+<tr>
+<td>响应速度</td>
+<td>近 90 天关闭 Issue <strong>0 个</strong></td>
+<td>无法计算平均关闭时长;38 个开放 Issue 长期零关闭,响应能力差</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>:四项指标严重分化。优势侧:6 个月吸星 6,383(即便按品牌红利折算仍属高热度)、13.1% 的 Fork 比率说明真实使用/衍生意愿高于纯围观型项目。劣势侧:<strong>近 90 天 Issue 关闭数为 0</strong>,38 个开放 Issue 无任何收敛迹象,说明维护者几乎不做 Issue 侧响应——这直接触发了 9–10 档「Issue 响应 &lt;2 天」与 7–8 档「响应 &lt;7 天」的否决条件。此外 watchers 仅 73,与 6.4k star 严重背离,进一步印证 star 中存在大量「关注品牌而非常驻使用」的泛用户,削弱了 star 作为客户池指标的有效性。综合看,项目处于「高曝光、低维护响应」状态,落在 5–6 档(一般)。</p>
+<p><strong>分档结论</strong>:60% → 1.8 分。</p>
+<h3>D3.2 贡献者结构多样性（2.5 分）—— 得分 2.0 / 2.5（80%）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>贡献者数量</td>
+<td><strong>61 位</strong>贡献者(API 实采)</td>
+<td>达 9–10 档门槛(50+),但无活跃度分布的时序数据</td>
+</tr>
+<tr>
+<td>组织多样性</td>
+<td>目录结构显示插件由 <strong>Adobe、Figma、Notion、Airtable、Netlify、Expo、Remotion、Google Slides、Boltz</strong> 等多方署名/共建(<code>plugins/adobe</code>、<code>plugins/airtable</code>、<code>plugins/boltz-api-cli</code> 等)</td>
+<td>组织来源明显多元,但缺 API 级公司归属统计</td>
+</tr>
+<tr>
+<td>核心团队占比</td>
+<td>无法量化(无 PR 作者归属数据)</td>
+<td>不可评估</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>:61 位贡献者已跨过 50+ 门槛;插件目录中大量第三方厂商品牌插件(Adobe、Figma、Notion、Airtable、Netlify、Expo、Remotion、Google Slides、Boltz)是组织多样性的<strong>结构性硬证据</strong>——这些插件包只能由对应厂商团队编写,意味着至少 9 个以上外部组织参与共建。但受限于无 PR 作者归属数据,无法确证「外部贡献占比高」及核心团队 vs 外部的比例,因此不上探至 9–10 档。</p>
+<blockquote>
+<p>注:核心成员离开后的传承风险属 D8.1 巴士因子范畴,此处不重复计分。</p>
+</blockquote>
+<p><strong>分档结论</strong>:80% → 2.0 分。</p>
+<h3>D3.3 第三方生态成熟度（3 分）—— 得分 2.4 / 3（80%）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>插件/扩展</td>
+<td>仓库本身即 Codex 插件集市,含 <code>marketplace.json</code> 与 API 用户独立商店;1,000+ 文档/SKILL 文件、148 个示例文件</td>
+<td>插件供给丰富</td>
+</tr>
+<tr>
+<td>集成生态</td>
+<td>已集成 Adobe、Figma、Notion、Airtable、Netlify、Expo、Remotion、Google Slides 等主流平台;覆盖 iOS/macOS/Web 构建、设计、支付、数据库工作流</td>
+<td>主流平台集成度高</td>
+</tr>
+<tr>
+<td>衍生项目</td>
+<td>未见基于本仓库的独立二次开发项目或商业产品证据</td>
+<td>无证据</td>
+</tr>
+<tr>
+<td>教程/课程</td>
+<td>无外部教程/课程数据;内部文档量极大(3,035 个文档文件)</td>
+<td>无证据</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>:本项目在生态维度具有天然优势——它本身就是 OpenAI Codex 的官方插件集市,且已吸引大量头部 SaaS/设计/云平台厂商以署名插件形式入驻(Adobe、Figma、Notion、Airtable、Netlify、Expo、Google Slides),这属于「被主流平台集成 + 丰富插件供给」的强信号,远超「少量第三方扩展」的 5–6 档。但扣分点明确:仓库 topics 为空、无 awesome 列表、无外部教程/课程与成功商业衍生品的任何证据,生态仍以「厂商官方插件」而非「社区自发生态」为主,尚未形成 9–10 档所要求的完整商业衍生闭环;同时 CI workflows 为 0,工具链侧集成证据缺失。</p>
+<p><strong>分档结论</strong>:80% → 2.4 分。</p>
+<h3>D3.4 品牌认知与行业影响力（1.5 分）—— 得分 1.5 / 1.5（100%）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>品牌辨识度</td>
+<td>归属 <code>openai</code> 组织,命名「OpenAI Plugins」</td>
+<td>行业顶级品牌,辨识度无争议</td>
+</tr>
+<tr>
+<td>行业采用</td>
+<td>Adobe、Figma、Notion、Airtable、Netlify、Expo、Remotion、Google Slides 等头部厂商以插件形式背书</td>
+<td>顶级企业背书充分</td>
+</tr>
+<tr>
+<td>媒体覆盖</td>
+<td>GitHub 6.4k star / 6.2 个月,63 位贡献者,官方仓库</td>
+<td>高曝光</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>:OpenAI 官方出品,名称即品牌;头部科技/SaaS 厂商以插件入驻的形式形成事实背书。三项考察点均满足 9–10 档「行业知名品牌 + 被头部企业采用 + 高媒体关注」。</p>
+<p><strong>分档结论</strong>:100% → 1.5 分。</p>
+<h3>维度小结</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D3.1 社区活跃度指标</td>
+<td>3.0</td>
+<td>1.8</td>
+<td>60%(5–6 档)</td>
+</tr>
+<tr>
+<td>D3.2 贡献者结构多样性</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>80%(7–8 档)</td>
+</tr>
+<tr>
+<td>D3.3 第三方生态成熟度</td>
+<td>3.0</td>
+<td>2.4</td>
+<td>80%(7–8 档)</td>
+</tr>
+<tr>
+<td>D3.4 品牌认知与行业影响力</td>
+<td>1.5</td>
+<td>1.5</td>
+<td>100%(9–10 档)</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>7.7</strong></td>
+<td><strong>7–8 档(良好)</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>:openai/plugins 的社区与生态势能整体处于「良好」区间,<strong>结构性优势来自品牌与厂商生态</strong>——OpenAI 官方背书 + 9 家以上头部厂商署名插件,使 D3.3/D3.4 接近满分,贡献者规模(61 人)也跨过高活跃门槛。但<strong>活跃度指标存在明显短板</strong>:近 90 天 Issue 关闭数为 0、38 个开放 Issue 零收敛、watchers 仅 73 与 6.4k star 严重背离,说明社区热度高度依赖品牌光环而非维护者持续运营,star 作为「潜在客户池」的转化效率需打折。此外,退化公式给出的 1,029 Star/月几乎必然高估(6 个月新仓库的首发脉冲被均摊),真实稳态增速应显著更低。</p>
+<p><strong>商业化启示</strong>:该仓库的生态势能对商业化是正向的(利于获客与厂商共建),但「无 Issue 响应 + 无 CI + 无 License」的组合提示其定位更接近<strong>官方示例/生态招商目录</strong>,而非可依赖社区共同维护的产品;若以本项目或类似项目为商业化标的,应把「社区热度」与「社区运营能力」分开定价。</p>
+<p><strong>置信度说明</strong>:中。Star 增速因缺失近 90 天增量而采用退化公式(已标注高估风险);贡献者组织归属与 PR 作者比例无 API 级数据;D3.1 的响应速度项因「近 90 天关闭数 = 0」无法计算平均关闭时长,仅能定性判定为差。</p>
+<h3>D4. 商业模式与变现潜力</h3>
+<p><strong>维度得分:4.3 / 10</strong>(满分 10,加权 18%)</p>
+<h3>D4.1 协议对变现模式的影响(0.4 / 2)</h3>
+<table>
+<thead>
+<tr>
+<th>证据</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>仓库根 LICENSE</td>
+<td>无(root <code>license: null</code>,GitHub API 亦为 <code>null</code>)</td>
+</tr>
+<tr>
+<td>collect_local.py 探测</td>
+<td><code>{"file": null, "license": "NONE"}</code></td>
+</tr>
+<tr>
+<td>子插件协议分布</td>
+<td>MIT ×7(boltz-api-cli、expo、mixpanel-headless、notion 系列、posthog、supabase、superpowers、temporal、zoom)、Apache-2.0 ×5 目录(cloudflare、openai-developers、sentry、test-android-apps)、Figma 自定义 Developer Terms ×1、<code>public-equity-investing</code> 专有协议 ×1(<code>Proprietary - Internal Use Only</code>)</td>
+</tr>
+<tr>
+<td>package.json / go.mod 声明</td>
+<td>无(<code>dependencies: {}</code>),无 SPDX 顶层标识</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>:仓库作为聚合体<strong>根目录无任何 LICENSE 文件</strong>,默认保留全部权利;对整体仓库(含 marketplace 清单、<code>.agents/skills/plugin-creator</code> 等自研部分)的商业化复用处于法律真空。子插件协议高度碎片化,且已出现两类明确障碍:① <code>plugins/public-equity-investing/skills/earnings-preview/LICENSE.txt</code> 声明"仅限内部使用,未经明确许可不得在组织外再分发";② <code>plugins/figma/LICENSE.txt</code> 为 Figma 自定义开发者条款(Beta,可随时终止),非标准开源许可。整体不满足"MIT/Apache 全路径无约束"的 9–10 档,也不属于 GPL/AGPL 的"需双协议"型约束,而是落入"无协议 / 自定义限制性协议"档(1–2 档)。按六档折算:满分 2 × 20% = <strong>0.4</strong>。</p>
+<h3>D4.2 变现路径清晰度(2.1 / 3.5)</h3>
+<table>
+<thead>
+<tr>
+<th>候选模式</th>
+<th>本仓库支撑证据</th>
+<th>可行性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Open Core</td>
+<td>无企业版/社区版功能切分,无 gated 功能</td>
+<td>未见落地</td>
+</tr>
+<tr>
+<td>SaaS 托管</td>
+<td>仓库为 Codex 插件示例与 marketplace 清单,无托管产物</td>
+<td>不适用于本仓库</td>
+</tr>
+<tr>
+<td>双协议许可</td>
+<td>根目录无协议,不存在双协议结构</td>
+<td>不成立</td>
+</tr>
+<tr>
+<td>专业服务</td>
+<td>无付费支持/咨询/培训条款</td>
+<td>未见落地</td>
+</tr>
+<tr>
+<td><strong>市场/插件(抽成)</strong></td>
+<td><code>.agents/plugins/marketplace.json</code>(默认市场)+ <code>.agents/plugins/api_marketplace.json</code>(API key 用户独立市场);<code>plugins/openai-developers/skills/chatgpt-app-submission</code> 表明存在应用提审/上架流程</td>
+<td><strong>潜在可行</strong>,参照 VS Code Marketplace、Obsidian 插件市场、ChatGPT Apps</td>
+</tr>
+<tr>
+<td><strong>认证/生态</strong></td>
+<td>61 位贡献者、Figma/Notion/Cloudflare/Sentry/Supabase/Temporal/Zoom 等厂商官方插件已入驻,天然形成"认证伙伴"结构</td>
+<td><strong>潜在可行</strong>,参照 Kubernetes/Kafka 认证体系</td>
+</tr>
+<tr>
+<td>捐赠/赞助</td>
+<td>无 FUNDING、无赞助入口</td>
+<td>不成立</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>:项目定位是"a curated collection of Codex plugin examples"——即平台方的生态播种与分发渠道,而非可独立售卖的产品。可辨识出两条有先例的路径(插件市场抽成、生态认证),且仓库已具备市场清单文件与厂商插件聚集这两个前置条件;但仓库内<strong>没有任何定价、分成比例、付费层或商业条款的一手证据</strong>,两条路径均停留在"平台方(OpenAI)层面才可执行"的程度,对第三方复用者而言几乎不可承接。符合 5–6 档"有潜在路径但尚不清晰,需验证"。按六档折算:满分 3.5 × 60% = <strong>2.1</strong>。</p>
+<h3>D4.3 付费转化逻辑(1.0 / 2.5)</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>免费→付费触发点</td>
+<td>仓库内不存在任何功能分层或配额限制;插件示例全部免费且无升级入口</td>
+</tr>
+<tr>
+<td>付费意愿强度</td>
+<td>插件是 ChatGPT/Codex 订阅与 API 消耗的<strong>增强件</strong>,付费主体是平台订阅费/Token 费,而非插件本身</td>
+</tr>
+<tr>
+<td>转化漏斗</td>
+<td>用户路径止于"Install plugin",无下一步商业动作;无 per-seat、per-usage 或 enterprise 计费埋点</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>:付费转化逻辑在本仓库层面<strong>缺失</strong>——插件示例不设门禁、不设配额、不设企业版,用户没有任何"免费不够用"的场景触发付费。唯一可间接成立的说法是插件生态提升 Codex/ChatGPT 付费订阅的留存与升级动力(即平台侧转化),但这一链路仓库无任何证据支撑,且收益归属于平台方而非项目自身。符合 3–4 档"付费逻辑勉强,用户更愿意用免费版"。按六档折算:满分 2.5 × 40% = <strong>1.0</strong>。</p>
+<h3>D4.4 增值服务空间与定价天花板(0.8 / 2)</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>增值空间</td>
+<td>理论方向存在(企业私有市场、插件安全/合规审查、厂商认证、SLA 支持),仓库已出现"专有协议插件"与"自定义条款插件"等合规痛点;但仓库零实现、零包装</td>
+</tr>
+<tr>
+<td>定价天花板</td>
+<td>无任何定价信号;可推演的企业私有市场/治理类客单价可达 $10K+/年,但属推演而非项目事实</td>
+</tr>
+<tr>
+<td>收入扩展性</td>
+<td>无 per-seat / per-usage / flat fee 任何计费维度设计</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>:构成收入的实体是"插件"本身与其治理能力,而本仓库交付的是示例代码与文档(文档 3035 个文件、示例 148 个文件、测试仅占 6.6%、CI workflow 为 0),并非可售卖的服务产品。增值方向可推演(企业私有市场治理、合规审查、厂商认证),但缺乏任何功能分层、定价包或计费单元的落地证据,收入扩展性无法建立。符合 3–4 档"增值空间小、客单价低(此处更准确说是无从定价)"。按六档折算:满分 2 × 40% = <strong>0.8</strong>。</p>
+<h3>结论</h3>
+<p><strong>D4 维度得分:0.4 + 2.1 + 1.0 + 0.8 = 4.3 / 10(低于行业平均,构成商业化障碍)。</strong></p>
+<p>openai/plugins 本质是 OpenAI 官方为 Codex 打造的<strong>插件示例集与生态分发渠道</strong>,其商业价值体现在平台方(拉动 ChatGPT/Codex 订阅与 API 消耗、沉淀插件市场),而非仓库自身可承接的变现标的。三项关键障碍:① 根目录完全缺失 LICENSE,叠加仓库内存在专有协议子插件(<code>public-equity-investing</code>)与 Figma 自定义 Beta 条款,导致第三方二次商业化的事实与法律路径同时受阻;② 无任何功能分层、配额、企业版或定价包,免费→付费触发点在项目层面不存在;③ 仓库交付物为示例与文档(18.1 万行代码中 7.5 万行为 .py,但无 CI、无依赖声明、无发布),不具备独立售卖形态。</p>
+<p>可辩护的乐观面在于生态位:61 位贡献者、Figma/Notion/Cloudflare/Supabase/Temporal/Zoom 等厂商官方插件入驻,以及 <code>.agents/plugins/marketplace.json</code> + <code>api_marketplace.json</code> 的双市场结构,加上 <code>chatgpt-app-submission</code> 提审 skill,已具备"插件市场抽成 + 认证生态"两条成熟先例路径的前置条件——但这属于平台方执行层面,且需先补齐协议与计费设计方能承接,当前仅具验证价值。</p>
+<p><strong>置信度说明</strong>:本地实测 + GitHub API 均为硬数据,协议与代码结构判断置信度高;变现路径与增值空间的推演部分依赖同类平台(VS Code、Obsidian、ChatGPT Apps)类比,属中等置信度,已在正文标注为"潜在/未见落地"。</p>
+<h3>D5 竞争格局与差异化壁垒</h3>
+<h3>D5.1 竞品对比与市场定位（满分 3 分，得分 2.4）</h3>
+<p><strong>竞品验证说明</strong>：本节竞品通过 GitHub Search API 实测检索并逐条确认仓库真实存在（<code>verified: true</code>）。经检索确认，与"官方 Codex 插件/技能集合"构成<strong>同问题直接竞争</strong>的开源项目仅 <code>agent-sh/agentsys</code> 一个较接近，其余为间接或弱相关；未凑数。</p>
+<table>
+<thead>
+<tr>
+<th>竞品名称</th>
+<th>类型</th>
+<th>仓库/官网</th>
+<th>验证方式</th>
+<th>Star/用户量</th>
+<th>核心差异</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>agent-sh/agentsys</td>
+<td>直接竞品</td>
+<td>github.com/agent-sh/agentsys</td>
+<td>GitHub 搜索确认（984★，2026-09-05 活跃）</td>
+<td>984★</td>
+<td>跨工具聚合（Claude Code / OpenCode / Codex / Cursor / Kiro），24 plugins / 49 agents / 44 skills；本项目为<strong>官方单一 Codex 生态</strong></td>
+</tr>
+<tr>
+<td>cloudflare/chatgpt-plugin</td>
+<td>直接竞品（历史形态）</td>
+<td>github.com/cloudflare/chatgpt-plugin</td>
+<td>GitHub 搜索确认（294★）</td>
+<td>294★</td>
+<td>2023 年 ChatGPT Plugin 时代的三方托管方案，属于上一代插件范式，非 Codex 插件规范</td>
+</tr>
+<tr>
+<td>bujue3709/GPT-Conversation-Toolkit</td>
+<td>间接竞品</td>
+<td>github.com/bujue3709/GPT-Conversation-Toolkit</td>
+<td>GitHub 搜索确认（945★）</td>
+<td>945★</td>
+<td>C 端浏览器插件（会话导出/搜索/提示词管理），非 Agent 能力扩展，问题域不同</td>
+</tr>
+<tr>
+<td>bagidea/bagidea-office</td>
+<td>间接竞品</td>
+<td>github.com/bagidea/bagidea-office</td>
+<td>GitHub 搜索确认（216★）</td>
+<td>216★</td>
+<td>桌面壁纸式 AI Agent 办公环境，非插件市场/规范</td>
+</tr>
+<tr>
+<td>ponlponl123/-Prototype-AIVTuber</td>
+<td>间接竞品（弱相关，已归档）</td>
+<td>github.com/ponlponl123/-Prototype-AIVTuber</td>
+<td>GitHub 搜索确认（437★，archived）</td>
+<td>437★</td>
+<td>AI VTuber，项目已 deprecated，与插件市场无实质竞争关系</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>未验证的定性补充（标注置信度下降）</strong>：本仓库面临的最大实际竞争来自<strong>各 Agent 平台自带的官方插件/技能市场</strong>（Anthropic Agent Skills / 插件市场、Cursor、Gemini CLI 等平台内产品），以及 MCP 官方服务器集合。此类竞品是平台内置产品页而非本次检索可比对的独立 GitHub 仓库，<strong>未经本次搜索验证</strong>，仅作定性参考，不计入上表结论。</p>
+</blockquote>
+<p><strong>定位清晰度</strong>：
+- 本项目是 OpenAI <strong>第一方</strong>的 Codex 插件样例与规范集合，README 明确定义了 <code>.codex-plugin/plugin.json</code> 清单规范、<code>skills/</code>、<code>.mcp.json</code>、<code>hooks.json</code> 等配套面，以及 <code>.agents/plugins/marketplace.json</code> 市场索引格式——即<strong>它同时是样例库与事实上的规范定义方</strong>，这是最强的定位差异。
+- 通过引入 Figma、Notion、Adobe、Airtable、Expo、Netlify、Remotion、Boltz 等品牌方插件形成"策展式"定位，与社区自发聚合型竞品（agentsys）形成"官方权威 vs 跨平台广度"的清晰分野。
+- 扣分点：仓库本质是<strong>示例/规范仓库而非独立商业产品</strong>，其定位价值高度依附于 Codex 平台本身；公开可见的第三方插件贡献路径与治理规则未在素材中体现（61 contributors，38 open issues，90 天关闭 issue 数为 0，存在治理透明度短板），定位的"市场"属性弱于"开发者文档"属性。</p>
+<p><strong>打分理由</strong>：项目处于"有竞品但有明确差异化定位"层级，且差异化来自第一方规范定义权与品牌策展，明显强于普通开源聚合器；但并非"无直接竞品或明显领先"（agentsys 已实现对 Codex 的跨平台支持，构成现实分流）。对应 7–8 档 → 满分 3 分 × 80% = <strong>2.4 分</strong>。</p>
+<hr />
+<h3>D5.2 技术壁垒与网络效应（满分 3 分，得分 1.8）</h3>
+<blockquote>
+<p>本节仅从<strong>商业防御效果</strong>评估壁垒，不对"从零复刻工程难度"重复计分（该事实已计入 D2.2）。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术壁垒</td>
+<td><strong>弱</strong>。核心技术资产为 JSON 清单 + Markdown 技能文件，格式公开可读；无专利、无算法壁垒、无专有数据。180,998 行代码中 <code>.py</code> 占 135,475 行，多为各插件配套脚本与技能内容，属于可被逐目录复制的内容资产而非难以复现的引擎</td>
+</tr>
+<tr>
+<td>法律壁垒（反向）</td>
+<td>仓库<strong>无 LICENSE 文件</strong>（<code>license: NONE</code>）。默认保留全部权利，客观上阻止竞品直接 fork 复用，但也<strong>抑制了社区二次贡献与生态外溢</strong>，属于双刃剑而非正向护城河</td>
+</tr>
+<tr>
+<td>网络效应</td>
+<td><strong>中等偏弱但方向正确</strong>。插件市场天然具备双边网络效应（插件越多 → 用户越多 → 品牌方越愿接入），且 <code>.agents/plugins/marketplace.json</code> 的市场索引机制为该效应提供了技术载体；品牌方插件（Figma/Notion/Adobe/Airtable/Expo/Netlify）构成一定生态锁定。但该网络效应<strong>归属于 Codex 平台而非本仓库</strong>，本仓库自身无用户数据、无账号体系、无跨项目调用，飞轮由平台方掌握</td>
+</tr>
+<tr>
+<td>规模效应</td>
+<td><strong>弱</strong>。样例库的边际成本不随规模下降，无数据飞轮，无算力/服务成本摊薄</td>
+</tr>
+</tbody>
+</table>
+<p><strong>打分理由</strong>：有一定壁垒（第一方规范 + 品牌策展 + 平台级市场机制）但不深厚——内容可逐目录复制，格式公开，且核心网络效应不在本仓库手中，同时无 LICENSE 削弱了生态自增强能力。对应 5–6 档 → 满分 3 分 × 60% = <strong>1.8 分</strong>。</p>
+<hr />
+<h3>D5.3 切换成本与用户粘性（满分 2 分，得分 0.8）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>迁移成本</td>
+<td><strong>低</strong>。插件以 <code>plugins/&lt;name&gt;/</code> 自包含目录交付，主体是 Markdown 技能文本（仓库文档文件达 3,035 个，绝大多数为 SKILL.md 及 references），语义可跨工具复用；竞品 agentsys 已实测实现对 Codex 与其他工具的兼容，说明格式可被桥接</td>
+</tr>
+<tr>
+<td>深度集成</td>
+<td><strong>中等</strong>。部分插件依赖 <code>.mcp.json</code>（MCP 服务）、<code>.app.json</code>、<code>hooks.json</code> 与 API 密钥配置，迁移需重新配置鉴权与运行时挂载；但仓库本身无数据库、无用户数据、无状态，切换时无需数据迁移</td>
+</tr>
+<tr>
+<td>习惯锁定</td>
+<td><strong>弱至中等</strong>。用户工作流锁定发生在 Codex 应用层（技能触发、Run actions），而非本仓库；仓库层面用户可即取即用、即删即弃</td>
+</tr>
+</tbody>
+</table>
+<p><strong>打分理由</strong>：无数据资产、无状态、内容以可移植 Markdown 为主，用户可低成本切换到其他平台的插件集；仅 MCP/密钥配置带来有限摩擦。符合"迁移成本低，用户可轻易切换"的 3–4 档 → 满分 2 分 × 40% = <strong>0.8 分</strong>。</p>
+<hr />
+<h3>D5.4 护城河可持续性（满分 2 分，得分 1.2）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>护城河趋势</td>
+<td><strong>平台侧增强、仓库侧持平</strong>。Codex 生态与品牌方接入在扩张（90 天新增 62 个 PR，61 位贡献者，最近推送 2026-09-08，未见归档），第一方身份持续有效；但仓库自身因无 LICENSE、90 天内关闭 issue 数为 0，社区共建与外部贡献闭环偏弱</td>
+</tr>
+<tr>
+<td>颠覆风险</td>
+<td><strong>中等偏高</strong>。① 各主流 Agent 平台（Claude Code、Cursor、Gemini CLI 等）纷纷推出形态相近的"技能/插件"机制，插件集这一品类正在被<strong>商品化</strong>；② 跨工具聚合器（agentsys 已覆盖 Codex/Cursor/Claude Code 等 5 个平台）可能成为更上层的分发入口，把官方样例库"降格"为其中一个数据源</td>
+</tr>
+<tr>
+<td>时间窗口</td>
+<td><strong>中等</strong>。只要 Codex 保持应用层份额且 <code>plugin.json</code>/marketplace 规范被生态采用，第一方优势可持续；一旦格式标准化或聚合层成为主流入口，本仓库的独占价值将快速衰减</td>
+</tr>
+</tbody>
+</table>
+<p><strong>打分理由</strong>：护城河稳定但非加深——第一方身份是真实优势，但面临品类商品化与聚合层崛起的明确中期风险。对应 5–6 档 → 满分 2 分 × 60% = <strong>1.2 分</strong>。</p>
+<hr />
+<h3>D5 维度结论</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D5.1 竞品对比与市场定位</td>
+<td>3</td>
+<td>2.4</td>
+<td>7–8 档（80%）</td>
+</tr>
+<tr>
+<td>D5.2 技术壁垒与网络效应</td>
+<td>3</td>
+<td>1.8</td>
+<td>5–6 档（60%）</td>
+</tr>
+<tr>
+<td>D5.3 切换成本与用户粘性</td>
+<td>2</td>
+<td>0.8</td>
+<td>3–4 档（40%）</td>
+</tr>
+<tr>
+<td>D5.4 护城河可持续性</td>
+<td>2</td>
+<td>1.2</td>
+<td>5–6 档（60%）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>6.2</strong></td>
+<td><strong>一般偏上</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>核心判断</strong>：<code>openai/plugins</code> 的竞争位置是<strong>"第一方规范定义者 + 策展型样例库"</strong>。其最强资产是 OpenAI 官方身份带来的规范定义权与品牌方策展（Figma/Notion/Adobe/Airtable/Expo/Netlify），在开源侧仅 <code>agent-sh/agentsys</code>（984★）构成较接近的直接竞争，且后者走跨工具聚合路线，定位分野清晰。但短板同样明确：<strong>技术壁垒几乎为零</strong>（JSON + Markdown 内容资产可逐目录复制）、<strong>无 LICENSE 反噬生态自增强</strong>、<strong>切换成本极低</strong>（无数据无状态），且真正的网络效应归属 Codex 平台而非本仓库。护城河能否维持取决于 Codex 应用层份额与插件格式能否成为事实标准；随着各平台技能机制趋同与跨工具聚合层崛起，该仓库面临的<strong>品类商品化风险为中等偏高</strong>。综合商业防御能力<strong>中等偏上，不足以独立构成商业化壁垒，需依托平台战略兑现</strong>。</p>
+<h3>D6. 法律合规与知识产权</h3>
+<p><strong>维度得分：5.9 / 10</strong>（各细则满分合计 10，未出现 N/A）</p>
+<p><code>openai/plugins</code> 是一个「厂商技能聚合型 monorepo」——仓库主体并非 OpenAI 自研代码，而是汇集了 Adobe、Airtable、Boltz、Cloudflare、Expo、Figma、Mixpanel、Notion、PostHog、Shopify、Supabase、Zoom、Sentry、Temporal、Vercel 等 20+ 家第三方的插件与 skill 包。这一结构决定了本维度的核心风险不在「传染性 copyleft」，而在<strong>协议碎片化 + 顶层协议缺失 + 个别组件的限制性附加条款</strong>。</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>核心判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D6.1 开源协议合规性与商业限制</td>
+<td>3</td>
+<td><strong>1.2</strong></td>
+<td>3–4 档（40%）</td>
+<td>根目录无 LICENSE；22 份组件协议中 2 份为限制性附加条款</td>
+</tr>
+<tr>
+<td>D6.2 依赖链法律风险</td>
+<td>2.5</td>
+<td><strong>2.0</strong></td>
+<td>7–8 档（80%）</td>
+<td>未发现 GPL/AGPL 传染性依赖，来源可靠；但无根级清单/SBOM，审查不完整</td>
+</tr>
+<tr>
+<td>D6.3 商标与专利风险</td>
+<td>2.5</td>
+<td><strong>1.5</strong></td>
+<td>5–6 档（60%）</td>
+<td>未经人工核查，按默认档给分，置信度低</td>
+</tr>
+<tr>
+<td>D6.4 贡献者协议完备性</td>
+<td>2</td>
+<td><strong>1.2</strong></td>
+<td>5–6 档（60%）</td>
+<td>仅 1 份插件级 CONTRIBUTING.md，无 CLA/DCO，版权结构性分散</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>5.9</strong></td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>D6.1 开源协议合规性与商业限制（1.2 / 3，3–4 档）</h3>
+<p><strong>协议明确性——顶层缺失，组件层明确。</strong> GitHub API 与本地实测均返回 <code>license: null</code> / <code>"NONE"</code>，仓库根目录不存在 LICENSE 文件。对于一个承载 180,998 行代码、521 个源码文件的聚合仓库，这意味着仓库自身的「胶水层」（README、<code>.agents/skills/plugin-creator/</code>、<code>plugins/plugin-eval/</code> 等 OpenAI 自研部分）<strong>权利状态不明</strong>：使用者无法确定自己对这部分代码是否获得授权、以何种条件获得授权。SPDX 合规上属于硬缺陷。</p>
+<p>组件层则相对规范：采集到的 22 份 LICENSE 文件中，MIT 与 Apache-2.0 占绝对多数（boltz、expo、mixpanel、posthog、supabase、superpowers、temporal、zoom、notion×4 为 MIT/MIT 式；cloudflare×3、openai-developers×2、sentry、test-android-apps 为 Apache-2.0）。</p>
+<p><strong>copyleft 传染性——无。</strong> 全部可见协议均为宽松型（MIT / Apache-2.0 / MIT 式自有文本），未出现 GPL、AGPL、LGPL 或 SSPL。Apache-2.0 组件自带专利授权条款（§3）及专利报复终止条款，对下游是正向保护。</p>
+<p><strong>商业附加条款——存在两处实质性限制，这是本细则的主要扣分点：</strong></p>
+<ol>
+<li><code>plugins/public-equity-investing/skills/earnings-preview/LICENSE.txt</code>：
+   <code>"Proprietary - Internal Use Only … Redistribution outside your organization is not permitted without explicit permission."</code> ——这是一份<strong>专有协议</strong>，却被置于公开分发的 GitHub 仓库中。任何完整克隆/再分发该仓库的行为，在此子目录上即构成协议冲突；且该协议未定义「your organization」边界，法律含义模糊。</li>
+<li><code>plugins/figma/LICENSE.txt</code>：
+   全文引用 Figma Developer Terms，并声明为 Beta 功能、<code>"Figma may modify, suspend, or discontinue them at any time without notice"</code>。这是<strong>第三方平台条款而非开源许可</strong>，且明确包含可随时终止的保留权利；通过自动化系统/AI agent 访问亦被纳入约束范围。</li>
+</ol>
+<p>上述两条意味着：<strong>「把整个仓库原样打包分发/镜像」这一类商业模式在这些组件上法律上不可行</strong>，符合 3–4 档「有限制性附加条款……部分商业模式法律上不可行」的描述。未给 1–2 档，是因为限制仅覆盖少数组件，多数组件协议清晰且宽松，整体合规可通过<strong>组件级隔离</strong>（剔除问题子目录）实现。</p>
+<blockquote>
+<p>注：按方法论要求，协议类型本身对变现模式的影响归 D4.1，本细则未因「顶层无协议」的协议档位重复扣分，扣分仅基于附加条款与合规可管理性。</p>
+</blockquote>
+<h3>D6.2 依赖链法律风险（2.0 / 2.5，7–8 档）</h3>
+<p><strong>未发现传染性依赖。</strong> 从可见的 20 份清单（<code>requirements.txt</code> / <code>package.json</code> / <code>pyproject.toml</code>）看，依赖协议分布为：</p>
+<ul>
+<li>Python：<code>numpy</code>（BSD-3）、<code>Pillow</code>（HPND/MIT-CMU）、<code>pandas</code>（BSD-3）、<code>openpyxl</code>（MIT）、<code>XlsxWriter</code>（BSD）、<code>xlrd</code>（BSD）、<code>PyYAML</code>（MIT）、<code>python-dateutil</code>（Apache-2.0/BSD）、<code>fastapi</code>（MIT）、<code>gemmi</code>（MPL-2.0，弱 copyleft，仅文件级，不传染）</li>
+<li>JS/TS：<code>react</code>/<code>react-dom</code>（MIT）、<code>vite</code>（MIT）、<code>lexical</code>（MIT）、<code>recharts</code>（MIT）、<code>lucide-react</code>（ISC）、<code>html-to-image</code>（MIT）、<code>ajv</code>/<code>ajv-formats</code>（MIT）、<code>js-yaml</code>（MIT）、<code>playwright-core</code>/<code>@playwright/test</code>（Apache-2.0）、<code>typescript</code>（Apache-2.0）、<code>preact</code>（MIT）、<code>motion</code>（MIT）、<code>@radix-ui/*</code>（MIT）、<code>@use-gesture/react</code>（MIT）、<code>@shopify/*</code>（MIT）、<code>@vitejs/plugin-react</code>（MIT）、<code>@fontsource/roboto</code>（字体为 Apache-2.0/OFL）</li>
+</ul>
+<p>唯一需留意项是 <code>gemmi==0.7.5</code>（MPL-2.0，文件级弱 copyleft，只要不修改其源文件即无义务），不构成实质障碍。</p>
+<p><strong>扣分理由（未给 9–10 档）：</strong> 合规可见性不完整——仓库无根级依赖清单、无 <code>package-lock.json</code>/<code>poetry.lock</code> 级别的锁文件展示、无 SBOM、无 license-scanning CI（<code>ci_workflows: 0</code>），且 521 个源码文件仅暴露了约 20 份清单，<strong>传递依赖未被覆盖</strong>。对于一个 20+ 独立子项目的聚合仓库，逐子树审查成本客观存在；同时依赖项来源均为 npm/PyPI 官方注册表上的知名包，来源风险低。综合给 80%。</p>
+<h3>D6.3 商标与专利风险（1.5 / 2.5，5–6 档）</h3>
+<p><strong>本细则未经人工核查，置信度低。</strong> 商标检索（USPTO/EUIPO/CNIPA）与专利 FTO 排查无法通过静态代码分析完成，按方法论要求默认落在 5–6 档给 1.5/2.5，<strong>不基于模型记忆断言任何商标/专利状态</strong>。</p>
+<p>可供后续人工核查的线索（仅为线索，非结论）：</p>
+<ul>
+<li>仓库名 <code>openai/plugins</code> 直接使用 <code>OpenAI</code> 字样。Apache-2.0 §6 明确<strong>不授予商标权</strong>，仅允许为描述来源作合理惯常使用；将「OpenAI」作为自有商业化产品名的主体部分存在明显风险。</li>
+<li>仓库内以第三方厂商名作为目录名（adobe、figma、notion、zoom、shopify、supabase、sentry、cloudflare、posthog、mixpanel、temporal、vercel 等）属于描述性/指示性使用，通常可主张合理使用，但需注意各厂商的商标使用政策约束衍生品的命名与宣传方式。</li>
+<li>未见仓库内提供任何商标使用政策（Trademark Policy）文件；Apache-2.0 组件自带的 §6 条款仅覆盖各自组件。</li>
+<li>专利层面：Apache-2.0 组件含明示专利授权；MIT 组件不提供明示专利授权（仅有隐含许可推论）。聚合仓库中大量 MIT 代码的专利风险需人工 FTO 评估，本次无法定论。</li>
+</ul>
+<h3>D6.4 贡献者协议完备性（1.2 / 2，5–6 档）</h3>
+<p><strong>有贡献指南，但仅限单插件且无正式 CLA。</strong> 采集到的唯一 CONTRIBUTING.md 位于 <code>plugins/zoom/CONTRIBUTING.md</code>，内容为插件级贡献流程（fork→PR、SKILL.md 格式规范、AI 辅助贡献规范），并载明一句 <code>"By contributing, you agree that your contributions will be licensed under the MIT License."</code>——这构成对 Zoom 插件子树的有效贡献授权声明。</p>
+<p>但作为仓库整体：</p>
+<ul>
+<li><strong>未见根级 CONTRIBUTING.md</strong>、未见 <code>CLA</code>/<code>DCO</code> 配置文件、未见 <code>.github/PULL_REQUEST_TEMPLATE</code> 或签署机器人配置（需注意 doc_files 列表被截断，此处存在一定观察盲区，置信度中等）。</li>
+<li><strong>版权结构性分散</strong>：contributors 为 61 人，近 90 天新建 PR 62 个、Issue 关闭 0 个（治理响应能力存疑）。更关键的是，本仓库本质是<strong>厂商内容聚合</strong>，各插件版权分属 Adobe / Cloudflare / Figma / Zoom / Supabase / Notion 等不同主体（如 <code>Copyright (c) 2026 Boltz</code>、<code>Copyright 2025 Notion Labs, Inc.</code>、<code>Copyright (c) 2025 Jesse Vincent</code>、<code>Copyright (c) 2026 Temporal Technologies Inc.</code> 等），<strong>不可能集中到单一主体</strong>。这意味着任何「双协议 / 商业授权」模式在本仓库上几乎不可行，版权无法收敛。</li>
+</ul>
+<p>符合 5–6 档「有贡献指南但无正式 CLA」；未降至 3–4 档，是因为至少存在一份成文的贡献流程与授权声明，且聚合型仓库的版权分散属于结构属性而非流程失范。</p>
+<hr />
+<h3>结论</h3>
+<p><code>openai/plugins</code> 在法律合规上呈现<strong>「组件级合规良好、顶层合规缺位」</strong>的分裂格局：</p>
+<ol>
+<li><strong>最大障碍是顶层协议缺失</strong>——根目录无 LICENSE，使仓库自身代码的权利边界不明，这会在企业采购尽调、代码扫描（如 FOSSA/ScanCode）和再分发场景中直接触发红灯。</li>
+<li><strong>两处限制性附加条款构成真实雷区</strong>——<code>public-equity-investing/.../earnings-preview</code> 的「Proprietary - Internal Use Only」与 Figma Developer Terms（Beta、可随时终止），使「整仓分发/镜像/二次打包」类商业模式法律上不可行。</li>
+<li><strong>依赖链是相对亮点</strong>——未发现 GPL/AGPL，依赖来源可靠，唯一弱 copyleft 项（gemmi, MPL-2.0）不传染。</li>
+<li><strong>贡献治理薄弱</strong>——无 CLA/DCO、无根级贡献指南，叠加 61 位贡献者与厂商版权分散，双协议等进阶变现路径基本被锁死。</li>
+<li><strong>商标/专利为未决风险</strong>——未人工核查，不予断言，但 <code>OpenAI</code> 名称与 20+ 第三方厂商名的组合使用需专项检索。</li>
+</ol>
+<p><strong>可执行的整改优先级</strong>：① 在根目录补充 LICENSE（明确覆盖 OpenAI 自研部分并声明第三方内容分属各自许可）；② 在 README 中建立「按插件列示许可」的清单表，并对限制性组件加显著告警；③ 移除或隔离「Proprietary - Internal Use Only」内容；④ 引入 DCO 或 CLA 机器人。</p>
+<h3>D7. 企业就绪度与可运营性</h3>
+<p><strong>评估对象特性说明</strong>：<code>openai/plugins</code> 并非一个可独立部署的服务型产品，而是一个<strong>插件/skill 示例集市（marketplace）</strong>：仓库以 <code>plugins/&lt;name&gt;/.codex-plugin/plugin.json</code> 清单为单位，聚合 skills、<code>.mcp.json</code>、<code>.app.json</code>、agents/commands/hooks 等资源，运行时依赖 Codex/ChatGPT 宿主平台。因此本维度评估的是「该资产集合在企业环境中被运营、治理、审计」的就绪度，而非服务端运维。</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D7.1 运维复杂度与升级路径</td>
+<td>3</td>
+<td>1.2</td>
+<td>3–4（40%）</td>
+<td>配置层面有声明式清单（<code>plugin.json</code>/<code>.mcp.json</code>/<code>marketplace.json</code>），配置清晰但无环境变量/配置中心抽象；<strong>无任何 release/tag/CHANGELOG</strong>（recent_releases 为空），无迁移说明、无回滚机制，升级=整体 <code>git pull</code>；无 Makefile/脚本目录（scripts: 0），无 CI（workflows: 0）驱动发布</td>
+</tr>
+<tr>
+<td>D7.2 安全管理与权限控制</td>
+<td>2.5</td>
+<td>1.0</td>
+<td>3–4（40%）</td>
+<td>仓库层面<strong>无认证/授权体系、无 RBAC/ABAC、无审计日志、无 SECURITY.md、无 License</strong>；仅在部分插件脚本内见到凭据经环境变量/<code>*_FILE</code> 读取（<code>--token</code> 标注为最后手段）、stdout/stderr 密钥脱敏、路径穿越与 NTFS ADS 拒绝、<code>0600</code> 文件权限等防御性实践，属内容级而非平台级安全能力</td>
+</tr>
+<tr>
+<td>D7.3 可扩展性与高可用能力</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6（60%）</td>
+<td>分发形态为静态文件集市，天然无状态、无服务端单点，横向复制无成本；但也<strong>不存在集群/故障转移/一致性设计</strong>（因为无后端）。个别插件自带前端/宿主桥接存在性能隐患（multipart 一次性读入内存、widget 每 250ms 轮询 80 次），且无性能压测文档</td>
+</tr>
+<tr>
+<td>D7.4 集成兼容与可观测性</td>
+<td>2</td>
+<td>1.2</td>
+<td>5–6（60%）</td>
+<td>集成侧有亮点：基于 <strong>MCP 标准协议</strong>（<code>.mcp.json</code>）、widget 宿主 API、hooks/commands 扩展点；脚本普遍产出 run_log/manifest/artifact index 等结构化审计产物。但<strong>无 OpenAPI/SDK 定义、无 OpenTelemetry/Prometheus/Webhook 集成、无健康检查/监控指标、无结构化日志库统一</strong>，也无 CI 门禁</td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<p><strong>D7 得分：4.9 / 10（较弱偏一般，构成商业化障碍）</strong></p>
+<ul>
+<li><strong>核心短板在于「资产治理」缺位</strong>：仓库无 License、无版本发布、无 CHANGELOG、无 CI、无 SECURITY.md。企业采购/合规流程中，这些是硬性前置条件（尤其无 License 会导致法律上默认「保留所有权利」，企业无法合规使用），单此一项即严重掣肘商业化。</li>
+<li><strong>升级与回滚路径缺失</strong>：无 tag、无 release、无迁移脚本，企业无法按版本锁定与灰度，只能跟随主干漂移，运维风险不可控。</li>
+<li><strong>安全能力错位</strong>：仓库内确实存在高质量的防御性代码（凭据脱敏、路径安全、原子写、<code>O_NOFOLLOW</code>），但这些是 <code>codex-security</code> 等插件<strong>自身功能</strong>的一部分，而非平台级安全治理（SSO/RBAC/审计/加密）。企业级安全要求无法在仓库层得到满足。</li>
+<li><strong>相对可取之处</strong>：插件机制以声明式清单 + MCP 标准协议组织，集成本身有标准可依；静态分发形态使扩缩容不构成瓶颈；脚本普遍输出可审计的 manifest/run log，具备一定的可观测性雏形。</li>
+<li><strong>置信度</strong>：中等。仓库为示例集市，部分企业级能力（集群/HA）本身不适用，评分已尽量以「资产治理成熟度」而非「服务运维成熟度」为锚点，但仍受限于无 LICENSE、无发布记录、无 CI 这三项硬事实的强约束。</li>
+</ul>
+<h3>D8. 团队治理与可持续性（权重 7%）</h3>
+<p><strong>项目</strong>: openai/plugins —— 由 OpenAI 官方组织持有的插件/技能集合仓库，仓库创建于 2026-03-04，最近推送 2026-09-08，处于活跃状态。</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D8.1 核心维护者能力与背景</td>
+<td>2.5</td>
+<td>2.5</td>
+<td>9–10（100%）</td>
+<td>仓库归属 <code>openai</code> 官方组织，由具备成功商业化经验的大公司直接持有；贡献者 61 人，远超巴士因子 ≥5 的门槛；近 90 天新建 PR 62 个、最近推送为 2026-09-08，说明有稳定活跃的维护投入。虽无法逐一核验个人 GitHub 画像，但组织级背景证据充分。</td>
+</tr>
+<tr>
+<td>D8.2 治理模型透明度</td>
+<td>2.0</td>
+<td>1.2</td>
+<td>5–6（60%）</td>
+<td>仓库根目录无 <code>GOVERNANCE.md</code>、无根级 <code>CONTRIBUTING.md</code>、无路线图文档；<code>CONTRIBUTING.md</code> 仅存在于个别插件子目录（如 <code>plugins/zoom/CONTRIBUTING.md</code>），且属第三方（Zoom）自带内容；<code>CODE_OF_CONDUCT.md</code> 同样来自 <code>plugins/superpowers/</code> 这一 vendored 第三方模块。项目不属于 CNCF/Apache/LF 等基金会，决策由 OpenAI 核心团队主导，外部贡献者无正式决策参与通道。仅满足「有简单的贡献指南、核心团队主导决策」这一档。</td>
+</tr>
+<tr>
+<td>D8.3 资金支持与商业赞助</td>
+<td>2.5</td>
+<td>2.5</td>
+<td>9–10（100%）</td>
+<td>由 OpenAI（大型商业公司）官方组织持有并运营，属于典型「大公司全职团队」支撑的开源项目，资金与商业实体明确且可持续；未见 GitHub Sponsors / Open Collective 等外部赞助渠道，但公司自有投入的强度足以覆盖。</td>
+</tr>
+<tr>
+<td>D8.4 项目可持续性与传承风险</td>
+<td>3.0</td>
+<td>1.8</td>
+<td>5–6（60%）</td>
+<td>活跃度方向为「年轻且活跃」（创建仅约 6 个月、近 90 天 62 个新 PR、<code>archived=false</code>、无 fork 分裂迹象，839 fork 相对 6383 star 属正常区间）；但<strong>近 90 天关闭 Issue 数为 0、开放 Issue 38 个</strong>，说明问题处理通道不畅；且仓库<strong>无 LICENSE（license=NONE）、无 CI workflow（0 个）、无 Release</strong>，一旦 OpenAI 停止投入，社区因缺少授权许可而难以合法接管，传承机制不健全——传承风险中等偏高。</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>8.0</strong></td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<p>openai/plugins 的 D8 得分 <strong>8.0/10</strong>，呈现典型的「<strong>强后台、弱治理</strong>」画像：</p>
+<ul>
+<li><strong>优势（D8.1 + D8.3，合计 5.0/5.0）</strong>：项目由 OpenAI 官方组织持有，同时具备顶尖技术能力、成熟商业化经验与充足的资金保障，61 名贡献者与稳定的 PR 流（90 天 62 个）使巴士因子与资金可持续性均处于行业顶格水平。这是本项目商业化最坚实的要素。</li>
+<li><strong>短板（D8.2 = 1.2/2.0，D8.4 = 1.8/3.0）</strong>：治理透明度明显不足——无根级 <code>GOVERNANCE.md</code>/<code>CONTRIBUTING.md</code>/路线图，决策完全由 OpenAI 内部掌握，社区无法参与；同时缺少 LICENSE、CI、Release，且 90 天内未关闭任何 Issue，问题积压与法务授权缺失共同构成中等的传承与接管风险。</li>
+</ul>
+<p><strong>对商业化的含义</strong>：项目拥有极强的持续运营背书（大公司全职团队 + 充足资金），短期内无停摆风险；但其治理封闭、无开源许可、无正式发布流程，若有第三方希望在其基础上做衍生商业化或深度集成，将面临授权与治理层面的不确定性，需要在尽调中重点确认授权许可与长期维护承诺。</p>
+<h3>D9. 上手难度与易用性</h3>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D9.1 安装难度</td>
+<td>2.5</td>
+<td>1.0</td>
+<td>40% (3–4)</td>
+<td>无仓库级一键安装:pip/npm 无顶层发布包,Dockerfile 未检出,CI workflow 为 0,安装脚本目录为 0。README 全文无「Install」章节,只描述目录结构与 marketplace 路径。依赖按插件分散在 20+ 个 <code>requirements.txt</code> / <code>package.json</code> 中(Python 需 3.12+、Node 需 <code>&gt;=20.0.0</code>),需逐插件手动安装,属「步骤多、依赖复杂、需开发人员操作」区间。</td>
+</tr>
+<tr>
+<td>D9.2 部署与配置难度</td>
+<td>2.5</td>
+<td>1.0</td>
+<td>40% (3–4)</td>
+<td>无 docker-compose / Helm / K8s 清单,无部署文档、无 Makefile/scripts(脚本数 0)。部署依赖 Codex 宿主环境 + marketplace 双入口(<code>.agents/plugins/marketplace.json</code> 与 <code>api_marketplace.json</code>),并需为各插件单独准备 <code>.codex-plugin/plugin.json</code>、<code>.mcp.json</code>、凭证等。README 未提供 quickstart 或 demo 脚本,10 分钟内跑通 demo 无官方路径。</td>
+</tr>
+<tr>
+<td>D9.3 易用性与操作门槛</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>60% (5–6)</td>
+<td>日常交互以自然语言 + <code>SKILL.md</code> 指令为主,门槛低于纯 CLI 工具;<code>plugin-eval</code> 提供 <code>analyze/guide/report/compare/benchmark</code> 等语义化子命令并声明 <code>bin</code> 入口,<code>product-design</code> 提供 <code>prototype:bootstrap</code> 引导脚本,提示设计较友好。但跨插件操作方式不统一,大量能力需查 <code>SKILL.md</code> 与 <code>references/</code> 才能用,默认配置分散在各插件内、无统一开箱即用基座。</td>
+</tr>
+<tr>
+<td>D9.4 学习曲线与首体验</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>60% (5–6)</td>
+<td>文档与示例体量充足:文档文件 3035 个、示例文件 148 个、测试 96 文件/11966 行,<code>plugin-creator</code> 技能含 <code>plugin-json-spec.md</code> 规范参考,<code>build-ios-apps</code> 等插件带 <code>references/</code> 细分指南,模仿素材丰富。但 README 仅约 30 行且无 quickstart/教程/onboarding,首次成功使用需先理解 Codex 插件语义(manifest、marketplace、skills、MCP),首体验预计为半天到一天级,属「有基本文档但需自行摸索」。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>D9 维度总分:1.0 + 1.0 + 1.5 + 1.5 = 5.0 / 10</strong></p>
+<h3>结论</h3>
+<p><strong>上手难度等级:🟡 中等(5–7,面向有技术基础者)</strong></p>
+<p><code>openai/plugins</code> 的易用性呈现明显的「两端分化」:</p>
+<ul>
+<li><strong>优势端</strong>:内容侧资源极其充沛——3035 个文档文件、148 个示例、多套 <code>SKILL.md</code> + <code>references/</code> 分层指南,以及面向插件作者的 <code>plugin-creator</code> 规范文档;日常使用形态是「对话式技能」而非复杂命令,非领域专家也能在 Codex 内调用能力,这是其易用性的主要加分项。</li>
+<li><strong>短板端</strong>:仓库层完全缺失工程化上手设施——0 个 CI workflow、0 个脚本目录、无 Dockerfile、无 docker-compose/Helm、README 无安装与 quickstart 章节。使用前提是先具备 Codex 宿主环境,并理解 <code>.codex-plugin/plugin.json</code>、marketplace 双入口、<code>.mcp.json</code> 等概念;依赖栈按插件碎片化(20+ 份依赖清单,Node ≥ 20 / Python ≥ 3.12 / Swift 等并存),需要逐插件手动装配。</li>
+</ul>
+<p>因此本仓库更适合「已在使用 Codex、且具备开发背景」的用户按需取用单个插件;对运维、产品、商务等非开发人群,无法在无指导情况下独立完成部署与首次跑通。<strong>按 🟡 中等策略,报告已给出关键步骤与依赖准备要点,省略环境安装等基础操作。</strong></p>
+<p>商业化含义:该项目本身的商业价值在于生态分发与开发者心智占领,而非独立产品的自助式试用转化;若要提升转化,补齐「单一入口安装 + 可 10 分钟跑通的 quickstart + 统一依赖基线」是最高优先级的改进项。</p>
+<h3>D10 功能价值——使用价值视角（平行维度，权重 0%，不计入综合评分）</h3>
+<blockquote>
+<p>本维度与 D1–D9 商业评分正交，仅回答「用它的人省了/赚了多少」。openai/plugins 是 OpenAI 官方 Codex 插件示例集（marketplace 目录 + 各插件 manifest / skills / MCP 配置），并非可分发的运行时库，因此多数传统使用量指标天然缺失，需格外注意置信度。</p>
+</blockquote>
+<h3>D10.1 效用强度（满分 3，得分 1.8）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>单用户节省量</td>
+<td>单个插件（如 <code>build-ios-apps</code> 的 SwiftUI 模式库、性能审计、调试 agent；<code>boltz-api-cli</code> 的结构生物学流程）可为对应领域的 Codex 用户节省数小时到数天的摸索成本，但节省量高度依赖用户是否处于该工作流中</td>
+</tr>
+<tr>
+<td>效用层级</td>
+<td>介于「分钟级便利工具」与「项目级依赖」之间：用户在特定任务里强依赖，但项目本身不依赖它运行，移除后功能不回退</td>
+</tr>
+<tr>
+<td>效用确定性</td>
+<td>中。效用兑现取决于 Codex 代理是否正确触发 skill、以及用户是否持有第三方 SaaS 账号（Figma / Notion / Airtable / Adobe 等），并非稳定可预期</td>
+</tr>
+</tbody>
+</table>
+<p>README 显示本仓库定位是「curated collection of Codex plugin examples」，价值在于示范插件协议与提供高质量垂类 skill 内容，属生态使能型资产而非业务命脉级依赖。据此落在 5–6 档（明确但有限的效率提升，易被替代），取 60% → <strong>1.8 分</strong>。</p>
+<h3>D10.2 实际使用规模（满分 3，得分 1.2）</h3>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>实测值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GitHub Dependents（Used by）</td>
+<td>未采到（该类仓库通常不产生 dependents 关系）</td>
+</tr>
+<tr>
+<td>npm 周下载 / PyPI 月下载</td>
+<td>N/A（本项目非包管理分发物，无官方计数）</td>
+</tr>
+<tr>
+<td>Stars / Forks / Contributors</td>
+<td>6383 / 839 / 61</td>
+</tr>
+<tr>
+<td>Open Issues</td>
+<td>38</td>
+</tr>
+</tbody>
+</table>
+<p>包管理与依赖方两类官方计数均不可得，故以 stars/forks 作为唯一实测代理信号：6.4k star 属中等关注度，反映数千量级的兴趣用户，未见公开的生产环境采用报道或用户案例展示。按评分指引只能落在 3–4 档（千级及以下，小范围使用），取 40% → <strong>1.2 分</strong>。<strong>本项为代理指标推断，置信度低于其余三项。</strong></p>
+<h3>D10.3 免费可得的完整效用（满分 2，得分 1.6）</h3>
+<ul>
+<li>仓库全部内容（所有插件 manifest、skills 文档、示例代码）公开可读，无任何企业版/付费墙分层，无「不付费不可用」的设计。</li>
+<li>唯一的隐性依赖是运行载体 Codex 本体（闭源客户端 + 需 OpenAI 账号/额度），但这属于外部平台依赖，不是本仓库对自身功能的人为阉割。</li>
+<li>扣分点：<code>license</code> 字段为 <code>null</code>，仓库根目录无 LICENSE 文件——名义完全开放，但法律意义上默认「保留所有权利」，用户对内容的复用/再分发权利不明确。</li>
+</ul>
+<p>综合落在 7–8 档（核心价值免费可得，仅存在少量附加限制），取 80% → <strong>1.6 分</strong>。与 D4.3 形成典型反相关：使用价值几乎 100% 免费释放，付费转化空间被自身开源策略封死。</p>
+<h3>D10.4 效用可持续性（满分 2，得分 0.8）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>停维后效用存续</td>
+<td>文件形态为纯文本 + JSON 配置，本地留存，但插件协议随 Codex 版本演进，长时间停维后与新客户端不兼容，效用快速衰减</td>
+</tr>
+<tr>
+<td>供应商锁定</td>
+<td>强。效用必须经 Codex（闭源）运行时兑现；多数插件进一步绑定第三方闭源 SaaS / MCP 服务（Figma、Notion、Airtable、Adobe、Netlify、Expo 等），无对应账号即零效用</td>
+</tr>
+<tr>
+<td>可分叉维护性</td>
+<td>差。无 LICENSE 文件使社区分叉缺乏法律授权基础；无 CI workflows（0 个），无发布产物，构建可重现性无从验证</td>
+</tr>
+</tbody>
+</table>
+<p>落在 3–4 档（强依赖官方服务/闭源组件，停维后大幅失效），取 40% → <strong>0.8 分</strong>。</p>
+<h3>D10 细则打分汇总</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>档位</th>
+<th>小分</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10.1</td>
+<td>效用强度</td>
+<td>3</td>
+<td>5–6 档（60%）</td>
+<td>1.8</td>
+<td>垂类工作流可省数小时至数天，但非项目级依赖，效用受 Codex 触发与三方账号约束</td>
+</tr>
+<tr>
+<td>D10.2</td>
+<td>实际使用规模</td>
+<td>3</td>
+<td>3–4 档（40%）</td>
+<td>1.2</td>
+<td>依赖方/下载量均 N/A；仅 6383 star / 839 fork 代理，未见生产采用证据（代理推断，置信度低）</td>
+</tr>
+<tr>
+<td>D10.3</td>
+<td>免费可得的完整效用</td>
+<td>2</td>
+<td>7–8 档（80%）</td>
+<td>1.6</td>
+<td>全部内容无付费墙，但根目录无 LICENSE，复用授权不明确</td>
+</tr>
+<tr>
+<td>D10.4</td>
+<td>效用可持续性</td>
+<td>2</td>
+<td>3–4 档（40%）</td>
+<td>0.8</td>
+<td>强依赖闭源 Codex 运行时与多家闭源 SaaS；无 LICENSE、无 CI，分叉维护基础薄弱</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td></td>
+<td><strong>5.4</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<p>openai/plugins 的<strong>功能价值得分为 5.4/10（一般档）</strong>。其价值结构呈现清晰的「官方生态使能器」特征：作为 Codex 插件协议的事实参考实现与高质量垂类 skill 集散地，它为处于对应工作流中的用户提供的单次效用是实在的（尤其在 iOS/SwiftUI、设计系统、结构生物学等垂类），且效用以近乎零门槛完全免费释放——这正是 D4.3 付费转化空间被压制的原因，两项互为镜像而非矛盾。</p>
+<p>但其使用价值存在两处结构性天花板：<strong>其一，效用不可独立兑现</strong>——所有插件都必须经闭源 Codex 运行时、并通常叠加第三方闭源 SaaS 才能生效，脱离该栈后资产近乎归零，属典型的「寄生式效用」；<strong>其二，规模化证据缺失</strong>——既无依赖方/下载量等官方计数，也未见生产采用案例，仅有的 6383 star 不足以支撑「事实标配」的判断。叠加根目录无 LICENSE、CI 工作流为 0、<code>issues_closed_90d</code> 为 0，本仓库更接近<strong>官方示例目录</strong>而非具备独立生命力的开源项目，其价值高度依附于 Codex 生态本身的成败。</p>
+<h3>D11 社会价值——正外部性评估（平行维度，权重 0%）</h3>
+<blockquote>
+<p>本维度不计入综合评分，也不参与一票否决，仅用于 3.4 价值画像。评分视角为「对行业/社会的外溢贡献」，与 D2.5/D2.6（工程质量）及 D3.4（品牌对商业势能的助力）区分。</p>
+</blockquote>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D11.1</td>
+<td>数字公共基础设施属性</td>
+<td>3</td>
+<td><strong>1.2</strong></td>
+<td>3–4 档（40%）</td>
+<td>仓库为 Codex 插件/技能示例集与默认 marketplace（<code>.agents/plugins/marketplace.json</code>），是<strong>示例与目录</strong>而非被依赖的软件库：无 npm/pypi 分发（下载量 N/A）、无 <code>dependencies</code>、无下游依赖清单；单体消失仅使插件示例与 marketplace 目录缺失，不波及软件供应链。唯一的「底座」色彩在于其 <code>plugin.json</code> 清单与 skills 目录约定会成为下游插件作者参照的事实格式，但该格式由 OpenAI 单方掌握，公共性有限</td>
+</tr>
+<tr>
+<td>D11.2</td>
+<td>教育与人才价值</td>
+<td>2.5</td>
+<td><strong>2.0</strong></td>
+<td>7–8 档（80%）</td>
+<td>教育属性是本项目最突出的外溢价值：3035 个文档文件、148 个示例，含 <code>plugin-creator</code> 技能与 <code>plugin-json-spec.md</code> 规范说明，构成「如何编写 Codex 插件/技能」的事实教材；<code>build-ios-apps</code> 下 SwiftUI 性能审计、内存泄漏、Liquid Glass 等成套 references 与 WWDC23 材料整理，本身即为可阅读的工程范式样本。但受众限于 Codex/AI Agent 插件作者群体，未见高校课程或大规模入门路径采用，未达「行业教材」级</td>
+</tr>
+<tr>
+<td>D11.3</td>
+<td>普惠与可及性</td>
+<td>2.5</td>
+<td><strong>1.5</strong></td>
+<td>5–6 档（60%）</td>
+<td>以近零成本把「AI Agent 技能编排 / 插件接入（Figma、Notion、Airtable、Boltz、Netlify、Expo 等）」的实践模板开放给个人与中小团队，相对各家 SaaS 集成的商业定价形成明显替代价差；运行门槛低（以 Markdown/YAML 文档为主，无重依赖）。但普惠受三重限制：①<strong>无 License 文件（license: NONE）</strong>，法律上未授予复用许可，削弱公共品属性；②使用前提是接入 OpenAI Codex 平台，存在平台与账号门槛；③未发现 i18n/多语言/无障碍相关支持证据，硬件可及性亦未专门声明</td>
+</tr>
+<tr>
+<td>D11.4</td>
+<td>开放标准与行业推动</td>
+<td>2</td>
+<td><strong>1.2</strong></td>
+<td>5–6 档（60%）</td>
+<td>积极面：插件体系接入 <code>.mcp.json</code>，顺应并助推 MCP 这一开放协议在工具生态中的落地；插件/技能目录约定（<code>skills/</code>、<code>commands/</code>、<code>hooks.json</code> 等）与社区（Claude Code 等）的技能格式趋同，具有行业示范与格式收敛效应。消极面：核心 <code>plugin.json</code>/marketplace 格式为<strong>厂商私有约定</strong>，未见提交至中立标准组织或与竞品互通的证据；仓库游离于学术引用体系之外（论文引用 N/A）；设计理念被同行模仿的直接痕迹缺乏实测数据支撑</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td><strong>5.9</strong></td>
+<td>—</td>
+<td>四项均有效评估，无 N/A，无需等比缩放</td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<p>openai/plugins 的社会价值呈「<strong>教育外溢强、公共基础设施弱、普惠受阻于授权、标准推动半开放</strong>」的结构：</p>
+<ul>
+<li><strong>最强项是教育价值（2.0/2.5）</strong>：180998 行代码 / 3035 份文档所承载的并非可复用软件，而是一套<strong>可研读的实践范本</strong>——从插件清单规范到 SwiftUI 性能审计清单，降低了开发者进入 Codex 插件与 AI Agent 技能开发的门槛。</li>
+<li><strong>最弱项是数字公共基础设施属性（1.2/3）</strong>：项目无包分发、无依赖反转、无下游依赖计数，停摆的社会影响面局限在示例生态内部，与 curl/OpenSSL 式「数字底座」不在同一量级。</li>
+<li><strong>关键减分项</strong>：仓库 <strong>license 为 NONE</strong>，即公开可见但未授权复用，这直接压低了其「数字公共产品（DPG）」成色与普惠效力——开放了可读性，未开放法律意义上的可复用性。</li>
+<li><strong>标准维度</strong>：一边接入 MCP 开放协议，一边维持厂商私有的插件清单格式，属于「遵循标准 + 局部定义事实标准」，但尚未形成中立化的开放标准推动。</li>
+</ul>
+<p>综合 <strong>5.9 / 10</strong>，处于「一般偏上」区间：对行业的人才培养与 Agent 插件生态规范化有真实外溢贡献，但缺乏基础设施级依赖与制度化的开放承诺，社会影响力与项目自身声量（6383 Star）尚不匹配。</p>
+<h2>五、商业化价值判断</h2>
+<p><strong>综合评分 60.9/100，等级 D（极低商业化潜力），价值画像为「📦 长尾项目」（综合评分 &lt; 65 且公共价值分 5.7 &lt; 7）。</strong></p>
+<p>本项目在商业化维度上呈现典型的「高势能、零变现」结构：</p>
+<p><strong>支撑面（强项）</strong>：
+- <strong>需求侧真实且跨行业</strong>：示例覆盖 Figma/Adobe（设计）、Notion/Airtable（知识管理）、iOS/macOS/Web/Expo（开发）、remotion/google-slides（媒体）、boltz（生物医药蛋白设计），应用场景跨行业显著（D1）。
+- <strong>生态势能强劲</strong>：6.2 个月吸星 6,383、Fork 比率 13.1% 显著高于典型 5–10% 区间、61 位贡献者跨过 50+ 门槛，且 Adobe/Figma/Notion/Airtable/Netlify/Expo/Remotion/Google Slides/Boltz 等 9 家以上厂商以署名插件共建（D3）。
+- <strong>后台实力顶格</strong>：由 OpenAI 官方组织持有并运营，团队能力与资金支持均达顶格（D8.1、D8.3 均为 9–10 档），短期停摆风险低（D8）。
+- <strong>文档资产极厚</strong>：3,035 个文档文件、148 个示例文件、逐技能 SKILL.md + references 深度资料（D2、D11）。</p>
+<p><strong>制约面（致命短板）</strong>：
+- <strong>法律基础缺失</strong>：仓库根目录无 LICENSE（GitHub API license=null，本地实测 NONE），整体处于权利保留状态，无法合法承接第三方商业化；子插件协议碎片化（MIT ×7、Apache-2.0 ×5），另含 1 个专有协议（public-equity-investing: "Proprietary - Internal Use Only"）与 1 个 Figma 自定义 Beta 开发者条款，构成再分发障碍（D4、D6）。
+- <strong>无变现机制</strong>：仓库内无任何定价、功能分层、付费层或计费单元，免费→付费触发点在项目层面缺失；潜在变现路径仅两条且均属平台方层面（插件市场抽成、生态认证）（D4）。
+- <strong>交付形态非产品</strong>：无 Release/Tag、无 CI workflow（0 个）、无依赖声明（dependencies: {}）、无 CHANGELOG，交付物为示例与文档，不具备独立售卖形态（D2、D4、D7）。
+- <strong>效用不可独立兑现</strong>：所有插件必须经闭源 Codex 运行时，且多数叠加第三方闭源 SaaS 才能生效，脱离该栈效用归零（D10）。</p>
+<p><strong>结论</strong>：本项目本质是 OpenAI 的<strong>官方生态使能资产</strong>而非商业产品。其商业价值不体现在仓库自身的变现能力，而体现在为 Codex 平台引流、定义插件规范（.codex-plugin/plugin.json 与 marketplace.json 的事实标准）与聚合头部厂商的生态卡位价值。对第三方而言，直接商业化路径在法律上不可行；对 OpenAI 自身而言，该仓库是平台战略的成本项而非收入项。</p>
+<hr />
+<h2>六、商业路径分析</h2>
+<blockquote>
+<p>依据价值画像「📦 长尾项目」的路径修正建议：<strong>技术借鉴或人才引进，不投入商业化</strong>。以下路径分析主要用于说明「为何不可行」及「若坚持参与应如何定位」。</p>
+</blockquote>
+<h3>6.1 路径可行性评估</h3>
+<table>
+<thead>
+<tr>
+<th>潜在路径</th>
+<th>可行性</th>
+<th>核心障碍</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>直接售卖/分发本仓库或其衍生品</td>
+<td>❌ 不可行</td>
+<td>根目录无 LICENSE（权利保留），且含 "Proprietary - Internal Use Only" 与 Figma Beta 条款，整仓分发类商业模式法律上不可行（D4.1、D6.1）</td>
+</tr>
+<tr>
+<td>基于本仓库做 SaaS 化封装</td>
+<td>❌ 不可行</td>
+<td>同上法律障碍；且效用依赖闭源 Codex 运行时与第三方 SaaS，无独立交付形态（D10.1）</td>
+</tr>
+<tr>
+<td>插件市场抽成</td>
+<td>⚠️ 仅平台方可行</td>
+<td>载体为 .agents/plugins/marketplace.json + api_marketplace.json 双市场，抽成权属 OpenAI 平台层，非仓库贡献者可获取（D4.2）</td>
+</tr>
+<tr>
+<td>生态认证/厂商入驻服务</td>
+<td>⚠️ 仅平台方可行</td>
+<td>依赖 61 贡献者与 Figma/Notion/Cloudflare/Sentry/Supabase/Temporal/Zoom 厂商插件入驻的既有格局（D4.2）</td>
+</tr>
+<tr>
+<td>技术借鉴（学习插件规范与技能编写范式）</td>
+<td>✅ 可行</td>
+<td>3,035 文档 + 148 示例 + plugin-json-spec/plugin-creator 构成事实教材（D11.2）</td>
+</tr>
+<tr>
+<td>人才引进（识别生态内活跃贡献者）</td>
+<td>✅ 可行</td>
+<td>61 位贡献者、90 天 62 个新建 PR，可定位活跃开发者（D3.2、D8）</td>
+</tr>
+</tbody>
+</table>
+<h3>6.2 若坚持参与生态的定位建议</h3>
+<ol>
+<li><strong>不做仓库变现，做生态服务</strong>：围绕 Codex 插件开发提供咨询、培训与集成实施服务（对标 D11.2 教育外溢价值），而非售卖代码资产。</li>
+<li><strong>以「规范跟随者」而非「资产持有者」定位</strong>：核心 plugin.json/marketplace 为 OpenAI 私有格式，未中立化（D11.4），跟随规范可降低法律与兼容风险。</li>
+<li><strong>警惕平台依赖风险</strong>：网络效应与规模效应归属平台而非仓库，飞轮由 Codex 应用层掌握（D5.2），任何围绕本仓库的商业投入都受制于平台策略变动。</li>
+</ol>
+<hr />
+<h2>七、能力评估：能做什么 &amp; 最适合做什么</h2>
+<h3>7.1 能做什么（基于事实的能力清单）</h3>
+<ul>
+<li><strong>提供 Codex 插件开发的事实教材</strong>：3,035 份文档 + 148 个示例 + plugin-json-spec/plugin-creator 技能，覆盖插件清单、技能编写与 marketplace 双入口（D2.7、D11.2）。</li>
+<li><strong>示范跨行业第三方工具集成范式</strong>：62 个插件目录覆盖设计（Figma/Adobe）、知识管理（Notion/Airtable）、开发（iOS/macOS/Web/Expo/Netlify）、媒体（remotion/google-slides）、生物医药（boltz）等场景（D1.1、D2.1）。</li>
+<li><strong>定义插件与市场的接口规范</strong>：作为 .codex-plugin/plugin.json 与 marketplace.json 规范的事实定义方（D5.1）。</li>
+<li><strong>提供部分高质量安全编码参考</strong>：TOCTOU 与符号链接防护、O_NOFOLLOW、路径穿越校验、0600 原子写、严格 JSON 数值校验、Markdown 转义、密钥脱敏（D2.4）。</li>
+<li><strong>提供含实际 UI 的交互参考</strong>：React/Recharts/Lexical Widget、dashboard 渲染器、mood-board，具备多图表类型、拖拽布局、IndexedDB 缓存与 WCAG 对比度处理（D2.5）。</li>
+<li><strong>聚合头部厂商生态</strong>：9 家以上厂商以署名插件共建，形成组织多样性的结构性硬证据（D3.2）。</li>
+</ul>
+<h3>7.2 最适合做什么</h3>
+<p><strong>最适合：作为 Codex 插件生态的学习范本与规范参照物，服务于开发者教育与生态接入，而非作为可商业化交付的软件资产。</strong></p>
+<p>具体而言：
+- 对<strong>开发者个体</strong>：作为学习 Codex 插件/技能编写与 MCP 集成的第一手教材（首体验预计半天到一天，D9.4）。
+- 对<strong>企业技术团队</strong>：作为评估「是否接入 Codex 插件生态」的尽调样本，重点参考其插件协议设计与厂商集成模式。
+- 对<strong>平台方（OpenAI）</strong>：作为生态引流与规范定义的战略资产，其价值在平台层兑现而非仓库层。
+- <strong>不适合</strong>：作为独立产品售卖、SaaS 化封装、或作为第三方商业项目的代码基座（法律与形态双重障碍）。</p>
+<hr />
+<h2>八、短板识别：还缺少什么</h2>
+<h3>8.1 法律与授权（最致命）</h3>
+<ul>
+<li><strong>缺根目录 LICENSE</strong>：license=NONE，整体权利保留，第三方商业化复用存在根本性权利障碍（D4.1、D6.1、D10.4）。</li>
+<li><strong>缺根级贡献指南与 CLA/DCO</strong>：仅 1 份插件级 CONTRIBUTING.md（plugins/zoom），无根级贡献指南、无 CLA/DCO 配置；61 位贡献者版权分属 20+ 厂商，版权结构性分散，双协议模式不可行（D6.4）。</li>
+<li><strong>缺商标政策文件</strong>："OpenAI" 名称及 20+ 第三方厂商名使用需专项检索，D6.3 未经人工核查，置信度低（D6.3）。</li>
+<li><strong>缺 SBOM/license-scanning</strong>：无根级依赖清单/SBOM/license-scanning CI，传递依赖未被覆盖（D6.2）。</li>
+</ul>
+<h3>8.2 工程与质量门禁</h3>
+<ul>
+<li><strong>缺 CI/CD</strong>：CI workflows 为 0 个，无自动化质量门禁（D2.6、D7.1）。</li>
+<li><strong>缺版本管理</strong>：无 Release/Tag、无 CHANGELOG，升级只能整体 git pull，无版本锁定与回滚（D7.1）。</li>
+<li><strong>测试覆盖不足</strong>：测试占比仅 6.6%（96 文件/11,966 行），稳定性与质量门禁缺失（D2.8）。</li>
+<li><strong>缺依赖治理</strong>：无根级依赖清单与包结构，依赖按插件碎片化分散在 20+ 份 requirements.txt / package.json 中，基线不一（Node &gt;=20、Python &gt;=3.12）（D2.2、D9.1）。</li>
+<li><strong>代码质量隐患</strong>：多处 sys.path.insert 硬编码、单文件巨型化（App.tsx ~4000 行、workbench_db.py 2900+ 行）、跨插件脚本重复、恒 false 死代码路径与弱类型（D2.2、D2.5）。</li>
+</ul>
+<h3>8.3 社区运营与治理</h3>
+<ul>
+<li><strong>Issue 响应失效</strong>：近 90 天关闭 Issue 数为 0、开放 Issue 38 个零收敛，维护者响应能力差（D3.1、D8.4）。</li>
+<li><strong>治理透明度不足</strong>：无根级 GOVERNANCE.md/CONTRIBUTING.md/路线图，决策由 OpenAI 核心团队单方主导（D8.2）。</li>
+<li><strong>社区自发生态未闭环</strong>：无外部教程/课程、无独立商业衍生品、topics 为空（D3.3）。</li>
+<li><strong>用户粘性弱</strong>：watchers 仅 73 与 6,383 star 严重背离，大量 star 为品牌围观而非常驻用户（D3.1）。</li>
+</ul>
+<h3>8.4 企业就绪度</h3>
+<ul>
+<li><strong>缺企业级安全设施</strong>：仓库层无认证/RBAC/审计/SECURITY.md（D7.2）。</li>
+<li><strong>缺可观测性集成</strong>：无 OpenAPI/SDK、无监控指标/健康检查、无 OpenTelemetry/Prometheus 集成（D7.3）。</li>
+<li><strong>缺上手设施</strong>：无 Dockerfile/docker-compose/Helm、README 全文无安装章节与 quickstart（约 30 行）、脚本 0 个（D9.1、D9.2）。</li>
+</ul>
+<hr />
+<h2>九、风险提示</h2>
+<h3>9.1 法律合规风险（🔴 最高）</h3>
+<ul>
+<li><strong>权利保留状态</strong>：根目录无 LICENSE，第三方以商业化方式复用存在权利障碍，SPDX 合规硬缺陷（D6.1）。</li>
+<li><strong>限制性附加条款</strong>：public-equity-investing/earnings-preview 为 "Proprietary - Internal Use Only"（禁止组织外再分发），figma 为 Figma Developer Terms（Beta、可随时修改/中止），使整仓分发类商业模式法律上不可行（D6.1）。</li>
+<li><strong>商标风险未核查</strong>：D6.3 按默认档给分，置信度低，需专项检索（D6.3）。</li>
+</ul>
+<h3>9.2 平台依赖风险（🔴 高）</h3>
+<ul>
+<li><strong>效用不可独立兑现</strong>：所有插件必须经闭源 Codex 运行时，多数叠加第三方闭源 SaaS，脱离该栈效用归零（D10.1）。</li>
+<li><strong>飞轮归属平台</strong>：网络效应与规模效应归属平台而非仓库，本仓库无账号体系、无用户数据、无跨项目调用（D5.2）。</li>
+<li><strong>平台策略变动风险</strong>：Figma 条款可随时修改/中止，第三方 SaaS 接口变动将直接影响插件可用性（D6.1）。</li>
+</ul>
+<h3>9.3 可持续性风险（🟡 中）</h3>
+<ul>
+<li><strong>维护响应失效</strong>：90 天关闭 Issue 为 0、开放 38 个，社区交互闭环偏弱（D3.1、D8.4）。</li>
+<li><strong>传承机制不健全</strong>：无 LICENSE、无 CI、无 Release，社区接管与合法分叉受阻（D8.4）。</li>
+<li><strong>注意</strong>：D8.4 得 1.8/3 分，未触发一票否决（阈值 ≤1），项目 archived=false 且 2026-09-08 仍活跃，短期停摆风险低（D8）。</li>
+</ul>
+<h3>9.4 竞争与商品化风险（🟡 中）</h3>
+<ul>
+<li><strong>技术壁垒薄弱</strong>：核心资产为 JSON 清单 + Markdown 技能文件，无专利、无专有数据、无算法壁垒，内容可逐目录复制（D5.2）。</li>
+<li><strong>品类商品化</strong>：各平台技能机制趋同与跨工具聚合层崛起（如 agent-sh/agentsys，984★，跨 Claude Code/OpenCode/Codex/Cursor/Kiro 聚合）构成中等偏高颠覆风险（D5.4）。</li>
+<li><strong>用户切换成本低</strong>：插件自包含、主体为可移植 Markdown，切换成本仅为 MCP/密钥重新配置（D5.3）。</li>
+</ul>
+<h3>9.5 数据置信度提示</h3>
+<ul>
+<li>TAM 判断为量级估算，置信度低（仓库无 topics 标签，需求侧缺少可量化外部市场数据）（D1.1）。</li>
+<li>D10.2 实际使用规模证据缺失：无 dependents 数据、无包管理下载量、无生产采用报道，仅有 star/fork 作为代理信号（D10.2）。</li>
+<li>D6.3 商标与专利未经人工核查，按默认档给分，置信度低（D6.3）。</li>
+</ul>
+<hr />
+<h2>十、结论与建议</h2>
+<h3>10.1 核心结论</h3>
+<p><strong>openai/plugins 综合评分 60.9/100，因 D4.1 协议一票否决，商业化等级强制为 D（极低商业化潜力），价值画像为「📦 长尾项目」。</strong></p>
+<p>本项目是一个<strong>高生态势能、零商业变现基础</strong>的官方生态使能资产。其 6,383 star、13.1% Fork 比率、61 位贡献者与 9 家以上头部厂商共建，证明了其在 Codex 插件生态中的核心卡位；但根目录无 LICENSE、无 Release、无 CI、无依赖清单、无任何计费单元，使其在商业化的每一个必要环节上都存在硬缺陷。<strong>其价值在平台层兑现，而非仓库层。</strong></p>
+<h3>10.2 分角色建议</h3>
+<p><strong>对第三方开发者/企业</strong>：
+- ❌ <strong>不建议</strong>直接商业化或将其作为商业项目代码基座——法律上不可行（无 LICENSE + 专有条款），形态上不具备独立交付能力。
+- ✅ <strong>建议</strong>作为技术借鉴与学习范本：研读其插件协议设计（plugin.json/marketplace.json）、SKILL.md 技能编写范式与跨行业集成模式。
+- ✅ <strong>建议</strong>作为人才识别渠道：61 位贡献者、90 天 62 个新建 PR 可用于定位生态内活跃开发者。</p>
+<p><strong>对 OpenAI（项目持有方）</strong>：
+- 若希望该仓库承担更重的生态角色，优先补齐三项基础：<strong>根目录 LICENSE</strong>（解除权利保留状态）、<strong>CI workflow 与 Release 机制</strong>（建立质量门禁与版本可追溯）、<strong>根级 GOVERNANCE/CONTRIBUTING</strong>（改善治理透明度与社区接管能力）。
+- 注意 D3.1 揭示的 star 与 watchers 严重背离（73 vs 6,383），品牌围观未有效转化为常驻用户，需关注生态留存质量。</p>
+<p><strong>对投资/尽调方</strong>：
+- 本项目<strong>不构成独立投资标的</strong>。若关注 Codex 插件生态，应将尽调重心放在平台层（OpenAI 的插件市场策略）与厂商侧（Figma/Notion 等入驻方的集成深度），而非本仓库本身。
+- 尽调重点风险项：无 LICENSE 导致的授权不确定性、90 天 Issue 零关闭反映的维护响应能力、以及效用对闭源运行时的强依赖。</p>
+<h3>10.3 一句话总结</h3>
+<blockquote>
+<p>openai/plugins 是 Codex 生态的「官方说明书与样板间」——生态价值极高，商业价值为零；适合学习与借鉴，不适合投资与变现。</p>
+</blockquote>
+<h2>十一、项目地址</h2>
+<p><svg class="ri ri-muted" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.001 2C6.47598 2 2.00098 6.475 2.00098 12C2.00098 16.425 4.86348 20.1625 8.83848 21.4875C9.33848 21.575 9.52598 21.275 9.52598 21.0125C9.52598 20.775 9.51348 19.9875 9.51348 19.15C7.00098 19.6125 6.35098 18.5375 6.15098 17.975C6.03848 17.6875 5.55098 16.8 5.12598 16.5625C4.77598 16.375 4.27598 15.9125 5.11348 15.9C5.90098 15.8875 6.46348 16.625 6.65098 16.925C7.55098 18.4375 8.98848 18.0125 9.56348 17.75C9.65098 17.1 9.91348 16.6625 10.201 16.4125C7.97598 16.1625 5.65098 15.3 5.65098 11.475C5.65098 10.3875 6.03848 9.4875 6.67598 8.7875C6.57598 8.5375 6.22598 7.5125 6.77598 6.1375C6.77598 6.1375 7.61348 5.875 9.52598 7.1625C10.326 6.9375 11.176 6.825 12.026 6.825C12.876 6.825 13.726 6.9375 14.526 7.1625C16.4385 5.8625 17.276 6.1375 17.276 6.1375C17.826 7.5125 17.476 8.5375 17.376 8.7875C18.0135 9.4875 18.401 10.375 18.401 11.475C18.401 15.3125 16.0635 16.1625 13.8385 16.4125C14.201 16.725 14.5135 17.325 14.5135 18.2625C14.5135 19.6 14.501 20.675 14.501 21.0125C14.501 21.275 14.6885 21.5875 15.1885 21.4875C19.259 20.1133 21.9999 16.2963 22.001 12C22.001 6.475 17.526 2 12.001 2Z"/></svg> <a href="https://github.com/openai/plugins">https://github.com/openai/plugins</a></p>
+<hr />
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+</blockquote>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家　<a href="https://www.mova.work">www.mova.work</a></p></body></html>

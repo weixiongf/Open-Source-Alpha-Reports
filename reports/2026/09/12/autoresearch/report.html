@@ -1,0 +1,1879 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><title>AutoResearch 商业价值分析报告</title><style>/* default — 品牌蓝紫主题（从 md2pdf.py 原 CSS 常量迁出，视觉与历史产物一致） */
+@page { size: A4; margin: 18mm 15mm 20mm 15mm; }
+* { box-sizing: border-box; }
+/* 字体规范：一律开源思源黑体 CN（OFL 免费商用）；正文 Regular/标题 Bold/大字数字 Light */
+body { font-family: "Source Han Sans CN","思源黑体 CN","Noto Sans SC",sans-serif; color:#1e293b; font-size:10.5pt; line-height:1.75; margin:0; }
+.cover { page-break-after: always; text-align:center; padding-top:40px; }
+.cover .kicker { color:#2563eb; letter-spacing:6px; font-size:12pt; font-weight:500; }
+.cover h1 { font-size:26pt; margin:14px 0 6px; }
+.cover .sub { color:#64748b; font-size:11pt; margin-bottom:22px; }
+.badge { display:inline-block; background:linear-gradient(135deg,#2563eb,#7c3aed); color:#fff; border-radius:18px; padding:16px 44px; margin:10px 0 18px; }
+.badge .g { font-size:34pt; font-weight:300; line-height:1; }
+.badge .s { font-size:12pt; opacity:.92; margin-top:4px; }
+.meta { color:#475569; font-size:9.5pt; margin-top:14px; }
+.bars { max-width:620px; margin:20px auto 0; text-align:left; }
+.bar-row { display:flex; align-items:center; gap:8px; margin:5px 0; font-size:9pt; }
+.bar-name { width:110px; text-align:right; color:#334155; font-weight:500; }
+.bar-track { flex:1; height:9px; background:#f1f5f9; border-radius:5px; overflow:hidden; }
+.bar-fill { display:block; height:100%; border-radius:5px; }
+.bar-val { width:30px; font-weight:700; color:#0f172a; }
+.bar-w { width:52px; color:#94a3b8; font-size:8pt; }
+h1 { font-size:17pt; color:#0f172a; border-bottom:3px solid #2563eb; padding-bottom:8px; }
+h2 { font-size:13.5pt; color:#1d4ed8; margin-top:26px; page-break-after: avoid; border-left:5px solid #2563eb; padding-left:10px; }
+h3 { font-size:11.5pt; color:#0f172a; margin-top:18px; page-break-after: avoid; }
+table { border-collapse:collapse; width:100%; margin:10px 0; font-size:9pt; page-break-inside:avoid; }
+th { background:#eff6ff; color:#1e3a8a; }
+th,td { border:1px solid #dbe3ef; padding:5px 8px; text-align:left; }
+tr:nth-child(even) td { background:#f8fafc; }
+code { background:#f1f5f9; border-radius:4px; padding:1px 5px; font-family:"JetBrains Mono","Cascadia Mono",monospace; font-size:9pt; color:#be185d; }
+pre { background:#0f172a; color:#e2e8f0; border-radius:8px; padding:12px 14px; overflow-x:auto; page-break-inside:avoid; }
+pre code { background:none; color:inherit; padding:0; }
+blockquote { border-left:4px solid #93c5fd; background:#eff6ff; margin:10px 0; padding:8px 14px; color:#334155; border-radius:0 8px 8px 0; }
+hr { border:none; border-top:1px dashed #cbd5e1; margin:22px 0; }
+strong { color:#0f172a; }
+.cover .disclaimer { max-width:620px; margin:16px auto 0; color:#64748b; font-size:8.5pt; line-height:1.6; text-align:left; border:1px solid #e2e8f0; border-radius:8px; padding:8px 12px; background:#f8fafc; }
+.credit { color:#2563eb; font-size:10.5pt; font-weight:700; letter-spacing:1px; margin-top:12px; }
+.at-acc { background:#dbeafe; color:#1d4ed8; border-radius:4px; padding:0 4px; font-weight:500; white-space:nowrap; }
+.tail { page-break-inside:avoid; margin-top:26px; border-top:2px solid #2563eb; padding-top:14px; }
+.tail p { color:#64748b; font-size:8.5pt; line-height:1.6; margin:0 0 10px; }
+.tail .credit { text-align:center; margin:0; }
+/* Remix Icon 内联 SVG（icon_mode=remix 时由脚本注入，语义色与评分条一致） */
+.ri { width:1.05em; height:1.05em; vertical-align:-0.18em; display:inline-block; }
+.ri-ok { color:#16a34a; } .ri-warn { color:#d97706; } .ri-bad { color:#dc2626; }
+.ri-muted { color:#64748b; } .ri-star { color:#f59e0b; } .ri-brand { color:#2563eb; }
+.ri-gold { color:#d4a017; } .ri-silver { color:#9ca3af; } .ri-bronze { color:#b45309; }
+/* 屏幕预览：@page 边距仅在打印时生效，浏览器中居中限宽并收边（不影响 PDF 输出） */
+@media screen {
+  body { margin: 0 auto; padding: 28px 36px 56px; max-width: 900px; }
+}
+</style></head><body><div class="cover">
+<div class="kicker">开源项目商业化潜力分析 · 第 91 期</div>
+<h1>GitHub 开源项目 AutoResearch<br>商业价值分析报告</h1>
+<div class="sub">EvoMap/AutoResearch · AI/ML研究自动化多智能体工作流框架 · 九维度加权评估</div>
+<div class="badge"><div class="g">A 级 · 66.6</div><div class="s">综合评分（满分 100）· 高商业化潜力</div></div>
+<div><svg viewBox="0 0 560 480" width="560" height="480" xmlns="http://www.w3.org/2000/svg"><polygon points="280.0,209.6 299.5,216.7 309.9,234.7 306.3,255.2 290.4,268.6 269.6,268.6 253.7,255.2 250.1,234.7 260.5,216.7" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,179.2 319.1,193.4 339.9,229.4 332.7,270.4 300.8,297.1 259.2,297.1 227.3,270.4 220.1,229.4 240.9,193.4" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,148.8 338.6,170.1 369.8,224.2 359.0,285.6 311.2,325.7 248.8,325.7 201.0,285.6 190.2,224.2 221.4,170.1" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,118.4 358.2,146.8 399.8,218.9 385.3,300.8 321.6,354.3 238.4,354.3 174.7,300.8 160.2,218.9 201.8,146.8" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,88.0 377.7,123.6 429.7,213.6 411.6,316.0 332.0,382.8 228.0,382.8 148.4,316.0 130.3,213.6 182.3,123.6" fill="none" stroke="#e2e8f0" stroke-width="1"/><line x1="280.0" y1="240.0" x2="280.0" y2="88.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="377.7" y2="123.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="429.7" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="411.6" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="332.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="228.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="148.4" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="130.3" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="182.3" y2="123.6" stroke="#d8dee9" stroke-width="1"/><polygon points="280.0,133.6 357.2,148.0 362.3,225.5 374.8,294.7 309.1,320.0 237.4,357.1 201.0,285.6 190.2,224.2 221.4,170.1" fill="rgba(37,99,235,.22)" stroke="#2563eb" stroke-width="2.5"/><circle cx="280.0" cy="133.6" r="3.5" fill="#2563eb"/><circle cx="357.2" cy="148.0" r="3.5" fill="#2563eb"/><circle cx="362.3" cy="225.5" r="3.5" fill="#2563eb"/><circle cx="374.8" cy="294.7" r="3.5" fill="#2563eb"/><circle cx="309.1" cy="320.0" r="3.5" fill="#2563eb"/><circle cx="237.4" cy="357.1" r="3.5" fill="#2563eb"/><circle cx="201.0" cy="285.6" r="3.5" fill="#2563eb"/><circle cx="190.2" cy="224.2" r="3.5" fill="#2563eb"/><circle cx="221.4" cy="170.1" r="3.5" fill="#2563eb"/><text x="280.0" y="44.0" text-anchor="middle" font-size="12.5" fill="#334155" font-weight="600">D1</text><text x="280.0" y="58.0" text-anchor="middle" font-size="11" fill="#64748b">市场需求 7.0</text><text x="406.0" y="89.9" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D2</text><text x="406.0" y="103.9" text-anchor="start" font-size="11" fill="#64748b">技术成熟度 7.9</text><text x="473.0" y="206.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D3</text><text x="473.0" y="220.0" text-anchor="start" font-size="11" fill="#64748b">社区生态 5.5</text><text x="449.7" y="338.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D4</text><text x="449.7" y="352.0" text-anchor="start" font-size="11" fill="#64748b">变现潜力 7.2</text><text x="347.0" y="424.2" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D5</text><text x="347.0" y="438.2" text-anchor="start" font-size="11" fill="#64748b">竞争格局 5.6</text><text x="213.0" y="424.2" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D6</text><text x="213.0" y="438.2" text-anchor="end" font-size="11" fill="#64748b">法律合规 8.2</text><text x="110.3" y="338.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D7</text><text x="110.3" y="352.0" text-anchor="end" font-size="11" fill="#64748b">企业就绪 6.0</text><text x="87.0" y="206.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D8</text><text x="87.0" y="220.0" text-anchor="end" font-size="11" fill="#64748b">团队治理 6.0</text><text x="154.0" y="89.9" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D9</text><text x="154.0" y="103.9" text-anchor="end" font-size="11" fill="#64748b">上手难度 6.0</text></svg></div>
+<div class="bars"><div class="bar-row"><span class="bar-name">D6 法律合规</span>
+<span class="bar-track"><span class="bar-fill" style="width:82.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.2</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D2 技术成熟度</span>
+<span class="bar-track"><span class="bar-fill" style="width:79.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.9</span><span class="bar-w">权重14%</span></div>
+<div class="bar-row"><span class="bar-name">D4 变现潜力</span>
+<span class="bar-track"><span class="bar-fill" style="width:72.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.2</span><span class="bar-w">权重18%</span></div>
+<div class="bar-row"><span class="bar-name">D1 市场需求</span>
+<span class="bar-track"><span class="bar-fill" style="width:70.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.0</span><span class="bar-w">权重13%</span></div>
+<div class="bar-row"><span class="bar-name">D7 企业就绪</span>
+<span class="bar-track"><span class="bar-fill" style="width:60.0%;background:#d97706"></span></span>
+<span class="bar-val">6.0</span><span class="bar-w">权重8%</span></div>
+<div class="bar-row"><span class="bar-name">D8 团队治理</span>
+<span class="bar-track"><span class="bar-fill" style="width:60.0%;background:#d97706"></span></span>
+<span class="bar-val">6.0</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D9 上手难度</span>
+<span class="bar-track"><span class="bar-fill" style="width:60.0%;background:#d97706"></span></span>
+<span class="bar-val">6.0</span><span class="bar-w">权重10%</span></div>
+<div class="bar-row"><span class="bar-name">D5 竞争格局</span>
+<span class="bar-track"><span class="bar-fill" style="width:56.0%;background:#dc2626"></span></span>
+<span class="bar-val">5.6</span><span class="bar-w">权重12%</span></div>
+<div class="bar-row"><span class="bar-name">D3 社区生态</span>
+<span class="bar-track"><span class="bar-fill" style="width:55.0%;background:#dc2626"></span></span>
+<span class="bar-val">5.5</span><span class="bar-w">权重11%</span></div></div>
+<div class="meta">分析时点 2026-09-12 ｜ 数据来源：GitHub API + 仓库代码实测 ｜ 方法论 v1.3</div>
+<div class="credit">报告出品：@魔法工厂　@向量之心　@南山科学家</div>
+<div class="disclaimer"><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</div>
+</div><h1>AutoResearch 商业化潜力分析报告（完整版）</h1>
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家</p>
+<p>方法论版本: v1.3 | 综合评分: <strong>66.6</strong> | 等级: <strong>A（高商业化潜力）</strong> | 价值画像: 纯商业工具</p>
+</blockquote>
+<h2>一、项目概览</h2>
+<h3>1.1 基本信息</h3>
+<ul>
+<li><strong>项目名称 / 仓库地址</strong>：EvoMap/AutoResearch</li>
+<li><strong>核心技术栈</strong>：Python（33,508 行）+ TypeScript（2,200 行），多智能体 LLM Agent / AI 研究自动化；核心依赖 httpx、beautifulsoup4、feedparser、arxiv、openreview-py、pytest、ruff</li>
+<li><strong>社区规模速览</strong>：Star 3,433 / Fork 223 / Watchers 109 / 贡献者 2 人 / 开放 Issue 1</li>
+<li><strong>分析时点 / 数据来源</strong>：仓库创建于 2026-08-15，最近推送 2026-09-10（库龄约 26 天）；数据来源为 GitHub 仓库元数据、代码与 CI 配置、README/文档、arXiv:2608.17906 及公开榜单信号</li>
+</ul>
+<h3>1.2 项目分类标签</h3>
+<table>
+<thead>
+<tr>
+<th>分类维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>应用软件 / 多智能体工作流框架（数据与AI）</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>通用/跨行业（落地集中于 AI/ML 研究与学术科研）</td>
+</tr>
+<tr>
+<td>目标用户角色</td>
+<td>AI/ML 工程师 · 数据分析师/科学家 · 技术管理者/CTO</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>AI 研究自动化：从研究想法到实验规划、实施、独立评审与可追溯证据产出</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>本地部署（纯开源，BYO LLM API Key；无 Dockerfile、无 SaaS）</td>
+</tr>
+</tbody>
+</table>
+<h3>1.3 一句话定位</h3>
+<blockquote>
+<p>AutoResearch 是一个 AI/ML 研究自动化的多智能体工作流框架，适用于通用/跨行业的 AI 研究与学术科研场景，主要面向 AI/ML 工程师与科研人员，用于将研究想法贯穿到实验规划、实施、独立评审与可追溯证据产出，以抑制幻觉并提升研究可复现性。</p>
+</blockquote>
+<hr />
+<h2>二、安装部署与使用指南</h2>
+<blockquote>
+<p>上手难度等级：🟡 <strong>中等（D9 总分 6.0）</strong>。以下提供关键步骤，省略基础操作（如 Git/Python 安装）。</p>
+</blockquote>
+<h3>环境要求（硬约束）</h3>
+<ul>
+<li>一台 <strong>Linux</strong> 机器（本地或可 SSH 访问），已装 Git、Python 3.10+、<code>python3-venv</code>。</li>
+<li>若要走完整「Idea Execution」链路，还需额外提供：<strong>Bun 1.3+</strong>、<strong>Node.js</strong>、<strong>Conda 或其他 Python 环境管理器</strong>、实验所需的 CPU/GPU/数据/磁盘资源，以及 <strong>Ralph Loop 插件</strong>和<strong>官方 Claude Code CLI</strong>。</li>
+<li>需准备至少 3 个<strong>不同底层模型</strong>的 API 凭据（<code>ideator</code> 角色要求）。</li>
+<li>注意：README 明确警告执行入口「Run it only in an isolated, disposable task environment」，不要挂载宿主机 home、SSH agent、云凭据等。</li>
+</ul>
+<h3>步骤 1：克隆与自检（Python 侧）</h3>
+<pre><code class="language-bash">git clone https://github.com/EvoMap/AutoResearch.git
+cd AutoResearch
+bash scripts/bringup.sh
+</code></pre>
+<p><code>scripts/bringup.sh</code> 会创建 <code>.venv</code>、安装 Python 依赖、运行基线测试与密钥扫描并检查模型配置；它不访问模型服务、不产生 API 费用。首次运行在未配置凭据前出现 <code>BLOCKED</code> 或非零退出属<strong>预期行为</strong>。</p>
+<h3>步骤 2：配置模型服务</h3>
+<pre><code class="language-bash">test -f .env || cp .env.example .env
+test -f config/providers.local.json || \
+  cp config/providers.example.json config/providers.local.json
+</code></pre>
+<p>需编辑两处：<code>.env</code>（真实 API URL/Key/代理，勿提交）与 <code>config/providers.local.json</code>（端点、模型别名、角色映射）。角色共 11 个（<code>screener</code> / <code>judge</code> / <code>consensus_checker</code> / <code>ideator</code> / <code>planner</code> / <code>freshness_refresher</code> / <code>agent</code> / <code>code_reviewer</code> / <code>critic</code> / <code>critic_secondary</code> / <code>run_monitor</code>），其中 <code>ideator</code> 至少需 3 个不同模型。</p>
+<h3>步骤 3：连通性与凭据验证</h3>
+<pre><code class="language-bash">set -a
+. ./.env
+set +a
+.venv/bin/python scripts/preflight.py --live
+</code></pre>
+<p>退出码 <code>0</code> 表示正常角色均有可用模型、多模型阶段（Idea Forge、critic）满足独立性要求。</p>
+<h3>步骤 4（任一入口）</h3>
+<pre><code class="language-bash"># 生成想法
+.venv/bin/python idea_generation.py
+
+# 执行已有想法（需 Claude Code CLI）
+cd ar-runtime
+bun install --frozen-lockfile
+cd ..
+</code></pre>
+<pre><code class="language-bash">cd ar-runtime
+claude --dangerously-skip-permissions
+</code></pre>
+<p>在 Claude Code 内：</p>
+<pre><code>/ar-coordinator ../data/ideas/my_experiment.txt ../data/projects/my_experiment
+</code></pre>
+<p>非交互式运行可改用 <code>scripts/ar-supervisor.sh</code>。结果查看：</p>
+<pre><code class="language-bash">.venv/bin/python src/generate_project_dashboard.py --all
+</code></pre>
+<h3>部署方案概要</h3>
+<p>本项目<strong>不提供 Dockerfile / docker-compose / Helm Chart</strong>，无容器化一键部署。官方路径为「Linux 主机 + <code>bringup.sh</code> 脚本 + 手动配置 <code>.env</code>/<code>providers.local.json</code> + 多运行时（Python venv / Bun / Node / Conda / Claude Code CLI）+ 至少 3 个模型 API 凭据」。适合具备 AI/ML 背景的开发者或研究者，非技术人员难以独立完成。</p>
+<h2>三、评分总览</h2>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>权重</th>
+<th>加权得分</th>
+<th>评级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1 市场需求与商业机会</td>
+<td>7.0/10</td>
+<td>13%</td>
+<td>0.91</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D2 技术成熟度与产品质量</td>
+<td>7.9/10</td>
+<td>14%</td>
+<td>1.11</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D3 社区健康度与生态势能</td>
+<td>5.5/10</td>
+<td>11%</td>
+<td>0.61</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D4 商业模式与变现潜力</td>
+<td>7.2/10</td>
+<td>18%</td>
+<td>1.30</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D5 竞争格局与差异化壁垒</td>
+<td>5.6/10</td>
+<td>12%</td>
+<td>0.67</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D6 法律合规与知识产权</td>
+<td>8.2/10</td>
+<td>7%</td>
+<td>0.57</td>
+<td>优</td>
+</tr>
+<tr>
+<td>D7 企业就绪度与可运营性</td>
+<td>6.0/10</td>
+<td>8%</td>
+<td>0.48</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D8 团队治理与可持续性</td>
+<td>6.0/10</td>
+<td>7%</td>
+<td>0.42</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D9 上手难度与易用性</td>
+<td>6.0/10</td>
+<td>10%</td>
+<td>0.60</td>
+<td>中</td>
+</tr>
+<tr>
+<td><strong>综合评分</strong></td>
+<td>—</td>
+<td>100%</td>
+<td><strong>66.6/100</strong></td>
+<td><strong>A（高商业化潜力）</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>平行维度（不计入综合评分）</strong></p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10 功能价值</td>
+<td>6.2/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>D11 社会价值</td>
+<td>5.4/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>公共价值分</td>
+<td>5.8/10</td>
+<td>(D10+D11)/2</td>
+</tr>
+</tbody>
+</table>
+<p><strong>一票否决检查</strong>：未触发。D6 维度总分 8.2（&gt; 3）；D8.4 细则小分 1.8（&gt; 1）；D4.1 细则小分 2.0（&gt; 0.5）。三项否决检查均完整执行，无 N/A 跳过项。</p>
+<p><strong>价值画像</strong>：💼 纯商业工具（综合评分 66.6 ≥ 65，公共价值分 5.8 &lt; 7）。</p>
+<hr />
+<h2>四、各维度详细分析</h2>
+<h3>D1. 市场需求与商业机会（权重 13%）</h3>
+<h3>项目分类标签</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>数据与AI（主）· 开发者工具</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>通用/跨行业（AI/ML 研究、学术科研）</td>
+</tr>
+<tr>
+<td>目标用户角色</td>
+<td>AI/ML工程师 · 数据分析师/科学家 · 技术管理者/CTO</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>研发流程优化 · 学习研究 · 数据处理与分析</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>本地部署（Linux + Claude Code CLI + 用户自备 LLM API Key）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>一句话定位</strong>：AutoResearch 是一个 AI/ML 研究自动化的多智能体工作流框架，适用于通用/跨行业的 AI 研究与学术科研场景，主要面向 AI/ML 工程师与科研人员，用于把研究想法贯穿到实验规划、实施、独立评审与可追溯证据产出，以抑制幻觉、提升研究可复现性。</p>
+<hr />
+<h3>D1.1 目标市场规模与增长性（2.5 分）→ <strong>1.5 分（5–6 档）</strong></h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TAM 估算</td>
+<td>对应"AI 科研自动化 / AI Scientist 工具"细分赛道，核心用户为全球 AI/ML 研究者与研发团队。当前该细分市场的直接支出量级为亿美元级，尚非百亿级主流市场。（<strong>估算未经外部数据验证，置信度低</strong>）</td>
+</tr>
+<tr>
+<td>增长趋势</td>
+<td>强扩张。项目上线约 1 个月即获 3.4k Star、登上 Hugging Face Trending Papers 第 1（arXiv:2608.17906），反映赛道关注度处于快速上升期。</td>
+</tr>
+<tr>
+<td>市场层级</td>
+<td>新兴蓝海/极早期，尚未形成稳定的付费市场结构。</td>
+</tr>
+</tbody>
+</table>
+<p>判断依据：赛道方向明确且热度高，但可触达的付费市场仍处于培育期，项目本身也未展现定价或商业化形态。按"亿美元级、平稳偏增长"档取 5–6 → 60%。</p>
+<h3>D1.2 痛点真实性与解决程度（2.5 分）→ <strong>2.0 分（7–8 档）</strong></h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>痛点真实性</td>
+<td>真实且被行业公开讨论：LLM/研究 Agent"自我编造细节、自我验证、夸大自评、过度解读负结果"是 AI 生成研究公认的可信度痛点（README 明确以 "Insight In, Hallucination Out" 为口号）。</td>
+</tr>
+<tr>
+<td>解决完整度</td>
+<td>方案较完整：跨域选题 → 多模型独立生成与交叉评审（≥3 个不同模型）→ 有状态可恢复实验 → Pilot 先行 → skeptic/critic + 盲审 → 溯源记录 → 保留负结果，形成端到端闭环。</td>
+</tr>
+<tr>
+<td>替代成本</td>
+<td>替代品存在但体验更差：Sakana AI Scientist、GPT Researcher、通用 Coding Agent + 自建脚本、人工研究。AutoResearch 在"独立多模型评审 + 溯源 + 负结果保留"上差异化明显。</td>
+</tr>
+<tr>
+<td>关键减分项</td>
+<td>产品仍为 Alpha：执行入口需 <code>claude --dangerously-skip-permissions</code> 并明确要求"隔离、一次性环境"，README 自述"无法保证每个结论正确"，可用性与安全门槛削弱了即时替代力。</td>
+</tr>
+</tbody>
+</table>
+<p>判断依据：痛点明确、方案在同类中较完整，但成熟度与交付门槛使其落在"有替代品但体验更差"的 7–8 档 → 80%。</p>
+<h3>D1.3 市场时机判断（2.5 分）→ <strong>2.0 分（7–8 档）</strong></h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术成熟度曲线</td>
+<td>LLM Agent 已过"期望膨胀"进入实质生产期，但"自主科研 Agent"仍处早期，教育与验证成本偏高。</td>
+</tr>
+<tr>
+<td>竞争密度</td>
+<td>已有明显先行者（Sakana AI Scientist、Google AI co-scientist、FutureHouse 等）及商业化初创，但格局远未固化。</td>
+</tr>
+<tr>
+<td>监管/标准</td>
+<td>暂无直接推动该类工具需求爆发的政策/标准；学术出版与科研诚信规范是潜在外部推力。</td>
+</tr>
+</tbody>
+</table>
+<p>判断依据：处于成长期早期、先行者已现但无垄断者，且项目上线一个月即获高热度，符合"有先行者但格局未定"的 7–8 档 → 80%。</p>
+<h3>D1.4 应用场景广度（2.5 分）→ <strong>1.5 分（5–6 档）</strong></h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>行业覆盖</td>
+<td>当前明确面向 AI/ML 研究（description 即限定 "AI/ML research agents"），主要落在 AI 研究/学术这一垂直方向；知识库理论上可通过 Markdown 扩展到其他学科，但需自建且需代码实验支撑。</td>
+</tr>
+<tr>
+<td>场景多样性</td>
+<td>横向方法学工具，而非绑定单一业务场景；支持"无想法→选题""有想法→执行""全流程"三条路径。</td>
+</tr>
+<tr>
+<td>可延展性</td>
+<td>核心能力（多智能体状态机、溯源、盲审、负结果保留）可迁移到更广的实验型研发流程，但受限于"需 GPU/算力 + 真实代码实验"的落地条件。</td>
+</tr>
+</tbody>
+</table>
+<p>判断依据：方法学层面具通用性，但实际落地集中于 AI/ML 研究（约 1–3 个行业方向），取 5–6 档 → 60%。</p>
+<hr />
+<h3>D1 维度小结</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1.1 目标市场规模与增长性</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6</td>
+</tr>
+<tr>
+<td>D1.2 痛点真实性与解决程度</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8</td>
+</tr>
+<tr>
+<td>D1.3 市场时机判断</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8</td>
+</tr>
+<tr>
+<td>D1.4 应用场景广度</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>7.0</strong></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：AutoResearch 命中的是一个"痛点真实、时机靠前"的新兴赛道——AI 科研自动化。其差异化（多模型独立评审 + 全链路溯源 + 负结果保留）直击 AI 生成研究的可信度痛点，上线一个月的高热度与 HF 论文榜第一佐证了市场关注度；时机上处于成长期早段、先行者已现但格局未定。主要短板在于：① 可触达付费市场当前量级偏小、付费意愿尚未被验证；② 应用场景集中于 AI/ML 研究垂直方向，跨行业延展需额外建设；③ 产品为 Alpha 且需 <code>--dangerously-skip-permissions</code> 的高权限隔离环境，落地门槛与合规风险偏高；④ 无任何商业化形态（Apache-2.0、BYO API Key、无 SaaS/企业版），变现距离远。综合评分 <strong>7.0/10</strong>，属"市场需求真实、但规模化与变现路径尚待验证"的早期优质项目。以上市场规模判断基于项目类型类比估算，<strong>未经外部数据验证，置信度低</strong>。</p>
+<h1>D2. 技术成熟度与产品质量（权重 14%）</h1>
+<h3>维度概述</h3>
+<p>AutoResearch 是一个从研究信号采集（Reddit/HN/arXiv/HF/OpenReview/研究者博客）到 Idea Forge（多模型独立评审 → 时新性刷新 → 共识检查 → 计划书生成）、再到 workflow 引擎与 MCP 工具链的端到端 AI/ML 研究自动化流水线。项目工程化程度显著高于同类开源研究型工具，具备完善的 CI 门禁与安全扫描，但产品发布成熟度偏低（无任何正式 Release、创建至今约 1 个月）。整体呈现「工程规范成熟、产品版本尚在早期」的特征。</p>
+<h3>细则打分</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D2.1 产品设计与创新性</td>
+<td>1.5</td>
+<td>1.2</td>
+<td>7–8（80%）</td>
+<td>产品理念清晰：以「社区真实讨论为入口 → 多模型独立研判 → 领域知识共识校验 → 计划书」为主线，设计自洽。创新点明确：强制<strong>独立身份多模型评审</strong>（<code>requireIndependentCritics</code>/<code>hasIndependentIdentityPair</code>）、<strong>双 persona 盲审</strong>、<strong>时新性刷新</strong>（B 库权威基线 + arXiv 实时搜索双渠道就地改写而非击杀）、<strong>内容寻址 provenance</strong>（SHA256 binding）。差异化明显，非简单复制。扣分：仍是 LLM 编排范式组合，未出现根本性新模式。</td>
+</tr>
+<tr>
+<td>D2.2 架构设计与工程质量</td>
+<td>2</td>
+<td>1.6</td>
+<td>7–8（80%）</td>
+<td>分层清晰：<code>src/</code>（analyzers/collectors/idea_forge/templates）+ <code>ar-runtime/</code>（TS MCP）+ <code>config/</code> + <code>tests/</code>，目录规范。广泛使用 frozen dataclass、Protocol、策略/注册表/契约模式；<code>channels.py</code> 用 <code>markdown_table()</code> 与文档强耦合测试保障一致性，是良好实践。复刻难度高（多模型编排 + 状态机 + 租约 + 哈希链审计 + MCP 跨语言桥接）。扣分：<code>ar-workflow-engine.py</code> 单文件超 3000 行职责偏重、大量 <code>dict[str, Any]</code> 弱类型、TS↔Python 跨语言耦合增加部署复杂度、多处 <code>sys.path.insert</code> 反模式。</td>
+</tr>
+<tr>
+<td>D2.3 代码整洁性与规范性</td>
+<td>1</td>
+<td>0.8</td>
+<td>7–8（80%）</td>
+<td>命名一致、中文注释质量极高（明确记录历史 bug 编号与设计取舍），ruff（Python）与 biome（TS）统一风格并在 CI 强制执行。扣分：多处重复逻辑（<code>append_notification</code>/<code>append_plain_notification</code>、jina 解析、<code>influential_people</code> 数据重复项、<code>sys.path.insert</code> 反复插入）、大段 f-string HTML 影响可读性、解析函数保留弃用分支与注释残留。</td>
+</tr>
+<tr>
+<td>D2.4 安全性</td>
+<td>1</td>
+<td>1.0</td>
+<td>9–10（100%）</td>
+<td>安全编码实践突出：路径穿越防护（<code>resolve(strict=True)</code> + <code>is_relative_to</code>）贯穿 <code>generate_project_dashboard</code>/<code>idea_provenance</code>/<code>b_library</code>/<code>ar-*-contract</code>；全站 HTML 转义防 XSS；凭据仅经环境变量间接读取、日志 <code>redacted_headers</code> 脱敏、<code>trust_env=False</code> 防环境变量污染；子进程一律数组参数（<code>spawn</code>/列表）杜绝命令注入；<code>unit</code> 正则白名单；原子写 + <code>0o600</code> 权限。有 <code>SECURITY.md</code>，CI 集成 <code>secret_scan.py</code>。扣分：个别渲染器 URL 未做协议白名单（<code>javascript:</code> 潜在面）、<code>check_idea</code> 存在 prompt 注入面（本地工具）。</td>
+</tr>
+<tr>
+<td>D2.5 UI/UX/UE</td>
+<td>1</td>
+<td>0.6</td>
+<td>5–6（60%）</td>
+<td>项目产出面向用户的静态 Web 看板（<code>index.html</code>/<code>ideas.html</code>/<code>kb_dashboard.html</code>/项目仪表盘，含 Tab、Timeline、Stepper、进度条、状态色卡），经 gh-pages 发布，故判定为「含 UI」。信息架构基本清晰（阶段分泳道、卡片化）。扣分：为无模板引擎的字符串拼接静态页，交互有限；无截图/无障碍证据；部分解析依赖正则较脆弱。</td>
+</tr>
+<tr>
+<td>D2.6 功能完备度与稳定性</td>
+<td>1.5</td>
+<td>0.9</td>
+<td>5–6（60%）</td>
+<td>功能覆盖广且端到端贯通（采集→质量过滤→去重→研判→构思→校验→刷新→共识→计划→provenance→工作流引擎→MCP）。扣分：<strong>无任何 Release/Tag（recent_releases 为空）</strong>、项目创建至最近推送仅约 1 个月、贡献者仅 2 人，版本成熟度低；运行环境需 Python 3.12 + Bun 双运行时 + 外部 LLM 凭据（Gemini/Claude/GPT 或 OpenAI 兼容端点）+ 网络。硬件无强 GPU 依赖（nvidia-smi 只读探测，GPU 可选）；无产品级 i18n 框架。</td>
+</tr>
+<tr>
+<td>D2.7 文档与开发者体验</td>
+<td>1</td>
+<td>0.8</td>
+<td>7–8（80%）</td>
+<td>文档覆盖面广：<code>README.md</code> + <code>README_CN.md</code> 双语、<code>ARCHITECTURE.md</code>、<code>CONTRIBUTING.md</code>、<code>SECURITY.md</code>、<code>docs/diagrams/</code>、<code>docs/{llm_provider_setup,secrets,unified_provider_config}.md</code>、<code>ar-runtime</code> 启动流程文档与 Claude agents/skills 说明、PR 模板，共 24 份文档。扣分：未见交互式教程，README 与版本同步性因项目过young难以验证。</td>
+</tr>
+<tr>
+<td>D2.8 测试与质量保障</td>
+<td>1</td>
+<td>1.0</td>
+<td>9–10（100%）</td>
+<td>测试体量突出：90 个测试文件 / 18132 行，占代码总量约 51%。CI（<code>ci.yml</code>）多层门禁完善：ruff 检查、<code>compileall</code>、pytest（含 <strong>「no test was skipped」硬门禁</strong>）、MCP preflight 契约测试、<code>check_release_tree</code>/<code>check_public_knowledge</code>/<code>check_model_references</code>/<code>render_env --check</code>/<code>secret_scan</code> 系列脚本、Bun <code>typecheck</code> + <code>biome check</code> + <code>bun test</code>；另有 <code>pr-title.yml</code> 强制 Conventional Commits 与单一关注点。质量门禁密度远超行业平均。</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>7.9</strong></td>
+<td>—</td>
+<td>D2.5 适用，不触发 N/A 缩放</td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<p>AutoResearch 在 <strong>D2.8 测试与质量保障（1.0）、D2.4 安全性（1.0）</strong> 两项达到卓越水平，<strong>D2.1/D2.2/D2.3/D2.7</strong> 处于良好区间，工程规范与安全实践是其显著优势与商业交付的加分项。</p>
+<p>主要短板集中在 <strong>D2.6 功能完备度与稳定性（0.9，5–6 档）</strong>：项目无任何正式版本发布、生命周期仅约 1 个月、贡献者极少，属于「工程做得比产品成熟更快」的项目，版本稳定性与向后兼容性尚无法验证；<strong>D2.5（0.6）</strong> 的静态 Dashboard 属于功能性而非精致的用户界面。</p>
+<p>综合得分 <strong>7.9/10</strong>，技术成熟度与产品质量高于行业平均，具备商业化交付的工程基础，但需补齐正式版本发布节奏与产品化 UI 体验。置信度：中等——UI 视觉质量、真实测试覆盖率无直接截图/覆盖率报告支撑，D2.5 适用性判定存在主观性。</p>
+<h3>D3. 社区健康度与生态势能（权重 11%）</h3>
+<blockquote>
+<p><strong>重要前置说明</strong>:本项目创建于 2026-08-15、最近推送 2026-09-10,<strong>项目年龄仅约 26 天(≈0.86 个月)</strong>。所有"社区成熟度"类指标均处于极早期,Star 增速等指标参考价值有限,以下判定按"早期高势能、低成熟度"两种属性分别评估,并整体标注置信度下降。</p>
+</blockquote>
+<h3>D3.1 社区活跃度指标（满分 3 分，得分 2.4）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测/推算值</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Star 增速</td>
+<td>补采缺失 90 天增量,退化为 Star/项目年龄 = 3433 ÷ 0.86 ≈ <strong>约 4000/月</strong></td>
+<td>远超 &gt;500/月 的 9–10 档阈值(注:因项目极新,该退化值非"历史平均高估",反而接近真实冲刺速率)</td>
+</tr>
+<tr>
+<td>Fork 比率</td>
+<td>223 / 3433 = <strong>6.5%</strong></td>
+<td>中性偏低,衍生意愿一般</td>
+</tr>
+<tr>
+<td>Issue 活跃度</td>
+<td>近 90 天 PR 5、Issue closed 2、Open Issue 1</td>
+<td>互动量稀疏,但项目仅存续 26 天</td>
+</tr>
+<tr>
+<td>响应速度</td>
+<td>Open Issue 仅 1 条,closed 90d 2 条;无平均关闭时间硬数据</td>
+<td>无积压迹象,响应看似及时(缺精确时长数据)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判定</strong>:Star 月增速一项已达甚至超过 9–10 档门槛,是本维度最强亮点;但真正体现"社区极度活跃"的互动类指标(PR/Issue 量)明显稀疏(90 天内 5 个 PR、2 个已关闭 Issue),无法满足 9–10 档"社区极度活跃"的合取要求。综合落在 <strong>7–8 档 → 80% → 2.4</strong>。
+<strong>数据可信度</strong>:Star 增速使用退化公式(标注),响应速度缺精确时长,存在高估与乐观偏差。</p>
+<h3>D3.2 贡献者结构多样性（满分 2.5 分，得分 1.0）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>贡献者数量</td>
+<td>GitHub API <strong>contributors = 2</strong></td>
+<td>极少</td>
+</tr>
+<tr>
+<td>组织多样性</td>
+<td>README 署名作者(7 人)均为 EvoMap / Infinite Evolution Lab(邮箱域 evomap.ai),单一组织</td>
+<td>组织单一</td>
+</tr>
+<tr>
+<td>核心团队占比</td>
+<td>全部核心团队产出,无外部贡献者迹象</td>
+<td>100% 核心团队</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判定</strong>:贡献者仅 2 人、且高度集中于单一机构(EvoMap),符合"<strong>&lt;5 贡献者、高度依赖核心小团体</strong>"的特征,落在 <strong>3–4 档 → 40% → 1.0</strong>。README 虽列出 7 位署名作者,但 GitHub 实际贡献者仅 2 人,社区外溢尚未形成。此项是商业化客户池的最大软肋之一。</p>
+<h3>D3.3 第三方生态成熟度（满分 3 分，得分 1.2）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>插件/扩展</td>
+<td>无第三方插件;ar-runtime 内 <code>.claude/agents</code>、<code>skills</code> 为项目自带运行时组件,非第三方</td>
+<td>无</td>
+</tr>
+<tr>
+<td>集成生态</td>
+<td>依赖极简(httpx/feedparser/arxiv/openreview-py 等),无主流平台/IDE/云集成背书</td>
+<td>无</td>
+</tr>
+<tr>
+<td>衍生项目</td>
+<td>未见二次开发或商业衍生品</td>
+<td>无</td>
+</tr>
+<tr>
+<td>教程/课程</td>
+<td>未见外部教程/课程</td>
+<td>无</td>
+</tr>
+<tr>
+<td>Topics</td>
+<td><strong>空</strong></td>
+<td>未被社区打生态标签</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判定</strong>:项目仅 26 天,尚无任何第三方插件、集成或衍生项目,Topics 为空,符合"<strong>几乎无第三方生态</strong>",落在 <strong>3–4 档 → 40% → 1.2</strong>。其背靠 EvoMap 母生态(主页 evomap.ai)与 arXiv 论文,故未判为"完全孤立"(1–2 档)。</p>
+<h3>D3.4 品牌认知与行业影响力（满分 1.5 分，得分 0.9）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>品牌辨识度</td>
+<td>README 挂 Trendshift 趋势徽章;Hugging Face Papers <strong>ranked first</strong> 徽章;arXiv:2608.17906</td>
+<td>近期高曝光</td>
+</tr>
+<tr>
+<td>行业采用</td>
+<td>无知名企业采用/背书的证据</td>
+<td>缺失</td>
+</tr>
+<tr>
+<td>媒体覆盖</td>
+<td>HF Trending 第一、Trendshift 榜单</td>
+<td>有一定行业关注</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判定</strong>:短期内获得 HF Papers 榜首、Trendshift 榜单曝光,领域认知度正在快速建立;但无任何"知名企业采用/背书"证据(署名与母生态同为 EvoMap),尚未突破到 7–8 档要求的"领域较高认知度 + 知名企业背书"。综合判为 <strong>5–6 档 → 60% → 0.9</strong>。</p>
+<h3>本维度结论</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D3.1 社区活跃度</td>
+<td>3</td>
+<td>2.4</td>
+<td>7–8 档(80%)</td>
+</tr>
+<tr>
+<td>D3.2 贡献者结构多样性</td>
+<td>2.5</td>
+<td>1.0</td>
+<td>3–4 档(40%)</td>
+</tr>
+<tr>
+<td>D3.3 第三方生态成熟度</td>
+<td>3</td>
+<td>1.2</td>
+<td>3–4 档(40%)</td>
+</tr>
+<tr>
+<td>D3.4 品牌认知与影响力</td>
+<td>1.5</td>
+<td>0.9</td>
+<td>5–6 档(60%)</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>5.5</strong></td>
+<td><strong>一般偏弱</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>D3 = 5.5 / 10</strong>。项目呈现典型的"<strong>高势能、低成熟</strong>"画像:Star 冲刺速度(Trendshift + HuggingFace 榜首)证明其具备爆款级传播势能,是潜在客户池的强信号;但<strong>互动社区体量、贡献者多样性、第三方生态几乎为零</strong>,且项目仅 26 天,生态势能尚未兑现为可支撑商业化的社区基础。对商业化而言,社区是"有热度、无纵深",需高度依赖母体 EvoMap 的组织化运营而非自发的社区自生长。<strong>置信度提示</strong>:项目年龄过短、90 天增量数据缺失,本维度评分置信度偏低,建议 3–6 个月后复评。</p>
+<h3>D4. 商业模式与变现潜力（权重 18%）</h3>
+<p><strong>维度得分：7.2 / 10</strong>（细则合计 7.2 / 10）</p>
+<h3>D4.1 协议对变现模式的影响（2 分）→ <strong>2.0 / 2.0</strong></h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测证据</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>协议类型</td>
+<td><code>LICENSE</code> 文件为完整 Apache License 2.0 原文；GitHub API <code>license: Apache-2.0</code>；README badge 亦标注 <code>License: Apache-2.0</code></td>
+<td>无约束型协议</td>
+</tr>
+<tr>
+<td>传染性</td>
+<td>Apache 2.0 无 copyleft 传染，允许闭源衍生、闭源再分发、SaaS 托管</td>
+<td>所有变现路径均无障碍</td>
+</tr>
+<tr>
+<td>专利授权</td>
+<td>第 3 条含明确专利授权与专利诉讼终止条款，对企业客户合规采购友好</td>
+<td>增强企业商业化可行性</td>
+</tr>
+<tr>
+<td>商标限制</td>
+<td>第 6 条限制使用 Licensor 商标，但项目方（EvoMap）作为版权方保留自有品牌运营权</td>
+<td>不影响官方商业版叙事</td>
+</tr>
+<tr>
+<td>双协议可行性</td>
+<td>Apache 2.0 允许版权方另行授予商业许可（非排他），官方可自由追加企业授权</td>
+<td>双协议/Open Core 均可行</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：项目采用 Apache-2.0，属评分指引中"9–10 档 → 100%"对应类型，所有变现路径（Open Core、SaaS 托管、双协议、专业服务、认证生态）在法律层面均无障碍，且专利授权条款对企业采购有正向作用。该档位无争议，取满分。</p>
+<h3>D4.2 变现路径清晰度（3.5 分）→ <strong>2.1 / 3.5</strong></h3>
+<table>
+<thead>
+<tr>
+<th>备选模式</th>
+<th>可行性评估</th>
+<th>证据/参照</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Open Core</strong></td>
+<td>可行。核心编排/单模型流程开源，企业级能力（私有知识库治理、团队协作、审计留痕、SSO、权限隔离、多租户调度）可闭源</td>
+<td>README 明确"Alpha 入口授予 Claude Code 广泛工具权限""仅在隔离一次性环境运行"——企业级安全治理天然是付费层；参照 GitLab/Strapi</td>
+</tr>
+<tr>
+<td><strong>SaaS 托管</strong></td>
+<td>可行且最贴合。自部署门槛极高（Linux + Python 3.10 + Bun 1.3 + Node + Conda + GPU + Claude Code CLI + Ralph Loop 插件 + 多模型 Key + 代理），托管化价值明确</td>
+<td>参照 Supabase、Vercel；项目方 EvoMap 已有 <code>evomap.ai</code> 站点与"EvoMap Ecosystem"徽章</td>
+</tr>
+<tr>
+<td><strong>专业服务</strong></td>
+<td>可行。知识方向定制、实验流程咨询、论文级证据链交付</td>
+<td>参照 Redis/Nginx 早期</td>
+</tr>
+<tr>
+<td><strong>市场/插件</strong></td>
+<td>弱–中。<code>knowledge_base/*.md</code> 方向库具备"内容包"形态，但无插件运行时/分成机制证据</td>
+<td>无 marketplace 代码或文档</td>
+</tr>
+<tr>
+<td><strong>认证/生态</strong></td>
+<td>弱。仅有 arXiv 论文与 HF Trending 背书，无认证体系</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>捐赠/赞助</strong></td>
+<td>非规模化路径</td>
+<td>参照 Vue</td>
+</tr>
+<tr>
+<td><strong>双协议</strong></td>
+<td>可行但无必要（Apache 2.0 已足够宽松）</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：
+1. <strong>正向证据</strong>：项目由商业实体 EvoMap（Infinite Evolution Lab）主导，README 首页与 badge 均指向 <code>https://evomap.ai</code>，属典型"公司开源前端 + 商业化后端"结构；35,708 行代码、139 个 Python 文件中包含完整的多模型路由、角色编排、状态持久化与审查流水线，具备产品化底座。
+2. <strong>负向证据</strong>：README 通篇未出现 pricing、cloud、enterprise、commercial license、托管服务入口；无 Dockerfile、无 SaaS 控制面代码；<code>recent_releases</code> 为空，无版本发布节奏；contributors 仅 2 人，团队规模尚不足以支撑商业化交付。
+3. <strong>结论</strong>：方向性路径清晰（SaaS 托管为主 + Open Core 企业版为辅，两条互洽已验证模式可参照），但<strong>均处于"潜在、未验证"状态</strong>，无任何定价、产品或发布证据落地。按"5–6 档（60%）：有潜在路径但尚不清晰，需验证"赋分。</p>
+<p>得分：3.5 × 60% = <strong>2.1</strong></p>
+<h3>D4.3 付费转化逻辑（2.5 分）→ <strong>1.5 / 2.5</strong></h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>分析</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>免费到付费的触发点</td>
+<td><strong>非功能阉割型触发</strong>：Apache 2.0 下仓库功能完整，不存在"关键功能锁在付费版"。真实触发点是<strong>运维与合规负担</strong>——一次完整实验需配置 ≥3 个独立模型（<code>ideator</code> 强制三模型、<code>critic_secondary</code> 需与 <code>critic</code> 不同模型）、GPU、Conda 环境、Claude Code <code>--dangerously-skip-permissions</code> 权限放开、Ralph Loop 插件、隔离沙箱；README 第 5.4 节明确警告"不要挂载宿主机 home、SSH agent、云凭证、客户数据"。这类负担构成天然的托管化付费动机</td>
+</tr>
+<tr>
+<td>付费意愿强度</td>
+<td>目标客户分层明显：学术研究者预算紧、个人付费意愿低；工业界 AI 实验室/大厂研究团队预算充足、对"可复现证据链 + 审计留痕"（<code>decisions.log</code>、<code>review.md</code>、critic/blind review 文件）付费意愿中等偏上</td>
+</tr>
+<tr>
+<td>转化漏斗</td>
+<td>使用者在本地跑通 → 遇到多模型/GPU/权限/成本问题 → 转向托管或企业版。路径存在，但<strong>缺少付费墙与产品分层的实证</strong>（无企业版功能对比表、无定价页、无 license-key 机制）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：有可解释的升级逻辑（运维复杂度 + 企业合规），但触发点不是"免费不够用"的功能型硬触发，而是外部运维摩擦，属"不够自然"一档。同时缺乏任何分层定价证据，无法归入 7–8 档。按"5–6 档（60%）：有升级逻辑但触发点不够自然"赋分。</p>
+<p>得分：2.5 × 60% = <strong>1.5</strong></p>
+<h3>D4.4 增值服务空间与定价天花板（2 分）→ <strong>1.6 / 2.0</strong></h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>增值空间</td>
+<td>明确且多层：① 托管运行（GPU 调度、长任务监督 <code>ar-supervisor.sh</code>、断点恢复）；② 企业治理（私有 <code>knowledge_base/</code> 版本化、团队协作、审计轨迹、数据隔离）；③ 合规与安全（README 已自陈 <code>SECURITY.md</code>，企业沙箱化需求强）；④ 模型成本优化（多模型路由、<code>max_concurrency</code>、<code>AR_LLM_TIMEOUT</code> 可运营化）；⑤ SLA 与专属支持；⑥ 知识方向定制交付</td>
+</tr>
+<tr>
+<td>定价天花板</td>
+<td>单体研究者工具型产品客单价低（$100–1K/年量级）；但"实验室/团队级 AI 研究自动化平台 + 审计证据链"可对标 W&amp;B 级企业工具（约 $50/seat/月 → 数百至上千美元/席/年），团队级 $1K–10K/年落点合理；超过 $10K+/年需要多席位/多项目企业 flat fee 支撑，当前无证据</td>
+</tr>
+<tr>
+<td>收入扩展性</td>
+<td>结构上可从 per-seat（研究员席位）扩展至 per-usage（实验轮次/模型 token 消耗）与 enterprise flat fee（实验室整体授权）；<code>data/projects/</code> 的多项目模型天然支持按项目计量</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：增值维度丰富（托管、治理、合规、成本优化、SLA），且产品结构本身支持按席位/按用量/按实验室三种计价形态；但受限于客户以研究人群为主、当前无任何定价锚点与商业版本，客单价落在 $1K–10K/年区间更现实。按"7–8 档（80%）：有明确增值方向，客单价 $1K–10K/年"赋分。</p>
+<p>得分：2.0 × 80% = <strong>1.6</strong></p>
+<h3>D4 维度小结</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D4.1 协议对变现模式的影响</td>
+<td>2.0</td>
+<td>2.0</td>
+<td>9–10（100%）</td>
+</tr>
+<tr>
+<td>D4.2 变现路径清晰度</td>
+<td>3.5</td>
+<td>2.1</td>
+<td>5–6（60%）</td>
+</tr>
+<tr>
+<td>D4.3 付费转化逻辑</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6（60%）</td>
+</tr>
+<tr>
+<td>D4.4 增值服务空间与定价天花板</td>
+<td>2.0</td>
+<td>1.6</td>
+<td>7–8（80%）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>7.2</strong></td>
+<td><strong>维度得分 7.2 / 10</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：AutoResearch 的商业模式属于典型的"<strong>许可无障碍、路径有方向、落地未验证</strong>"状态。Apache-2.0 使其在协议层获得满分商业自由度（可自由做 Open Core、SaaS、双协议、闭源衍生），且由商业实体 EvoMap 主导、自部署门槛极高（多模型 Key + GPU + Claude Code 权限 + 隔离沙箱），使 <strong>SaaS 托管 + 企业 Open Core</strong> 构成方向清晰、可参照 Supabase/GitLab 的双路径；增值维度（托管调度、知识库治理、审计合规、模型成本优化、SLA）亦具备扩展到 per-seat / per-usage / enterprise flat fee 的结构性空间。</p>
+<p>但项目当前完全没有任何商业化落地证据：无定价、无企业版功能分层、无云端入口、无商业授权机制、无版本发布节奏，且核心贡献者仅 2 人。变现能力目前是<strong>结构性潜力而非可验证的现实</strong>，付费转化更多依赖"运维/合规摩擦"这类间接触发点，而非"免费版不够用"的硬触发点。参照附录 C，本项目尚处于 GitLab/Strapi 的"开源蓄水期"，距离收入验证仍有明显距离。<strong>建议在后续跟踪中重点关注</strong>：是否出现官方托管服务入口、企业版功能对比文档、商业授权条款或定价页——任一出现将显著上修 D4.2 与 D4.3。</p>
+<h3>D5. 竞争格局与差异化壁垒（权重 12%）</h3>
+<h3>D5.1 竞品对比与市场定位（3 分）</h3>
+<p>本维度竞品均通过 GitHub Search API 实测验证仓库真实存在（verified: true）。</p>
+<table>
+<thead>
+<tr>
+<th>竞品名称</th>
+<th>类型</th>
+<th>仓库/官网</th>
+<th>验证方式</th>
+<th>Star/用户量</th>
+<th>核心差异</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>microsoft/qlib</td>
+<td>间接竞品</td>
+<td>github.com/microsoft/qlib</td>
+<td>GitHub 搜索确认</td>
+<td>48,486</td>
+<td>面向量化投资的 AI 研发平台（idea→production），聚焦金融投资领域，产出为策略/生产系统而非论文证据包</td>
+</tr>
+<tr>
+<td>brycewang-stanford/Auto-Research-Skills</td>
+<td>直接竞品</td>
+<td>github.com/brycewang-stanford/Auto-Research-Skills</td>
+<td>GitHub 搜索确认</td>
+<td>156</td>
+<td>自主科研「技能与 agent 精选库」，idea→论文；偏技能集合/资源聚合，非端到端可恢复流水线</td>
+</tr>
+<tr>
+<td>damonwan1/AutoScholarLoop</td>
+<td>直接竞品</td>
+<td>github.com/damonwan1/AutoScholarLoop</td>
+<td>GitHub 搜索确认</td>
+<td>83</td>
+<td>多 agent 自动研究循环：idea 发现→实验执行→循证论文写作→质量审计，是定位最接近的竞品</td>
+</tr>
+<tr>
+<td>dalbom/rev2agent</td>
+<td>直接竞品</td>
+<td>github.com/dalbom/rev2agent</td>
+<td>GitHub 搜索确认</td>
+<td>37</td>
+<td>从 idea 到 manuscript 的轻量自主研究 bot，以「Reviewer 2」评审角色为核心</td>
+</tr>
+<tr>
+<td>evoelsewhere/evoflux</td>
+<td>间接竞品</td>
+<td>github.com/evoelsewhere/evoflux</td>
+<td>GitHub 搜索确认</td>
+<td>9</td>
+<td>本地优先的通用 agent 工作空间（含 deep research、浏览器自动化），非专注科研论文产出</td>
+</tr>
+</tbody>
+</table>
+<p><strong>定位分析</strong>：</p>
+<ul>
+<li><strong>直接竞品</strong>：Auto-Research-Skills（156）、AutoScholarLoop（83）、rev2agent（37）三者合计仅 276 Star，本项目的 3,433 Star 是三者总和的 12 倍以上，在直接竞品中处于显著领先位置。</li>
+<li><strong>间接竞品</strong>：microsoft/qlib（48,486 Star）体量远大于本项目，但其定位为量化投资研发平台，与「AI/ML 研究 idea→论文证据」并非同一战场；evoflux 为通用 agent 工作空间，科研只是其场景之一。</li>
+<li><strong>定位清晰度</strong>：项目定位明确且差异化——「From Idea to Paper-Ready Evidence / Insight In, Hallucination Out」；三大差异化支柱：(1) <strong>多模型独立性强制</strong>（Ideator 至少 3 个不同底层模型、critic 与 critic_secondary 必须为不同模型）；(2) <strong>全链路证据溯源</strong>（Forge 源、knowledge 方向、实验日志、critic 报告、blind review 落盘）；(3) <strong>可中断可恢复的状态机 + 保留阴性结果</strong>（拒绝把失败包装成成功）。同时具备 arXiv:2608.17906 论文引用与 Hugging Face Trending Papers 排名第一的学术背书。</li>
+</ul>
+<p><strong>评分</strong>：直接竞品规模远小于本项目，定位清晰且有明确差异化，但所处赛道本身竞品众多、并非无竞品独占 → 对应 7–8 档（80%）。
+<strong>小分</strong>：3 × 80% = <strong>2.4</strong></p>
+<hr />
+<h3>D5.2 技术壁垒与网络效应（3 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术壁垒</td>
+<td>核心技术为 agent 编排/多模型路由/状态机，未见专利或专有算法声明；knowledge_base 为用户本地 Markdown，非专有数据集。壁垒主要来自工程实现复杂度（已在 D2.2 计分），从商业防御视角看可被有能力的团队复刻</td>
+</tr>
+<tr>
+<td>网络效应</td>
+<td>本地优先（local-first）架构，无插件市场、无共享数据飞轮、无社区共建知识库（README 明确「never rewrites the local knowledge base automatically」），用户增长不提升他人价值</td>
+</tr>
+<tr>
+<td>规模效应</td>
+<td>无明显的边际成本下降或规模带来的体验优势；调用量增加反而线性放大模型 API 成本（README FAQ 7.5 明示「Call volume grows with seeds/directions/seats」）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>分析</strong>：项目的设计资产（多模型独立性协议、blind review、provenance 链）有价值但不可防御——Apache-2.0 开源、无专利、无专有数据、无网络效应。上游依赖（官方 Claude Code CLI、第三方模型 API、Ralph Loop 插件）进一步削弱自主壁垒。</p>
+<p><strong>评分</strong>：壁垒薄弱、易被复制，且无网络效应/规模效应加持 → 对应 3–4 档（40%）。
+<strong>小分</strong>：3 × 40% = <strong>1.2</strong></p>
+<hr />
+<h3>D5.3 切换成本与用户粘性（2 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>迁移成本</td>
+<td>中等。用户资产包括 <code>config/providers.local.json</code>（角色映射）、<code>knowledge_base/</code> Markdown、<code>data/projects/</code> 项目状态/日志/结论。但多为标准 Markdown/JSON/文本格式，导出与迁移相对容易</td>
+</tr>
+<tr>
+<td>深度集成</td>
+<td>较深。执行链路要求 Claude Code CLI + <code>--dangerously-skip-permissions</code>、Bun 1.3+/Node、Conda 环境、GPU 资源、Ralph Loop 插件，需专用隔离环境；改动工作流需理解 start-up flow 与工作队列语义</td>
+</tr>
+<tr>
+<td>习惯锁定</td>
+<td>中等。knowledge_base 领域知识、项目历史、决策日志（decisions.log）会随使用累积，形成一定路径依赖，但组织流程依赖度不高</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分</strong>：迁移有明确成本（环境重建 + 知识库/项目历史沉淀），但产物可移植、无强锁定 → 对应 5–6 档（60%）。
+<strong>小分</strong>：2 × 60% = <strong>1.2</strong></p>
+<hr />
+<h3>D5.4 护城河可持续性（2 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>护城河趋势</td>
+<td>学术背书（arXiv + HF Trending 第一）在增强，但技术防线未同步加深</td>
+</tr>
+<tr>
+<td>颠覆风险</td>
+<td>较高。赛道进入者密集（本次搜索即刻返回多个同类小项目）；上游模型厂商/大实验室若推出原生 research agent，或 Claude Code 等基础 CLI 能力升级，本项目作为「薄编排层」存在被吸收风险；核心能力依赖第三方模型 API 与 Claude Code CLI</td>
+</tr>
+<tr>
+<td>时间窗口</td>
+<td>项目创建仅约 1 个月（2026-08-15 创建，2026-09-10 最新推送），先发优势窗口短，护城河可持续性尚待验证</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分</strong>：护城河一般偏弱、面临明确技术替代与上游依赖风险，且缺乏数据/网络护城河 → 对应 3–4 档（40%）。
+<strong>小分</strong>：2 × 40% = <strong>0.8</strong></p>
+<hr />
+<h3>D5 维度结论</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D5.1 竞品对比与市场定位</td>
+<td>3</td>
+<td>2.4</td>
+<td>7–8 档（80%）</td>
+</tr>
+<tr>
+<td>D5.2 技术壁垒与网络效应</td>
+<td>3</td>
+<td>1.2</td>
+<td>3–4 档（40%）</td>
+</tr>
+<tr>
+<td>D5.3 切换成本与用户粘性</td>
+<td>2</td>
+<td>1.2</td>
+<td>5–6 档（60%）</td>
+</tr>
+<tr>
+<td>D5.4 护城河可持续性</td>
+<td>2</td>
+<td>0.8</td>
+<td>3–4 档（40%）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>5.6</strong></td>
+<td><strong>D5 = 5.6</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>核心判断</strong>：AutoResearch 在其细分赛道（AI/ML 自动化科研 agent）中竞争地位突出——以 3,433 Star 远超所有直接竞品总和（276 Star），并拥有 arXiv 论文与 HF Trending 第一的学术背书，定位清晰、差异化明确（多模型独立评审、循证溯源、阴性结果保留）。但项目本质是构建在第三方模型 API 与 Claude Code CLI 之上的「编排层」，采用 Apache-2.0 开源、无专利、无专有数据、无网络效应，技术壁垒薄弱、易被复刻，长期护城河面临大厂原生 agent 与上游 CLI 能力升级的颠覆风险。整体呈「市场位置领先但防御力不足」的结构，D5 综合 5.6 分。</p>
+<h3>D6. 法律合规与知识产权</h3>
+<p><strong>维度得分：8.2 / 10</strong></p>
+<p>该项目采用 Apache-2.0 协议、依赖轻量且全部为宽松许可，法律合规基础扎实；主要短板在贡献者协议缺位与商标／专利未核查。整体不构成商业化硬伤，但版权集中度不足会影响双协议／闭源变现路径。</p>
+<h3>细则打分</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D6.1 开源协议合规性与商业限制</td>
+<td>3.0</td>
+<td><strong>3.0</strong></td>
+<td>9–10 (100%)</td>
+<td>LICENSE 文件完整、内容为标准 Apache-2.0 全文，SPDX 标识规范（GitHub API 识别为 <code>Apache-2.0</code>）；无 GPL/AGPL 等 copyleft 传染；无 Commons Clause / BUSL / 非商业附加条款。协议明确性、传染性、附加条款三项均无实质障碍。</td>
+</tr>
+<tr>
+<td>D6.2 依赖链法律风险</td>
+<td>2.5</td>
+<td><strong>2.5</strong></td>
+<td>9–10 (100%)</td>
+<td>直接依赖极少：Python 侧 7 项（httpx、beautifulsoup4、feedparser、arxiv、openreview-py、pytest、ruff），Node 侧 5 项（@modelcontextprotocol/sdk、zod、@biomejs/biome、@types/bun、typescript）。均为 MIT / BSD / Apache-2.0 系宽松许可，无 GPL/AGPL，来源均为 PyPI / npm 知名维护方。传递依赖未提供 lockfile 逐项审计（残余风险，见下）。</td>
+</tr>
+<tr>
+<td>D6.3 商标与专利风险</td>
+<td>2.5</td>
+<td><strong>1.5</strong></td>
+<td>5–6 (60%)</td>
+<td><strong>未经人工核查，置信度低。</strong> 商标检索与专利排查无法由自动化完成。提示性观察：「AutoResearch」「EvoMap」均为通用描述性词汇，商标显著性弱、注册难度偏中；技术领域（LLM/研究 Agent 编排）专利密集但未见已知争议记录。按方法论默认按 5–6 档给分并标注。</td>
+</tr>
+<tr>
+<td>D6.4 贡献者协议完备性</td>
+<td>2.0</td>
+<td><strong>1.2</strong></td>
+<td>5–6 (60%)</td>
+<td>有规范的 CONTRIBUTING.md（Ground rules、开发 setup、测试清单、发布流程、安全敏感变更审查）与 <code>.github/pull_request_template.md</code>、<code>pr-title.yml</code> CI。但<strong>无 CLA、无 DCO sign-off 要求</strong>，无 CODEOWNERS（<code>has_codeowners: false</code>）。Apache-2.0 §5 提供 inbound=outbound 的默认贡献许可，版权归属在法律上清晰但<strong>分散于各贡献者</strong>（contributors: 2）。「有贡献指南但无正式 CLA」精确对应 5–6 档。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>加权合计：3.0 + 2.5 + 1.5 + 1.2 = 8.2 / 10</strong></p>
+<h3>关键结论与风险提示</h3>
+<ol>
+<li><strong>协议层无实质障碍（强项）</strong>：Apache-2.0 允许闭源衍生、SaaS 化、双协议授权与专利授权（§3），是商业化最友好的主流协议之一。无 copyleft 传染意味着可自由选择任何变现路径，不必回开源衍生代码。</li>
+<li><strong>依赖合规成本极低（强项）</strong>：35708 行代码仅 12 项直接依赖，且全为宽松许可，人工完成一次全量依赖许可扫描的成本很低，适合在商业化前做一次正式 SBOM 审计闭环。</li>
+<li><strong>版权集中度不足（核心短板）</strong>：缺少 CLA 使「开源版 + 商业版双协议」或闭源再授权在法律上需逐一取得全部贡献者同意。当前贡献者少（2 人），补救成本低——建议引入 CLA Assistant 或 DCO，锁定后续贡献的再授权权利。</li>
+<li><strong>商标／专利为最大未知项</strong>：项目名显著性强但与「AutoResearch」这一通用词组高度重合，且未在仓库中发现商标使用政策（Apache-2.0 §6 仅作默认不授权声明）。进入商业化前<strong>必须</strong>做一次专业商标检索（目标市场类别 9/42）与专利 FTO 分析，本报告不对其可用性作断言。</li>
+<li><strong>合规可管理性</strong>：CI 中已有 secret scan、release tree check、public knowledge check 等合规相关门禁，工程侧合规意识良好，法务侧主要缺口集中在 CLA 与 IP 核查两项，属可快速补齐类型。</li>
+</ol>
+<blockquote>
+<p>置信度说明：D6.1/D6.2/D6.4 基于硬事实（LICENSE、requirements.txt、package.json、CONTRIBUTING.md、.github 结构），置信度高；D6.3 未经人工核查，置信度低，实际得分可能上下浮动。</p>
+</blockquote>
+<h3>D7. 企业就绪度与可运营性（权重 8%）</h3>
+<blockquote>
+<p>项目定位说明：AutoResearch 是一个<strong>面向研究者的本地/SSH 单机 Agent 工作流工具</strong>（CLI + MCP + 队列引擎），并非多租户 SaaS 服务。因此企业级认证/集群 HA 等能力天然不是其设计目标，本节按「工具型产品被企业研究团队采纳」的口径评估，并对不适用项做显式说明。</p>
+</blockquote>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D7.1 运维复杂度与升级路径</td>
+<td>3</td>
+<td><strong>1.8</strong></td>
+<td>5–6（60%）</td>
+<td>配置管理成熟，但运维面铺得宽、升级路径缺失</td>
+</tr>
+<tr>
+<td>D7.2 安全管理与权限控制</td>
+<td>2.5</td>
+<td><strong>1.5</strong></td>
+<td>5–6（60%）</td>
+<td>审计与密钥处理扎实，但无企业认证、权限粗粒度</td>
+</tr>
+<tr>
+<td>D7.3 可扩展性与高可用能力</td>
+<td>2.5</td>
+<td><strong>1.5</strong></td>
+<td>5–6（60%）</td>
+<td>租约式多 worker 设计，但 flock 限单机、无集群/故障转移</td>
+</tr>
+<tr>
+<td>D7.4 集成兼容与可观测性</td>
+<td>2</td>
+<td><strong>1.2</strong></td>
+<td>5–6（60%）</td>
+<td>有 MCP/CLI 与结构化日志、健康预检，但无 REST/SDK、无指标/告警</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>6.0</strong></td>
+<td>—</td>
+<td>score = 6.0 ÷ 10 × 10 = <strong>6.0</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>D7.1 运维复杂度与升级路径 —— 1.8 / 3</h3>
+<p><strong>配置管理（加分）</strong>：配置体系是本项目亮点。<code>.env.example</code> 覆盖 TTL（<code>AR_LLM_TIMEOUT=900</code>）、数据/日志/输出目录、多厂商凭据分组（ANTHROPIC/GEMINI/OPENAI/AZURE 互为替代），并以 <code>config/providers.example.json</code> 承载路由；<code>src/providers.py</code> 实现了 <strong>v1↔v2 配置格式兼容与合并</strong>（<code>is_v2</code> / <code>merge_over_defaults</code> / <code>_merge_across_formats</code>），<code>src/roles.py</code> 支持 <code>AR_MODEL_&lt;ROLE&gt;</code> 环境变量按角色覆盖模型。这已达 7–8 档（配置清晰、支持环境变量、有兼容层）。</p>
+<p><strong>运维负担（减分）</strong>：系统由 Python 主体 + TypeScript/Bun MCP 运行时（<code>ar-runtime/</code>）+ 队列引擎 + 守护进程（<code>ar-gemini-monitor.py</code> 单例锁 + 心跳）+ 调度器（<code>scheduler.py</code>）构成，多进程、跨语言、文件态状态机。日常运行需要理解 <code>state.md</code>/<code>workflow_queue.json</code>/租约/裁决链等概念，运维认知门槛偏高，需专职投入。</p>
+<p><strong>升级路径（明显短板）</strong>：<code>recent_releases</code> 为空，仓库<strong>无任何 Release、无 CHANGELOG</strong>（doc_files 中无 CHANGELOG）；没有回滚机制、没有版本迁移脚本。配置层做了 v1/v2 兼容算是唯一「升级友好」信号，但软件层面的升级路径基本空白。</p>
+<p><strong>数据迁移</strong>：状态落盘为 JSON/Markdown，<code>idea_provenance</code> 用 SHA256 做内容寻址与绑定校验，能防止「provenance 漂移」；但无 schema 版本号、无迁移工具。<code>queue_regression</code> 会拒绝 seq 倒退的队列，属于防御性设计而非迁移能力。</p>
+<p><strong>综合</strong>：配置强、兼容意识好（v1/v2），但运维负担重、无 Release/CHANGELOG/回滚/migration，双维度相抵后落在 5–6 档。<strong>1.8 分</strong>。</p>
+<hr />
+<h3>D7.2 安全管理与权限控制 —— 1.5 / 2.5</h3>
+<p><strong>认证授权（缺失）</strong>：无 SSO / OAuth / LDAP / SAML，无登录体系——因为它不是服务。凭据完全依赖环境变量/本地 <code>providers.local.json</code>，由操作者自行保管。这一项对「企业研究团队自建」可接受，对「多用户托管」不成立。</p>
+<p><strong>权限模型（粗粒度）</strong>：无 RBAC/ABAC。仅有的访问控制在<strong>工作流层</strong>：<code>ar-workflow-engine.py</code> 用 <code>--worker</code> 与租约绑定、回收后拒绝迟到回写、<code>MAX_CLAIM_ATTEMPTS=3</code> 毒丸防护；<code>b_library.knowledge_path</code>、<code>idea_provenance</code>、<code>persistCriticReport</code>、<code>generator project_root</code> 均做路径穿越防护（<code>resolve(strict=True)</code> + <code>is_relative_to</code>）。这是「数据边界防护」而非「用户权限」。</p>
+<p><strong>审计日志（加分）</strong>：<code>append_engine_event</code> 实现了<strong>哈希链式事件账本</strong>（seq + previous_hash + event_hash，sha256 sort_keys），<code>recordCriticReceipt</code> 用 SHA256 记录评审回执，<code>idea_provenance</code> 做内容寻址溯源。审计不可篡改性设计到位，是较突出的企业级特性。</p>
+<p><strong>数据安全</strong>：凭据在日志/快照中经 <code>Wire.redacted_headers</code> 替换为 <code>&lt;N chars&gt;</code>；<code>trust_env=False</code> 防止环境变量污染改道；临时文件 0o600 + 原子 rename（<code>write_json_atomic</code> / <code>_atomic_write</code>）；CI 内置 <code>secret_scan.py</code>、<code>check_public_knowledge.py</code>、<code>docs/secrets.md</code> 有专门章节。传输层依赖 httpx 默认 TLS。</p>
+<p><strong>综合</strong>：审计与密钥卫生达到 7–8 档，但认证授权归零、权限仅粗粒度工作流约束，综合落 5–6 档。<strong>1.5 分</strong>。本细则的「认证授权」部分对该工具型项目部分不适用，已在结论中显式标注。</p>
+<hr />
+<h3>D7.3 可扩展性与高可用能力 —— 1.5 / 2.5</h3>
+<p><strong>水平扩展（加分）</strong>：<code>ar-workflow-engine.py</code> 的队列单元设计（<code>claimable_units</code> / <code>reclaim_expired_leases</code> / <code>heartbeat</code> / <code>release</code> / <code>--worker</code> 绑定租约）本质是一套<strong>多 worker 抢占式工作分发机制</strong>，配合 <code>_run_parallel</code> 并发批处理，工作进程层面具备横向铺开的雏形。</p>
+<p><strong>高可用（短板）</strong>：无集群部署、无多副本、无故障转移。所有并发协调依赖 <code>fcntl.flock</code>（<code>queue_lock</code>），这是<strong>单机锁</strong>，跨主机不可用。状态虽「可恢复」（stateful &amp; recoverable，中断后可续跑），但这属于<strong>崩溃恢复</strong>而非高可用。</p>
+<p><strong>性能瓶颈 / 单点</strong>：LLM API 调用是主要耗时（外部依赖，且 <code>AR_LLM_TIMEOUT=900</code> 说明单次调用可达 15 分钟）；文件态状态机与 flock 构成单机单点；<code>generate_*</code> 页面为全量重渲染。无明显大规模性能设计。</p>
+<p><strong>数据一致性</strong>：单节点内通过 <code>write_json_atomic</code>（tmp + replace）、镜像对账（write-ahead mirror）、<code>queue_regression</code> 检测外部改写保证一致性；分布式场景无一致性方案（因不支持多节点）。</p>
+<p><strong>综合</strong>：多 worker 租约设计是真实亮点，但被单机 flock、无 HA、无故障转移拉低，落 5–6 档。<strong>1.5 分</strong>。</p>
+<hr />
+<h3>D7.4 集成兼容与可观测性 —— 1.2 / 2</h3>
+<p><strong>API 完备性（中等偏弱）</strong>：<strong>无 REST / gRPC API、无 OpenAPI/protobuf 定义、无官方 SDK</strong>。集成入口为：① MCP 工具（<code>external_critic</code> / <code>blind_review</code> / <code>gemini_review</code>，基于 <code>@modelcontextprotocol/sdk</code> + zod schema）；② argparse CLI 子命令（<code>ar-workflow-engine.py</code>、<code>check_idea.py</code>、<code>generate_*</code> 等）；③ TS↔Python 桥（<code>call_role.py</code>）。MCP 是有效的现代集成面，但缺少服务型 API。</p>
+<p><strong>标准协议</strong>：<strong>支持 MCP</strong>（本维度最实质的加分项）；但无 OpenTelemetry、无 Prometheus、无 Webhook。</p>
+<p><strong>监控告警（薄弱）</strong>：有健康预检链路（<code>ar-preflight-mcp.sh</code>、CI 中的 MCP preflight contract、<code>checkRole</code>），有 <code>ar-gemini-monitor.py</code> 守护进程做日志摘要通知、心跳状态原子写与 idle/stale 检测。但<strong>无指标导出、无告警集成、无 tracing</strong>。</p>
+<p><strong>日志体系（较好）</strong>：结构化程度高——引擎事件为哈希链 JSON、角色调用可落 JSONL（<code>FAKE_ROLE_CALL_LOG</code>）、日常日志按日滚动（<code>%Y%m%d</code>），错误以 <code>SystemExit(7)</code> + JSON stdout 输出；但未见成体系的日志级别管理。</p>
+<p><strong>综合</strong>：MCP + CLI + 结构化日志 + 预检健康链路使其高于「无集成能力」，但缺 REST/SDK、缺指标/告警/tracing，落 5–6 档。<strong>1.2 分</strong>。</p>
+<hr />
+<h3>结论</h3>
+<p>AutoResearch 在 D7 维度整体表现<strong>一般（6.0/10）</strong>，呈现「<strong>工程内功扎实、企业运营外壳缺失</strong>」的画像：</p>
+<ul>
+<li><strong>真实亮点</strong>（配置兼容层、哈希链审计账本、SHA256 provenance、租约式多 worker 队列、MCP 集成、CI 门禁完备——含 secret scan / ruff / bun typecheck / 「no test skipped」硬门禁、51.1% 测试占比）说明作者有良好的工程习惯。</li>
+<li><strong>企业落地障碍</strong>：无 Release/CHANGELOG/回滚、无 Dockerfile、无 SSO/RBAC、无集群 HA、无 REST API/指标监控。加之项目极新（2026-08 创建）、仅 2 名贡献者、Open Issue 仅 1，企业采购所依赖的「可运营成熟度」证据链尚不完整。</li>
+<li><strong>适用场景</strong>：当前更适合作为<strong>研究团队内部/单机自建工具</strong>被采纳，而非要求 SLA、多租户与集中运维的企业级平台。若未来补上 Release/迁移机制、容器化与指标导出，本维度有较大上行空间。</li>
+</ul>
+<blockquote>
+<p><strong>置信度</strong>：中高。配置、CI、MCP、审计链、flock 单机锁等均有代码/文件硬证据；唯「无 Release/无 CHANGELOG」需注意样本可能因仓库过新而低估。D7.2「认证授权」对该工具型项目存在部分不适用，已在正文标注。</p>
+</blockquote>
+<h3>D8. 团队治理与可持续性</h3>
+<blockquote>
+<p><strong>维度权重</strong>: 7% | <strong>数据置信度</strong>: 中（核心维护者背景、资金来源缺失，治理/贡献文档齐备）</p>
+</blockquote>
+<h3>D8.1 核心维护者能力与背景（满分 2.5）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术能力</td>
+<td>较强</td>
+<td>代码 35,708 行，测试占比 51.1%（18,232 行测试），具备 pre-commit 钩子、模型引用检查、release-tree 检查、密钥扫描等专业工程实践</td>
+</tr>
+<tr>
+<td>商业经验</td>
+<td>无数据</td>
+<td>GitHub 个人页/组织背景未采集，无法判断</td>
+</tr>
+<tr>
+<td>投入度</td>
+<td>无数据</td>
+<td>仅知贡献者 2 人，无法判断全职/业余</td>
+</tr>
+<tr>
+<td>巴士因子</td>
+<td>低</td>
+<td><code>contributors = 2</code>，高度依赖核心小团队</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断</strong>: 工程成熟度显著高于同规模新项目（详尽 CI 门禁、测试契约、贡献流程自校验），间接反映维护者技术能力扎实；但贡献者仅 2 人，巴士因子 = 2，且缺乏关于商业经验与投入度的任何证据。按评分指引「巴士因子 = 2–3、投入度不明」落入 5–6 档。</p>
+<p><strong>小分</strong>: 2.5 × 60% = <strong>1.5</strong></p>
+<hr />
+<h3>D8.2 治理模型透明度（满分 2.0）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>治理文档</td>
+<td>部分具备</td>
+<td>有 <code>CONTRIBUTING.md</code>、<code>SECURITY.md</code>、<code>ARCHITECTURE.md</code>、PR 模板；<strong>无 GOVERNANCE.md、无 CODEOWNERS、无路线图文档</strong></td>
+</tr>
+<tr>
+<td>开放程度</td>
+<td>核心团队主导</td>
+<td>贡献指南明确「Releases are cut by maintainers from reviewed commits」，外部贡献者仅提 PR，无决策参与机制</td>
+</tr>
+<tr>
+<td>基金会/组织</td>
+<td>无</td>
+<td>不属于 CNCF / Apache / Linux Foundation 等；由自建组织 <code>EvoMap</code> 持有</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断</strong>: 贡献指南相当完善（含开发环境、离线检查清单、敏感变更额外复审、发布流程），并配有安全披露策略与 PR 模板，治理结构具备雏形；但缺少正式治理文档、CODEOWNERS 与公开路线图，决策完全由核心维护者主导且无外部参与通道。符合 5–6 档「有简单的贡献指南，决策由核心团队主导」。</p>
+<p><strong>小分</strong>: 2.0 × 60% = <strong>1.2</strong></p>
+<hr />
+<h3>D8.3 资金支持与商业赞助（满分 2.5）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>现有资金</td>
+<td>无数据</td>
+<td>无 VC / 公司注资公开信息</td>
+</tr>
+<tr>
+<td>赞助收入</td>
+<td>无数据</td>
+<td>未采集到 GitHub Sponsors / Open Collective 页面</td>
+</tr>
+<tr>
+<td>商业实体</td>
+<td>存在</td>
+<td>由 GitHub 组织 <code>EvoMap</code> 运营，描述为「An EvoMap open-source project」，指向组织/公司实体背书</td>
+</tr>
+<tr>
+<td>资金可持续性</td>
+<td>无数据</td>
+<td>无法判断</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断</strong>: 唯一硬信号是项目归属 <code>EvoMap</code> 组织（存在运营实体），这满足「是否有公司实体在运营」一项，但资金规模、赞助渠道、可持续性均无任何可验证数据。既无明确赞助证据，也无「纯靠热情、维护者已不活跃」的迹象（项目高频推送）。综合取中低档。</p>
+<p><strong>小分</strong>: 2.5 × 60% = <strong>1.5</strong>（注：若严格执行「资金数据全缺 → N/A」，则本细则剔除，维度分仍为 6.0，结论不变）</p>
+<hr />
+<h3>D8.4 项目可持续性与传承风险（满分 3.0）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>活跃趋势</td>
+<td>上升但窗口过短</td>
+<td>创建 2026-08-15、最近推送 2026-09-10，仅约 4 周生命周期；1 个月内积累 3,433 Star，增长强劲，但无足够时间序列判断趋势</td>
+</tr>
+<tr>
+<td>维护延续性</td>
+<td>风险偏高</td>
+<td>仅 2 名贡献者，无治理/CODEOWNERS 交接机制，核心人员退出后接管路径不明</td>
+</tr>
+<tr>
+<td>历史信号</td>
+<td>正面</td>
+<td><code>archived = false</code>，无 deprecated/unmaintained 标记；<code>recent_releases = 0</code>（尚无发布）</td>
+</tr>
+<tr>
+<td>分叉风险</td>
+<td>低</td>
+<td>223 Fork 属正常社区关注，无社区分裂迹象；开放 Issue 仅 1，积压极低</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断</strong>: 项目处于高增长早期阶段，无衰减信号，Issue 积压极低、未被归档；但生命周期过短、巴士因子仅 2、无正式传承机制，接管风险中等偏高。综合 5–6 档。</p>
+<p><strong>小分</strong>: 3.0 × 60% = <strong>1.8</strong></p>
+<hr />
+<h3>维度结论</h3>
+<p><strong>D8 得分 = 1.5 + 1.2 + 1.5 + 1.8 = 6.0 / 10（一般）</strong></p>
+<p>AutoResearch 展现出与新项目不相称的<strong>工程与流程成熟度</strong>（详尽贡献/安全文档、CI 门禁、51% 测试占比），显示维护者技术能力较强，且背靠 <code>EvoMap</code> 组织实体，商业化"人"的要素基础尚可。但核心短板明确：<strong>贡献者仅 2 人（巴士因子 = 2）</strong>、<strong>无 GOVERNANCE.md / CODEOWNERS / 路线图</strong>、<strong>资金与赞助来源完全不可验证</strong>、<strong>项目仅 4 周历史且尚无正式发布</strong>，治理透明度与传承能力均低于行业平均，构成可持续运营的实质风险。</p>
+<p><strong>商业化启示</strong>: 项目适合早期采用，但在评估长期合作/自建依赖前，应重点确认 EvoMap 是否为有全职团队与资金支持的公司实体；建议要求其补充公开治理文档与资金/赞助透明度，以降低单点故障与停更风险。</p>
+<h3>D9 上手难度与易用性 详析</h3>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D9.1 安装难度</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6（60%）</td>
+<td>Python 侧提供 <code>scripts/bringup.sh</code> 一键脚本，<code>requirements.txt</code> 仅 7 个轻量纯 Python 依赖（httpx/beautifulsoup4/feedparser/arxiv/openreview-py/pytest/ruff），无编译、无数据库等系统依赖；但执行运行时需额外安装 Bun 1.3+、Node.js、Conda、官方 Claude Code CLI、Ralph Loop 插件，README 明确要求 Linux 机器，<strong>无 Dockerfile、无包管理器分发</strong>，平台覆盖仅 Linux</td>
+</tr>
+<tr>
+<td>D9.2 部署与配置难度</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6（60%）</td>
+<td><strong>无任何容器化部署</strong>（无 Dockerfile / docker-compose / Helm）；需手工创建并编辑 <code>.env</code> 与 <code>config/providers.local.json</code>，配置 11 个角色 + 端点 + 模型别名 + 并发/超时等参数，并初始化至少 3 个模型凭据、Bun/Node/Conda/Claude Code CLI 等外部组件；但提供 <code>preflight.py --live</code>、GPU smoke test、<code>ar-supervisor.sh</code> 验证路径，文档（<code>docs/unified_provider_config.md</code>、<code>docs/llm_provider_setup.md</code>）较完整</td>
+</tr>
+<tr>
+<td>D9.3 易用性与操作门槛</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6（60%）</td>
+<td>日常操作以 CLI 为主，命令较多且需精确路径与索引参数（如 <code>--forge-file / --result-index / --plan-index</code>）；但提供交互式 Claude Code 界面、dashboard 生成脚本及「拼写错误即清晰报错」的失败提示；默认模板（<code>.env.example</code>、<code>providers.example.json</code>、内置知识方向、<code>max_concurrency=3</code>）开箱合理；<strong>但非 AI/ML 领域专家无法使用</strong>（需研究假设/数据/成功指标/算力约束等专业输入）</td>
+</tr>
+<tr>
+<td>D9.4 学习曲线与首体验</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6（60%）</td>
+<td>README 提供多章节详尽 quickstart（3.1–3.3、5.1–5.6）与 FAQ，引导丰富；但完整首次成功使用需配置 3 个以上不同模型凭据、跑通 <code>preflight --live</code>、额外安装 Claude Code/Bun/Conda，实际远非 30 分钟内可完成；概念门槛高（MCP、Claude Code、多模型独立评审、Idea Forge、Ralph Loop、角色路由）；<code>examples/</code> 仅有单个 <code>synthetic_gpu_smoke.md</code> 示例，可模仿的示例项目偏少</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>6.0</strong></td>
+<td><strong>🟡 中等</strong></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h3>分析结论</h3>
+<p>AutoResearch 的上手体验呈现明显的<strong>「两段式」</strong>特征：</p>
+<ul>
+<li><strong>轻的入口</strong>：Idea Generation（<code>idea_generation.py</code>）链路仅依赖 Python 3.10+ 与 7 个轻量库，<code>scripts/bringup.sh</code> 一条命令即可完成建虚拟环境、装依赖、跑测试与密钥扫描，且明确声明「不访问模型服务、不产生费用」，CPU 机器即可运行（FAQ 7.3 印证）。这一侧接近一键安装。</li>
+<li><strong>重的全链路</strong>：一旦进入完整「Idea Execution」，门槛陡然抬升——需额外提供 Bun 1.3+、Node.js、Conda、官方 Claude Code CLI、Ralph Loop 插件及实验算力，且必须配置 11 个角色、至少 3 个不同底层模型的多套 API 凭据，并在 <code>config/providers.local.json</code> 中完成角色路由映射。README 甚至给出安全警示——执行入口要在隔离的一次性环境中运行，不得挂载宿主机凭据。</li>
+</ul>
+<p><strong>关键短板</strong>：缺少任何容器化交付物（无 Dockerfile / docker-compose / Helm），因此没有「一条命令拉起全栈」的标准部署路径；平台覆盖被限定为 Linux，未声明 Windows/macOS 支持；<code>examples/</code> 目录示例仅 1 个，新手缺少可直接模仿的模板项目。</p>
+<p><strong>关键优势</strong>：文档体系相对完整（24 个文档文件，含 <code>ARCHITECTURE.md</code>、<code>CONTRIBUTING.md</code>、<code>docs/unified_provider_config.md</code>、中英双语 README），<code>preflight.py --live</code> / <code>--tools</code> 与 GPU smoke test 提供了清晰的分步验证与友好失败提示，且模型配置有单点入口（<code>config/providers.local.json</code>）而非散落各处。</p>
+<p><strong>综合判定</strong>：D9 总分 6.0，属 <strong>🟡 中等（5–7 档）</strong>——面向「有技术基础者」（AI/ML 研究者、熟悉 Claude Code/MCP 的工程人员）。对这部分人群可提供关键步骤；对纯业务/产品/运维人员，全链路（尤其执行侧）难以独立完成。报告安装部署章节按中等档处理，提供关键命令与配置要点，并提示多运行时依赖与模型凭据门槛。</p>
+<h3>D10 功能价值——使用价值视角（平行维度，权重 0%）</h3>
+<blockquote>
+<p>本维度不计入百分制综合评分、不参与一票否决，仅用于 3.4 价值画像判定。</p>
+</blockquote>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10.1 效用强度</td>
+<td>3</td>
+<td>1.8</td>
+<td>5–6 档（60%）</td>
+<td>覆盖「选题信号采集 → 跨域想法生成 → 实验规划/编码/评审 → 执行与结果分析 → critic/盲审 → 论文级证据包」的完整研究链条，对采用者属于<strong>项目级甚至课题级</strong>的流程承载，单课题可节省数天至数周的实验编排与证据整理工时。但效用兑现门槛高：需自备多模型 API、Claude Code CLI、Bun/Node、Conda、GPU（实验阶段）；README 明确自陈「无法保证每个结论正确」，效用确定性依赖模型质量与人工监督；Alpha 入口还要求「一次性隔离环境 + <code>--dangerously-skip-permissions</code>」，实际效用是「可观但需人工兜底」。可替代性中高（通用 agent 框架 + 人工流程可近似复现），故落 5–6 档</td>
+</tr>
+<tr>
+<td>D10.2 实际使用规模</td>
+<td>3</td>
+<td>1.2</td>
+<td>3–4 档（40%）</td>
+<td>硬事实：stars 3433、forks 223、watchers 109、contributors 2、open issues 1、无任何 release、仓库仅创建约 1 个月（2026-08-15 → 2026-09-10）。依赖方计数（Dependents）未采到，npm/PyPI 官方下载量均为 <strong>N/A</strong>（项目未作为包分发，仓库形态交付）。README 的「用户案例」栏仅有仓库内自带的 GPU smoke 合成示例，<strong>无任何公开生产采用报道</strong>。按可观测事实（forks 仅百级、无分发渠道数据、无生产案例）判断为「千级及以下、小范围使用」，但热度信号（Trendshift 榜、HF Papers 第一）表明已有相当规模的实际试用，故不落 1–2 档</td>
+</tr>
+<tr>
+<td>D10.3 免费可得的完整效用</td>
+<td>2</td>
+<td>2.0</td>
+<td>9–10 档（100%）</td>
+<td>Apache-2.0，无企业版/云托管版/功能分层，Python 流水线与 <code>ar-runtime</code> 执行运行时全部源码在仓，knowledge_base 可自由增改，dashboard/证据链/盲审均为开源自带能力，官方未设任何付费墙或隐性收费。唯一成本来自用户自备的第三方模型 API 与 Claude Code 订阅，属外部基础设施开销而非项目本身的功能阉割（README 亦说明 <code>bringup.sh</code> 不产生 API 费用）。<strong>与 D4.3 的反相关可直接引用</strong>：D10.3 满分意味着可付费转化的功能空间本身极小</td>
+</tr>
+<tr>
+<td>D10.4 效用可持续性</td>
+<td>2</td>
+<td>1.2</td>
+<td>5–6 档（60%）</td>
+<td>全部逻辑与状态（plan/code/logs/metrics/review/blind-review、workflow_queue、checkpoint）落盘本地，Idea Generation 侧对模型端点无固定组合要求（任意 OpenAI 兼容端点即可），停维后已产出的项目证据与代码仍可用，Apache-2.0 允许自由分叉，51.1% 测试占比 + 2 条 CI 支持社区接续。<strong>但存在结构性外部依赖</strong>：Idea Execution 强制依赖闭源的 Anthropic Claude Code CLI 及其 <code>.claude/agents</code>、<code>.claude/skills</code>、Ralph Loop 插件格式，一旦该上游接口/授权变化，执行半边大幅失效；同时 ideator 需 ≥3 个不同底层模型、critic 需独立模型，模型 API 漂移会持续侵蚀可用性。无 Dockerfile，环境可复现性依赖 <code>bringup.sh</code> 脚本而非镜像级锁定。综合为「部分能力依赖官方/在线服务，停维后效用打折」</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>6.2</strong></td>
+<td>—</td>
+<td>无 N/A 项，无需缩放</td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<p>AutoResearch 的使用价值画像呈现明显的<strong>「强免费、中效用、弱可验证规模」</strong>三段式结构：它把 AI/ML 研究从想法到可评审证据的完整链路工程化，并刻意用「多模型独立评审 + Forge 溯源 + critic/盲审 + 负结果保留」来对抗研究型 agent 的自证与幻觉问题（"Insight In, Hallucination Out"），对真实采用的研究者能提供课题级的流程与证据增益——这是它比通用 agent 框架多出来的那部分效用（D10.1）。</p>
+<p>但三点显著削弱了效用总量：其一，价值兑现需要用户自备多条付费模型通道、Claude Code CLI 与 GPU，且全流程调用量随 seed × 知识方向 × ideator 席位放大（D10.1、D10.4）；其二，项目仅约 1 个月大、无 release、无依赖方与下载量数据、无公开生产案例，实际使用规模只能由 forks(223)/stars(3433) 这类注意力信号间接推断，尚不足以证实「项目级依赖」已普遍形成（D10.2，置信度中等）；其三，执行运行时绑定 Anthropic 闭源 CLI 与插件格式，停维或上游变更后执行半边会大幅打折（D10.4）。</p>
+<p>值得在价值画像中并列指出的是：D10.3 拿到满档（开源版即全部价值、无功能阉割），与商业视角下的付费转化空间（D4.3）天然反相关——这是一个「使用价值几乎全部免费让渡给用户」的项目，其商业叙事若要成立，必须落在托管服务、企业合规/审计、GPU 与模型成本代管等<strong>非功能阉割型</strong>的增值路径上，而不能指望对现有开源能力设限。</p>
+<h3>D11 社会价值——正外部性视角（平行维度，权重 0%，不计入综合评分）</h3>
+<blockquote>
+<p>本维度为平行维度，权重 0%，不参与综合评分与一票否决，仅用于 3.4 价值画像。评估对象为项目对<strong>使用者之外</strong>的行业与社会的外溢贡献，与 D3.4（品牌影响力→商业势能）、D2.5/D2.6（工程层面的 i18n/无障碍事实）区分视角。</p>
+</blockquote>
+<h3>项目生态位判定</h3>
+<p>AutoResearch 是一个<strong>应用层（agent workflow）工具</strong>，而非库/基础设施组件。它在「AI/ML 科研自动化」细分赛道中处于头部位置（3,433 star，同类竞品 Auto-Research-Skills 156、AutoScholarLoop 83、rev2agent 37、evoflux 9；qlib 48k 属量化投资平台，赛道不完全重叠）。但项目创建于 2026-08-15，最近推送 2026-09-10，<strong>库龄仅约 26 天</strong>，尚无 Releases、贡献者仅 2 人、开放 Issue 仅 1 个——高关注度与年轻生态位并存，决定了其「社会外溢」目前主要体现为<strong>知识与方法示范</strong>，而非供应链底座式的公共品。</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>考察点结论</th>
+<th>满分</th>
+<th>档位</th>
+<th>小分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D11.1 数字公共基础设施属性</td>
+<td>应用层 agent 工作流，无下游依赖证据；停摆对软件供应链无影响；但 Apache-2.0、local-first、provider-agnostic（明确不锁定单一模型厂商）具备 DPG 形式特征</td>
+<td>3</td>
+<td>3–4 档（40%）</td>
+<td><strong>1.2</strong></td>
+</tr>
+<tr>
+<td>D11.2 教育与人才价值</td>
+<td>24 份文档（ARCHITECTURE/CONTRIBUTING/SECURITY/knowledge_base 模板）、8 个 agent 定义与 4 个 skill 文档、arXiv 论文（2608.17906）+ HF Trending Papers 第一，构成「如何做可复现 AI 研究」的工程范本；但库龄 26 天，尚无外部教程/课程沉淀</td>
+<td>2.5</td>
+<td>5–6 档（60%）</td>
+<td><strong>1.5</strong></td>
+</tr>
+<tr>
+<td>D11.3 普惠与可及性</td>
+<td>免费开源替代昂贵的科研自动化/研究外包；provider-agnostic 并支持 flash-lite 级廉价模型、Idea Generation 可纯 CPU 运行、README 双语（EN/简体中文）；但实验执行需 Linux + Bun + Node + Claude Code CLI（<code>--dangerously-skip-permissions</code>）+ 潜在 GPU + 付费模型 API，硬门槛显著</td>
+<td>2.5</td>
+<td>5–6 档（60%）</td>
+<td><strong>1.5</strong></td>
+</tr>
+<tr>
+<td>D11.4 开放标准与行业推动</td>
+<td>对接 arXiv / OpenReview / feedparser 等开放学术接口，采用 MCP 与开放 agent/skill 描述格式；在方法层面推动可复现研究（provenance 校验和、负结果保留、独立盲审、证据打包）。但未定义/主导行业标准，学术引用影响尚不可验证</td>
+<td>2</td>
+<td>5–6 档（60%）</td>
+<td><strong>1.2</strong></td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td></td>
+<td><strong>5.4</strong></td>
+</tr>
+</tbody>
+</table>
+<h3>判断依据明细</h3>
+<p><strong>D11.1（1.2 / 3）</strong>：<code>Dependents</code> 计数未采集（N/A），但从形态判断——项目产出的是「可执行的科研流程」而非被 import 的库，不存在 curl/OpenSSL 式的关键依赖地位；2 名贡献者、1 个开放 Issue、无 releases，一旦停摆波及面极小。可替代性方面，同赛道已有多个开源替代（AutoScholarLoop、rev2agent 等），并非不可替代。正面因素是明确的公共品设计取向：Apache-2.0、本地优先、统一 provider 配置刻意避免厂商锁定。综合落在「几乎无下游依赖，停摆影响微小」档位。</p>
+<p><strong>D11.2（1.5 / 2.5）</strong>：教育素材密度显著高于同体量项目——ARCHITECTURE.md、CONTRIBUTING.md、SECURITY.md、PR 模板、<code>knowledge_base/TEMPLATE.md</code> 与 6 份领域知识文件、8 个 sub-agent 定义与 4 个 SKILL.md、启动流程与 provider 配置专题文档，且随附论文与 Hugging Face Trending Papers 排名第一的曝光。它实质降低了「组织一条可复现 AI 研究流水线」的学习门槛。但库龄 26 天，外部教程、课程、awesome 列表收录等内容尚未形成，教学采用证据不足，故不给 7–8 档。</p>
+<p><strong>D11.3（1.5 / 2.5）</strong>：能力平权化方向成立——原本需要研究团队与昂贵算力的「从想法到实验证据」能力，被压缩为可自托管、可用廉价模型端点运行的免费工作流，替代价格差可观。可及性支持部分成立：README 提供简体中文版本（i18n 覆盖 2 种语言），Idea Generation 明确可纯 CPU 运行，模型配置允许使用 flash-lite 级低成本模型。但门槛仍高：实验执行需 Linux、Bun 1.3+、Node、Conda、Claude Code CLI 高权限运行、可能的 GPU 与付费 API 额度，且无 Docker 化与无障碍支持证据，普惠覆盖面受限。</p>
+<p><strong>D11.4（1.2 / 2）</strong>：属于「遵循并整合开放标准」而非「定义标准」——集成 arXiv、OpenReview、feedparser 公共学术接口，采用 MCP 与开放的 agent/skill 描述格式，并显著推动科研可复现性实践（计划/代码/日志/指标/失败原因落盘、Forge 校验和溯源、critic 与盲审分离、允许并保留负结果），对同行有一定示范效应。但无标准主导地位，论文引用量因时间过短无法检索（外部引用数据不可得），故按 5–6 档给分。</p>
+<h3>结论</h3>
+<p>AutoResearch 的社会价值呈现<strong>「高方法示范 + 低基础设施绑定」</strong>的形态：作为开源 AI 科研自动化工作流，它在教育素材、可复现研究实践、能力平权化方向上有明确正外部性，并因 Apache-2.0、provider-agnostic、local-first 的设计而具备数字公共产品的形式特征；但项目库龄仅 26 天、无下游依赖生态、无标准主导地位，其外溢效应目前停留在「方法论示范与知识共享」层面，尚未沉淀为行业级公共基础设施。综合得分 <strong>5.4 / 10</strong>（一般偏上，符合新锐开源科研工具的早期外溢水平）。本维度权重为 0，不影响综合评分与一票否决结论，仅供价值画像参考。</p>
+<h2>五、商业化价值判断</h2>
+<p><strong>综合评分 66.6/100，等级 A（高商业化潜力），价值画像为「纯商业工具」。</strong></p>
+<p><strong>支撑商业化的核心资产：</strong></p>
+<ol>
+<li><strong>法律与协议层零障碍</strong>：Apache-2.0 无 copyleft 传染、含专利授权条款，无 Commons Clause/BUSL 等商业附加条款；直接依赖仅 Python 7 项 + Node 5 项且全部为 MIT/BSD/Apache-2.0 宽松许可，无 GPL/AGPL。Open Core、SaaS、双协议、闭源衍生等所有变现路径在法律层面均无障碍（D4.1 满分 2.0，D6 维度 8.2 为九维最高分）。</li>
+<li><strong>差异化机制明确且直击痛点</strong>：≥3 个不同模型的独立生成与交叉评审、双 persona 盲审、全链路 SHA256 内容寻址溯源、critic 机制、负结果保留——针对 AI 生成研究的可信度与可复现性痛点，且具备 arXiv:2608.17906 与 HF Trending Papers 第 1 的学术背书。</li>
+<li><strong>工程规范显著优于同类</strong>：90 个测试文件 / 18,132 行测试（占代码量 51.1%），CI 含 ruff/biome/typecheck/secret_scan/MCP 契约测试与「no test skipped」硬门禁；安全编码实践突出（路径穿越防护、全站 HTML 转义、凭据仅环境变量读取与日志脱敏、原子写 + 0o600）。</li>
+<li><strong>赛道势能爆发</strong>：上线约 1 个月即 3,433 Star、223 Fork，Star 月增约 4,000（退化公式），登 HF Trending Papers 第 1 与 Trendshift 榜单；细分赛道直接竞品合计仅 276 Star（Auto-Research-Skills 156 + AutoScholarLoop 83 + rev2agent 37），约为本项目的 1/12。</li>
+<li><strong>增值空间结构清晰</strong>：托管调度、团队协作、合规审计、模型成本优化、SLA、知识方向定制，支持 per-seat → per-usage → enterprise flat fee 扩展，客单价现实落点 $1K–10K/年。</li>
+</ol>
+<p><strong>制约商业化的关键事实：</strong></p>
+<ol>
+<li><strong>变现落地为零</strong>：无定价页、无企业版分层、无云端入口、无商业授权机制，无任何 Release/Tag，商业化距离「远」。</li>
+<li><strong>组织能力极薄</strong>：贡献者仅 2 人且全部来自单一机构 EvoMap，巴士因子 = 2，外部贡献几乎为零，无第三方插件/集成/衍生项目，Topics 为空。</li>
+<li><strong>付费触发点偏间接</strong>：免费版功能完整无阉割，升级动力来自运维复杂度与企业合规（审计留痕、私有知识库治理、数据隔离），而非「功能不够用」的硬触发，转化漏斗缺乏产品化支撑。</li>
+<li><strong>技术壁垒薄弱</strong>：无专利/专有数据，knowledge_base 为用户本地 Markdown，无插件生态与数据飞轮，无网络效应与规模效应；护城河依赖上游（Claude Code CLI + 第三方模型 API + Ralph Loop），作为薄编排层面临大厂原生 research agent 与上游能力升级的颠覆风险。</li>
+<li><strong>自部署门槛极高</strong>：需 Linux + Python 3.10+ + Bun 1.3+ + Node + Conda + GPU + Claude Code CLI + Ralph Loop 插件 + ≥3 个独立模型 API Key，且需放开 Claude Code 权限并配置隔离沙箱。</li>
+</ol>
+<p><strong>结论</strong>：本项目属于「法律与产品设计就绪、组织与商业化落地缺位」的典型早期高势能项目。评分 A 反映的是资产质量与赛道位置，而非当前收入能力——从 A 到实际收入之间，横亘着组织扩容、产品化封装与付费触发点设计三道关卡。</p>
+<hr />
+<h2>六、商业路径分析</h2>
+<p>价值画像为「💼 纯商业工具」（综合评分 ≥ 65 且公共价值分 &lt; 7），按方法论 3.4，路径建议为<strong>按 D4 最优路径直接变现</strong>，无需走影响力变现路线。但需注意：综合评分 66.6 落在 60–70 临界区间，<strong>画像临界</strong>——若后续公共价值分上行（如被学术机构广泛采用、形成教学素材沉淀），存在向「⭐ 明星资产」迁移的可能，届时路径应叠加社区声誉经营。</p>
+<h3>路径一：SaaS 托管（首选，对应 D4.2 主路径之一）</h3>
+<ul>
+<li><strong>逻辑</strong>：项目自部署门槛极高（GPU + ≥3 个独立模型 Key + Claude Code 权限放开 + 隔离沙箱），托管化直接消除用户最大摩擦，是免费版「功能完整但装不起来」的天然变现出口。</li>
+<li><strong>可行性依据</strong>：D4 指出 SaaS 托管与企业 Open Core 为可参照的两条主路径；D9 显示执行侧依赖沉重（Bun/Node/Conda/Claude Code CLI/Ralph Loop），平台仅 Linux，无 Dockerfile/docker-compose/Helm。</li>
+<li><strong>前提条件</strong>：需先补齐容器化与集群能力——当前并发协调依赖 fcntl.flock 单机锁，无集群部署与故障转移，状态可崩溃恢复而非高可用（D7.3）。</li>
+<li><strong>定价锚点</strong>：per-usage（模型调用与算力代管）+ per-seat（团队协作）组合，客单价落点 $1K–10K/年。</li>
+</ul>
+<h3>路径二：企业 Open Core（并行，对应 D4.2 另一主路径）</h3>
+<ul>
+<li><strong>逻辑</strong>：免费版保持功能完整，企业版以合规与治理能力分层——审计留痕、私有知识库治理、数据隔离、SSO/RBAC、SLA。</li>
+<li><strong>可行性依据</strong>：D7.2 显示审计能力突出（sha256 哈希链事件账本、SHA256 内容寻址溯源），但无 SSO/OAuth/LDAP/SAML 认证，RBAC/ABAC 缺失——这正是企业版可填补的空白，也是 D4.3 指出的付费触发点所在。</li>
+<li><strong>风险</strong>：付费触发偏间接，需通过产品化手段将「合规刚需」转化为可感知的升级理由。</li>
+</ul>
+<h3>路径三：模型成本优化与知识方向定制（增值层）</h3>
+<ul>
+<li><strong>逻辑</strong>：D4.4 指出增值空间丰富，包括托管调度、团队协作、合规审计、模型成本优化、SLA、知识方向定制。</li>
+<li><strong>可行性依据</strong>：项目需映射 11 个角色（screener/judge/consensus_checker/ideator/planner/freshness_refresher/agent/code_reviewer/critic/critic_secondary/run_monitor），ideator 至少需 3 个不同底层模型凭据——多模型编排的成本优化本身即具备服务化价值。</li>
+</ul>
+<h3>路径四：生态与集成变现（中长期）</h3>
+<ul>
+<li><strong>现状</strong>：D3.3 显示无任何第三方插件/集成/衍生项目，生态处于零起步阶段；D7.4 显示无 REST/gRPC API、无 OpenAPI/SDK、无 Prometheus/OTel/Webhook。</li>
+<li><strong>建议</strong>：先补齐 API/SDK 与可观测性接口，再谈生态分成或市场，当前不具备直接变现条件。</li>
+</ul>
+<h3>路径优先级建议</h3>
+<table>
+<thead>
+<tr>
+<th>优先级</th>
+<th>路径</th>
+<th>前置条件</th>
+<th>时间窗口</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P0</td>
+<td>SaaS 托管</td>
+<td>容器化 + 集群化 + 定价页</td>
+<td>需 3–6 个月工程投入</td>
+</tr>
+<tr>
+<td>P0</td>
+<td>企业 Open Core</td>
+<td>SSO/RBAC + 合规审计产品化</td>
+<td>与 SaaS 并行</td>
+</tr>
+<tr>
+<td>P1</td>
+<td>成本优化/知识定制增值</td>
+<td>多模型编排能力产品化</td>
+<td>6–12 个月</td>
+</tr>
+<tr>
+<td>P2</td>
+<td>生态与集成变现</td>
+<td>API/SDK + 可观测性</td>
+<td>12 个月以上</td>
+</tr>
+</tbody>
+</table>
+<p><strong>关键提醒</strong>：D5 指出项目创建仅约 1 个月，时间窗口短，且护城河依赖上游。商业化推进速度必须快于大厂原生 research agent 的能力覆盖速度，否则薄编排层的价值将被上游吸收。</p>
+<hr />
+<h2>七、能力评估：能做什么 &amp; 最适合做什么</h2>
+<h3>7.1 当前已具备的能力</h3>
+<p><strong>研究全链路编排能力</strong>（D10.1）：信号采集 → 跨域想法生成 → 规划/编码/评审 → 执行分析 → critic/盲审 → 证据包，对采用者为课题级流程承载，可省数天至数周编排工时。</p>
+<p><strong>可信度保障机制</strong>（D2.1、D5.2）：
+- 强制独立身份多模型评审（≥3 个不同底层模型）
+- 双 persona 盲审
+- 时新性刷新（B 库权威基线 + arXiv 双渠道就地改写）
+- SHA256 内容寻址 provenance 绑定
+- 负结果保留</p>
+<p><strong>工程与安全能力</strong>（D2.3、D2.4、D2.8）：
+- 51.1% 测试占比、90 个测试文件、CI 硬门禁（no test skipped）
+- 路径穿越防护、全站 HTML 转义、凭据环境变量读取与日志脱敏、子进程数组参数防注入、原子写 + 0o600
+- SECURITY.md + secret_scan CI</p>
+<p><strong>审计与溯源能力</strong>（D7.2）：sha256 哈希链事件账本、idea_provenance 内容寻址溯源。</p>
+<p><strong>多模型配置能力</strong>（D9.3）：.env.example + providers.example.json + v1/v2 格式兼容合并 + AR_MODEL_<ROLE> 按角色覆盖，支持 11 个角色独立配置。</p>
+<p><strong>开放接口整合能力</strong>（D11.4）：整合 arXiv/OpenReview/MCP 等开放接口，提供 MCP 工具（external_critic/blind_review/gemini_review）+ argparse CLI。</p>
+<h3>7.2 最适合做什么</h3>
+<p><strong>最适合的场景：</strong></p>
+<ol>
+<li><strong>AI/ML 研究团队的内部研究流水线</strong>——尤其是需要多模型交叉验证以抑制幻觉、且对证据可追溯性有硬要求的课题级研究。</li>
+<li><strong>学术科研场景的可复现性工具</strong>——provenance 校验和、负结果保留、独立盲审三项机制直接对应学术界的可复现性危机。</li>
+<li><strong>企业 AI 研究部门的合规留痕需求</strong>——sha256 哈希链事件账本天然满足审计要求。</li>
+<li><strong>作为 SaaS 产品的技术底座</strong>——法律无障碍 + 差异化机制明确 + 自部署门槛高，三者共同构成托管化的商业逻辑闭环。</li>
+</ol>
+<p><strong>不适合的场景：</strong></p>
+<ol>
+<li><strong>非技术用户直接使用</strong>——D9.4 指出需理解 MCP、Claude Code、多模型独立评审、Idea Forge、Ralph Loop 等概念及 AI/ML 研究领域知识，examples/ 仅 1 个示例（synthetic_gpu_smoke.md），可模仿模板偏少。</li>
+<li><strong>Windows/macOS 环境</strong>——README 明确要求 Linux 机器，平台覆盖仅 Linux。</li>
+<li><strong>无 GPU / 无付费 API 预算的场景</strong>——实验执行需真实代码实验与算力；虽 Idea Generation 侧可纯 CPU 运行，但全链路效用无法兑现。</li>
+<li><strong>需要高可用集群部署的生产环境</strong>——当前并发协调依赖 fcntl.flock 单机锁，无集群部署与故障转移。</li>
+</ol>
+<hr />
+<h2>八、短板识别：还缺少什么</h2>
+<h3>8.1 组织与人力短板（最严重）</h3>
+<ul>
+<li><strong>贡献者仅 2 人，巴士因子 = 2</strong>，且全部来自单一机构 EvoMap，外部贡献几乎为零（D3.2、D8.1）</li>
+<li><strong>无 GOVERNANCE.md、无 CODEOWNERS、无公开路线图</strong>，决策由核心维护者主导，治理透明度一般（D8.2）</li>
+<li><strong>资金与赞助来源完全不可验证</strong>，唯一背书信号为归属 EvoMap 组织实体（D8.3）</li>
+<li><strong>无 CLA、无 DCO sign-off</strong>，版权归属分散于贡献者，双协议/闭源再授权需逐一取得同意（当前仅 2 位贡献者，补救成本低）（D6.4）</li>
+</ul>
+<h3>8.2 产品化与商业化短板</h3>
+<ul>
+<li><strong>无任何 Release/Tag</strong>（recent_releases 为空），向后兼容性无法验证（D2.6、D7.1）</li>
+<li><strong>无定价页、无企业版分层、无云端入口、无商业授权机制</strong>（D4.2）</li>
+<li><strong>无 CHANGELOG、无回滚/迁移机制</strong>，升级路径基本空白（D7.1）</li>
+<li><strong>无 Dockerfile、无 docker-compose/Helm</strong>，无容器化一键部署（D9.1、D9.2）</li>
+<li><strong>无 SSO/OAuth/LDAP/SAML 认证，RBAC/ABAC 缺失</strong>（D7.2）</li>
+</ul>
+<h3>8.3 技术架构短板</h3>
+<ul>
+<li><strong>ar-workflow-engine.py 单文件超 3,000 行</strong>，大量 dict[str, Any] 弱类型，TS↔Python 跨语言耦合，多处 sys.path.insert 反模式与重复逻辑（D2.2）</li>
+<li><strong>并发协调依赖 fcntl.flock 单机锁</strong>，无集群部署与故障转移，状态可崩溃恢复而非高可用（D7.3）</li>
+<li><strong>无 REST/gRPC API、无 OpenAPI/SDK、无 Prometheus/OTel/Webhook</strong>，监控仅靠预检脚本与日志守护进程，无指标与告警（D7.4）</li>
+<li><strong>未提供 lockfile</strong>，传递依赖未逐项自动审计（D6.2）</li>
+<li><strong>无产品级 i18n 框架</strong>（D2.6）</li>
+</ul>
+<h3>8.4 生态与社区短板</h3>
+<ul>
+<li><strong>无任何第三方插件/集成/衍生项目，Topics 为空</strong>，生态处于零起步阶段（D3.3）</li>
+<li><strong>互动社区体量极薄</strong>，呈现「有热度、无纵深」，商业化需依赖母体组织化运营而非社区自生长（D3）</li>
+<li><strong>无网络效应与规模效应</strong>，无插件生态与数据飞轮（D5.2）</li>
+</ul>
+<h3>8.5 合规与法务短板</h3>
+<ul>
+<li><strong>商标与专利状态未经人工核查</strong>，项目名「AutoResearch」/「EvoMap」为通用描述性词汇、显著性弱，且无商标使用政策，商业化前必须做专业检索与 FTO 分析（D6.3）</li>
+</ul>
+<h3>8.6 结构性外部依赖风险</h3>
+<ul>
+<li><strong>执行运行时强制依赖闭源 Anthropic Claude Code CLI 与 .claude agents/skills、Ralph Loop 插件格式</strong>，停维或上游变更将使执行半边大幅失效（D10.4）</li>
+</ul>
+<hr />
+<h2>九、风险提示</h2>
+<h3>9.1 高风险项</h3>
+<table>
+<thead>
+<tr>
+<th>风险</th>
+<th>依据</th>
+<th>影响</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>上游依赖颠覆</strong></td>
+<td>护城河依赖 Claude Code CLI + 第三方模型 API + Ralph Loop；作为薄编排层面临大厂原生 research agent 与上游能力升级的颠覆风险（D5.2）</td>
+<td>核心功能可能被上游原生能力覆盖，价值被吸收</td>
+</tr>
+<tr>
+<td><strong>巴士因子 = 2</strong></td>
+<td>贡献者仅 2 人且同属单一机构，核心团队单点依赖与传承风险偏高（D8.1）</td>
+<td>任一维护者离开即可能导致项目停滞</td>
+</tr>
+<tr>
+<td><strong>闭源运行时依赖</strong></td>
+<td>执行运行时强制依赖闭源 Anthropic Claude Code CLI 与 Ralph Loop 插件格式，停维或上游变更将使执行半边大幅失效（D10.4）</td>
+<td>项目可持续性受制于第三方商业决策</td>
+</tr>
+<tr>
+<td><strong>时间窗口短</strong></td>
+<td>项目创建仅约 1 个月，先行者（Sakana AI Scientist、Google AI co-scientist、FutureHouse）已现（D1.1、D5.2）</td>
+<td>商业化推进速度若慢于竞品，窗口将关闭</td>
+</tr>
+</tbody>
+</table>
+<h3>9.2 中风险项</h3>
+<table>
+<thead>
+<tr>
+<th>风险</th>
+<th>依据</th>
+<th>影响</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>商标显著性弱</strong></td>
+<td>「AutoResearch」/「EvoMap」为通用描述性词汇，无商标使用政策，未经人工核查（D6.3）</td>
+<td>商业化前必须做专业检索与 FTO 分析，存在品牌风险</td>
+</tr>
+<tr>
+<td><strong>无 CLA/DCO</strong></td>
+<td>版权归属分散于贡献者，双协议/闭源再授权需逐一取得同意（D6.4）</td>
+<td>当前补救成本低，但随贡献者增加而上升</td>
+</tr>
+<tr>
+<td><strong>社区纵深缺失</strong></td>
+<td>外部贡献几乎为零，无第三方生态，商业化需依赖母体组织化运营（D3.2、D3.3）</td>
+<td>无法借力社区自生长，全部增长成本由母体承担</td>
+</tr>
+<tr>
+<td><strong>付费触发间接</strong></td>
+<td>免费版功能完整无阉割，升级动力来自运维复杂度与企业合规而非功能缺口（D4.3）</td>
+<td>转化漏斗缺乏产品化支撑，付费转化率存疑</td>
+</tr>
+<tr>
+<td><strong>单机架构限制</strong></td>
+<td>fcntl.flock 单机锁，无集群部署与故障转移（D7.3）</td>
+<td>SaaS 化前需重构，增加工程投入</td>
+</tr>
+</tbody>
+</table>
+<h3>9.3 低风险项 / 已缓释项</h3>
+<table>
+<thead>
+<tr>
+<th>项</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>法律合规</strong></td>
+<td>Apache-2.0 无传染性、含专利授权条款；依赖全部为宽松许可，无 GPL/AGPL；无商业附加条款（D6.1、D6.2）</td>
+</tr>
+<tr>
+<td><strong>一票否决</strong></td>
+<td>三项否决检查均未触发（D6 = 8.2、D8.4 = 1.8、D4.1 = 2.0）</td>
+</tr>
+<tr>
+<td><strong>项目停滞</strong></td>
+<td>未归档，最近推送 2026-09-10，Issue 积压仅 1（D8.4）</td>
+</tr>
+<tr>
+<td><strong>代码质量</strong></td>
+<td>测试占比 51.1%，CI 门禁严格，安全编码实践突出（D2.3、D2.4、D2.8）</td>
+</tr>
+</tbody>
+</table>
+<h3>9.4 置信度说明</h3>
+<p>项目库龄仅约 26 天，社区类指标成熟度不足，D3 评分置信度偏低，建议 3–6 个月后复评。D10.2 实际使用规模证据薄弱且无法量化（Dependents 未采到、npm/PyPI 下载量均 N/A、README 无公开生产案例），仅能由热度信号推断为千级及以下的小范围使用。D11 学术引用量不可验证。</p>
+<hr />
+<h2>十、结论与建议</h2>
+<h3>10.1 结论</h3>
+<p><strong>AutoResearch 是一个综合评分 66.6/100、等级 A（高商业化潜力）、价值画像为「💼 纯商业工具」的早期高势能项目。</strong></p>
+<p>其商业化潜力建立在三重资产之上：<strong>法律层零障碍</strong>（Apache-2.0 + 全宽松依赖，D6 得分 8.2 为九维最高）、<strong>产品差异化明确</strong>（多模型独立评审 + 全链路溯源 + 负结果保留，直击 AI 研究可信度痛点）、<strong>赛道势能爆发</strong>（1 个月 3,433 Star，细分赛道头部，直接竞品合计仅 276 Star）。</p>
+<p>但其商业化落地面临三重制约：<strong>组织能力极薄</strong>（2 名贡献者、巴士因子 = 2、无 Release）、<strong>变现落地为零</strong>（无定价、无企业版、无云端入口）、<strong>技术壁垒薄弱</strong>（无专利/专有数据，护城河依赖上游，面临大厂原生能力颠覆风险）。</p>
+<p><strong>核心判断</strong>：本项目当前处于「资产质量 A 级、组织能力 C 级」的错配状态。评分 A 反映的是资产质量与赛道位置，而非当前收入能力。从 A 到实际收入之间，横亘着组织扩容、产品化封装与付费触发点设计三道关卡。<strong>建议投入商业化，但需优先补齐组织与产品化短板，而非立即追求收入。</strong></p>
+<h3>10.2 建议</h3>
+<p><strong>立即行动（0–3 个月）：</strong></p>
+<ol>
+<li><strong>扩充核心团队</strong>：巴士因子 = 2 是最大单点风险，需引入至少 2–3 名外部核心维护者，并建立 CODEOWNERS 与 GOVERNANCE.md。</li>
+<li><strong>发布首个正式 Release</strong>：当前 recent_releases 为空，向后兼容性无法验证，无 Release 意味着用户无法锁定版本，是企业采用的第一道障碍。</li>
+<li><strong>补齐容器化</strong>：无 Dockerfile 是自部署门槛高的直接原因，容器化是 SaaS 化的前置条件。</li>
+<li><strong>完成商标检索与 FTO 分析</strong>：项目名显著性弱，商业化前必须完成专业检索（D6.3 明确标注「未经人工核查」）。</li>
+</ol>
+<p><strong>短期推进（3–6 个月）：</strong></p>
+<ol start="5">
+<li><strong>产品化封装</strong>：建立定价页、企业版分层、云端入口，将「合规刚需」转化为可感知的升级理由，解决 D4.3 指出的付费触发间接问题。</li>
+<li><strong>补齐企业级能力</strong>：SSO/OAuth/LDAP/SAML 认证 + RBAC/ABAC，这是企业 Open Core 路径的核心分层点。</li>
+<li><strong>集群化改造</strong>：将 fcntl.flock 单机锁替换为分布式协调，支持集群部署与故障转移，为 SaaS 托管铺路。</li>
+<li><strong>补齐 API/SDK 与可观测性</strong>：REST/gRPC API、OpenAPI、Prometheus/OTel/Webhook，为生态变现打基础。</li>
+</ol>
+<p><strong>中期布局（6–12 个月）：</strong></p>
+<ol start="9">
+<li><strong>启动 SaaS 托管与企业 Open Core 双路径</strong>：按第六章路径优先级推进，客单价锚定 $1K–10K/年。</li>
+<li><strong>降低上游依赖风险</strong>：执行运行时对闭源 Claude Code CLI 的强制依赖是结构性风险，需评估抽象层设计以支持多运行时后端。</li>
+<li><strong>生态建设</strong>：补齐 API/SDK 后开放插件机制，从零起步构建第三方生态。</li>
+</ol>
+<p><strong>持续关注：</strong></p>
+<ol start="12">
+<li><strong>3–6 个月后复评</strong>：项目库龄仅 26 天，社区类指标成熟度不足，D3 评分置信度偏低，需在数据充分后重新评估。</li>
+<li><strong>监控画像迁移</strong>：综合评分 66.6 落在 60–70 临界区间，若公共价值分上行（如被学术机构广泛采用、形成教学素材沉淀），存在向「⭐ 明星资产」迁移的可能，届时路径应叠加社区声誉经营，避免竭泽而渔。</li>
+</ol>
+<p><strong>一句话建议</strong>：<strong>这是一份 A 级资产配 C 级组织，先补人、再补产品、最后谈收入——顺序错了，窗口就关了。</strong></p>
+<h2>十一、项目地址</h2>
+<p><svg class="ri ri-muted" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.001 2C6.47598 2 2.00098 6.475 2.00098 12C2.00098 16.425 4.86348 20.1625 8.83848 21.4875C9.33848 21.575 9.52598 21.275 9.52598 21.0125C9.52598 20.775 9.51348 19.9875 9.51348 19.15C7.00098 19.6125 6.35098 18.5375 6.15098 17.975C6.03848 17.6875 5.55098 16.8 5.12598 16.5625C4.77598 16.375 4.27598 15.9125 5.11348 15.9C5.90098 15.8875 6.46348 16.625 6.65098 16.925C7.55098 18.4375 8.98848 18.0125 9.56348 17.75C9.65098 17.1 9.91348 16.6625 10.201 16.4125C7.97598 16.1625 5.65098 15.3 5.65098 11.475C5.65098 10.3875 6.03848 9.4875 6.67598 8.7875C6.57598 8.5375 6.22598 7.5125 6.77598 6.1375C6.77598 6.1375 7.61348 5.875 9.52598 7.1625C10.326 6.9375 11.176 6.825 12.026 6.825C12.876 6.825 13.726 6.9375 14.526 7.1625C16.4385 5.8625 17.276 6.1375 17.276 6.1375C17.826 7.5125 17.476 8.5375 17.376 8.7875C18.0135 9.4875 18.401 10.375 18.401 11.475C18.401 15.3125 16.0635 16.1625 13.8385 16.4125C14.201 16.725 14.5135 17.325 14.5135 18.2625C14.5135 19.6 14.501 20.675 14.501 21.0125C14.501 21.275 14.6885 21.5875 15.1885 21.4875C19.259 20.1133 21.9999 16.2963 22.001 12C22.001 6.475 17.526 2 12.001 2Z"/></svg> <a href="https://github.com/EvoMap/AutoResearch">https://github.com/EvoMap/AutoResearch</a></p>
+<hr />
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+</blockquote>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家　<a href="https://www.mova.work">www.mova.work</a></p></body></html>

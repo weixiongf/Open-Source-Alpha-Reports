@@ -1,0 +1,1710 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><title>I-have-adhd 商业价值分析报告</title><style>/* default — 品牌蓝紫主题（从 md2pdf.py 原 CSS 常量迁出，视觉与历史产物一致） */
+@page { size: A4; margin: 18mm 15mm 20mm 15mm; }
+* { box-sizing: border-box; }
+/* 字体规范：一律开源思源黑体 CN（OFL 免费商用）；正文 Regular/标题 Bold/大字数字 Light */
+body { font-family: "Source Han Sans CN","思源黑体 CN","Noto Sans SC",sans-serif; color:#1e293b; font-size:10.5pt; line-height:1.75; margin:0; }
+.cover { page-break-after: always; text-align:center; padding-top:40px; }
+.cover .kicker { color:#2563eb; letter-spacing:6px; font-size:12pt; font-weight:500; }
+.cover h1 { font-size:26pt; margin:14px 0 6px; }
+.cover .sub { color:#64748b; font-size:11pt; margin-bottom:22px; }
+.badge { display:inline-block; background:linear-gradient(135deg,#2563eb,#7c3aed); color:#fff; border-radius:18px; padding:16px 44px; margin:10px 0 18px; }
+.badge .g { font-size:34pt; font-weight:300; line-height:1; }
+.badge .s { font-size:12pt; opacity:.92; margin-top:4px; }
+.meta { color:#475569; font-size:9.5pt; margin-top:14px; }
+.bars { max-width:620px; margin:20px auto 0; text-align:left; }
+.bar-row { display:flex; align-items:center; gap:8px; margin:5px 0; font-size:9pt; }
+.bar-name { width:110px; text-align:right; color:#334155; font-weight:500; }
+.bar-track { flex:1; height:9px; background:#f1f5f9; border-radius:5px; overflow:hidden; }
+.bar-fill { display:block; height:100%; border-radius:5px; }
+.bar-val { width:30px; font-weight:700; color:#0f172a; }
+.bar-w { width:52px; color:#94a3b8; font-size:8pt; }
+h1 { font-size:17pt; color:#0f172a; border-bottom:3px solid #2563eb; padding-bottom:8px; }
+h2 { font-size:13.5pt; color:#1d4ed8; margin-top:26px; page-break-after: avoid; border-left:5px solid #2563eb; padding-left:10px; }
+h3 { font-size:11.5pt; color:#0f172a; margin-top:18px; page-break-after: avoid; }
+table { border-collapse:collapse; width:100%; margin:10px 0; font-size:9pt; page-break-inside:avoid; }
+th { background:#eff6ff; color:#1e3a8a; }
+th,td { border:1px solid #dbe3ef; padding:5px 8px; text-align:left; }
+tr:nth-child(even) td { background:#f8fafc; }
+code { background:#f1f5f9; border-radius:4px; padding:1px 5px; font-family:"JetBrains Mono","Cascadia Mono",monospace; font-size:9pt; color:#be185d; }
+pre { background:#0f172a; color:#e2e8f0; border-radius:8px; padding:12px 14px; overflow-x:auto; page-break-inside:avoid; }
+pre code { background:none; color:inherit; padding:0; }
+blockquote { border-left:4px solid #93c5fd; background:#eff6ff; margin:10px 0; padding:8px 14px; color:#334155; border-radius:0 8px 8px 0; }
+hr { border:none; border-top:1px dashed #cbd5e1; margin:22px 0; }
+strong { color:#0f172a; }
+.cover .disclaimer { max-width:620px; margin:16px auto 0; color:#64748b; font-size:8.5pt; line-height:1.6; text-align:left; border:1px solid #e2e8f0; border-radius:8px; padding:8px 12px; background:#f8fafc; }
+.credit { color:#2563eb; font-size:10.5pt; font-weight:700; letter-spacing:1px; margin-top:12px; }
+.at-acc { background:#dbeafe; color:#1d4ed8; border-radius:4px; padding:0 4px; font-weight:500; white-space:nowrap; }
+.tail { page-break-inside:avoid; margin-top:26px; border-top:2px solid #2563eb; padding-top:14px; }
+.tail p { color:#64748b; font-size:8.5pt; line-height:1.6; margin:0 0 10px; }
+.tail .credit { text-align:center; margin:0; }
+/* Remix Icon 内联 SVG（icon_mode=remix 时由脚本注入，语义色与评分条一致） */
+.ri { width:1.05em; height:1.05em; vertical-align:-0.18em; display:inline-block; }
+.ri-ok { color:#16a34a; } .ri-warn { color:#d97706; } .ri-bad { color:#dc2626; }
+.ri-muted { color:#64748b; } .ri-star { color:#f59e0b; } .ri-brand { color:#2563eb; }
+.ri-gold { color:#d4a017; } .ri-silver { color:#9ca3af; } .ri-bronze { color:#b45309; }
+/* 屏幕预览：@page 边距仅在打印时生效，浏览器中居中限宽并收边（不影响 PDF 输出） */
+@media screen {
+  body { margin: 0 auto; padding: 28px 36px 56px; max-width: 900px; }
+}
+</style></head><body><div class="cover">
+<div class="kicker">开源项目商业化潜力分析 · 第 81 期</div>
+<h1>GitHub 开源项目 I-have-adhd<br>商业价值分析报告</h1>
+<div class="sub">ayghri/i-have-adhd · AI 编程助手输出行为约束技能包 · 九维度加权评估</div>
+<div class="badge"><div class="g">A 级 · 66.0</div><div class="s">综合评分（满分 100）· 高商业化潜力</div></div>
+<div><svg viewBox="0 0 560 480" width="560" height="480" xmlns="http://www.w3.org/2000/svg"><polygon points="280.0,209.6 299.5,216.7 309.9,234.7 306.3,255.2 290.4,268.6 269.6,268.6 253.7,255.2 250.1,234.7 260.5,216.7" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,179.2 319.1,193.4 339.9,229.4 332.7,270.4 300.8,297.1 259.2,297.1 227.3,270.4 220.1,229.4 240.9,193.4" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,148.8 338.6,170.1 369.8,224.2 359.0,285.6 311.2,325.7 248.8,325.7 201.0,285.6 190.2,224.2 221.4,170.1" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,118.4 358.2,146.8 399.8,218.9 385.3,300.8 321.6,354.3 238.4,354.3 174.7,300.8 160.2,218.9 201.8,146.8" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,88.0 377.7,123.6 429.7,213.6 411.6,316.0 332.0,382.8 228.0,382.8 148.4,316.0 130.3,213.6 182.3,123.6" fill="none" stroke="#e2e8f0" stroke-width="1"/><line x1="280.0" y1="240.0" x2="280.0" y2="88.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="377.7" y2="123.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="429.7" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="411.6" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="332.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="228.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="148.4" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="130.3" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="182.3" y2="123.6" stroke="#d8dee9" stroke-width="1"/><polygon points="280.0,118.4 354.3,151.5 399.8,218.9 336.6,272.7 301.8,300.0 237.4,357.1 185.2,294.7 196.2,225.2 201.8,146.8" fill="rgba(37,99,235,.22)" stroke="#2563eb" stroke-width="2.5"/><circle cx="280.0" cy="118.4" r="3.5" fill="#2563eb"/><circle cx="354.3" cy="151.5" r="3.5" fill="#2563eb"/><circle cx="399.8" cy="218.9" r="3.5" fill="#2563eb"/><circle cx="336.6" cy="272.7" r="3.5" fill="#2563eb"/><circle cx="301.8" cy="300.0" r="3.5" fill="#2563eb"/><circle cx="237.4" cy="357.1" r="3.5" fill="#2563eb"/><circle cx="185.2" cy="294.7" r="3.5" fill="#2563eb"/><circle cx="196.2" cy="225.2" r="3.5" fill="#2563eb"/><circle cx="201.8" cy="146.8" r="3.5" fill="#2563eb"/><text x="280.0" y="44.0" text-anchor="middle" font-size="12.5" fill="#334155" font-weight="600">D1</text><text x="280.0" y="58.0" text-anchor="middle" font-size="11" fill="#64748b">市场需求 8.0</text><text x="406.0" y="89.9" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D2</text><text x="406.0" y="103.9" text-anchor="start" font-size="11" fill="#64748b">技术成熟度 7.6</text><text x="473.0" y="206.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D3</text><text x="473.0" y="220.0" text-anchor="start" font-size="11" fill="#64748b">社区生态 8.0</text><text x="449.7" y="338.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D4</text><text x="449.7" y="352.0" text-anchor="start" font-size="11" fill="#64748b">变现潜力 4.3</text><text x="347.0" y="424.2" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D5</text><text x="347.0" y="438.2" text-anchor="start" font-size="11" fill="#64748b">竞争格局 4.2</text><text x="213.0" y="424.2" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D6</text><text x="213.0" y="438.2" text-anchor="end" font-size="11" fill="#64748b">法律合规 8.2</text><text x="110.3" y="338.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D7</text><text x="110.3" y="352.0" text-anchor="end" font-size="11" fill="#64748b">企业就绪 7.2</text><text x="87.0" y="206.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D8</text><text x="87.0" y="220.0" text-anchor="end" font-size="11" fill="#64748b">团队治理 5.6</text><text x="154.0" y="89.9" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D9</text><text x="154.0" y="103.9" text-anchor="end" font-size="11" fill="#64748b">上手难度 8.0</text></svg></div>
+<div class="bars"><div class="bar-row"><span class="bar-name">D6 法律合规</span>
+<span class="bar-track"><span class="bar-fill" style="width:82.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.2</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D1 市场需求</span>
+<span class="bar-track"><span class="bar-fill" style="width:80.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.0</span><span class="bar-w">权重13%</span></div>
+<div class="bar-row"><span class="bar-name">D3 社区生态</span>
+<span class="bar-track"><span class="bar-fill" style="width:80.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.0</span><span class="bar-w">权重11%</span></div>
+<div class="bar-row"><span class="bar-name">D9 上手难度</span>
+<span class="bar-track"><span class="bar-fill" style="width:80.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.0</span><span class="bar-w">权重10%</span></div>
+<div class="bar-row"><span class="bar-name">D2 技术成熟度</span>
+<span class="bar-track"><span class="bar-fill" style="width:76.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.6</span><span class="bar-w">权重14%</span></div>
+<div class="bar-row"><span class="bar-name">D7 企业就绪</span>
+<span class="bar-track"><span class="bar-fill" style="width:72.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.2</span><span class="bar-w">权重8%</span></div>
+<div class="bar-row"><span class="bar-name">D8 团队治理</span>
+<span class="bar-track"><span class="bar-fill" style="width:56.0%;background:#dc2626"></span></span>
+<span class="bar-val">5.6</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D4 变现潜力</span>
+<span class="bar-track"><span class="bar-fill" style="width:43.0%;background:#dc2626"></span></span>
+<span class="bar-val">4.3</span><span class="bar-w">权重18%</span></div>
+<div class="bar-row"><span class="bar-name">D5 竞争格局</span>
+<span class="bar-track"><span class="bar-fill" style="width:42.0%;background:#dc2626"></span></span>
+<span class="bar-val">4.2</span><span class="bar-w">权重12%</span></div></div>
+<div class="meta">分析时点 2026-09-10 ｜ 数据来源：GitHub API + 仓库代码实测 ｜ 方法论 v1.3</div>
+<div class="credit">报告出品：@魔法工厂　@向量之心　@南山科学家</div>
+<div class="disclaimer"><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</div>
+</div><h1>I-have-adhd 商业化潜力分析报告（完整版）</h1>
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家</p>
+<p>方法论版本: v1.3 | 综合评分: <strong>66.0</strong> | 等级: <strong>A（高商业化潜力）</strong> | 价值画像: 明星资产</p>
+</blockquote>
+<h2>一、项目概览</h2>
+<h3>1.1 基本信息</h3>
+<ul>
+<li><strong>项目名称 / 仓库地址</strong>：ayghri/i-have-adhd</li>
+<li><strong>项目描述</strong>：A skill to stop your coding agent from burying the answer. ADHD-friendly output.</li>
+<li><strong>核心技术栈</strong>：Python（2110 行）/ TypeScript（388 行），全仓共 2498 行代码；零运行时依赖（package.json dependencies 与 devDependencies 均为空）</li>
+<li><strong>社区规模速览</strong>：Star 34,592 / Fork 2,027（Fork 比率 5.86%）/ 贡献者 34 人 / 开放 Issue 36 个</li>
+<li><strong>分析时点 / 数据来源</strong>：项目创建于 2026-05-13，最近推送 2026-09-08，项目年龄约 3.9 个月（118 天）；数据来源为 GitHub 仓库实采与各维度评分卡</li>
+</ul>
+<h3>1.2 项目分类标签</h3>
+<table>
+<thead>
+<tr>
+<th>分类维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>开发者工具（开源库 SDK / Skills 技能包）</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>通用 / 跨行业</td>
+</tr>
+<tr>
+<td>目标用户角色</td>
+<td>使用 AI 编程助手的开发者</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>AI 编程助手输出行为约束（简洁、行动导向、ADHD 友好）</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>本地部署（安装到本地编辑器 / CLI 工具链）</td>
+</tr>
+</tbody>
+</table>
+<h3>1.3 一句话定位</h3>
+<blockquote>
+<p>i-have-adhd 是一个面向 AI 编程助手的开发者工具技能包，适用于各类软件开发场景，主要面向使用 Claude Code / Cursor / OpenCode 等工具的开发者，用于让编码助手输出简洁、行动导向、ADHD 友好的回答。</p>
+</blockquote>
+<hr />
+<h2>二、安装部署与使用指南</h2>
+<blockquote>
+<p><strong>上手难度等级：🟢 简单（D9 = 8.0 / 10）</strong> — 无需编译、无需外部依赖、无需服务器；对已具备 Claude Code（或同类支持 skills 的 agent）的用户，属于「粘贴一段提示词即可」的安装体验。</p>
+</blockquote>
+<h3>前置条件</h3>
+<ul>
+<li>一个支持 skill/plugin 的编码 agent 宿主环境（README 与仓库结构指向 <strong>Claude Code</strong> 为主要宿主，<code>claude plugin ...</code> 命令族为其插件市场操作）。</li>
+<li>本仓库自身<strong>零依赖</strong>：<code>package.json</code> 的 <code>dependencies</code> 与 <code>devDependencies</code> 均为空对象 <code>{}</code>；仓库无 <code>Dockerfile</code>，无需数据库/缓存/消息队列等外部组件初始化。</li>
+<li>多宿主适配已内建：<code>.cursor/skills/i-have-adhd/SKILL.md</code>（Cursor）、<code>.opencode/command/i-have-adhd.md</code>（OpenCode）、<code>package.json</code> 中 <code>pi.extensions = ["./extensions/i-have-adhd.ts"]</code>、<code>omp.extensions</code> 同路径（pi / omp 宿主）。</li>
+</ul>
+<h3>安装步骤（依据 README「Install」章节原文）</h3>
+<p><strong>方式 A：自然语言安装（README 首推）</strong></p>
+<p>将下面这行原文，直接粘贴到 CLI 提示符中：</p>
+<pre><code class="language-text">Install the i-have-adhd skill/plugin from https://github.com/ayghri/i-have-adhd, refer to the repo's AGENTS.md for instructions.
+</code></pre>
+<p><strong>方式 B：按 INSTALL.md 手动安装</strong></p>
+<p>README 提供链接：🔗 <a href="INSTALL.md">check the installation instructions</a>。INSTALL.md 另有 5 种语言版本（<code>.github/install/</code> 下 ja / ko / pt-BR / vi / zh-CN）。</p>
+<h3>安装自定义（fork）副本（依据 README「Tune it」章节原文）</h3>
+<p>README 明确：先分叉并编辑 <code>skills/i-have-adhd/SKILL.md</code>，然后执行以下命令序列（原文注释保留）：</p>
+<pre><code class="language-bash">claude plugin uninstall i-have-adhd            # drop the upstream copy first:
+claude plugin marketplace remove i-have-adhd   # fork and upstream share both names
+claude plugin marketplace add &lt;your-username&gt;/i-have-adhd
+claude plugin install i-have-adhd@i-have-adhd
+</code></pre>
+<h3>验证与首次使用</h3>
+<p>README 原文：<strong>Restart Claude Code, then re-invoke <code>/i-have-adhd</code>.</strong></p>
+<p>即：重启 Claude Code → 调用 <code>/i-have-adhd</code> 命令 → 后续 agent 输出按 SKILL.md 的 10 条规则（先给动作、编号步骤、每轮复述状态、限制列表 ≤5 条等）塑形。README 用「Before / After」对照表直观展示效果差异，可视为内置的<strong>效果验证样例</strong>。</p>
+<h3>日常使用</h3>
+<ul>
+<li>日常操作即在 agent 会话中调用 <code>/i-have-adhd</code>，无需记忆任何参数——本项目<strong>没有可调参数</strong>，行为完全由 <code>skills/i-have-adhd/SKILL.md</code> 中固定的 10 条规则定义（规则全文见 SKILL.md）。</li>
+<li>想要改行为 = fork + 改 SKILL.md，属于「配置即改源码」模式，对非开发者不友好，但属可选项，不影响开箱可用。</li>
+</ul>
+<h3>工程侧核对（可选，非用户必需）</h3>
+<ul>
+<li>CI 工作流 4 个：<code>claude.yml</code>、<code>cursor-skill-sync.yml</code>、<code>pi-load-check.yml</code>、<code>plugin-load-check.yml</code>（其中 <code>plugin-load-check.yml</code> / <code>pi-load-check.yml</code> 即为「插件能否被宿主正确加载」的自动化校验）。</li>
+<li>无 Dockerfile、无 docker-compose、无 Helm Chart——本项目不是服务端组件，不存在传统部署环节。</li>
+</ul>
+<hr />
+<h2>三、评分总览</h2>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>权重</th>
+<th>加权得分</th>
+<th>评级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1 市场需求与商业机会</td>
+<td>8.0/10</td>
+<td>13%</td>
+<td>1.04</td>
+<td>优</td>
+</tr>
+<tr>
+<td>D2 技术成熟度与产品质量</td>
+<td>7.6/10</td>
+<td>14%</td>
+<td>1.06</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D3 社区健康度与生态势能</td>
+<td>8.0/10</td>
+<td>11%</td>
+<td>0.88</td>
+<td>优</td>
+</tr>
+<tr>
+<td>D4 商业模式与变现潜力</td>
+<td>4.3/10</td>
+<td>18%</td>
+<td>0.77</td>
+<td>差</td>
+</tr>
+<tr>
+<td>D5 竞争格局与差异化壁垒</td>
+<td>4.2/10</td>
+<td>12%</td>
+<td>0.50</td>
+<td>差</td>
+</tr>
+<tr>
+<td>D6 法律合规与知识产权</td>
+<td>8.2/10</td>
+<td>7%</td>
+<td>0.57</td>
+<td>优</td>
+</tr>
+<tr>
+<td>D7 企业就绪度与可运营性</td>
+<td>7.2/10</td>
+<td>8%</td>
+<td>0.58</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D8 团队治理与可持续性</td>
+<td>5.6/10</td>
+<td>7%</td>
+<td>0.39</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D9 上手难度与易用性</td>
+<td>8.0/10</td>
+<td>10%</td>
+<td>0.80</td>
+<td>优</td>
+</tr>
+<tr>
+<td><strong>综合评分</strong></td>
+<td>—</td>
+<td>100%</td>
+<td><strong>66.0/100</strong></td>
+<td><strong>A（高商业化潜力）</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>平行维度（不计入综合评分）</strong></p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10 功能价值</td>
+<td>7.6/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>D11 社会价值</td>
+<td>6.4/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>公共价值分</td>
+<td>7.0/10</td>
+<td>(D10+D11)/2</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>各维度细则分值构成详见「二、维度评分细则」。</p>
+</blockquote>
+<p><strong>一票否决检查</strong>：未触发。D6 维度总分 8.2 &gt; 3；D8.4 细则小分 2.4 &gt; 1；D4.1 细则小分 2.0 &gt; 0.5。三项否决检查均完整执行，无 N/A 跳过项。</p>
+<p><strong>价值画像</strong>：⭐ 明星资产（综合评分 66.0 ≥ 65 且公共价值分 7.0 ≥ 7）。综合评分落在 60–70 临界区间，公共价值分恰为 7.0 临界值，<strong>画像临界</strong>，详见第五章说明。</p>
+<hr />
+<h2>四、各维度详细分析</h2>
+<h3>D1. 市场需求与商业机会</h3>
+<p><strong>一句话定位</strong>：i-have-adhd 是一个面向 AI 编程助手的开发者工具/技能包，适用于各类软件开发场景，主要面向使用 Claude Code、Cursor、OpenCode、Gemini 等编码助手的开发者，用于通过规则化约束让助手输出直接、简洁、行动导向且 ADHD 友好的内容。</p>
+<p><strong>分类标签</strong>：开发者工具 | 通用/跨行业 | 开源技能包/插件 | 使用 AI 编程助手的开发者 | 本地部署到开发者 CLI/编辑器 | AI 编程助手 / LLM 行为约束 | 变现距离：远</p>
+<p>该 repo 在约 4 个月内（2026-05 创建，2026-09 快照）获得 34.5k+ Star、2,027 Fork、34 名贡献者，90 天 PR 数达 103，Issue 关闭 35 个。作为纯 MIT 开源项目，其社区热度已构成强烈的真实需求信号——说明“AI 编码助手把答案淹没在废话里”是高频且被广泛感知的体验问题。</p>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>考察点</th>
+<th>证据与判断</th>
+<th>小分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1.1 目标市场规模与增长性（2.5分）</td>
+<td>TAM 估算</td>
+<td>无外部权威市场数据，以下为量级估算、置信度中等：项目位于 AI 编程助手生态，对应全球数千万级开发者使用群体，所属赛道处于高增长阶段；代码智能工具市场整体已达数十亿美元级且在快速扩张。项目 4 个月内增长到 34k+ Star，可触达市场仍随 Claude Code/Cursor 等工具渗透率上升而扩大</td>
+<td>2.0/2.5</td>
+</tr>
+<tr>
+<td></td>
+<td>增长趋势</td>
+<td>AI 编程助手处于从早期采用走向主流生产环境的成长期，Skills/Plugin 生态同步扩张</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>市场层级</td>
+<td>成长期市场，非蓝海但尚未固化，存在用户沉淀窗口</td>
+<td></td>
+</tr>
+<tr>
+<td>D1.2 痛点真实性与解决程度（2.5分）</td>
+<td>痛点真实性</td>
+<td>README 中 Before/After 示例直观展示了“长篇铺垫、不直接给结论、缺乏下一步”的普遍痛点；34k+ Star 和活跃 PR/Issue 表明大量用户认可该问题</td>
+<td>2.0/2.5</td>
+</tr>
+<tr>
+<td></td>
+<td>解决完整度</td>
+<td>提供 10 条规则化约束：行动优先、步骤编号、限制列表长度、给出具体时间估算、不做客套收尾等；包含 SKILL.md、多平台支持、4 个 CI workflow、37.6% 测试覆盖率，工程化完成度明显高于普通 prompt 合集</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>替代成本</td>
+<td>用户可在 CLAUDE.md 中自行写指令，但系统化规则、平台适配、安装分发与 eval 评估均需自己投入；现有替代方案体验更碎片化</td>
+<td></td>
+</tr>
+<tr>
+<td>D1.3 市场时机判断（2.5分）</td>
+<td>技术成熟度</td>
+<td>2025–2026 年 Claude Code、Cursor、OpenCode 等 coding agent 进入爆发式应用期，Agent Skills/Plugin 标准正快速形成</td>
+<td>2.0/2.5</td>
+</tr>
+<tr>
+<td></td>
+<td>竞争密度</td>
+<td>直接以“ADHD-friendly output / 不藏答案”为核心定位的成熟插件仍属空白；i-have-adhd 以 34k+ Star 成为该细分头部，先发优势明显</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>监管/标准</td>
+<td>无阻碍性监管；Claude/Anthropic 的 Skill 标准完善对该项目是正向推动</td>
+<td></td>
+</tr>
+<tr>
+<td>D1.4 应用场景广度（2.5分）</td>
+<td>行业覆盖</td>
+<td>不限制行业，所有行业的软件开发团队均可使用</td>
+<td>2.0/2.5</td>
+</tr>
+<tr>
+<td></td>
+<td>场景多样性</td>
+<td>核心规则超越编码范畴，可迁移到任何 LLM 输出场景（文档、客服、报告等）；目前实现聚焦 AI 编程助手，适配 Claude、Cursor、OpenCode、Gemini 等多种入口</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>可延展性</td>
+<td>本质是“LLM 输出行为规范”，可延展到相邻知识管理、自动化、团队协作场景；但现版本仍以 code agent 为主场景，未做跨界产品化</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：D1 综合得分 <strong>8.0/10</strong>，属于“良好”区间。项目对应的是一个真实、高频、被社区验证的开发者体验需求，市场处于 AI 编程助手快速增长期，且该细分定位竞争尚未固化。项目在需求验证和工程完整度上均超过普通开源工具平均水平。主要商业化短板在于：完全免费 MIT、无任何付费入口，变现距离仍然较远；市场规模依赖 AI 编码助手大盘，缺乏自身可核算的独立 TAM。综合判断：市场需求充分，但“商业机会”需经过产品化和订阅/企业服务设计才能兑现。</p>
+<h3>D2. 技术成熟度与产品质量（权重 14%）</h3>
+<p><strong>评估说明</strong>: 本项目为面向 AI coding agent（Claude Code、Cursor、Codex、OpenCode、Pi 等）的 skill/plugin，以提示词、钩子脚本和配置文件形式分发，无独立用户界面或交互式 CLI。因此 <strong>D2.5 UI/UX/UE 记 N/A</strong>，D2 总分按其余 7 项满分 9 分等比缩放至 10 分。</p>
+<h4>D2.1 产品设计与创新性（1.5 分）—— <strong>1.5 分（100%）</strong></h4>
+<ul>
+<li><strong>产品理念</strong>: 解决“coding agent 把关键答案淹没在冗长输出中”的真实痛点，目标用户是 ADHD 患者及注意力易分散的开发者，理念非常清晰且极具人文关怀。</li>
+<li><strong>创新性</strong>: 针对神经多样性人群的开发者工具属市场空白点，定位差异化显著；通过 SKILL.md + hooks 系统级改写 agent 输出格式，属于体验层创新而非简单复制现有工具。</li>
+<li><strong>功能设计</strong>: 功能高度聚焦——控制 agent 输出简洁、要点前置、避免信息淹没，并通过 evals/ 目录建立评估体系；无冗余功能堆砌。</li>
+<li><strong>佐证</strong>: 34k+ Star、34 位贡献者、Topics 明确包含 “adhd”“productivity”，社群共鸣度验证了产品设计的有效性。</li>
+</ul>
+<h4>D2.2 架构设计与工程质量（2 分）—— <strong>1.6 分（80%）</strong></h4>
+<ul>
+<li><strong>架构合理性</strong>: 项目按 agent 平台划分适配层（.claude-plugin、.codex-plugin、.cursor、.opencode、.agents），核心 skill 与平台适配解耦，结构清晰。</li>
+<li><strong>模块复用</strong>: hooks/ 提供 Python 原生实现，scripts/ 统一检查逻辑，extensions/ 承载跨平台能力，核心 SKILL.md 为唯一 Canonical 来源，通过 CI 保证 .cursor 副本同步，避免漂移。</li>
+<li><strong>代码量</strong>: 总代码 2,498 行（.py 2,110 + .ts 388），与功能复杂度匹配，无明显臃肿。</li>
+<li><strong>复刻难度</strong>: 理解各 agent 插件机制和提示词工程有一定门槛，但代码本身规模较小、核心逻辑简单，护城河主要在 prompt 打磨与社区心智，不属高工程难度。</li>
+<li><strong>技术债</strong>: 平台目录存在多份 SKILL.md 拷贝（手工复制），仅用 CI 校验部分副本，存在潜在同步遗漏；无 SECURITY.md、CODEOWNERS。</li>
+<li>综合为架构合理、有清晰模块化设计和 CI 保障，但存在多副本维护债，未达 9–10 卓越水平。</li>
+</ul>
+<h4>D2.3 代码整洁性与规范性（1 分）—— <strong>0.8 分（80%）</strong></h4>
+<ul>
+<li>项目文件命名规范（如 scripts/check_pi_extension.py、tests/test_always_on_hooks.py），目录语义清晰。</li>
+<li>测试代码与源码分离，CI workflow 名称自描述性强（如 cursor-skill-sync、plugin-load-check）。</li>
+<li>未见 lint/format 配置文件（本地未采集到），代码风格统一性缺少工具强制，但代码规模小、组织整洁。</li>
+<li>无明显重复代码，SKILL.md 的多副本依赖脚本同步，不属代码级重复。</li>
+</ul>
+<h4>D2.4 安全性（1 分）—— <strong>0.6 分（60%）</strong></h4>
+<ul>
+<li>依赖面极小：package.json 无运行时依赖，Python 脚本以标准库为主（推断），第三方攻击面低。</li>
+<li>CI 中未见安全扫描（无 CodeQL、Dependabot、Snyk、Trivy 等），未发现安全扫描配置。</li>
+<li>项目无 SECURITY.md，安全披露渠道缺失。</li>
+<li>hooks 会介入 agent 执行流程，但未发现硬编码密钥或危险系统调用（基于代码审查样本有限）。</li>
+<li>整体安全基础到位但主动安全实践不足，属“基本安全措施到位，存在少量中低风险问题”档位。</li>
+</ul>
+<h4>D2.5 UI/UX/UE 人机交互（1 分）—— <strong>N/A</strong></h4>
+<p>本项目无独立 UI/UX——产品作用于编码 agent 的输出层，用户交互界面由宿主 agent（Claude Code/Cursor 等）提供。按方法论标记 N/A，不参与计分。</p>
+<h4>D2.6 功能完备度与稳定性（1.5 分）—— <strong>0.9 分（60%）</strong></h4>
+<ul>
+<li><strong>功能覆盖</strong>: 核心功能（ADHD-friendly 输出 + 多 agent 适配）完整，且提供 evals/rubric.md 定义输出质量标准，说明功能设计闭环。</li>
+<li><strong>版本成熟度</strong>: 无任何 Release（recent_releases 为空），项目始于 2026-05，当前仍处快速迭代期，未发布正式稳定版。Backward compatibility 无法评估，存在商业化交付风险。</li>
+<li><strong>运行环境</strong>: 环境要求宽松——Python 3.x + Node（仅用于安装插件），无特殊硬件依赖，CI 已验证 macOS/Linux/Windows（plugin-load-check 矩阵）。</li>
+<li><strong>国际化</strong>: README/INSTALL 提供英、日、韩、葡、越、中、泰 7 种语言版本，国际化支持极为出色。</li>
+<li>功能与国际化优秀，但无正式版本发布是主要短板，综合评分 60%。</li>
+</ul>
+<h4>D2.7 文档与开发者体验（1 分）—— <strong>0.8 分（80%）</strong></h4>
+<ul>
+<li>文档文件 20 个：README、INSTALL、CONTRIBUTING、AGENTS、GEMINI、多语言安装指南、evals 结果文档、pull request 模板等，覆盖安装、贡献、评估流程。</li>
+<li>有 SKILL.md 作为核心“使用文档”，有 evals/RESULTS.md 展示质量验证结果，有 PR template，缺失 FAQ/API 专用文档。</li>
+<li>多语言文档领先于多数同类项目；无交互式教程，文档与代码同步性通过 CI 部分保障（cursor-skill-sync）。</li>
+</ul>
+<h4>D2.8 测试与质量保障（1 分）—— <strong>0.6 分（60%）</strong></h4>
+<ul>
+<li>测试规模：5 个测试文件 / 940 行，与源码行比 37.6%（940/2498），但未提供覆盖率报告，无法确认是否达 50% 以上。</li>
+<li>CI/CD：4 个 GitHub Actions workflow，覆盖插件加载、跨平台（ubuntu+windows）hooks 测试、SKILL.md 副本同步检查，以及基于 issue 评论的 Claude Code 审查流程，工程质量意识突出。</li>
+<li>质量门禁：无覆盖率门禁、无静态分析工具（如 mypy/ruff）、无安全扫描。</li>
+<li>测试存在但覆盖不全面，CI 丰富但缺质量门禁，落在“有部分测试、有基本 CI”档。</li>
+</ul>
+<h4>D2 评分汇总</h4>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D2.1</td>
+<td>产品设计与创新性</td>
+<td>1.5</td>
+<td>1.5</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>D2.2</td>
+<td>架构设计与工程质量</td>
+<td>2</td>
+<td>1.6</td>
+<td>80%</td>
+</tr>
+<tr>
+<td>D2.3</td>
+<td>代码整洁性与规范性</td>
+<td>1</td>
+<td>0.8</td>
+<td>80%</td>
+</tr>
+<tr>
+<td>D2.4</td>
+<td>安全性</td>
+<td>1</td>
+<td>0.6</td>
+<td>60%</td>
+</tr>
+<tr>
+<td>D2.5</td>
+<td>UI/UX/UE 人机交互</td>
+<td>1</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>D2.6</td>
+<td>功能完备度与稳定性</td>
+<td>1.5</td>
+<td>0.9</td>
+<td>60%</td>
+</tr>
+<tr>
+<td>D2.7</td>
+<td>文档与开发者体验</td>
+<td>1</td>
+<td>0.8</td>
+<td>80%</td>
+</tr>
+<tr>
+<td>D2.8</td>
+<td>测试与质量保障</td>
+<td>1</td>
+<td>0.6</td>
+<td>60%</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td><strong>6.8（剔除 N/A 后）</strong></td>
+<td><strong>缩放后：7.6</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>D2 维度结论</strong>: 项目技术成熟度总体良好（7.6/10）。产品创新性和文档国际化是突出优势（34k+ Star 有力验证）；架构清晰且 CI 意识强；主要短板在于——无正式 Release、测试覆盖率未达标门禁、安全扫描缺失，这些在商业化交付时需尽快补足。本项目护城河不在工程复杂度而在 prompt 设计、社区生态与多平台适配的先行者优势。</p>
+<h3>D3. 社区健康度与生态势能</h3>
+<h3>D3.1 社区活跃度指标（3 分）</h3>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>实测值</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Star 数</td>
+<td>34,592</td>
+<td>极高（4 个月内）</td>
+</tr>
+<tr>
+<td>Star 月增（退化公式）</td>
+<td>≈8,800/月</td>
+<td>远超 500/月阈值</td>
+</tr>
+<tr>
+<td>Fork 比率</td>
+<td>2,027 / 34,592 ≈ 5.86%</td>
+<td>偏高，衍生意愿强</td>
+</tr>
+<tr>
+<td>近 90 天 PR 数</td>
+<td>103</td>
+<td>社区参与度高</td>
+</tr>
+<tr>
+<td>近 90 天 Issue 关闭数</td>
+<td>35</td>
+<td>处理活跃</td>
+</tr>
+<tr>
+<td>开放 Issue</td>
+<td>36</td>
+<td>少量积压</td>
+</tr>
+<tr>
+<td>Issue 平均关闭时间</td>
+<td>无数据</td>
+<td>无法补采</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断</strong>: 项目创建于 2026-05-13，至数据采集时仅约 3.9 个月（≈118 天）。因缺少近 90 天 Star 增量，按退化公式 Star 数 ÷ 项目年龄(月) 计算得 ≈8,800/月。需标注：该退化值对老项目会高估早期红利，但本项目极为年轻，退化值≈真实平均增速，参考性较强。Star 月增远超 9–10 档门槛（&gt;500/月），近 90 天 103 个 PR、35 个 Issue 关闭，社区参与度极高。Issue 响应时间无硬数据，是唯一缺口，但不足以拉低整体档位。</p>
+<p><strong>得分</strong>: 3 分（9–10 档 → 100%）</p>
+<hr />
+<h3>D3.2 贡献者结构多样性（2.5 分）</h3>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>实测值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>贡献者数量</td>
+<td>34</td>
+</tr>
+<tr>
+<td>活跃度（90 天 PR）</td>
+<td>103</td>
+</tr>
+<tr>
+<td>组织多样性</td>
+<td>无数据</td>
+</tr>
+<tr>
+<td>核心团队占比</td>
+<td>无数据</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断</strong>: 贡献者数 34，落入 7–8 档「20–50 贡献者」区间；90 天 103 个 PR、34 名贡献者说明外部参与活跃，非单人项目。组织多样性与核心团队占比两项缺乏直接数据（无 CODEOWNERS、无企业贡献者归属统计），但贡献者规模与 PR 活跃度支持 7–8 档判定，故不给更高档。本项目为社区驱动的「skill」类项目，贡献者多为个人开发者，组织多样性大概率偏低，构成上限约束。</p>
+<p><strong>得分</strong>: 2 分（7–8 档 → 80%）</p>
+<hr />
+<h3>D3.3 第三方生态成熟度（3 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测情况</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>插件/扩展</td>
+<td>项目自身即 Claude Code plugin/skill，无围绕它构建的第三方插件市场</td>
+</tr>
+<tr>
+<td>集成生态</td>
+<td>已适配多平台：Claude Code marketplace、Cursor（.cursor/skills）、OpenCode（.opencode/command）、Gemini/AGENTS.md；含 cursor-skill-sync.yml 跨平台同步 CI</td>
+</tr>
+<tr>
+<td>衍生项目</td>
+<td>2,027 个 Fork（README 明确鼓励 fork 定制），但未见成功商业衍生品</td>
+</tr>
+<tr>
+<td>教程/课程</td>
+<td>README 有 7 种语言版本，但无外部教程/课程证据</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断</strong>: 该项目在多 AI Agent 平台上完成了自我适配与集成，并因 skill/prompt 属性天然具备跨平台分发能力，2,000+ Fork 显示较强定制采用意愿，7 语言文档显示国际化社区触达。但生态本质上仍是「项目自身适配多平台」，<strong>并不存在</strong>围绕它构建的第三方插件/扩展生态，也无成功商业衍生品。综合落入 5–6 档「少量第三方扩展」。</p>
+<p><strong>得分</strong>: 1.8 分（5–6 档 → 60%）</p>
+<hr />
+<h3>D3.4 品牌认知与行业影响力（1.5 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测情况</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>品牌辨识度</td>
+<td>34,592 Star、4 个月病毒式传播，名称「i-have-adhd」在 Claude Code/AI 编码圈辨识度高</td>
+</tr>
+<tr>
+<td>行业采用/背书</td>
+<td>无知名企业采用或背书的硬证据</td>
+</tr>
+<tr>
+<td>媒体覆盖</td>
+<td>无技术媒体/会议数据</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断</strong>: 34.6k Star 在不足 4 个月内达成，且提供 7 语言 README，说明在 AI 编码 Agent 细分领域内具有较高认知度与传播力，符合 7–8 档「领域内有较高认知度」。但缺少知名企业背书、媒体报道与会议曝光证据，不满足 9–10 档，故按 7–8 档判定。</p>
+<p><strong>得分</strong>: 1.2 分（7–8 档 → 80%）</p>
+<hr />
+<h3>D3 维度小结</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D3.1 社区活跃度指标</td>
+<td>3</td>
+<td>3.0</td>
+<td>9–10 档</td>
+</tr>
+<tr>
+<td>D3.2 贡献者结构多样性</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8 档</td>
+</tr>
+<tr>
+<td>D3.3 第三方生态成熟度</td>
+<td>3</td>
+<td>1.8</td>
+<td>5–6 档</td>
+</tr>
+<tr>
+<td>D3.4 品牌认知与行业影响力</td>
+<td>1.5</td>
+<td>1.2</td>
+<td>7–8 档</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>8.0</strong></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>: 本项目社区势能极强——4 个月内 34.6k Star、近 90 天 103 PR，属罕见的病毒式增长型项目，社区即潜在客户池的规模优势明显。主要短板在生态纵深：D3.3 仅 5–6 档，缺乏围绕项目的第三方插件/商业衍生生态，生态更多体现为「自身跨平台适配」而非「他方共建」。此外 Issue 响应时间、组织多样性、企业背书三项数据缺失，使 D3.1/D3.2/D3.4 的顶层档位判定置信度略降。总体而言，社区健康度与生态势能构成商业化正面资产，但需警惕热度型项目向稳定生态转化的可持续性风险。</p>
+<h3>D4. 商业模式与变现潜力（权重 18%）</h3>
+<p><strong>维度得分：4.3 / 10（较弱）</strong></p>
+<blockquote>
+<p>一句话结论：MIT 协议为所有变现路径扫清了法律障碍（D4.1 满分），但项目本体是一个「10 条规则的 Markdown 提示词 + 评测脚手架」，无 IP 护城河、无功能分层、无托管必要性，导致变现路径、付费触发点与增值空间三项均落入最低档区间。34.5K Star 的高关注度与可商业化程度之间存在严重错配。</p>
+</blockquote>
+<h4>细则打分表</h4>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>考察内容</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据（硬事实）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D4.1</td>
+<td>协议对变现模式的影响</td>
+<td>2.0</td>
+<td><strong>2.0</strong></td>
+<td>9–10（100%）</td>
+<td>LICENSE 文件为纯正 MIT（"Permission is hereby granted, free of charge... without restriction"），SPDX 无附加条款；<code>package.json</code> 无 license 冲突声明，无 CLA/DCO 限制。Open Core / SaaS / 双协议 / 闭源衍生全部合法可行</td>
+</tr>
+<tr>
+<td>D4.2</td>
+<td>变现路径清晰度</td>
+<td>3.5</td>
+<td><strong>1.4</strong></td>
+<td>3–4（40%）</td>
+<td>7 种主流模式中仅「捐赠/赞助」具备微弱可行性；Open Core 无企业功能可切分，SaaS 无托管必要性（单文件可自托管），双协议/认证/市场抽成均不成立。参照 Vue.js 的社区模式天花板</td>
+</tr>
+<tr>
+<td>D4.3</td>
+<td>付费转化逻辑</td>
+<td>2.5</td>
+<td><strong>0.5</strong></td>
+<td>1–2（20%）</td>
+<td>无免费/付费分层、无企业版、无 license key 机制；README 明确指导用户「Fork, edit SKILL.md 后换用自己的副本」，主动鼓励自建而非付费。不存在任何「免费不够用」的触发点</td>
+</tr>
+<tr>
+<td>D4.4</td>
+<td>增值服务空间与定价天花板</td>
+<td>2.0</td>
+<td><strong>0.4</strong></td>
+<td>1–2（20%）</td>
+<td>无 Dockerfile、无服务端组件、零运行时依赖（dependencies 为空）；可想象的增值项（规则定制、SLA、合规审计）客户均可零成本自建，客单价天花板≈单次捐赠/赞助，无 per-seat 或 per-usage 扩展基础</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10.0</strong></td>
+<td><strong>4.3</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4>D4.1 协议对变现模式的影响：2.0 / 2.0</h4>
+<p>LICENSE 为 MIT（Copyright (c) 2026 Ayoub Ghriss），文本无任何附加限制条款，本地实测 <code>license.license = MIT</code> 与 GitHub API 返回值一致。这意味着：</p>
+<ul>
+<li><strong>闭源衍生可行</strong>：第三方可将 SKILL.md 及其工具链打包进商业产品而不必开源；</li>
+<li><strong>SaaS 托管可行</strong>：若未来要做云端「输出规范服务」，无 AGPL/SSPL 类条款阻碍；</li>
+<li><strong>双协议/Open Core 可行</strong>：可自由引入商业授权层。</li>
+</ul>
+<p>按评分指引，MIT 属「所有变现路径无障碍」，取满分档 100%。需要说明的是，<strong>协议满分只代表「法律上不堵路」，不代表「路上有车」</strong>——本项目的变现困境来自商业模型本身而非许可条款，D4.1 的高分不应被误读为商业化潜力强。</p>
+<h4>D4.2 变现路径清晰度：1.4 / 3.5</h4>
+<p>逐一核验 7 种主流模式的可适配性：</p>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>可行性</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Open Core</td>
+<td>❌ 不成立</td>
+<td>核心资产是 <code>skills/i-have-adhd/SKILL.md</code>（10 条规则），无任何可供切分的「企业级功能」；全仓库仅 2498 行代码（.py 2110 + .ts 388），且主要为评测/同步脚本，无功能纵深</td>
+</tr>
+<tr>
+<td>SaaS 托管</td>
+<td>❌ 不成立</td>
+<td>端点交付形态是本地 Claude Code 插件，运行时零依赖（<code>package.json</code> dependencies 与 devDependencies 均为空）、无 Dockerfile、无服务端组件。托管一个 Markdown 文件既无技术必要性也无付费理由</td>
+</tr>
+<tr>
+<td>双协议许可</td>
+<td>❌ 不成立</td>
+<td>MIT 已完全放开，无「需要商业授权才能使用」的场景（对比 MySQL/MongoDB 需靠 GPL/SSPL 制造授权需求）</td>
+</tr>
+<tr>
+<td>专业服务</td>
+<td>⚠️ 极弱</td>
+<td>理论上可做「团队 AI 输出规范」咨询/培训，但单文件规则集客户可自行 Fork 落地，付费意愿极低，且非可规模化业务</td>
+</tr>
+<tr>
+<td>市场/插件</td>
+<td>❌ 不成立</td>
+<td>虽通过 claude plugin marketplace 分发，但无抽成机制，且同类插件生态普遍免费</td>
+</tr>
+<tr>
+<td>认证/生态</td>
+<td>❌ 不成立</td>
+<td>3492 行代码 + 34 位贡献者规模的项目，不具备建立认证体系（Kubernetes/Kafka 式）的生态位</td>
+</tr>
+<tr>
+<td>捐赠/赞助</td>
+<td>⚠️ 唯一微弱可行</td>
+<td>34,592 Star 提供了赞助曝光基础，参照 Vue.js 纯社区模式（年收入 $1M+ 量级，属天花板极低的模式）；但仓库无 FUNDING 配置、README 亦无赞助入口，当前尚未启动</td>
+</tr>
+</tbody>
+</table>
+<p>结论：<strong>没有任何一条路径清晰可行</strong>。唯一的现实选项是捐赠/赞助，而这属于「通常不可规模化」的模式；其余路径均因「交付物是单文件提示词、零依赖、可被任意 Fork」而失效。README 中「Fork, edit SKILL.md, then swap your copy in」的官方指引，本质上是在鼓励用户放弃对上游的依赖。按档位定义「变现路径模糊，需大量探索」（3–4 档），取 40% → 1.4 分。</p>
+<h4>D4.3 付费转化逻辑：0.5 / 2.5</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>免费→付费触发点</td>
+<td><strong>不存在</strong>。项目无 license key、无用量限制、无企业版对比表；全部 10 条规则、多语言 README/INSTALL（含 zh-CN、ja、ko、pt-BR、vi、th 六种译本）、评测框架均无条件开放</td>
+</tr>
+<tr>
+<td>付费意愿强度</td>
+<td><strong>极低</strong>。目标客户是使用免费 Claude Code 的个体开发者，产品解决的问题是「回复太啰嗦」，属体验优化型小痛点，非合规/安全/成本类刚需</td>
+</tr>
+<tr>
+<td>转化漏斗</td>
+<td><strong>断裂</strong>。从使用者到付费者之间没有任何节点——没有账号体系、没有云端数据、没有团队协作面，无「升级」动作可发生</td>
+</tr>
+</tbody>
+</table>
+<p>补充观察：本项目的 Star/代码行比极为悬殊（34,592 Star vs 2,498 行代码），说明其价值集中在「规则文本的创意」而非「工程实现」。这类资产的模仿成本近乎为零，任何付费墙都会被社区在数小时内用 Fork 绕过。按「完全找不到付费触发点」取 20% → 0.5 分。</p>
+<h4>D4.4 增值服务空间与定价天花板：0.4 / 2.0</h4>
+<ul>
+<li><strong>增值空间</strong>：几乎为零。可设想的增值项——规则定制、团队规范下发、输出质量评测（<code>evals/</code> 目录已开源，含 rubric.md 与 RESULTS.md）、SLA 保障——客户均可在本地零成本复制。<code>evals/</code> 开源进一步说明连「质量验证」这一最有可能的收费点也已被免费提供。</li>
+<li><strong>定价天花板</strong>：受「单文件提示词」这一交付形态硬约束，客单价上限仅为小额捐赠/赞助级别。对比参照系中 Open Core 类项目（GitLab $400M+、Supabase $50M+、Strapi $10M+）均建立在有服务端/企业功能的基础上，本项目不具备该基础。</li>
+<li><strong>收入扩展性</strong>：无 per-seat 与 per-usage 扩展基础（无用户态、无资源消耗计量点）。唯一理论上的扩展方向是「企业级 AI 输出规范治理」，但该需求真正付费的是模型平台方或 IDE 厂商，而非本插件。</li>
+</ul>
+<p>按「几乎无增值空间」取 20% → 0.4 分。</p>
+<h4>结论</h4>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>加权小分合计</td>
+<td>4.3 / 10</td>
+</tr>
+<tr>
+<td>档位</td>
+<td>3–4（较弱），低于行业平均，构成商业化障碍</td>
+</tr>
+<tr>
+<td>核心优势</td>
+<td>MIT 协议，法律上无任何变现路径障碍（D4.1 满分）</td>
+</tr>
+<tr>
+<td>核心瓶颈</td>
+<td>交付物为单文件开源提示词，无 IP 护城河、无功能分层、无托管必要性，导致 D4.2/D4.3/D4.4 全部落入最低档</td>
+</tr>
+<tr>
+<td>关键风险</td>
+<td>34.5K Star 的高热度可能误导为高商业价值；实际 Star 与可变现性严重错配</td>
+</tr>
+<tr>
+<td>若必须商业化</td>
+<td>唯一渐进路径：① 启动 GitHub Sponsors / 企业赞助并补齐 FUNDING 配置；② 探索「团队 AI 输出规范」企业培训/咨询（低规模化）；③ 保持 MIT 不变，靠生态影响力换取非现金回报（如招聘渠道、个人品牌），而非直接收入</td>
+</tr>
+<tr>
+<td>置信度</td>
+<td><strong>高</strong>——素材包含 LICENSE 原文、依赖清单、CI 配置、代码行数分布、README 全文，足以支撑上述判断；不存在数据缺失导致的 N/A 项</td>
+</tr>
+</tbody>
+</table>
+<h3>D5. 竞争格局与差异化壁垒（权重 12%）</h3>
+<h3>D5.1 竞品对比与市场定位（满分 3 分）</h3>
+<p><strong>搜索验证说明</strong>：本次竞品清单来自 GitHub Search API 实测（5 个仓库均返回 <code>verified: true</code>）。需如实说明两点：(1) 检索命中的 5 个仓库中，<strong>没有一个是解决同一问题的直接竞品</strong>——它们仅共享「Claude Code skill / 开发者工具」这一分发渠道；(2) 命中的关键词覆盖度偏泛（skill / claude / devops），因此<strong>对「agent 输出风格控制」这一细分赛道的竞品覆盖置信度中等</strong>，不排除存在未被本次检索命中的小体量同类提示词项目。</p>
+<p><strong>竞品对比表</strong></p>
+<table>
+<thead>
+<tr>
+<th>竞品名称</th>
+<th>类型</th>
+<th>仓库/官网</th>
+<th>验证方式</th>
+<th>Star</th>
+<th>核心差异</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tigerless-labs/autoharness</td>
+<td>间接竞品</td>
+<td>github.com/tigerless-labs/autoharness</td>
+<td>GitHub 搜索确认</td>
+<td>3,099</td>
+<td>同为 Claude Code skill 层，但解决「从真实会话中提炼/更新 skill」，属能力自学习，非输出格式控制</td>
+</tr>
+<tr>
+<td>Dubibubii/usage-limit-reducer</td>
+<td>间接竞品</td>
+<td>github.com/Dubibubii/usage-limit-reducer</td>
+<td>GitHub 搜索确认</td>
+<td>187</td>
+<td>同为 Claude Code skill，但优化目标是「节省用量额度」（token 成本），与本项目的「可读性/行动优先」目标不同</td>
+</tr>
+<tr>
+<td>andre-simplifica/oracle-apex-ai-skills</td>
+<td>间接竞品</td>
+<td>github.com/andre-simplifica/oracle-apex-ai-skills</td>
+<td>GitHub 搜索确认</td>
+<td>20</td>
+<td>垂直领域（Oracle APEX）AI 技能集，与输出风格治理无交集</td>
+</tr>
+<tr>
+<td>hanlulong/overleaf-sync-now</td>
+<td>间接竞品</td>
+<td>github.com/hanlulong/overleaf-sync-now</td>
+<td>GitHub 搜索确认</td>
+<td>17</td>
+<td>PreToolUse hook + skill，解决文件覆盖冲突的技术问题，非输出风格</td>
+</tr>
+<tr>
+<td>Viha27/python-devops</td>
+<td>非竞品</td>
+<td>github.com/Viha27/python-devops</td>
+<td>GitHub 搜索确认</td>
+<td>24</td>
+<td>DevOps 流水线教学仓库，与本品类无关，仅作检索噪音记录</td>
+</tr>
+</tbody>
+</table>
+<p><strong>定位清晰度</strong>：定位极为鲜明且可一句话复述——「Action first. Steps numbered. No 'Hope this helps!'」。README 用 Before/After 对照表把价值主张视觉化，规则固定为 10 条（<code>skills/i-have-adhd/SKILL.md</code>），并配 7 种语言 README + 6 种语言 INSTALL 文档，定位传达效率高。</p>
+<p><strong>市场地位</strong>：在该「Claude Code 输出风格 skill」细分类目下，34,592 Star 相对检索到的同类 skill（3,099 / 187 / 20 / 17）形成数量级领先，属于事实上的心智占领者。</p>
+<p><strong>扣分理由</strong>：领先来自先发与传播势能，而非竞品被技术性排除；定位虽独特，但属于「低成本可达的公共创意」（任何 agent 的 system prompt 都能表达相同规则），因此「无直接竞品」更多反映该细分门槛极低，而非项目构建了排他性。综合给 8/10 档 → 80%。</p>
+<p><strong>得分：2.4 / 3</strong></p>
+<hr />
+<h3>D5.2 技术壁垒与网络效应（满分 3 分）</h3>
+<p><strong>技术壁垒</strong>：接近为零。核心资产是 <code>skills/i-have-adhd/SKILL.md</code> 中的 10 条自然语言规则；全仓代码仅 2,498 行（Python 2,110 + TS 388），无 <code>package.json</code> 依赖，无 Dockerfile。无专利、无私有数据、无算法实现——README 甚至主动引导用户「Fork，编辑 SKILL.md，替换上游副本」，即鼓励复制。</p>
+<p><strong>网络效应</strong>：不成立。无插件市场（第三方扩展）、无数据飞轮（不收集/回流使用数据）、无用户间协作网络。2,027 个 Fork 是<strong>复制扩散的度量，而非网络价值</strong>；34 位贡献者主要贡献的是文档翻译与规则微调，不产生单边规模递增的生态价值。</p>
+<p><strong>规模效应</strong>：不成立。复制第 10,000 份的边际成本与第 1 份相同。</p>
+<p><strong>微弱加分项</strong>：<code>evals/</code> 目录（rubric.md、RESULTS.md、README）提供了一个评测/信誉机制，README 多语言覆盖形成一定的「品牌完整度」，但这些属于信任资产而非防御壁垒。</p>
+<p><strong>得分：0.6 / 3</strong>（1–2 档：无壁垒，极易被复制）</p>
+<hr />
+<h3>D5.3 切换成本与用户粘性（满分 2 分）</h3>
+<p><strong>迁移成本</strong>：极低。安装即一段提示词粘贴或 <code>claude plugin marketplace add</code>；卸载同样是单条命令（README 自带卸载指引）。<strong>无任何用户数据沉淀、无配置迁移、无历史资产</strong>。</p>
+<p><strong>深度集成</strong>：无。这是纯 prompt 层注入，不写入代码库、不改变项目结构、不参与构建/CI，属于「浅挂载」。</p>
+<p><strong>习惯锁定</strong>：存在<strong>弱习惯效应</strong>——开发者一旦适应「答案先行、编号步骤」的输出体验，对冗长输出的容忍度会下降；但这种偏好是可转移的，切换到任何同类简洁风格提示词即可满足，且宿主平台一次系统提示更新即可等价实现。</p>
+<p><strong>得分：0.4 / 2</strong>（1–2 档：无切换成本，即插即用即走）</p>
+<hr />
+<h3>D5.4 护城河可持续性（满分 2 分）</h3>
+<p><strong>护城河趋势</strong>：短期看<strong>品牌/心智护城河在增强</strong>——34,592 Star、90 天 103 个 PR、35 个已关闭 Issue、36 个开放 Issue、4 条 CI（含 <code>plugin-load-check</code>、<code>pi-load-check</code>、<code>cursor-skill-sync</code>），显示项目在被主动维护并向多宿主（Claude Code / Cursor / Pi）扩展。但这条护城河很浅：它的上限就是「一个被广泛安装的提示词包」。</p>
+<p><strong>颠覆风险</strong>：高且明确。核心能力「控制 agent 输出风格」位于宿主平台的固有权限内——任何 agent 框架（Claude Code、Codex CLI、Cursor 等）都可以通过内置 output style / system prompt / AGENTS.md 约定原生实现同样的效果，且宿主方拥有零迁移成本的默认分发优势。这不是存量竞品之间的争夺，而是<strong>平台层对应用层的挤压</strong>。</p>
+<p><strong>时间窗口</strong>：中短期（可预见的若干个大版本内）。心智与 Star 存量能维持热度，但一旦主流 agent 框架把「简洁输出」列入默认或配置项，本项目的独立价值将被显著稀释。</p>
+<p><strong>得分：0.8 / 2</strong>（3–4 档：护城河在削弱，存在明确的平台级颠覆者）</p>
+<hr />
+<h3>维度小结</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D5.1 竞品对比与市场定位</td>
+<td>3</td>
+<td>2.4</td>
+<td>7–8（80%）</td>
+</tr>
+<tr>
+<td>D5.2 技术壁垒与网络效应</td>
+<td>3</td>
+<td>0.6</td>
+<td>1–2（20%）</td>
+</tr>
+<tr>
+<td>D5.3 切换成本与用户粘性</td>
+<td>2</td>
+<td>0.4</td>
+<td>1–2（20%）</td>
+</tr>
+<tr>
+<td>D5.4 护城河可持续性</td>
+<td>2</td>
+<td>0.8</td>
+<td>3–4（40%）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>4.2</strong></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：i-have-adhd 是该细分赛道事实上的领跑者——定位鲜明、README 传播力强、34.6k Star 对同类 skill 形成数量级领先，本次搜索未发现任何解决同一问题的直接竞品。但这一领先<strong>全部建立在传播势能与心智之上，而非结构性防御</strong>：核心资产是一份可被复制粘贴的 Markdown 提示词（MIT + README 主动引导 Fork），无技术壁垒、无网络效应、无数据沉淀；用户安装与卸载均为单条命令，迁移成本≈0；且能力边界位于宿主平台固有权限内，面临明确的平台原生功能挤压风险。<strong>竞争定位强（D5.1）而护城河极弱（D5.2–D5.4）</strong>，是本维度最显著的分裂特征——这决定了该项目适合作为高传播性的品牌/引流资产，而非可持续收费的防御型产品。置信度说明：竞品覆盖依赖一次关键词偏泛的 GitHub 搜索，D5.1 的「无直接竞品」结论置信度中等；D5.2–D5.4 的结论基于仓库代码量、依赖、许可证与安装/卸载路径等硬事实，置信度高。</p>
+<h3>D6. 法律合规与知识产权</h3>
+<p><strong>维度得分: 8.2 / 10</strong>（权重 7%）</p>
+<h3>D6.1 开源协议合规性与商业限制（3 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>结论</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>协议明确性</td>
+<td>仓库根目录存在规范 <code>LICENSE</code> 文件，为标准 MIT 全文；<code>package.json</code> 中 <code>"license": "MIT"</code>，SPDX 标识规范一致</td>
+</tr>
+<tr>
+<td>copyleft 传染性</td>
+<td>本项目自身为 MIT，无 GPL/AGPL 等传染性协议声明</td>
+</tr>
+<tr>
+<td>商业附加条款</td>
+<td>无 Commons Clause、BUSL、SSPL 等限制商业使用的条款；MIT 明确授予"use, copy, modify, merge, publish, distribute, sublicense, and/or sell"权利</td>
+</tr>
+</tbody>
+</table>
+<p><strong>依据</strong>：MIT 是商业化最友好的协议之一，可自由闭源分发、嵌入商业产品、双协议授权（版权归单一作者 Ayoub Ghriss）。协议声明在 LICENSE 与 package.json 之间完全一致，无歧义。本细则评定为协议层面的合规无瑕疵。</p>
+<p><strong>小分：3 / 3（100%，9–10 档）</strong></p>
+<hr />
+<h3>D6.2 依赖链法律风险（2.5 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>结论</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>依赖协议审查</td>
+<td><code>package.json</code> 的 <code>dependencies</code> 与 <code>devDependencies</code> 均为空对象，无第三方 npm 依赖</td>
+</tr>
+<tr>
+<td>依赖数量</td>
+<td>声明依赖数为 0，合规审查面极小</td>
+</tr>
+<tr>
+<td>依赖来源</td>
+<td>无外部包引入，无来源不明的依赖风险</td>
+</tr>
+</tbody>
+</table>
+<p><strong>依据</strong>：项目主体为 Python（2110 行）+ TypeScript（388 行），代码规模小（2498 行），<code>package.json</code> 无任何依赖声明。Python 侧未提供 requirements.txt 等清单，从代码统计看为轻量脚本 + 单元测试（<code>unittest</code>）+ eval harness，未见进入依赖链的第三方传染性包。依赖链极干净，无可识别的传染性协议风险。<strong>注意</strong>：Python 依赖清单缺失，若有未声明的传递依赖则存在少量盲区，但因项目本身无 npm 依赖且代码规模小，整体风险可忽略。</p>
+<p><strong>小分：2.5 / 2.5（100%，9–10 档）</strong></p>
+<hr />
+<h3>D6.3 商标与专利风险（2.5 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>结论</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>商标可用性</td>
+<td>项目名 "i-have-adhd" 为描述性常用短语，可注册性存疑；README 中未发现商标政策声明</td>
+</tr>
+<tr>
+<td>专利风险</td>
+<td>项目为提示词/输出结构化 skill，未见核心专利技术主张；无法自动排查</td>
+</tr>
+<tr>
+<td>商标政策</td>
+<td>未发现独立的商标使用政策文件</td>
+</tr>
+</tbody>
+</table>
+<p><strong>依据</strong>：<strong>未经人工核查，置信度低。</strong>商标检索与专利排查无法由 AI 自动完成，本条按 5–6 档默认给分（1.5/2.5）。需注意名称使用医学/疾病相关词汇"ADHD"，在部分司法辖区对医疗健康类描述性名称的商标注册有额外限制，且 CONTRIBUTING.md 已明确禁止"暗示该 skill 诊断 ADHD"，体现了对医疗宣称风险的意识，但无法据此断言商标可注册性。</p>
+<p><strong>小分：1.5 / 2.5（60%，5–6 档，未经人工核查，置信度低）</strong></p>
+<hr />
+<h3>D6.4 贡献者协议完备性（2 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>结论</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CLA/DCO</td>
+<td>无 CLA，无 DCO sign-off 要求</td>
+</tr>
+<tr>
+<td>版权归属</td>
+<td>LICENSE 版权归单一作者（Ayoub Ghriss），但仓库有 34 位贡献者，若无 CLA，外部贡献版权分散在各贡献者手中，双协议/闭源再授权需逐个取得授权</td>
+</tr>
+<tr>
+<td>贡献流程</td>
+<td><code>CONTRIBUTING.md</code> 内容详实，含 authorship provenance（Human/Agent/Hybrid 分类披露）、标签规范、安全与副作用约束、兼容性与破坏性变更流程、验证命令、PR 就绪清单</td>
+</tr>
+</tbody>
+</table>
+<p><strong>依据</strong>：贡献流程规范度显著高于行业平均（尤其针对 AI 生成代码的来源披露要求），但缺少正式 CLA/DCO，版权无法集中控制——这是限制未来"开源 + 商业双协议"模式的结构性障碍。按评分指引"有贡献指南但无正式 CLA"对应 5–6 档。</p>
+<p><strong>小分：1.2 / 2（60%，5–6 档）</strong></p>
+<hr />
+<h3>结论</h3>
+<p>D6 维度综合得分 <strong>8.2/10</strong>。核心优势：MIT 协议明确规范、无商业附加条款、依赖链近乎零（无 npm 依赖、代码规模小），法律合规基础扎实，商业路径（含闭源分发、SaaS、双协议）在法律层面基本畅通。主要保留项：<strong>无 CLA/DCO 导致 34 位贡献者版权分散</strong>，若未来要做双协议商业化需补签版权授权；<strong>商标/专利未经人工核查</strong>，名称含医疗相关词汇需专业检索确认；Python 依赖清单缺失为轻微盲区。</p>
+<p><strong>风险提示</strong>：CONTRIBUTING.md 明确要求禁止弱化平台安全、禁止修改仓库外文件/凭据、禁止伪造验证结果，这本身降低了供应链与合规风险，属于加分项，但不等同于 CLA 的法律效力。</p>
+<h3>D7. 企业就绪度与可运营性评估（权重 8%）</h3>
+<h3>产品形态判定（前置说明）</h3>
+<p><code>ayghri/i-have-adhd</code> 并非服务端软件，而是一个<strong>本地分发的 AI 编码助手技能/插件包</strong>（Claude Code plugin + Cursor skill + Pi extension + OpenCode command），核心资产是一份提示词规范（<code>SKILL.md</code>，含 10 条输出规则）及少量用于 hook/加载校验的 Python/TS 脚本。总代码量仅 2498 行（.py 2110 / .ts 388），无服务端进程、无数据存储、无网络服务。这一形态直接决定了部分企业运营维度<strong>不适用</strong>（按 N/A 规则剔除后等比缩放）。</p>
+<hr />
+<h3>D7.1 运维复杂度与升级路径（满分 3）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测证据</th>
+<th>评价</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>配置管理</td>
+<td>配置即 <code>skills/i-have-adhd/SKILL.md</code>，用户 fork 后编辑替换；无环境变量、无配置中心</td>
+<td>形态简单，但缺少企业级配置注入手段</td>
+</tr>
+<tr>
+<td>运维负担</td>
+<td>无服务端、无守护进程、无持久化，运维投入近乎为零</td>
+<td>极低</td>
+</tr>
+<tr>
+<td>升级路径</td>
+<td><code>claude plugin uninstall/install</code> + <code>marketplace add</code>；<code>recent_releases</code> 为空，无 CHANGELOG</td>
+<td>升级动作平滑，但缺正式版本号/发布机制，回滚粒度粗</td>
+</tr>
+<tr>
+<td>数据迁移</td>
+<td>无任何数据存储，升级无迁移成本</td>
+<td>无迁移</td>
+</tr>
+</tbody>
+</table>
+<p><strong>打分</strong>: 2.4 / 3（80% 档 / 7–8）
+<strong>依据</strong>: 运维成本确实极低、升级动作基本平滑、无数据迁移负担，符合 7–8 档「运维成本可控，升级基本平滑」。未达 9–10 档的原因：项目<strong>无正式 release、无 CHANGELOG、无版本回滚说明</strong>，回滚只能靠"卸载重装"，无法按版本锁定/回退。</p>
+<hr />
+<h3>D7.2 安全管理与权限控制（满分 2.5）—— N/A</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测证据</th>
+<th>评价</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>认证授权</td>
+<td>无 SSO/OAuth/LDAP/SAML；插件为本地单用户安装，无认证面</td>
+<td>不适用</td>
+</tr>
+<tr>
+<td>权限模型</td>
+<td>无 RBAC/ABAC；权限由宿主 IDE/Agent 平台管控</td>
+<td>不适用</td>
+</tr>
+<tr>
+<td>审计日志</td>
+<td>无操作审计（仅 CI 运行日志）</td>
+<td>不适用</td>
+</tr>
+<tr>
+<td>数据安全</td>
+<td>无数据存储、无密钥管理；仅有 MIT LICENSE</td>
+<td>不适用</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判定</strong>: 该项目为本地提示词插件，<strong>不存在需要企业认证/权限/加密的服务端安全面</strong>，四项考察点均不适用，标记 <strong>N/A</strong>。作为旁证，项目<strong>缺少 <code>SECURITY.md</code></strong>（<code>has_security_md: false</code>），对含 hook 代码执行的 3.4 万星项目而言是治理层面的短板，但这不改变"企业认证控制不适用"的判定。本细则从维度满分中剔除。</p>
+<hr />
+<h3>D7.3 可扩展性与高可用能力（满分 2.5）—— N/A</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测证据</th>
+<th>评价</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>水平扩展</td>
+<td>无状态本地插件，天然随用户分发</td>
+<td>不适用（无服务端）</td>
+</tr>
+<tr>
+<td>高可用</td>
+<td>无集群/故障转移需求</td>
+<td>不适用</td>
+</tr>
+<tr>
+<td>性能瓶颈</td>
+<td>无服务端，输出为提示词，无性能瓶颈概念</td>
+<td>不适用</td>
+</tr>
+<tr>
+<td>数据一致性</td>
+<td>无分布式数据</td>
+<td>不适用</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判定</strong>: 无服务端架构，水平扩展/高可用/分布式一致性等概念<strong>不适用于本地无状态插件</strong>，标记 <strong>N/A</strong>。本细则从维度满分中剔除。</p>
+<hr />
+<h3>D7.4 集成兼容与可观测性（满分 2）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测证据</th>
+<th>评价</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>API 完备性</td>
+<td>无 REST/gRPC/SDK；对外契约是 <code>SKILL.md</code> + <code>.claude-plugin/</code> 清单</td>
+<td>弱</td>
+</tr>
+<tr>
+<td>标准协议</td>
+<td>无 OpenTelemetry/Prometheus/Webhook；但<strong>多平台适配</strong>（Claude Code / Cursor / Pi / OpenCode，含 7 语言 i18n）</td>
+<td>集成兼容强，标准协议弱</td>
+</tr>
+<tr>
+<td>监控告警</td>
+<td>无运行时指标；有 <code>plugin-load-check.yml</code>、<code>pi-load-check.yml</code> 做构建期加载校验</td>
+<td>弱（仅 CI 层）</td>
+</tr>
+<tr>
+<td>日志体系</td>
+<td>无结构化日志/日志级别管理</td>
+<td>缺失</td>
+</tr>
+</tbody>
+</table>
+<p><strong>打分</strong>: 1.2 / 2（60% 档 / 5–6）
+<strong>依据</strong>: 项目在"<strong>集成兼容</strong>"半侧表现良好——覆盖 4+ Agent 平台、7 语言文档、CI 中对插件加载/技能同步做校验（<code>cursor-skill-sync</code>、<code>plugin-load-check</code>、<code>pi-load-check</code>）；但并未运行 <strong>运行时监控指标、健康检查、结构化日志、标准可观测协议</strong>。整体达到"有集成、监控/日志薄弱"的 5–6 档。</p>
+<hr />
+<h3>结论</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D7.1 运维复杂度与升级路径</td>
+<td>3</td>
+<td>2.4</td>
+<td>7–8（80%）</td>
+</tr>
+<tr>
+<td>D7.2 安全管理与权限控制</td>
+<td>2.5</td>
+<td>N/A</td>
+<td>不适用</td>
+</tr>
+<tr>
+<td>D7.3 可扩展性与高可用能力</td>
+<td>2.5</td>
+<td>N/A</td>
+<td>不适用</td>
+</tr>
+<tr>
+<td>D7.4 集成兼容与可观测性</td>
+<td>2</td>
+<td>1.2</td>
+<td>5–6（60%）</td>
+</tr>
+<tr>
+<td><strong>维度合计</strong></td>
+<td><strong>5（剩余）</strong></td>
+<td><strong>3.6</strong></td>
+<td><strong>7.2 / 10</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分</strong>: <code>(2.4 + 1.2) / (3 + 2) × 10 = 7.2</code></p>
+<p><strong>核心判断</strong>: 作为本地分发型提示词插件，i-have-adhd 的运维负担接近零、升级动作平滑、跨 Agent 平台集成兼容性突出，在这两项可评估细则上表现良好；但其<strong>无正式版本发布/CHANGELOG/回滚机制</strong>、<strong>无运行时监控与结构化日志</strong>、<strong>无 SECURITY.md 治理文件</strong>是明确短板。D7.2、D7.3 因产品形态不存在服务端安全面与伸缩面，按规则标记 N/A 并等比缩放。</p>
+<p><strong>置信度提示</strong>: 本维度 5/10 的满分来自 N/A 剔除，D7.2、D7.3 占比 50%，实际可评估证据覆盖不足，<strong>维度置信度中等偏低</strong>；结论对"企业级运营能力"的指示意义有限——该产品并非面向企业服务端场景设计。</p>
+<h3>D8. 团队治理与可持续性</h3>
+<p><strong>维度权重</strong>: 7% | <strong>维度得分</strong>: 5.6 / 10（一般偏弱）</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D8.1 核心维护者能力与背景</td>
+<td>2.5</td>
+<td>1.0</td>
+<td>3–4 档（40%）</td>
+<td>个人账号运营（<code>ayghri</code>），无组织/公司实体绑定；无维护者全职投入或商业化/企业服务经验的公开证据；代码库仅 2,498 行（8 个 .py + 3 个 .ts），典型个人侧项目形态。虽有 34 名贡献者，但缺乏 CODEOWNERS，核心决策高度依赖单人，巴士因子低。</td>
+</tr>
+<tr>
+<td>D8.2 治理模型透明度</td>
+<td>2.0</td>
+<td>1.2</td>
+<td>5–6 档（60%）</td>
+<td><strong>亮点</strong>：CONTRIBUTING.md 异常详尽，定义了作者归属声明（Human/AI/Hybrid）、标签体系、安全边界（禁止读写凭据/改全局配置/静默安装）、破坏性变更需先开 Issue、验证命令与 PR 就绪清单，决策流程有明文。<strong>短板</strong>：无 GOVERNANCE.md、无 CODEOWNERS、无路线图文档、无 SECURITY.md，不属于任何基金会（非 CNCF/Apache/LF），最终裁量权归维护者。</td>
+</tr>
+<tr>
+<td>D8.3 资金支持与商业赞助</td>
+<td>2.5</td>
+<td>1.0</td>
+<td>3–4 档（40%）</td>
+<td>无公司实体、无组织页、无 VC/基金会支持的任何信号；无 GitHub Sponsors / Open Collective 证据；无 release 分发。素材未提供融资或赞助数据，但可观测到的全部信号均指向「个人热情驱动、几乎无外部资金」。此项置信度较低，评分基于可观测事实的保守推断。</td>
+</tr>
+<tr>
+<td>D8.4 项目可持续性与传承风险</td>
+<td>3.0</td>
+<td>2.4</td>
+<td>7–8 档（80%）</td>
+<td><code>archived: false</code>；近 90 天 103 个 PR、关闭 35 个 Issue，活跃度<strong>趋势强劲上升</strong>（创建于 2026-05，4 个月内 34.4k star）；34 名贡献者 + 2,027 fork，社区接管可能性较高；开放 Issue 仅 36，积压可控。扣分项：无正式传承/继任机制、无 release 渠道、无 CODEOWNERS，fork 数量大亦部分反映「复制即用」的分发特征而非社区分裂。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>维度总分 = 1.0 + 1.2 + 1.0 + 2.4 = 5.6 / 10</strong></p>
+<h3>结论</h3>
+<p>该项目是一个<strong>爆发式走红的个人开源作品</strong>，可持续性呈现「社区热度高、治理与资金底座薄」的典型错配。</p>
+<ul>
+<li><strong>强项</strong>：活跃度趋势极为健康（D8.4 接近良好档），社区参与度高（34 贡献者、90 天 103 PR），且 CONTRIBUTING.md 在 AI 作者归属声明、安全边界上建立了罕见的清晰规范，为商业化协作预留了工程治理基础；项目未归档，无废弃风险。</li>
+<li><strong>弱项与商业化障碍</strong>：
+  1. <strong>人是最关键的商业化要素，而本项目几乎完全押注单人</strong>（D8.1 巴士因子低、无商业化背景证据），一旦核心维护者退出，虽有社区基础但缺乏正式的继任与决策移交机制；
+  2. <strong>治理无正式框架</strong>（无 GOVERNANCE/CODEOWNERS/基金会归属），外部贡献者难以进入决策层，企业客户难以获得治理保证与责任主体；
+  3. <strong>资金与商业实体完全缺位</strong>（D8.3），无公司、无赞助、无 VC 信号，难以支撑全职维护与企业级 SLA，构成可持续商业化的根本性短板。</li>
+<li><strong>置信度说明</strong>：D8.1 与 D8.3 因缺少维护者个人背景、投入度与资金去向的硬数据，评分基于可观测信号（个人账号、无组织实体、无赞助入口）保守推断，维度整体置信度中等偏低。</li>
+</ul>
+<h3>D9. 上手难度与易用性（权重 10%）</h3>
+<p>本项目本质是一个「输出风格 skill / agent 插件」：无服务端、无外部依赖、无可调参数。其上手链路短到接近「装一个插件」，因此整体落在 🟢 简单区间；减分项主要在<strong>宿主强绑定（须先有 Claude Code 等支持 skills 的 agent）</strong>、<strong>无交互式新手引导</strong>、<strong>示例文件为 0</strong>、<strong>定制必须 fork 改源码</strong>。</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D9.1 安装难度</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>80%</td>
+<td>无包管理器一键命令（<code>pip/npm install</code> 不适用），但提供「一段提示词粘贴给 agent」的极低门槛路径 + INSTALL.md 手动路径；<code>package.json</code> 依赖为空、无系统级依赖、无编译环节；多宿主（Claude Code / Cursor / OpenCode / pi / omp）均有接入文件。扣分点：安装强依赖宿主 agent，非「单条命令 + 全平台独立安装」。</td>
+</tr>
+<tr>
+<td>D9.2 部署与配置难度</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>80%</td>
+<td>无 Dockerfile / docker-compose / Helm（<code>has_dockerfile: false</code>），但作为本地 skill 不存在服务端编排需求；零外部组件初始化；初始配置项为 0（无参数、无配置文件模板）；README 给出「重启 Claude Code → 调用 <code>/i-have-adhd</code>」的明确验证路径，10 分钟内可跑通，非开发者可依样完成。扣分点：无 quickstart/demo 脚本，且无容器化标准部署物。</td>
+</tr>
+<tr>
+<td>D9.3 易用性与操作门槛</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>80%</td>
+<td>日常使用 = 一个斜杠命令 <code>/i-have-adhd</code>，零参数、零调参，默认规则即用（10 条规则开箱生效），面向的正是非专业读者（ADHD-friendly 输出）；README 提供 Before/After 对照，效果自解释。扣分点：素材中无 CLI 帮助信息、无错误处理提示相关证据，定制需 fork + 手改 <code>skills/i-have-adhd/SKILL.md</code>，属开发者操作。</td>
+</tr>
+<tr>
+<td>D9.4 学习曲线与首体验</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>80%</td>
+<td>对已有宿主的用户，从安装到首次成功使用为分钟级（粘贴提示词 → 重启 → 调用命令）；多语言文档丰富（README 6 语 + INSTALL 5 语，共 20 个文档文件）；效果即时可见（下一次 agent 回答即变）。扣分点：无交互式 onboarding/教程，<code>示例: 0 文件</code>（仅 README 内联对照表），概念门槛要求理解「skill / plugin marketplace」这一宿主体系。</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>8.0</strong></td>
+<td>🟢 <strong>简单</strong></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h3>分析</h3>
+<ol>
+<li><strong>零依赖是最大优势</strong>：<code>package.json</code> 的 <code>dependencies</code>、<code>devDependencies</code> 均为空，仓库无 Dockerfile、无数据库/缓存/消息队列需求，安装链路中不存在任何「装依赖失败」这一类最常见的流失点，这在 34,592 Star 的工具类项目中相当少见。</li>
+<li><strong>安装路径「非标准但足够简」</strong>：它没有 <code>pip install</code> / <code>npm install</code> 这样的单命令安装，取而代之的是「把一段自然语言提示词粘进 CLI 让 agent 自己照 AGENTS.md 装」——对目标用户（Claude Code 使用者）而言摩擦极低，但对未使用过该宿主的用户存在认知前置条件。</li>
+<li><strong>使用侧几乎无门槛</strong>：无参数、无配置文件、无需理解领域知识，调用一个命令即生效，这与其「让 agent 输出更好读」的产品定位自洽。</li>
+<li><strong>主要短板在「入门引导」与「可定制性」</strong>：无交互式教程、无独立示例项目（示例文件数为 0），定制必须 fork 改 SKILL.md 并执行 4 条插件卸载/重装命令——这把「深度使用」的门槛从普通用户抬升到了开发者。</li>
+<li><strong>结论</strong>：D9 = 8.0，评级 🟢 简单。安装部署章节可给出完整命令与步骤（如上方指南），适合直接面向用户推广；但推广话术中应显式写明「需已具备 Claude Code 等支持 skills 的宿主」这一前置条件，避免非目标用户误入。</li>
+</ol>
+<h3>D10. 功能价值——使用价值视角（平行维度，权重 0%，不计入综合评分）</h3>
+<p><strong>项目定位</strong>：<code>i-have-adhd</code> 是一个以单一 <code>SKILL.md</code> 规则文本为载体的 Claude Code / 多宿主 agent 输出风格约束技能（附少量 Python/TS 辅助与评测脚本）。其创造的效用是「让编码 agent 先给答案、编号步骤、去掉寒暄」，本质是对 LLM 输出做格式与信息密度约束。</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10.1</td>
+<td>效用强度</td>
+<td>3</td>
+<td>1.8</td>
+<td>5–6（60%）</td>
+<td>效用真实但量级有限：每次交互省去「越过寒暄找答案」的阅读时间，属分钟级便利工具；不构成项目级依赖，更非业务命脉。替代成本极低——用户在 <code>CLAUDE.md</code> 里自写三行规则即可获得近似效果，README 本身也只承诺「省一次滚动」。效用确定性高（行为改变由规则文本决定，稳定可预期），故取 5–6 档上沿。</td>
+</tr>
+<tr>
+<td>D10.2</td>
+<td>实际使用规模</td>
+<td>3</td>
+<td>1.8</td>
+<td>5–6（60%）</td>
+<td>硬信号强：4 个月 34,592 stars、2,027 forks、34 contributors、90 天 103 个 PR；fork 数是比 star 更强的消费信号（README 明确引导 fork 定制）。但形态为插件/技能，<strong>无 npm/PyPI 下载量、无 Dependents 计数</strong>（均实采为 N/A），缺少「十万级依赖方」级别的硬证据，按可验证的「万级使用」区间落 5–6 档，未按 star 数等比上浮。</td>
+</tr>
+<tr>
+<td>D10.3</td>
+<td>免费可得的完整效用</td>
+<td>2</td>
+<td>2.0</td>
+<td>9–10（100%）</td>
+<td>MIT 许可，无任何商业版/企业版/付费墙；全部价值即仓库中的 <code>SKILL.md</code> 规则文本，零依赖（<code>package.json</code> dependencies 为空）。README 直接给出 fork→替换自托管副本的完整流程。开源版 = 全部价值，无阉割、无隐性收费。与 D4.3 付费转化逻辑预期呈反相关，属正常张力。</td>
+</tr>
+<tr>
+<td>D10.4</td>
+<td>效用可持续性</td>
+<td>2</td>
+<td>2.0</td>
+<td>9–10（100%）</td>
+<td>载体为纯文本 prompt 规则 + 零运行时依赖，完全本地、可自由分叉，停维后规则照常可用（复制即生效）。无闭源组件、无云服务依赖。唯一外部耦合是宿主 agent 平台，但内容本身可移植——CI 中已含 <code>cursor-skill-sync.yml</code>、<code>.opencode/command/</code> 多宿主适配，证明跨平台可迁移，不构成锁定。</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td><strong>7.6</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<p><strong>D10 功能价值 = 7.6 / 10（良好）</strong></p>
+<ul>
+<li><strong>效用结构</strong>：这是一个「低量级 × 高三免费可得度 × 高可持续性」的组合。单位效用偏窄（输出格式偏好，易自实现替代），但交付给使用者的价值几乎零衰减——没有任何付费墙截留，也没有停维即归零的在线服务风险。</li>
+<li><strong>规模 vs 强度错位</strong>：项目呈显著「高采用、低门槛、低强度」特征——34.6k star / 2k fork 属于 4 个月内的病毒式扩散，但缺少包管理下载量与 Dependents 硬数据，且工具本身能力层级为「分钟级便利」，不足以支撑「项目级依赖」判断。D10.2 已按可核实区间保守落档，未因 star 数上浮。</li>
+<li><strong>与商业维度的张力</strong>：D10.3 满分（开源即全部价值）与 D4.3 付费转化上限互为镜像——该项目几乎不存在将使用价值转为交换价值的抓手，功能价值高而商业变现路径薄，符合「Gin 类」高使用价值/弱商业收口画像。</li>
+<li><strong>置信度说明</strong>：D10.2 因缺乏包管理平台/依赖方实采数据，规模判断依赖 star/fork/PR 代理信号，该细则置信度中等；其余三项基于素材硬事实，置信度较高。</li>
+</ul>
+<h3>D11 社会价值——正外部性视角（平行维度，权重 0%）</h3>
+<blockquote>
+<p>本维度为平行维度，权重 0%，不计入综合评分与一票否决，仅用于 3.4 价值画像。评价对象是项目对<strong>使用者之外</strong>的行业与社会的外溢贡献，与 D3.4（品牌→商业势能）、D2.5/D2.6（工程质量视角）不重复计分。</p>
+</blockquote>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>档位</th>
+<th>小分</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D11.1</td>
+<td>数字公共基础设施属性</td>
+<td>3</td>
+<td>3–4（40%）</td>
+<td>1.2</td>
+<td>交付形态是 Markdown 技能/prompt 资产 + 少量 CLI（Python 2110 行/TS 388 行），<strong>无下游代码依赖</strong>（无 package.json 依赖、无被 import 的库），不构成软件供应链节点。停摆影响面 = 使用者的输出格式习惯，非任何软件无法构建。具备开放（MIT）、可复用、低门槛复制的 DPG 表层特征，但非「数字底座」</td>
+</tr>
+<tr>
+<td>D11.2</td>
+<td>教育与人才价值</td>
+<td>2.5</td>
+<td>7–8（80%）</td>
+<td>2.0</td>
+<td>34,592 Star / 2,027 Fork 说明被大量复制研究；README 用 Before/After 对照示范「如何写 agent 输出」这一最佳实践；<code>evals/</code>（rubric.md + RESULTS.md）提供了可复用的评测方法学，<code>SKILL.md</code> 被 fork 后改造（README 明确给出 fork 调参流程）；34 位贡献者、90 天 103 PR，社区在参与中学习。门槛降低效应显著：非工程背景用户也能零代码定制 AI 行为。不足：非系统性教材，无大规模高校课程采用证据</td>
+</tr>
+<tr>
+<td>D11.3</td>
+<td>普惠与可及性</td>
+<td>2.5</td>
+<td>7–8（80%）</td>
+<td>2.0</td>
+<td>直接服务<strong>神经多样性群体</strong>（ADHD 用户）的可及性需求，且声明「No ADHD diagnosis needed」，把「让 AI 输出可读」的能力以近零成本（复制一行安装指令）平权给个人用户；无硬件门槛（纯 prompt 资产），跨 Claude Code / Cursor / opencode 多平台存在（<code>cursor-skill-sync.yml</code>、<code>plugin-load-check.yml</code>、<code>pi-load-check.yml</code>）；README/INSTALL 覆盖 7 种语言（en/zh-CN/pt-BR/ja/vi/ko/th）。未达 9–10：替代的并非「昂贵商业能力」（本就无高价对标品），且多语言文档多为直译，深度可及性支持有限</td>
+</tr>
+<tr>
+<td>D11.4</td>
+<td>开放标准与行业推动</td>
+<td>2</td>
+<td>5–6（60%）</td>
+<td>1.2</td>
+<td>遵循并横向适配新兴的 Claude Skills/plugin 形态，通过跨平台 skill 同步脚本降低单一厂商锁定，属<strong>跟随并适配</strong>开放形态，而非定义或主导标准；无开放协议贡献、无学术引用证据。示范效应存在：ADHD-friendly / 「先给动作、编号步骤、禁止寒暄」的输出范式已被同赛道项目模仿（竞品清单中多个同类 skill），局部抬高了 agent 输出的可读性水位。综合落在「遵循开放标准但无显著推动」档</td>
+</tr>
+</tbody>
+</table>
+<p><strong>合计：1.2 + 2.0 + 2.0 + 1.2 = 6.4 / 10</strong></p>
+<h3>结论</h3>
+<p>项目的社会外溢价值处于<strong>中等偏上（6.4/10）</strong>，特征鲜明但天花板明确：</p>
+<ul>
+<li><strong>最突出的正外部性是普惠与可及性</strong>（D11.3）与<strong>教育示范价值</strong>（D11.2）。它把「让 AI 输出对注意力缺陷人群友好」这一原本需要专业 prompt 工程能力的事情，变成一行安装指令即可获得，并附带了可复用的评测 rubric，对神经多样性群体和 prompt 工程学习者都有实质外溢。</li>
+<li><strong>数字公共基础设施属性薄弱</strong>（D11.1，1.2/10）。它是<strong>消费端的 prompt 资产</strong>，不是被依赖的软件底座——无下游依赖、无供应链停摆风险。34k Star 反映的是传播力，而非 curl/OpenSSL 式的关键依赖地位，二者不可混淆。</li>
+<li><strong>行业推动力有限</strong>（D11.4）。它对跨平台 skill 形态是「适配者」而非「定义者」，模仿者众但无标准/科研层面的实质贡献。</li>
+</ul>
+<p>作为权重 0% 的平行维度，本项不影响综合评分，但为 3.4 价值画像提供了关键一笔：<strong>这是一个高传播、强普惠、弱基建的「轻资产公共品」</strong>——社会价值真实存在，但形态脆弱（易被平台方内置的同类似功能替代），不具备「停摆即断链」的公共基础设施韧性。</p>
+<blockquote>
+<p>数据置信度：中。Star/Fork/贡献者/文档/CI 等为实采硬数据；Dependents 计数、论文引用、同类商业定价未采集，故 D11.1 的下游依赖与 D11.4 的科研支撑判断基于交付形态推断，未使用估算数据。</p>
+</blockquote>
+<h2>五、商业化价值判断</h2>
+<h3>5.1 综合评分与等级</h3>
+<p>本项目综合评分 <strong>66.0/100</strong>，等级 <strong>A（高商业化潜力）</strong>。该等级的含义是「可投入商业化，需补齐少量短板」。但需强调：66.0 分位于 A 级区间（65–79）的下沿，仅高出 A 级门槛 1.0 分，且分数结构呈现明显的「两极分化」特征——D1/D3/D6/D9 四项均达 8.0 分以上，而 D4（4.3）与 D5（4.2）两项直接决定变现能力的维度均低于 5 分。</p>
+<h3>5.2 分数结构解读</h3>
+<p><strong>强项集中在「需求侧」与「合规侧」</strong>：</p>
+<ul>
+<li>D1（8.0）与 D3（8.0）表明痛点真实且社区势能极强：4 个月内 34,592 Star、月增约 8,800、90 天 103 个 PR、34 名贡献者、Fork 比率 5.86%，社区参与度处于顶层档位。</li>
+<li>D6（8.2）为九维最高分：标准 MIT 全文、SPDX 标识一致、零依赖链、无传染性协议风险，法律层面所有变现路径均不受限。</li>
+<li>D9（8.0）表明上手门槛极低：零依赖、分钟级首用、单一命令调用、多宿主接入已内建。</li>
+</ul>
+<p><strong>弱项集中在「变现侧」与「防御侧」</strong>：</p>
+<ul>
+<li>D4（4.3）为九维最低：核心交付物是一份 SKILL.md 提示词文件，全仓仅 2498 行代码，无功能纵深可供 Open Core 切分；运行时零依赖、无 Dockerfile、无服务端组件，SaaS 托管既无技术必要性也无付费理由；README 官方指导用户 Fork 并替换 SKILL.md，主动瓦解付费转化基础；evals/ 目录已开源，连质量验证这一潜在收费点也已免费提供。</li>
+<li>D5（4.2）次低：核心资产是自然语言提示词，无专利/数据/算法壁垒，切换成本≈0，无网络效应与规模效应；颠覆风险来自平台层——输出风格属于宿主 agent 框架的固有权限，可被内置 output style / system prompt / AGENTS.md 零迁移成本原生替代。</li>
+</ul>
+<h3>5.3 价值画像判定</h3>
+<p><strong>公共价值分 = (D10 7.6 + D11 6.4) / 2 = 7.0</strong>，综合评分 66.0 ≥ 65 且公共价值分 ≥ 7，判定为 <strong>⭐ 明星资产</strong>。</p>
+<p><strong>画像临界说明</strong>：综合评分 66.0 落在 60–70 临界区间，公共价值分 7.0 恰为临界值。两种画像下的路径差异如下：</p>
+<ul>
+<li>若按 <strong>⭐ 明星资产</strong>（当前判定）：正常商业化，同时经营社区声誉，避免竭泽而渔（参照 Elastic 改协议的反噬教训）。</li>
+<li>若按 <strong>🏛️ 公共产品型</strong>（若公共价值分被更严格评估至 7 以下）：不建议直接变现，走「影响力变现」——赞助/基金会托管/大厂雇佣维护者/围绕生态做服务与培训。</li>
+</ul>
+<p>考虑到 D4.3（付费转化逻辑，0.5/2.5）与 D4.4（增值服务空间，0.4/2.0）的实际得分极低，本报告认为<strong>公共产品型路径的可行性显著高于纯商业变现路径</strong>，第六章将据此给出修正后的路径建议。</p>
+<hr />
+<h2>六、商业路径分析</h2>
+<h3>6.1 路径可行性排序</h3>
+<p>基于 D4 各细则得分与 D5 壁垒分析，本项目可行商业路径按可行性排序如下：</p>
+<p><strong>路径一：影响力变现（推荐，可行性最高）</strong></p>
+<ul>
+<li><strong>依据</strong>：D4.2 变现路径清晰度仅 1.4/3.5，D4.3 付费转化逻辑仅 0.5/2.5，D4.4 增值服务空间仅 0.4/2.0。核心交付物为单一 SKILL.md，全仓 2498 行代码，无功能纵深可供切分；README 主动鼓励 Fork 替换，直接瓦解付费转化基础。</li>
+<li><strong>具体形式</strong>：捐赠/赞助（参照 Vue.js 纯社区模式天花板）、基金会托管、大厂雇佣维护者、围绕生态做服务与培训。</li>
+<li><strong>现状缺口</strong>：仓库无 FUNDING 配置、README 无赞助入口，尚未启动。这是最低成本、最快可落地的第一步。</li>
+</ul>
+<p><strong>路径二：品牌与心智资产运营（推荐，与路径一并行）</strong></p>
+<ul>
+<li><strong>依据</strong>：D5 分析指出「护城河结构分裂：短期品牌与心智随 Star 与多宿主扩展增强，但防御深度极浅，属高传播性引流资产而非收费型防御产品」。34,592 Star 与 2,498 行代码形成极悬殊比例，说明价值集中在规则创意而非工程实现。</li>
+<li><strong>具体形式</strong>：将项目作为个人/团队在 AI 编程助手生态中的品牌入口，通过多宿主适配（Claude Code / Cursor / OpenCode / pi / omp）持续扩大心智份额，再以咨询、培训、内容等形式变现。</li>
+</ul>
+<p><strong>路径三：Open Core / SaaS / 双协议（不推荐）</strong></p>
+<ul>
+<li><strong>依据</strong>：D4.1 虽取满分 2.0（MIT 协议法律层面不限制任何变现路径），但 D4.2–D4.4 三项合计仅 2.3/8.0。运行时零依赖、无服务端组件，SaaS 托管既无技术必要性也无付费理由；无 license key、无企业版、无功能分层，不存在免费→付费触发点；evals/ 已开源，质量验证这一潜在收费点也已被免费提供。</li>
+<li><strong>结论</strong>：法律上可行，商业上不成立。</li>
+</ul>
+<h3>6.2 路径修正说明</h3>
+<p>依据方法论 3.4，价值画像为 ⭐ 明星资产时，商业路径建议修正为「正常商业化，同时经营社区声誉，避免竭泽而渔」。但结合 D4 的实际得分结构，本报告建议<strong>将「正常商业化」具体化为「影响力变现 + 品牌资产运营」</strong>，而非传统的 Open Core / SaaS 变现。理由：D4.3 付费转化逻辑 0.5/2.5 与 D4.4 增值服务空间 0.4/2.0 的得分表明，本项目不存在可支撑传统商业化的付费触发点与增值空间。</p>
+<h3>6.3 关键风险提示</h3>
+<p>D5 分析明确指出：「颠覆风险来自平台层：输出风格属于宿主 agent 框架的固有权限，可被内置 output style / system prompt / AGENTS.md 零迁移成本原生替代，时间窗口中短期。」这意味着任何商业化尝试都必须在平台层原生替代之前完成心智占位与生态绑定。</p>
+<hr />
+<h2>七、能力评估：能做什么 &amp; 最适合做什么</h2>
+<h3>7.1 能做什么</h3>
+<p>基于各维度评分卡事实，本项目具备以下能力：</p>
+<ol>
+<li><strong>约束 AI 编程助手输出行为</strong>：通过 10 条规则 + 多平台适配，让编码助手输出简洁、行动导向、ADHD 友好的回答（D1.2 痛点解决较为完整）。</li>
+<li><strong>跨多宿主平台适配</strong>：已适配 Claude Code / Cursor / OpenCode / Gemini 等多平台，含 7 语言文档（D3.3、D9.4）。</li>
+<li><strong>提供可复用的 prompt 工程示范</strong>：evals/ 目录含 rubric.md、RESULTS.md，34,592 Star / 2,027 Fork 提供可复用的 prompt 工程示范，教育价值显著（D11.2 = 2.0/2.5）。</li>
+<li><strong>服务 ADHD 神经多样性群体</strong>：直接服务 ADHD 神经多样性群体的可及性需求，近零成本、无硬件门槛、跨多 agent 平台、文档覆盖 7 种语言（D11.3 = 2.0/2.5）。</li>
+<li><strong>零依赖本地部署</strong>：package.json dependencies 与 devDependencies 均为空，无 Dockerfile、无数据库/缓存等外部组件，安装链路无依赖编译失败风险（D9.1）。</li>
+</ol>
+<h3>7.2 最适合做什么</h3>
+<p>综合各维度得分，本项目<strong>最适合</strong>的定位是：</p>
+<p><strong>「AI 编程助手生态中的高传播性行为规范标准 + 神经多样性开发者普惠工具」</strong></p>
+<ul>
+<li><strong>作为标准</strong>：D5.1 显示 GitHub Search API 实测 5 个仓库中无一是解决同一问题的直接竞品，同渠道同类 skill 星数仅 3,099/187/20/17，本项目 34,592 Star 形成数量级领先（约 11.2x），定位（Action first / 10 条规则）极为鲜明。</li>
+<li><strong>作为普惠工具</strong>：D11.3 = 2.0/2.5，直接服务 ADHD 神经多样性群体，近零成本、无硬件门槛、跨多 agent 平台、文档覆盖 7 种语言。</li>
+<li><strong>作为品牌资产</strong>：D5 分析指出「短期品牌与心智随 Star 与多宿主扩展增强」，属高传播性引流资产。</li>
+</ul>
+<p><strong>不适合做什么</strong>：</p>
+<ul>
+<li>不适合做 Open Core / SaaS / 双协议等传统商业化（D4.2–D4.4 合计仅 2.3/8.0）。</li>
+<li>不适合做收费型防御产品（D5.2 技术壁垒仅 0.6/3，D5.3 仅 0.4/3，切换成本≈0，无网络效应）。</li>
+<li>不适合做企业级安全/合规产品（D7.2、D7.3 均标记 N/A，本产品形态下不适用）。</li>
+</ul>
+<hr />
+<h2>八、短板识别：还缺少什么</h2>
+<h3>8.1 变现基础设施缺失（最严重）</h3>
+<ul>
+<li><strong>无任何付费入口</strong>：纯 MIT 免费开源，无商业版本或服务入口，变现距离远（D1 hard_facts: monetization_distance = "远"）。</li>
+<li><strong>无赞助入口</strong>：仓库无 FUNDING 配置、README 无赞助入口，尚未启动（D4 key_findings）。</li>
+<li><strong>无功能分层</strong>：无 license key、无企业版、无功能分层，不存在免费→付费触发点（D4 key_findings）。</li>
+<li><strong>质量验证已免费</strong>：evals/ 目录（含 rubric.md、RESULTS.md）已开源，连质量验证这一潜在收费点也已被免费提供（D4 key_findings）。</li>
+</ul>
+<h3>8.2 防御壁垒缺失</h3>
+<ul>
+<li><strong>无专利/数据/算法壁垒</strong>：核心资产是一份自然语言提示词 SKILL.md，全仓仅 2,498 行代码、零 npm 依赖、MIT 许可且 README 主动引导用户 Fork 替换（D5 key_findings）。</li>
+<li><strong>无网络效应与规模效应</strong>：无插件生态、无数据飞轮，2,027 次 Fork 是复制扩散而非网络价值，复制边际成本不随规模下降（D5 key_findings）。</li>
+<li><strong>切换成本≈0</strong>：安装仅一条提示词或 marketplace 命令，README 自带卸载指引，无数据沉淀、无配置迁移、无深度集成（D5 key_findings）。</li>
+<li><strong>平台层颠覆风险</strong>：输出风格属于宿主 agent 框架的固有权限，可被内置 output style / system prompt / AGENTS.md 零迁移成本原生替代（D5 key_findings）。</li>
+</ul>
+<h3>8.3 工程成熟度不足</h3>
+<ul>
+<li><strong>无正式 Release</strong>：recent_releases = 0，仍处快速迭代期（2026-05 创建），商业化交付版本成熟度不足（D2 key_findings）。</li>
+<li><strong>无 CHANGELOG</strong>：无版本锁定/回滚说明，回滚只能靠卸载重装（D7 key_findings）。</li>
+<li><strong>无 SECURITY.md</strong>：项目缺少 SECURITY.md 属治理短板（D7 key_findings）。</li>
+<li><strong>多副本维护技术债</strong>：多份 SKILL.md 副本靠 CI 同步，存在多副本维护技术债（D2 key_findings）。</li>
+<li><strong>缺覆盖率门禁和安全扫描</strong>：有 4 个 CI workflow 验证插件加载与跨平台兼容，但缺覆盖率门禁和安全扫描（D2 key_findings）。</li>
+</ul>
+<h3>8.4 治理与可持续性短板</h3>
+<ul>
+<li><strong>个人账号运营</strong>：无组织/公司/基金会绑定，无商业化经验与全职投入的公开证据，巴士因子低（D8 key_findings）。</li>
+<li><strong>无 GOVERNANCE.md / CODEOWNERS / 路线图</strong>：CONTRIBUTING.md 治理规范异常详尽，但无 GOVERNANCE.md / CODEOWNERS / 路线图，非基金会项目（D8 key_findings）。</li>
+<li><strong>无资金信号</strong>：无任何公司实体、VC、GitHub Sponsors 或 Open Collective 资金信号，纯热情驱动，企业级可持续性存疑（D8 key_findings）。</li>
+<li><strong>无 CLA/DCO</strong>：LICENSE 版权归单一作者但仓库有 34 位贡献者，版权分散，双协议商业化需补签授权（D6 key_findings）。</li>
+<li><strong>缺正式传承机制</strong>：缺正式传承机制与 release 渠道（D8 key_findings）。</li>
+</ul>
+<h3>8.5 合规细节盲区</h3>
+<ul>
+<li><strong>商标未核查</strong>：项目名 'i-have-adhd' 含医疗相关词汇，商标可注册性未经人工检索，置信度低（D6 key_findings）。</li>
+<li><strong>Python 侧依赖清单缺失</strong>：Python 侧未提供 requirements.txt，依赖清单缺失构成轻微合规审查盲区（D6 key_findings）。</li>
+</ul>
+<hr />
+<h2>九、风险提示</h2>
+<h3>9.1 平台层颠覆风险（高）</h3>
+<p>D5 分析明确指出：「颠覆风险来自平台层：输出风格属于宿主 agent 框架的固有权限，可被内置 output style / system prompt / AGENTS.md 零迁移成本原生替代，时间窗口中短期。」这是本项目面临的最根本风险——宿主 agent 框架只需内置输出风格控制功能，即可零迁移成本原生替代本项目。</p>
+<h3>9.2 变现路径不成立风险（高）</h3>
+<p>D4 得分 4.3/10，其中 D4.3 付费转化逻辑仅 0.5/2.5、D4.4 增值服务空间仅 0.4/2.0。README 官方指导用户 Fork 并替换 SKILL.md，主动鼓励脱离上游，直接瓦解付费转化基础。传统商业化路径（Open Core / SaaS / 双协议）在法律上可行但商业上不成立。</p>
+<h3>9.3 可持续性风险（中高）</h3>
+<p>D8 得分 5.6/10，其中 D8.1 核心维护者能力与背景仅 1.0/2.5、D8.3 资金支持与商业赞助仅 1.0/2.5。个人账号运营，无组织/公司/基金会绑定，无商业化经验与全职投入的公开证据，巴士因子低；无任何公司实体、VC、GitHub Sponsors 或 Open Collective 资金信号，纯热情驱动。</p>
+<h3>9.4 工程交付风险（中）</h3>
+<p>D2 得分 7.6/10，但 recent_releases = 0，无正式 Release，仍处快速迭代期；无 CHANGELOG、无版本锁定/回滚说明；多份 SKILL.md 副本靠 CI 同步，存在多副本维护技术债；缺覆盖率门禁和安全扫描。</p>
+<h3>9.5 合规风险（低）</h3>
+<p>D6 得分 8.2/10，标准 MIT 全文、零依赖链、无传染性协议风险，法律层面所有变现路径均不受限。但存在两项细节盲区：项目名含医疗相关词汇，商标可注册性未经人工检索；Python 侧未提供 requirements.txt。此外，无 CLA/DCO，版权分散，双协议商业化需补签授权。</p>
+<h3>9.6 竞争格局风险（中）</h3>
+<p>D5 得分 4.2/10，其中 D5.2 技术壁垒仅 0.6/3、D5.3 仅 0.4/3。无专利/数据/算法壁垒，无网络效应与规模效应，切换成本≈0。虽然当前无直接竞品（verified_direct_competitors = 0），但竞品检索关键词偏泛（skill/claude/devops），对『agent 输出风格控制』细分赛道覆盖置信度中等，D5.1 的无直接竞品结论存在未覆盖偏差可能。</p>
+<h3>9.7 数据置信度风险（低）</h3>
+<p>D1 hard_facts 中 market_data_external_validation = "未获取到外部权威数据，TAM 为行业量级估算，置信度中等"；D3 中 Issue 平均关闭时间、组织多样性、企业背书数据缺失，顶层档位判定置信度略降；D10 中 npm_weekly_downloads、pypi_monthly_downloads、github_dependents、docker_pulls 均为 N/A。</p>
+<hr />
+<h2>十、结论与建议</h2>
+<h3>10.1 结论</h3>
+<p><strong>i-have-adhd 是一个综合评分 66.0/100、等级 A（高商业化潜力）、价值画像 ⭐ 明星资产的项目。</strong></p>
+<p>其核心价值在于：4 个月内以 2,498 行代码获得 34,592 Star，验证了「冗长 AI 输出」这一真实高频痛点，并在 AI 编程助手生态中形成了数量级领先的心智占位（约为最强同类竞品的 11.2 倍）。项目法律合规性优异（D6 = 8.2）、上手门槛极低（D9 = 8.0）、社区势能强劲（D3 = 8.0）。</p>
+<p>但其商业化基础极为薄弱：D4（4.3）与 D5（4.2）两项直接决定变现能力的维度均低于 5 分。核心交付物是一份 SKILL.md 提示词文件，无功能纵深、无服务端组件、无付费触发点、无防御壁垒，且 README 主动鼓励 Fork 替换。传统商业化路径（Open Core / SaaS / 双协议）在法律上可行但商业上不成立。</p>
+<p><strong>综合判断：本项目属于「高传播性引流资产」而非「收费型防御产品」，最适合走影响力变现路径。</strong></p>
+<h3>10.2 建议</h3>
+<p><strong>短期（0–3 个月）：启动影响力变现基础设施</strong></p>
+<ol>
+<li>配置 FUNDING 入口（GitHub Sponsors / Open Collective），这是最低成本、最快可落地的第一步。</li>
+<li>补充 SECURITY.md、CHANGELOG，建立正式 Release 流程，提升工程交付成熟度。</li>
+<li>补充 GOVERNANCE.md / CODEOWNERS，明确治理结构与传承机制，降低巴士因子风险。</li>
+</ol>
+<p><strong>中期（3–12 个月）：经营品牌与心智资产</strong></p>
+<ol start="4">
+<li>持续扩大多宿主适配范围（当前已覆盖 Claude Code / Cursor / OpenCode / pi / omp），在平台层原生替代之前完成心智占位。</li>
+<li>围绕生态做服务与培训（参照 Vue.js 纯社区模式），将 34,592 Star 的品牌势能转化为咨询、培训、内容等形式的收入。</li>
+<li>考虑基金会托管或大厂雇佣维护者模式，解决个人账号运营的可持续性问题。</li>
+</ol>
+<p><strong>长期（12 个月以上）：审慎评估商业化时机</strong></p>
+<ol start="7">
+<li>若宿主 agent 框架未原生替代本项目功能，且社区规模持续增长，可考虑在保持 MIT 协议不变的前提下，探索增值服务（如企业级定制规则集、团队协作功能）。</li>
+<li>避免改协议（参照 Elastic 改协议的反噬教训），维护社区声誉。</li>
+<li>若平台层已原生替代本项目功能，应及时转向技术借鉴或人才引进，不投入进一步商业化。</li>
+</ol>
+<p><strong>风险对冲建议</strong></p>
+<ol start="10">
+<li>鉴于 D5 分析指出「颠覆风险来自平台层……时间窗口中短期」，所有商业化动作应在中短期内完成，不宜做长周期投入。</li>
+<li>鉴于 D4.3 付费转化逻辑仅 0.5/2.5，不建议投入资源开发付费功能，应将资源集中于品牌建设与社区运营。</li>
+</ol>
+<h2>十一、项目地址</h2>
+<p><svg class="ri ri-muted" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.001 2C6.47598 2 2.00098 6.475 2.00098 12C2.00098 16.425 4.86348 20.1625 8.83848 21.4875C9.33848 21.575 9.52598 21.275 9.52598 21.0125C9.52598 20.775 9.51348 19.9875 9.51348 19.15C7.00098 19.6125 6.35098 18.5375 6.15098 17.975C6.03848 17.6875 5.55098 16.8 5.12598 16.5625C4.77598 16.375 4.27598 15.9125 5.11348 15.9C5.90098 15.8875 6.46348 16.625 6.65098 16.925C7.55098 18.4375 8.98848 18.0125 9.56348 17.75C9.65098 17.1 9.91348 16.6625 10.201 16.4125C7.97598 16.1625 5.65098 15.3 5.65098 11.475C5.65098 10.3875 6.03848 9.4875 6.67598 8.7875C6.57598 8.5375 6.22598 7.5125 6.77598 6.1375C6.77598 6.1375 7.61348 5.875 9.52598 7.1625C10.326 6.9375 11.176 6.825 12.026 6.825C12.876 6.825 13.726 6.9375 14.526 7.1625C16.4385 5.8625 17.276 6.1375 17.276 6.1375C17.826 7.5125 17.476 8.5375 17.376 8.7875C18.0135 9.4875 18.401 10.375 18.401 11.475C18.401 15.3125 16.0635 16.1625 13.8385 16.4125C14.201 16.725 14.5135 17.325 14.5135 18.2625C14.5135 19.6 14.501 20.675 14.501 21.0125C14.501 21.275 14.6885 21.5875 15.1885 21.4875C19.259 20.1133 21.9999 16.2963 22.001 12C22.001 6.475 17.526 2 12.001 2Z"/></svg> <a href="https://github.com/ayghri/i-have-adhd">https://github.com/ayghri/i-have-adhd</a></p>
+<hr />
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+</blockquote>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家　<a href="https://www.mova.work">www.mova.work</a></p></body></html>

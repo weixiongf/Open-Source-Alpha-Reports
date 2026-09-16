@@ -1,0 +1,1511 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><title>Linux 商业价值分析报告</title><style>/* default — 品牌蓝紫主题（从 md2pdf.py 原 CSS 常量迁出，视觉与历史产物一致） */
+@page { size: A4; margin: 18mm 15mm 20mm 15mm; }
+* { box-sizing: border-box; }
+/* 字体规范：一律开源思源黑体 CN（OFL 免费商用）；正文 Regular/标题 Bold/大字数字 Light */
+body { font-family: "Source Han Sans CN","思源黑体 CN","Noto Sans SC",sans-serif; color:#1e293b; font-size:10.5pt; line-height:1.75; margin:0; }
+.cover { page-break-after: always; text-align:center; padding-top:40px; }
+.cover .kicker { color:#2563eb; letter-spacing:6px; font-size:12pt; font-weight:500; }
+.cover h1 { font-size:26pt; margin:14px 0 6px; }
+.cover .sub { color:#64748b; font-size:11pt; margin-bottom:22px; }
+.badge { display:inline-block; background:linear-gradient(135deg,#2563eb,#7c3aed); color:#fff; border-radius:18px; padding:16px 44px; margin:10px 0 18px; }
+.badge .g { font-size:34pt; font-weight:300; line-height:1; }
+.badge .s { font-size:12pt; opacity:.92; margin-top:4px; }
+.meta { color:#475569; font-size:9.5pt; margin-top:14px; }
+.bars { max-width:620px; margin:20px auto 0; text-align:left; }
+.bar-row { display:flex; align-items:center; gap:8px; margin:5px 0; font-size:9pt; }
+.bar-name { width:110px; text-align:right; color:#334155; font-weight:500; }
+.bar-track { flex:1; height:9px; background:#f1f5f9; border-radius:5px; overflow:hidden; }
+.bar-fill { display:block; height:100%; border-radius:5px; }
+.bar-val { width:30px; font-weight:700; color:#0f172a; }
+.bar-w { width:52px; color:#94a3b8; font-size:8pt; }
+h1 { font-size:17pt; color:#0f172a; border-bottom:3px solid #2563eb; padding-bottom:8px; }
+h2 { font-size:13.5pt; color:#1d4ed8; margin-top:26px; page-break-after: avoid; border-left:5px solid #2563eb; padding-left:10px; }
+h3 { font-size:11.5pt; color:#0f172a; margin-top:18px; page-break-after: avoid; }
+table { border-collapse:collapse; width:100%; margin:10px 0; font-size:9pt; page-break-inside:avoid; }
+th { background:#eff6ff; color:#1e3a8a; }
+th,td { border:1px solid #dbe3ef; padding:5px 8px; text-align:left; }
+tr:nth-child(even) td { background:#f8fafc; }
+code { background:#f1f5f9; border-radius:4px; padding:1px 5px; font-family:"JetBrains Mono","Cascadia Mono",monospace; font-size:9pt; color:#be185d; }
+pre { background:#0f172a; color:#e2e8f0; border-radius:8px; padding:12px 14px; overflow-x:auto; page-break-inside:avoid; }
+pre code { background:none; color:inherit; padding:0; }
+blockquote { border-left:4px solid #93c5fd; background:#eff6ff; margin:10px 0; padding:8px 14px; color:#334155; border-radius:0 8px 8px 0; }
+hr { border:none; border-top:1px dashed #cbd5e1; margin:22px 0; }
+strong { color:#0f172a; }
+.cover .disclaimer { max-width:620px; margin:16px auto 0; color:#64748b; font-size:8.5pt; line-height:1.6; text-align:left; border:1px solid #e2e8f0; border-radius:8px; padding:8px 12px; background:#f8fafc; }
+.credit { color:#2563eb; font-size:10.5pt; font-weight:700; letter-spacing:1px; margin-top:12px; }
+.at-acc { background:#dbeafe; color:#1d4ed8; border-radius:4px; padding:0 4px; font-weight:500; white-space:nowrap; }
+.tail { page-break-inside:avoid; margin-top:26px; border-top:2px solid #2563eb; padding-top:14px; }
+.tail p { color:#64748b; font-size:8.5pt; line-height:1.6; margin:0 0 10px; }
+.tail .credit { text-align:center; margin:0; }
+/* Remix Icon 内联 SVG（icon_mode=remix 时由脚本注入，语义色与评分条一致） */
+.ri { width:1.05em; height:1.05em; vertical-align:-0.18em; display:inline-block; }
+.ri-ok { color:#16a34a; } .ri-warn { color:#d97706; } .ri-bad { color:#dc2626; }
+.ri-muted { color:#64748b; } .ri-star { color:#f59e0b; } .ri-brand { color:#2563eb; }
+.ri-gold { color:#d4a017; } .ri-silver { color:#9ca3af; } .ri-bronze { color:#b45309; }
+/* 屏幕预览：@page 边距仅在打印时生效，浏览器中居中限宽并收边（不影响 PDF 输出） */
+@media screen {
+  body { margin: 0 auto; padding: 28px 36px 56px; max-width: 900px; }
+}
+</style></head><body><div class="cover">
+<div class="kicker">开源项目商业化潜力分析 · 第 87 期</div>
+<h1>GitHub 开源项目 Linux<br>商业价值分析报告</h1>
+<div class="sub">torvalds/linux · 操作系统内核级基础设施 · 九维度加权评估</div>
+<div class="badge"><div class="g">S 级 · 83.6</div><div class="s">综合评分（满分 100）· 极高商业化潜力</div></div>
+<div><svg viewBox="0 0 560 480" width="560" height="480" xmlns="http://www.w3.org/2000/svg"><polygon points="280.0,209.6 299.5,216.7 309.9,234.7 306.3,255.2 290.4,268.6 269.6,268.6 253.7,255.2 250.1,234.7 260.5,216.7" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,179.2 319.1,193.4 339.9,229.4 332.7,270.4 300.8,297.1 259.2,297.1 227.3,270.4 220.1,229.4 240.9,193.4" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,148.8 338.6,170.1 369.8,224.2 359.0,285.6 311.2,325.7 248.8,325.7 201.0,285.6 190.2,224.2 221.4,170.1" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,118.4 358.2,146.8 399.8,218.9 385.3,300.8 321.6,354.3 238.4,354.3 174.7,300.8 160.2,218.9 201.8,146.8" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,88.0 377.7,123.6 429.7,213.6 411.6,316.0 332.0,382.8 228.0,382.8 148.4,316.0 130.3,213.6 182.3,123.6" fill="none" stroke="#e2e8f0" stroke-width="1"/><line x1="280.0" y1="240.0" x2="280.0" y2="88.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="377.7" y2="123.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="429.7" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="411.6" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="332.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="228.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="148.4" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="130.3" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="182.3" y2="123.6" stroke="#d8dee9" stroke-width="1"/><polygon points="280.0,103.2 371.2,131.4 420.7,215.2 364.2,288.6 280.0,240.0 243.6,340.0 280.0,240.0 130.3,213.6 280.0,240.0" fill="rgba(37,99,235,.22)" stroke="#2563eb" stroke-width="2.5"/><circle cx="280.0" cy="103.2" r="3.5" fill="#2563eb"/><circle cx="371.2" cy="131.4" r="3.5" fill="#2563eb"/><circle cx="420.7" cy="215.2" r="3.5" fill="#2563eb"/><circle cx="364.2" cy="288.6" r="3.5" fill="#2563eb"/><circle cx="280.0" cy="240.0" r="3.5" fill="#2563eb"/><circle cx="243.6" cy="340.0" r="3.5" fill="#2563eb"/><circle cx="280.0" cy="240.0" r="3.5" fill="#2563eb"/><circle cx="130.3" cy="213.6" r="3.5" fill="#2563eb"/><circle cx="280.0" cy="240.0" r="3.5" fill="#2563eb"/><text x="280.0" y="44.0" text-anchor="middle" font-size="12.5" fill="#334155" font-weight="600">D1</text><text x="280.0" y="58.0" text-anchor="middle" font-size="11" fill="#64748b">市场需求 9.0</text><text x="406.0" y="89.9" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D2</text><text x="406.0" y="103.9" text-anchor="start" font-size="11" fill="#64748b">技术成熟度 9.33</text><text x="473.0" y="206.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D3</text><text x="473.0" y="220.0" text-anchor="start" font-size="11" fill="#64748b">社区生态 9.4</text><text x="449.7" y="338.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D4</text><text x="449.7" y="352.0" text-anchor="start" font-size="11" fill="#64748b">变现潜力 6.4</text><text x="347.0" y="424.2" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D5</text><text x="347.0" y="438.2" text-anchor="start" font-size="11" fill="#64748b">竞争格局 N/A</text><text x="213.0" y="424.2" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D6</text><text x="213.0" y="438.2" text-anchor="end" font-size="11" fill="#64748b">法律合规 7.0</text><text x="110.3" y="338.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D7</text><text x="110.3" y="352.0" text-anchor="end" font-size="11" fill="#64748b">企业就绪 N/A</text><text x="87.0" y="206.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D8</text><text x="87.0" y="220.0" text-anchor="end" font-size="11" fill="#64748b">团队治理 10.0</text><text x="154.0" y="89.9" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D9</text><text x="154.0" y="103.9" text-anchor="end" font-size="11" fill="#64748b">上手难度 N/A</text></svg></div>
+<div class="bars"><div class="bar-row"><span class="bar-name">D8 团队治理</span>
+<span class="bar-track"><span class="bar-fill" style="width:100.0%;background:#16a34a"></span></span>
+<span class="bar-val">10.0</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D3 社区生态</span>
+<span class="bar-track"><span class="bar-fill" style="width:94.0%;background:#16a34a"></span></span>
+<span class="bar-val">9.4</span><span class="bar-w">权重11%</span></div>
+<div class="bar-row"><span class="bar-name">D2 技术成熟度</span>
+<span class="bar-track"><span class="bar-fill" style="width:93.3%;background:#16a34a"></span></span>
+<span class="bar-val">9.33</span><span class="bar-w">权重14%</span></div>
+<div class="bar-row"><span class="bar-name">D1 市场需求</span>
+<span class="bar-track"><span class="bar-fill" style="width:90.0%;background:#16a34a"></span></span>
+<span class="bar-val">9.0</span><span class="bar-w">权重13%</span></div>
+<div class="bar-row"><span class="bar-name">D6 法律合规</span>
+<span class="bar-track"><span class="bar-fill" style="width:70.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.0</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D4 变现潜力</span>
+<span class="bar-track"><span class="bar-fill" style="width:64.0%;background:#d97706"></span></span>
+<span class="bar-val">6.4</span><span class="bar-w">权重18%</span></div>
+<div class="bar-row"><span class="bar-name">D5 竞争格局</span>
+<span class="bar-track"><span class="bar-fill" style="width:0.0%;background:#dc2626"></span></span>
+<span class="bar-val">N/A</span><span class="bar-w">权重12%</span></div>
+<div class="bar-row"><span class="bar-name">D7 企业就绪</span>
+<span class="bar-track"><span class="bar-fill" style="width:0.0%;background:#dc2626"></span></span>
+<span class="bar-val">N/A</span><span class="bar-w">权重8%</span></div>
+<div class="bar-row"><span class="bar-name">D9 上手难度</span>
+<span class="bar-track"><span class="bar-fill" style="width:0.0%;background:#dc2626"></span></span>
+<span class="bar-val">N/A</span><span class="bar-w">权重10%</span></div></div>
+<div class="meta">分析时点 2026-09-11 ｜ 数据来源：GitHub API + 仓库代码实测 ｜ 方法论 v1.3</div>
+<div class="credit">报告出品：@魔法工厂　@向量之心　@南山科学家</div>
+<div class="disclaimer"><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</div>
+</div><h1>Linux 商业化潜力分析报告（完整版）</h1>
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家</p>
+<p>方法论版本: v1.3 | 综合评分: <strong>83.6</strong> | 等级: <strong>S（极高商业化潜力）</strong> | 价值画像: 明星资产</p>
+</blockquote>
+<h2>一、项目概览</h2>
+<h3>1.1 基本信息</h3>
+<ul>
+<li><strong>项目名称 / 仓库地址</strong>：Linux kernel source tree（torvalds/linux）</li>
+<li><strong>核心技术栈</strong>：C（26,619,070 行）、头文件（10,951,112 行）、Rust（496 个文件 / 191,600 行）、Python（125,252 行）等；源码总量 37,882,741 行、65,274 个源文件</li>
+<li><strong>社区规模速览</strong>：Star 247,633 / Fork 64,451（Fork/Star = 26.0%）/ 贡献者结构由 MAINTAINERS 分权体系与多厂商子系统文档佐证（精确计数未采集）</li>
+<li><strong>分析时点 / 数据来源</strong>：仓库最近推送 2026-09-08；数据来源为 GitHub 仓库实采（stars/forks/文件统计/协议文件）+ 本地源码树扫描；GitHub 90 天 Star 增量、Issue 响应时长、Dependents、npm/PyPI 下载量等在线补采失败（N/A）</li>
+</ul>
+<h3>1.2 项目分类标签</h3>
+<table>
+<thead>
+<tr>
+<th>分类维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>基础设施（操作系统内核）</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>通用/跨行业（云计算、移动终端、嵌入式、汽车、工业、航天等）</td>
+</tr>
+<tr>
+<td>目标用户角色</td>
+<td>内核与系统软件开发者、硬件厂商驱动工程师、系统管理员/DevOps、发行版维护者、安全工程师、学术研究者、架构师</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>硬件抽象、进程调度、内存管理、网络与文件系统等操作系统核心能力供给</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>本地部署（同时覆盖云原生节点、边缘计算、移动端、嵌入式）</td>
+</tr>
+</tbody>
+</table>
+<h3>1.3 一句话定位</h3>
+<blockquote>
+<p>Linux 内核是一个操作系统内核级基础设施，适用于云计算、移动终端、嵌入式、汽车、工业、航天等几乎全部行业，主要面向内核/系统软件开发者、硬件厂商驱动工程师与系统管理员，用于提供硬件抽象、进程调度、内存管理、网络与文件系统等操作系统核心能力。</p>
+</blockquote>
+<hr />
+<h2>二、安装部署与使用指南</h2>
+<blockquote>
+<p>【注意】本章节为降级概要（安装指南草稿缺失），要点来自 D9 评分卡：</p>
+</blockquote>
+<ul>
+<li>安装信息采集失败</li>
+</ul>
+<h2>三、评分总览</h2>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>权重</th>
+<th>加权得分</th>
+<th>评级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1 市场需求与商业机会</td>
+<td>9.0/10</td>
+<td>13%</td>
+<td>1.17</td>
+<td>优</td>
+</tr>
+<tr>
+<td>D2 技术成熟度与产品质量</td>
+<td>9.33/10</td>
+<td>14%</td>
+<td>1.31</td>
+<td>优</td>
+</tr>
+<tr>
+<td>D3 社区健康度与生态势能</td>
+<td>9.4/10</td>
+<td>11%</td>
+<td>1.03</td>
+<td>优</td>
+</tr>
+<tr>
+<td>D4 商业模式与变现潜力</td>
+<td>6.4/10</td>
+<td>18%</td>
+<td>1.15</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D5 竞争格局与差异化壁垒</td>
+<td>N/A</td>
+<td>12%</td>
+<td>—</td>
+<td>N/A（分析失败）</td>
+</tr>
+<tr>
+<td>D6 法律合规与知识产权</td>
+<td>7.0/10</td>
+<td>7%</td>
+<td>0.49</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D7 企业就绪度与可运营性</td>
+<td>N/A</td>
+<td>8%</td>
+<td>—</td>
+<td>N/A（分析失败）</td>
+</tr>
+<tr>
+<td>D8 团队治理与可持续性</td>
+<td>10.0/10</td>
+<td>7%</td>
+<td>0.70</td>
+<td>优</td>
+</tr>
+<tr>
+<td>D9 上手难度与易用性</td>
+<td>N/A</td>
+<td>10%</td>
+<td>—</td>
+<td>N/A（分析失败）</td>
+</tr>
+<tr>
+<td><strong>综合评分</strong></td>
+<td>—</td>
+<td>100%</td>
+<td><strong>83.6/100</strong></td>
+<td><strong>S（极高商业化潜力）</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>说明：D5、D7、D9 三个维度因分析失败标记为 N/A，未参与加权计算；综合评分由代码按有效维度权重归一后计算得出，本报告不重算。</p>
+</blockquote>
+<p><strong>平行维度（不计入综合评分）</strong></p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10 功能价值</td>
+<td>10/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>D11 社会价值</td>
+<td>10/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>公共价值分</td>
+<td>10.0/10</td>
+<td>(D10+D11)/2</td>
+</tr>
+</tbody>
+</table>
+<p><strong>一票否决检查</strong>：未触发。D6 维度总分 7.0（&gt; 3）；D8.4 小分 3.0（&gt; 1）；D4.1 小分 1.2（&gt; 0.5）。否决检查完整（无因分析失败而跳过的否决项）。</p>
+<p><strong>价值画像</strong>：⭐ 明星资产（综合评分 83.6 ≥ 65 且公共价值分 10.0 ≥ 7）。</p>
+<hr />
+<h2>四、各维度详细分析</h2>
+<h3>D1. 市场需求与商业机会</h3>
+<h3>D1.1 目标市场规模与增长性（满分 2.5，得分 2.5）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TAM 估算</td>
+<td>Linux 内核是云服务器、移动终端（Android）、嵌入式、汽车、超算等场景的操作系统底座。项目自身不可直接售卖（GPLv2），但它所支撑的生态是<strong>百亿美元级以上</strong>的市场。经量级估算，赛道明确。<strong>估算未经外部数据验证，置信度低</strong>（本次无外部检索能力，未引用任何外部数字）</td>
+</tr>
+<tr>
+<td>增长趋势</td>
+<td>扩张。云计算、AI 训练/推理集群、边缘计算、智能汽车、RISC-V 等新硬件形态持续拉动内核需求。仓库最近推送时间为 2026-09-08，活跃度极高，说明上游仍在高速演进</td>
+</tr>
+<tr>
+<td>市场层级</td>
+<td>成熟且仍在扩容的基础设施层。全球几乎所有公有云与主流移动设备都运行于其上，不属于蓝海也非萎缩赛道</td>
+</tr>
+</tbody>
+</table>
+<p><strong>得分理由</strong>：满足评分指引 9–10 档的"百亿美元级增长市场、赛道明确"。扣分点在于：内核本身无直接付费市场（付费意愿集中在发行版、支持服务、硬件与云厂商，而非内核代码）。综合给 10/10 → 折算 <strong>2.5 分</strong>。</p>
+<h3>D1.2 痛点真实性与解决程度（满分 2.5，得分 2.5）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>痛点真实性</td>
+<td>属于最底层刚需：无内核则无操作系统。README 开篇即定位"The Linux kernel is the core of any Linux operating system"</td>
+</tr>
+<tr>
+<td>解决完整度</td>
+<td>完整方案级。本地实测 3788 万行代码，其中 C 2661 万行、头文件 1095 万行，覆盖进程调度、内存管理、网络栈、文件系统、驱动模型、安全（LSM/SELinux/AppArmor/Landlock）、功耗管理等全栈能力，另有 4064 个文档文件</td>
+</tr>
+<tr>
+<td>替代成本</td>
+<td>替代品存在但迁移代价极高：Windows NT 内核、XNU、FreeBSD、QNX、Zephyr 等在特定领域可用，但在"Linux 兼容生态"内几乎没有等价替代。生态锁定（驱动、发行版、容器、云镜像）使替换成本接近不可承受</td>
+</tr>
+</tbody>
+</table>
+<p><strong>得分理由</strong>：符合 9–10 档"行业级刚需痛点 + 方案完整 + 替代品极少"。给 10/10 → 折算 <strong>2.5 分</strong>。</p>
+<blockquote>
+<p>注意：本细则衡量的是"需求刚性"，而非"该需求可否被本仓库直接变现"。付费意愿分散在生态下游（详见 D3/D4），不在此处重复扣减。</p>
+</blockquote>
+<h3>D1.3 市场时机判断（满分 2.5，得分 1.5）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术成熟度曲线</td>
+<td>内核技术已深入"实质生产期"末端，属于最成熟的基础软件，无教育成本问题</td>
+</tr>
+<tr>
+<td>竞争密度</td>
+<td>格局已高度固化：在本项目所定义的市场（Linux 兼容操作系统）内，Linux 内核处于支配地位，不存在"格局未定"的空位。真正的竞争者（Windows/BSD/RTOS）在各自领域稳固，互不颠覆</td>
+</tr>
+<tr>
+<td>监管/标准</td>
+<td>无政策驱动的爆发性需求；反而是 GPLv2 许可、内核 ABI 稳定性政策、CVE 流程（Documentation/process/cve.rst）构成商业化约束</td>
+</tr>
+</tbody>
+</table>
+<p><strong>得分理由</strong>：对应评分指引 5–6 档"市场成熟期，需正面竞争"——本项目是成熟市场的支配者而非新进入者，任何基于它的商业化都要在已固化的格局中寻找位置。不适用 7–8 档"成长期、格局未定"。给 6/10 → 折算 <strong>1.5 分</strong>。</p>
+<blockquote>
+<p>存在局部时机的对冲因素：Rust for Linux（实测 496 个 .rs 文件 / 19.16 万行）、AI 加速器子系统（Documentation/accel/amdxdna、qaic、rocket）、AI 编码助手贡献规范（Documentation/process/coding-assistants.rst）显示内核正在向新硬件与新协作范式扩张，但这是"成熟巨物的增量边角"，不足以改变时机档次。</p>
+</blockquote>
+<h3>D1.4 应用场景广度（满分 2.5，得分 2.5）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>行业覆盖</td>
+<td>覆盖全部 15 个行业标签：通用跨行业、电信通信、汽车交通、航空航天、制造工业、能源环保、金融科技、医疗健康、政府公共服务、电商零售、物流供应链等，无行业不可用</td>
+</tr>
+<tr>
+<td>场景多样性</td>
+<td>典型的基础设施级横向通用件，属于"操作系统核心能力"这一最底层横切层</td>
+</tr>
+<tr>
+<td>可延展性</td>
+<td>延展性极强。内核通过子系统+驱动模型可迁移到任何新硬件形态；README 明确列出 9 类角色（新内核开发者、学术研究者、安全专家、回移维护工程师、系统管理员、Maintainer、硬件厂商、发行版维护者、AI 编码助手），场景跨度从研究到生产运维</td>
+</tr>
+</tbody>
+</table>
+<p><strong>得分理由</strong>：符合 9–10 档"跨行业通用基础设施级项目"。给 10/10 → 折算 <strong>2.5 分</strong>。</p>
+<h3>D1 小结</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1.1 目标市场规模与增长性</td>
+<td>2.5</td>
+<td>2.5</td>
+<td>9–10 档（100%）</td>
+</tr>
+<tr>
+<td>D1.2 痛点真实性与解决程度</td>
+<td>2.5</td>
+<td>2.5</td>
+<td>9–10 档（100%）</td>
+</tr>
+<tr>
+<td>D1.3 市场时机判断</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6 档（60%）</td>
+</tr>
+<tr>
+<td>D1.4 应用场景广度</td>
+<td>2.5</td>
+<td>2.5</td>
+<td>9–10 档（100%）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>9.0</strong></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：Linux 内核在"市场需求与商业机会"维度上属于极端强势样本——需求规模、需求刚性、场景广度三项均触及评分上限，唯一短板是时机维度：它本身就是成熟市场的支配者，商业化不来自"抢占空位"，只能来自"在既有生态中切分价值"（发行版、企业支持、硬件驱动、云镜像、合规与安全加固）。此外必须强调：<strong>本项目为 GPLv2（COPYING 文件确认）且由数千名开发者分布式持有版权，无版权聚合与双许可空间，任何直接售卖内核的商业路径均不可行</strong>——这一约束使得 D1 的高分无法等比例转化为商业优势，需结合 D2/D3 维度综合判断。</p>
+<hr />
+<h1>D2 技术成熟度与产品质量</h1>
+<p><strong>评估对象</strong>: torvalds/linux（Linux kernel source tree）<br />
+<strong>维度权重</strong>: 14%<br />
+<strong>数据来源</strong>: 本地实测代码统计（collect_local.py）+ P1 代码摘要 + 目录树 + 规模统计；GitHub 在线补采失败，涉及在线指标的细则按 N/A 处理并说明。</p>
+<blockquote>
+<p><strong>N/A 说明</strong>: 本项目为操作系统内核，不提供 Web / 桌面 GUI / 移动端界面，D2.5 UI/UX/UE 判定为 N/A，不参与计分。D2 总分 = (D2.1+D2.2+D2.3+D2.4+D2.6+D2.7+D2.8) ÷ 9 × 10。</p>
+</blockquote>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>小分（六档折算）</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D2.1</td>
+<td>产品设计与创新性</td>
+<td>1.5</td>
+<td>1.5（100%）</td>
+<td>9–10 卓越</td>
+</tr>
+<tr>
+<td>D2.2</td>
+<td>架构设计与工程质量</td>
+<td>2</td>
+<td>2（100%）</td>
+<td>9–10 卓越</td>
+</tr>
+<tr>
+<td>D2.3</td>
+<td>代码整洁性与规范性</td>
+<td>1</td>
+<td>0.8（80%）</td>
+<td>7–8 良好</td>
+</tr>
+<tr>
+<td>D2.4</td>
+<td>安全性</td>
+<td>1</td>
+<td>0.8（80%）</td>
+<td>7–8 良好</td>
+</tr>
+<tr>
+<td>D2.5</td>
+<td>UI/UX/UE 人机交互</td>
+<td>1</td>
+<td>N/A</td>
+<td>无 UI</td>
+</tr>
+<tr>
+<td>D2.6</td>
+<td>功能完备度与稳定性</td>
+<td>1.5</td>
+<td>1.5（100%）</td>
+<td>9–10 卓越</td>
+</tr>
+<tr>
+<td>D2.7</td>
+<td>文档与开发者体验</td>
+<td>1</td>
+<td>1.0（100%）</td>
+<td>9–10 卓越</td>
+</tr>
+<tr>
+<td>D2.8</td>
+<td>测试与质量保障</td>
+<td>1</td>
+<td>0.8（80%）</td>
+<td>7–8 良好</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10（有效 9）</strong></td>
+<td><strong>8.4 / 9</strong></td>
+<td><strong>≈ 9.3 / 10</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>D2.1 产品设计与创新性（1.5 / 1.5）</h3>
+<p><strong>产品理念</strong>：Linux 内核解决的是最底层的系统问题——硬件抽象、进程/内存/文件/网络调度与管理。以单体内核 + 可加载模块的架构方式，将无数异构硬件与上层用户态统一到稳定的系统调用契约之下。理念极其清晰，且历经三十余年验证。</p>
+<p><strong>功能设计</strong>：目录树显示功能域围绕核心场景高度组织化——<code>arch/</code>（20+ 架构移植）、<code>drivers/</code>（数百类设备驱动）、<code>fs/</code>、<code>mm/</code>、<code>net/</code>、<code>kernel/</code>、<code>crypto/</code>、<code>security/</code>、<code>block/</code>、<code>Documentation/</code>，信息架构合理，几乎没有与核心场景无关的冗余模块。功能非但无缺失，反而是同类项目中最完整的内核实现。</p>
+<p><strong>创新性</strong>：内核在设计上是多项行业首创或范式贡献者——VFS 抽象、RCU 同步机制（<code>Documentation/RCU/</code> 有完整设计文档）、CFS/EEVDF 调度器、cgroup、namespace 容器隔离原语、BPF 可编程内核（<code>kernel/bpf/verifier.c</code>）、KUnit 测试框架等。这些不是对现有方案的简单复制，而是被其他系统广泛借鉴的基础创新。</p>
+<p><strong>差异化</strong>：与 Windows NT、Darwin/XNU、FreeBSD 等同类内核相比，Linux 的开源治理、硬件覆盖面、可移植架构数量（20+ 个 <code>arch/</code> 子目录）和演进速度构成显著差异化优势。</p>
+<p><strong>评分依据</strong>：README/仓库描述、顶层目录树、P1 摘要中 <code>kernel/bpf/verifier.c</code>、<code>Documentation/RCU/</code>、<code>crypto/testmgr.h</code> 等均为原创性子系统证据。打满分 1.5（100%）。</p>
+<h3>D2.2 架构设计与工程质量（2 / 2）</h3>
+<p><strong>架构合理性</strong>：分层清晰——<code>arch/</code>（体系结构相关）、<code>include/</code>（公共接口）、<code>kernel/</code>（核心原语）、<code>mm/</code>、<code>fs/</code>、<code>net/</code>、<code>drivers/</code>（设备驱动）、<code>lib/</code>、<code>crypto/</code>、<code>security/</code>、<code>block/</code>。完全符合宏内核 + 模块化的设计范式，是教科书级的内核分层架构。</p>
+<p><strong>模块解耦与抽象</strong>：以子系统框架（subsystem + ops 结构体）为核心解耦手段，驱动通过注册回调接入框架，依赖方向为由具体驱动指向通用内核接口，方向正确。<code>kernel/bpf/verifier.c</code> 中 <code>bpf_verifier_env</code>、<code>bpf_reg_state</code>、<code>bpf_func_info</code> 等抽象层次恰当，没有明显过度设计。</p>
+<p><strong>可复用性</strong>：<code>lib/</code>、<code>include/linux/</code>、<code>tools/</code>（含 <code>tools/testing/</code>）提供大量可独立复用的公共库；同一驱动可通过 <code>of/</code>、<code>acpi/</code>、<code>platform/</code> 等总线抽象跨架构复用。<code>crypto/testmgr.h</code> 以 <code>hash_testvec</code>、<code>cipher_testvec</code>、<code>aead_testvec</code> 等统一测试向量结构复用于所有加密算法。</p>
+<p><strong>目录管理与代码量</strong>：目录命名一致、有逻辑（如 <code>drivers/gpu/drm/amd/include/asic_reg/{dcn,nbio,dpcs,gc,...}</code> 按 IP 块划分）。代码总行数 37,889,309 行、源码文件 65,274 个，与所支撑的功能复杂度完全匹配，属于「大而合理」而非臃肿。</p>
+<p><strong>复刻难度</strong>：极高。需要 20+ 架构移植、数百驱动、内存管理/调度/文件系统/网络/安全全部子系统、数十年工程积累与硬件文档，从零重写不具现实可行性，技术护城河极深。</p>
+<p><strong>技术债</strong>：存在历史包袱（<code>VGA_*</code> 遗留寄存器定义、<code>drivers/staging/</code> 目录），但这是有意识的渐进式清理策略；P1 摘要显示大量 ASIC 寄存器头文件为自动生成，属合理工程实践而非技术债。整体无架构性缺陷。</p>
+<p><strong>评分依据</strong>：顶层目录树、P1 中 <code>kernel/bpf/verifier.c</code>、<code>crypto/testmgr.h</code>、<code>drivers/scsi/lpfc/lpfc_sli.c</code> 的模块化抽象。打满分 2（100%）。</p>
+<h3>D2.3 代码整洁性与规范性（0.8 / 1）</h3>
+<p><strong>代码整洁度</strong>：P1 抽查的模块（<code>kernel/bpf/verifier.c</code>、<code>net/wireless/nl80211.c</code>、<code>drivers/scsi/lpfc/lpfc_sli.c</code>、<code>crypto/testmgr.h</code>）函数划分合理、结构清晰。但仓库中包含超 20 万行的自动生成寄存器头文件（如 <code>dcn_3_2_0_sh_mask.h</code> 超 22 万行）、超 5.6 万行的 PHY 配置数据表（<code>rtw8852c_table.c</code>），这些文件机械生成、无字段语义注释，可读性差——虽符合硬件描述惯例，仍拉低了整体整洁度评价。</p>
+<p><strong>命名规范</strong>：命名高度一致。寄存器采用 <code>REGISTER__FIELD__SHIFT</code> / <code>_MASK</code> 约定，内核代码遵循下划线小写、子系统前缀（<code>rtw89_</code>、<code>lpfc_</code>、<code>bpf_</code>）等惯例。</p>
+<p><strong>注释质量</strong>：存在少量人工注释（如 <code>dpcs_4_2_2_sh_mask.h</code> 中的 <code>//TODO: verify this still applies to DCN315</code>），但自动生成文件中普遍无字段语义注释。内核有 <code>Documentation/</code> 体系化文档补充，但代码内注释在生成文件上缺失。</p>
+<p><strong>代码风格</strong>：内核有强制编码风格规范（<code>Documentation/process/coding-style.rst</code>）与 <code>checkpatch.pl</code> 门禁，<code>L</code> 后缀长整型、include guard、SPDX 版权头等做法一致。</p>
+<p><strong>重复率</strong>：跨硬件版本存在大量结构重复（DCN 3.1.2 / 3.1.4 / 3.6.0 宏名高度相似，<code>AZF0INPUTENDPOINT7_*</code> 在多文件中重复定义），属硬件描述的特性，但客观上是重复代码。</p>
+<p><strong>评分依据</strong>：命名与风格规范且强制，但机械生成文件的可读性/重复率问题使其未达卓越。打 0.8（80%，7–8 良好档）。</p>
+<h3>D2.4 安全性（0.8 / 1）</h3>
+<p><strong>安全编码</strong>：内核具备系统级安全编码实践——<code>include/linux/uaccess.h</code> 的 <code>__user</code> 注解与 <code>copy_from_user</code>/<code>copy_to_user</code> 边界检查、<code>ACCESS_ONCE</code>/<code>READ_ONCE</code> 防优化、per-CPU 与锁原语、KASAN/UBSAN 运行时检测。P1 摘要中 <code>kernel/bpf/verifier.c</code> 是内核最严格的安全验证器之一，对 BPF 程序做完整类型/边界校验，直接防范内核内存破坏。</p>
+<p><strong>注入防护</strong>：内核本身不直接面对 SQL/XSS，但在 <code>net/wireless/nl80211.c</code>、<code>drivers/scsi/lpfc/</code> 等外部输入路径上有 netlink 属性校验（<code>nl80211_policy</code>）与 SG 列表校验等机制。</p>
+<p><strong>密钥/敏感信息</strong>：仓库为公开内核源码，不存在应用层硬编码密钥；密钥管理交由 <code>security/keys/</code>、<code>crypto/</code> 与 LSM 子系统处理。</p>
+<p><strong>依赖安全</strong>：无第三方包依赖（<code>dependencies: {}</code>），不存在供应链注入面；硬件固件为二进制 blob 但由 <code>firmware/</code> 与 <code>certs/</code> 分离管理。</p>
+<p><strong>安全扫描</strong>：素材显示 <code>has_security_md: false</code>、<code>CI workflows: 0</code>，未见 GitHub Dependabot/Snyk/Trivy 等集成扫描配置。但内核实际依靠 syzkaller/syzbot、0day 自动化测试机器人、CVE 流程与 LSM 文档（<code>Documentation/admin-guide/LSM/*</code> 含 SELinux/AppArmor/Smack/Yama/Landlock 等）进行安全治理。基于素材硬事实，此项安全扫描工具缺失证据。</p>
+<p><strong>评分依据</strong>：安全机制与安全编码成熟（有专门安全子系统与 LSM 文档），但缺少可验证的自动化安全扫描集成证据。打 0.8（80%，7–8 良好档）。</p>
+<h3>D2.5 UI/UX/UE 人机交互（N/A）</h3>
+<p>本项目为操作系统内核，交付形态是系统调用接口、内核模块 ABI 与设备驱动，无 Web 界面 / 桌面 GUI / 移动端 UI，亦非交互式 CLI 应用（其命令行工具属于 <code>tools/</code> 下独立用户态程序，非内核本体）。按方法论判定为 <strong>N/A</strong>，不参与计分。</p>
+<h3>D2.6 功能完备度与稳定性（1.5 / 1.5）</h3>
+<p><strong>功能覆盖</strong>：达到操作系统的功能上限级覆盖——20+ 体系结构（<code>arch/alpha</code> 至 <code>arch/xtensa</code>）、数百类设备驱动（<code>drivers/</code> 下从 <code>accessibility</code> 到 <code>watchdog</code>）、完整文件系统、网络协议栈、内存管理、调度、安全、虚拟化、BPF、Rust 支持（<code>.rs</code> 191,600 行 / 496 文件）。无明显核心功能缺失。</p>
+<p><strong>版本成熟度</strong>：非 alpha/beta 项目，长期维护稳定发布分支，主干持续滚动更新（最近推送 2026-09-08）。属于最成熟的软件形态之一，远超「v1.0+ 稳定版」标准。</p>
+<p><strong>向后兼容</strong>：内核严格遵守用户态 ABI「永不破坏」原则，系统调用、<code>/proc</code>、<code>/sys</code> 接口保持兼容；内部 API 会演进，但对外契约稳定，Breaking Change 管理有明确流程。</p>
+<p><strong>性能表现</strong>：经过全球超大规模生产环境验证（云、移动、嵌入式、超算），性能处于同领域顶尖水平。</p>
+<p><strong>运行环境要求</strong>：无额外中间件依赖，直接运行于裸机或虚拟化平台；<code>has_dockerfile: false</code> 说明其交付形态不面向容器镜像，但这符合内核性质，而非环境受限。</p>
+<p><strong>硬件要求</strong>：可从极小嵌入式 MCU 级平台（RISC-V/NIOS2 等）扩展到数据中心 GPU/加速器（<code>drivers/accel/habanalabs</code>、AMD <code>asic_reg</code>），无特殊强制加速卡依赖；该考察点整体上属广泛通用。</p>
+<p><strong>国际化/本地化</strong>：支持多字节字符编码（<code>fs/nls/</code>、Unicode）、多时区、<code>Documentation/translations/</code>（含中文、日文、韩文、西班牙文翻译目录），i18n 基础完备。</p>
+<p><strong>评分依据</strong>：功能完整、长期稳定、ABI 兼容、性能与硬件覆盖面均为行业标杆。打满分 1.5（100%）。</p>
+<h3>D2.7 文档与开发者体验（1.0 / 1）</h3>
+<p><strong>文档覆盖</strong>：仓库含 4,064 个文档文件，<code>Documentation/</code> 目录按子系统组织（ABI、PCI、RCU、admin-guide、driver-api、filesystems、networking、process、rust、scheduler、security、sound、trace、translations 等），覆盖 API 参考、开发流程、硬件说明、架构设计。README 即 <code>Documentation/admin-guide/README.rst</code>，内容充分。</p>
+<p><strong>文档质量</strong>：质量极高且有深度——例如 <code>Documentation/RCU/Design/</code> 下包含 <code>Requirements.rst</code>、<code>Tree-RCU-Memory-Ordering.rst</code>、<code>Data-Structures.rst</code> 等原理级设计文档，<code>Documentation/PCI/</code> 含端到端 howto，<code>Documentation/process/</code> 规范贡献流程与编码风格。这是开源项目中罕见的体系化文档。</p>
+<p><strong>版本同步</strong>：文档与代码同仓同步维护，内核开发流程要求 PC 补丁同步更新文档，不存在文档与实现长期脱节的问题（translations 目录有跟随机制）。</p>
+<p><strong>评分依据</strong>：文档规模、结构完整度与深度均属卓越。打满分 1.0（100%）。</p>
+<blockquote>
+<p>注：「新用户跑通第一个 demo 的时间」归属 D9.4，本项不重复评估。</p>
+</blockquote>
+<h3>D2.8 测试与质量保障（0.8 / 1）</h3>
+<p><strong>测试覆盖</strong>：仓库含 1,957 个测试文件、542,862 行测试代码，测试行数占比约 1.4%（相对 37.9M 行总量）。内核测试体系包括 KUnit 单元测试、<code>tools/testing/selftests/</code> 集成测试、<code>crypto/testmgr.h</code> 的算法测试向量、<code>maple.c</code> 的压力/随机测试等。但内核受硬件依赖影响，整体行覆盖率无法达到普通应用项目的 &gt;80% 水平。</p>
+<p><strong>CI/CD</strong>：实测 <code>CI workflows: 0</code>。这反映 Linux 不通过 GitHub Actions 管理 CI，而是使用邮件列表 + 0day/Intel LKP 构建机器人 + syzbot 模糊测试 + linux-next 集成树的独特流水线。素材中无法采集到该流水线的配置文件，因此「CI 证据」在素材内体现为缺失，但客观事实上存在多层自动化构建/测试体系。</p>
+<p><strong>质量门禁</strong>：具备多级门禁——maintainer 审查（MAINTAINERS 文件）、<code>checkpatch.pl</code> 静态风格检查、<code>sparse</code> 静态分析、0day 构建回归、syzbot 持续模糊测试、Coverity 扫描等。素材中 <code>has_codeowners: false</code>，但内核用 <code>MAINTAINERS</code> 而非 CODEOWNERS。</p>
+<p><strong>评分依据</strong>：测试文件量与测试框架（KUnit/selftest）充足、质量门禁多级，但测试覆盖率与 CI 配置在素材中无充分证据达到卓越档。打 0.8（80%，7–8 良好档）。</p>
+<h3>结论</h3>
+<p>D2 有效得分 <strong>8.4 / 9 → 折算 9.3 / 10</strong>，处于「卓越」区间。</p>
+<p>Linux 内核在产品设计、架构工程、功能完备度、稳定性和文档五个方面均达到行业天花板级别：分层架构清晰、复刻难度极高、功能覆盖无死角、ABI 长期兼容、文档体系化。扣分主要集中在两处：一是海量自动生成的硬件寄存器/PHY 表文件拉低了代码整洁性与重复率评价（D2.3 打 80%）；二是素材中缺少可验证的自动化安全扫描集成与 CI 配置硬证据（D2.4、D2.8 各打 80%）。D2.5 无 UI，按 N/A 剔除并等比缩放。</p>
+<p>从商业化视角看，本项目不存在技术成熟度与产品质量层面的商业化障碍——其技术成熟度本身就是商业生态的基石。唯一需在最终报告其他维度（D6 法律合规、D7 商业模式）关注的，是 GPL 许可证的传染性与内核作为「免费公共品」的定位，那不属于 D2 范围。</p>
+<h3>D3. 社区健康度与生态势能（权重 11%）</h3>
+<blockquote>
+<p><strong>数据可得性声明</strong>：本维度依赖的 GitHub 在线指标补采失败（近 90 天 Star 增量、Issue 关闭数/平均关闭时长、贡献者统计均缺失）。所有可用硬事实来自仓库静态采样与 README；部分判断基于结构性证据与领域共识，已在各细则中标注置信度。<strong>特别注意</strong>：<code>torvalds/linux</code> 的 GitHub 仓库是内核开发的镜像入口，真实协作发生在 lore.kernel.org 邮件列表与 bugzilla.kernel.org（README 明确指向），因此 GitHub Issue/PR 类指标对本项目存在天然渠道失真，解读时不应直接等同于「社区冷清」。</p>
+</blockquote>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>折算档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D3.1 社区活跃度指标</td>
+<td>3.0</td>
+<td>2.4</td>
+<td>80%（7–8 档）</td>
+<td>见下方分解</td>
+</tr>
+<tr>
+<td>D3.2 贡献者结构多样性</td>
+<td>2.5</td>
+<td>2.5</td>
+<td>100%（9–10 档）</td>
+<td>见下方分解</td>
+</tr>
+<tr>
+<td>D3.3 第三方生态成熟度</td>
+<td>3.0</td>
+<td>3.0</td>
+<td>100%（9–10 档）</td>
+<td>见下方分解</td>
+</tr>
+<tr>
+<td>D3.4 品牌认知与行业影响力</td>
+<td>1.5</td>
+<td>1.5</td>
+<td>100%（9–10 档）</td>
+<td>见下方分解</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>9.4</strong></td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h4>D3.1 社区活跃度指标（2.4 / 3.0）</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Star 增速（退化公式）</td>
+<td>247,633 ÷ 约 180 个月 ≈ <strong>1,376 Star/月</strong></td>
+<td>落在「&gt;500/月」最高档</td>
+</tr>
+<tr>
+<td>Fork 比率</td>
+<td>64,451 / 247,633 = <strong>26.0%</strong></td>
+<td>显著高于常见 10–20% 区间，衍生意愿极强</td>
+</tr>
+<tr>
+<td>Issue 活跃度（近 90 天）</td>
+<td><strong>N/A</strong>（API 补采失败；且本项目不使用 GitHub Issue 作为主通道，开放 Issue 数亦为 N/A）</td>
+<td>无法评估</td>
+</tr>
+<tr>
+<td>响应速度（Issue 平均关闭时长）</td>
+<td><strong>N/A</strong>（同上）</td>
+<td>无法评估</td>
+</tr>
+</tbody>
+</table>
+<p><strong>扣档理由</strong>：四个考察点中仅 2 个可得数据，且其中 Star 增速用的是<strong>退化公式（历史平均值）</strong>——对 2011 年建仓、已运行约 15 年的项目，该值会平滑掉近年真实动能，存在高估早期红利、无法反映近 90 天拐点的风险，必须降权解读。两个主观测（Issue 活跃度、响应速度）恰好是最能反映「社区参与度与维护者响应能力」的指标，却在本项目上因渠道错配（GitHub 非主战场）而永久失真。因此，虽然可测的两项均处于最高档，仍保守下调一档至 80%，而非直接给满分。若仅按可测项等比缩放，则为 100%（3.0），此处的降档是对「数据缺口 + 退化公式」双重不确定性的显式惩罚。<strong>该细则置信度：中</strong>.</p>
+<h4>D3.2 贡献者结构多样性（2.5 / 2.5）</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>证据</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>贡献者数量</td>
+<td>未实测（API 补采失败，本地亦未执行 git log 作者统计）；结构性证据：65,274 个源码文件、3,789 万行代码横跨 arch/drivers/fs/net/mm 等数十个子系统</td>
+<td>远超「50+ 活跃贡献者」（领域共识，未实测，置信度中高）</td>
+</tr>
+<tr>
+<td>组织多样性</td>
+<td>README 明确列出 10 类角色（硬件厂商、发行版维护者、维护者、安全专家等）；<code>Documentation/</code> 中并存 AMD XDNA（amdxdna）、Qualcomm QAIC（qaic）、PCI/RCU 等多厂商与多子系统文档；README 指向 <code>MAINTAINERS</code> 文件「列出子系统维护者与邮件列表」</td>
+<td>满足「10+ 组织」，属多公司协作范式的标杆</td>
+</tr>
+<tr>
+<td>核心团队占比</td>
+<td>未实测；但 MAINTAINERS 分权结构 + 多厂商子系统文档表明外部贡献占主导</td>
+<td>满足「外部贡献占比高」</td>
+</tr>
+</tbody>
+</table>
+<p><strong>说明</strong>：三项均为结构性/定性判断，缺精确计数，故置信度中等；但证据方向高度一致，且该项目的多组织协作模式属公开领域共识，不存在「单人项目」「1–2 个组织」的任何迹象，打 100% 档。若审阅方要求严格实测口径，本细则可回退为 N/A 并由 D3 维度等比缩放（此时维度分 = (2.4+3.0+1.5)/8.5×10 = 8.12，置信度下降）。</p>
+<h4>D3.3 第三方生态成熟度（3.0 / 3.0）</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>证据</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>插件/扩展</td>
+<td>内核模块（out-of-tree module / DKMS）、eBPF 程序、设备驱动、设备树绑定（Documentation/devicetree/bindings/）构成事实上的超大规模扩展体系</td>
+<td>远超普通「插件市场」量级</td>
+</tr>
+<tr>
+<td>集成生态</td>
+<td>被云平台、CI/CD、容器运行时、Android、嵌入式与发行版全栈依赖；<code>Documentation/driver-api/</code> 为第三方硬件厂商提供官方对接规范，AMD/Qualcomm 等厂商子系统文档已入库</td>
+<td>满足「被主流平台集成」最高档</td>
+</tr>
+<tr>
+<td>衍生项目/商业产品</td>
+<td>发行版与商业衍生（RHEL、SUSE、Ubuntu、Android、Yocto、OpenWrt、树莓派内核树等，属领域共识的非实测背景知识）</td>
+<td>满足「有成功商业衍生品」</td>
+</tr>
+<tr>
+<td>教程/课程</td>
+<td>4,064 个文档文件 + Documentation/process 完整贡献者手册；kernelnewbies、lore.kernel.org、bugzilla.kernel.org、Linux Plumbers/Kernel Summit 等外部教学与会议渠道</td>
+<td>满足「外部大量教程」</td>
+</tr>
+</tbody>
+</table>
+<p><strong>说明</strong>：衍生商业产品与平台集成部分为公开领域共识而非本次实测，但生态广度在仓库内已有硬证据（官方驱动 API 文档、多厂商子系统、完整贡献流程文档），打 100% 档。<strong>置信度：高（定性）/ 中（量化）</strong>。</p>
+<h4>D3.4 品牌认知与行业影响力（1.5 / 1.5）</h4>
+<ul>
+<li><strong>品牌辨识度</strong>：<code>Linux</code> 属全球认知度最高的技术品牌之一，远超「行业知名品牌」标准。</li>
+<li><strong>行业采用</strong>：README 面向 10 类角色（含硬件厂商、发行版维护者、AI 编码助手）编写对接指引，本身就是产业链级采用的自证；仓库被引用至 kernel.org、bugzilla.kernel.org 等官方基础设施。</li>
+<li><strong>媒体覆盖</strong>：长期占据技术媒体与顶级会议（Kernel Summit、Linux Plumbers）核心议题，属领域共识。</li>
+<li>三项均指向最高档，打 100%。<strong>置信度：高（但属定性判断）</strong>。</li>
+</ul>
+<h3>结论</h3>
+<p><strong>D3 社区健康度与生态势能 = 9.4 / 10（卓越档）。</strong></p>
+<p><code>torvalds/linux</code> 在社区与生态维度是近乎天花板的存在：24.8 万 Star、6.4 万 Fork（Fork/Star 比 26.0%，为健康的 10–20% 区间的 1.3–2.6 倍），反映极强的衍生与二次开发意愿；贡献者结构与厂商生态的多组织特征在 MAINTAINERS 与多厂商子系统文档中直接可见；第三方集成与商业衍生覆盖云、移动、嵌入式、发行版全栈；品牌影响力为业界顶点。这四点在商业化视角下意味着<strong>全球最大的潜在客户池与技术信任基础</strong>——尤其适合「企业级支持/订阅（RHEL 模式）」「芯片厂商驱动上游化服务」「合规与安全审计」等路径。</p>
+<p>需要向决策者提示的两点风险与折扣：</p>
+<ol>
+<li><strong>数据折扣</strong>：本维度 4 个细则中仅 D3.1 的 2 个指标有实测值，且 Star 增速使用退化公式（≈1,376 Star/月为 15 年历史平均），90 天动能、Issue 响应能力均不可测。评分卡中 D3.1 已被显式下调一档（2.4/3.0）以反映该不确定性；若后续补采成功，D3 有上行至 10.0 的空间。</li>
+<li><strong>渠道错配</strong>：该 GitHub 仓库主要是镜像，社区互动发生在邮件列表与 Bugzilla，GitHub 原生指标（Issue/PR/CI）系统性偏低（0 个 CI workflow、无 CODEOWNERS/CONTRIBUTING 于仓库根目录）。这不构成社区弱势，但<strong>任何基于 GitHub 活跃度的自动化评分都会低估本项目</strong>，需在横向对比中做口径校正。</li>
+</ol>
+<p><strong>商业化启示</strong>：该项目的社区资产不是「待培育的势能」，而是「已完全兑现的存量」；商业化障碍不在此维度，而在商标/许可治理（Linux 商标由 LF 持有）、内核社区对厂商闭源商业化的天然抗拒，以及直接售卖内核本身不可行——变现必须依附于支持、合规、硬件使能等外围服务。</p>
+<h3>D4. 商业模式与变现潜力（权重 18%）</h3>
+<h3>D4.1 协议对变现模式的影响（满分 2 分 → 1.2 分）</h3>
+<p><strong>实测事实</strong>：<code>COPYING</code> 文件明确声明 <code>SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note</code>，即 <strong>GPL-2.0-only + 系统调用例外（Linux-syscall-note）</strong>。<code>Documentation/process/license-rules.rst</code> 进一步说明仓库内还存在其他兼容许可证（如 libertas 目录下的 GPL-2.0 声明、<code>tools/usb/usbip/COPYING</code> 为完整 GPLv2 文本）。本地采集的 license 字段识别结果为 <code>GPL</code>（源文件 <code>COPYING</code>），与描述中的 <code>Other</code> 一致（GitHub 将 GPL-2.0-with-exception 归为 Other）。</p>
+<p><strong>对变现模式的约束分析</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>约束维度</th>
+<th>影响</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>闭源衍生（Open Core）</td>
+<td><strong>不可行</strong>——GPL-2.0 强传染，内核态衍生模块必须 GPL 化</td>
+</tr>
+<tr>
+<td>双协议许可</td>
+<td><strong>结构性不可行</strong>——内核有数千位版权持有者，无 CLA / 无版权转让（仅 DCO），单一主体无法重新授权</td>
+</tr>
+<tr>
+<td>SaaS 托管</td>
+<td>无实际约束（内核不是可远程托管的应用），但也无此变现入口</td>
+</tr>
+<tr>
+<td>用户态商业软件</td>
+<td><strong>不受约束</strong>——Linux-syscall-note 明确允许专有用户态程序无障碍调用系统调用，这是 GPL 限制的一处松绑</td>
+</tr>
+<tr>
+<td>硬件厂商驱动</td>
+<td>受约束（内核态驱动必须 GPL 兼容，实际催生了 "GPL 符号 + 二进制固件" 的业界惯例）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分判定</strong>：协议为标准 GPL-2.0（非 AGPL、非 SSPL），落于评分指引 <strong>5–6 档</strong>（"GPL，SaaS 和闭源衍生受限，需双协议模式"）。虽附带 syscall 例外略微放松用户态约束，但因无 CLA 导致<strong>双协议模式在事实上不可行</strong>，甚至比典型 GPL 项目更受限。按六档折算：2 × 60% = <strong>1.2 分</strong>。</p>
+<hr />
+<h3>D4.2 变现路径清晰度（满分 3.5 分 → 2.1 分）</h3>
+<p><strong>结构性前提</strong>：<code>torvalds/linux</code> 是<strong>社区治理型上游项目</strong>，不存在持有 IP 并运营商业实体的公司。价值捕获全部发生在下游（发行版厂商、云厂商、硬件厂商）与 Linux Foundation（非营利基金会）。</p>
+<table>
+<thead>
+<tr>
+<th>变现模式</th>
+<th>对本项目的适配性</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Open Core</td>
+<td>无闭源企业版存在空间（GPL + 数千版权人）</td>
+<td>✗ 不可行</td>
+</tr>
+<tr>
+<td>双协议许可</td>
+<td>无 CLA/版权转让，无法重新授权</td>
+<td>✗ 不可行</td>
+</tr>
+<tr>
+<td>SaaS 托管</td>
+<td>内核非托管型服务对象</td>
+<td>✗ 不适用</td>
+</tr>
+<tr>
+<td>专业服务（咨询/支持/定制）</td>
+<td><strong>高度成熟</strong>——Red Hat / SUSE / Canonical 订阅制收入规模数十亿美元量级，但收益归下游发行版，非本项目</td>
+<td>△ 生态级可行，项目级不可捕获</td>
+</tr>
+<tr>
+<td>认证/生态</td>
+<td><strong>成熟</strong>——Linux Foundation 会员费（Platinum 级年费 $500K 量级）、LFCS/LFCE 认证、培训体系</td>
+<td>△ 基金会级可行</td>
+</tr>
+<tr>
+<td>市场/插件</td>
+<td>无插件市场机制</td>
+<td>✗ 不适用</td>
+</tr>
+<tr>
+<td>捐赠/赞助</td>
+<td>存在（内核开发者由各厂商雇佣投入），但纯捐赠无法支撑 3700 万行规模的维护</td>
+<td>△ 补充性</td>
+</tr>
+</tbody>
+</table>
+<p><strong>关键判断</strong>：本项目是"<strong>开源商业化的基座</strong>"而非"<strong>开源商业化的主体</strong>"——它为整个产业创造了数以百亿美元计的商业价值，但项目本身没有任何一条可直接执行、可归属于项目所有者的变现路径。所有可行路径（专业服务、认证生态、赞助）都在基金会/下游厂商层面实现，项目仓库自身无法执行 Open Core、双协议或 SaaS。</p>
+<p><strong>评分判定</strong>：落于 <strong>5–6 档</strong>（"有潜在路径但尚不清晰，需验证"）——生态层的路径极其清晰且已被验证，但项目主体层无执行主体、无 IP 集中度、无授权弹性，路径只能"借道"实现。按六档折算：3.5 × 60% = <strong>2.1 分</strong>。</p>
+<hr />
+<h3>D4.3 付费转化逻辑（满分 2.5 分 → 1.5 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>免费到付费触发点</td>
+<td><strong>项目内不存在</strong>。内核源码 100% 功能完整、永久免费，无任何功能门禁或用量限制。付费触发点全部外移：企业级 SLA、长期维护（LTS/ELTS）、安全补丁承诺、合规认证（FIPS、Common Criteria）、硬件使能支持</td>
+</tr>
+<tr>
+<td>付费意愿强度</td>
+<td><strong>极强但对象错位</strong>——金融/电信/政企为 Linux 支持订阅支付的单价可达数千至数万美元/节点/年，付费意愿经数十年验证；但付费对象是 Red Hat/SUSE/Canonical 等下游，而非本项目</td>
+</tr>
+<tr>
+<td>转化漏斗</td>
+<td><strong>无漏斗</strong>——项目方（Linus + 社区 maintainer）不提供付费服务，用户与项目之间不存在付费关系。漏斗存在于下游发行版：社区版免费 → 企业版订阅（支持 + 认证 + 生命周期）这一链条被 RHEL 反复验证，但对本仓库不成立</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分判定</strong>：落于 <strong>5–6 档</strong>（"有升级逻辑但触发点不够自然"）——升级逻辑在生态层真实且成熟，但对项目自身而言触发点完全不存在，属于"免费版绝对够用、付费只能在下游发生"的极端情形。按六档折算：2.5 × 60% = <strong>1.5 分</strong>。</p>
+<hr />
+<h3>D4.4 增值服务空间与定价天花板（满分 2 分 → 1.6 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>增值空间</td>
+<td><strong>极大</strong>：企业级支持与 SLA、LTS/超长期维护（单版本维护周期可达 10+ 年）、安全响应与 CVE 处置、合规认证包、硬件使能（每代新芯片需上游驱动支持）、回归测试 CI、内核培训与认证、法务与许可证审计服务</td>
+</tr>
+<tr>
+<td>定价天花板</td>
+<td><strong>极高</strong>：Linux Foundation Platinum 会员年费 $500K 量级；企业级 Linux 订阅在大规模部署中单客户年合同可达 $10K–$1M+；认证考试单价 $395 量级。客户单价几乎无上限，取决于部署规模与合规要求</td>
+</tr>
+<tr>
+<td>收入扩展性</td>
+<td><strong>可扩展但不可由项目捕获</strong>：per-node/per-core 订阅（发行版层）→ enterprise flat fee（基金会会员层）→ 硬件厂商使能协议。但 Linux Foundation 为非营利组织，收入天花板受治理结构约束，无法呈现典型的指数级商业增长</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分判定</strong>：增值空间与客单价天花板均远超一般开源项目，但价值捕获主体为下游厂商与基金会而非项目，且非营利治理结构压制了收入指数增长的可能性。落于 <strong>7–8 档</strong>（"有明确增值方向，客单价 $1K–10K/年"）与 <strong>9–10 档</strong> 之间，取偏保守的 7–8 档。按六档折算：2 × 80% = <strong>1.6 分</strong>。</p>
+<hr />
+<h3>D4 维度汇总</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D4.1 协议对变现模式的影响</td>
+<td>2.0</td>
+<td>1.2</td>
+<td>5–6 档（GPL-2.0）</td>
+</tr>
+<tr>
+<td>D4.2 变现路径清晰度</td>
+<td>3.5</td>
+<td>2.1</td>
+<td>5–6 档</td>
+</tr>
+<tr>
+<td>D4.3 付费转化逻辑</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6 档</td>
+</tr>
+<tr>
+<td>D4.4 增值服务空间与定价天花板</td>
+<td>2.0</td>
+<td>1.6</td>
+<td>7–8 档</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>6.4</strong></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：Linux 内核是<strong>开源史上商业价值最大、但自身商业化能力最弱</strong>的一类项目。其价值创造（支撑全球服务器、云、移动、嵌入式基础设施）与价值捕获之间存在根本性错配——GPL-2.0-only 且无 CLA/版权转让，使得 Open Core、双协议、SaaS 三条主流变现路径在<strong>结构上不可执行</strong>；所有真实收入（数十亿美元量级的订阅与支持）均沉淀于 Red Hat/SUSE/Canonical 等下游发行版及 Linux Foundation 的非营利生态中。增值空间与客单价天花板（D4.4，1.6/2.0）是其最强项，付费转化与路径清晰度（D4.2/D4.3，3.6/6.0）是其短板，但该短板源于项目的公共基础设施定位，而非商业能力缺陷。综合得分 <strong>6.4/10</strong>（一般偏上），属"产业基座型"项目的典型画像——<strong>高度可商业化，但不可被本体商业化</strong>。</p>
+<blockquote>
+<p><strong>置信度说明</strong>：本维度评估基于本地实测的 <code>COPYING</code>/<code>LICENSE</code> 文件与 README 全文，协议与治理结构等硬事实充分；GitHub 在线补采失败（Star/Fork/Issue 等在线指标缺失），但 D4 各项细则不依赖在线指标，故置信度<strong>不受影响</strong>。收入量级数据引自公开估算，仅作量级参照。</p>
+</blockquote>
+<h3>D5 竞争格局与差异化壁垒（权重 12%）</h3>
+<h3>D5.1 竞品对比与市场定位（3 分）—— <strong>2.4 / 3.0</strong></h3>
+<h4>竞品</h4>
+<h3>D6. 法律合规与知识产权</h3>
+<p><strong>维度权重</strong>: 7% ｜ <strong>本维度满分</strong>: 10 分（D6.1 3 分 + D6.2 2.5 分 + D6.3 2.5 分 + D6.4 2 分）</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D6.1 开源协议合规性与商业限制</td>
+<td>3</td>
+<td>1.8</td>
+<td>5–6 档（60%）</td>
+<td>协议高度明确规范、无商业附加条款；但为强 copyleft 内核级协议</td>
+</tr>
+<tr>
+<td>D6.2 依赖链法律风险</td>
+<td>2.5</td>
+<td>2.5</td>
+<td>9–10 档（100%）</td>
+<td>无传染性依赖，几乎不存在外部依赖链</td>
+</tr>
+<tr>
+<td>D6.3 商标与专利风险</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6 档（60%，默认档）</td>
+<td>无人工核查数据，按方法论默认档给分，置信度低</td>
+</tr>
+<tr>
+<td>D6.4 贡献者协议完备性</td>
+<td>2</td>
+<td>1.2</td>
+<td>5–6 档（60%）</td>
+<td>有 DCO 式签核机制与完备流程，但无 CLA，版权高度分散</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>7.0</strong></td>
+<td>—</td>
+<td>折算维度得分 <strong>7.0 / 10</strong></td>
+</tr>
+</tbody>
+</table>
+<h3>D6.1 开源协议合规性与商业限制（1.8 / 3.0）</h3>
+<p><strong>协议明确性（强项）</strong>。根目录 <code>COPYING</code> 明确声明：</p>
+<pre><code>SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note
+</code></pre>
+<p>并指向 <code>LICENSES/preferred/GPL-2.0</code>、<code>LICENSES/exceptions/Linux-syscall-note</code> 及 <code>Documentation/process/license-rules.rst</code>。SPDX 标识规范、例外条款路径可追溯，属于业界协议声明规范的标杆水平。子目录亦保持一致性（如 <code>tools/usb/usbip/COPYING</code> 为 GPL-2.0；<code>drivers/net/wireless/marvell/libertas/LICENSE</code> 为 GPL-2.0；<code>rust/pin-init</code> 为 Apache-2.0 / MIT 双许可，其 <code>CONTRIBUTING.md</code> 明示 "All contributions are double-licensed under Apache 2.0 and MIT"）。</p>
+<p><strong>商业附加条款（无）</strong>。未检出 Commons Clause、BUSL、SSPL 等限制商用的附加条款；不存在"源码可见但商用需授权"这类陷阱。</p>
+<p><strong>copyleft 传染性（核心风险点）</strong>。内核采用 GPL-2.0-only（"version 2 only"，不随"any later version"升级，避免了 GPLv3 的专利与反 Tivo 化条款），传染范围是<strong>内核态全局</strong>：
+- 任何内核态衍生作品（含内核模块）在法律解释上被要求以 GPL-2.0 发布源码，闭源专有驱动模块处于法律灰区；
+- <strong>缓解因素</strong>：<code>Linux-syscall-note</code> 例外明确允许非 GPL 用户程序通过系统调用使用内核，即"用户态商业软件 + 内核"这一最常见的商业化组合法律上成立；
+- <strong>不可用路径</strong>：无法进行"开源版 + 商业闭源版"双协议变现（GPL-2.0-only 且版权分散，见 D6.4），也无法将内核改写为闭源产品分发。</p>
+<p><strong>档位判定说明</strong>：依据本细则"避免与 D4.1 双重放大"的约束，此处不因"协议类型本身"再扣分，仅评估传染范围与合规可管理性。内核协议明确、例外清晰、无附加条款，但强 copyleft 覆盖面广且模块合规存在解释空间，需法律审查——精确对应 5–6 档"copyleft 协议，需法律审查但可管理"（60%）。未达 7–8 档的原因：内核态闭源扩展这一实质性商业模式在法律上并不"无实质障碍"。</p>
+<h3>D6.2 依赖链法律风险（2.5 / 2.5）</h3>
+<p>本地实测 <code>dependencies: {}</code>——内核本体不使用包管理器清单，依赖链几乎不存在：无 <code>go.mod</code>、无 <code>package.json</code> 运行时依赖树、无传递依赖。</p>
+<p>仅有的声明式依赖集中在<strong>用户态辅助工具</strong>，且全为宽松协议、版本锁定清晰：
+- <code>Documentation/sphinx/requirements.txt</code>：<code>alabaster</code>、<code>Sphinx</code>、<code>pyyaml</code>（文档构建，BSD/MIT 系）；
+- <code>tools/net/ynl/requirements.txt</code> 与 <code>pyproject.toml</code>：<code>jsonschema==4.*</code>、<code>PyYAML==6.*</code>（MIT）；
+- <code>tools/perf/util/setup.py</code>：仅构建期 <code>setuptools</code>（MIT）。</p>
+<p>此外，GPL-2.0 代码对同协议或宽松协议的第三方代码吸收不构成传染风险（GPL 兼容方向正确）。无 AGPL、无 SSPL、无来源不明的二进制包依赖，合规审查成本极低。判定 9–10 档（100%）。</p>
+<h3>D6.3 商标与专利风险（1.5 / 2.5，置信度低）</h3>
+<p><strong>方法论强制约束</strong>：商标检索与专利排查无法由自动化流程完成，本次评估<strong>未获得任何人工核查数据</strong>（GitHub 在线补采失败，本地采集亦无商标/专利字段）。依据本细则规定，无人工核查数据时按 5–6 档默认给分并标注低置信度——故计 1.5/2.5。</p>
+<p>需在商业尽调阶段人工补足的事项（此处仅列待核查清单，<strong>不对结论作任何断言</strong>）：
+1. 项目名称与"Linux"字样的商标权属、可注册性及第三方使用限制政策；
+2. 内核所涉技术领域（驱动、文件系统、内存管理、调度器等）的在先专利与标准必要专利（SEP）暴露面；
+3. 项目是否附带限制衍生品使用名称的商标使用政策文本。</p>
+<p><strong>该细则不应被视为内核的实际法律短板或优势</strong>，当前分值纯属数据缺失下的保守取值，建议在报告中以人工尽调结果替换。</p>
+<h3>D6.4 贡献者协议完备性（1.2 / 2.0）</h3>
+<p><strong>贡献流程与签核机制（较好）</strong>。虽根目录 <code>has_contributing: false</code>（未探测到根级 <code>CONTRIBUTING.md</code>）、<code>has_codeowners: false</code>，但素材中可见规范化的贡献制度：
+- <code>Documentation/doc-guide/contributing.rst</code>（含意/中译本）系统规定了文档贡献流程、补丁主题格式、<code>scripts/get_maintainer.pl</code> 维护者路由等；
+- <code>rust/pin-init/CONTRIBUTING.md</code> 明确要求每个提交必须添加 <code>Signed-off-by</code> 标签，并链接 [Developer's Certificate of Origin]，即内核通行的 <strong>DCO 签核机制</strong>——这在法律功能上等价于对贡献者权属来源的声明与追认；
+- 提交规范（每提交可编译、逻辑内聚、公共 API 变更须记入 CHANGELOG）完整，工程治理成熟。</p>
+<p><strong>版权归属（核心短板）</strong>。项目<strong>无 CLA</strong>（Contributor License Agreement），且拥有数万名历史贡献者，版权按文件分散在大量个人与公司主体手中。这带来两个直接后果：
+1. <strong>无法实施双协议/再许可变现</strong>——没有统一的版权集中主体可以授权商业闭源许可，这是对本项目最实质的商业化法律限制；
+2. <strong>版权主张与维权高度依赖社区与基金会协作</strong>，单个商业主体难以独立主张权利。</p>
+<p>DCO + 完备流程对应 7–8 档的"基础"，但"无正式 CLA、版权不可集中控制"正是 5–6 档的判定特征（"有贡献指南但无正式 CLA"），且版权分散对双协议模式构成实质障碍。综合判定 5–6 档（60%），计 1.2/2.0。</p>
+<h3>结论</h3>
+<p><strong>D6 维度得分 7.0 / 10（良好偏中性）</strong>。项目的法律基础面异常扎实：协议声明规范到可作为行业范例（SPDX + 例外条款 + 许可规则文档齐备）、无任何商业附加条款、依赖链合规风险几近于零。真正的约束来自两方面：一是 GPL-2.0-only 内核级强 copyleft 封死了"专有内核扩展/闭源衍生分发/双协议再许可"三条路径（但 <code>Linux-syscall-note</code> 保住了用户态商业软件这条路，这是本项目相对其他 GPL 项目的关键法律缓冲）；二是无 CLA 导致版权极度分散，任何需要集中授权、再许可或版权主张的商业模式在法律上不可行。</p>
+<p><strong>对商业化的净影响</strong>：支持"围绕内核的商业化"（发行版集成、硬件/固件绑定、SLA 支持、SaaS/云服务、认证培训），不支持"基于内核本体的专有化变现"。<strong>待办</strong>：D6.3 商标与专利需人工尽调后替换默认分，这是本维度唯一置信度显著偏低的项；同时应就闭源内核模块（如 eBPF 程序、GPL-only 符号导出限制 <code>EXPORT_SYMBOL_GPL</code>）的法律边界取得专项法律意见。</p>
+<h3>D7 企业就绪度与可运营性</h3>
+<p>分析失败（DeepSeek API 错误 400: Error code: 400 - {'error': {'message': "This model's maximum context length is 1048576 tokens. However, you requested 1260521 tokens (1252521 in the messages, 8000 in the completion). Please reduce the length of the messages or completion.", 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_request_error'}}），本维度标 N/A。</p>
+<h3>D8. 团队治理与可持续性</h3>
+<blockquote>
+<p>说明：本轮 GitHub API 在线补采失败，涉及"实时贡献者数、赞助页面金额、组织成员"等在线指标无法实测。以下评估以素材中的本地/静态硬事实（star/fork 量级、推送时间、文档结构、许可、社区规模）为锚点，结合该项目的公开治理事实进行判断；涉及无法核验的在线金额类数据不作臆造，相关推断均已在依据中标注来源性质。</p>
+</blockquote>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>核心理由</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D8.1 核心维护者能力与背景</td>
+<td>2.5</td>
+<td>2.5</td>
+<td>9–10（100%）</td>
+<td>创始人为 Linux 之父，子系统维护者体系庞大、全职化，巴士因子极高</td>
+</tr>
+<tr>
+<td>D8.2 治理模型透明度</td>
+<td>2.0</td>
+<td>2.0</td>
+<td>9–10（100%）</td>
+<td>治理/流程文档体系化（Documentation/process、MAINTAINERS），Linux Foundation 背书，决策在 LKML 公开</td>
+</tr>
+<tr>
+<td>D8.3 资金支持与商业赞助</td>
+<td>2.5</td>
+<td>2.5</td>
+<td>9–10（100%）</td>
+<td>全球头部科技公司全职团队 + Linux Foundation 支持，资金为开源界最强</td>
+</tr>
+<tr>
+<td>D8.4 项目可持续性与传承风险</td>
+<td>3.0</td>
+<td>3.0</td>
+<td>9–10（100%）</td>
+<td>持续活跃推送、无废弃标记、有明确继任机制、无分裂风险</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>10.0</strong></td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>D8.1 核心维护者能力与背景（2.5 / 2.5，100%）</h3>
+<ul>
+<li><strong>技术能力</strong>：项目由 Linus Torvalds 创建并长期主导，是全行业公认的顶级系统级项目，代码规模达 3789 万行、6.5 万个源文件，技术纵深与复杂度无出其右。</li>
+<li><strong>组织化维护</strong>：内核并非"单人项目"，而是以 <code>MAINTAINERS</code> 为中心、按子系统划分的数百人维护者网络（本仓库文档树中含 <code>Documentation/doc-guide/</code>、<code>Documentation/process</code> 引用的提交规范，以及 <code>rust/pin-init/CONTRIBUTING.md</code> 中明确指向 <code>docs.kernel.org/process/submitting-patches</code> 的开发者证书流程），远超"单车库单人维护"形态。</li>
+<li><strong>投入度</strong>：绝大多数核心维护者由企业全职雇佣投入，属于全职而非业余。</li>
+<li><strong>巴士因子</strong>：极高（≥5）。历史已验证——2018 年 Linus 短暂休假期间由 Greg KH 等副手无缝接管，项目未受冲击；子系统级维护者数量众多，单点离职不构成项目风险。</li>
+<li><strong>判定</strong>：满足 9–10 档"核心团队全职投入、行业经验丰富、巴士因子高"的全部特征，给满分。</li>
+</ul>
+<h3>D8.2 治理模型透明度（2.0 / 2.0，100%）</h3>
+<ul>
+<li><strong>治理文档</strong>：本仓库虽无根目录 <code>GOVERNANCE.md</code>（本地实测 <code>has_contributing=false</code>、<code>has_codeowners=false</code>），但其治理文档<strong>以更成熟的形式存在</strong>：<code>Documentation/doc-guide/contributing.rst</code>（贡献指南正文，含完整的补丁流程、<code>Signed-off-by</code>、<code>get_maintainer.pl</code> 用法）以及被多处引用的 <code>Documentation/process/submitting-patches</code> 权威流程文档。对内核而言 <code>MAINTAINERS</code> 文件承担了比 <code>CODEOWNERS</code> 更严格的职责划分，<code>CODEOWNERS</code> 缺失不构成治理缺陷。</li>
+<li><strong>开放程度</strong>：决策在 Linux Kernel Mailing List 上公开讨论，外部贡献者可从 typo 修复逐级进入到子系统维护者，路径公开且被文档明确鼓励。</li>
+<li><strong>基金会/组织</strong>：项目与 Linux Foundation 深度绑定（名称商标、创始人受雇、基础设施），属于"知名基金会"背书范畴。</li>
+<li><strong>判定</strong>：治理结构完整、文档体系化、决策公开透明，符合 9–10 档。唯一格式层面的差异（无 <code>GOVERNANCE.md</code> 单文件）不构成实质短板。</li>
+</ul>
+<h3>D8.3 资金支持与商业赞助（2.5 / 2.5，100%）</h3>
+<ul>
+<li><strong>资金体量</strong>：本维度在线补采（GitHub Sponsors / Open Collective 金额）失败，无法取到金额类硬数据。但就本项目而言，其资金模式并非依赖零散捐赠，而是<strong>全球头部科技公司（芯片、云、发行版厂商）以全职工程师形式长期投入</strong>，配合 Linux Foundation 的组织性支持，属于开源界资金可持续性最强的形态。</li>
+<li><strong>商业实体</strong>：生态内存在以内核为核心的商业实体（发行版厂商、芯片厂商、云厂商）持续供养维护者，形成稳定的"公司赞助 + 基金会"双层结构。</li>
+<li><strong>资金可持续性</strong>：与内核 30 余年的存续历史以及 24.7 万 star、6.4 万 fork 的生态体量相匹配，资金可持续性极高。</li>
+<li><strong>说明</strong>：金额类在线指标因补采失败标注为不可核验，仅就"是否有稳定公司/基金会支持"这一档位要件判断，满足 9–10 档。</li>
+</ul>
+<h3>D8.4 项目可持续性与传承风险（3.0 / 3.0，100%）</h3>
+<ul>
+<li><strong>活跃趋势</strong>：最近推送时间 <code>2026-09-08</code>，与创建（2011-09-04 镜像、实际项目自 1991 年）相符，处于持续高频更新状态；无 archived / deprecated / unmaintained 标记。</li>
+<li><strong>维护延续性</strong>：具备成熟的继任与分层治理机制，核心团队退出时可被社区/副手接管（2018 年已被实际验证）。</li>
+<li><strong>分叉风险</strong>：<code>fork=64451</code> 的量级对内核而言属正常镜像/派生（下游发行版、厂商内核树），非社区分裂信号；star 24.7 万显示社区高度集中于此主仓。</li>
+<li><strong>Issue 积压</strong>：开放 Issue 数 N/A（补采失败），但内核以邮件列表为主要工作流，GitHub Issue 并非其治理主渠道，此项缺失不影响判断。</li>
+<li><strong>判定</strong>：活跃度持续且高位运行、传承机制健全、无分裂风险，符合 9–10 档。</li>
+</ul>
+<hr />
+<h3>结论</h3>
+<p>Linux 内核在"团队治理与可持续性"维度上是行业基准级样本：维护者体系全职化、治理与流程文档体系化、资金由全球头部公司 + 基金会双重保障、继任机制经受过实战检验、项目活跃度长周期高位稳定。四项细则均落在 9–10 档，<strong>D8 维度得分 10.0 / 10</strong>（权重 7%）。</p>
+<p><strong>置信度说明</strong>：GitHub API 在线补采失败，D8.3 中"赞助金额/赞助方清单"、D8.4 中"开放 Issue 数/实时贡献者数"未能实测；上述两项的档位判断改以静态硬事实（推送时间、fork/star 量级、文档结构、许可）与项目公开治理事实为依据，结论方向稳健，但精确金额/人数类数据置信度下降。未将该等缺失项计为扣分，符合"数据缺失不得打 0 分"的规则。</p>
+<h3>D9 上手难度与易用性</h3>
+<p>分析失败（DeepSeek API 错误 400: Error code: 400 - {'error': {'message': "This model's maximum context length is 1048576 tokens. However, you requested 1242145 tokens (1234145 in the messages, 8000 in the completion). Please reduce the length of the messages or completion.", 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_request_error'}}），本维度标 N/A。</p>
+<h3>D10 功能价值（使用价值视角）</h3>
+<h3>D10.1 效用强度（3 分）</h3>
+<p><strong>评分：3 / 3（10 档 → 100%）</strong></p>
+<p>判断依据：</p>
+<ul>
+<li><strong>效用层级 = 业务命脉级基础设施</strong>：README 开宗明义——"The Linux kernel is the core of any Linux operating system. It manages hardware, system resources, and provides the fundamental services for all other software."。内核不是可选项，而是其上所有软件（含容器、云平台、嵌入式、Android）能否运行的前提。这属于效用层级的最高档。</li>
+<li><strong>单用户节省量</strong>：仓库体量本身即说明替代成本——37,882,741 行代码、65,274 个源码文件，涵盖内存管理、调度、网络栈、RCU、文件系统、驱动模型、电源管理等全套子系统。任何组织要自建等价的硬件抽象与资源管理底座，成本需以数倍乃至数量级计。</li>
+<li><strong>效用确定性</strong>：GPL 授权、源码完整、可本地构建（<code>make htmldocs</code>、kbuild 体系齐备），效用不依赖特定场景或运气；README 面向九类角色（新内核开发者、学术研究者、安全专家、发行版维护者、硬件厂商等）分别给出确定性入口，说明效用在多个使用侧均稳定可预期。</li>
+</ul>
+<h3>D10.2 实际使用规模（3 分）</h3>
+<p><strong>评分：3 / 3（10 档 → 100%）</strong></p>
+<p>判断依据：</p>
+<ul>
+<li><strong>可直接实采的硬事实</strong>：GitHub Star <strong>247,633</strong>、Fork <strong>64,451</strong>（项目素材给定），属 GitHub 顶层量级，反映使用与二次分发规模的极端头部位置。</li>
+<li><strong>生产采用证据</strong>：README 明确列出 Distribution Maintainer（为发行版打包内核）、Hardware Vendor（为新硬件编写驱动）、System Administrator（配置与排障）等角色路径，并指向 kernel.org（最新内核分发）、lore.kernel.org（社区）、bugzilla.kernel.org 等运营级基础设施——即项目自身以"被下游发行版与硬件厂商规模化集成"为设计前提。</li>
+<li><strong>数据缺口声明</strong>：GitHub Dependents（Used by）计数与包管理平台下载量两项指定指标补采失败（GitHub API 返回 N/A），npm/PyPI 指标亦为 N/A——对内核这类非包管理器分发的项目，这两项本就不适用。因此本细则的<strong>分档依据来自 Star/Fork 实采值与 README 生产角色证据</strong>，而非依赖方/下载量计数，判定置信度略有下降，但所处分档（9–10 档：事实行业标配）无争议。</li>
+</ul>
+<h3>D10.3 免费可得的完整效用（2 分）</h3>
+<p><strong>评分：2 / 2（10 档 → 100%）</strong></p>
+<p>判断依据：</p>
+<ul>
+<li><strong>开源版即全部价值</strong>：<code>COPYING</code> 文件授权为 GPL（GitHub 标注 Other 为元数据口径问题），无 open-core 分层，无企业版/社区版功能切割，不存在任何被付费墙隔断的核心能力。</li>
+<li><strong>自托管完整性</strong>：内核源码树自包含，<code>dependencies: {}</code>（无外部包依赖），可完全离线构建与部署；不依赖任何官方托管服务即可发挥全部价值。</li>
+<li><strong>无隐性收费</strong>：README 全部入口（构建、文档、报告缺陷、社区参与、内核获取）均指向免费公开资源，不存在"不付费实际不可用"的设计。注意：Red Hat/SUSE 等商业支持属于外围服务，与内核本体价值无关。</li>
+<li><strong>与 D4.3 的对照</strong>：本项满分恰恰解释了内核的项目性质——它几乎不产生"付费转化"（D4.3 结构性低），价值以"公共品"形式全额释放，二者反相关属正常张力。</li>
+</ul>
+<h3>D10.4 效用可持续性（2 分）</h3>
+<p><strong>评分：2 / 2（10 档 → 100%）</strong></p>
+<p>判断依据：</p>
+<ul>
+<li><strong>停维后效用存续</strong>：内核为完全本地化运行的源代码形态，已编译内核与已有 LTS/稳定分支在停维后长期存续可用，效用不归零。</li>
+<li><strong>无供应商锁定</strong>：无闭源云服务依赖，无专有运行时；硬件驱动虽部分带固件 blob（属 linux-firmware 独立仓库），不构成核心效用的锁死。</li>
+<li><strong>可分叉维护性</strong>：GPL 授权明确允许分叉与再分发，且现实中已存在大量下游分叉与长期维护分支（发行版内核、Android 内核等）；源码完整、构建体系（kbuild/Kconfig）齐备，具备社区自行接续维护的现实条件。</li>
+</ul>
+<h3>D10 细则打分汇总</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10.1</td>
+<td>效用强度</td>
+<td>3</td>
+<td>3</td>
+<td>9–10 卓越</td>
+</tr>
+<tr>
+<td>D10.2</td>
+<td>实际使用规模</td>
+<td>3</td>
+<td>3</td>
+<td>9–10 卓越（依赖方/下载量 N/A，依据 Star/Fork 实采值）</td>
+</tr>
+<tr>
+<td>D10.3</td>
+<td>免费可得的完整效用</td>
+<td>2</td>
+<td>2</td>
+<td>9–10 卓越</td>
+</tr>
+<tr>
+<td>D10.4</td>
+<td>效用可持续性</td>
+<td>2</td>
+<td>2</td>
+<td>9–10 卓越</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td><strong>10</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<p>Linux 内核是"功能价值—使用价值"这一维度的极端样本：效用层级为业务命脉级基础设施，替代成本数量级更高；价值以 GPL 公共品形式全额、无阉割、可自托管地释放；源码完全本地化、可自由分叉，停维后效用长期存续。D10 得分为 <strong>10/10</strong>。</p>
+<p>需要透明标注的一点：D10.2 的两个指定量化指标（GitHub Dependents、包管理器下载量）补采失败，其满分判定依赖 Star/Fork 实采值与 README 的生产角色证据，而非依赖方计数本身——该细则的<strong>数据置信度略低于其余三项</strong>，但不改变分档结论。本维度权重为 0，不进入综合评分，仅用于 3.4 价值画像判定。</p>
+<h3>D11 社会价值——正外部性评估（平行维度，权重 0%）</h3>
+<blockquote>
+<p>说明：本维度为平行维度，权重 0%，不进入综合评分与一票否决，仅用于 3.4 价值画像。
+数据置信度提示：GitHub 在线补采失败（Dependents 计数、npm/PyPI 下载量等均标 N/A），本维度判断主要依据本地仓库实采事实（代码/文档规模、许可、语言/架构分布）、README 定位陈述与已确立的生态事实。凡涉及在线计数缺失之处，均以本地硬事实替代，不做数值估算。</p>
+</blockquote>
+<h3>D11.1 数字公共基础设施属性（3 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>事实依据</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>关键依赖地位</td>
+<td>README 开篇明示"The Linux kernel is the core of any Linux operating system. It manages hardware, system resources, and provides the fundamental services for all other software"；仓库为全部 Linux 发行版、Android、服务器/云、嵌入式、超算的上游源码树</td>
+<td>行业级数字底座</td>
+</tr>
+<tr>
+<td>停摆影响面</td>
+<td>37,889,309 行代码 / 65,274 个源码文件，横跨 .c(26.6M)、.h(11.0M)、.rs(191.6K) 等；覆盖 PCI/RCU/内存管理/调度/网络/文件系统/驱动等全部子系统；上游一停，全球服务器、移动端、嵌入式供应链同步断裂</td>
+<td>波及整个软件供应链</td>
+</tr>
+<tr>
+<td>数字公共产品属性</td>
+<td>许可为 GPL（COPYING），开放、可复用、服务公共利益；无任何第三方依赖（<code>dependencies: {}</code>），自举自洽</td>
+<td>完全符合 DPG 特征</td>
+</tr>
+</tbody>
+</table>
+<p><strong>小分：3 / 3（100%，9–10 档）</strong></p>
+<p>判断依据：这是 curl/OpenSSL 式"数字底座"的教科书级样本，且层级更靠下、影响面更广。Dependents 官方计数因补采失败为 N/A，但生态位由 README 自述 + 全部下游发行版/Android/云厂商的事实构成，不构成判断障碍。</p>
+<h3>D11.2 教育与人才价值（2.5 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>事实依据</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>教学采用</td>
+<td>README 专设"Who Are You?"角色导航，逐类列出 New Kernel Developer / Academic Researcher / Security Expert / Maintainer 等的学习路径；<code>Documentation/process/development-process.rst</code>、<code>submitting-patches.rst</code>、<code>coding-style.rst</code>、<code>kernel-hacking/hacking.rst</code> 等已成事实上的内核开发通用教材</td>
+<td>行业教材级</td>
+</tr>
+<tr>
+<td>门槛降低效应</td>
+<td>6,526 个文档文件中的 4,064 个 doc 文件（含 Documentation/ 全体系：PCI、RCU、mm、scheduler、networking、filesystems、locking、driver-api、devicetree bindings 等）+ 84 个示例；并提供 <code>Documentation/process/coding-assistants.rst</code> 面向 AI 编码助手的合规指引，说明教学触点已延伸至新一代工具链</td>
+<td>系统性降低行业进入门槛</td>
+</tr>
+<tr>
+<td>源码学习价值</td>
+<td>2,670 万行 C + 1,095 万行头文件，是操作系统、并发（RCU/locking）、内存管理、调度、驱动模型等领域唯一大规模可研读的工业级范本；README 明确将"Studying kernel internals and architecture"列为受支持的用户角色</td>
+<td>被广泛研读的工程范本</td>
+</tr>
+</tbody>
+</table>
+<p><strong>小分：2.5 / 2.5（100%，9–10 档）</strong></p>
+<p>判断依据：全球操作系统课程、内核开发书籍与教程几乎全部以其为对象或范本；文档体系（4,064 个文件）本身就是教学基础设施。</p>
+<h3>D11.3 普惠与可及性（2.5 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>事实依据</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>能力平权化</td>
+<td>GPL 许可 + 零采购成本，使个人、中小团队、欠发达地区可获得原本需商业授权费的操作系统内核能力；Android、国产发行版、教育机构、超算中心均建立其上</td>
+<td>将昂贵能力平权化</td>
+</tr>
+<tr>
+<td>替代价格差</td>
+<td>对标的闭源商业操作系统（Windows/macOS 体系、各类商业 RTOS/UNIX 授权）售价从数十至数千美元/席位（或绑定硬件授权），本项目免费</td>
+<td>差额巨大</td>
+</tr>
+<tr>
+<td>可及性支持</td>
+<td>驱动与架构覆盖面极广（PCI、devicetree bindings、hwmon、power management 等文档成体系），可运行于从嵌入式到超算的全硬件梯度；README 与文档体系支持多角色、多语言社区入口（lore.kernel.org、#kernelnewbies）</td>
+<td>覆盖人群广，硬件门槛下探充分</td>
+</tr>
+</tbody>
+</table>
+<p><strong>小分：2.5 / 2.5（100%，9–10 档）</strong></p>
+<p>判断依据：内核层普惠效应是间接但根本性的——它让"免费操作系统"在成本上成立，从而把服务器、手机、物联网设备的软件成本压到接近零。i18n 不属内核层职责，不以该点扣分。</p>
+<h3>D11.4 开放标准与行业推动（2 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>事实依据</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>标准推动</td>
+<td>实现并维护 POSIX 等开放接口约定；<code>Documentation/ABI/</code>（含 <code>abi-stable.rst</code>、<code>abi-obsolete.rst</code>、<code>abi-removed.rst</code>）对用户态 ABI 做公开化、版本化治理，是"防止厂商锁定"的制度性设计；devicetree bindings 为硬件描述开放标准</td>
+<td>定义/主导行业开放约定</td>
+</tr>
+<tr>
+<td>科研支撑</td>
+<td>README 专列"Academic Researcher"角色并指向 <code>Documentation/process/researcher-guidelines.rst</code>、mm/scheduler/networking/filesystems/RCU/locking/power 等研究入口；内核是系统、并发、调度、存储等领域论文的主要实验平台（论文引用检索因在线补采失败标 N/A，此处不据引文数加分）</td>
+<td>支撑科学可重现性</td>
+</tr>
+<tr>
+<td>行业示范效应</td>
+<td>其开发流程（邮件列表 + maintainer entry profile + 长期稳定分支规则 <code>stable-kernel-rules.rst</code>）、编码规范（<code>coding-style.rst</code>）、DCO 与 AI 贡献合规要求（<code>coding-assistants.rst</code>）被大量开源项目模仿；竞品清单中 raspberrypi/linux（13,160 stars）、xerpi/linux_vita、friendlyarm/linux-3.4.y、linux-grsecurity 等均为其下游派生或分支，反向证明其标准源地位</td>
+<td>显著示范效应</td>
+</tr>
+</tbody>
+</table>
+<p><strong>小分：2 / 2（100%，9–10 档）</strong></p>
+<h3>D11 细则分值汇总</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D11.1</td>
+<td>数字公共基础设施属性</td>
+<td>3</td>
+<td>3.0</td>
+<td>100%（9–10 档）</td>
+</tr>
+<tr>
+<td>D11.2</td>
+<td>教育与人才价值</td>
+<td>2.5</td>
+<td>2.5</td>
+<td>100%（9–10 档）</td>
+</tr>
+<tr>
+<td>D11.3</td>
+<td>普惠与可及性</td>
+<td>2.5</td>
+<td>2.5</td>
+<td>100%（9–10 档）</td>
+</tr>
+<tr>
+<td>D11.4</td>
+<td>开放标准与行业推动</td>
+<td>2</td>
+<td>2.0</td>
+<td>100%（9–10 档）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>卓越</strong></td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<p>torvalds/linux 的社会价值处于本方法论可评估区间的上限：它同时是<strong>行业级数字基础设施</strong>（无第三方依赖、GPL、37.9M 行源码、覆盖全部 Linux/Android/云/嵌入式供应链）、<strong>事实上的操作系统教材</strong>（4,064 个文档文件 + 完整角色化学习路径）、<strong>能力平权工具</strong>（把操作系统内核成本降至零）与<strong>开放标准载体</strong>（POSIX/ABI/devicetree + 被大量下游分支模仿的工程与流程规范）。四项细则均落在 9–10 档，D11 得分 10.0。</p>
+<p><strong>置信度说明</strong>：D11.1 依赖的 Dependents 官方计数、D11.4 的论文引用检索均因 GitHub/外部补采失败标 N/A，本维度改用本地仓库硬事实与 README 自述承担举证，未使用任何估算值；若后续补齐在线数据，预计结论方向不变，但 D11.1 可从"生态位定性"升级为"下游客观计数定量"。</p>
+<p><strong>平行维度提示</strong>：本维度权重 0%，得分 10.0 不进入综合评分、不构成一票否决，仅作为 3.4 价值画像中"正外部性/社会价值"侧的高置信度输入，用于解释该项目为何具备近乎不可替代的生态位（亦有别于 D3.4 所评的"品牌影响力对商业势能的助力"——此处评价的是外溢贡献本身）。</p>
+<h2>五、商业化价值判断</h2>
+<p><strong>综合评分 83.6/100，等级 S（极高商业化潜力）；价值画像为 ⭐ 明星资产。</strong></p>
+<p>这一结论需要放在正确的语境中理解。Linux 内核的 S 级评分，反映的是它作为<strong>基础设施的不可替代性与生态势能</strong>，而非"内核本体可以直接卖钱"。评分卡给出的关键约束非常明确：</p>
+<ul>
+<li><strong>价值创造与价值捕获存在根本性错配</strong>。D4 明确指出：项目为社区治理型上游工程，无商业实体持有 IP，Open Core / SaaS / 双协议三条主流路径均不可由项目本体执行；价值捕获全部下沉至下游发行版（Red Hat / SUSE / Canonical 订阅与支持）及 Linux Foundation 非营利生态。D4 得分 6.4 是九个有效维度中最低的一项，恰恰是这一错配的量化体现。</li>
+<li><strong>变现距离为"远"</strong>。内核本体不可直接变现，价值须经下游生态间接释放；免费到付费触发点在项目内完全不存在，内核功能 100% 免费无门禁，付费仅发生于下游的 SLA/LTS/合规/硬件使能等外围服务。</li>
+<li><strong>但变现天花板极高</strong>。D4 记录：LF Platinum 会员年费 $500K 量级、企业订阅单客年合同 $10K–$1M+、认证考试 $395 量级——这些数字说明围绕内核的<strong>外围商业生态</strong>具备极强的付费能力，只是收钱的主体不是内核项目本身。</li>
+</ul>
+<p>因此，本项目的商业化价值判断应表述为：<strong>内核本体是"公共产品型资产"，其商业价值必须通过下游生态间接释放；S 级评分对应的是"围绕 Linux 内核做商业化"的极高可行性，而非"把 Linux 内核本身商业化"的可行性。</strong></p>
+<p>同时须标注两项置信度限制：其一，D5（竞争格局）、D7（企业就绪度）、D9（上手难度）三个维度分析失败，综合评分基于剩余六个维度归一计算，竞争壁垒、运维复杂度、部署门槛三个关键商业决策要素缺失直接证据；其二，D1.1 的 TAM 判断为基于项目类型/行业类别的量级估算，未经外部数据验证，置信度低。</p>
+<hr />
+<h2>六、商业路径分析</h2>
+<p>基于 D4 的协议约束与变现路径分析，以及 ⭐ 明星资产画像的路径修正建议（正常商业化，同时经营社区声誉，避免竭泽而渔），可行路径按可行性排序如下：</p>
+<h3>路径一：下游发行版与企业订阅（已被验证的主流路径）</h3>
+<p>D4 明确记录价值捕获下沉至 Red Hat / SUSE / Canonical 的订阅与支持业务。这是 Linux 生态中唯一被大规模验证的变现模式：内核本体免费，企业为 SLA、LTS 长期维护、合规认证与安全响应付费。企业订阅单客年合同可达 $10K–$1M+ 量级。</p>
+<p><strong>适用主体</strong>：具备内核工程能力与合规资质的商业公司，而非内核项目本身。</p>
+<h3>路径二：硬件使能与驱动服务</h3>
+<p>D1 指出生态仍在向新硬件延展（Rust for Linux、AI 加速器子系统 accel/amdxdna、qaic、rocket）。硬件厂商为使自身芯片获得上游内核支持，有强烈动机投入驱动开发与维护——这是内核生态中付费意愿最直接的一环。</p>
+<h3>路径三：基金会会员与生态赞助</h3>
+<p>D8 记录资金为"全球头部科技公司全职团队 + 基金会双重保障"，D4 记录 LF Platinum 会员年费 $500K 量级。这是非营利路径下的影响力变现，适合不以直接盈利为目标的组织。</p>
+<h3>路径四：认证、培训与人才服务</h3>
+<p>D4 记录认证考试 $395 量级；D11 指出 4,064 个文档文件与 README 角色化学习路径（New Kernel Developer / Academic Researcher / Security Expert 等）构成事实上的操作系统教材体系。培训与认证是内核生态中门槛较低、可规模化的一项变现。</p>
+<h3>路径五：云镜像与托管内核服务</h3>
+<p>内核同时覆盖云原生节点部署形态，云厂商可基于内核提供托管节点、定制内核与内核级可观测/安全增强服务。</p>
+<h3>不可行路径（须明确排除）</h3>
+<ul>
+<li><strong>Open Core / 双协议许可</strong>：D4 明确"无 CLA / 无版权转让机制（仅 DCO），叠加数千位版权持有者，导致双协议许可在结构上无法执行"。</li>
+<li><strong>闭源衍生</strong>：GPL-2.0 WITH Linux-syscall-note 的强传染性使闭源衍生不可行。</li>
+<li><strong>SaaS 化内核本体</strong>：内核为本地部署形态，无 SaaS 化空间。</li>
+</ul>
+<p><strong>唯一正向松绑</strong>：Linux-syscall-note 例外松绑了用户态专有软件调用系统调用的约束，保住了用户态商业软件路径——这是整个协议结构中唯一对商业友好的设计。</p>
+<hr />
+<h2>七、能力评估：能做什么 &amp; 最适合做什么</h2>
+<h3>7.1 能做什么（基于硬事实的能力清单）</h3>
+<table>
+<thead>
+<tr>
+<th>能力项</th>
+<th>支撑证据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>支撑几乎全部计算场景的操作系统底座</td>
+<td>D1：云计算、移动、嵌入式、汽车、超算的操作系统底座，替代成本接近不可承受</td>
+</tr>
+<tr>
+<td>覆盖 20+ 架构与数百类驱动</td>
+<td>D2：arch/drivers/fs/mm/net/kernel/crypto/security 分层组织，功能覆盖 20+ 架构</td>
+</tr>
+<tr>
+<td>提供原创性核心机制</td>
+<td>D2：VFS、RCU、cgroup、BPF、KUnit 等原创设计</td>
+</tr>
+<tr>
+<td>支撑硬件厂商驱动开发</td>
+<td>D1/D3：官方驱动 API 与设备树绑定规范、多厂商子系统文档（AMD XDNA、Qualcomm QAIC）</td>
+</tr>
+<tr>
+<td>支撑内核模块与 eBPF 扩展</td>
+<td>D3：内核模块/eBPF 扩展体系</td>
+</tr>
+<tr>
+<td>作为教学与研究平台</td>
+<td>D11：4,064 个文档文件 + README 角色化学习路径，构成事实上的操作系统教材体系</td>
+</tr>
+<tr>
+<td>长期稳定演进</td>
+<td>D8：最近推送 2026-09-08，无 archived/deprecated 标记，活跃度长周期高位稳定</td>
+</tr>
+</tbody>
+</table>
+<h3>7.2 最适合做什么</h3>
+<p><strong>最适合：作为下游商业生态的技术底座，由具备内核工程能力的商业实体在其上构建发行版、企业支持、硬件使能与认证培训业务。</strong></p>
+<p>理由：D4 的结论是内核本体无变现路径，但 D1/D3/D8/D10/D11 共同证明其底座价值为行业顶点——Star 24.76 万、Fork/Star 比 26.0%（显著高于常见 10–20% 区间，衍生与二次开发意愿极强）、生态为事实标准级、维护者体系全职化且巴士因子极高。价值必须且只能在下游释放。</p>
+<p><strong>不适合：由内核项目本体直接执行商业化。</strong> 无商业实体持有 IP、无 CLA、数千位版权持有者，任何需要集中授权的商业模式在结构上不可执行。</p>
+<hr />
+<h2>八、短板识别：还缺少什么</h2>
+<h3>8.1 结构性短板（不可通过投入补齐）</h3>
+<ol>
+<li><strong>无版权聚合机制</strong>：D4/D6 均指出无 CLA、仅 DCO、数千位版权持有者，导致双协议许可与再许可在结构上无法执行。这是 Linux 内核商业化的根本性约束，且无法通过任何商业投入改变。</li>
+<li><strong>价值捕获与创造错配</strong>：D4 明确"存在价值创造与捕获的根本性错配"。</li>
+<li><strong>社区对闭源商业化的结构性抗拒</strong>：D3 指出商业化障碍"在商标/许可治理与社区对闭源商业化的结构性抗拒"。</li>
+</ol>
+<h3>8.2 可补齐的工程短板</h3>
+<ol>
+<li><strong>CI 与自动化质量保障缺失</strong>：D2/D3/D8 均记录 ci_workflows = 0、无 security.md、无 CODEOWNERS、根级无 CONTRIBUTING。D2 因此将 D2.4（安全性）与 D2.8（测试与质量保障）各打 80%。需注意 D3 的补充说明：GitHub 仅为镜像，真实协作在 lore.kernel.org 邮件列表与 bugzilla.kernel.org，GitHub Issue/PR/CI 指标对本站存在<strong>渠道错配</strong>，会系统性低估社区活跃度。</li>
+<li><strong>测试比例偏低</strong>：test_ratio = 0.014（1,957 个测试文件 / 542,862 行测试代码，对应 3,788 万行源码）。</li>
+<li><strong>代码整洁性</strong>：D2 指出仓库存在大量自动生成文件（如 dcn_3_2_0_sh_mask.h 超 22 万行）与跨版本重复宏，拉低代码整洁性（D2.3 打 80%）。</li>
+</ol>
+<h3>8.3 数据与尽调缺口</h3>
+<ol>
+<li><strong>三个维度分析失败</strong>：D5（竞争格局与差异化壁垒）、D7（企业就绪度与可运营性）、D9（上手难度与易用性）均为 N/A，竞争壁垒、运维复杂度、部署门槛三项关键商业决策要素缺失直接证据。</li>
+<li><strong>商标与专利未核查</strong>：D6 明确"D6.3 商标与专利无任何人工核查数据，按方法论默认 5-6 档给 1.5/2.5，置信度低，需商业尽调阶段人工补采"。</li>
+<li><strong>在线指标补采失败</strong>：90 天 Star 增量、Issue 关闭数与响应时长、GitHub Dependents、npm/PyPI 下载量、论文引用检索均为 N/A。D3 的 Star 增速只能用退化公式估算（≈1,376 Star/月，180 个月历史平均），D3.1 因此下调一档至 80%。</li>
+<li><strong>贡献者精确计数缺失</strong>：D3 记录贡献者多组织特征由 MAINTAINERS 分权结构与多厂商子系统文档佐证，但缺精确计数，置信度中等。</li>
+</ol>
+<hr />
+<h2>九、风险提示</h2>
+<h3>9.1 法律与合规风险</h3>
+<table>
+<thead>
+<tr>
+<th>风险项</th>
+<th>等级</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GPL-2.0 强传染性限制闭源衍生</td>
+<td>高（但可管理）</td>
+<td>D6：GPL-2.0-only 传染覆盖内核态全域，专有内核模块处法律灰区</td>
+</tr>
+<tr>
+<td>专有内核模块法律灰区</td>
+<td>中</td>
+<td>D6：专有内核模块处法律灰区、双协议再许可不可行</td>
+</tr>
+<tr>
+<td>商标与专利风险未核查</td>
+<td>未知</td>
+<td>D6：无任何人工核查数据，按默认档计分，置信度低，需商业尽调阶段人工补采</td>
+</tr>
+<tr>
+<td>无 CLA 导致无法集中授权</td>
+<td>高（结构性）</td>
+<td>D4/D6：数千位版权持有者，无法集中授权或再许可</td>
+</tr>
+</tbody>
+</table>
+<p><strong>缓释因素</strong>：Linux-syscall-note 例外保住用户态商业软件路径；依赖链风险极低（内核本体 dependencies 为空，仅文档/工具层使用 Sphinx、pyyaml、jsonschema、setuptools 等宽松协议依赖）；协议声明规范程度为行业标杆（COPYING 明确 SPDX 标识并指向 LICENSES/preferred、LICENSES/exceptions 与 Documentation/process/license-rules.rst）；无 Commons Clause / BUSL / SSPL 等商业附加条款。</p>
+<h3>9.2 商业化风险</h3>
+<ul>
+<li><strong>变现路径不可由项目本体执行</strong>：D4 明确 Open Core / SaaS / 双协议三条主流路径均不可行，任何商业化方案必须设计为"下游生态变现"。</li>
+<li><strong>付费转化结构性极低</strong>：D10 指出"与 D4.3 天然反相关：使用价值满分对应付费转化结构性极低，属『使用价值 vs 交换价值』的正常张力"。内核功能 100% 免费无门禁。</li>
+<li><strong>社区反噬风险</strong>：D3 指出社区对闭源商业化存在结构性抗拒。画像建议明确提示"避免竭泽而渔（参照 Elastic 改协议的反噬教训）"。</li>
+</ul>
+<h3>9.3 分析置信度风险</h3>
+<ul>
+<li><strong>三维度缺失</strong>：D5/D7/D9 分析失败，综合评分基于六个有效维度归一计算，竞争壁垒、运维复杂度、部署门槛三项关键要素无直接证据支撑。</li>
+<li><strong>D1.1 TAM 未经验证</strong>：D1 明确"无外部市场规模数据可用，D1.1 的 TAM 判断为基于项目类型/行业类别的量级估算，未经外部数据验证，置信度低"。</li>
+<li><strong>D6.3 按默认档计分</strong>：商标与专利风险未经人工核查。</li>
+<li><strong>D3.1 下调一档</strong>：因在线指标补采失败，Star 增速使用退化公式估算。</li>
+<li><strong>D10.2 满分依据替代</strong>：GitHub Dependents 与包管理器下载量补采失败，该细则满分依据 Star/Fork 实采值与 README 生产角色证据。</li>
+</ul>
+<h3>9.4 可持续性风险</h3>
+<p><strong>低</strong>。D8 记录：核心维护者体系全职化、巴士因子极高，2018 年副手接管已验证传承能力；资金为全球头部科技公司全职团队 + 基金会双重保障，为开源界资金可持续性最强形态；最近推送 2026-09-08，无 archived/deprecated 标记；6.4 万 fork 属正常下游派生而非分裂风险。D8.4 小分 3.0（满分），未触发一票否决。</p>
+<hr />
+<h2>十、结论与建议</h2>
+<h3>10.1 结论</h3>
+<p>Linux 内核综合评分 <strong>83.6/100</strong>，等级 <strong>S（极高商业化潜力）</strong>，价值画像 <strong>⭐ 明星资产</strong>（公共价值分 10.0），未触发一票否决。</p>
+<p>但这一 S 级评分的准确含义是：<strong>围绕 Linux 内核的下游商业化具备极高可行性，而内核本体不具备直接变现路径</strong>。D4（6.4/10）是九个有效维度中最低的一项，其核心结论——"价值捕获全部下沉至下游发行版及 Linux Foundation 非营利生态，存在价值创造与捕获的根本性错配"——构成了对本项目商业化方式的根本性约束。D1 亦明确"GPLv2 + 分布式版权持有，无版权聚合与双许可空间，内核代码本身不可直接售卖，D1 高分不能等比例转化为商业优势"。</p>
+<h3>10.2 建议</h3>
+<p><strong>对希望围绕 Linux 内核商业化的主体：</strong></p>
+<ol>
+<li><strong>立即投入，但选择下游路径</strong>。优先选择发行版/企业订阅（已被 Red Hat / SUSE / Canonical 验证）、硬件使能与驱动服务、认证培训三类路径；明确排除 Open Core、双协议、闭源衍生、SaaS 化内核本体四条不可行路径。</li>
+<li><strong>善用 Linux-syscall-note 例外</strong>。这是协议结构中唯一对商业友好的设计，用户态专有软件路径应作为产品设计的重点方向。</li>
+<li><strong>经营社区声誉，避免竭泽而渔</strong>。画像建议明确提示参照 Elastic 改协议的反噬教训；D3 亦指出社区对闭源商业化存在结构性抗拒。</li>
+<li><strong>商业尽调阶段必须人工补采三项数据</strong>：商标与专利核查（D6.3 目前按默认档计分）、竞争格局分析（D5 缺失）、企业就绪度与运维复杂度评估（D7 缺失）。</li>
+</ol>
+<p><strong>对内核项目本体：</strong></p>
+<p>不建议直接商业化。项目无商业实体持有 IP、无 CLA、数千位版权持有者，任何需要集中授权的商业模式在结构上不可执行。适合的路径是维持基金会托管模式，通过会员费（LF Platinum 年费 $500K 量级）与生态赞助实现影响力变现。</p>
+<p><strong>对技术借鉴或人才引进方：</strong></p>
+<p>内核的工程流程、coding-style、DCO 与 AI 贡献合规（coding-assistants.rst）被同行广泛模仿（D11），其治理体系与文档体系（4,064 个文档文件）具备独立于代码本身的借鉴价值。</p>
+<h3>10.3 置信度声明</h3>
+<p>本报告结论受以下限制：D5、D7、D9 三个维度分析失败，综合评分基于六个有效维度归一计算；D1.1 的 TAM 判断未经外部数据验证；D6.3 商标与专利按默认档计分；D3.1 因在线指标补采失败下调一档；D10.2 满分依据替代指标。建议在商业尽调阶段对上述缺口进行人工补采后再做最终投资决策。</p>
+<h2>十一、项目地址</h2>
+<p><svg class="ri ri-muted" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.001 2C6.47598 2 2.00098 6.475 2.00098 12C2.00098 16.425 4.86348 20.1625 8.83848 21.4875C9.33848 21.575 9.52598 21.275 9.52598 21.0125C9.52598 20.775 9.51348 19.9875 9.51348 19.15C7.00098 19.6125 6.35098 18.5375 6.15098 17.975C6.03848 17.6875 5.55098 16.8 5.12598 16.5625C4.77598 16.375 4.27598 15.9125 5.11348 15.9C5.90098 15.8875 6.46348 16.625 6.65098 16.925C7.55098 18.4375 8.98848 18.0125 9.56348 17.75C9.65098 17.1 9.91348 16.6625 10.201 16.4125C7.97598 16.1625 5.65098 15.3 5.65098 11.475C5.65098 10.3875 6.03848 9.4875 6.67598 8.7875C6.57598 8.5375 6.22598 7.5125 6.77598 6.1375C6.77598 6.1375 7.61348 5.875 9.52598 7.1625C10.326 6.9375 11.176 6.825 12.026 6.825C12.876 6.825 13.726 6.9375 14.526 7.1625C16.4385 5.8625 17.276 6.1375 17.276 6.1375C17.826 7.5125 17.476 8.5375 17.376 8.7875C18.0135 9.4875 18.401 10.375 18.401 11.475C18.401 15.3125 16.0635 16.1625 13.8385 16.4125C14.201 16.725 14.5135 17.325 14.5135 18.2625C14.5135 19.6 14.501 20.675 14.501 21.0125C14.501 21.275 14.6885 21.5875 15.1885 21.4875C19.259 20.1133 21.9999 16.2963 22.001 12C22.001 6.475 17.526 2 12.001 2Z"/></svg> <a href="https://github.com/torvalds/linux">https://github.com/torvalds/linux</a></p>
+<hr />
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+</blockquote>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家　<a href="https://www.mova.work">www.mova.work</a></p></body></html>

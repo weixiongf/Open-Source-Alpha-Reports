@@ -1,7 +1,7 @@
 # 报告清单 · 2026年09月
 
 > 本文件由 github_anyliasis 自动维护，每次发布报告时更新。
-> 本月共收录 68 条报告记录。
+> 本月共收录 72 条报告记录。
 
 | 序号 | 项目 | 综合得分 | 等级 | 一句话结论 |
 |------|------|----------|------|-----------|
@@ -43,36 +43,40 @@
 | 36 | [openai/skills](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/09/skills/report.html) | 59.7 | B | OpenAI 官方已弃用的技能目录，26.5K Star 品牌资产救不了零工程化、零护城河的底子——只可借内容做技术参考，不可投入直接商业化。 |
 | 37 | [obra/superpowers](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/09/superpowers/report.html) | 80.6 | S | AI编码技能层事实标准候选者，S级潜力明星资产；当务之急是把283k Star势能转化为收入流，以MIT底线走服务变现之路。 |
 | 38 | [XiaoDuoYa/codex-with-chatgpt](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/10/codex-with-chatgpt/report.html) | 63.8 | B | 需求真实、产品力强，但MIT+免费即完整+卖点即省钱，变现路径结构性封死，价值前提全握在OpenAI手里。 |
-| 39 | [anthropics/commerce-agents](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/10/commerce-agents/) | 68.8 | A | A 级评的是 Anthropic 的技术质量与官方背书，不是本仓库的变现能力——借势而非占有。 |
-| 40 | [ayghri/i-have-adhd](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/10/i-have-adhd/) | 66.0 | A | 34,592 Star 验证真痛点，但 2,498 行代码无付费触发点，宜走影响力变现而非 Open Core。 |
-| 41 | [microsoft/markitdown](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/10/markitdown/) | 80.2 | S | 微软背书+18万Star验证刚需，Azure导流变现路径清晰，治理与AGPL风险可控，S级明星资产值得立即布局。 |
-| 42 | [openai/NavierStokesAndEuler](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/10/navierstokesandeuler/) | 51.8 | B | 高质量研究工件而非商业项目，价值在证明能力而非提供服务，应借鉴方法论而非试图变现。 |
-| 43 | [earendil-works/pi](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/10/pi/) | 78.9 | A | AI Coding Agent 赛道明星开源资产，技术社区势能扎实但商业化闭环未启动，Open Core 路径清晰待验证。 |
-| 44 | [ruvnet/ruflo](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/10/ruflo/) | 79.6 | A | 高潜力明星资产但商业化执行力为零，先补治理验证再建定价体系，6个月无收入则降级为公共产品策略。 |
-| 45 | [mksglu/context-mode](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/11/context-mode/) | 70.9 | A | 痛点真、工程硬、17平台分发广，但巴士因子≈1与变现零验证是两座必须翻的山——可投，先补治理与定价。 |
-| 46 | [torvalds/linux](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/11/linux/) | 83.6 | S | 内核本体不可直接变现，但围绕它的下游商业化具备 S 级可行性——投的是生态，不是代码。 |
-| 47 | [lnkiai/m3e-canvas](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/11/m3e-canvas/) | 63.8 | B | 产品优秀合规干净，但变现路径被主动关闭、护城河首周即被克隆，宜作社区声誉资产而非商业标的。 |
-| 48 | [openai/plugins](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/11/plugins/) | 60.9 | D | Codex 生态的官方说明书与样板间：生态价值极高，商业价值为零，适合学习借鉴，不适合投资变现。 |
-| 49 | [cozyblaze/portal-agent](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/11/portal-agent/) | 34.4 | D | 25分钟活跃窗口、0行源码、根目录无License的一次性实验归档，技术可借鉴，商业价值为零。 |
-| 50 | [EvoMap/AutoResearch](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/12/autoresearch/) | 66.6 | A | A级资产配C级组织：法律与产品设计就绪，组织扩容与产品化封装缺位，先补人再补产品最后谈收入。 |
-| 51 | [yanliudesign/mono-color-skill](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/12/mono-color-skill/) | 62.3 | B | 需求真实、定位锋利、上手极简，但开源版即完整版、巴士因子为1，宜走影响力变现而非卖软件。 |
-| 52 | [jakubkrehel/skills](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/12/skills/) | 56.5 | B | 高关注度、低工程化、零独立变现能力的品牌占位型资产，商业价值应通过母体产品兑现。 |
-| 53 | [Player-YN/PawWork_ZhuaZhua](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/14/pawwork_zhuazhua/) | 56.9 | B | 技术资产大于商业资产：沙箱与审计工程值得借鉴，但变现通路被架构焊死、信任面为零，只宜借鉴或引才，不宜直接商业化。 |
-| 54 | [earthtojake/text-to-cad](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/14/text-to-cad/) | 72.2 | A | 需求真、法律净、流量猛，但变现零落地、企业就绪度仅6.1，须在12–24个月窗口内跑通制造侧付费闭环。 |
-| 55 | [totec448-spec/chat-on-steroids](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/15/chat-on-steroids/) | 68.2 | A | 技术资产8.9分、商业地基5.0分，窗口与OpenAI政策同生共死，只宜快打快收。 |
-| 56 | [JustVugg/colibri](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/15/colibri/) | 71.3 | A | 技术卓越、社区爆发、法律干净，但变现漏斗从第一层就断了——值得合作，暂不值得直接收购。 |
-| 57 | [sdli1995/dlssg_for_sm86](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/15/dlssg_for_sm86/) | 45.9 | C | 需求真实、技术巧妙，但无 LICENSE、内嵌 NVIDIA 专有二进制、GPLv3 锁死变现，商业价值不可提取。 |
-| 58 | [limecloud/lime](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/15/lime/) | 63.7 | B | 技术资产厚重但商业基础归零，license=null 与 BYO-Key 定位封堵变现路径，只宜技术借鉴或人才引进。 |
-| 59 | [alibaba/open-code-review](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/15/open-code-review/) | 78.2 | A | 技术工程社区合规全线优档，商业侧D4/D5恰为最高权重短板，先补生态与企业治理再以Open Core切入。 |
-| 60 | [TauricResearch/TradingAgents](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/15/tradingagents/) | 66.1 | A | 106K Star 的心智资产可变现但不可防守，须以机构侧增值慢跑，而非产品化冲刺。 |
-| 61 | [decolua/9router](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/16/9router/) | 67.7 | A | 需求侧头部明星、变现侧彻底空白，核心卖点依赖正在被上游收回的免费额度，先补治理合规再谈企业版。 |
-| 62 | [elie222/botdirectory.ai](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/16/botdirectory.ai/) | 62.5 | B | 值得借鉴其贡献工作流与 feed 设计，不值得投入商业化资源。 |
-| 63 | [hoangann2000/figma-mcp-console](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/16/figma-mcp-console/) | 61.1 | B | 方向对、上手优秀，但需求验证、变现入口、竞争壁垒三缺，只宜技术借鉴不宜投资。 |
-| 64 | [op7418/guizang-ppt-skill](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/16/guizang-ppt-skill/report.html) | 60.9 | B | 26k Star 的 Agent Skill 范本，但 AGPL 加零付费触发点锁死变现，只宜走赞助与生态服务路线。 |
-| 65 | [petergyang/no-ai-slop](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/16/no-ai-slop/) | 59.5 | B | 127行代码换9862 Star的注意力资产，护城河近零、无付费触发点，不建议投入直接商业化资源。 |
-| 66 | [auenger/SiliRootLogoDesign](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/16/silirootlogodesign/report.html) | 33.0 | D | 存活9分钟、无LICENSE、TAM≈1个客户的内部Logo工具，仅D9易用性7.5分，只宜技术借鉴不宜商业化。 |
-| 67 | [max-sixty/worktrunk](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/16/worktrunk/) | 67.0 | A | 痛点真、迭代猛、上手快，但变现载体为零且上游随时可能内化这一层，买的是窗口期权不是生意。 |
-| 68 | [jadenzhangrobot/zrcs](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/16/zrcs/report.html) | 42.1 | D | 技术底子不差，但法律上不可用、社区上无人用、商业上无设计，当前不具备商业化起步条件。 |
+| 39 | [anthropics/commerce-agents](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/10/commerce-agents/report.html) | 68.8 | A | A 级评的是 Anthropic 的技术质量与官方背书，不是本仓库的变现能力——借势而非占有。 |
+| 40 | [ayghri/i-have-adhd](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/10/i-have-adhd/report.html) | 66.0 | A | 34,592 Star 验证真痛点，但 2,498 行代码无付费触发点，宜走影响力变现而非 Open Core。 |
+| 41 | [microsoft/markitdown](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/10/markitdown/report.html) | 80.2 | S | 微软背书+18万Star验证刚需，Azure导流变现路径清晰，治理与AGPL风险可控，S级明星资产值得立即布局。 |
+| 42 | [openai/NavierStokesAndEuler](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/10/navierstokesandeuler/report.html) | 51.8 | B | 高质量研究工件而非商业项目，价值在证明能力而非提供服务，应借鉴方法论而非试图变现。 |
+| 43 | [earendil-works/pi](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/10/pi/report.html) | 78.9 | A | AI Coding Agent 赛道明星开源资产，技术社区势能扎实但商业化闭环未启动，Open Core 路径清晰待验证。 |
+| 44 | [ruvnet/ruflo](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/10/ruflo/report.html) | 79.6 | A | 高潜力明星资产但商业化执行力为零，先补治理验证再建定价体系，6个月无收入则降级为公共产品策略。 |
+| 45 | [mksglu/context-mode](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/11/context-mode/report.html) | 70.9 | A | 痛点真、工程硬、17平台分发广，但巴士因子≈1与变现零验证是两座必须翻的山——可投，先补治理与定价。 |
+| 46 | [torvalds/linux](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/11/linux/report.html) | 83.6 | S | 内核本体不可直接变现，但围绕它的下游商业化具备 S 级可行性——投的是生态，不是代码。 |
+| 47 | [lnkiai/m3e-canvas](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/11/m3e-canvas/report.html) | 63.8 | B | 产品优秀合规干净，但变现路径被主动关闭、护城河首周即被克隆，宜作社区声誉资产而非商业标的。 |
+| 48 | [openai/plugins](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/11/plugins/report.html) | 60.9 | D | Codex 生态的官方说明书与样板间：生态价值极高，商业价值为零，适合学习借鉴，不适合投资变现。 |
+| 49 | [cozyblaze/portal-agent](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/11/portal-agent/report.html) | 34.4 | D | 25分钟活跃窗口、0行源码、根目录无License的一次性实验归档，技术可借鉴，商业价值为零。 |
+| 50 | [EvoMap/AutoResearch](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/12/autoresearch/report.html) | 66.6 | A | A级资产配C级组织：法律与产品设计就绪，组织扩容与产品化封装缺位，先补人再补产品最后谈收入。 |
+| 51 | [ApodexAI/FrontierAgent](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/12/frontieragent/report.html) | 72.8 | A | 变现路径与安全工程达 A 级，但 2,612 Star 属发布脉冲、零 Release、零企业级能力，先验证留存再谈规模。 |
+| 52 | [yanliudesign/mono-color-skill](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/12/mono-color-skill/report.html) | 62.3 | B | 需求真实、定位锋利、上手极简，但开源版即完整版、巴士因子为1，宜走影响力变现而非卖软件。 |
+| 53 | [jakubkrehel/skills](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/12/skills/report.html) | 56.5 | B | 高关注度、低工程化、零独立变现能力的品牌占位型资产，商业价值应通过母体产品兑现。 |
+| 54 | [Player-YN/PawWork_ZhuaZhua](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/14/pawwork_zhuazhua/report.html) | 56.9 | B | 技术资产大于商业资产：沙箱与审计工程值得借鉴，但变现通路被架构焊死、信任面为零，只宜借鉴或引才，不宜直接商业化。 |
+| 55 | [Nanako0129/sepia](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/14/sepia/report.html) | 67.6 | A | 产品力撑起A级评分，但变现通道结构性失效，且全部数据仅基于14天观察窗口。 |
+| 56 | [github/spec-kit](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/14/spec-kit/report.html) | 78.2 | A | 产品优秀生态强势却无独立变现面，价值在卡位而非收费，窗口期内以中立性换组织级默认流程入口。 |
+| 57 | [earthtojake/text-to-cad](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/14/text-to-cad/report.html) | 72.2 | A | 需求真、法律净、流量猛，但变现零落地、企业就绪度仅6.1，须在12–24个月窗口内跑通制造侧付费闭环。 |
+| 58 | [Tencent/WeKnora](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/14/weknora/report.html) | 79.6 | A | 腾讯背书+微信分发位+A级变现底子，但Open Core无分层、护城河仅工程量，12-24个月窗口内须补分层再商业化。 |
+| 59 | [totec448-spec/chat-on-steroids](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/15/chat-on-steroids/) | 68.2 | A | 技术资产8.9分、商业地基5.0分，窗口与OpenAI政策同生共死，只宜快打快收。 |
+| 60 | [JustVugg/colibri](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/15/colibri/) | 71.3 | A | 技术卓越、社区爆发、法律干净，但变现漏斗从第一层就断了——值得合作，暂不值得直接收购。 |
+| 61 | [sdli1995/dlssg_for_sm86](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/15/dlssg_for_sm86/) | 45.9 | C | 需求真实、技术巧妙，但无 LICENSE、内嵌 NVIDIA 专有二进制、GPLv3 锁死变现，商业价值不可提取。 |
+| 62 | [limecloud/lime](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/15/lime/) | 63.7 | B | 技术资产厚重但商业基础归零，license=null 与 BYO-Key 定位封堵变现路径，只宜技术借鉴或人才引进。 |
+| 63 | [alibaba/open-code-review](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/15/open-code-review/) | 78.2 | A | 技术工程社区合规全线优档，商业侧D4/D5恰为最高权重短板，先补生态与企业治理再以Open Core切入。 |
+| 64 | [TauricResearch/TradingAgents](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/15/tradingagents/) | 66.1 | A | 106K Star 的心智资产可变现但不可防守，须以机构侧增值慢跑，而非产品化冲刺。 |
+| 65 | [decolua/9router](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/16/9router/) | 67.7 | A | 需求侧头部明星、变现侧彻底空白，核心卖点依赖正在被上游收回的免费额度，先补治理合规再谈企业版。 |
+| 66 | [elie222/botdirectory.ai](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/16/botdirectory.ai/) | 62.5 | B | 值得借鉴其贡献工作流与 feed 设计，不值得投入商业化资源。 |
+| 67 | [hoangann2000/figma-mcp-console](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/16/figma-mcp-console/) | 61.1 | B | 方向对、上手优秀，但需求验证、变现入口、竞争壁垒三缺，只宜技术借鉴不宜投资。 |
+| 68 | [op7418/guizang-ppt-skill](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/16/guizang-ppt-skill/report.html) | 60.9 | B | 26k Star 的 Agent Skill 范本，但 AGPL 加零付费触发点锁死变现，只宜走赞助与生态服务路线。 |
+| 69 | [petergyang/no-ai-slop](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/16/no-ai-slop/) | 59.5 | B | 127行代码换9862 Star的注意力资产，护城河近零、无付费触发点，不建议投入直接商业化资源。 |
+| 70 | [auenger/SiliRootLogoDesign](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/16/silirootlogodesign/report.html) | 33.0 | D | 存活9分钟、无LICENSE、TAM≈1个客户的内部Logo工具，仅D9易用性7.5分，只宜技术借鉴不宜商业化。 |
+| 71 | [max-sixty/worktrunk](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/16/worktrunk/) | 67.0 | A | 痛点真、迭代猛、上手快，但变现载体为零且上游随时可能内化这一层，买的是窗口期权不是生意。 |
+| 72 | [jadenzhangrobot/zrcs](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/16/zrcs/report.html) | 42.1 | D | 技术底子不差，但法律上不可用、社区上无人用、商业上无设计，当前不具备商业化起步条件。 |
 
 ---
 

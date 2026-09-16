@@ -1,0 +1,1788 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><title>NavierStokesAndEuler 商业价值分析报告</title><style>/* default — 品牌蓝紫主题（从 md2pdf.py 原 CSS 常量迁出，视觉与历史产物一致） */
+@page { size: A4; margin: 18mm 15mm 20mm 15mm; }
+* { box-sizing: border-box; }
+/* 字体规范：一律开源思源黑体 CN（OFL 免费商用）；正文 Regular/标题 Bold/大字数字 Light */
+body { font-family: "Source Han Sans CN","思源黑体 CN","Noto Sans SC",sans-serif; color:#1e293b; font-size:10.5pt; line-height:1.75; margin:0; }
+.cover { page-break-after: always; text-align:center; padding-top:40px; }
+.cover .kicker { color:#2563eb; letter-spacing:6px; font-size:12pt; font-weight:500; }
+.cover h1 { font-size:26pt; margin:14px 0 6px; }
+.cover .sub { color:#64748b; font-size:11pt; margin-bottom:22px; }
+.badge { display:inline-block; background:linear-gradient(135deg,#2563eb,#7c3aed); color:#fff; border-radius:18px; padding:16px 44px; margin:10px 0 18px; }
+.badge .g { font-size:34pt; font-weight:300; line-height:1; }
+.badge .s { font-size:12pt; opacity:.92; margin-top:4px; }
+.meta { color:#475569; font-size:9.5pt; margin-top:14px; }
+.bars { max-width:620px; margin:20px auto 0; text-align:left; }
+.bar-row { display:flex; align-items:center; gap:8px; margin:5px 0; font-size:9pt; }
+.bar-name { width:110px; text-align:right; color:#334155; font-weight:500; }
+.bar-track { flex:1; height:9px; background:#f1f5f9; border-radius:5px; overflow:hidden; }
+.bar-fill { display:block; height:100%; border-radius:5px; }
+.bar-val { width:30px; font-weight:700; color:#0f172a; }
+.bar-w { width:52px; color:#94a3b8; font-size:8pt; }
+h1 { font-size:17pt; color:#0f172a; border-bottom:3px solid #2563eb; padding-bottom:8px; }
+h2 { font-size:13.5pt; color:#1d4ed8; margin-top:26px; page-break-after: avoid; border-left:5px solid #2563eb; padding-left:10px; }
+h3 { font-size:11.5pt; color:#0f172a; margin-top:18px; page-break-after: avoid; }
+table { border-collapse:collapse; width:100%; margin:10px 0; font-size:9pt; page-break-inside:avoid; }
+th { background:#eff6ff; color:#1e3a8a; }
+th,td { border:1px solid #dbe3ef; padding:5px 8px; text-align:left; }
+tr:nth-child(even) td { background:#f8fafc; }
+code { background:#f1f5f9; border-radius:4px; padding:1px 5px; font-family:"JetBrains Mono","Cascadia Mono",monospace; font-size:9pt; color:#be185d; }
+pre { background:#0f172a; color:#e2e8f0; border-radius:8px; padding:12px 14px; overflow-x:auto; page-break-inside:avoid; }
+pre code { background:none; color:inherit; padding:0; }
+blockquote { border-left:4px solid #93c5fd; background:#eff6ff; margin:10px 0; padding:8px 14px; color:#334155; border-radius:0 8px 8px 0; }
+hr { border:none; border-top:1px dashed #cbd5e1; margin:22px 0; }
+strong { color:#0f172a; }
+.cover .disclaimer { max-width:620px; margin:16px auto 0; color:#64748b; font-size:8.5pt; line-height:1.6; text-align:left; border:1px solid #e2e8f0; border-radius:8px; padding:8px 12px; background:#f8fafc; }
+.credit { color:#2563eb; font-size:10.5pt; font-weight:700; letter-spacing:1px; margin-top:12px; }
+.at-acc { background:#dbeafe; color:#1d4ed8; border-radius:4px; padding:0 4px; font-weight:500; white-space:nowrap; }
+.tail { page-break-inside:avoid; margin-top:26px; border-top:2px solid #2563eb; padding-top:14px; }
+.tail p { color:#64748b; font-size:8.5pt; line-height:1.6; margin:0 0 10px; }
+.tail .credit { text-align:center; margin:0; }
+/* Remix Icon 内联 SVG（icon_mode=remix 时由脚本注入，语义色与评分条一致） */
+.ri { width:1.05em; height:1.05em; vertical-align:-0.18em; display:inline-block; }
+.ri-ok { color:#16a34a; } .ri-warn { color:#d97706; } .ri-bad { color:#dc2626; }
+.ri-muted { color:#64748b; } .ri-star { color:#f59e0b; } .ri-brand { color:#2563eb; }
+.ri-gold { color:#d4a017; } .ri-silver { color:#9ca3af; } .ri-bronze { color:#b45309; }
+/* 屏幕预览：@page 边距仅在打印时生效，浏览器中居中限宽并收边（不影响 PDF 输出） */
+@media screen {
+  body { margin: 0 auto; padding: 28px 36px 56px; max-width: 900px; }
+}
+</style></head><body><div class="cover">
+<div class="kicker">开源项目商业化潜力分析 · 第 83 期</div>
+<h1>GitHub 开源项目 NavierStokesAndEuler<br>商业价值分析报告</h1>
+<div class="sub">openai/NavierStokesAndEuler · Lean 4 形式化数学证明证书 · 九维度加权评估</div>
+<div class="badge"><div class="g">B 级 · 51.8</div><div class="s">综合评分（满分 100）· 中等商业化潜力</div></div>
+<div><svg viewBox="0 0 560 480" width="560" height="480" xmlns="http://www.w3.org/2000/svg"><polygon points="280.0,209.6 299.5,216.7 309.9,234.7 306.3,255.2 290.4,268.6 269.6,268.6 253.7,255.2 250.1,234.7 260.5,216.7" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,179.2 319.1,193.4 339.9,229.4 332.7,270.4 300.8,297.1 259.2,297.1 227.3,270.4 220.1,229.4 240.9,193.4" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,148.8 338.6,170.1 369.8,224.2 359.0,285.6 311.2,325.7 248.8,325.7 201.0,285.6 190.2,224.2 221.4,170.1" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,118.4 358.2,146.8 399.8,218.9 385.3,300.8 321.6,354.3 238.4,354.3 174.7,300.8 160.2,218.9 201.8,146.8" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,88.0 377.7,123.6 429.7,213.6 411.6,316.0 332.0,382.8 228.0,382.8 148.4,316.0 130.3,213.6 182.3,123.6" fill="none" stroke="#e2e8f0" stroke-width="1"/><line x1="280.0" y1="240.0" x2="280.0" y2="88.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="377.7" y2="123.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="429.7" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="411.6" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="332.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="228.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="148.4" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="130.3" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="182.3" y2="123.6" stroke="#d8dee9" stroke-width="1"/><polygon points="280.0,156.4 337.6,171.3 341.4,229.2 327.4,267.4 310.2,322.8 242.0,344.3 280.0,240.0 194.7,225.0 280.0,240.0" fill="rgba(37,99,235,.22)" stroke="#2563eb" stroke-width="2.5"/><circle cx="280.0" cy="156.4" r="3.5" fill="#2563eb"/><circle cx="337.6" cy="171.3" r="3.5" fill="#2563eb"/><circle cx="341.4" cy="229.2" r="3.5" fill="#2563eb"/><circle cx="327.4" cy="267.4" r="3.5" fill="#2563eb"/><circle cx="310.2" cy="322.8" r="3.5" fill="#2563eb"/><circle cx="242.0" cy="344.3" r="3.5" fill="#2563eb"/><circle cx="280.0" cy="240.0" r="3.5" fill="#2563eb"/><circle cx="194.7" cy="225.0" r="3.5" fill="#2563eb"/><circle cx="280.0" cy="240.0" r="3.5" fill="#2563eb"/><text x="280.0" y="44.0" text-anchor="middle" font-size="12.5" fill="#334155" font-weight="600">D1</text><text x="280.0" y="58.0" text-anchor="middle" font-size="11" fill="#64748b">市场需求 5.5</text><text x="406.0" y="89.9" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D2</text><text x="406.0" y="103.9" text-anchor="start" font-size="11" fill="#64748b">技术成熟度 5.9</text><text x="473.0" y="206.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D3</text><text x="473.0" y="220.0" text-anchor="start" font-size="11" fill="#64748b">社区生态 4.1</text><text x="449.7" y="338.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D4</text><text x="449.7" y="352.0" text-anchor="start" font-size="11" fill="#64748b">变现潜力 3.6</text><text x="347.0" y="424.2" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D5</text><text x="347.0" y="438.2" text-anchor="start" font-size="11" fill="#64748b">竞争格局 5.8</text><text x="213.0" y="424.2" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D6</text><text x="213.0" y="438.2" text-anchor="end" font-size="11" fill="#64748b">法律合规 7.3</text><text x="110.3" y="338.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D7</text><text x="110.3" y="352.0" text-anchor="end" font-size="11" fill="#64748b">企业就绪 N/A</text><text x="87.0" y="206.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D8</text><text x="87.0" y="220.0" text-anchor="end" font-size="11" fill="#64748b">团队治理 5.7</text><text x="154.0" y="89.9" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D9</text><text x="154.0" y="103.9" text-anchor="end" font-size="11" fill="#64748b">上手难度 N/A</text></svg></div>
+<div class="bars"><div class="bar-row"><span class="bar-name">D6 法律合规</span>
+<span class="bar-track"><span class="bar-fill" style="width:73.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.3</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D2 技术成熟度</span>
+<span class="bar-track"><span class="bar-fill" style="width:59.0%;background:#dc2626"></span></span>
+<span class="bar-val">5.9</span><span class="bar-w">权重14%</span></div>
+<div class="bar-row"><span class="bar-name">D5 竞争格局</span>
+<span class="bar-track"><span class="bar-fill" style="width:58.0%;background:#dc2626"></span></span>
+<span class="bar-val">5.8</span><span class="bar-w">权重12%</span></div>
+<div class="bar-row"><span class="bar-name">D8 团队治理</span>
+<span class="bar-track"><span class="bar-fill" style="width:57.0%;background:#dc2626"></span></span>
+<span class="bar-val">5.7</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D1 市场需求</span>
+<span class="bar-track"><span class="bar-fill" style="width:55.0%;background:#dc2626"></span></span>
+<span class="bar-val">5.5</span><span class="bar-w">权重13%</span></div>
+<div class="bar-row"><span class="bar-name">D3 社区生态</span>
+<span class="bar-track"><span class="bar-fill" style="width:41.0%;background:#dc2626"></span></span>
+<span class="bar-val">4.1</span><span class="bar-w">权重11%</span></div>
+<div class="bar-row"><span class="bar-name">D4 变现潜力</span>
+<span class="bar-track"><span class="bar-fill" style="width:36.0%;background:#dc2626"></span></span>
+<span class="bar-val">3.6</span><span class="bar-w">权重18%</span></div>
+<div class="bar-row"><span class="bar-name">D7 企业就绪</span>
+<span class="bar-track"><span class="bar-fill" style="width:0.0%;background:#dc2626"></span></span>
+<span class="bar-val">N/A</span><span class="bar-w">权重8%</span></div>
+<div class="bar-row"><span class="bar-name">D9 上手难度</span>
+<span class="bar-track"><span class="bar-fill" style="width:0.0%;background:#dc2626"></span></span>
+<span class="bar-val">N/A</span><span class="bar-w">权重10%</span></div></div>
+<div class="meta">分析时点 2026-09-10 ｜ 数据来源：GitHub API + 仓库代码实测 ｜ 方法论 v1.3</div>
+<div class="credit">报告出品：@魔法工厂　@向量之心　@南山科学家</div>
+<div class="disclaimer"><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</div>
+</div><h1>NavierStokesAndEuler 商业化潜力分析报告（完整版）</h1>
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家</p>
+<p>方法论版本: v1.3 | 综合评分: <strong>51.8</strong> | 等级: <strong>B（中等商业化潜力）</strong> | 价值画像: 长尾项目</p>
+</blockquote>
+<h2>一、项目概览</h2>
+<h3>1.1 基本信息</h3>
+<ul>
+<li><strong>项目名称 / 仓库地址</strong>：openai/NavierStokesAndEuler</li>
+<li><strong>核心技术栈</strong>：Lean 4（Lean 4.34.0-rc2）+ Mathlib + Lake 构建体系；偏偏微分方程分析（Navier–Stokes、Euler 方程有限时间爆破）</li>
+<li><strong>社区规模速览</strong>：Star 1557（README 标注 1546）/ Fork 141 / Watchers 39 / 贡献者 1 人 / 开放 Issue 0 / Release 0</li>
+<li><strong>分析时点 / 数据来源</strong>：仓库创建与最近推送同为 2026-09-08（项目龄约 2 天），数据来自 GitHub API 实采与本地仓库采集</li>
+</ul>
+<h3>1.2 项目分类标签</h3>
+<table>
+<thead>
+<tr>
+<th>分类维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>其他（形式化数学证明 / 研究验证工件）</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>通用/跨行业（数学基础研究、学术出版、形式化验证）</td>
+</tr>
+<tr>
+<td>目标用户角色</td>
+<td>学术研究者（数学 / PDE / 形式化验证）；近似项为数据分析师/科学家、AI/ML 工程师</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>数学基础研究、形式化验证、AI-for-Math 能力验证</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>本地部署（Lean 4.34.0-rc2 + Mathlib + Lake，<code>lake build</code> / Comparator 本地复检）</td>
+</tr>
+</tbody>
+</table>
+<h3>1.3 一句话定位</h3>
+<blockquote>
+<p>openai/NavierStokesAndEuler 是一个 Lean 4 形式化数学证明工件，适用于数学基础研究与形式化验证场景，主要面向数学研究者与形式化验证/AI 数学研究者，用于为 Navier–Stokes 与 Euler 方程有限时间爆破结果提供机器可验证的正确性证书。</p>
+</blockquote>
+<hr />
+<h2>二、安装部署与使用指南</h2>
+<h2>D9. 上手难度与易用性（权重 10%）</h2>
+<h3>安装部署与使用指南（草稿）</h3>
+<p><strong>上手难度等级：🔴 复杂（D9 合计 4.5/10，处于 🔴 上沿、接近 🟡 临界）</strong>
+面向人群：仅 Lean 4 开发者 / 形式化数学专家。以下仅给出部署方案概要与技术要点，不展开面向非开发人员的逐步操作细节。</p>
+<p><strong>1. 项目形态与"部署"含义</strong></p>
+<p>本仓库不是可运行的服务或应用，而是论文（"Finite time blowup for Navier–Stokes"、"Finite time blowup for the Euler equation"）的 <strong>Lean 4 形式化证明证书（certificates）</strong>。所谓"部署"实为<strong>在本机构建并通过 Lean 类型检查（proof checking）</strong>，不涉及数据库、缓存、消息队列等外部服务组件。</p>
+<p><strong>2. 环境要求（README 原文）</strong></p>
+<blockquote>
+<p>The project uses Lean 4.34.0-rc2, Mathlib, and Lake. With <a href="https://github.com/leanprover/elan">elan</a> installed, fetch the mathlib cache and build the formalizations with:</p>
+</blockquote>
+<pre><code class="language-sh">lake exe cache get
+lake build
+</code></pre>
+<p><strong>3. 前置条件与依赖要点</strong></p>
+<ul>
+<li>需先安装 elan（Lean 工具链管理器，README 外链提供）；</li>
+<li>需按仓库锁定版本拉取 <strong>Lean 4.34.0-rc2</strong>（RC 版本）工具链与 <strong>Mathlib</strong> 预编译缓存，体量较大，依赖稳定网络与充足磁盘；</li>
+<li>仓库<strong>未提供</strong> Dockerfile / docker-compose / Helm Chart / CI 工作流，无容器化或一键脚本捷径；</li>
+<li>本地实测未检出依赖清单文件（无 requirements.txt / package.json / go.mod 等），依赖关系由 Lake 构建描述隐式承载。</li>
+</ul>
+<p><strong>4. 部署核验方式</strong></p>
+<ul>
+<li><code>lake build</code> 无报错即视为构建（部署）完成；</li>
+<li>若需独立复核证明，参见 <code>ComparatorChallenges/README.md</code> 中的 Comparator 说明（README 原文指向该文档）。</li>
+</ul>
+<p><strong>5. 使用方式</strong></p>
+<p>素材中<strong>未提供</strong> CLI 子命令、HTTP API、Web 管理界面或示例工程；README 只给出上述构建命令与 Comparator 复核入口，无 quickstart demo 脚本、无交互式教程。</p>
+<p><strong>6. 不适用提示</strong></p>
+<p>非 Lean / 非数学专业背景人员（运维、产品、商务）<strong>无法独立完成</strong>上述流程；该仓库的商业化采买与使用主体只能是形式化数学或 PDE 领域专家。</p>
+<h2>三、评分总览</h2>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>权重</th>
+<th>加权得分</th>
+<th>评级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1 市场需求与商业机会</td>
+<td>5.5/10</td>
+<td>13%</td>
+<td>0.72</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D2 技术成熟度与产品质量</td>
+<td>5.9/10</td>
+<td>14%</td>
+<td>0.83</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D3 社区健康度与生态势能</td>
+<td>4.1/10</td>
+<td>11%</td>
+<td>0.45</td>
+<td>差</td>
+</tr>
+<tr>
+<td>D4 商业模式与变现潜力</td>
+<td>3.6/10</td>
+<td>18%</td>
+<td>0.65</td>
+<td>差</td>
+</tr>
+<tr>
+<td>D5 竞争格局与差异化壁垒</td>
+<td>5.8/10</td>
+<td>12%</td>
+<td>0.70</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D6 法律合规与知识产权</td>
+<td>7.3/10</td>
+<td>7%</td>
+<td>0.51</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D7 企业就绪度与可运营性</td>
+<td>N/A</td>
+<td>8%</td>
+<td>—</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>D8 团队治理与可持续性</td>
+<td>5.7/10</td>
+<td>7%</td>
+<td>0.40</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D9 上手难度与易用性</td>
+<td>N/A</td>
+<td>10%</td>
+<td>—</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td><strong>综合评分</strong></td>
+<td>—</td>
+<td>100%</td>
+<td><strong>51.8/100</strong></td>
+<td><strong>B（中等商业化潜力）</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>说明：D7、D9 因分析失败被标 N/A（degradation_flags: scorecard_rebuilt_by_regex），未参与加权计算；综合评分 51.8 为代码计算结果，本报告未重算。</p>
+</blockquote>
+<p><strong>平行维度（不计入综合评分）</strong></p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10 功能价值</td>
+<td>7.0/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>D11 社会价值</td>
+<td>4.3/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>公共价值分</td>
+<td>5.7/10</td>
+<td>(D10+D11)/2</td>
+</tr>
+</tbody>
+</table>
+<p><strong>一票否决检查</strong>：未触发（veto = null）。D6 维度总分 7.3 &gt; 3；D8.4 小分 1.8 &gt; 1；D4.1 小分 2.0 &gt; 0.5，三项否决条件均不满足。否决检查完整性：D7、D9 为 N/A，但二者不涉及否决项，否决检查完整。</p>
+<p><strong>价值画像</strong>：📦 长尾项目（综合评分 51.8 &lt; 65 且公共价值分 5.7 &lt; 7）。公共价值分 5.7 未落入 6.5–7.5 临界区间，综合评分 51.8 亦不在 60–70 临界区间，画像判定明确，无临界标注需求。</p>
+<hr />
+<h2>四、各维度详细分析</h2>
+<h1>D1. 市场需求与商业机会</h1>
+<h3>项目分类标签与一句话定位</h3>
+<p><strong>分类标签</strong>（按 1.6.1 五维体系打标）：</p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>其他（形式化数学证明 / 研究验证工件；非工具、非应用、非库）</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>通用/跨行业（数学基础研究、学术出版、形式化验证）；次要：教育培训（科研/教学）</td>
+</tr>
+<tr>
+<td>目标用户角色</td>
+<td>学术研究者（数学、PDE 分析、形式化验证）；近似标签：数据分析师/科学家、AI/ML 工程师</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>学习研究（机器可验证证明）、原型验证（AI 产出数学结果的独立校验范式）</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>本地部署（Lean 4 + Mathlib + Lake，本地 <code>lake build</code> / Comparator 校验）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>一句话定位</strong>：openai/NavierStokesAndEuler 是一个 Lean 4 形式化数学证明工件，适用于数学基础研究与形式化验证场景，主要面向数学研究者与形式化验证/AI 数学研究者，用于为 Navier–Stokes 与 Euler 方程"有限时间爆破"结果提供机器可验证的正确性证书，从而让外部研究者能独立复检这一级别的重大结论。</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1.1 目标市场规模与增长性</td>
+<td>2.5</td>
+<td>1.0</td>
+<td>3–4 档（40%）</td>
+<td>对应"形式化数学/定理证明工具链"这一极小众市场量级（千万美元级或更小）。<strong>无外部数据可采</strong>，按项目类型做量级估算，置信度低。</td>
+</tr>
+<tr>
+<td>D1.2 痛点真实性与解决程度</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6 档（60%）</td>
+<td>痛点为"AI 产出的重大数学结论如何被信任"，对本领域真实且方案完整（Lean 形式化 + Comparator 独立复检），但对绝大多数使用者属"锦上添花"型需求，无付费刚需证据。</td>
+</tr>
+<tr>
+<td>D1.3 市场时机判断</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8 档（80%）</td>
+<td>恰处 AI-for-Math / 形式化验证成长期：Lean 4 + Mathlib 已进入实质生产期，AI 定理证明热度高、格局未固化，无垄断玩家，亦无监管/标准推力。</td>
+</tr>
+<tr>
+<td>D1.4 应用场景广度</td>
+<td>2.5</td>
+<td>1.0</td>
+<td>3–4 档（40%）</td>
+<td>证书本体仅覆盖 2 个 PDE 定理性结论，属单一纵深场景；可迁移的只有"用 Lean/Comparator 校验 AI 结论"的方法论模板。</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>5.5</strong></td>
+<td>—</td>
+<td>市场需求真实但小众，商业机会薄弱</td>
+</tr>
+</tbody>
+</table>
+<h3>D1.1 目标市场规模与增长性（1.0 / 2.5）</h3>
+<ul>
+<li><strong>TAM 估算（量级）</strong>：项目本身不是商品，其"可触达市场"应界定为<strong>形式化数学/定理证明工具链与相关服务</strong>（Lean/Mathlib 生态、形式化验证咨询、学术与研究资助）。按项目类型做量级估算，属"千万美元级或更小"的小众市场。</li>
+<li><strong>增长趋势</strong>：扩张中——AI 定理证明（AlphaProof 类工作、Lean 在数学界的采纳）、形式化验证在硬件/安全领域的渗透共同推高关注度；但该增长主要体现为<strong>学术关注度与技术热度</strong>，而非买方付费规模。</li>
+<li><strong>市场层级</strong>：新兴蓝海但<strong>非商业化蓝海</strong>——参与者以学术机构、研究实验室为主，缺少成熟采购链条。</li>
+<li>⚠️ <strong>数据标注</strong>：外部市场规模数据不可得，上述为按项目类型/行业的量级估算，<strong>未经外部数据验证，置信度低</strong>；本报告不引用任何具体市场规模数字。</li>
+</ul>
+<h3>D1.2 痛点真实性与解决程度（1.5 / 2.5）</h3>
+<ul>
+<li><strong>痛点真实性</strong>：中等偏真实。项目直指一个近年新出现且尖锐的问题——<strong>AI（或任何团队）宣称解决了 Navier–Stokes 存在性与光滑性这一千禧年问题级别的结论时，外部研究者如何在不重读数百页证明的前提下建立信任</strong>。README 明确将结论对应到 Clay 研究所官方问题描述中的备选 (C)、(D)，并单独提供 <code>ComparatorChallenges/README.md</code> 说明独立复检流程，说明其目标就是"可被第三方机器验证"。</li>
+<li><strong>解决完整度</strong>：较完整。给出了 Navier–Stokes（全空间与环面两种设定）与 Euler 的 Lean 4 形式化，并附独立校验路径，属于端到端的"证书"交付。</li>
+<li><strong>替代成本</strong>：替代方案是人工同行评审与逐步手工验算——成本极高、周期极长且易出错，但<strong>并非不存在</strong>。对绝大多数潜在使用者而言，"不用它"没有任何业务损失，因此该痛点更接近"行业内的重要保障"而非"非用不可的商业刚需"。</li>
+<li><strong>采纳信号</strong>：0 个开放 Issue、1 位贡献者、无 Release、创建与最近推送为同一天（2026-09-08），说明这是一个<strong>一次性投放的研究工件</strong>，尚无真实用户需求反馈或功能请求热度可供佐证。1546–1557 Star 反映的是话题关注度，而非市场需求强度。</li>
+</ul>
+<h3>D1.3 市场时机判断（2.0 / 2.5）</h3>
+<ul>
+<li><strong>技术成熟度曲线</strong>：Lean 4 + Mathlib 已越过"期望膨胀期"进入<strong>实质生产期</strong>（大型协作数学库、稳定工具链、缓存与构建体系），形式化验证从演示走向可用，时机较好。</li>
+<li><strong>竞争密度</strong>：在"对 AI 产出的前沿数学结论做形式化认证"这一具体空位上，<strong>尚无占据者</strong>，竞争格局远未固化；同时存在 Coq/Isabelle 等其他证明助手的路径，但同一结果的形式化是稀缺品。</li>
+<li><strong>监管/标准</strong>：无相关政策或行业标准驱动需求爆发；学术出版界对"机器可验证证明"尚无强制规范，缺少外部推力。</li>
+<li>综合看处于<strong>成长期、格局未定</strong>，而非成熟红海或严重超前，故给 7–8 档。</li>
+</ul>
+<h3>D1.4 应用场景广度（1.0 / 2.5）</h3>
+<ul>
+<li><strong>行业覆盖</strong>：实质仅覆盖数学基础研究一个方向，Euler/NS 爆破结论更是单点结论，不构成多行业可用能力。</li>
+<li><strong>场景多样性</strong>：属<strong>纵向专有工件</strong>，不是跨行业通用基础设施；无 Topics 标签，README 中亦无多行业用例列举。</li>
+<li><strong>可延展性</strong>：可迁移的仅是"用 Lean 形式化 + Comparator 独立校验"的<strong>方法论模板</strong>（该模式可复用于其他 AI 数学结论的认证），但其代码/证明本体难以迁移到相邻商业场景。</li>
+<li>因此落在"单一行业专用、可延展性弱"的 3–4 档。</li>
+</ul>
+<h3>结论</h3>
+<p>D1 维度合计 <strong>5.5 / 10</strong>。项目对应的问题真实、技术方案完整且在 AI-for-Math 的成长期切中一个未被占据的位置，因此"需求侧"并非伪需求；但其需求高度集中于学术共同体，<strong>不存在明确的付费方、采购链条或产品化载体</strong>，且应用面极窄。就"商业化机会"而言，D1 的强项在时机（D1.3），短板在市场体量（D1.1）与场景广度（D1.4）。若后续要形成商业价值，更可能来自"形式化验证/独立复检"这一能力的方法论外溢，而非本仓库自身的证明内容。<strong>注：D1.1 缺外部数据支撑，整体判断置信度偏低。</strong></p>
+<h1>D2 技术成熟度与产品质量</h1>
+<p><strong>项目</strong>: openai/NavierStokesAndEuler（Lean 形式化证明证书库，Apache-2.0，1557 Star / 141 Fork / 1 位贡献者）
+<strong>评估置信度</strong>: 中低 — 本地采集器返回 <code>total_code_lines = 0</code>、<code>code_stats_by_ext = {}</code>、<code>dependencies = {}</code>，与「Lean 项目必然含 .lean 源文件与 lakefile 依赖」的事实矛盾，判定为<strong>采集器未识别 .lean 扩展名导致代码层数据缺失</strong>。因此涉及代码抽检的细则（D2.2/D2.3）以「可见的仓库级证据 + 明显缺口」为基础打分，并已下调置信度。</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D2.1 产品设计与创新性</td>
+<td>1.5</td>
+<td><strong>1.2</strong></td>
+<td>80%（7–8）</td>
+<td>产品理念清晰：为 Navier-Stokes / Euler 相关成果提供可机检的 Lean 证书，属「形式化验证 + 研究成果发布」结合，创新性显著；但功能列表/信息架构在采集数据中不可见，无法确认功能取舍是否精巧</td>
+</tr>
+<tr>
+<td>D2.2 架构设计与工程质量</td>
+<td>2.0</td>
+<td><strong>1.2</strong></td>
+<td>60%（5–6）</td>
+<td>目录按数学主题清晰分层（<code>Euler/</code>、<code>NavierStokes/R3/</code>、<code>ComparatorChallenges/</code>），符合形式化项目的组织范式；但无 lint/format 配置、无 CI、无可测模块指标（文件数/接口/复用度均缺失），单贡献者 1 天内完成推送，工程侧证据几乎为空</td>
+</tr>
+<tr>
+<td>D2.3 代码整洁性与规范性</td>
+<td>1.0</td>
+<td><strong>0.6</strong></td>
+<td>60%（5–6）</td>
+<td>未检出任何 lint/format/风格配置文件，无 CONTRIBUTING；无法抽检源码（采集行数为 0），命名与重复率无从验证，规范信号薄弱</td>
+</tr>
+<tr>
+<td>D2.4 安全性</td>
+<td>1.0</td>
+<td><strong>0.6</strong></td>
+<td>60%（5–6）</td>
+<td>无 <code>SECURITY.md</code>、无 Dependabot/安全扫描工作流（<code>ci_workflows: []</code>）；Lean 证明库攻击面小、未发现硬编码敏感信息或已知漏洞，但安全实践基本缺失</td>
+</tr>
+<tr>
+<td>D2.5 UI/UX/UE 人机交互</td>
+<td>1.0</td>
+<td><strong>N/A</strong></td>
+<td>—</td>
+<td>纯 Lean 证明证书库，无 Web/桌面/移动界面，亦非交互式 CLI，不适用</td>
+</tr>
+<tr>
+<td>D2.6 功能完备度与稳定性</td>
+<td>1.5</td>
+<td><strong>0.9</strong></td>
+<td>60%（5–6）</td>
+<td>核心产物（Lean 证书）应已具备，但 <code>recent_releases</code> 为空、无版本号与 CHANGELOG、仓库创建与最近推送同日（2026-09-08），成熟度处于早期；运行环境要求（Lean 工具链 + mathlib 构建）未在数据中记录，无 i18n 证据</td>
+</tr>
+<tr>
+<td>D2.7 文档与开发者体验</td>
+<td>1.0</td>
+<td><strong>0.6</strong></td>
+<td>60%（5–6）</td>
+<td>仅检出 2 个文档文件（根 <code>README.md</code>、<code>ComparatorChallenges/README.md</code>）；无 API 参考、教程、示例代码或架构图，无 docs/ 目录</td>
+</tr>
+<tr>
+<td>D2.8 测试与质量保障</td>
+<td>1.0</td>
+<td><strong>0.2</strong></td>
+<td>20%（1–2）</td>
+<td><code>ci_workflows: 0</code>、<code>test_lines: 0</code>、无覆盖率报告、无 PR（<code>prs_created_90d: 0</code>）与代码审查记录；对形式化项目而言，缺少 CI 即缺少自动化证明复现与回归校验，属实质性缺口</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>D2.5 计为 N/A，分母由 10 调整为 9。
+<strong>D2 总分 = 5.3 / 9 × 10 ≈ 5.9</strong></p>
+</blockquote>
+<h3>结论</h3>
+<ul>
+<li><strong>得分</strong>: <strong>5.9 / 10</strong>（一般，处于行业平均水平，商业化支撑力有限）。</li>
+<li><strong>优势</strong>: 产品定位独特且有真实学术价值，D2.1 是唯一进入 7–8 档的细则；目录按数学主题分层，具备基本可读的组织结构；Apache-2.0 许可明确，社区关注度高（1557 Star）。</li>
+<li><strong>主要短板</strong>:
+  1. <strong>质量保障体系空白</strong>（D2.8 仅 0.2）——无 CI、无测试、无 PR 流程，对形式化项目意味着证明不可自动化复现，且缺少回归保护；
+  2. <strong>成熟度处于极早期</strong>——0 个 Release、仓库创建与最后推送同日、单一贡献者，无版本契约与向后兼容承诺；
+  3. <strong>文档与安全治理缺失</strong>——无 API 文档/示例/架构图，无 SECURITY.md 与依赖扫描。</li>
+<li><strong>证据局限</strong>: 采集器未统计 .lean 源码（行数/文件数/依赖均为 0），D2.2、D2.3 的评分建立在仓库级可见信号与缺口之上，实际代码质量可能优于本评估；建议补齐 <code>cloc --by-file</code> 级别的 Lean 代码统计与 lakefile 依赖解析后复核，预计 D2.2/D2.3 存在 ±0.5 分以内的上修空间。</li>
+<li><strong>商业化含义</strong>: 当前形态更接近「研究附件/可信证书发布物」而非可交付产品，若用于商业场景需补齐 CI 驱动的证明校验流水线、版本发布与文档体系。</li>
+</ul>
+<h3>D3. 社区健康度与生态势能（权重 11%）</h3>
+<h3>前置说明（数据时效性）</h3>
+<p>本项目为 OpenAI 于 <strong>2026-09-08</strong> 创建的 Lean 形式化证书仓库，创建时间与最近推送时间为<strong>同一天</strong>（2026-09-08T10:53 → 11:00），分析时仓库年龄约 <strong>2 天</strong>，且无任何后续提交。这意味着 D3 中依赖"时间累积"的指标（90 天 Star 增量、Issue/PR 活跃度、响应速度、生态衍生）在结构上尚不具备可观测窗口。以下评分在既有数据下如实打分，但对"社区尚未发育"与"社区发育失败"两类结论已作区分，整体置信度<strong>下调</strong>。</p>
+<h3>D3.1 社区活跃度指标（满分 3 分）→ 1.8 分（60%）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Star 增速</td>
+<td>90 天增量不可采（仓库 &lt;90 天）；退化公式 1557 / ~0.07 月 ≈ 2 万+/月</td>
+<td>数值远超"月增 &gt;500"档，但为 OpenAI 品牌 + 千禧年难题话题驱动的<strong>单日脉冲</strong>，非可持续社区增长，不可按 9–10 档直接采信</td>
+</tr>
+<tr>
+<td>Fork 比率</td>
+<td>141 / 1557 ≈ <strong>9.1%</strong></td>
+<td>衍生意愿中上（但部分 fork 可能用于本地构建/验证而非二次开发）</td>
+</tr>
+<tr>
+<td>Issue/PR 活跃度</td>
+<td>90 天 PR 新增 <strong>0</strong>、Issue 关闭 <strong>0</strong>、开放 Issue <strong>0</strong></td>
+<td>无社区参与信号，落 1–2 档</td>
+</tr>
+<tr>
+<td>响应速度</td>
+<td>无 Issue，平均关闭时间不可测</td>
+<td>该子项无意义（非 N/A，而是样本为 0）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>综合判断</strong>：Star 总量（1557）在两天内达成，量级惊人，是典型的<strong>品牌/话题脉冲</strong>而非有机社区；与此同时 PR、Issue、讨论参与度全为 0，社区停留在"关注（attention）"而非"参与（participation）"层面。Star 增速一项取顶档、互动活跃度取底档，取中位偏保守的 5–6 档 → <strong>60%</strong>。</p>
+<blockquote>
+<p>说明：退化公式对 2 天龄仓库严重失真（会得到天文数字），本次未据其给满分，仅作"注意力极强"的定性佐证。</p>
+</blockquote>
+<h3>D3.2 贡献者结构多样性（满分 2.5 分）→ 0.5 分（20%）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>贡献者数量</td>
+<td><strong>1 人</strong></td>
+<td>落 1–2 档（单人项目）</td>
+</tr>
+<tr>
+<td>组织多样性</td>
+<td>仅 OpenAI 单一组织</td>
+<td>落 1–2 档</td>
+</tr>
+<tr>
+<td>核心团队占比</td>
+<td>100%（无外部贡献者）</td>
+<td>外部贡献占比为 0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>综合判断</strong>：仓库为 OpenAI 官方一次性发布的形式化证书，API <code>contributors = 1</code>，无任何外部贡献者或第二组织参与。按社区规模视角直接对应"单人项目"档 → <strong>20%</strong>。（"核心人员离开后的传承风险"归 D8.1 巴士因子，此处不重复计分。）</p>
+<h3>D3.3 第三方生态成熟度（满分 3 分）→ 0.6 分（20%）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>插件/扩展</td>
+<td>无（topics 为空，无插件机制）</td>
+<td>无</td>
+</tr>
+<tr>
+<td>集成生态</td>
+<td>无 CI workflows、无平台集成证据</td>
+<td>无</td>
+</tr>
+<tr>
+<td>衍生项目</td>
+<td>未发现基于本项目的二次开发/商业产品</td>
+<td>无</td>
+</tr>
+<tr>
+<td>教程/课程</td>
+<td>未发现外部教程、课程、博客（仅有仓库内 2 个 README）</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<p><strong>综合判断</strong>：项目是伴随论文的 Lean 证书仓库，天然不以"被扩展"为目标；除作为 Lean/Mathlib 生态的一员外，自身无第三方插件、集成、衍生或教程沉淀，2 天龄亦不可能形成生态。落"完全孤立"档 → <strong>20%</strong>。</p>
+<h3>D3.4 品牌认知与行业影响力（满分 1.5 分）→ 1.2 分（80%）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>品牌辨识度</td>
+<td>OpenAI 出品 + 直指 Navier–Stokes/Millennium Prize，两天内 1557 Star</td>
+<td>领域内高辨识度</td>
+</tr>
+<tr>
+<td>行业采用</td>
+<td>未发现企业在生产/工具链中采用或背书的公开证据（仅机构背书=OpenAI 本身）</td>
+<td>无采用证据</td>
+</tr>
+<tr>
+<td>媒体覆盖</td>
+<td>素材未直接提供媒体报道证据；但话题量级（千禧年难题）与 Star 速度间接佐证关注度</td>
+<td>间接支持</td>
+</tr>
+</tbody>
+</table>
+<p><strong>综合判断</strong>：OpenAI 品牌 + 千禧年难题话题带来<strong>即时、强力的领域认知</strong>，符合 7–8 档"领域内有较高认知度，有知名企业背书"；但无实际采用案例、尚无社区验证，不足以触及 9–10 档。→ <strong>80%</strong>。</p>
+<h3>结论</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D3.1 社区活跃度</td>
+<td>3.0</td>
+<td>1.8</td>
+<td>60%（5–6 档）</td>
+</tr>
+<tr>
+<td>D3.2 贡献者多样性</td>
+<td>2.5</td>
+<td>0.5</td>
+<td>20%（1–2 档）</td>
+</tr>
+<tr>
+<td>D3.3 第三方生态成熟度</td>
+<td>3.0</td>
+<td>0.6</td>
+<td>20%（1–2 档）</td>
+</tr>
+<tr>
+<td>D3.4 品牌认知与影响力</td>
+<td>1.5</td>
+<td>1.2</td>
+<td>80%（7–8 档）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>4.1</strong></td>
+<td><strong>较弱</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>核心结论</strong>：本项目呈现极端的"品牌注意力强、社区/生态空"的二元结构——OpenAI 背书与千禧年难题话题在 2 天内聚拢 1557 Star、9.1% Fork 率，品牌势能（D3.4）表现优秀；但贡献者仅 1 人、90 天 PR/Issue 均为 0、无插件/集成/衍生/教程，社区参与度与生态成熟度（D3.1–D3.3）几乎为零。由于仓库仅 2 天龄，这些"零值"主要是<strong>尚未发育</strong>而非<strong>发育失败</strong>，因此不判 0 分，但也无法据此认定社区基础已具备——作为商业化"潜在客户池"目前极度薄弱。<strong>D3 综合得分 4.1/10（较弱）</strong>，且因时间窗口过短、Star 增速依赖失真退化公式，本维度置信度较低，建议 3–6 个月后复评。</p>
+<h3>D4. 商业模式与变现潜力（权重 18%）</h3>
+<h3>D4.1 协议对变现模式的影响（满分 2 分）</h3>
+<p><strong>实测得分：2.0 / 2（100%，9–10 档）</strong></p>
+<table>
+<thead>
+<tr>
+<th>判定项</th>
+<th>实测值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LICENSE 文件</td>
+<td><code>LICENSE</code>（Apache License 2.0 全文）</td>
+</tr>
+<tr>
+<td>SPDX / 声明</td>
+<td><code>Apache-2.0</code>（GitHub API <code>license</code> 字段一致）</td>
+</tr>
+<tr>
+<td>传染性</td>
+<td>无（非 copyleft）</td>
+</tr>
+<tr>
+<td>对变现路径的约束</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<p>Apache 2.0 属于最宽松的许可族：允许闭源衍生、允许商业再分发、允许 SaaS 托管、允许双协议/Open Core、允许专利授权（第 3 条显式授予专利许可）。因此所有主流开源变现路径在本协议下均无障碍。本项得分 2.0/2。</p>
+<p>需说明的是，本细则仅评估"协议对变现模式选择"的约束，<strong>不评估</strong>本仓库内容本身是否具备可售卖的形态——后者由 D4.2–D4.4 承接。二者叠加后本仓库整体商业化得分偏低，但协议本身不是障碍。</p>
+<hr />
+<h3>D4.2 变现路径清晰度（满分 3.5 分）</h3>
+<p><strong>实测得分：0.7 / 3.5（20%，1–2 档）</strong></p>
+<p>本仓库的定位是<strong>学术成果的机器可验证证书</strong>（README：<em>"This repository contains Lean 4 formalizations of the results presented in..."</em>），而非可交付的产品或平台。逐一核对七种主流模式：</p>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>可行性</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Open Core</td>
+<td>✗</td>
+<td>仓库无"核心功能/企业功能"分层，全部内容为一次性数学证明证书（NS/Euler 有限时间爆破），无长期演进的软件内核</td>
+</tr>
+<tr>
+<td>SaaS 托管</td>
+<td>✗</td>
+<td>无服务端组件，无运行时产品；<code>has_dockerfile=false</code>，无 CI，无部署物</td>
+</tr>
+<tr>
+<td>双协议许可</td>
+<td>✗</td>
+<td>已由 Apache 2.0 完全放开，无授权谈判空间；且无付费客户对象</td>
+</tr>
+<tr>
+<td>专业服务（咨询/培训/定制）</td>
+<td>△（极弱）</td>
+<td>Lean 4 / Mathlib 形式化验证服务在学界与安全关键领域确有市场，但本仓库是"证明成品"而非"方法论工具链"或"咨询交付框架"，无法直接转化为服务入口</td>
+</tr>
+<tr>
+<td>市场/插件</td>
+<td>✗</td>
+<td>无插件体系、无扩展点、无平台属性</td>
+</tr>
+<tr>
+<td>认证/生态</td>
+<td>△（极弱）</td>
+<td>无认证体系、无合作伙伴计划；<code>ComparatorChallenges/</code> 为第三方独立复核说明文档，属学术审计范畴而非商业认证</td>
+</tr>
+<tr>
+<td>捐赠/赞助</td>
+<td>△（极弱）</td>
+<td>归属 OpenAI（<code>openai/NavierStokesAndEuler</code>），非社区个人项目，不存在捐赠模式适用的组织形态</td>
+</tr>
+</tbody>
+</table>
+<p><strong>硬事实</strong>：<code>contributors = 1</code>、<code>recent_releases = []</code>、<code>prs_created_90d = 0</code>、<code>issues_closed_90d = 0</code>、<code>has_contributing = false</code>、<code>has_security_md = false</code>。仓库既无产品化路线图痕迹，也无社区治理与版本迭代节奏——这是"研究副产品（research artifact）"而非"待商业化软件"的典型特征。项目真正的商业价值若存在，将落在 OpenAI 的模型能力/品牌层面，而非本仓库自身的变现路径上。</p>
+<p>结论：无任何一条清晰可行的变现路径，仅存在理论上极其间接的"形式化验证服务"延展，且需从零构建大量能力。按 1–2 档计 20% → 0.7 分。</p>
+<hr />
+<h3>D4.3 付费转化逻辑（满分 2.5 分）</h3>
+<p><strong>实测得分：0.5 / 2.5（20%，1–2 档）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测结论</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>免费→付费触发点</td>
+<td><strong>不存在</strong>。仓库无功能分层，没有企业版/付费版对比（无 <code>docs</code> 定价页、无 <code>enterprise/</code>、无 license-key 校验），不存在"免费不够用"的场景</td>
+</tr>
+<tr>
+<td>付费意愿强度</td>
+<td>目标受众为数学/形式化验证研究者，其需求是<strong>同行评审与结果信任</strong>（见 <code>ComparatorChallenges/README.md</code> 的独立复核流程），而非购买软件；该群体的典型支付行为是学术资助与论文引用，而非 SaaS 订阅</td>
+</tr>
+<tr>
+<td>转化漏斗</td>
+<td><strong>无漏斗</strong>。使用方式为 <code>lake exe cache get &amp;&amp; lake build</code>（克隆、构建、验证），全流程零接触商业化触点，无注册、无配额、无用量计量</td>
+</tr>
+</tbody>
+</table>
+<p>Navier–Stokes 存在性与光滑性问题属 Clay 千禧年大奖问题，其"价值兑现"路径是数学界的同行认可与奖项，而非商业付费。本仓库不构成任何可定价的产品。按 1–2 档计 20% → 0.5 分。</p>
+<hr />
+<h3>D4.4 增值服务空间与定价天花板（满分 2 分）</h3>
+<p><strong>实测得分：0.4 / 2（20%，1–2 档）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测结论</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>增值空间</td>
+<td>仓库内容为单一、封闭、不可拆分的证明证书集合，无"基础版+增值模块"的切分可能。理论上可叠加的"形式化证明审计/复核服务""Lean 工程化咨询"均属外部服务，非本仓库可承载的增值层</td>
+</tr>
+<tr>
+<td>定价天花板</td>
+<td>本仓库自身客单价为 <strong>$0</strong>（Apache 2.0 下完全免费且允许任意再分发）。若强行嫁接至 OpenAI 的商业叙事，其计价也归于 API/模型侧的 per-token 用量，与本仓库无直接计量关系</td>
+</tr>
+<tr>
+<td>收入扩展性</td>
+<td>无 per-seat 也无 per-usage 的计量对象（无用户账户、无调用接口、无并发资源），不存在从 per-seat 向 enterprise flat fee 的扩展路径</td>
+</tr>
+</tbody>
+</table>
+<p>数据依据：<code>total_code_lines = 0</code>、<code>has_dockerfile = false</code>、无 CI、无依赖清单（<code>dependencies = {}</code>）、无用户/计量相关配置。仓库的可售卖表面接近于零。按 1–2 档计 20% → 0.4 分。</p>
+<hr />
+<h3>本维度小结</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+<th>核心判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D4.1 协议对变现模式的影响</td>
+<td>2.0</td>
+<td><strong>2.0</strong></td>
+<td>100%（9–10）</td>
+<td>Apache 2.0，全部变现路径无法律约束</td>
+</tr>
+<tr>
+<td>D4.2 变现路径清晰度</td>
+<td>3.5</td>
+<td><strong>0.7</strong></td>
+<td>20%（1–2）</td>
+<td>无 Open Core / SaaS / 双协议 / 市场 / 认证路径；仅存极弱的服务型延展</td>
+</tr>
+<tr>
+<td>D4.3 付费转化逻辑</td>
+<td>2.5</td>
+<td><strong>0.5</strong></td>
+<td>20%（1–2）</td>
+<td>无功能分层、无免费/付费触发点、无转化漏斗</td>
+</tr>
+<tr>
+<td>D4.4 增值服务空间与定价天花板</td>
+<td>2.0</td>
+<td><strong>0.4</strong></td>
+<td>20%（1–2）</td>
+<td>无增值层、无计量对象、客单价 $0</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>3.6</strong></td>
+<td>—</td>
+<td><strong>3.6 / 10</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：本项目的商业模式与变现潜力评为 <strong>3.6 / 10（较弱）</strong>，构成明确的商业化障碍。核心矛盾在于——<strong>许可协议完全开放（D4.1 满分），但开放的对象是一份学术证明证书而非软件产品</strong>。仓库由 OpenAI 发布、单一贡献者、零迭代、零发布、零 CI，没有可分层、可计量、可托管的任何软件表面，因此 D4.2–D4.4 三项均落在最低档。</p>
+<p>其真实价值定位是"能力展示与研究公信力资产"：向外界证明 OpenAI 具备自动形式化（autoformalization）与机器可验证数学的生产能力，其商业回报预期体现在品牌与未来形式化验证产品线的先发地位上，而非本仓库自身的直接收入。若后续 OpenAI 推出形式化推理相关 API 或验证服务，本仓库可作为生态样本被引用，但该路径目前尚不存在于本仓库范围内。</p>
+<p><strong>置信度说明</strong>：本次评估所依据的仓库结构信息完整（license、contributors、releases、CI、docker、依赖均已实采）。唯一数据缺口为代码统计（<code>code_stats_by_ext = {}</code>，Lean 源文件的规模未被本地采集器识别，<code>total_code_lines = 0</code>），但这不影响本维度判断——变现潜力取决于产品形态与分层设计，而非 Lean 证明的行数。未使用 N/A 剔除，本维度满分 10.0 全额计入。</p>
+<h3>D5 竞争格局与差异化壁垒</h3>
+<blockquote>
+<p><strong>前置说明（数据可得性）</strong>：本次评估<strong>未执行竞品搜索 API</strong>（环境未提供搜索接口），依据素材中的「竞品清单」约束——「竞品未经搜索验证，可能存在偏差；只可引用 README/docs 中明确提及的竞品」。因此本节<strong>不列举任何未经 README/docs 佐证的竞品名称</strong>，仅对 README 中直接出现的生态项目做「仓库内引用」级验证。D5.1 的评分置信度相应下调。</p>
+</blockquote>
+<hr />
+<h4>D5.1 竞品对比与市场定位（满分 3 分）</h4>
+<p><strong>可直接验证的参照项目（读取自 README，验证方式：仓库内引用）</strong></p>
+<table>
+<thead>
+<tr>
+<th>参照项目</th>
+<th>类型</th>
+<th>仓库/出处</th>
+<th>验证方式</th>
+<th>Star/用户量</th>
+<th>与本项目的关系与核心差异</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mathlib</td>
+<td>生态基座（<strong>非竞品</strong>）</td>
+<td>README 「uses Lean 4.34.0-rc2, Mathlib, and Lake」</td>
+<td>仓库内引用</td>
+<td>N/A（未采集）</td>
+<td>本项目<strong>依赖</strong>的通用形式化数学库；解决的是「通用数学库」问题，不解决「NS/Euler 爆破证书」问题</td>
+</tr>
+<tr>
+<td>Comparator</td>
+<td>工具（<strong>非竞品</strong>）</td>
+<td><code>ComparatorChallenges/README.md</code></td>
+<td>仓库内引用</td>
+<td>N/A（未采集）</td>
+<td>用于<strong>独立检查</strong>本项目证明的工具，是验证手段而非替代方案</td>
+</tr>
+<tr>
+<td>Lean 4 / Lake / elan</td>
+<td>工具链（<strong>非竞品</strong>）</td>
+<td>README 构建说明</td>
+<td>仓库内引用</td>
+<td>N/A（未采集）</td>
+<td>语言与构建工具链，本项目构建于其上；不构成同类竞争</td>
+</tr>
+<tr>
+<td>Clay Mathematics Institute 官方问题描述</td>
+<td>问题定义来源（<strong>非竞品</strong>）</td>
+<td>README 中的 claymath.org 链接</td>
+<td>仓库内引用</td>
+<td>—</td>
+<td>定义问题 <strong>(C)/(D)</strong> 的权威文本，是本项目<strong>对标目标</strong>而非竞争者</td>
+</tr>
+</tbody>
+</table>
+<p><strong>竞品数量结论</strong>：<strong>经现有素材可验证的「同类竞品」为 0 个</strong>——README/docs 未提及任何其他「NS/Euler 爆破形式化验证」项目，且本次未执行外部搜索，无法确认此类项目是否存在。按防幻觉规则，<strong>不作凑数式列举</strong>。</p>
+<p><strong>市场定位分析</strong>
+- <strong>定位清晰度：高。</strong> README 开篇即声明这是 OpenAI 两篇论文的 Lean 4 形式化产物，并明确逐条对标 Clay 数学研究所 Navier–Stokes 问题官方描述中的 <strong>(C)「ℝ³ 上解的爆破」</strong> 与 <strong>(D)「ℝ³/ℤ³ 上解的爆破」</strong> 两个替代命题，外加 Euler 方程有限时间奇点构造。这种「把千禧年大奖难题候选结论做成机器可验证证书」的定位在开源生态中极为罕见，不存在定位模糊问题。
+- <strong>差异化维度</strong>：①结果本身属前沿数学突破（非工程复刻）；②交付形态是「形式化证书 + 独立第三方检查（Comparator）」，即用可机检性替代同行评议背书；③由 OpenAI 出品，自带品牌与话题性（当日 1557 star 即为佐证）。
+- <strong>商业化意义上的定位弱点</strong>：它是<strong>科研声明的附属工件</strong>，而非面向用户的产品——无 roadmap、无版本、无用户分层、无定价锚点，其「市场」实质是形式化数学 / AI-for-Math 研究社群这一极窄圈层。</p>
+<p><strong>打分</strong>：<strong>2.4 / 3（80%，7–8 档）</strong>
+理由：定位高度独特且清晰，符合「无明显直接竞品」的 9–10 档描述；但<strong>竞品未经搜索验证</strong>，无法排除同类形式化项目存在，且该项目不构成商业化产品定位，故不上探至 100% 档。</p>
+<hr />
+<h4>D5.2 技术壁垒与网络效应（满分 3 分）</h4>
+<blockquote>
+<p>归属说明：「从零复刻的工程难度」属 D2.2 计分范围，本节只评估壁垒的<strong>商业防御效果</strong>。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>事实依据</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术壁垒</td>
+<td>需同时具备 PDE 前沿结论与 Lean 形式化能力；此类成果无专利保护（数学定理不可专利化），且仓库为 Apache-2.0 全开放</td>
+<td><strong>生产侧壁垒真实存在（知识壁垒高），但无排他性</strong>：证书一旦公开即可被自由复用，141 个 fork 本身即是扩散证据</td>
+</tr>
+<tr>
+<td>网络效应</td>
+<td>contributors = 1，open_issues = 0，近 90 天 PR = 0，releases = 0，topics 为空，无插件/扩展机制</td>
+<td><strong>零网络效应</strong>：无用户越多价值越大的机制，无生态、无数据飞轮、无社区网络</td>
+</tr>
+<tr>
+<td>规模效应</td>
+<td>静态证明工件，无服务端、无运行时、无边际成本结构</td>
+<td><strong>无规模效应</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>综合判断</strong>：存在一项「知识型」硬壁垒（外部团队独立复现需重走完整研究 + 形式化路径），但该壁垒<strong>不产生商业排他性</strong>，且完全缺失网络效应与生态锁定。属「有一定壁垒但不深厚」。</p>
+<p><strong>打分</strong>：<strong>1.8 / 3（60%，5–6 档）</strong></p>
+<hr />
+<h4>D5.3 切换成本与用户粘性（满分 2 分）</h4>
+<ul>
+<li><strong>迁移成本</strong>：极低。使用方式为 <code>lake exe cache get</code> + <code>lake build</code>，再由 Comparator 独立检查；无账号体系、无配置文件、无用户数据、无历史状态需要迁移。切换到其他证书或自行形式化，成本接近于零。</li>
+<li><strong>深度集成</strong>：不适用。项目不提供 API、SDK、服务端或可嵌入组件，无「集成深度」这一粘性来源。</li>
+<li><strong>习惯锁定</strong>：无。0 issue / 0 PR / 单一贡献者，未见任何组织流程或社区协作依赖；用户使用后不产生持续回访需求。</li>
+<li><strong>间接粘性（需扣除）</strong>：用户若在下游证明中 import 本仓库的定理，切换会破坏依赖链——但这是 Lean 生态的通用特性，且下游用户规模在现有数据中不可见（无引用数据），不足以计分。</li>
+</ul>
+<p><strong>打分</strong>：<strong>0.4 / 2（20%，1–2 档）</strong>——典型「即插即用即走」形态，迁移成本基本为零。</p>
+<hr />
+<h4>D5.4 护城河可持续性（满分 2 分）</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>事实依据</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>护城河趋势</td>
+<td>created_at 与 pushed_at 均为 2026-09-08（当日发布当日停更），近 90 天 PR = 0、release = 0、issue = 0</td>
+<td><strong>护城河不在加深</strong>：属一次性发布工件，无持续迭代信号</td>
+</tr>
+<tr>
+<td>颠覆风险</td>
+<td>①AI 形式化数学能力高速演进，同类「AI 生成形式化证书」的进入门槛在下降；②证书价值完全依附于所对应论文的可信度，若独立检查（Comparator 流程）或同行评议发现缺陷，价值将即刻归零；③Apache-2.0 全开，无排他性</td>
+<td><strong>中等颠覆风险</strong>：风险来源不是"竞品更强"，而是"验证结论被推翻"与"领域能力商品化"</td>
+</tr>
+<tr>
+<td>时间窗口</td>
+<td>数学优先权（首个给出某结论的机器可验证证书）一旦确立不可被重新分配，声誉先发优势具有持久性；但作为可复用资产的技术领先性会随生态追赶快读</td>
+<td><strong>声誉型护城河较持久，资产型护城河有限</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>打分</strong>：<strong>1.2 / 2（60%，5–6 档）</strong></p>
+<hr />
+<h4>本维度汇总</h4>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>核心依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D5.1 竞品对比与市场定位</td>
+<td>3</td>
+<td>2.4</td>
+<td>80%（7–8 档）</td>
+<td>定位极端独特（对标 Clay (C)/(D)），但竞品未经搜索验证、非产品化定位</td>
+</tr>
+<tr>
+<td>D5.2 技术壁垒与网络效应</td>
+<td>3</td>
+<td>1.8</td>
+<td>60%（5–6 档）</td>
+<td>知识壁垒真实但无排他性；网络效应、规模效应均为零</td>
+</tr>
+<tr>
+<td>D5.3 切换成本与用户粘性</td>
+<td>2</td>
+<td>0.4</td>
+<td>20%（1–2 档）</td>
+<td>无数据/无配置/无集成面，即插即用即走</td>
+</tr>
+<tr>
+<td>D5.4 护城河可持续性</td>
+<td>2</td>
+<td>1.2</td>
+<td>60%（5–6 档）</td>
+<td>声誉先发持久，但无持续投入，中等颠覆风险</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>5.8</strong></td>
+<td>—</td>
+<td><strong>D5 = 5.8 / 10</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：本项目在「定位独特性」上表现突出——它是罕见的、以机器可验证证书形式对冲千禧年难题结论的研究工件，不存在可确认的同类竞品。但<strong>独特性 ≠ 商业壁垒</strong>：其技术屏障属不可专利化的知识壁垒，Apache-2.0 使其可被自由复用；零网络效应、零规模效应、零切换成本、零持续维护信号，使其在竞争战略意义上是一个「发布即终态」的声誉资产，而非可防御的商业资产。综合 <strong>5.8 / 10（一般偏上）</strong>。</p>
+<p><strong>置信度声明（中等偏低）</strong>：
+1. 竞品搜索未执行，D5.1 无法排除同类形式化项目的存在，该项评分存在向上偏差风险；
+2. 本地采集显示 <code>total_code_lines = 0</code>、<code>code_stats_by_ext</code> 为空、<code>doc_files</code> 仅 2 个 README，与 README 描述的项目规模明显不符，判断为<strong>采集工具未识别 Lean 源文件</strong>所致，故 D5.2/D5.3 中关于"项目内部结构"的判断主要依据 GitHub API 与 README，未基于真实代码体量；
+3. 无任何第三方引用/用户量数据，切换成本与网络效应评估基于结构推断。</p>
+<h3>D6. 法律合规与知识产权（权重 7%）</h3>
+<p><strong>目的</strong>: 识别商业化过程中的法律风险和知识产权障碍。本维度权重 7%，是「一票否决型」风险的集中区——协议传染、商标冲突等硬伤可能直接封死某条商业路径。</p>
+<h3>D6.1 开源协议合规性与商业限制（3 分）—— 得分 3.0 / 3.0</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测情况</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>协议明确性</td>
+<td>仓库根目录存在完整 <code>LICENSE</code> 文件（Apache License 2.0 全文），GitHub API <code>license</code> 字段识别为 <code>Apache-2.0</code>，SPDX 标识规范</td>
+<td>✅ 明确</td>
+</tr>
+<tr>
+<td>copyleft 传染性</td>
+<td>主协议为 Apache-2.0（宽松型，非 copyleft）；无 GPL/AGPL/SSPL 等传染性协议痕迹</td>
+<td>✅ 无传染</td>
+</tr>
+<tr>
+<td>商业附加条款</td>
+<td>LICENSE 为标准 Apache-2.0 原文，未附加 Commons Clause、BUSL、Elastic License 等商业限制条款</td>
+<td>✅ 无附加限制</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：Apache-2.0 是商业友好度最高的主流协议之一，明确授予著作权与专利权（§2、§3），允许闭源衍生、再许可、商业分发与收费（§9 甚至允许提供付费担保/支持服务）。本细则聚焦的是<strong>法律层面的合规障碍</strong>（传染范围、附加条款、合规可管理性）：本仓库三项均无实质障碍，仅需在再分发时保留版权/NOTICE 与变更声明（§4a–d），属可自动化满足的常规义务。协议对变现模式选择的影响另见 D4.1，此处不重复扣分。</p>
+<p><strong>得分：3.0 / 3.0（9–10 档，100%）</strong></p>
+<h3>D6.2 依赖链法律风险（2.5 分）—— 得分 2.0 / 2.5</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测情况</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>依赖协议审查</td>
+<td>本地实测 <code>dependencies: {}</code>，未检出任何依赖清单（无 requirements.txt / package.json / go.mod / lakefile 被解析）；已检出信息中<strong>无 GPL/AGPL 迹象</strong></td>
+<td>⚠️ 无法完成传递依赖审计</td>
+</tr>
+<tr>
+<td>依赖数量</td>
+<td>代码统计 <code>total_code_lines: 0</code>、<code>code_stats_by_ext: {}</code>，采集器未解析出 Lean 源文件与依赖清单，无法量化</td>
+<td>⚠️ 数据缺失</td>
+</tr>
+<tr>
+<td>依赖来源</td>
+<td>项目为 Lean 形式化证明证书，生态内主流依赖（Mathlib 等）为 Apache-2.0，无高风险来源迹象</td>
+<td>中性偏正面</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：采集器未捕获到任何依赖清单文件（这是硬事实），因此<strong>无法完成合规意义上的传递依赖闭包审计</strong>；但同样<strong>没有任何证据</strong>表明存在 GPL/AGPL 或来源不明的依赖。考虑到 Lean 形式化数学生态的标准依赖（Mathlib 及其衍生库）普遍采用 Apache-2.0，传染性依赖风险在行业先验上偏低。故按「无传染证据但审计未完成、置信度中等」处理，给 7–8 档而非满分——满分的 9–10 档要求「依赖少且来源可靠」有实测支撑，此处不具备可验证的清单依据。</p>
+<p><strong>得分：2.0 / 2.5（7–8 档，80%）</strong></p>
+<h3>D6.3 商标与专利风险（2.5 分）—— 得分 1.5 / 2.5（未经人工核查，置信度低）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测情况</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>商标可用性</td>
+<td><strong>未做人工商标检索</strong>，AI 不得断言</td>
+<td>⚠️ 待核查</td>
+</tr>
+<tr>
+<td>专利风险</td>
+<td>未做 FTO 排查；Apache-2.0 §3 含明示专利授权 + 专利报复终止条款，可降低下游用户侧风险</td>
+<td>⚠️ 待核查</td>
+</tr>
+<tr>
+<td>商标政策</td>
+<td>LICENSE 为标准 Apache-2.0，§6 明确「不授予商号、商标、服务标记或产品名称许可」；README 中未见独立商标使用政策；项目托管于 OpenAI 组织名下</td>
+<td>⚠️ 事实层面已识别，法律结论待核查</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：按本细则的自动化限制规则，商标检索与专利排查无法由 AI 自动完成，<strong>默认按 5–6 档给 1.5 / 2.5 分并标注「未经人工核查，置信度低」</strong>，不凭模型记忆断言商标/专利状态。</p>
+<p>可陈述的客观事实（不构成法律结论）：(1) 项目名 <code>NavierStokesAndEuler</code> 直接取自两个数学结果名称，属于通用科学术语组合，其本身作为商标的显著性较弱；(2) 但商业衍生品若沿用 <code>openai</code> 组织名与标识，Apache-2.0 §6 明确不授予商标许可，且 OpenAI 另有独立品牌使用政策，存在品牌命名受限的可能性；(3) Apache-2.0 §3 的专利授权与报复条款对<strong>下游使用者</strong>是正向保护，但不解决<strong>本项目自身是否侵犯第三方专利</strong>的问题。建议在商业化前对项目名与 OpenAI 品牌使用边界做人工法律核查。</p>
+<p><strong>得分：1.5 / 2.5（5–6 档，60%，未经人工核查，置信度低）</strong></p>
+<h3>D6.4 贡献者协议完备性（2 分）—— 得分 0.8 / 2.0</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测情况</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CLA/DCO</td>
+<td><code>has_contributing: false</code>，无 CONTRIBUTING.md，无 CLA/DCO 配置，无 <code>.github/</code> 模板，无 DCO 签名要求</td>
+<td>❌ 完全缺失</td>
+</tr>
+<tr>
+<td>版权归属</td>
+<td><code>contributors: 1</code>，全部代码由单一实体（OpenAI）产出，版权高度集中于单一主体，<strong>利于</strong>未来双协议/重许可</td>
+<td>✅ 集中可控</td>
+</tr>
+<tr>
+<td>贡献流程</td>
+<td>无贡献指南、无 CODEOWNERS、无 PR 模板、90 天内 PR 创建与 Issue 关闭数均为 0</td>
+<td>❌ 流程缺失</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：本细则三个考察点呈「一正两负」格局。负面：贡献治理基础设施完全空白，一旦开放社区 PR 且无 CLA/DCO 约束，版权将不可逆地碎片化，日后若想做「开源 + 商业双许可」或修改协议将面临需逐一征得全体贡献者同意的僵局。正面：当前 <code>contributors = 1</code> 且版权归单一实体，<strong>现状下版权链是干净且可完全控制的</strong>，重许可/双授权的法律动作当前可单方完成。综合看，属「无正式协议文档但版权未分散」的中间偏低状态，介于 3–4 档（流程不规范）与 5–6 档（有指南无 CLA）之间；因连贡献指南都不具备，且未来接受外部贡献即产生实质风险，取 3–4 档。</p>
+<p><strong>得分：0.8 / 2.0（3–4 档，40%）</strong></p>
+<hr />
+<h3>D6 维度小结</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D6.1 开源协议合规性与商业限制</td>
+<td>3.0</td>
+<td>3.0</td>
+<td>9–10（100%）</td>
+</tr>
+<tr>
+<td>D6.2 依赖链法律风险</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8（80%）</td>
+</tr>
+<tr>
+<td>D6.3 商标与专利风险</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6（60%，未经人工核查）</td>
+</tr>
+<tr>
+<td>D6.4 贡献者协议完备性</td>
+<td>2.0</td>
+<td>0.8</td>
+<td>3–4（40%）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>7.3</strong></td>
+<td><strong>加权得分 7.3 / 10</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：本维度表现<strong>良好偏上（7.3/10）</strong>，不存在「一票否决」级的法律硬伤——Apache-2.0 是商业友好度最高的主流许可之一，无 copyleft 传染、无 Commons Clause/BUSL 类商业附加条款，专利条款（§3）反而为下游使用者提供了保护。主要短板集中在两处：其一，<strong>贡献治理基础设施完全空白</strong>（无 CONTRIBUTING/CLA/DCO/CODEOWNERS），当前因版权集中于单一实体而无害，但一旦开放外部贡献即形成版权碎片化风险，若计划走双许可或重许可路线，应尽早引入 CLA/DCO；其二，<strong>商标与专利状态未经人工核查</strong>（1.5/2.5 为按规则的中性默认值），特别是项目挂在 <code>openai</code> 组织名下，商业化时沿用其品牌标识存在限制，须人工核查。此外依赖链审计因采集器未捕获 Lean 依赖清单而未能闭环，建议以 <code>lake-manifest.json</code> / <code>lakefile.lean</code> 为准补做一次传递依赖协议扫描。</p>
+<p><strong>商业化前置动作建议</strong>：(1) 对「NavierStokesAndEuler」名称及 OpenAI 品牌使用边界做人工商标核查；(2) 补做 Lean/Lake 依赖树的 license 扫描；(3) 若开放贡献，引入 DCO 或 CLA。</p>
+<h3>D7. 企业就绪度与可运营性（权重 8%）</h3>
+<blockquote>
+<p><strong>适用性说明</strong>：本项目为 OpenAI 发布的 Lean 4 数学证明证书集合（Navier–Stokes / Euler 有限时间爆破结果的形式化），制品形态为「可独立校验的证明工件」，而非可部署的软件服务。D7 的四项细则按企业级软件运营标尺衡量时，多数考察点（认证授权、集群高可用、运行时可观测性）在本项目中概念上并不成立。为保持跨项目可比性，本维度仍按标尺逐项评估并给出低分，但需提示：<strong>该低分更多反映「制品形态与企业运营标尺不匹配」，而非项目质量缺陷</strong>，本维度结论置信度中等（受适用性限制）。</p>
+</blockquote>
+<h4>细则打分表</h4>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>考察点</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+<th>判断依据（硬事实）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D7.1 运维复杂度与升级路径</td>
+<td>配置管理 / 运维负担 / 升级路径 / 数据迁移</td>
+<td>3</td>
+<td><strong>1.2</strong></td>
+<td>3–4 档（40%）</td>
+<td>README 明确固定 <code>Lean 4.34.0-rc2</code> + Mathlib + Lake，构建步骤（<code>lake exe cache get</code> / <code>lake build</code>）清晰，工具链版本固定具备可复现基础；但 <code>ci_workflows = 0</code>、<code>recent_releases = 0</code>、无 CHANGELOG、无 Makefile/scripts（脚本文件数 0），无版本化升级与回滚机制；数据迁移不适用（无状态数据）</td>
+</tr>
+<tr>
+<td>D7.2 安全管理与权限控制</td>
+<td>认证授权 / 权限模型 / 审计日志 / 数据安全</td>
+<td>2.5</td>
+<td><strong>0.5</strong></td>
+<td>1–2 档（20%）</td>
+<td>无任何认证/授权/RBAC/审计模块（仓库为纯 Lean 源码）；<code>has_security_md = false</code>、<code>has_codeowners = false</code>，无安全披露流程；仅依赖 GitHub 平台原生仓库权限；Apache-2.0 提供法律层面清晰度，但不构成安全控制</td>
+</tr>
+<tr>
+<td>D7.3 可扩展性与高可用能力</td>
+<td>水平扩展 / 高可用 / 性能瓶颈 / 数据一致性</td>
+<td>2.5</td>
+<td><strong>0.5</strong></td>
+<td>1–2 档（20%）</td>
+<td>无长驻服务、无集群/故障转移/分布式一致性概念；构建为单机计算密集型（Lean 编译 + Mathlib），<code>lake exe cache get</code> 可复用缓存降低构建成本，但不构成企业级水平扩展能力；<code>has_dockerfile = false</code>，无容器化交付</td>
+</tr>
+<tr>
+<td>D7.4 集成兼容与可观测性</td>
+<td>API 完备性 / 标准协议 / 监控告警 / 日志体系</td>
+<td>2</td>
+<td><strong>0.8</strong></td>
+<td>3–4 档（40%）</td>
+<td>无 REST/gRPC/SDK API、无 OpenAPI/protobuf 定义、无 Prometheus/OpenTelemetry 指标、无健康检查、无结构化日志；但存在一条可用的外部集成路径：<code>ComparatorChallenges/README.md</code> 提供基于 Comparator 的独立证明校验流程，配合两处 README 文档，集成能力「有限但存在」</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td><strong>3.0</strong></td>
+<td><strong>较弱</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4>逐项分析</h4>
+<p><strong>D7.1 运维复杂度与升级路径（1.2 / 3，40%）</strong>
+- <em>配置管理</em>：README 显式钉住 Lean 工具链（<code>4.34.0-rc2</code>）与 Mathlib/Lake 依赖，属于 Lean 生态中保证可复现构建的规范做法（加分项）；但不存在环境变量、配置中心等运行时配置概念——因为本制品无运行时。
+- <em>运维负担</em>：无长驻进程，日常"运维"实质为零；代价是首次构建需拉取 Mathlib 缓存并进行全量编译，单次构建的时间与磁盘成本较高，且缺乏 CI 自动化（<code>ci_workflows = 0</code>），所有构建验证依赖使用者本地完成。
+- <em>升级路径</em>：<strong>最薄弱环节</strong>。无 tag、无 release（<code>recent_releases = []</code>）、无 CHANGELOG/迁移说明、无回滚机制；Mathlib 或 toolchain 升级需 <code>lake update</code> 后全量重建，且存在破坏既有证明的风险，而仓库无 CI 作为升级后的回归保障。
+- <em>数据迁移</em>：不适用（无持久化数据）。
+- 综合：工具链固定带来可复现性，但升级/回滚链路完全缺失，低于企业采购对"可维护、可回滚"的基本要求，落入 3–4 档。</p>
+<p><strong>D7.2 安全管理与权限控制（0.5 / 2.5，20%）</strong>
+- 四项考察点（SSO/OAuth/LDAP/SAML、RBAC/ABAC、审计日志、加密与密钥管理）在本仓库中<strong>均无实现</strong>，因为不存在多用户运行时、数据库或凭证体系。
+- 治理文件缺失：无 <code>SECURITY.md</code>（无漏洞披露渠道）、无 <code>CODEOWNERS</code>（无责任归属）。
+- 唯一可归入"安全"的正面事实是 Apache-2.0 许可证，提供使用/再分发的法律确定性，以及 Lean 内核 + Comparator 独立校验带来的<strong>证明可信性保障</strong>——但这属于"正确性保证"，与本细则的"企业安全体系"标尺不同维度，不能折算加分。
+- 按标尺"1–2 档：无安全机制"，计 20%。</p>
+<p><strong>D7.3 可扩展性与高可用能力（0.5 / 2.5，20%）</strong>
+- 无服务化部署形态，因此水平扩展、集群部署、故障转移、分布式数据一致性等概念在本项目中不成立；<code>has_dockerfile = false</code>，无容器化交付物。
+- 唯一的"扩展性"体现是构建侧的可缓存（Mathlib 缓存）与证明校验的天然可并行/可重复（任何人可在任意机器独立复核），但这不构成企业级弹性伸缩能力。
+- 按标尺"1–2 档：不支持扩展"，计 20%，并标注该细则适用性低。</p>
+<p><strong>D7.4 集成兼容与可观测性（0.8 / 2，40%）</strong>
+- <em>API/标准协议</em>：无任何对外 API、无 OpenAPI/protobuf 定义、无 Webhook/指标协议支持。
+- <em>监控告警/日志</em>：无内置指标、无健康检查端点、无结构化日志与日志级别管理（无运行时，故亦无此类需求）。
+- <em>集成能力</em>：存在但形态特殊——<code>ComparatorChallenges/README.md</code> 提供了一条标准化的外部证明校验路径，使第三方可对证书做独立验证，这在外延上属于"可被外部系统集成的检查接口"；配合 README 中清晰的构建说明，集成能力被评定为"有限"而非"全无"，计 40%。</p>
+<h4>结论</h4>
+<p><strong>D7 得分：3.0 / 10（较弱，3–4 档）。</strong></p>
+<p>本项目是研究型证明证书制品，<strong>不具备、也无意具备企业级运营特性</strong>：无 CI、无 release/CHANGELOG/回滚机制、无容器化、无 API/监控/日志、无安全与治理文件，且仅 1 名贡献者、创建与最近推送为同一天（2026-09-08，单次推送），不体现持续运营投入。唯一正向资产是<strong>工具链钉住带来的构建可复现性</strong>与<strong>Comparator 独立校验路径</strong>，这两点支撑了 D7.1 与 D7.4 不落入最低档。</p>
+<p>对商业化的含义：D7 低分<strong>不构成对项目自身价值的否定</strong>，但明确指示——若要将该成果商业化（如作为形式化验证服务、证明审计服务或企业级形式化工具链的一部分），企业运营能力必须由采购方或商业化承接方自建（CI 回归、版本发布与回滚、制品签名与供应链安全、可观测性、专业维护团队）；本项目本身不能作为企业级系统直接交付，其在商业化中的合理角色是<strong>高价值的技术资产/可信度背书</strong>，而非可运营的产品。</p>
+<h3>D8. 团队治理与可持续性</h3>
+<p>该项目是 OpenAI 于 2026-09-08 发布的 Lean 形式化证明产物（Navier-Stokes / Euler 结果的证书），属于大型 AI 公司的<strong>研究成果公开物</strong>，而非典型社区驱动的开源工程项目。这一性质贯穿以下全部细则的评分。</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D8.1 核心维护者能力与背景</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6（60%）</td>
+<td>技术能力：由 OpenAI 发布，围绕 Navier-Stokes/Euler 的 Lean 形式化证书，技术门槛极高，属顶会级研究产出，技术背景强。商业经验：机构层面 OpenAI 具备成熟商业化能力，但<strong>该仓库本身</strong>是研究交付物，无产品化/企业服务意图。投入度：由公司发布，推测为在职研究人员的正式工作产出（非业余），但缺乏公开证据。巴士因子：<strong>contributors = 1，巴士因子 = 1</strong>，为最弱项——按指引"高度依赖 1 人"应对应 3–4 档；但由于其归属 OpenAI 机构实体（非个人业余项目），机构层面具备接管能力，故上调一档至 5–6。</td>
+</tr>
+<tr>
+<td>D8.2 治理模型透明度</td>
+<td>2.0</td>
+<td>0.4</td>
+<td>1–2（20%）</td>
+<td>无 GOVERNANCE.md、无 CONTRIBUTING.md、无 CODEOWNERS、无 SECURITY.md、无路线图文档；不属于 CNCF / Apache / Linux Foundation 等任何基金会。仅有一份 Apache-2.0 LICENSE 与 README。open_issues = 0、近 90 天 PR = 0，无任何可观察的公开决策/协作流程。判定为"无治理结构"。</td>
+</tr>
+<tr>
+<td>D8.3 资金支持与商业赞助</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8（80%）</td>
+<td>所有者为 OpenAI（大型商业公司），从属于一家资金充裕的企业实体，项目资金可持续性无虞；但未见 GitHub Sponsors / Open Collective 页面，也未见针对该项目本身的独立资金/团队公示，且已被证实的贡献者仅 1 人，无法确认"大公司全职团队"这一 9–10 档条件，故取 7–8 档。</td>
+</tr>
+<tr>
+<td>D8.4 项目可持续性与传承风险</td>
+<td>3.0</td>
+<td>1.8</td>
+<td>5–6（60%）</td>
+<td>活跃趋势：2026-09-08 创建并于同日推送，观测窗口仅约 2 天，<strong>趋势方向无法实质判定</strong>（不构成下降信号）；近 90 天 PR/Issue 活动均为 0。历史信号：archived = false，无 deprecated/unmaintained 标记。分叉风险：forks = 141 / stars = 1557（约 9%），属正常分享性 fork，无社区分裂证据。维护延续性：contributors = 1 且无治理文档，社区接管路径缺失，但仓库本质是<strong>静态证明证书</strong>，日常维护负担低，OpenAI 机构背书降低废弃风险。综合为"传承风险中等"。</td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<p><strong>加权得分：5.7 / 10（一般）</strong></p>
+<ul>
+<li><strong>优势</strong>：背靠 OpenAI 这一资金与人才均充裕的商业实体（D8.3 最强项），技术权威性高，研究成果本身具备学术影响力；Apache-2.0 许可明确，无归档/弃用标记，短期无停滞风险。</li>
+<li><strong>核心短板</strong>：<strong>巴士因子 = 1</strong>（唯一贡献者）、<strong>零治理结构</strong>（无 GOVERNANCE / CONTRIBUTING / CODEOWNERS / 基金会归属）、无 CI、无 Release、无 Issue/PR 活动痕迹。项目呈现"公司一次性成果发布"特征，社区参与与决策透明的通道基本不存在。</li>
+<li><strong>商业化含义</strong>：作为研究证书库，其价值锚定在 OpenAI 的声誉与论文本身，而非可持续的社区生态。若用于商业化评估，应视为"公司背书型静态资产"——资本与可信度充足，但缺少可传承的治理与协作机制；一旦 OpenAI 停止投入，社区几乎不可能自行接管。此外需注意，仓库创建仅 2 天，D8.4 的趋势判断置信度较低，<strong>整体维度置信度中等</strong>。</li>
+</ul>
+<h3>D9 维度详析</h3>
+<h4>细则打分表</h4>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>考察重点</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>关键依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D9.1 安装难度</td>
+<td>安装方式/依赖/环境/平台</td>
+<td>2.5</td>
+<td><strong>1.5</strong></td>
+<td>60%（5–6 档）</td>
+<td>无 pip/npm/docker 一键安装；需自行安装 elan + 拉取 Lean 4.34.0-rc2 工具链与 Mathlib 缓存，仅两条 lake 命令；工具链锁定为 RC 版本</td>
+</tr>
+<tr>
+<td>D9.2 部署与配置难度</td>
+<td>部署方式/配置/外部依赖/快速验证</td>
+<td>2.5</td>
+<td><strong>1.0</strong></td>
+<td>40%（3–4 档）</td>
+<td>无 Docker/Compose/Helm/K8s，无 CI（workflows=0）；需初始化 Mathlib 缓存；无 demo 脚本，10 分钟内跑通不可行；非开发人员无法独立完成</td>
+</tr>
+<tr>
+<td>D9.3 易用性与操作门槛</td>
+<td>操作便捷度/交互/错误处理/默认值/非专家可用性</td>
+<td>2.5</td>
+<td><strong>1.0</strong></td>
+<td>40%（3–4 档）</td>
+<td>无 CLI/API/管理界面；日常操作为 Lean 编辑器内的证明浏览与构建；完全面向形式化数学专家，需 PDE 与证明助手双重背景</td>
+</tr>
+<tr>
+<td>D9.4 学习曲线与首体验</td>
+<td>上手时间/曲线/引导/概念门槛/示例</td>
+<td>2.5</td>
+<td><strong>1.0</strong></td>
+<td>40%（3–4 档）</td>
+<td>README 仅 2 条构建命令，无 quickstart 教程、无示例工程；首次"成功使用"（构建通过）受缓存下载与全量构建拖累，概念门槛极高</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10.0</strong></td>
+<td><strong>4.5</strong></td>
+<td><strong>🔴 复杂</strong></td>
+<td>4.5/10，接近 🟡 临界，按保守口径归入 🔴</td>
+</tr>
+</tbody>
+</table>
+<h4>D9.1 安装难度（1.5/2.5，60%）</h4>
+<ul>
+<li><strong>安装方式</strong>：无 <code>pip install</code> / <code>npm install</code> / <code>docker run</code> 级一键入口。README 给出的路径是"先装 elan，再 <code>lake exe cache get</code> + <code>lake build</code>"。命令条数虽少，但 elan 属于<strong>仓库之外的独立前置工具</strong>，安装链路被拆成"工具链管理器 → 工具链 → 数学库 → 项目"四段。</li>
+<li><strong>依赖管理</strong>：本项目最大的安装负担来自 <strong>Mathlib</strong>——需先拉取预编译缓存（<code>lake exe cache get</code>），属于典型的重依赖初始化；本地实测无法从 requirements/package.json 等清单读取依赖，依赖完全由 Lake 构建描述承载，外部可读性差。</li>
+<li><strong>环境要求</strong>：README 明确锁定 <strong>Lean 4.34.0-rc2</strong>（候选版本，非稳定版），版本漂移会导致构建失败，对复现环境有强约束。</li>
+<li><strong>平台覆盖</strong>：elan 支持 Windows/macOS/Linux 三大平台，本项不构成短板。</li>
+<li>综合：不属于"一键安装"，也非"需编译大量源码"的极端情形，落在 5–6 档（需手动安装若干依赖 + 配置），取 60%。</li>
+</ul>
+<h4>D9.2 部署与配置难度（1.0/2.5，40%）</h4>
+<ul>
+<li><strong>部署方式</strong>：实测 <code>has_dockerfile = false</code>、<code>ci_workflows = []</code>，无 docker-compose / Helm / K8s 制品，无标准化部署通道，"部署"退化为一次本机构建。</li>
+<li><strong>配置复杂度</strong>：本项是唯一亮点——Lake 项目自带构建描述，几乎无需手写配置文件，也不需要设置连接串、密钥等。</li>
+<li><strong>外部依赖初始化</strong>：必须单独完成 Mathlib 缓存的获取（<code>lake exe cache get</code>），否则将触发耗时极长的源码构建，属于实质性的外部依赖初始化成本。</li>
+<li><strong>快速验证</strong>：无 quickstart 脚本、无 demo 数据、无 10 分钟跑通路径；全量构建耗时不可控。</li>
+<li><strong>面向人群</strong>：README 的受众假设是"已安装 elan 的 Lean 用户"，运维/产品/商务人员无法独立完成。</li>
+<li>综合：配置极简但部署通道缺失、依赖初始化重、验证门槛高，取 3–4 档（40%）。</li>
+</ul>
+<h4>D9.3 易用性与操作门槛（1.0/2.5，40%）</h4>
+<ul>
+<li><strong>操作便捷度</strong>：仓库没有面向使用者的操作面（无 CLI 子命令、无 REST API、无 Web 控制台），日常"操作"仅为在 Lean 环境中打开文件、构建与核对证明。</li>
+<li><strong>交互设计</strong>：素材中不存在命令行帮助、参数补全、管理界面等可评估的交互设计；补采数据也显示 <code>topics = []</code>，无面向易用性的标注。</li>
+<li><strong>错误处理</strong>：构建失败信息由 Lean/Mathlib 给出，对 Lean 老手可读，但对无背景者等同于领域术语堆栈；素材未提供任何错误排查指引。</li>
+<li><strong>默认合理性</strong>：项目自身配置默认值合理（无需调参即可构建），这一点拉高了本项的下限。</li>
+<li><strong>非专家可用性</strong>：这是决定性短板——要理解本仓库所证明的"Navier–Stokes / Euler 有限时间爆破"结论，需同时具备 PDE（调和分析、Sobolev 空间）与 Lean/Mathlib 证明工程能力，非专家完全无法使用。</li>
+<li>综合：默认值友好但操作面与受众面极窄，取 3–4 档（40%）。</li>
+</ul>
+<h4>D9.4 学习曲线与首体验（1.0/2.5，40%）</h4>
+<ul>
+<li><strong>上手时间</strong>：从零到"构建成功"（本项目的首次成功使用）取决于 Mathlib 缓存下载与全量构建，属小时级至半天级，而非分钟级。</li>
+<li><strong>学习曲线</strong>：真正的陡峭处不在构建，而在"读懂/复核证明"——需要 Lean 4 语法、Mathlib 术语体系与 PDE 领域知识三重前置，学习成本以周—月计，无渐进式 Aha Moment 设计。</li>
+<li><strong>入门引导</strong>：README 提供最短构建路径与 Comparator 复核入口（<code>ComparatorChallenges/README.md</code>），是仅有的两处引导；无交互式 tutorial、无 onboarding 流程、无 <code>beginner-friendly</code> 类标注。</li>
+<li><strong>概念门槛</strong>：极高。README 直接引用 Clay 数学研究所 Millennium Prize 问题表述，目标读者是领域专家。</li>
+<li><strong>示例丰富度</strong>：本地统计示例文件数为 0，除证明本身外无可模仿的模板工程；代码总行数实测为 0（本地统计未识别 <code>.lean</code> 文件），进一步说明缺乏面向学习者的结构化素材。</li>
+<li>综合：有最基本的构建说明但引导极薄、概念门槛极高，取 3–4 档（40%）。</li>
+</ul>
+<h4>结论</h4>
+<p>D9 合计 <strong>4.5/10</strong>，判定为 <strong>🔴 复杂</strong>（处于 🔴 上沿、逼近 🟡 临界）：</p>
+<ol>
+<li><strong>第一道门槛即"专家门槛"</strong>：安装并不算"地狱级"（elaan + 两条 lake 命令），但整条链路预设了 Lean 4 / Mathlib 背景，非开发人员在此止步。</li>
+<li><strong>无容器化与 CI 制品</strong>，缺少任何一键部署/一键验证通道，商业化推广中"5 分钟试用"的转化路径不存在。</li>
+<li><strong>产品形态特殊</strong>：本仓库是论文附带的形式化证书，而非可运行产品；其"易用性"天花板由目标受众（形式化数学/PDE 专家）决定，属研究资产而非商业软件的可交付形态。</li>
+<li>积极面：零外部服务依赖（无需数据库/中间件）、零必填配置项、构建命令极简，一旦跨过工具链门槛即可稳定复现，为后续若做"包装化"（如提供 Docker 镜像 + CI 校验）留出了低成本改进空间。</li>
+</ol>
+<h3>D10 功能价值——使用价值视角（平行维度，权重 0%，不计入综合评分）</h3>
+<blockquote>
+<p>本维度只问「用它的人省了多少/获得了多少」，不问「谁愿意付钱」。以下判断基于 README 全文、许可证、构建方式与 GitHub 实采指标；使用规模类指标凡未实采到的一律标注 N/A，不做估算。</p>
+</blockquote>
+<h3>D10.1 效用强度（满分 3）</h3>
+<p><strong>判断依据</strong></p>
+<ul>
+<li>该仓库交付的不是运行时组件，而是「机器可检验的证明证书（Lean 4 certificates）」：为 Navier–Stokes 全空间与环面上 Clay 官方问题描述中的替代命题 <strong>(C)/(D)</strong>，以及无外力 Euler 方程有限时间奇点形成，提供形式化验证。</li>
+<li>对目标用户（PDE 分析/形式化验证研究者、期刊与同行评审方）而言，效用层级是<strong>「结论可信度的基石」</strong>：手工复核这类量级的证明需要研究者数月级投入，且存在无法完全排除的隐性错误风险；<code>lake build</code> + Comparator 独立核验把这一成本压缩到小时级环境搭建 + 机器检查。单用户节省量在这个圈层内属于<strong>数量级级别</strong>。</li>
+<li>效用确定性高：Lean 证明在给定工具链下是可复现的二值判定（通过/不通过），不受场景与运气影响。</li>
+<li>但效用覆盖面极窄且是<strong>一次性的知识资产</strong>：它不进入任何软件的生产依赖链，不产生持续的运维/产品收益；对圈外开发者效用近似为 0。按标尺，它不落入「业务命脉级基础设施（9–10）」也不落入「项目级依赖（7–8）」，而是<strong>领域内高价值、通用场景低价值的专用资产</strong>，对应「5–6 档：明确但有限的效率提升」。</li>
+</ul>
+<p><strong>小分：1.8 / 3（60% 档）</strong></p>
+<h3>D10.2 实际使用规模（满分 3）</h3>
+<p><strong>判断依据</strong></p>
+<ul>
+<li>依赖方数量（GitHub Dependents）：<strong>N/A</strong>（未实采到，且该类证明仓库不存在典型的 Dependents 关系）。</li>
+<li>包管理平台下载量：npm 周下载 <strong>N/A</strong>、PyPI 月下载 <strong>N/A</strong>（Lean/Lake 项目本就不发布至这两个生态，数据不存在而非未采集）。</li>
+<li>生产采用证据：README 仅提供构建与独立核验说明，<strong>无任何用户案例、生产环境落地报道</strong>。</li>
+<li>可用的替代硬事实：Star 1557、Fork 141、Contributors 1、Open Issues 0、近 90 天 PR 0、无 Release。</li>
+<li>1557 Star 说明<strong>关注度高</strong>（事件性传播），但 Fork 141 / 单贡献者 / 零后续提交的形态表明：采用以「克隆阅读、自行尝试构建核验」为主，<strong>没有形成复用链</strong>。仓库创建与最近推送同为 2026-09-08，是一次性发布的静态研究产物。</li>
+<li>按标尺「千级及以下，小范围使用」落入 3–4 档；Star 数虽过千，但 Star ≠ 使用，无依赖链与下载量支撑更高档位。</li>
+</ul>
+<p><strong>小分：1.2 / 3（40% 档）</strong></p>
+<blockquote>
+<p>已同步记录：Dependents / 下载量为 N/A，本项为基于 Star-Fork-Contributor 结构的<strong>代理估计</strong>，置信度中等。</p>
+</blockquote>
+<h3>D10.3 免费可得的完整效用（满分 2）</h3>
+<p><strong>判断依据</strong></p>
+<ul>
+<li>License：Apache-2.0，宽松许可，无任何商用/闭源限制。</li>
+<li>无开源版与企业版分层，无付费墙，无注册/授权门槛：README 中给出的全部价值（NS 的 (C)/(D) 结果 + Euler 奇点结果 + Comparator 独立核验流程）均在仓库内 100% 可得。</li>
+<li>依赖链全部为公开免费件：Lean 4 + Mathlib + Lake + elan，<code>lake exe cache get &amp;&amp; lake build</code> 即可自建自验；不依赖任何 OpenAI 的闭源服务或云托管。</li>
+<li>唯一「成本」是本地算力与磁盘（Mathlib 编译体积大），属工程成本而非收费门槛，不构成功能阉割。</li>
+</ul>
+<p><strong>小分：2.0 / 2（100% 档）</strong></p>
+<blockquote>
+<p><strong>与 D4.3 的张力说明</strong>：本项满分意味着该项目<strong>几乎不存在开源→付费的转化缝隙</strong>。使用价值被 100% 免费释放，恰恰对应商业交换价值（D4）的天然低位——这正是「使用价值 vs 交换价值」在该项目上最典型的一组反差，而非评分矛盾。</p>
+</blockquote>
+<h3>D10.4 效用可持续性（满分 2）</h3>
+<p><strong>判断依据</strong></p>
+<ul>
+<li><strong>停维后效用存续</strong>：极强。产物是本地可构建、可机器核验的证明脚本，不依赖任何在线服务；即使上游永久停更，已克隆副本的核验能力不衰减，数学结论的有效性更不随时间改变。</li>
+<li><strong>供应商锁定</strong>：无。不依赖 OpenAI 的闭源组件、API 或云资源；证明检查完全在本地 Lean 内核完成。</li>
+<li><strong>可分叉维护性</strong>：良好。Apache-2.0 允许自由分叉；构建使用公开的 elan/Lake 流程，工具链版本已显式固定（Lean 4.34.0-rc2）。</li>
+<li>唯一轻微风险：构建可重现性受 <strong>Mathlib 版本漂移</strong>与 <code>cache get</code> 缓存可用性影响，长期重建可能需要锁定旧版 Mathlib 或自行编译（属可替换依赖，社区可维护）；且当前仅 1 名贡献者、无 CI、无 Release，上游自身不具备持续维护能力。</li>
+<li>综合落在「完全本地化运行、可自由分叉、停维后效用长期存续，仅有少量可替换外部依赖」的 7–10 区间上沿。</li>
+</ul>
+<p><strong>小分：2.0 / 2（100% 档）</strong></p>
+<h3>数据可信度说明</h3>
+<p>本地采集 <code>total_code_lines = 0</code>、<code>code_stats_by_ext = {}</code>，与 README 中 <code>lake build</code> 构建 Lean 源码的描述明显冲突，判断为采集器未识别 <code>.lean</code> 扩展名或浅克隆所致，<strong>不作为「仓库无实质内容」的证据</strong>；本维度评估以 README 与 GitHub API 实采字段为准。</p>
+<h3>细则打分汇总</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10.1</td>
+<td>效用强度</td>
+<td>3</td>
+<td>1.8</td>
+<td>60%（5–6 档）</td>
+</tr>
+<tr>
+<td>D10.2</td>
+<td>实际使用规模</td>
+<td>3</td>
+<td>1.2</td>
+<td>40%（3–4 档，代理估计）</td>
+</tr>
+<tr>
+<td>D10.3</td>
+<td>免费可得的完整效用</td>
+<td>2</td>
+<td>2.0</td>
+<td>100%（9–10 档）</td>
+</tr>
+<tr>
+<td>D10.4</td>
+<td>效用可持续性</td>
+<td>2</td>
+<td>2.0</td>
+<td>100%（9–10 档）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td><strong>7.0</strong></td>
+<td><strong>7–8 档（良好）</strong></td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<p><strong>D10 功能价值 = 7.0 / 10（良好）</strong>。该项目呈现一种高度极化的效用结构：<strong>深度极高、广度极窄、可得性满分、可持续性满分</strong>。在目标圈层内，它以近乎零的成本释放了原本需要数月人工复核的证明可信度，效用强度显著；但由于不存在依赖链与复用场景，实际使用规模停留在「千级以下、一次性知识资产」的量级，构成总分的主要拖累项。</p>
+<p>这一组合恰好解释了它为何是一个<strong>典型的「高使用价值、低交换价值」开源产物</strong>：D10.3/D10.4 双双满分意味着全部效用免费且永久本地可用，任何付费转化设计都缺乏立足点（见 D4 维度的对应低位）。在 3.4 价值画像中，该项目应被定位为<strong>「学术基础设施型/公共品型资产」</strong>：其价值以知识公共品与社会影响的形式外溢，而非以商业收入的形式回收。</p>
+<h3>D11 社会价值——正外部性视角（平行维度，权重 0%，不计入综合评分）</h3>
+<blockquote>
+<p>本维度为平行维度，与 D10 一同仅用于 3.4 价值画像，不参与综合评分与一票否决。评价视角为「对使用者之外的行业/社会外溢贡献」，与 D3.4（品牌→商业势能）、D2.5/D2.6（工程质量视角）严格区分。</p>
+</blockquote>
+<h3>项目性质界定</h3>
+<p><code>openai/NavierStokesAndEuler</code> 并非软件库或开发框架，而是一组 <strong>Lean 4 形式化证明证书（certificates）</strong>，配套 OpenAI 关于 Navier–Stokes 与 Euler 方程有限时间爆破的论文结果。它在软件供应链中的生态位是「终端知识产物」，而非「被依赖的底座」：它自身依赖 Lean 4.34.0-rc2 / Mathlib / Lake，没有任何下游项目依赖它（npm/PyPI 指标均为 N/A，且项目非包管理器分发形态）。因此本维度的评价重心应从「基础设施依赖度」转向「公共知识品与开放科学外溢」。</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>档位</th>
+<th>小分</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D11.1</td>
+<td>数字公共基础设施属性</td>
+<td>3</td>
+<td>1–2 档（20%）</td>
+<td>0.6</td>
+<td>无任何下游依赖（dependents 不可得且形态上不存在）；停摆对软件供应链影响趋近于零；非 curl/OpenSSL 式底座。仅在「开放、可复用、服务公共利益」的 DPG 特征上部分成立（Apache-2.0 开放许可、公开可复验）</td>
+</tr>
+<tr>
+<td>D11.2</td>
+<td>教育与人才价值</td>
+<td>2.5</td>
+<td>3–4 档（40%）</td>
+<td>1.0</td>
+<td>未观察到成规模的教程/课程/教学采用；0 个开放 Issue、无学习者提问样本；代码为研究级形式化，入门门槛极高，不具备「行业教材」属性；源码学习价值限于 Lean/专业数学小圈子，缺乏实证</td>
+</tr>
+<tr>
+<td>D11.3</td>
+<td>普惠与可及性</td>
+<td>2.5</td>
+<td>5–6 档（60%）</td>
+<td>1.5</td>
+<td>免费开放地把「对 Clay 千禧问题相邻结论的可信验证」平权化，任何人可自行 <code>lake build</code> + Comparator 独立复验，替代了原本仅靠同行评审的封闭路径；但受制于 Lean/Mathlib 技术门槛、纯英文文档、无 i18n/无障碍证据、大体积构建的硬件要求，普惠面窄</td>
+</tr>
+<tr>
+<td>D11.4</td>
+<td>开放标准与行业推动</td>
+<td>2</td>
+<td>5–6 档（60%）</td>
+<td>1.2</td>
+<td>未定义新标准，遵循并推广 Lean 4 / Mathlib 开放形式化体系；作为「AI 产出前沿数学形式化证明」的高曝光范例（1557 stars / 141 forks）具备示范效应，并与 Comparator 独立校验流程形成开放可复现实践；但学术引用与同行借鉴痕迹无法检索（N/A），尚不足以认定「推动重要开放标准」</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td></td>
+<td><strong>4.3</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<ul>
+<li><strong>公共知识价值显著，基础设施属性薄弱</strong>：项目以开放许可发布对 Clay 千禧问题两大替代命题（(C)/(D)）的形式化证书，并提供独立校验路径，属于典型的「开放科学公共品」；但其在软件供应链上无下游依赖、无停摆影响面，不符合数字底座定义。两者共同决定了 D11.1 只能落在较低档。</li>
+<li><strong>教育与普惠受高门槛钳制</strong>：能力平权化的对象实质是「具备 Lean 与 PDE 背景的研究者」，而非泛化开发者人群；0 个 Issue、单一贡献者、无多语言与无障碍证据，说明教育与降低门槛的正外部性尚未外溢到小圈子之外。</li>
+<li><strong>示范意义大于标准意义</strong>：真正的行业外溢更体现在「AI + 形式化验证」的方法示范与可复现性支撑上，而非协议/标准主导。</li>
+<li><strong>综合判断</strong>：D11 综合 4.3/10，属于「有一定正外部性但局限于专业圈层」。作为权重 0% 的平行维度，该结果不改变综合评分，仅用于 3.4 价值画像中标注其「开放科学公共品」气质。</li>
+<li><strong>置信度说明</strong>：D11.2（教学采用）、D11.4（学术引用）的关键外部数据（教程/课程量、论文引用）不可得，相关细则基于「无证据即不拔高」的保守原则打分；项目创建与推送同日、无发布记录，外部影响力尚在早期积累，本维度整体置信度中低。</li>
+</ul>
+<h2>五、商业化价值判断</h2>
+<p><strong>综合评分 51.8/100，等级 B（中等商业化潜力），价值画像为 📦 长尾项目。</strong></p>
+<p>本项目的商业化价值判断需要首先澄清一个根本前提：<strong>它不是一个软件产品，而是一份研究验证工件</strong>。D1 明确指出其"本质是 Lean 4 形式化证明工件而非产品：无双轨、无 SaaS、无托管形态，商业变现距离极远"；D4 进一步确认"仓库为研究副产品（Lean 4 形式化证书），无 Open Core/SaaS/双协议/市场/认证任一可行路径"。因此，51.8 分所对应的"中等商业化潜力"并非意味着存在一条待挖掘的变现通道，而是各维度在"法律合规良好 + 机构背书强 + 技术定位独特"与"无产品形态 + 无转化漏斗 + 无社区参与"之间相互抵消后的结果。</p>
+<p><strong>支撑分数的正面要素集中在三处</strong>：</p>
+<ol>
+<li><strong>法律与治理底座干净</strong>（D6 = 7.3，全维度最高）。根目录 LICENSE 为标准 Apache-2.0 全文，GitHub 识别为 Apache-2.0，"协议明确、无 copyleft 传染、无 Commons Clause/BUSL 等商业附加条款，法律层面不构成商业化障碍"；D4.1 因此拿到满分 2.0。版权高度集中于单一实体（contributors = 1），"当前版权链干净可控，有利于未来双许可/重许可"。</li>
+<li><strong>机构背书与资金可持续性</strong>（D8.3 = 2.0，D8 唯一进入 7–8 档的细则）。"项目归属 OpenAI 且以 Apache-2.0 发布，资金可持续性高"。</li>
+<li><strong>定位独特性与品牌势能</strong>（D2.1 = 1.2，D3.4 = 1.2）。D2 认为"产品定位独特且创新性显著"，D3 指出"品牌势能突出：OpenAI 出品 + 直指 Navier–Stokes/Millennium Prize，领域辨识度高"。</li>
+</ol>
+<p><strong>压制分数的问题同样集中在三处</strong>：</p>
+<ol>
+<li><strong>变现结构完全缺失</strong>（D4 = 3.6，权重 18% 为最高，却仅得 3.6）。D4.2 变现路径清晰度 0.7/3.5、D4.3 付费转化逻辑 0.5/2.5、D4.4 增值服务空间 0.4/2.0，三项均落最低档。"无功能分层、无企业版、无免费到付费触发点，使用方式仅为 lake build 本地构建，不存在任何转化漏斗"。</li>
+<li><strong>社区停留在关注而非参与</strong>（D3 = 4.1）。"90 天 PR=0、Issue 关闭=0、开放 Issue=0，社区停留在关注而非参与"；"贡献者仅 1 人、单一组织 OpenAI、外部贡献占比 0"；"无 topics、无 CI、无第三方插件/集成/衍生项目/教程，第三方生态几近空白"。</li>
+<li><strong>质量保障与工程治理空白</strong>（D2.8 = 0.2，D2.2 = 1.2）。"0 个 CI workflow、0 行测试、0 个 PR、无覆盖率与静态扫描"；"无 lint/format 配置、无 SECURITY.md、无依赖漏洞扫描、无 CONTRIBUTING/CODEOWNERS"。</li>
+</ol>
+<p><strong>关于"真实商业价值"的定位</strong>：D4 给出了关键判断——"真实商业价值体现为 OpenAI 的 autoformalization 能力展示与品牌资产，而非本仓库直接收入；计价若存在也归于模型 API 侧的 per-token 用量"。这意味着本仓库的商业意义是<strong>上游能力的证据链</strong>，而非<strong>下游收入的载体</strong>。任何试图在本仓库层面构建收费模式的尝试，都会与 D10.3 的"全部效用免费可得——与 D4.3 付费转化能力形成天然的负相关"直接冲突。</p>
+<hr />
+<h2>六、商业路径分析</h2>
+<p>依据价值画像 📦 长尾项目（综合评分 &lt; 65 且公共价值分 &lt; 7），方法论 3.4 给出的路径建议为"技术借鉴或人才引进，不投入商业化"。以下分析在此基础上展开，并说明为何本项目的"长尾"属性与典型长尾项目存在结构性差异。</p>
+<h3>6.1 直接变现路径：全部不可行</h3>
+<p>D4 已穷尽排查可行路径，结论是"无 Open Core/SaaS/双协议/市场/认证任一可行路径，仅存极弱的 Lean 形式化验证服务型延展"。逐条对照：</p>
+<ul>
+<li><strong>Open Core / 功能分层</strong>：不存在功能分层，无企业版，无免费到付费触发点（D4.3 = 0.5/2.5）。</li>
+<li><strong>SaaS / 托管</strong>：部署形态为本地部署，使用方式仅为 <code>lake build</code>，无服务端组件可托管（D4.2 = 0.7/3.5）。</li>
+<li><strong>双协议 / 商业许可</strong>：Apache-2.0 全开放，D5 指出"技术壁垒为不可专利化的知识壁垒，Apache-2.0 全开放使其可被自由复用（141 fork 即扩散证据）"。</li>
+<li><strong>认证 / 培训</strong>：无认证体系，无教程生态（D3.3 = 0.6/3）。</li>
+<li><strong>增值服务</strong>：D4.4 = 0.4/2.0，定价天花板极低。</li>
+</ul>
+<h3>6.2 唯一可延展方向：方法论模板的间接变现</h3>
+<p>D1 指出"唯一可迁移资产是『Lean 形式化 + Comparator 独立校验』的方法论模板"。这一资产的价值不在于本仓库本身，而在于它证明了某种<strong>能力</strong>——即 AI 系统能够产出经机器检验的前沿数学形式化证明。D11 亦确认其"作为『AI 产出前沿数学形式化证明』范例具行业示范效应"。</p>
+<p>因此，若存在商业延展，其载体必然是<strong>上游模型 API 的 per-token 用量</strong>（D4 明确判断），而非本仓库。对本仓库而言，合理的定位是<strong>能力展示资产与品牌资产</strong>，其"回报"以研究声誉、机构公信力、人才吸引力等形式体现，而非直接现金流。</p>
+<h3>6.3 影响力变现路径：受限于公共价值分</h3>
+<p>方法论对"公共产品型"画像建议走"影响力变现：赞助/基金会托管/大厂雇佣维护者/围绕生态做服务与培训"。但本项目公共价值分仅 5.7，未达 7 的门槛，因此<strong>不适用</strong>该路径的完整方案。具体障碍：</p>
+<ul>
+<li><strong>赞助 / 基金会托管</strong>：D8 明确"不属于任何开源基金会"，且"零治理结构：无 GOVERNANCE.md / CONTRIBUTING.md / CODEOWNERS / SECURITY.md"，不具备接受托管治理的组织基础。</li>
+<li><strong>大厂雇佣维护者</strong>：D8.1 指出"巴士因子 = 1……是团队可持续性的最大弱点"，但项目本身归属 OpenAI，维护者已在机构内，此路径无增量意义。</li>
+<li><strong>围绕生态做服务与培训</strong>：D11.2 指出"未观察到成规模教学采用与教程生态（0 open issues、单一贡献者、无 i18n/无障碍证据），教育外溢尚未突破专业小圈子"，生态尚不存在，无从服务。</li>
+</ul>
+<h3>6.4 路径结论</h3>
+<p><strong>不建议对本仓库投入任何商业化资源。</strong> 其合理处置方式是作为研究工件与能力证据保留，商业价值的兑现应在上游（模型能力与 API 业务）完成。若组织希望从本项目获益，可行做法是<strong>技术借鉴</strong>——复用其"形式化证明 + 独立校验"的方法论模板于自身的形式化验证或 AI-for-Math 工作，而非试图将其产品化。</p>
+<hr />
+<h2>七、能力评估：能做什么 &amp; 最适合做什么</h2>
+<h3>7.1 项目实际具备的能力</h3>
+<p>基于各维度硬事实，本项目确实具备以下能力：</p>
+<table>
+<thead>
+<tr>
+<th>能力项</th>
+<th>依据</th>
+<th>强度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>提供机器可验证的 NS/Euler 有限时间爆破证明证书</td>
+<td>D10.1 = 1.8/3，"交付物是 Lean 4 机器可检验证明证书（NS 的 Clay 替代命题 (C)/(D) 与 Euler 有限时间奇点）"</td>
+<td>高（圈层内）</td>
+</tr>
+<tr>
+<td>本地完全可构建、可独立复检</td>
+<td>D10.4 = 2.0/2，"完全本地可构建可核验（Lean 4.34.0-rc2 + Mathlib + Lake），停维后效用不衰减、可自由分叉"</td>
+<td>高</td>
+</tr>
+<tr>
+<td>提供"形式化证明 + Comparator 独立校验"的方法论模板</td>
+<td>D1，"唯一可迁移资产"；D11.4，"遵循并推广 Lean 4/Mathlib 开放形式化体系"</td>
+<td>中</td>
+</tr>
+<tr>
+<td>作为 AI autoformalization 能力的公开展示</td>
+<td>D4，"真实商业价值体现为 OpenAI 的 autoformalization 能力展示与品牌资产"</td>
+<td>中（品牌层面）</td>
+</tr>
+<tr>
+<td>全部效用免费可得、无使用门槛</td>
+<td>D10.3 = 2.0/2，"Apache-2.0 且无开源/企业分层，无付费墙、无云服务依赖"</td>
+<td>高</td>
+</tr>
+</tbody>
+</table>
+<h3>7.2 项目明确不具备的能力</h3>
+<ul>
+<li><strong>不进入任何软件依赖链</strong>：D10.1 明确"不进入任何软件依赖链"；D11.1 确认"无任何下游依赖，供应链停摆影响趋近于零"。</li>
+<li><strong>不提供 API / 集成面 / 插件机制</strong>：D5.3 = 0.4/4，"无用户数据、无配置、无 API/集成面、无插件机制，迁移成本接近于零"。</li>
+<li><strong>不承载用户数据或运行时服务</strong>：部署形态为本地构建，无服务端。</li>
+<li><strong>不提供版本契约与向后兼容保证</strong>：D2.6 = 0.9/1.5，"0 个 Release……无版本契约与向后兼容证据"。</li>
+</ul>
+<h3>7.3 最适合做什么</h3>
+<p><strong>最适合</strong>：作为学术共同体的<strong>可复检研究工件</strong>，供具备 Lean/PDE 背景的研究者本地构建并独立验证 Navier–Stokes 与 Euler 方程有限时间爆破结论；同时作为<strong>方法论模板</strong>，供形式化验证与 AI-for-Math 领域借鉴"形式化证明 + Comparator 独立校验"的工程范式。</p>
+<p><strong>不适合</strong>：作为商业产品、SaaS 服务、开发者工具库、企业采购标的，或任何需要持续维护、版本迭代、用户支持与转化漏斗的商业载体。</p>
+<hr />
+<h2>八、短板识别：还缺少什么</h2>
+<p>按对商业化的阻碍程度排序：</p>
+<h3>8.1 结构性短板（无法通过投入补齐）</h3>
+<ol>
+<li><strong>无产品形态</strong>（D4）。"仓库为研究副产品……无 Open Core/SaaS/双协议/市场/认证任一可行路径"。这是项目性质决定的，不是投入问题。</li>
+<li><strong>无付费转化逻辑</strong>（D4.3 = 0.5/2.5）。"无功能分层、无企业版、无免费到付费触发点……不存在任何转化漏斗"。且 D10.3 指出免费可得与付费能力"形成天然的负相关"。</li>
+<li><strong>无网络效应与规模效应</strong>（D5.2 = 1.8/3）。"网络效应、规模效应均为零，商业防御效果薄弱"；"项目呈典型『即插即用即走』形态……迁移成本接近于零"。</li>
+</ol>
+<h3>8.2 治理与工程短板（可通过投入补齐，但无商业动机）</h3>
+<ol start="4">
+<li><strong>质量保障体系空白</strong>（D2.8 = 0.2/1）。"0 个 CI workflow、0 行测试、0 个 PR、无覆盖率与静态扫描"。</li>
+<li><strong>工程规范缺失</strong>（D2.3 = 0.6/1）。"无 lint/format 配置、无 SECURITY.md、无依赖漏洞扫描、无 CONTRIBUTING/CODEOWNERS"。</li>
+<li><strong>零治理结构</strong>（D8.2 = 0.4/2）。"无 GOVERNANCE.md / CONTRIBUTING.md / CODEOWNERS / SECURITY.md，不属于任何开源基金会"。</li>
+<li><strong>贡献治理基础设施完全缺失</strong>（D6.4 = 0.8/2）。"无 CONTRIBUTING.md、无 CLA/DCO、无 .github 模板、无 CODEOWNERS"。D6 特别警示："一旦接收无 CLA 约束的外部贡献，将形成不可逆的版权碎片化风险"。</li>
+<li><strong>文档单薄</strong>（D2.7 = 0.6/1）。"文档仅 2 个 README，无 API 参考/教程/架构图"。</li>
+</ol>
+<h3>8.3 可持续性短板</h3>
+<ol start="9">
+<li><strong>巴士因子 = 1</strong>（D8.1 = 1.5/2.5）。"GitHub API 实采 contributors = 1，是团队可持续性的最大弱点"。</li>
+<li><strong>社区参与度为零</strong>（D3.2 = 0.5/2.5，D3.3 = 0.6/3）。"贡献者仅 1 人、单一组织 OpenAI、外部贡献占比 0"；"第三方生态几近空白"。</li>
+<li><strong>无社区接管路径</strong>（D8.4 = 1.8/3）。"社区接管路径缺失，传承风险中等"。</li>
+</ol>
+<h3>8.4 数据与评估置信度短板</h3>
+<ol start="12">
+<li><strong>采集器未识别 .lean 源码</strong>（D2、D10 均标注）。"采集器未识别 .lean 源码（总行数与依赖均为 0），代码层评估置信度中低"；D10 判定"为 .lean 未识别或浅克隆的采集缺陷，不作为无实质内容证据"。</li>
+<li><strong>依赖链审计未完成</strong>（D6.2 = 2.0/2.5）。"依赖清单未被采集器捕获……无法完成传递依赖闭包审计"。</li>
+<li><strong>商标与专利未核查</strong>（D6.3 = 1.5/2.5）。"商标与专利状态未经人工核查，按规则默认 5-6 档"。</li>
+<li><strong>竞品未搜索验证</strong>（D5）。"本次未执行竞品搜索，可验证的直接竞品数为 0"；"本维度评估置信度中等偏低"。</li>
+<li><strong>D7、D9 维度分析失败</strong>，企业就绪度与易用性无评估结论。</li>
+</ol>
+<hr />
+<h2>九、风险提示</h2>
+<h3>9.1 法律与合规风险（低，但有明确边界）</h3>
+<ul>
+<li><strong>协议层面无风险</strong>：Apache-2.0 全文，无 copyleft 传染，无商业附加条款（D6.1 = 3.0/3）。</li>
+<li><strong>商标风险需注意</strong>：D6 指出"Apache-2.0 §6 不授予商标许可、项目挂于 openai 组织名下，商业衍生品沿用其品牌标识存在限制"。任何基于本项目的衍生品不得使用 OpenAI 品牌标识。</li>
+<li><strong>版权碎片化风险</strong>：D6 警示"一旦接收无 CLA 约束的外部贡献，将形成不可逆的版权碎片化风险"。当前版权链干净是<strong>暂时状态</strong>，若未来开放贡献且无 CLA/DCO，将丧失双许可/重许可的灵活性。</li>
+<li><strong>依赖链审计缺口</strong>：D6.2 置信度中等，"无法完成传递依赖闭包审计"，已检出信息中无 GPL/AGPL 迹象，Lean 生态主流依赖（Mathlib 等）为 Apache-2.0。</li>
+</ul>
+<h3>9.2 技术风险</h3>
+<ul>
+<li><strong>Mathlib 版本漂移</strong>：D10.4 指出"轻微风险来自 Mathlib 版本漂移与仅 1 名贡献者、无 CI"。Lean 4.34.0-rc2 为 RC 版本，Mathlib 演进可能导致构建失效，而项目无 CI 保障。</li>
+<li><strong>无质量保障</strong>：0 CI、0 测试，任何变更（若发生）无回归保护。</li>
+<li><strong>构建可复现性未验证</strong>：D10 指出"本地采集 total_code_lines=0 与 README 的 lake build 描述冲突"，虽判定为采集缺陷，但也说明构建路径未经第三方独立验证。</li>
+</ul>
+<h3>9.3 可持续性风险</h3>
+<ul>
+<li><strong>巴士因子 = 1</strong>（D8.1）。单一维护者，无社区接管路径。</li>
+<li><strong>项目已停更</strong>：created_at 与 pushed_at 同为 2026-09-08，"当日发布当日停更"，近 90 天 PR = 0、release = 0、issue = 0。D8.4 判定"活跃趋势方向无法判定（置信度偏低）"，但客观事实是<strong>无任何后续活动</strong>。</li>
+<li><strong>注意</strong>：D8.4 小分 1.8 &gt; 1，未触发一票否决，且 D8 判定"性质为静态研究成果证书（Lean certificates），日常维护负担低、archived = false"。因此本项目属于<strong>"完成即静止"</strong>而非<strong>"废弃"</strong>，两者性质不同。</li>
+</ul>
+<h3>9.4 市场与竞争风险</h3>
+<ul>
+<li><strong>颠覆风险不来自竞品</strong>：D5 明确"主要颠覆风险不来自竞品，而来自验证结论被推翻与 AI 形式化能力商品化"。</li>
+<li><strong>验证结论被推翻</strong>：若数学结论本身被证伪，证书价值归零。</li>
+<li><strong>能力商品化</strong>：随着 AI 形式化能力普及，本项目的展示价值将被稀释。</li>
+<li><strong>无护城河</strong>：D5 指出"护城河主要体现为不可再分配的数学优先权声誉"，除此之外"网络效应、规模效应均为零，商业防御效果薄弱"。</li>
+</ul>
+<h3>9.5 评估置信度风险</h3>
+<ul>
+<li><strong>D7、D9 分析失败</strong>：企业就绪度与易用性两个维度（合计权重 18%）无评估结论，综合评分 51.8 的完整性受影响。</li>
+<li><strong>多项关键数据缺失</strong>：依赖清单、代码行数、Dependents、下载量、引用数据均为 N/A 或采集失败。</li>
+<li><strong>竞品未搜索</strong>：D5 的竞争格局判断基于 README 内引用，未经外部验证。</li>
+<li><strong>项目龄仅约 2 天</strong>：D3 指出"Star 增速依赖退化公式（Star/项目年龄），对 2 天龄仓库严重失真，未采信为满分依据"，多项社区指标的观测窗口不足。</li>
+</ul>
+<hr />
+<h2>十、结论与建议</h2>
+<h3>10.1 结论</h3>
+<p><strong>openai/NavierStokesAndEuler 是一个 Lean 4 形式化数学证明工件，综合评分 51.8/100，等级 B（中等商业化潜力），价值画像为 📦 长尾项目。</strong></p>
+<p>需要特别强调：<strong>B 级在此处的含义与常规软件项目不同</strong>。51.8 分并非"有商业化基础、需较多投入补齐短板"（B 级标准含义），而是"法律合规良好 + 机构背书强 + 定位独特"与"无产品形态 + 无转化漏斗 + 无社区参与"两组因素相互抵消的结果。D4 权重最高（18%）却仅得 3.6 分，D4.2/D4.3/D4.4 三项均落最低档，已从根本上否定了直接变现的可能。</p>
+<p>本项目的真实价值不在仓库本身，而在于它作为 <strong>OpenAI autoformalization 能力的公开证据</strong>与<strong>"形式化证明 + 独立校验"方法论模板</strong>。其商业回报应在上游（模型能力与 API 业务）兑现，而非在本仓库层面。</p>
+<h3>10.2 建议</h3>
+<p><strong>对潜在商业化方：不建议投入。</strong></p>
+<p>方法论 3.4 对 📦 长尾项目的建议是"技术借鉴或人才引进，不投入商业化"。本项目完全适用：</p>
+<ol>
+<li><strong>不投入商业化资源</strong>。无产品形态、无转化漏斗、无付费触发点，任何商业化尝试都缺乏结构基础。</li>
+<li><strong>技术借鉴</strong>。可复用其"Lean 形式化 + Comparator 独立校验"的方法论模板于自身的形式化验证或 AI-for-Math 工作（D1 认定的唯一可迁移资产）。</li>
+<li><strong>人才引进</strong>。D8.1 指出巴士因子 = 1，若组织需要形式化数学能力，关注维护者本身比关注仓库更有价值。</li>
+</ol>
+<p><strong>对项目维护方（OpenAI）：保持现状即可，但有两项可选动作。</strong></p>
+<ol start="4">
+<li><strong>保持现状是合理选择</strong>。项目性质为静态研究成果证书，D8 判定"日常维护负担低"，D10.4 判定"停维后效用不衰减、可自由分叉"。无需为商业化而改造。</li>
+<li><strong>可选动作一：补齐治理基础设施以锁定版权灵活性</strong>。当前版权链干净（contributors = 1）是<strong>暂时优势</strong>，D6 警示"一旦接收无 CLA 约束的外部贡献，将形成不可逆的版权碎片化风险"。若未来有接收外部贡献的打算，应先行添加 CONTRIBUTING.md 与 CLA/DCO。</li>
+<li><strong>可选动作二：添加最小 CI 以保障构建可复现性</strong>。D10.4 指出"轻微风险来自 Mathlib 版本漂移与仅 1 名贡献者、无 CI"。一个最小的 <code>lake build</code> CI workflow 即可显著降低长期构建失效风险，成本极低。</li>
+</ol>
+<p><strong>对学术使用者：可放心使用。</strong></p>
+<ol start="7">
+<li>Apache-2.0 全开放，无使用限制，无付费墙，本地完全可构建可核验（<code>lake exe cache get &amp;&amp; lake build</code>）。唯一需注意的是不得使用 OpenAI 品牌标识（Apache-2.0 §6 不授予商标许可）。</li>
+</ol>
+<h3>10.3 一句话总结</h3>
+<p><strong>这是一份高质量的研究工件，而非一个商业项目——它的价值在于证明了一种能力，而不在于提供了一项服务；正确的处置方式是借鉴其方法论与关注其维护者，而非试图将其变现。</strong></p>
+<h2>十一、项目地址</h2>
+<p><svg class="ri ri-muted" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.001 2C6.47598 2 2.00098 6.475 2.00098 12C2.00098 16.425 4.86348 20.1625 8.83848 21.4875C9.33848 21.575 9.52598 21.275 9.52598 21.0125C9.52598 20.775 9.51348 19.9875 9.51348 19.15C7.00098 19.6125 6.35098 18.5375 6.15098 17.975C6.03848 17.6875 5.55098 16.8 5.12598 16.5625C4.77598 16.375 4.27598 15.9125 5.11348 15.9C5.90098 15.8875 6.46348 16.625 6.65098 16.925C7.55098 18.4375 8.98848 18.0125 9.56348 17.75C9.65098 17.1 9.91348 16.6625 10.201 16.4125C7.97598 16.1625 5.65098 15.3 5.65098 11.475C5.65098 10.3875 6.03848 9.4875 6.67598 8.7875C6.57598 8.5375 6.22598 7.5125 6.77598 6.1375C6.77598 6.1375 7.61348 5.875 9.52598 7.1625C10.326 6.9375 11.176 6.825 12.026 6.825C12.876 6.825 13.726 6.9375 14.526 7.1625C16.4385 5.8625 17.276 6.1375 17.276 6.1375C17.826 7.5125 17.476 8.5375 17.376 8.7875C18.0135 9.4875 18.401 10.375 18.401 11.475C18.401 15.3125 16.0635 16.1625 13.8385 16.4125C14.201 16.725 14.5135 17.325 14.5135 18.2625C14.5135 19.6 14.501 20.675 14.501 21.0125C14.501 21.275 14.6885 21.5875 15.1885 21.4875C19.259 20.1133 21.9999 16.2963 22.001 12C22.001 6.475 17.526 2 12.001 2Z"/></svg> <a href="https://github.com/openai/NavierStokesAndEuler">https://github.com/openai/NavierStokesAndEuler</a></p>
+<hr />
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+</blockquote>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家　<a href="https://www.mova.work">www.mova.work</a></p></body></html>

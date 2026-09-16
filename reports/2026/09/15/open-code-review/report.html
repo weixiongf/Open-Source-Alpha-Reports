@@ -1,0 +1,1788 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><title>Open-code-review 商业价值分析报告</title><style>/* default — 品牌蓝紫主题（从 md2pdf.py 原 CSS 常量迁出，视觉与历史产物一致） */
+@page { size: A4; margin: 18mm 15mm 20mm 15mm; }
+* { box-sizing: border-box; }
+/* 字体规范：一律开源思源黑体 CN（OFL 免费商用）；正文 Regular/标题 Bold/大字数字 Light */
+body { font-family: "Source Han Sans CN","思源黑体 CN","Noto Sans SC",sans-serif; color:#1e293b; font-size:10.5pt; line-height:1.75; margin:0; }
+.cover { page-break-after: always; text-align:center; padding-top:40px; }
+.cover .kicker { color:#2563eb; letter-spacing:6px; font-size:12pt; font-weight:500; }
+.cover h1 { font-size:26pt; margin:14px 0 6px; }
+.cover .sub { color:#64748b; font-size:11pt; margin-bottom:22px; }
+.badge { display:inline-block; background:linear-gradient(135deg,#2563eb,#7c3aed); color:#fff; border-radius:18px; padding:16px 44px; margin:10px 0 18px; }
+.badge .g { font-size:34pt; font-weight:300; line-height:1; }
+.badge .s { font-size:12pt; opacity:.92; margin-top:4px; }
+.meta { color:#475569; font-size:9.5pt; margin-top:14px; }
+.bars { max-width:620px; margin:20px auto 0; text-align:left; }
+.bar-row { display:flex; align-items:center; gap:8px; margin:5px 0; font-size:9pt; }
+.bar-name { width:110px; text-align:right; color:#334155; font-weight:500; }
+.bar-track { flex:1; height:9px; background:#f1f5f9; border-radius:5px; overflow:hidden; }
+.bar-fill { display:block; height:100%; border-radius:5px; }
+.bar-val { width:30px; font-weight:700; color:#0f172a; }
+.bar-w { width:52px; color:#94a3b8; font-size:8pt; }
+h1 { font-size:17pt; color:#0f172a; border-bottom:3px solid #2563eb; padding-bottom:8px; }
+h2 { font-size:13.5pt; color:#1d4ed8; margin-top:26px; page-break-after: avoid; border-left:5px solid #2563eb; padding-left:10px; }
+h3 { font-size:11.5pt; color:#0f172a; margin-top:18px; page-break-after: avoid; }
+table { border-collapse:collapse; width:100%; margin:10px 0; font-size:9pt; page-break-inside:avoid; }
+th { background:#eff6ff; color:#1e3a8a; }
+th,td { border:1px solid #dbe3ef; padding:5px 8px; text-align:left; }
+tr:nth-child(even) td { background:#f8fafc; }
+code { background:#f1f5f9; border-radius:4px; padding:1px 5px; font-family:"JetBrains Mono","Cascadia Mono",monospace; font-size:9pt; color:#be185d; }
+pre { background:#0f172a; color:#e2e8f0; border-radius:8px; padding:12px 14px; overflow-x:auto; page-break-inside:avoid; }
+pre code { background:none; color:inherit; padding:0; }
+blockquote { border-left:4px solid #93c5fd; background:#eff6ff; margin:10px 0; padding:8px 14px; color:#334155; border-radius:0 8px 8px 0; }
+hr { border:none; border-top:1px dashed #cbd5e1; margin:22px 0; }
+strong { color:#0f172a; }
+.cover .disclaimer { max-width:620px; margin:16px auto 0; color:#64748b; font-size:8.5pt; line-height:1.6; text-align:left; border:1px solid #e2e8f0; border-radius:8px; padding:8px 12px; background:#f8fafc; }
+.credit { color:#2563eb; font-size:10.5pt; font-weight:700; letter-spacing:1px; margin-top:12px; }
+.at-acc { background:#dbeafe; color:#1d4ed8; border-radius:4px; padding:0 4px; font-weight:500; white-space:nowrap; }
+.tail { page-break-inside:avoid; margin-top:26px; border-top:2px solid #2563eb; padding-top:14px; }
+.tail p { color:#64748b; font-size:8.5pt; line-height:1.6; margin:0 0 10px; }
+.tail .credit { text-align:center; margin:0; }
+/* Remix Icon 内联 SVG（icon_mode=remix 时由脚本注入，语义色与评分条一致） */
+.ri { width:1.05em; height:1.05em; vertical-align:-0.18em; display:inline-block; }
+.ri-ok { color:#16a34a; } .ri-warn { color:#d97706; } .ri-bad { color:#dc2626; }
+.ri-muted { color:#64748b; } .ri-star { color:#f59e0b; } .ri-brand { color:#2563eb; }
+.ri-gold { color:#d4a017; } .ri-silver { color:#9ca3af; } .ri-bronze { color:#b45309; }
+/* 屏幕预览：@page 边距仅在打印时生效，浏览器中居中限宽并收边（不影响 PDF 输出） */
+@media screen {
+  body { margin: 0 auto; padding: 28px 36px 56px; max-width: 900px; }
+}
+</style></head><body><div class="cover">
+<div class="kicker">开源项目商业化潜力分析 · 第 104 期</div>
+<h1>GitHub 开源项目 Open-code-review<br>商业价值分析报告</h1>
+<div class="sub">alibaba/open-code-review · 阿里开源AI代码审查CLI（混合架构+40语言规则集）· 九维度加权评估</div>
+<div class="badge"><div class="g">A 级 · 78.2</div><div class="s">综合评分（满分 100）· 高商业化潜力</div></div>
+<div><svg viewBox="0 0 560 480" width="560" height="480" xmlns="http://www.w3.org/2000/svg"><polygon points="280.0,209.6 299.5,216.7 309.9,234.7 306.3,255.2 290.4,268.6 269.6,268.6 253.7,255.2 250.1,234.7 260.5,216.7" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,179.2 319.1,193.4 339.9,229.4 332.7,270.4 300.8,297.1 259.2,297.1 227.3,270.4 220.1,229.4 240.9,193.4" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,148.8 338.6,170.1 369.8,224.2 359.0,285.6 311.2,325.7 248.8,325.7 201.0,285.6 190.2,224.2 221.4,170.1" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,118.4 358.2,146.8 399.8,218.9 385.3,300.8 321.6,354.3 238.4,354.3 174.7,300.8 160.2,218.9 201.8,146.8" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,88.0 377.7,123.6 429.7,213.6 411.6,316.0 332.0,382.8 228.0,382.8 148.4,316.0 130.3,213.6 182.3,123.6" fill="none" stroke="#e2e8f0" stroke-width="1"/><line x1="280.0" y1="240.0" x2="280.0" y2="88.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="377.7" y2="123.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="429.7" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="411.6" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="332.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="228.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="148.4" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="130.3" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="182.3" y2="123.6" stroke="#d8dee9" stroke-width="1"/><polygon points="280.0,118.4 362.1,142.2 408.7,217.3 369.5,291.7 314.3,334.3 235.8,361.4 174.7,300.8 151.3,217.3 201.8,146.8" fill="rgba(37,99,235,.22)" stroke="#2563eb" stroke-width="2.5"/><circle cx="280.0" cy="118.4" r="3.5" fill="#2563eb"/><circle cx="362.1" cy="142.2" r="3.5" fill="#2563eb"/><circle cx="408.7" cy="217.3" r="3.5" fill="#2563eb"/><circle cx="369.5" cy="291.7" r="3.5" fill="#2563eb"/><circle cx="314.3" cy="334.3" r="3.5" fill="#2563eb"/><circle cx="235.8" cy="361.4" r="3.5" fill="#2563eb"/><circle cx="174.7" cy="300.8" r="3.5" fill="#2563eb"/><circle cx="151.3" cy="217.3" r="3.5" fill="#2563eb"/><circle cx="201.8" cy="146.8" r="3.5" fill="#2563eb"/><text x="280.0" y="44.0" text-anchor="middle" font-size="12.5" fill="#334155" font-weight="600">D1</text><text x="280.0" y="58.0" text-anchor="middle" font-size="11" fill="#64748b">市场需求 8.0</text><text x="406.0" y="89.9" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D2</text><text x="406.0" y="103.9" text-anchor="start" font-size="11" fill="#64748b">技术成熟度 8.4</text><text x="473.0" y="206.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D3</text><text x="473.0" y="220.0" text-anchor="start" font-size="11" fill="#64748b">社区生态 8.6</text><text x="449.7" y="338.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D4</text><text x="449.7" y="352.0" text-anchor="start" font-size="11" fill="#64748b">变现潜力 6.8</text><text x="347.0" y="424.2" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D5</text><text x="347.0" y="438.2" text-anchor="start" font-size="11" fill="#64748b">竞争格局 6.6</text><text x="213.0" y="424.2" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D6</text><text x="213.0" y="438.2" text-anchor="end" font-size="11" fill="#64748b">法律合规 8.5</text><text x="110.3" y="338.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D7</text><text x="110.3" y="352.0" text-anchor="end" font-size="11" fill="#64748b">企业就绪 8.0</text><text x="87.0" y="206.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D8</text><text x="87.0" y="220.0" text-anchor="end" font-size="11" fill="#64748b">团队治理 8.6</text><text x="154.0" y="89.9" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D9</text><text x="154.0" y="103.9" text-anchor="end" font-size="11" fill="#64748b">上手难度 8.0</text></svg></div>
+<div class="bars"><div class="bar-row"><span class="bar-name">D3 社区生态</span>
+<span class="bar-track"><span class="bar-fill" style="width:86.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.6</span><span class="bar-w">权重11%</span></div>
+<div class="bar-row"><span class="bar-name">D8 团队治理</span>
+<span class="bar-track"><span class="bar-fill" style="width:86.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.6</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D6 法律合规</span>
+<span class="bar-track"><span class="bar-fill" style="width:85.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.5</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D2 技术成熟度</span>
+<span class="bar-track"><span class="bar-fill" style="width:84.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.4</span><span class="bar-w">权重14%</span></div>
+<div class="bar-row"><span class="bar-name">D1 市场需求</span>
+<span class="bar-track"><span class="bar-fill" style="width:80.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.0</span><span class="bar-w">权重13%</span></div>
+<div class="bar-row"><span class="bar-name">D7 企业就绪</span>
+<span class="bar-track"><span class="bar-fill" style="width:80.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.0</span><span class="bar-w">权重8%</span></div>
+<div class="bar-row"><span class="bar-name">D9 上手难度</span>
+<span class="bar-track"><span class="bar-fill" style="width:80.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.0</span><span class="bar-w">权重10%</span></div>
+<div class="bar-row"><span class="bar-name">D4 变现潜力</span>
+<span class="bar-track"><span class="bar-fill" style="width:68.0%;background:#d97706"></span></span>
+<span class="bar-val">6.8</span><span class="bar-w">权重18%</span></div>
+<div class="bar-row"><span class="bar-name">D5 竞争格局</span>
+<span class="bar-track"><span class="bar-fill" style="width:66.0%;background:#d97706"></span></span>
+<span class="bar-val">6.6</span><span class="bar-w">权重12%</span></div></div>
+<div class="meta">分析时点 2026-09-15 ｜ 数据来源：GitHub API + 仓库代码实测 ｜ 方法论 v1.3</div>
+<div class="credit">报告出品：@魔法工厂　@向量之心　@南山科学家</div>
+<div class="disclaimer"><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</div>
+</div><h1>Open-code-review 商业化潜力分析报告（完整版）</h1>
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家</p>
+<p>方法论版本: v1.3 | 综合评分: <strong>78.2</strong> | 等级: <strong>A（高商业化潜力）</strong> | 价值画像: 明星资产</p>
+</blockquote>
+<h2>一、项目概览</h2>
+<h3>1.1 基本信息</h3>
+<ul>
+<li><strong>项目名称 / 仓库地址</strong>：alibaba/open-code-review</li>
+<li><strong>核心技术栈</strong>：Go（主语言，Go 代码 102,352 行 / 总代码 135,450 行），CLI 交互基于 spf13/cobra + charm.land/bubbletea/v2 + lipgloss；技术域覆盖 LLM Agent 与 tool-use、仓库级上下文检索、确定性规则引擎与静态代码分析、OpenTelemetry 可观测</li>
+<li><strong>社区规模速览</strong>：Star 25,588 / Fork 1,857（fork-star 比 7.26%）/ 贡献者 160；近 90 天 PR 670、关闭 Issue 271、开放 Issue 161</li>
+<li><strong>分析时点 / 数据来源</strong>：项目创建于 2026-05-18，最近推送 2026-09-14（v1.12.1）；数据来源为 GitHub 仓库元数据、README/文档、CI 配置与 npm 下载统计</li>
+</ul>
+<h3>1.2 项目分类标签</h3>
+<table>
+<thead>
+<tr>
+<th>分类维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>开发者工具（兼含数据与 AI/LLM Agent、DevOps 与运维）</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>通用/跨行业</td>
+</tr>
+<tr>
+<td>目标用户角色</td>
+<td>后端开发者 / 全栈开发者 / DevOps 运维工程师 / 技术管理者 CTO / 架构师</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>本地自审、CI 门禁、IDE 内审查、coding agent 委托、仓库全量审计</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>本地部署（CLI/私有化）+ CI Runner + IDE 扩展（VSCode）+ Agent 插件/MCP 服务</td>
+</tr>
+</tbody>
+</table>
+<h3>1.3 一句话定位</h3>
+<blockquote>
+<p>Open Code Review 是一个 AI 代码审查 CLI 工具，适用于所有需要软件研发的行业，主要面向后端/全栈开发者、DevOps 工程师与技术管理者，用于在本地、CI/CD 与 coding agent 中以行级精度自动发现代码缺陷与安全风险。</p>
+</blockquote>
+<hr />
+<h2>二、安装部署与使用指南</h2>
+<blockquote>
+<p>Open Code Review（<code>ocr</code>）是一个 Go 编写的 AI 代码审查 CLI 工具，以「单二进制 + npm 分发」形式交付，无服务端组件。以下命令与配置均取自 README 与仓库内 Makefile/package.json 原文。</p>
+</blockquote>
+<h3>1. 环境要求</h3>
+<table>
+<thead>
+<tr>
+<th>项</th>
+<th>要求</th>
+<th>来源</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Git</td>
+<td><strong>&gt;= 2.41</strong>（OCR 依赖 Git 做 diff 生成、代码搜索与仓库操作）</td>
+<td>README「Prerequisites」</td>
+</tr>
+<tr>
+<td>Node.js</td>
+<td><strong>&gt;= 14</strong>（仅 npm 安装方式需要）</td>
+<td><code>package.json</code> → <code>engines.node: "&gt;=14"</code></td>
+</tr>
+<tr>
+<td>操作系统</td>
+<td>Windows / macOS / Linux，README 徽章标注三平台均 supported</td>
+<td>README 顶部徽章</td>
+</tr>
+<tr>
+<td>CPU 架构</td>
+<td>arm64 与 x64 均有预编译二进制包</td>
+<td><code>npm/{darwin,linux,win32}-{arm64,x64}/package.json</code></td>
+</tr>
+</tbody>
+</table>
+<p>无需数据库、缓存、消息队列等外部组件；无需 Go 工具链（仅从源码构建时需要）。</p>
+<h3>2. 安装（单条命令）</h3>
+<pre><code class="language-bash">npm install -g @alibaba-group/open-code-review
+</code></pre>
+<p>安装后 <code>ocr</code> 命令全局可用。npm 包通过 <code>optionalDependencies</code> 按当前平台自动拉取对应预编译二进制（<code>@alibaba-group/ocr-darwin-arm64</code> / <code>-darwin-x64</code> / <code>-linux-arm64</code> / <code>-linux-x64</code> / <code>-win32-arm64</code> / <code>-win32-x64</code>），<code>postinstall</code> 脚本完成二进制落位与校验（<code>package.json</code> 中配置了 <code>urlPattern</code> 与 <code>checksumPattern</code>）。</p>
+<p>其他安装方式（install script、GitHub Release 二进制、从源码安装）见官方文档 Installation 页。</p>
+<h3>3. 配置 LLM</h3>
+<pre><code class="language-bash">ocr config provider          # Select a built-in provider or add a custom one
+ocr config model             # Pick a model for the active provider
+</code></pre>
+<p>交互式 UI 会引导完成 provider 选择、API Key 录入、模型配置，并<strong>自动测试连通性</strong>。若采用 Delegation 模式（由宿主 AI coding agent 自行完成审查），则<strong>无需配置任何 LLM</strong>。</p>
+<h3>4. 首次审查</h3>
+<pre><code class="language-bash">cd your-project
+
+# Workspace 模式 —— 审查全部 staged / unstaged / untracked 变更
+ocr review
+
+# 分支区间 —— 审查 feature-branch 相对 main 分叉后的变更（merge-base 模式）
+ocr review --from main --to feature-branch
+
+# 单个 commit
+ocr review --commit abc123
+
+# 恢复被中断的区间或 commit 审查
+ocr session list
+ocr review --from main --to feature-branch --resume &lt;session-id&gt;
+
+# 全文件扫描 —— 不依赖 git 历史
+ocr scan                          # scan the entire repository
+ocr scan --path internal/agent    # scan a directory or specific files
+ocr scan --resume &lt;session-id&gt;   # resume an interrupted full-file scan
+
+# 结果落盘（推荐给 AI host agent 消费）
+ocr review --format json --output result.json
+
+# Delegation 模式 —— 由宿主 agent 执行审查，OCR 只负责选文件与规则解析
+ocr delegate preview
+ocr delegate rule src/main.go src/handler.go
+</code></pre>
+<h3>5. 从源码构建（开发者可选）</h3>
+<pre><code class="language-bash">make build          # 产出 ./dist/opencodereview
+make run            # build 后执行 ./dist/opencodereview --staged
+make help           # build 后执行 ./dist/opencodereview -h
+make test           # go test -v -race -count=1（排除 /extensions/）
+make coverage       # 覆盖率门禁 COVERAGE_THRESHOLD := 90
+make build-all      # linux/darwin/windows × amd64/arm64 全平台交叉编译（CGO_ENABLED=0）
+make dist           # clean → build-all → sha256sum → 写入 VERSION
+</code></pre>
+<h3>6. 部署形态说明</h3>
+<p>仓库素材中<strong>未发现 Dockerfile / docker-compose.yml / Helm Chart</strong>，项目不提供容器化部署方式，交付形态为「一条 npm 命令安装的单机 CLI 二进制」。生产化落地路径为 CI/CD 集成：<code>examples/</code> 目录提供了 GitHub Actions、GitLab CI、Gerrit CI、Bitbucket Pipelines、Codeup CI、GitFlic CI 六类集成示例，另有 VSCode 扩展与 Claude Code / Codex / Cursor / OpenCode / QCA 等宿主 agent 插件；可观测性通过 OpenTelemetry 接入。</p>
+<h2>三、评分总览</h2>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>权重</th>
+<th>加权得分</th>
+<th>评级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1 市场需求与商业机会</td>
+<td>8.0/10</td>
+<td>13%</td>
+<td>1.04</td>
+<td>优</td>
+</tr>
+<tr>
+<td>D2 技术成熟度与产品质量</td>
+<td>8.4/10</td>
+<td>14%</td>
+<td>1.18</td>
+<td>优</td>
+</tr>
+<tr>
+<td>D3 社区健康度与生态势能</td>
+<td>8.6/10</td>
+<td>11%</td>
+<td>0.95</td>
+<td>优</td>
+</tr>
+<tr>
+<td>D4 商业模式与变现潜力</td>
+<td>6.8/10</td>
+<td>18%</td>
+<td>1.22</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D5 竞争格局与差异化壁垒</td>
+<td>6.6/10</td>
+<td>12%</td>
+<td>0.79</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D6 法律合规与知识产权</td>
+<td>8.5/10</td>
+<td>7%</td>
+<td>0.60</td>
+<td>优</td>
+</tr>
+<tr>
+<td>D7 企业就绪度与可运营性</td>
+<td>8.0/10</td>
+<td>8%</td>
+<td>0.64</td>
+<td>优</td>
+</tr>
+<tr>
+<td>D8 团队治理与可持续性</td>
+<td>8.6/10</td>
+<td>7%</td>
+<td>0.60</td>
+<td>优</td>
+</tr>
+<tr>
+<td>D9 上手难度与易用性</td>
+<td>8.0/10</td>
+<td>10%</td>
+<td>0.80</td>
+<td>优</td>
+</tr>
+<tr>
+<td><strong>综合评分</strong></td>
+<td>—</td>
+<td>100%</td>
+<td><strong>78.2/100</strong></td>
+<td><strong>A（高商业化潜力）</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>平行维度（不计入综合评分）</strong></p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10 功能价值</td>
+<td>7.8/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>D11 社会价值</td>
+<td>6.3/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>公共价值分</td>
+<td>7.0/10</td>
+<td>(D10+D11)/2</td>
+</tr>
+</tbody>
+</table>
+<p><strong>一票否决检查</strong>：未触发。D6 维度总分 8.5（&gt; 3）；D8.4 细则小分 3.0（&gt; 1）；D4.1 细则小分 2.0（&gt; 0.5）。三项否决检查均完整执行，无 N/A 跳过项。</p>
+<p><strong>价值画像</strong>：⭐ 明星资产（综合评分 78.2 ≥ 65，公共价值分 7.0 ≥ 7）。公共价值分恰为 7.0，处于 6.5–7.5 临界区间，标注为「画像临界」——若公共价值分略低则滑向「纯商业工具」，路径差异见第五章说明。</p>
+<hr />
+<h2>四、各维度详细分析</h2>
+<h3>D1. 市场需求与商业机会（权重 13%）</h3>
+<h3>项目分类标签</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>开发者工具（主）／数据与AI（LLM Agent 编排）／DevOps与运维（CI 门禁）</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>通用/跨行业（凡有软件研发的组织均适用；金融科技、政府公共服务、电信通信等合规敏感行业权重更高）</td>
+</tr>
+<tr>
+<td>目标用户角色</td>
+<td>后端开发者、全栈开发者、DevOps/运维工程师、技术管理者/CTO、架构师</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>研发流程优化、CI/CD流水线、安全防护、原型验证/代码审计（<code>ocr scan</code>）</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>本地部署（CLI/私有化）、CI Runner（云端或自托管）、IDE 扩展（VSCode）、Agent 插件/MCP 服务</td>
+</tr>
+<tr>
+<td>运作模式</td>
+<td>开源自托管 CLI（Apache-2.0，npm/二进制分发），暂无直接付费墙；具备 Open Core / 云厂商产品引流潜力</td>
+</tr>
+<tr>
+<td>技术领域</td>
+<td>LLM Agent + tool-use、静态/规则化代码分析、仓库级上下文检索、OpenTelemetry 可观测</td>
+</tr>
+</tbody>
+</table>
+<p><strong>一句话定位</strong>：Open Code Review 是一个 AI 代码审查 CLI 工具（开发者工具／LLM Agent 应用），适用于所有需要软件研发的行业（通用跨行业），主要面向后端/全栈开发者、DevOps 工程师与技术管理者，用于在本地、CI/CD 与 coding agent 中以行级精度自动发现代码缺陷与安全风险。</p>
+<hr />
+<h3>D1.1 目标市场规模与增长性（2.5 分）→ <strong>2.0 分（80%）</strong></h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TAM 估算</td>
+<td>项目解决的问题可映射到两个市场交集：①代码审查/静态分析工具（SAST、代码质量门禁）；②AI 编程助手与代码 Agent。两者均属软件开发工具链中增速最快的细分。核心可触达对象是「有 PR/代码审查流程的研发团队」，覆盖几乎所有规模以上软件组织</td>
+</tr>
+<tr>
+<td>增长趋势</td>
+<td><strong>扩张</strong>。审查环节正从「规则扫描」升级为「LLM 语义级审查 + Agent 编排」，该细分近两年产品密度与资本投入明显上升；企业侧渗透仍处早期（多数团队仍在用人工 review + 传统 lint/SAST）</td>
+</tr>
+<tr>
+<td>市场层级</td>
+<td><strong>新兴蓝海 → 成长期过渡</strong>。开源侧尤其缺少「生产级尺度验证 + 确定性约束」的完整方案</td>
+</tr>
+</tbody>
+</table>
+<p><strong>依据</strong>：README 明确项目源自阿里内部官方 AI 代码审查助手，「服务数万名开发者、检出数百万缺陷」后再开源，说明需求侧在大厂内部已被验证为高频刚需；topics（<code>code-review</code>、<code>code-review-assistant</code>、<code>agent</code>、<code>repository-level-context</code>）指向的正是当前 AI 编程工具链增长最快的环节。同赛道公开可见的商业玩家密集（AI 代码审查 SaaS、IDE 厂商内置 review、传统 SAST 厂商），反证了市场规模与付费意愿的存在。</p>
+<p><strong>扣分项</strong>：仓库单一产品的直接 TAM 小于「AI 编程助手」整体；代码审查是工具链中的一个环节，客单价与预算归属通常低于 IDE/代码补全类主入口产品。</p>
+<blockquote>
+<p>⚠️ 本次评估无可用外部市场规模数据，量级判断基于市场层级与竞品密度推论，<strong>未经外部数据验证，置信度中低</strong>；未引用任何具体市场规模数字。</p>
+</blockquote>
+<hr />
+<h3>D1.2 痛点真实性与解决程度（2.5 分）→ <strong>2.0 分（80%）</strong></h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>痛点真实性</td>
+<td><strong>高（行业级）</strong>。代码审查是软件交付的强制环节，不可跳过；人工审查存在 reviewer 时间成本高、大 changeset 漏检、模式化缺陷（NPE、线程安全、XSS、SQL 注入）反复出现等结构性痛点。README 指出的通用 agent 三大问题——覆盖不全、位置漂移、质量随 prompt 波动——是可复现、可验证的真实痛点</td>
+</tr>
+<tr>
+<td>解决完整度</td>
+<td><strong>较完整</strong>。CLI 支持 workspace/branch-range/single-commit/全量 scan 多模式；集成面覆盖 GitHub Actions、GitLab CI、Gerrit、Bitbucket Pipelines、GitFlic、Codeup 六类 CI，外加 VSCode 扩展与 Claude Code / Codex / Cursor / OpenCode / QCA 插件与 MCP server；配套 session viewer 回放、OTel 遥测、多语言规则库。缺口：官方自认 Recall 低于通用 agent（有意的 precision 优先取舍），会漏检部分真实缺陷</td>
+</tr>
+<tr>
+<td>替代成本</td>
+<td><strong>中等偏低（对本项目不利）</strong>。替代品众多：人工 review、lint/SAST（SonarQube/Semgrep/ESLint 类）、商业 AI 审查 SaaS、通用 coding agent 自带的 review skill。切换成本主要是配置 LLM endpoint 与 CI 集成，迁移门槛低</td>
+</tr>
+</tbody>
+</table>
+<p><strong>加分依据</strong>：项目以「确定性工程 × Agent 混合」正面回应上述痛点——确定性文件选择、文件捆绑分治、模板化规则匹配、独立的定位与反思模块；并公开了 50 仓库 / 200 PR / 10 语言 / 1505 条标注的基准数据集（AACR-Bench），宣称同模型下 Precision 与 F1 显著更高、token 消耗约 1/9。这是<strong>可被第三方复核的差异化证据</strong>，而非自嗨。</p>
+<p><strong>扣分项</strong>：痛点刚需但并非「非此项目不可」，替代品矩阵成熟；召回率取舍在安全/合规强相关场景会削弱吸引力。</p>
+<hr />
+<h3>D1.3 市场时机判断（2.5 分）→ <strong>2.0 分（80%）</strong></h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术成熟度曲线</td>
+<td>已越过期望膨胀期。长上下文 + tool-use + MCP 在 2025–2026 进入实质生产期，「仓库级上下文检索」具备工程可行性；本项目的混合架构正是该阶段的产物，而非超前概念</td>
+</tr>
+<tr>
+<td>竞争密度</td>
+<td><strong>高但格局未固化</strong>。已有先行者（AI 审查 SaaS、IDE 厂商内置 review、传统 SAST 厂商），但无垄断者；开源侧多为「通用 agent + review skill」形态，缺少经过大厂生产尺度验证的完整方案，仍存空位</td>
+</tr>
+<tr>
+<td>监管/标准</td>
+<td><strong>间接有利</strong>。软件供应链安全与合规审计（OWASP、SBOM、行业等保要求）持续推高自动化审查需求；但代码审查工具本身无强制性标准</td>
+</tr>
+</tbody>
+</table>
+<p><strong>依据</strong>：项目 2026-05 创建，2026-09 已迭代至 v1.12.1（近两周内发布 7 个版本），90 天 670 个 PR、271 个 Issue 关闭、160 位贡献者、25,588 star——社区动能与迭代速度处于高速成长期特征。OpenSSF Best Practices Gold 认证进一步表明工程成熟度已达可被企业采购评估的水平。</p>
+<p><strong>扣分项</strong>：工具类 AI 审查已是拥挤赛道，需正面竞争；若按「成熟期需硬碰硬」理解，可下调至 60%（1.5 分）。本评估取成长期上限区间，故给 80%。</p>
+<hr />
+<h3>D1.4 应用场景广度（2.5 分）→ <strong>2.0 分（80%）</strong></h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>行业覆盖</td>
+<td><strong>跨行业</strong>。任何产出代码的组织（金融、医疗、政府、电信、汽车软件、制造工业软件等）都有代码审查需求，项目本身无行业专属假设；安全规则（XSS/SQLi/NPE）在合规敏感行业价值更高</td>
+</tr>
+<tr>
+<td>场景多样性</td>
+<td><strong>横向通用工具</strong>。可嵌入六类场景：本地开发自审、CI/CD PR 门禁、IDE/VSCode 扩展、coding agent 委托执行（<code>ocr delegate</code>，无需配置 LLM）、MCP 外部工具扩展、陌生仓库全量审计（<code>ocr scan</code>）</td>
+</tr>
+<tr>
+<td>可延展性</td>
+<td><strong>强</strong>。规则集以独立规则文档按语言/配置文件名组织（可见 ≥18 个规则文件，清单被截断，实际覆盖更广）；Provider 抽象兼容 OpenAI/Anthropic 及自建端点；MCP 可挂载外部工具；OTel 可接入企业可观测栈；多语言 README（中/日/韩/俄）与多类 CI 示例表明已按国际化交付组织</td>
+</tr>
+</tbody>
+</table>
+<p><strong>扣分项</strong>：本质是「适用范围极宽的开发者工具」，而非数据库/运行时式的底层基础设施；用户群体限定为具备代码审查流程的研发团队，非全行业全员可用。故不给 9–10 档。</p>
+<hr />
+<h3>D1 维度结论</h3>
+<p><strong>D1 总分 = 2.0 + 2.0 + 2.0 + 2.0 = 8.0 / 10</strong></p>
+<p><strong>核心判断</strong>：市场需求与商业机会成立且质量较高。四个细则均落在「良好」档（80%），无短板：</p>
+<ul>
+<li><strong>优势</strong>：真实行业级刚需（代码审查不可跳过）× 处于成长期的市场 × 跨行业跨场景的横向工具 × 阿里内部「数万开发者 / 数百万缺陷」的生产级背书 + 公开可复核的 1505 条标注基准数据集 + 25.6k star / 160 贡献者 / 90 天 670 PR 的社区动能。</li>
+<li><strong>风险</strong>：① 赛道拥挤，商业 SaaS 与 IDE 厂商内置能力构成正面竞争，且<strong>格局未见分晓</strong>；② 官方自认 Recall 低于通用 agent，在安全合规场景存在接受度折损；③ 无直接付费墙（Apache-2.0、npm 免费分发），变现距离较远，需依赖云厂商产品引流或企业版/支持服务间接转化。</li>
+</ul>
+<p><strong>数据置信度说明</strong>：本维度所有判断基于仓库元数据、README、依赖清单与本地代码统计等硬事实；市场规模与时机判断部分依赖行业常识推论，<strong>未经外部数据验证，置信度中低</strong>。</p>
+<h3>D2. 技术成熟度与产品质量</h3>
+<p>alibaba/open-code-review 是一款 Go 语言实现的企业级 AI 代码审查工具，采用「确定性流水线 + LLM Agent」混合架构。项目已迭代至 v1.12.1，拥有 25.5k Star、160 位贡献者、10 条 CI 工作流，代码总规模 13.5 万行（其中测试 8.1 万行，测试/源码比约 60%）。以下为 D2 各细则评估。</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D2.1</td>
+<td>产品设计与创新性</td>
+<td>1.5</td>
+<td>1.2</td>
+<td>8/10（80%）</td>
+</tr>
+<tr>
+<td>D2.2</td>
+<td>架构设计与工程质量</td>
+<td>2</td>
+<td>1.6</td>
+<td>8/10（80%）</td>
+</tr>
+<tr>
+<td>D2.3</td>
+<td>代码整洁性与规范性</td>
+<td>1</td>
+<td>0.8</td>
+<td>8/10（80%）</td>
+</tr>
+<tr>
+<td>D2.4</td>
+<td>安全性</td>
+<td>1</td>
+<td>0.8</td>
+<td>8/10（80%）</td>
+</tr>
+<tr>
+<td>D2.5</td>
+<td>UI/UX/UE 人机交互</td>
+<td>1</td>
+<td>0.8</td>
+<td>8/10（80%）</td>
+</tr>
+<tr>
+<td>D2.6</td>
+<td>功能完备度与稳定性</td>
+<td>1.5</td>
+<td>1.2</td>
+<td>8/10（80%）</td>
+</tr>
+<tr>
+<td>D2.7</td>
+<td>文档与开发者体验</td>
+<td>1</td>
+<td>1.0</td>
+<td>9/10（100%）</td>
+</tr>
+<tr>
+<td>D2.8</td>
+<td>测试与质量保障</td>
+<td>1</td>
+<td>1.0</td>
+<td>9/10（100%）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td><strong>8.4</strong></td>
+<td><strong>卓越—良好</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>D2.5 判定为<strong>适用</strong>（项目含 Bubble Tea TUI、内嵌 Web 只读查看器、VS Code Webview 与官网文档站），故不触发 N/A 缩放。</p>
+</blockquote>
+<hr />
+<h3>D2.1 产品设计与创新性 —— 1.2 / 1.5（8 档）</h3>
+<p><strong>依据</strong>：
+- <strong>产品理念清晰</strong>：面向大规模（「battle-tested at Alibaba's scale」）的代码审查，以「确定性流水线（多语言静态规则：NPE、线程安全、XSS、SQL 注入）+ LLM Agent」混合架构解决纯 LLM 审查的稳定性/成本问题，设计思路明确。
+- <strong>功能设计围绕核心场景</strong>：<code>review</code>（diff 审查）/ <code>scan</code>（全文件扫描）/ <code>delegate</code>（规则委派）/ <code>session</code>（会话复用）/ <code>rules</code> / <code>viewer</code> 等子命令划分合理，精确到行级评论、SARIF 输出、断点续跑（<code>resume</code>）均服务于真实审查工作流。
+- <strong>差异化显著</strong>：混合架构本身即为差异化设计；内置跨语言规则集（<code>rule_docs/</code> 覆盖 go/cpp/c/java/arkts/graphql 等 40+ 语言与配置）；MCP 协议支持、Skill/Plugin 体系（<code>.claude-plugin</code>、<code>skills/</code>、<code>plugins/</code>）；同时提供 GitHub Actions / GitLab / Gerrit / Bitbucket / Codeup / GitFlic 六类 CI 集成示例。
+- <strong>创新性</strong>：三区（frozen/compress/active）会话压缩、SealedInput 冻结输入保证可复现、重试报告冻结等工程创新较突出。
+- 扣分点：AI 代码审查赛道竞争者众多（CodeRabbit 等），产品层创新偏工程实现而非交互范式。</p>
+<h3>D2.2 架构设计与工程质量 —— 1.6 / 2（8 档）</h3>
+<p><strong>依据</strong>：
+- <strong>架构合理性</strong>：<code>internal/</code> 分层清晰——<code>agent</code>/<code>scan</code>（编排）、<code>llmloop</code>（工具调用循环）、<code>llm</code>（多协议客户端工厂）、<code>diff</code>（diff 提取与 gitignore）、<code>session</code>（JSONL 持久化 + manifest）、<code>tool</code>（file_read/find/code_search/comment）、<code>viewer</code>（只读 WebUI）、<code>telemetry</code>（OpenTelemetry）、<code>config</code>（rules/template/toolsconfig）。符合 CLI + Agent 类项目的设计范式。
+- <strong>模块解耦</strong>：大量使用依赖注入（<code>llmloop.Deps</code>）、接口抽象（<code>LLMClient</code>、<code>Resolver</code>、<code>ResultProvider</code>、<code>CodeSearchProvider</code>）、责任链（规则四层优先级 custom &gt; project &gt; global &gt; system），耦合度可控。
+- <strong>抽象恰当</strong>：适配器模式统一 Anthropic/OpenAI/Bedrock/Responses 协议；Builder 模式实现 ManifestBuilder；状态机处理 TUI 与流式写入；<code>CanonicalConfig</code> 长度前缀防哈希碰撞等细节考虑周到。
+- <strong>代码量与功能匹配</strong>：10.2 万行 Go 代码，475 源文件、242 测试文件，规模与「多协议 + 多工具 + 多集成」的功能复杂度相称，未见过度臃肿。
+- <strong>复刻难度高</strong>：涉及 LLM 工具调用循环、token 压缩、会话续跑、跨 6 平台 CI 胶水、多协议适配，领域知识门槛高，护城河较深。
+- 扣分点：多个文件过长（<code>provider_tui.go</code> &gt; 2000 行、<code>loadSession</code>/<code>RunMainTask</code>/<code>executeReviewContext</code> 为超长函数）；存在少量重复逻辑（<code>runGit</code>/<code>runGitSplit</code>、<code>applyCustomProviderConfig</code>/<code>applyOfficialProviderConfig</code>）；部分类型别名向后兼容增加理解成本。</p>
+<h3>D2.3 代码整洁性与规范性 —— 0.8 / 1（8 档）</h3>
+<p><strong>依据</strong>：
+- <strong>风格强制</strong>：CI 中强制 <code>gofmt -s -l</code> 检查、LF 行尾检查、<code>go mod tidy</code> 检查、license 头校验、<code>verify-english-only.go</code> 限制非英文文本，规范执行到位。
+- <strong>注释质量高</strong>：核心模块注释极为详尽，普遍解释设计权衡（如 sealed input 语义、budget 与 run_failure 区别、api_key_cmd 延迟执行原因），显著优于平均水平。
+- <strong>命名规范</strong>：变量/函数/类型命名一致且有意义（如 <code>maskedSecretPlaceholder</code>、<code>resolveOutputCommitPath</code>）。
+- 扣分点：个别超长函数可读性下降；<code>stripThinkTags</code> 用字节构造略显晦涩；前端页面大量内联样式影响可维护性；存在注释未明示的边界（<code>expandBraces</code> 仅支持单层花括号）。</p>
+<h3>D2.4 安全性 —— 0.8 / 1（8 档）</h3>
+<p><strong>依据</strong>：
+- <strong>安全编码</strong>：输入验证充分——<code>validateReviewRefs</code> 用 <code>rev-parse --verify --end-of-options</code> 防 ref 选项注入；<code>--end-of-options</code> 同样用于 git commit 与 file_find；<code>safeSegment</code>/<code>unsafeSegment</code>/<code>pathutil.WithinBase</code> 防路径穿越；<code>safe_fence</code> 防反引号注入。
+- <strong>注入防护</strong>：<code>sanitizeTerminal</code>/<code>stripAnsiWriter</code>/<code>stripUnsafeChars</code> 防终端转义注入；<code>strip_xssi</code>、<code>sanitize_metadata</code> 剥离控制字符；GitLab 脚本用 <code>sanitize_metadata</code> + <code>safe_fence</code>。
+- <strong>密钥/敏感信息</strong>：无硬编码密钥；API Key 用 <code>EchoPassword</code> 掩码、<code>maskedSecretPlaceholder</code> 固定长度占位防长度泄露；配置文件 <code>0600</code>、会话目录 <code>0700</code>、会话文件 <code>0600</code>；<code>reservedHeaders</code> 阻止 extra_headers 覆盖 authorization；manifest/重试报告仅存非密值与哈希。
+- <strong>依赖安全与扫描</strong>：CI 集成 <code>govulncheck@v1.6.0</code> 与 <strong>CodeQL</strong>（actions/go/javascript-typescript 三语言），另有 <code>SECURITY.md</code>。
+- 扣分点：<code>validateBaseURL</code> 未在 <code>applyManualConfig</code> 调用（存在校验缺口）；<code>generateUUID</code> 的 fallback 使用时间戳（非加密安全）；错误路径偶有宽泛捕获。</p>
+<h3>D2.5 UI/UX/UE 人机交互 —— 0.8 / 1（8 档）</h3>
+<p><strong>依据（本项目含多套 UI，适用）</strong>：
+- <strong>界面设计</strong>：Bubble Tea TUI（provider/model/API Key 向导）交互完整，含 tab/step 状态机、密钥掩码与替换逻辑；内嵌只读 Web 查看器（<code>internal/viewer</code>）渲染会话 JSONL 为 HTML，支持评论分组、严重级别统计、对比视图；VS Code 扩展 Webview 提供配置向导与评论锚点。
+- <strong>交互体验</strong>：保存失败有回滚（<code>rollbackModelDelete</code>）、复制含降级方案、覆盖/重试报告渲染稳定。
+- <strong>信息架构</strong>：会话 list/show/comments/compare 子命令树清晰；官网文档站含树形导航、TOC、搜索模态框。
+- <strong>一致性</strong>：<code>i18n</code> 覆盖官网（en/zh/ja/ko/ru）与 VS Code 扩展。
+- 扣分点：<code>internal/viewer</code> 硬编码 <code>Asia/Shanghai</code> 时区（国际化欠佳）；前端页面大量内联样式、<code>fallbackCopy</code> 使用已废弃 <code>document.execCommand</code>；<code>parseTemplate</code> 无模板缓存；<code>providerTUIModel</code> 状态字段超 40 个可读性下降。</p>
+<h3>D2.6 功能完备度与稳定性 —— 1.2 / 1.5（8 档）</h3>
+<p><strong>依据</strong>：
+- <strong>版本成熟度</strong>：已发布 <strong>v1.12.1</strong>（远超 v1.0 正式版），最近 90 天发布节奏密集（v1.11.2 → v1.12.1，10 个 tag），版本发布体系成熟（release.yml 自动生成 release notes + checksum + attestation + npm 多平台分发）。
+- <strong>功能覆盖</strong>：review/scan/delegate/config/viewer/session/rules/llm 全功能齐备；支持 OpenAI Responses、OpenAI Chat Completions、Anthropic Messages、Anthropic Bedrock 四种协议，注册表内置 30+ provider。
+- <strong>性能表现</strong>：三区 token 压缩、并发子任务派发、token 预算门控、SHA-256 文件指纹续跑，针对大仓库性能有专门设计。
+- <strong>运行环境宽松</strong>：跨 6 平台（linux/darwin/windows × amd64/arm64）预编译二进制 + npm 安装包，Go 1.26，无 GPU/特殊硬件依赖。
+- <strong>国际化</strong>：README/CONTRIBUTING 多语言（en/zh/ja/ko/ru），官网与 VS Code 扩展含 i18n 框架。
+- 扣分点：发布密度高（数日内多版本），存在 Breaking Change 风险；<code>extensions/vscode</code> 的 <code>formatRelative</code> 对超过 24 小时无月份/年份处理；viewer 时区硬编码；部分组件国际化不彻底。</p>
+<h3>D2.7 文档与开发者体验 —— 1.0 / 1（9 档）</h3>
+<p><strong>依据</strong>：
+- <strong>文档覆盖极全</strong>：170 个文档文件——多语言 README（en/zh/ja/ko/ru）、<code>CONTRIBUTING.md</code>（多语言）、<code>GOVERNANCE.md</code>、<code>SECURITY.md</code>、<code>ROADMAP.md</code>、<code>ASSURANCE_CASE.md</code>、<code>AGENTS.md</code>、<code>CLAUDE.md</code>、<code>CODE_OF_CONDUCT.md</code>。
+- <strong>示例丰富</strong>：<code>examples/</code> 覆盖 6 类 CI（github_actions/gitlab_ci/gerrit_ci/bitbucket_pipelines/codeup_ci/gitflic_ci），每个含 README；<code>rule_docs/</code> 为 40+ 语言提供规则文档。
+- <strong>架构与 API 说明</strong>：CLAUDE.md/AGENTS.md 提供 agent 使用与协作规范；README 说明各命令与协议兼容性；文档站 <code>pages/</code> 提供结构化文档。
+- 扣分点：统计显示 <code>examples: 0 文件</code>（示例以 README + 脚本形式存在，缺少可运行完整 demo 工程）；未见交互式教程。</p>
+<h3>D2.8 测试与质量保障 —— 1.0 / 1（9 档）</h3>
+<p><strong>依据</strong>：
+- <strong>测试覆盖极高</strong>：测试 242 文件 / 81,399 行，<strong>测试/源码比约 60%</strong>；CI 中强制执行 <code>go test -race -coverprofile</code> 并设 <strong>90% 覆盖率门槛</strong>（低于即失败），<code>go tool cover</code> 输出总覆盖率并校验。
+- <strong>CI/CD 完善（10 条工作流）</strong>：<code>ci.yml</code>（license 头、action pin 校验、英文限制、gofmt、行尾、go mod tidy、vet、govulncheck、race 测试、覆盖率门禁、build、smoke test）、<code>codeql.yml</code>（三语言扫描）、windows 原生测试、cross-compile 矩阵、<code>release.yml</code>（多平台构建 + npm 发布 + build provenance attestation）。
+- <strong>质量门禁多层</strong>：action-contract、plugin-contract、translation-sync、pages-ci、vscode-ext 等专项契约测试（含自校验 <code>.test.js</code>）；<code>TestMux_HasNoWriteRoutes</code> 保证只读路由契约。
+- 扣分点：未达 9-10 档「&gt;80% 覆盖率」的绝对判断（有 90% 门槛但实际值未在素材中直接给出，仅可从测试行数占比侧证其高）。</p>
+<hr />
+<h3>结论</h3>
+<p>open-code-review 在 D2 维度表现<strong>良好偏卓越（8.4/10）</strong>。其技术成熟度与工程质量处于行业上游：架构分层清晰、模块解耦充分、测试与 CI/CD 体系完善（90% 覆盖率门禁 + CodeQL + govulncheck + 多平台矩阵）、文档极为齐全、安全编码实践到位、跨平台分发成熟（v1.12.x + 6 平台二进制 + npm）。</p>
+<p><strong>主要短板</strong>：① 个别文件/函数过长（<code>provider_tui.go</code> &gt;2000 行、多个编排函数超长）与少量重复逻辑，构成可维护性技术债；② 前端部分内联样式、时区硬编码、国际化不彻底，UI 工程一致性有改进空间；③ 高发布频率带来潜在 Breaking Change 风险；④ 少量输入校验缺口（如 <code>validateBaseURL</code> 未全覆盖）。整体而言，技术成熟度足以支撑商业化交付，综合评级<strong>良好 +</strong>，构成本维度显著商业优势。</p>
+<h3>D3. 社区健康度与生态势能（权重 11%）</h3>
+<blockquote>
+<p>评估时点：2026-09-15 ｜ 项目年龄：约 4 个月（2026-05-18 创建，2026-09-14 最近推送）｜ 数据完整度：高（Star/Fork/贡献者/PR/Issue 均为 API 实采）</p>
+</blockquote>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D3.1 社区活跃度指标</td>
+<td>3.0</td>
+<td><strong>3.0</strong></td>
+<td>9–10（100%）</td>
+<td>Star 25,588，按退化公式（Star ÷ 项目年龄月）月增约 <strong>6,446</strong>，远超 500 门槛 13 倍；Fork/Star = 7.26%（1857/25588），衍生意愿健康；近 90 天 PR 670 个、Issue 关闭 271 个，日均外部交互约 10 次；13 天内连发 10 个版本（v1.11.2→v1.12.1），维护者近乎实时响应</td>
+</tr>
+<tr>
+<td>D3.2 贡献者结构多样性</td>
+<td>2.5</td>
+<td><strong>2.0</strong></td>
+<td>7–8（80%）</td>
+<td>贡献者 <strong>160 人</strong>，数量已越过 9–10 档门槛；但<strong>组织多样性、外部贡献占比、核心团队 PR 占比三项均无实测数据</strong>，考虑到项目为阿里内部孵化、4 个月即聚集 160 人更可能以阿里系工程团队为主，保守落于 7–8 档</td>
+</tr>
+<tr>
+<td>D3.3 第三方生态成熟度</td>
+<td>3.0</td>
+<td><strong>2.4</strong></td>
+<td>7–8（80%）</td>
+<td>集成生态扎实：官方示例覆盖 GitHub Actions / GitLab CI / Bitbucket Pipelines / Gerrit / Codeup / Gitflic 六大 CI 平台，配套 VS Code 扩展；依赖 <code>modelcontextprotocol/go-sdk</code> 并明确支持 Claude Code / Codex / Cursor 三大主流 Agent 宿主，发布 npm 包 <code>@alibaba-group/open-code-review</code>，提供 HuggingFace AACR-Bench 基准数据集；<code>plugin-contract.yml</code> 表明插件契约机制已就位。但<strong>第三方插件市场、商业衍生品、外部教程课程均无证据</strong>，未达 9–10 档</td>
+</tr>
+<tr>
+<td>D3.4 品牌认知与行业影响力</td>
+<td>1.5</td>
+<td><strong>1.2</strong></td>
+<td>7–8（80%）</td>
+<td>阿里官方出品的 AI Code Review 工具，README 明确「在阿里规模上实战验证、服务数万开发者、识别数百万缺陷」，<strong>头部企业自用背书确凿</strong>；4 个月 25.6k Star、Trendshift 周榜徽章、OpenSSF Best Practices <strong>Gold</strong>、DeepWiki 收录、五语 README（EN/中/日/韩/俄）体现国际认知度。但<strong>技术会议演讲、第三方企业采用名单未见证据</strong>，未达 9–10 档</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>8.6</strong></td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h3>关键发现</h3>
+<ol>
+<li><strong>社区势能是该项目的最大亮点之一</strong>：4 个月内积累 25.6k Star、160 名贡献者、90 天 670 个 PR，属 AI 工具赛道头部热度。需注意此处 Star 增速采用<strong>退化公式</strong>（Star ÷ 项目年龄月）计算；对仅 4 个月的新项目，该公式受发布期爆发式增长影响，会<strong>高估稳态增速</strong>，但即便按 1/10 折损仍远超 500/月的满分门槛，结论稳健。</li>
+<li><strong>维护者响应能力与发布节奏极强</strong>：13 天 10 个 release、90 天关闭 271 个 Issue，且开放 Issue 仅 161 个（低于 90 天关闭量），说明关闭速率高于积压速率。唯一缺口是<strong>缺少 Issue 平均关闭时间的直接实测</strong>，响应速度靠间接指标推断。</li>
+<li><strong>生态集成是明确的商业化杠杆</strong>：项目以 MCP + Agent Skills 为接口，天然嵌入 Claude Code / Cursor / Codex 等宿主生态，同时覆盖六大 CI 平台，这为「被集成进企业研发流水线」提供了现成通路；但<strong>尚无第三方插件市场或商业衍生品</strong>，生态仍处于「官方自建」而非「社区自生长」阶段。</li>
+<li><strong>贡献者结构是唯一结构性弱点</strong>：160 名贡献者的绝对量已达标，但组织多样性数据缺失，且项目性质（阿里内部孵化、服务阿里自身工程体系）暗示可能高度依赖单一组织。若后续外部组织贡献占比无法提升，社区将更接近「厂商主导型开源」而非「中立社区」，对第三方商业化的中立性叙事构成潜在制约。</li>
+<li><strong>品牌背书强度高于社区年龄</strong>：4 个月即获 OpenSSF Gold、Trendshift 徽章与阿里自用背书，品牌起点极高，但会议曝光与外部企业采用案例的缺失，意味着「行业影响力」目前仍主要由母体品牌与 Star 数支撑，尚需时间沉淀。</li>
+</ol>
+<h3>结论</h3>
+<p><strong>D3 得分：8.6 / 10（良好偏上）</strong></p>
+<p>该项目在社区活跃度上表现卓越（3.0/3.0 满分），品牌认知依托阿里背书起点极高，生态集成方向正确且接口设计具备前瞻性，整体构成支撑商业化的正向势能。主要不确定性集中在<strong>贡献者组织多样性</strong>（数据缺失 + 疑似厂商主导）与<strong>第三方生态自生长能力</strong>（插件市场、衍生品、商业案例均未成型）两点。这两项是「厂商自建开源」到「真正生态平台」之间的关键跨越，也是商业化尽调中需要持续跟踪的观察指标。</p>
+<blockquote>
+<p><strong>置信度说明</strong>：本维度基于 GitHub API 实采数据（Star/Fork/贡献者/PR/Issue/Release）评分，硬指标充分；但「Issue 平均关闭时间」「贡献者所属组织」「第三方插件/衍生品」「会议与媒体覆盖」四项无实测数据，相关判断依赖间接推断，已在对应细则中标注并做保守处理。</p>
+</blockquote>
+<h3>D4. 商业模式与变现潜力</h3>
+<h3>4.1 细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D4.1 协议对变现模式的影响</td>
+<td>2</td>
+<td>2.0</td>
+<td>100% (9–10)</td>
+<td>全仓库唯一协议为 <strong>Apache-2.0</strong>（根 <code>LICENSE</code> + <code>extensions/vscode/LICENSE</code> 均为标准 Apache 2.0 全文，SPDX 一致）。Apache-2.0 属宽松许可，允许闭源衍生、子许可、SaaS 托管、Open Core、双许可等全部商业化路径，无任何传染性或云服务限制。</td>
+</tr>
+<tr>
+<td>D4.2 变现路径清晰度</td>
+<td>3.5</td>
+<td>2.1</td>
+<td>60% (5–6)</td>
+<td>存在多条<strong>理论上可行</strong>的路径，但仓库内<strong>无任何已落地的商业模式信号</strong>（无企业版、无付费墙、无 license-key 机制、无 pricing 页面、无商业实体指向）。可行路径见下。</td>
+</tr>
+<tr>
+<td>D4.3 付费转化逻辑</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>60% (5–6)</td>
+<td>免费版功能完整（CLI + <code>ocr review</code>/<code>scan</code>/<code>delegate</code>），且为 <strong>BYO-LLM（用户自配 OpenAI/Anthropic Key）</strong> 模式——项目本身不承担推理成本，也无从用量侧收费。免费→付费的触发点只能落在尚未存在的企业治理层，尚不自然。</td>
+</tr>
+<tr>
+<td>D4.4 增值服务空间与定价天花板</td>
+<td>2</td>
+<td>1.2</td>
+<td>60% (5–6)</td>
+<td>增值方向明确（合规审计、SAST/安全规则、策略集中管理、SSO、SLA、私有化部署），目标客群为工程团队，具备 $1K–10K/年客单价能力；但 BYO-LLM 削弱了 per-usage 扩展性，Apache 降低锁定，天花板受限。</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>6.8</strong></td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h3>4.2 各细则分析</h3>
+<p><strong>D4.1 协议（2.0/2.0）</strong>：Apache-2.0 是商业化最友好的协议之一，法务上天花板最高——Open Core、SaaS、双协议、专业服务、市场抽成均无阻碍。此项不构成任何障碍，满分。</p>
+<p><strong>D4.2 变现路径（2.1/3.5）</strong>：项目具备支撑商业化的产品形态——CLI + 多 CI/CD 集成（<code>examples/</code> 覆盖 GitHub/GitLab/Gerrit/Bitbucket/Codeup）+ VS Code 扩展 + 面向 Claude Code/Codex/Cursor/OpenCode 的插件生态 + npm 分发（<code>@alibaba-group/open-code-review</code>）。可适配的路径包括：
+- <strong>Open Core</strong>：核心开源，企业级规则治理/合规报告/审计日志闭源（参照 GitLab、Strapi）
+- <strong>SaaS 托管</strong>：CI 阶段"代码评审即服务"（参照 CodeRabbit、Greptile、SonarQube Cloud）
+- <strong>专业服务/规则定制</strong>：依托内置多语言规则集（NPE、线程安全、XSS、SQL 注入）交付企业定制规则
+- <strong>生态/认证</strong>：MCP Server 与插件市场抽成</p>
+<p>但<strong>所有路径均停留在推演层面</strong>：仓库无付费版、无企业授权入口、无定价信息。Alibaba 背书与"历经两年内部规模化验证"提供了极强的 GTM 可信度（可类比其在阿里云 CodeUp 体系内的商业化延展），但当前作为纯开源项目，路径清晰度只能判为"潜在、待验证"，故取 5–6 档。</p>
+<p><strong>D4.3 付费转化逻辑（1.5/2.5）</strong>：目标客户为研发团队/企业，对代码质量与安全工具付费意愿中等偏上（SonarQube、CodeRabbit 已验证）。但本项目<strong>免费版功能自足</strong>：本地运行、结果可导出 JSON、无需项目方 API Key，用户可长期零成本自持。真正可收费的触发点——如集中策略下发、合规审计留痕、SSO/权限、组织级看板、SLA——在当前代码中<strong>均不存在</strong>。升级触发点尚未自然形成，故判 5–6 档。</p>
+<p><strong>D4.4 增值空间与定价天花板（1.2/2.0）</strong>：代码评审是典型的企业级付费场景，增值维度丰富（安全 SAST 叠加、合规报告、策略中心、SLA、私有化/托管）。参照 SonarQube、CodeRabbit 等，客单价可达 $1K–10K+/年，大型组织更高，收入可从 per-seat 向 enterprise flat fee 扩展。约束在于：BYO-LLM 使项目方无法切入用量计费（推理成本归 OpenAI/Anthropic），且 Apache 许可下客户自建门槛低、锁定弱，压制定价上限。故取 5–6 档。</p>
+<h3>4.3 结论</h3>
+<p><strong>D4 得分：6.8 / 10（一般偏上）</strong></p>
+<p>该项目<strong>商业化的法务与产品底座扎实</strong>：Apache-2.0 扫清所有路径障碍，Alibaba 规模化背书 + 多语言规则集 + 广泛平台集成 + 25K+ Star 构成强分发优势，代码评审赛道已有 SonarQube/CodeRabbit 等成熟付费先例。</p>
+<p><strong>核心短板在于"没有商业动作"</strong>：仓库内不存在任何付费分层、企业版、定价或商业实体信号，且 CLI + BYO-LLM + 完整免费功能的组合，使免费→付费的自然触发点缺位。变现潜力属"高潜力、零验证"状态——具备成为企业级产品的基因，但当前无法证明有一条已被清晰定义并验证的变现路径。</p>
+<p><strong>关键前提/风险</strong>：若未来仅维持纯社区开源、不引入企业治理层或托管服务，则本维度潜力将被长期锁定在"仅专业服务/捐赠"的较低天花板（参照 Vue.js 的 $1M+ 社区模式天花板）。</p>
+<h3>D5. 竞争格局与差异化壁垒（权重 12%）</h3>
+<h3>D5.1 竞品对比与市场定位（满分 3 分）—— <strong>2.4 / 3</strong></h3>
+<p><strong>竞品验证说明</strong>:本次竞品搜索仅返回 1 条结果(<code>yangshun2005/open-code-review-cn</code>,1 star),且该仓库实为本项目的中文本地化 fork,并非独立竞品。<strong>经搜索确认,搜索接口未能返回有效同类竞品</strong>。以下竞品清单中,除 Claude Code 可通过被分析项目 README 直接引用验证外,其余均基于公开市场知识列举,<strong>未经本次搜索接口验证,可能存在偏差</strong>。</p>
+<table>
+<thead>
+<tr>
+<th>竞品名称</th>
+<th>类型</th>
+<th>仓库/官网</th>
+<th>验证方式</th>
+<th>Star/用户量</th>
+<th>核心差异</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Qodo PR-Agent (原 CodiumAI)</td>
+<td>直接竞品</td>
+<td>github.com/qodo-ai/pr-agent</td>
+<td>未经本次搜索验证(公开市场知识)</td>
+<td>开源项目,数千 star 量级</td>
+<td>通用 PR 审查 Agent,纯 LLM 驱动;OCR 强调确定性工程 + Agent 混合,规则内置、token 消耗约为其 1/9</td>
+</tr>
+<tr>
+<td>CodeRabbit</td>
+<td>直接竞品</td>
+<td>coderabbit.ai</td>
+<td>未经本次搜索验证(公开市场知识)</td>
+<td>商业 SaaS,GitHub/GitLab 应用</td>
+<td>商业化托管 PR 审查,生态集成广;OCR 为可自建、可换模型的 CLI + 私有部署路径</td>
+</tr>
+<tr>
+<td>Greptile</td>
+<td>直接竞品</td>
+<td>greptile.com</td>
+<td>未经本次搜索验证(公开市场知识)</td>
+<td>商业 SaaS</td>
+<td>代码库级上下文检索;OCR 以 repository-level-context + 分桶子 Agent 实现同类能力</td>
+</tr>
+<tr>
+<td>GitHub Copilot Code Review / Cursor Bugbot</td>
+<td>间接竞品</td>
+<td>github.com/features/copilot / cursor.com</td>
+<td>未经本次搜索验证(公开市场知识)</td>
+<td>平台原生,用户量极大</td>
+<td>平台自带审查功能,分发优势极强;OCR 定位为中立、可跨平台、模型无关的工具</td>
+</tr>
+<tr>
+<td>Claude Code(通用 Agent)</td>
+<td>间接竞品</td>
+<td>README「Benchmark」章节直接对标</td>
+<td><strong>仓库内引用(README 显式对比)</strong></td>
+<td>极高</td>
+<td>通用 Agent 做审查:覆盖率/定位漂移/稳定性问题;OCR 用确定性管线弥补,精确率与 F1 更高但 Recall 更低</td>
+</tr>
+</tbody>
+</table>
+<p><strong>定位清晰度评估</strong>:项目定位高度清晰且差异化——「确定性工程 × Agent 混合架构」「阿里超大规模生产验证(数万开发者、数百万缺陷)」「精度优先于召回的策略取舍」「内置多语言规则集(NPE/线程安全/XSS/SQL 注入)」。README 明确以 Claude Code 为基准并公开 AACR-Bench 评测(50 仓库 / 200 PR / 10 语言 / 80+ 工程师 / 1,505 条标注缺陷),定位论证充分。</p>
+<p><strong>扣分原因</strong>:AI 代码审查赛道极为拥挤,存在 CodeRabbit、Greptile、Qodo 等成熟商业/开源对手,以及 GitHub、Cursor 等平台原生方案的降维竞争。项目 2026-05 才开源,属较晚进入者,虽定位独特但尚未证明市场份额领先。</p>
+<p><strong>判断依据</strong>:README 定位描述 + 多语言文档(170 文档 / 5 语种)+ 公开 Benchmark + 竞品表。</p>
+<hr />
+<h3>D5.2 技术壁垒与网络效应（满分 3 分）—— <strong>1.8 / 3</strong></h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术壁垒</td>
+<td><strong>中等偏上</strong>。混合架构本身可被模仿,但真实壁垒来自:(1) 基于阿里生产环境大规模工具调用轨迹蒸馏出的场景化工具集与提示模板;(2) 内置多语言规则集(rule_docs 覆盖 go/cpp/c/haskell/graphql/bicep 等数十种语言与配置文件),沉淀自生产缺陷数据;(3) 无专利保护、Apache-2.0 全开源,代码可被直接 fork 复制</td>
+</tr>
+<tr>
+<td>网络效应</td>
+<td><strong>弱到中等</strong>。有插件生态雏形(Claude Code / Codex / Cursor / OpenCode / QCA 集成、MCP Server、agent-skills、VS Code 扩展),但 CLI 工具本身缺乏强网络效应;用户增加不会显著提升单一用户价值。AACR-Bench 已开源至 HuggingFace,属公共品而非独占资产</td>
+</tr>
+<tr>
+<td>规模效应</td>
+<td><strong>中等</strong>。约 1/9 的 token 消耗形成成本优势;生产规模验证带来的规则质量与稳定性优势会随用户/场景增加而增强,存在弱数据飞轮</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>:go.mod 集成 OpenAI/Anthropic SDK + MCP SDK + OpenTelemetry;rule_docs 覆盖数十语言;extensions/vscode 扩展;10 个 CI workflow;OpenSSF Gold 徽章。壁垒真实存在但以「数据 + 工程沉淀」为主,非专利/独占数据,且全开源使复刻门槛偏低。</p>
+<hr />
+<h3>D5.3 切换成本与用户粘性（满分 2 分）—— <strong>1.2 / 2</strong></h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>迁移成本</td>
+<td><strong>中等偏低</strong>。npm 一条命令安装,<code>ocr config</code> 配置模型端点即可用;规则以 Markdown 文档组织、配置以 YAML/环境变量管理,均为可读可导出的轻量资产,迁移阻力小</td>
+</tr>
+<tr>
+<td>深度集成</td>
+<td><strong>中等</strong>。CI/CD 集成面广(GitHub Actions、GitLab CI、Gerrit、Bitbucket Pipelines、Codeup CI、GitFlic CI),一旦嵌入企业 PR 流水线,替换需重配流水线、重新验证规则命中率与误报率</td>
+</tr>
+<tr>
+<td>习惯锁定</td>
+<td><strong>中等</strong>。Session Viewer、review/scan/delegate 多模式、slash 命令等会形成工作习惯;阿里内部数万开发者使用已形成组织流程依赖,但对外部新用户尚未建立</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>:CLI 无状态、无专有数据格式,支持 <code>--format json</code> 输出;集成方式标准(CI workflow 文件),可替换性强;粘性主要来自 CI 落地后的流程惯性而非技术锁定。</p>
+<hr />
+<h3>D5.4 护城河可持续性（满分 2 分）—— <strong>1.2 / 2</strong></h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>护城河趋势</td>
+<td><strong>当前增强中</strong>。发布节奏极快(近 10 个 release 覆盖 2026-09-01 至 09-14,几乎 1–2 天一版),90 天 670 个 PR、160 位贡献者,维护活跃度处于高位</td>
+</tr>
+<tr>
+<td>颠覆风险</td>
+<td><strong>中高等</strong>。基础模型厂商与 IDE 平台(GitHub Copilot、Cursor Bugbot)正原生内置代码审查,具备分发与模型双重优势;通用 Agent 能力提升速度快,项目自认 Recall 低于通用 Agent,精度优势可能被模型进步稀释</td>
+</tr>
+<tr>
+<td>时间窗口</td>
+<td><strong>中短期(约 1–2 年)</strong>。混合架构 + 规则集 + 生产数据的组合优势可维持一段时间,但缺少专利与独占数据,长期面临被平台原生方案与模型能力提升双向挤压</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>:发布/贡献数据(releases 列表、prs_created_90d=670、contributors=160)+ README 自述的能力取舍 + 赛道技术演进趋势。</p>
+<hr />
+<h3>D5 维度小结</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D5.1 竞品对比与市场定位</td>
+<td>3</td>
+<td>2.4</td>
+<td>7–8 档(80%)</td>
+</tr>
+<tr>
+<td>D5.2 技术壁垒与网络效应</td>
+<td>3</td>
+<td>1.8</td>
+<td>5–6 档(60%)</td>
+</tr>
+<tr>
+<td>D5.3 切换成本与用户粘性</td>
+<td>2</td>
+<td>1.2</td>
+<td>5–6 档(60%)</td>
+</tr>
+<tr>
+<td>D5.4 护城河可持续性</td>
+<td>2</td>
+<td>1.2</td>
+<td>5–6 档(60%)</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>6.6</strong></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>:<code>alibaba/open-code-review</code> 在<strong>市场定位与差异化</strong>上表现良好(7–8 档)——「确定性工程 × Agent 混合架构」+ 阿里超大规模生产验证 + 精度优先的明确取舍 + 公开可复现的 AACR-Bench 基准,使其在拥挤的 AI 代码审查赛道中具备清晰辨识度。但在<strong>壁垒、粘性与可持续性</strong>三项上均落在行业平均区间(5–6 档):项目全量开源(Apache-2.0)、无专利、无独占数据资产,迁移成本低;同时面临 CodeRabbit / Greptile / Qodo 等成熟对手与 GitHub Copilot、Cursor Bugbot 等平台原生方案的双向挤压,通用模型能力提升亦在稀释其精度优势。</p>
+<p>综合来看,该项目的竞争力更接近<strong>「品牌 + 生产验证 + 工程沉淀」型差异化</strong>,而非<strong>技术专利/网络效应型护城河</strong>,当前优势真实但可持续性存疑。<strong>本维度置信度中等偏低</strong>:主要因竞品搜索未返回有效同类竞品,竞品对比表大部分条目未经搜索验证,可能影响 D5.1 的判断精度。</p>
+<h3>D6. 法律合规与知识产权（权重 7%）</h3>
+<p>项目采用 <strong>Apache-2.0</strong> 许可，LICENSE 文件位于仓库根目录与 VS Code 插件子目录，且 CI 强制校验源文件 SPDX 许可证头（<code>make license-add</code> + <code>make check</code>）。依赖链以 Go 生态主流宽松许可组件为主，未发现 GPL/AGPL 等传染性协议。贡献流程要求签署 Alibaba Open Source CLA 并由 CLA bot 把关。整体法律合规基本面干净，是相对可支撑商业化的资产。</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>考察重点</th>
+<th>满分</th>
+<th>得分</th>
+<th>判断档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D6.1 开源协议合规性与商业限制</td>
+<td>协议明确性 / 传染性 / 附加条款</td>
+<td>3</td>
+<td><strong>3.0</strong></td>
+<td>9–10（100%）</td>
+</tr>
+<tr>
+<td>D6.2 依赖链法律风险</td>
+<td>依赖协议 / 数量 / 来源</td>
+<td>2.5</td>
+<td><strong>2.0</strong></td>
+<td>7–8（80%）</td>
+</tr>
+<tr>
+<td>D6.3 商标与专利风险</td>
+<td>商标可用性 / 专利 / 商标政策</td>
+<td>2.5</td>
+<td><strong>1.5</strong></td>
+<td>5–6（60%，未经人工核查）</td>
+</tr>
+<tr>
+<td>D6.4 贡献者协议完备性</td>
+<td>CLA/DCO / 版权归属 / 贡献流程</td>
+<td>2</td>
+<td><strong>2.0</strong></td>
+<td>9–10（100%）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td><strong>8.5</strong></td>
+<td><strong>8.5 / 10</strong></td>
+</tr>
+</tbody>
+</table>
+<h3>D6.1 开源协议合规性与商业限制 — 3.0 / 3（9–10 档）</h3>
+<ul>
+<li><strong>协议明确性（强）</strong>：根 <code>LICENSE</code> 为标准 Apache License 2.0 全文，版权行为 <code>Copyright 2026 alibaba/open-code-review Contributors</code>。SPDX 标识规范且被<strong>工程手段强制</strong>：CONTRIBUTING 明确规定每个 <code>.go/.sh/.js/.mjs/.ts/.tsx</code> 文件必须包含 SPDX 许可证头，<code>make license-add</code> 自动补全，CI 会拒绝缺失头的 PR。包元数据同样标注 <code>"license": "Apache-2.0"</code>（根 package.json、VSCode 扩展、6 个平台二进制包一致）。</li>
+<li><strong>copyleft 传染性（无）</strong>：依赖清单中未见任何 GPL / LGPL / AGPL / SSPL 等传染性协议（详见 D6.2）。项目自身无 copyleft 义务。</li>
+<li><strong>商业附加条款（无）</strong>：不存在 Commons Clause、BUSL、Elastic License 等限制商业使用的附加条款。Apache-2.0 明确授予专利许可（第 3 节）、允许再许可与商业化分发，可支撑闭源增值、SaaS、双协议等主流变现路径。</li>
+</ul>
+<blockquote>
+<p>说明：按方法论要求，协议类型对变现模式的影响归口 D4.1，本细则仅评价法律合规障碍。Apache-2.0 属于完全宽松协议，本细则无协议类型扣分，仅确认无传染范围、无附加条款、合规可管理性高。</p>
+</blockquote>
+<h3>D6.2 依赖链法律风险 — 2.0 / 2.5（7–8 档）</h3>
+<ul>
+<li><strong>依赖协议（无传染性）</strong>：<code>go.mod</code> 直接依赖 24 个、含间接共约 81 个模块，逐项识别协议均为宽松型——<code>aws-sdk-go-v2</code>、<code>cobra/pflag</code>、<code>openai-go</code>、<code>otel/*</code>、<code>grpc</code> 系（Apache-2.0）；<code>go-logr/*</code>、<code>google/uuid</code>、<code>tidwall/*</code>、<code>invopop/jsonschema</code>、<code>dlclark/regexp2</code> 系（MIT/BSD）；<code>golang.org/x/*</code>、<code>google.golang.org/protobuf</code>（BSD-3）；<code>go.yaml.in/yaml/v4</code>（Apache-2.0）。<strong>未发现 AGPL/GPL 传染性依赖</strong>。</li>
+<li><strong>依赖来源（可靠）</strong>：全部来自 AWS、Google、OpenTelemetry、Charm、OpenAI、Anthropic 等知名组织或广泛维护的社区包，无来源不明的包。</li>
+<li><strong>依赖数量（偏多，为唯一扣分点）</strong>：81 个 Go 模块 + Node 侧（<code>pages/</code> 的 React 生态、<code>extensions/vscode/</code> 的 preact 及构建链、<code>plugins/</code> devDeps）合计体量中等偏大，且 <code>pages/</code> 与 <code>extensions/vscode/package.json</code> 使用 <code>overrides</code>/<code>resolutions</code> 钉住 <code>undici/form-data/js-yaml/minimatch/postcss</code> 等安全版本，说明传递依赖面较宽。合规审查工作量随之上升，达不到“依赖少”的 9–10 档描述，故落 7–8 档。整体可控，无实质法律障碍。</li>
+</ul>
+<h3>D6.3 商标与专利风险 — 1.5 / 2.5（5–6 档，未经人工核查，置信度低）</h3>
+<ul>
+<li><strong>⚠️ 自动化限制声明</strong>：商标检索（CNIPA/USPTO/EUIPO 等）与专利 FTO 排查无法由 AI 自动完成，本次<strong>未获取任何人工核查数据</strong>，以下仅为素材层面的观察，<strong>不构成商标/专利可用性断言</strong>。</li>
+<li><strong>素材内可见事实</strong>：项目归属 <code>alibaba</code> 组织命名空间，README/CONTRIBUTING 明确标注 Alibaba Open Source CLA；Apache-2.0 第 6 条明确<strong>不授予</strong>商标、商号、产品名使用权，因此商业化时使用 “Alibaba”“Open Code Review” 名称与 Loong 图标需另行获得授权。素材中<strong>未提供独立的商标使用政策（TRADEMARK 文件）</strong>。</li>
+<li><strong>专利层面</strong>：Apache-2.0 已包含贡献者明示专利授权及专利报复终止条款，一定程度缓释风险；核心方法（代码评审 Agent + 确定性流水线）是否落入他人专利需专业检索，素材无法判断。</li>
+<li>按方法论既定规则，无人工核查数据时默认 5–6 档，取 1.5/2.5，并标注<strong>置信度低</strong>。</li>
+</ul>
+<h3>D6.4 贡献者协议完备性 — 2.0 / 2（9–10 档）</h3>
+<ul>
+<li><strong>CLA（完善）</strong>：CONTRIBUTING.md（英/中/日/韩/俄 5 语言版本一致）明确要求所有贡献者签署 <strong>Alibaba Open Source Contributor License Agreement</strong>，首个 PR 由 CLA bot 自动提示电子签署，未签署无法合并。CLAUDE 的版权归属集中，利于未来双协议/商业授权模式。</li>
+<li><strong>版权归属（清晰）</strong>：LICENSE 版权行统一为 <code>alibaba/open-code-review Contributors</code>；强制性 SPDX 头 + CLA 使贡献版权可归集、可控制。</li>
+<li><strong>贡献流程（规范）</strong>：具备 CODE_OF_CONDUCT.md、GOVERNANCE.md、CONTRIBUTING.md（5 语言）、<code>.github/pull_request_template.md</code>、Conventional Commits + 分支前缀规范、明确 PR 检查清单（make check/test/build）、AI 辅助开发披露规则（8 条）。160 名贡献者、90 天 670 个 PR 的活跃度下，流程约束依然明确。</li>
+</ul>
+<h3>结论</h3>
+<p>D6 维度得分 <strong>8.5 / 10</strong>。协议层面几乎无法律短板：Apache-2.0 规范且被 CI 强制、无 copyleft 传染、无商业附加条款、无传染性依赖、CLA 完备、版权集中可控。主要不确定性集中在 <strong>D6.3 商标/专利未经人工核查</strong>（0.5–1 分潜在波动）与 <strong>D6.2 依赖数量偏大带来的合规审查工作量</strong>。商业化前建议补做两项人工动作：(1) 针对 “Open Code Review / OCR / Alibaba” 名称与图标在目标市场的商标检索及官方商标政策梳理；(2) 对 Go + Node 依赖链跑一次自动化许可证扫描（如 <code>go-licenses</code>、<code>license-checker</code>）并留档。</p>
+<h3>D7. 企业就绪度与可运营性（权重 8%）</h3>
+<h4>细则打分表</h4>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D7.1 运维复杂度与升级路径</td>
+<td>3.0</td>
+<td>2.4</td>
+<td>7–8（80%）</td>
+<td>无服务端、无数据库，单一静态二进制（<code>CGO_ENABLED=0</code>）跨 6 平台交叉编译，运维负担极低。配置三级来源（<code>~/.opencodereview/config.json</code> + <code>OCR_*</code> 环境变量 + resolver 策略链覆盖），<code>ocr config</code> 支持点分键读写/删除/TUI 向导，配置项有 <code>supportedConfigKeys</code> 单一数据源与校验（<code>validateBaseURL</code>、<code>validateProtocol</code>）。多平台分发成熟：npm 平台包 + <code>optionalDependencies</code> 版本锁、install.sh/install.ps1、GitHub composite action、GitLab/Gerrit/GitFlic/Bitbucket/Codeup 六套 CI 示例。升级平滑：语义化 tag（近两周 10 个 release，v1.11.2→v1.12.1）、自动生成 release notes、<code>sha256sum.txt</code> 校验、<code>attest-build-provenance</code> 构建溯源、平台包已发布则跳过。历史数据兼容有显式设计：session JSONL 保留 legacy 回退（无 manifest 会话可读）、<code>ValidateResumeIdentity</code> 在恢复前校验输入指纹一致性，升级不需要数据迁移（日志为追加式 JSONL）。扣分点：无独立 CHANGELOG 文件（仅靠 commit 生成 notes）、无成文的升级/回滚操作手册，配置不支持声明式配置中心拉取。</td>
+</tr>
+<tr>
+<td>D7.2 安全管理与权限控制</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8（80%）</td>
+<td>作为 CLI/CI 工具而非多用户服务，无 SSO/LDAP/SAML/RBAC 属形态所致；但凭据与供应链安全工程明显高于行业平均。认证授权：LLM provider 凭据解析（<code>api_key</code>/<code>api_key_cmd</code>/环境变量/Bedrock ambient auth，依赖 aws-sso/ssooidc/signin、golang.org/x/oauth2），<code>reservedHeaders</code> 阻止 <code>extra_headers</code> 覆盖 authorization/x-api-key/content-type，<code>api_key_cmd</code> 延迟执行防误触发密钥管理器。权限模型：粗粒度白名单式（<code>allowedext</code>、<code>FileFilter</code> include/exclude、<code>pathutil.WithinBase</code> 防目录穿越、工具注册表 <code>buildToolRegistry</code> 限定 agent 可用工具）。审计：session JSONL 完整记录每次 LLM 请求/响应/工具调用/文件检查点/<code>RunManifest</code> 覆盖率与 <code>RetryReport</code>，可回溯审查过程。数据安全：配置文件 <code>0o600</code> + 显式 <code>Chmod</code>、API Key 掩码、manifest 正则脱敏（URL userinfo/Bearer/<code>api_key=</code> 赋值）、控制字符剥离、CI 脚本错误体 token 擦除、MCP/OAuth URL 强制 https、原始日志需显式 <code>OCR_RAW_LOGGING=1</code>、viewer 只读 GET + hostGuard 防 DNS rebinding、<code>SECURITY.md</code> 存在。供应链：CodeQL（go/js-ts/actions 三语言）+ govulncheck + verify-action-pins + OpenSSF Best Practices Gold。扣分点：无 RBAC/多租户、会话日志无静态加密（依赖 0600 文件权限）、无面向访问的独立安全审计日志。</td>
+</tr>
+<tr>
+<td>D7.3 可扩展性与高可用能力</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8（80%）</td>
+<td>无状态 CLI 天然支持横向扩展（CI 中并行跑多实例），非服务端形态故不涉及集群/故障转移。吞吐与预算控制完备：<code>addConcurrencyFlags</code> 可配并发、子任务并发派发 + <code>CommentWorkerPool</code>、token 预算门控与三区压缩（60%/80% 阈值）、<code>graceRound</code> 预算耗尽后降级。健壮性：LLM 重试中间件（<code>retryCodesMiddleware</code>、<code>x-should-retry</code>）+ <code>backoff/v5</code> 指数退避、<code>MainLoopStop</code> 停止原因分类、连续空轮次熔断、<code>errors.Join</code> 多错聚合。可恢复性（近似 HA 替代）：SHA-256 文件指纹 checkpoint + resume lineage + <code>LoadResumeState</code> 重放，中断后可续跑。数据一致性：<code>ManifestBuilder</code> 两阶段 seal/freeze + 不变量自校验、<code>jsonlWriter</code> 并发安全 + parentUuid 链、输出走临时文件 <code>sync</code> + 原子 rename、<code>Finalize</code> 幂等且失败回滚 sweep、<code>SealedInput</code> 冻结 commit 端点防输入漂移。扣分点：无分布式协调/集群级 HA 能力（形态所限），单次运行仍是单进程内并发，无跨机分片调度。</td>
+</tr>
+<tr>
+<td>D7.4 集成兼容与可观测性</td>
+<td>2.0</td>
+<td>1.6</td>
+<td>7–8（80%）</td>
+<td>集成面在 CLI 类项目中属完备：输出支持 text/JSON/SARIF v2.1.0（<code>sarif.go</code> 含稳定 SHA-256 指纹与 8 条内置规则），GitHub composite action（含契约测试 action-contract.yml）、VS Code 扩展（独立 CI）、OpenCode 插件（V1/V2 双入口）、MCP SDK 客户端、六平台 CI 示例。标准协议：完整 OpenTelemetry（trace+metric，OTLP gRPC/HTTP + stdout exporter，<code>internal/telemetry/exporter.go</code>）、<code>standard-webhooks</code> 库、OAuth2。可观测性：OTel span 贯穿 agent/llmloop、<code>RetryReport</code> 冻结的重试观测（schema 版本 + 错误分类 + attempt 链，明确排除 prompt/响应体）、<code>RunManifest</code> 覆盖率与终态、插件层 <code>ocr_health</code> 健康检查。日志：结构化 JSONL 会话记录、stdout（机器可读）/stderr（警告）严格分离、ANSI 剥离状态机、日志级别与 <code>OCR_RAW_LOGGING</code> 门控。扣分点：无对外 REST/gRPC 服务端 API 与官方 SDK（仅 CLI + JSON 契约）、无内置 Prometheus/<code>/metrics</code> 端点（需经 OTLP 转发）。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>本维度得分：2.4 + 2.0 + 2.0 + 1.6 = 8.0 / 10（良好）</strong></p>
+<h4>结论</h4>
+<p>OpenCodeReview 在企业就绪度上呈现出「CLI/CI 形态下接近满配」的特征，主要短板均源自其非服务端的工具定位，而非工程缺失。</p>
+<ul>
+<li><strong>运维与升级（2.4/3.0）是该项目最突出的可运营优势。</strong> 无服务端、无数据库、无状态迁移需求，单二进制跨 6 平台分发，配合 npm 平台包版本锁、SHA-256 校验、构建溯源 attestation 与「已发布则跳过」的幂等发布逻辑，企业侧升级成本极低。唯一的可运营缺口是缺少正式的 CHANGELOG 与升级/回滚手册，以及在制品级之外的配置声明式管理能力。</li>
+<li><strong>安全（2.0/2.5）的强项在于「不该泄露的不泄露」。</strong> <code>reservedHeaders</code>、<code>0o600</code> 配置、manifest 正则脱敏、CI 脚本 token 擦除、原始日志显式开关、只读 viewer + hostGuard 等构成了一套针对「源码与密钥外泄」这一 CLI 工具核心风险的纵深防御，并叠加 CodeQL/govulncheck/pinned-actions/OpenSSF Gold 的供应链治理。缺 SSO/RBAC 是其形态使然，但从「企业级多用户准入」的标准看仍是明确短板。</li>
+<li><strong>可扩展性（2.0/2.5）以「无状态可复制 + 可恢复」替代了传统 HA。</strong> checkpoint/resume、manifest 契约校验、原子写入与幂等 Finalize 解决了长时 LLM 任务的中断恢复与结果一致性，这是该品类真正的可用性瓶颈；但不存在集群级故障转移能力。</li>
+<li><strong>集成与可观测性（1.6/2.0）在协议标准性上得分高、在 API 完备性上失分。</strong> OpenTelemetry 全量接入、SARIF、webhook、结构化 JSONL 与 stdout/stderr 分流，使其易于嵌入企业既有观测与安全工具链；但缺少对外 REST/gRPC API 与官方 SDK，程序化集成只能通过 CLI + JSON 契约，限制了更深度的平台化编排。</li>
+</ul>
+<p><strong>综合判断</strong>：D7 得 8.0，属于「高于平均、无明显短板」的良好档。企业客户采用的主要障碍不在运维与安全，而在于其交付形态是「工具」而非「平台」——若商业化路线需要服务化/多租户形态，则需补齐认证授权、对外 API 与配置中心三块。</p>
+<h3>D8. 团队治理与可持续性</h3>
+<p><strong>维度得分: 8.6 / 10</strong></p>
+<p>OpenCodeReview（简称 OCR）托管于 Alibaba 官方 GitHub 组织下，描述中明确宣称 "battle-tested at Alibaba's scale"，具备清晰的公司级治理与持续运营信号。项目虽上线仅约 4 个月，但活跃度、治理文档完备度、贡献者规模均处于同类项目高位。</p>
+<h3>D8.1 核心维护者能力与背景（满分 2.5，得分 2.0）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测证据</th>
+<th>评价</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术能力</td>
+<td>102,352 行 Go 核心代码 + 60.1% 测试比（81,399 行测试）；10 个 CI workflow（含 CodeQL、action-contract、plugin-contract 等契约测试）</td>
+<td>工程化水准高，非个人项目级质量</td>
+</tr>
+<tr>
+<td>商业经验</td>
+<td>项目由 <strong>Alibaba</strong> 组织托管，CLA 为 "Alibaba Open Source CLA"，描述强调阿里内部大规模验证</td>
+<td>具备企业级产品/服务背景</td>
+</tr>
+<tr>
+<td>投入度</td>
+<td>近 90 天创建 PR 670 个、关闭 Issue 271 个；近 14 天连续发布 10 个版本（v1.11.2→v1.12.1，近乎每日一发）</td>
+<td>呈现全职团队的高强度持续交付节奏</td>
+</tr>
+<tr>
+<td>巴士因子</td>
+<td>GOVERNANCE.md 明确 "The bus factor of the project is greater than one"，4 个关键子系统（agent/LLM/diff/config）由多人理解；组织内多名成员持有仓库管理权限</td>
+<td>巴士因子 &gt;1，但未明确达到 ≥5</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>: 完全符合 "团队投入度高" 档位——公司实体（阿里）背书、全职级交付节奏、贡献者达 160 人。但 GOVERNANCE 仅声明巴士因子 "&gt;1"，未给出 ≥5 的硬证据，商业化经验亦无创始人/公司层面的具体披露，故未进入 9–10 档。<strong>2.5 × 80% = 2.0</strong>。</p>
+<h3>D8.2 治理模型透明度（满分 2，得分 1.6）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测证据</th>
+<th>评价</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>治理文档</td>
+<td><strong>GOVERNANCE.md</strong>（含目标、范围、价值观、角色、决策流程、连续性、维护者晋升/移除、治理变更流程）；<strong>ROADMAP.md</strong>；CODE_OF_CONDUCT.md；SECURITY.md（含 3/7/14 天响应 SLA）</td>
+<td>文档体系在开源项目中属上乘</td>
+</tr>
+<tr>
+<td>开放程度</td>
+<td>采用 <strong>lazy consensus</strong>；重大变更须先开 Issue；跨组件变更须多方评审；治理文件本身通过公开 PR 修改</td>
+<td>决策流程公开透明</td>
+</tr>
+<tr>
+<td>基金会/组织</td>
+<td>无 CNCF / Apache / Linux Foundation 归属，由 Alibaba 组织托管；设单一 Project Lead（@lizhengfeng101）并在共识破裂时拥有最终裁决权</td>
+<td>未达基金会级中立治理</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>: 有基本且相当完善的治理结构与透明的决策流程，明显高于 "仅有贡献指南" 的 5–6 档；但缺少基金会中立治理、存在单一 Project Lead 终裁权，且 GOVERNANCE 自述 "may evolve to support a more formal governance model"。<strong>2 × 80% = 1.6</strong>。</p>
+<h3>D8.3 资金支持与商业赞助（满分 2.5，得分 2.0）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测证据</th>
+<th>评价</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>现有资金</td>
+<td>由 <strong>Alibaba</strong> 组织托管运营，Description 称 "battle-tested at Alibaba's scale"，表明源于公司内部产品</td>
+<td>有公司级资源支持</td>
+</tr>
+<tr>
+<td>赞助收入</td>
+<td>素材中无 GitHub Sponsors / Open Collective / 外部融资信息（数据缺失）</td>
+<td>无法评估独立赞助渠道</td>
+</tr>
+<tr>
+<td>商业实体</td>
+<td>Alibaba 为实际运营方；CLA、Release 签名（GitHub Artifact Attestations + SSH 签名 tag）等均按公司流程执行</td>
+<td>有明确企业实体</td>
+</tr>
+<tr>
+<td>资金可持续性</td>
+<td>高频发布、160 贡献者、10 个 CI 工作流，运营投入稳定</td>
+<td>资金可持续性高</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>: 阿里作为大型公司提供组织托管与运营支持，符合 7–8 档 "有稳定赞助或公司支持，资金可持续"；但无 VC/独立融资或 "大公司全职团队" 的直接披露，且未采集到捐助渠道数据，故未达 9–10 档。<strong>2.5 × 80% = 2.0</strong>。</p>
+<h3>D8.4 项目可持续性与传承风险（满分 3，得分 3.0）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测证据</th>
+<th>评价</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>活跃趋势</td>
+<td>4 个月内 Star 达 25,588；近 90 天 670 PR / 271 Issue 关闭；近 14 天 10 次发布——趋势明确<strong>上升</strong></td>
+<td>远超 "平稳" 档</td>
+</tr>
+<tr>
+<td>维护延续性</td>
+<td>GOVERNANCE 设 "Continuity" 专章：多名 Maintainer 熟悉全代码库、关键子系统多人掌握、仓库凭证/CI/发布流程由组织内多人持有</td>
+<td>传承机制健全</td>
+</tr>
+<tr>
+<td>历史信号</td>
+<td>archived = false；无 deprecated / unmaintained 标记；License Apache-2.0</td>
+<td>无停滞信号</td>
+</tr>
+<tr>
+<td>分叉风险</td>
+<td>1,857 forks（约占 Star 7.3%，属热门项目正常水平）；无分裂性分叉证据</td>
+<td>无分裂风险</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>: 活跃度持续且显著上升（近乎每日发版），治理文档含明确的传承/连续性条款，无归档、无分裂。三项均命中 9–10 档判据。唯一保留是项目上线仅 4 个月、长期养护记录尚短，但评分标尺侧重趋势方向与传承机制，二者均达标。<strong>3 × 100% = 3.0</strong>。</p>
+<h3>结论</h3>
+<p>OCR 由阿里巴巴直接托管运营，拥有完善的 GOVERNANCE.md、ROADMAP.md、SECURITY.md（含明确响应 SLA）与多语言 CONTRIBUTING（5 种语言），160 名贡献者、近 90 天 670 个 PR、近两周 10 次发布的节奏，是全职团队级的持续运营状态。治理透明度与资金可持续性因缺乏基金会中立归属和独立融资/赞助披露，停留在 "公司支持" 而非 "基金会/VC 级" 档位；核心维护者巴士因子仅被声明为 "&gt;1"。整体可持续性与传承风险极低，是 D8 维度中的优质标的。</p>
+<p><strong>主要风险点</strong>：项目尚属新（4 个月），长期传承记录有待时间验证；治理为单一 Project Lead 终裁制，非基金会中立治理。</p>
+<hr />
+<h3>D9. 上手难度与易用性</h3>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D9.1 安装难度</td>
+<td>2.5</td>
+<td><strong>2.0</strong></td>
+<td>80%（7–8档）</td>
+<td>支持 <code>npm install -g @alibaba-group/open-code-review</code> 单命令安装，6 个平台二进制包（darwin/linux/win32 × arm64/x64）自动按平台拉取，<strong>无需编译 Go、无系统级依赖（无数据库/编译器/中间件）</strong>，二进制以 <code>CGO_ENABLED=0</code> 静态构建；但存在两项外部前置——<strong>Git &gt;= 2.41</strong>（README Prerequisites）与 <strong>Node &gt;= 14</strong>（package.json engines），不满足 9–10 档「无外部依赖」要求，故落 80% 档。另提供 install script / GitHub Release 二进制 / 源码安装备用路径。</td>
+</tr>
+<tr>
+<td>D9.2 部署与配置难度</td>
+<td>2.5</td>
+<td><strong>2.0</strong></td>
+<td>80%（7–8档）</td>
+<td>作为 CLI，部署即安装，无外部依赖组件需初始化（无 DB/缓存/MQ）；配置由交互式向导承载（<code>ocr config provider</code> / <code>ocr config model</code>，自动测连通性），且 Delegation 模式可<strong>零 API Key</strong> 运行；README quickstart 为「装 → 配 → 跑」三步，10 分钟内可跑通首次审查。<strong>扣分点</strong>：素材中不存在 Dockerfile / docker-compose / Helm Chart，不提供容器化/K8s 标准化部署，未命中 9–10 档「一键部署（docker-compose/Helm）」；CI 集成需用户自行搬运 <code>examples/</code> 模板。</td>
+</tr>
+<tr>
+<td>D9.3 易用性与操作门槛</td>
+<td>2.5</td>
+<td><strong>2.0</strong></td>
+<td>80%（7–8档）</td>
+<td>命令语义直观（<code>ocr review</code> / <code>ocr scan</code> / <code>ocr session list</code>），<strong>零参数默认行为合理</strong>（<code>ocr review</code> 无参即审查 workspace 全部变更；<code>ocr scan</code> 无参扫描整仓库）；基于 <code>spf13/cobra</code> + <code>charm.land/bubbletea/v2</code> + <code>lipgloss</code> 构建 TUI 交互配置，含 provider 选择、Key 录入、连通性自检；结果有 <code>--format json --output</code> 便于机读，并提供 Session Viewer 浏览器界面回放/标记。<strong>扣分点</strong>：素材未提供错误提示质量、shell 自动补全的直接证据；使用场景本身面向开发者，非专家难以独立判断审查结果。</td>
+</tr>
+<tr>
+<td>D9.4 学习曲线与首体验</td>
+<td>2.5</td>
+<td><strong>2.0</strong></td>
+<td>80%（7–8档）</td>
+<td>上手路径短（npm 安装 → 交互式配 provider → <code>ocr review</code>），README quickstart 为可直接复制的命令块；文档体系深厚——170 个文档文件、README 提供英/中/日/韩/俄 5 语版本、官方 docs 站点覆盖 Quickstart / Installation / CLI Reference / Review Rules / Configuration / MCP / CI-CD / FAQ；<code>examples/</code> 下 6 类 CI 集成示例 + VSCode 扩展 + Claude Code/Codex/Cursor/OpenCode/QCA 五类宿主插件，模仿成本低。<strong>扣分点</strong>：首次成功使用需具备 Git 仓库与 LLM Provider/API Key（或理解 Delegation 模式）两项前置概念，素材未标记 <code>beginner-friendly</code>，无法保证对所有用户「10 分钟内首次成功」。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>D9 维度总分：8.0 / 10 → 上手难度等级：🟢 简单（面向所有人）</strong></p>
+<h3>分析结论</h3>
+<ul>
+<li><strong>强项在「零依赖 + 单命令」</strong>：项目以 Go 静态二进制交付、npm 包封装平台差异，用户侧完全不需要 Go 工具链、不需要数据库/缓存/中间件，也没有「初始化外部组件」这一步，这在一众需要拉起服务栈的 AI 工程类项目里属于第一梯队的安装体验。</li>
+<li><strong>短板在「容器化缺失 + 两项运行时前置」</strong>：素材中无 Dockerfile / docker-compose / Helm，无法以「docker run 一键起」的方式交付，也无法进入 K8s 体系；同时 Git &gt;= 2.41 与 Node &gt;= 14 是硬前置。这两点共同把 D9.1、D9.2 压在 80% 档而非满分档。</li>
+<li><strong>交互设计是显性加分项</strong>：配置链路由 Bubble Tea TUI 承载并自带连通性自检，Delegation 模式进一步允许「零 API Key」直接跑通（把 LLM 成本转嫁给宿主 agent），显著降低了首次试用门槛。</li>
+<li><strong>对商业化的含义</strong>：D9 不构成商业化障碍。试用转化漏斗的第一道门（安装）足够顺滑，配合 VSCode 扩展与 5 类宿主插件，可覆盖「IDE 内使用」和「CI 流水线使用」两条主流采纳路径；真正的转化阻力不在安装，而在 LLM API Key 的获取与成本预期管理。</li>
+<li><strong>对报告写作的含义</strong>：总分 8.0 落在 🟢 简单档，故上文「安装部署与使用指南」章节按完整操作步骤与命令原样给出，供非开发者照抄执行。</li>
+</ul>
+<h3>D10. 功能价值（使用价值视角）</h3>
+<blockquote>
+<p><strong>平行维度说明</strong>: 本维度权重 0%，不计入百分制综合评分，不参与一票否决，仅用于 3.4 价值画像判定。</p>
+</blockquote>
+<h3>D10.1 效用强度（2.4 / 3，80%）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>事实依据</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>单用户节省量</td>
+<td>自动完成 diff 级代码审查，内置 NPE / 线程安全 / XSS / SQL 注入等多语言规则集，输出行级精确定位评论；官方基准显示在相同底层模型下相比通用 Agent 精度与 F1 更高、<strong>Token 消耗约为 1/9</strong></td>
+<td>显著节省逐 PR 人工审查与 triage 时间，并直接降低 LLM API 成本</td>
+</tr>
+<tr>
+<td>效用层级</td>
+<td>CLI 工具，可接入 CI/CD（GitHub Actions / GitLab CI / Gerrit 等），成为研发流程中的一道自动化关口</td>
+<td><strong>项目级依赖</strong>（研发工作流环节），未达业务命脉级基础设施</td>
+</tr>
+<tr>
+<td>效用确定性</td>
+<td>确定性工程管线（文件选择、文件打包、规则匹配、定位与反思模块）+ Agent 动态决策的混合架构，规则匹配基于模板引擎，"比纯语言驱动更稳定可预测"</td>
+<td>效用稳定可预期，非依赖特定场景运气</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断</strong>: 属于「项目级依赖、显著节省开发/运营成本」的 7–8 档。Alibaba 内部两年服务数万开发者、识别数百万缺陷的规模化验证，佐证其效用量级真实可靠；但本质是研发效率增强工具而非不可替代的业务基础设施，且核心效用需消费外部 LLM 能力才能兑现。折 80% → <strong>2.4 分</strong>。</p>
+<h3>D10.2 实际使用规模（1.8 / 3，60%）</h3>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>实测值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>npm 周下载量</td>
+<td><strong>93,428</strong>（实采）</td>
+<td>折月约 40 万量级，处于"月下载十万级"区间上沿</td>
+</tr>
+<tr>
+<td>GitHub Dependents</td>
+<td><strong>N/A</strong></td>
+<td>本项目为 CLI 应用而非可被引用的库，无 Dependents 计数</td>
+</tr>
+<tr>
+<td>生产采用证据</td>
+<td>README 自述 Alibaba 内部服务数万开发者、识别数百万缺陷；提供 GitHub Actions / GitLab / Gerrit / Bitbucket / Codeup 等多平台集成示例</td>
+<td>有规模化内部生产证据（自述），社区侧采用以 npm 下载量佐证</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断</strong>: 按评分指引，月下载 "十万级" 对应 5–6 档；本项目实测约 40 万/月，虽高于十万级但仍未触及 "百万级" 的 7–8 档门槛，且缺少 Dependents 这一数量级佐证。取该档上沿，折 60% → <strong>1.8 分</strong>。</p>
+<h3>D10.3 免费可得的完整效用（2.0 / 2，100%）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>事实依据</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>开源版完整性</td>
+<td>Apache-2.0，仓库内即含 CLI、规则集（数十种语言的 rule_docs）、MCP Server、CI 集成与 VSCode 扩展，未见任何企业版/付费版功能分层</td>
+<td>开源版即完整价值，无功能阉割</td>
+</tr>
+<tr>
+<td>自托管完整性</td>
+<td>本地命令行工具，<code>npm install -g</code> 或二进制即可运行；Delegation Mode 下复用宿主编码 Agent 的模型，<strong>连 OCR 自身 API Key 都无需配置</strong></td>
+<td>完整可自托管</td>
+</tr>
+<tr>
+<td>无隐性收费</td>
+<td>无付费墙、无 license key、无云端强制绑定</td>
+<td>无隐性收费</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断</strong>: 达到 9–10 档。值得对照的是：本项满分与 D4.3 付费转化逻辑天然反相关——免费即得全量效用，意味着项目几乎没有向使用者"交换价值"的变现抓手，这正是"使用价值高、商业价值待验证"结构的典型体现。折 100% → <strong>2.0 分</strong>。</p>
+<h3>D10.4 效用可持续性（1.6 / 2，80%）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>事实依据</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>停维后效用存续</td>
+<td>本地运行的 CLI，读取 Git diff，产物为本地会话；停维后已发布的二进制仍可长期使用</td>
+<td>效用不立即归零</td>
+</tr>
+<tr>
+<td>供应商锁定</td>
+<td>同时适配 OpenAI 与 Anthropic SDK，支持自定义 provider 与多端点；无强制云服务</td>
+<td>外部依赖可替换，无明显锁定</td>
+</tr>
+<tr>
+<td>可分叉维护性</td>
+<td>Apache-2.0 允许自由分叉；Go 单仓库、依赖清单完整（go.mod）、测试占比 60.1%（81,399 测试行），构建可重现性较好</td>
+<td>社区可分叉续维护</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断</strong>: 主体本地化、外部依赖可替换，属 7–8 档。扣分点在于核心效用仍依赖外部 LLM 端点（闭源模型服务、按量计费）才能兑现——若外部 LLM 供给消失，审查质量将大幅退化（Delegation Mode 亦依赖宿主 Agent 的模型），故未达"完全本地化、零外部依赖"的 9–10 档。折 80% → <strong>1.6 分</strong>。</p>
+<h3>D10 细则分值汇总</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10.1</td>
+<td>效用强度</td>
+<td>3</td>
+<td>2.4</td>
+<td>7–8（80%）</td>
+</tr>
+<tr>
+<td>D10.2</td>
+<td>实际使用规模</td>
+<td>3</td>
+<td>1.8</td>
+<td>5–6（60%）</td>
+</tr>
+<tr>
+<td>D10.3</td>
+<td>免费可得的完整效用</td>
+<td>2</td>
+<td>2.0</td>
+<td>9–10（100%）</td>
+</tr>
+<tr>
+<td>D10.4</td>
+<td>效用可持续性</td>
+<td>2</td>
+<td>1.6</td>
+<td>7–8（80%）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td><strong>7.8</strong></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<p><strong>D10 功能价值 = 7.8 / 10（良好，平行维度不计入综合分）。</strong></p>
+<p>该项目为使用者创造的效用是<strong>真实、有规模化验证、且完全免费可得</strong>的：Alibaba 内部两年、数万开发者、数百万缺陷的实战沉淀，加上 200 个真实 PR / 10 种语言 / 1,505 条标注缺陷的公开基准，支撑其在"同模型下精度与 F1 更优、Token 消耗约 1/9"的效率优势。效用强度与免费完整性（2.0/2 满分）是本维度的两个亮点。</p>
+<p>短板集中在<strong>使用规模</strong>：npm 周下载 93,428（月约 40 万量级）尚未跨入"百万级月下载"门槛，且 CLI 形态天然没有 GitHub Dependents 计数，规模侧证据链偏弱；效用可持续性上也因核心能力绑定外部 LLM 端点而扣分。</p>
+<p>从价值画像看，这是一个典型的 <strong>"使用价值高、商业交换价值待解"</strong> 样本：D10.3 满分（开源即全部价值）与 D4.3 付费转化逻辑互为镜像，功能价值越高、越免费，越难向使用者收取对价——本维度的高分恰恰解释了商业维度可能遇到的变现天花板。</p>
+<h3>D11 社会价值——正外部性评估（平行维度，权重 0%）</h3>
+<blockquote>
+<p>本维度为平行维度，权重 0%，不计入综合评分与一票否决，仅用于 3.4 价值画像。评估视角为「对行业/社会的外溢贡献本身」，与 D3.4（品牌影响力对商业势能的助力）、D2.5/D2.6（工程质量）区分。</p>
+</blockquote>
+<h3>项目定位与外溢画像</h3>
+<p><code>alibaba/open-code-review</code>（OCR）是阿里巴巴将内部使用两年、服务数万开发者的 AI 代码评审助手开源后的产物。其外溢价值集中在三个方向：<strong>（1）把企业级 LLM 代码评审能力以 Apache-2.0 免费开放</strong>；<strong>（2）发布 AACR-Bench 公开基准数据集</strong>；<strong>（3）以「确定性工程 × Agent」混合架构 + 插件契约的形式向行业输出工程范式</strong>。项目创建仅约 4 个月（2026-05-18 创建，2026-09-14 最近推送），社区与生态尚在早期，各项外溢效应的「成熟度」需打折评估。</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D11.1</td>
+<td>数字公共基础设施属性</td>
+<td>3</td>
+<td>1.2</td>
+<td>3–4 档（40%）</td>
+</tr>
+<tr>
+<td>D11.2</td>
+<td>教育与人才价值</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6 档（60%）</td>
+</tr>
+<tr>
+<td>D11.3</td>
+<td>普惠与可及性</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8 档（80%）</td>
+</tr>
+<tr>
+<td>D11.4</td>
+<td>开放标准与行业推动</td>
+<td>2</td>
+<td>1.6</td>
+<td>7–8 档（80%）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td><strong>6.3</strong></td>
+<td><strong>一般偏上</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>D11.1 数字公共基础设施属性（1.2 / 3，3–4 档）</h3>
+<p><strong>判定依据</strong>：OCR 是一个面向最终开发者的 CLI/插件工具，而非被下游代码 <code>import</code> 的库。素材中<strong>无 Dependents 计数</strong>（项目为应用型 CLI，非依赖型库），不存在 curl/OpenSSL 式的「数字底座」地位；假设其消失，波及的是使用者个人的评审工作流，而非软件供应链的编译/运行链路。</p>
+<p>正向的一面：它通过 NPE、线程安全、XSS、SQL 注入等内置多语言规则集，在<strong>软件安全缺陷前置拦截</strong>上具有准公共品性质（缺陷被提前发现 = 全社会供应链安全水平小幅提升）；提供了 GitHub Actions / GitLab CI / Bitbucket / Gerrit / GitFlic / Codeup 六类 CI 集成示例与 VSCode 扩展、五大 Coding Agent 插件，具备一定的「被复用基础设施」形态。但生态仅 4 个月、可替代方案众多（Claude Code Skills、各类商业评审 SaaS），停摆影响面有限。</p>
+<p>综合落在「几乎无下游依赖，停摆影响微小」与「有一定下游依赖、但可替代性强」之间，取 <strong>40% → 1.2 分</strong>。</p>
+<h3>D11.2 教育与人才价值（1.5 / 2.5，5–6 档）</h3>
+<p><strong>判定依据</strong>：
+- <strong>源码范本价值较高</strong>：135,450 行源码 / 81,399 行测试，<strong>测试占比 0.601</strong>；170 个文档文件，含 <code>AGENTS.md</code>、<code>CLAUDE.md</code>、<code>GOVERNANCE.md</code>、<code>CONTRIBUTING.md</code>（4 语种）、<code>ROADMAP.md</code>；10 个 CI workflow 中包含 <code>action-contract.yml</code>、<code>plugin-contract.yml</code>（契约测试）。这是一套<strong>可被研读的工程实践范本</strong>（契约化 CI、规则文档化、OpenSSF Gold 合规），对「如何构建 Agent 工程系统」有教学参考意义。
+- <strong>门槛降低效应</strong>：<code>ocr config provider/model</code> 的交互式配置 + 中文等 5 语种 README/CONTRIBUTING，降低了中文、日文、韩文、俄语开发者的上手门槛；确定性规则模板（<code>rule_docs/</code> 下 40+ 语言规则文档）本身即一份「各语言常见缺陷清单」的学习材料。
+- <strong>短板</strong>：项目仅 4 个月，<strong>无外部教程/课程/awesome 列表证据</strong>，未被验证为「事实上的行业教材」；Issue 中学习者提问占比无数据。教学采用度只能算「起步」。</p>
+<p>综合落在「有一定教学使用，影响限于小圈子」档，取 <strong>60% → 1.5 分</strong>。</p>
+<h3>D11.3 普惠与可及性（2.0 / 2.5，7–8 档）</h3>
+<p><strong>判定依据</strong>：
+- <strong>能力平权化显著</strong>：企业级 AI 代码评审原本是付费能力（商业方案按席位/PR 计费），OCR 以 <strong>Apache-2.0 免费开源</strong>，且通过「确定性管线 + 精简 toolset」把 token 消耗压到通用 Agent 的 <strong>~1/9</strong>（自述基准），直接降低使用成本；<strong>Delegation Mode 无需配置 LLM API Key</strong>，可复用用户已有的 Coding Agent，把「零额外付费」门槛进一步拉低。npm 周下载 <strong>93,428</strong> 是普惠触达的硬证据。
+- <strong>可及性支持完善</strong>：文档/贡献指南覆盖 <strong>5 种语言</strong>（en/zh-CN/ja-JP/ko-KR/ru-RU），并有 <code>translation-sync.yml</code> 自动同步翻译；跨 Windows / macOS / Linux 三平台二进制分发；Go 单体二进制，<strong>本地硬件要求低</strong>。
+- <strong>短板</strong>：CLI/TUI 形态未见无障碍（a11y）支持声明；若使用非 delegation 模式，仍需自备 LLM 端点，对无 API 访问渠道的个人/欠发达地区仍构成成本与合规门槛。</p>
+<p>综合落在「显著降低获得门槛，覆盖主要人群」档，取 <strong>80% → 2.0 分</strong>。</p>
+<h3>D11.4 开放标准与行业推动（1.6 / 2，7–8 档）</h3>
+<p><strong>判定依据</strong>：
+- <strong>标准与反锁定</strong>：原生实现 <strong>MCP（modelcontextprotocol/go-sdk）</strong> 开放协议用于工具扩展；同时兼容 <strong>OpenAI 与 Anthropic 两套 API</strong>并支持自定义 provider，明确防止模型厂商锁定；依赖 <code>standard-webhooks</code>、OpenTelemetry（trace/metric 全链路），与主流开放可观测标准对齐。
+- <strong>科研支撑（有硬证据）</strong>：发布 <strong>AACR-Bench 公开数据集</strong>（Hugging Face）——50 个开源仓库 / 200 个真实 PR / 10 门语言 / 1,505 条由 80+ 资深工程师交叉标注的 ground truth，并公开 F1/Precision/Recall/Avg Time/Avg Token 评测口径。这是<strong>可复现、可被第三方引用与复测</strong>的科研资产，对「AI 代码评审」子领域有方法学贡献，属难得的实体外溢。
+- <strong>行业示范效应</strong>：确定性工程与 Agent 分工的混合架构、契约化 CI（action/plugin-contract）、规则模板引擎等设计具备被同行模仿的潜力，但项目年轻、暂无「被广泛借鉴」的直接痕迹证据；论文引用检索不可得，标 N/A。</p>
+<p>综合落在「实现并推广了重要开放标准，有示范效应」档（科研支撑加分、示范效应待验证），取 <strong>80% → 1.6 分</strong>。</p>
+<hr />
+<h3>结论</h3>
+<p><strong>D11 社会价值 = 6.3 / 10（平行维度，权重 0%，不计入综合评分，无一票否决效力）</strong></p>
+<p>OCR 的正外部性呈「<strong>强普惠 + 强标准/科研 + 弱底座</strong>」的结构：它把企业级 LLM 代码评审以免费开源 + 低 token 架构 + 免 Key 委派模式平权化，并以 AACR-Bench 公开数据集与 MCP/OpenAI/Anthropic 多协议兼容做出实打实的行业与科研贡献，多语种文档（5 语）亦支撑了跨语言社区的普惠。短板在于<strong>它不是软件供应链意义上的数字公共基础设施</strong>（无库依赖、可替代性强、仅 4 个月历史），教育影响尚处起步、行业示范效应与被引用度缺乏外部证据。综合取 6.3 分，属「一般偏上」，价值画像定位为<strong>「普惠型行业工具 + 科研基准贡献者」</strong>而非「数字底座」。</p>
+<p>置信度说明：D11.1 依赖项数据（Dependents）缺失但已按应用型 CLI 定位合理推断；D11.4 论文引用项标 N/A 未纳入；整体置信度中等。</p>
+<h2>五、商业化价值判断</h2>
+<h3>5.1 综合结论</h3>
+<p>本项目综合评分 <strong>78.2/100，等级 A（高商业化潜力）</strong>，价值画像为 <strong>⭐ 明星资产</strong>。这是一个「产品与工程能力显著领先、但变现结构尚未搭建」的典型开源项目：技术侧（D2 8.4、D3 8.6、D6 8.5、D7 8.0、D8 8.6、D9 8.0）几乎全线处于优档，而商业侧（D4 6.8、D5 6.6）是唯一的两块短板，且恰好是权重最高的两个维度（合计 30%）。</p>
+<h3>5.2 支撑商业化的核心资产</h3>
+<ul>
+<li><strong>需求已被大厂生产尺度验证</strong>：项目源自阿里内部 AI 代码审查助手，服务数万开发者、检出数百万缺陷；代码审查本身是软件交付的强制环节，属真实行业级刚需（D1）。</li>
+<li><strong>差异化产品形态</strong>：确定性规则流水线 + LLM Agent 的混合架构，内置 40+ 语言规则集（NPE/线程安全/XSS/SQL 注入），Token 消耗约为通用 Agent 的 1/9，并公开 AACR-Bench 基准（50 仓库 / 200 PR / 10 语言 / 1,505 条标注问题）（D1、D2、D5）。</li>
+<li><strong>分发与集成面广</strong>：6 类 CI 集成（GitHub Actions/GitLab/Gerrit/Bitbucket/GitFlic/Codeup）+ VSCode 扩展 + Claude Code/Codex/Cursor/OpenCode/QCA 插件 + MCP Server（D1、D3、D9）。</li>
+<li><strong>工程与合规基建扎实</strong>：测试占比 60.1%（242 个测试文件、81,399 行）、CI 强制 90% 覆盖率门禁、10 条工作流、OpenSSF Best Practices Gold、Apache-2.0 + SPDX 头强制校验 + Alibaba Open Source CLA（D2、D6、D7）。</li>
+<li><strong>社区势能强劲</strong>：4 个月积累 25,588 Star、160 贡献者，13 天发布 10 个版本，90 天 670 PR / 271 Issue 关闭（D3、D8）。</li>
+</ul>
+<h3>5.3 制约商业化的核心问题</h3>
+<ul>
+<li><strong>仓库内零商业化信号</strong>：无企业版、无付费墙、无 license-key、无 pricing 页面、无商业实体（D4）。</li>
+<li><strong>免费→付费触发点缺位</strong>：CLI + BYO-LLM（用户自配 OpenAI/Anthropic Key）+ 完整免费功能，开源版即完整价值（D10.3 满分），转化逻辑不自然（D4、D10）。</li>
+<li><strong>护城河偏浅</strong>：Apache-2.0 全开源、无专利与独占数据、CLI 无状态无专有数据格式、切换成本低，网络效应弱（D5）。</li>
+<li><strong>平台级颠覆风险</strong>：面临 GitHub Copilot Code Review、Cursor Bugbot 等平台原生方案与通用模型能力提升的中高颠覆风险（D5）。</li>
+</ul>
+<h3>5.4 画像临界说明</h3>
+<p>公共价值分 7.0 恰在临界线上。若按「⭐ 明星资产」路径，应在正常商业化的同时经营社区声誉，避免竭泽而渔（参照 Elastic 改协议的反噬教训）；若实际公共价值被高估而滑向「💼 纯商业工具」，则应按 D4 最优路径直接变现、无需顾虑社区反噬。<strong>两种画像的路径差异集中在「是否保留 Apache-2.0 全开源承诺」这一决策点上</strong>，建议在正式商业化前先明确该定位。</p>
+<hr />
+<h2>六、商业路径分析</h2>
+<h3>6.1 法律与协议前提：路径全开</h3>
+<p>Apache-2.0 宽松许可，Open Core / SaaS / 双协议 / 服务等全部变现路径无法律障碍（D4.1 满分）；依赖链未发现 GPL/AGPL/LGPL/SSPL 等传染性协议；CLA 强制签署且版权行统一为 "alibaba/open-code-review Contributors"，版权集中可控，<strong>利于双协议与商业授权</strong>（D6）。这是本项目相对多数开源项目最有利的起点。</p>
+<h3>6.2 推荐路径（按优先级）</h3>
+<p><strong>路径一：Open Core 企业版（首选）</strong>
+在现有 CLI 之上叠加企业级能力形成付费层。D4 已识别明确增值空间：合规、安全、策略、SLA，客单价可达 $1K–10K+/年，且赛道有 SonarQube / CodeRabbit 等成熟付费先例。需注意 D7 指出的能力缺口——当前<strong>无 SSO/RBAC/多租户与访问审计</strong>，这恰是企业版最自然的付费触发点。</p>
+<p><strong>路径二：云厂商产品引流（与阿里云协同）</strong>
+D1 已指出变现需经阿里云/云厂商产品引流。项目具备 Alibaba 背书 + 两年内部规模化验证 + 25K Star + 多 CI/CD/IDE 集成，GTM 可信度与分发优势强（D4）。此路径不改变开源承诺，与「明星资产」画像兼容度最高。</p>
+<p><strong>路径三：支持订阅与专业服务</strong>
+面向已落地 CI 流水线的企业提供支持、规则定制与集成服务。D7 显示项目无服务端、无数据库、单静态二进制、升级无需数据迁移，<strong>运维负担极低意味着支持成本可控</strong>，服务型收入毛利结构良好。</p>
+<p><strong>路径四：托管 SaaS（谨慎）</strong>
+技术上可行（Apache-2.0 无限制），但 BYO-LLM 模式使项目方无法切入用量计费，且 Apache 降低锁定，综合压制定价天花板（D4）。若走此路径，需自建模型网关或与模型厂商分成，否则难以形成计费闭环。</p>
+<h3>6.3 路径修正（依价值画像）</h3>
+<p>作为「⭐ 明星资产」，路径选择须兼顾社区声誉：<strong>优先选择不改变开源许可、不回收已有免费能力的路径（路径一的企业版增量层、路径二、路径三）</strong>，避免采用改协议或许可证收紧类手段。若最终判定为「💼 纯商业工具」，则可更激进地考虑双协议授权与托管 SaaS 直连变现。</p>
+<h3>6.4 变现节奏建议</h3>
+<p>当前项目仅约 4 个月、无外部企业采用案例证据（D3）、无技术会议曝光（D3）。建议先以 6–12 个月巩固生态与外部采用案例，再启动企业版；过早引入付费墙可能抑制当前高速增长的社区势能（4 个月 25,588 Star、月增约 6,446）。</p>
+<hr />
+<h2>七、能力评估：能做什么 &amp; 最适合做什么</h2>
+<h3>7.1 技术能力边界（能做什么）</h3>
+<ul>
+<li><strong>多模式代码审查</strong>：CLI 支持 workspace / branch / commit / scan 四种模式，<code>ocr review</code> 无参即审查 workspace 变更，<code>ocr scan</code> 无参扫描整仓库（D1、D9）。</li>
+<li><strong>多语言缺陷检测</strong>：内置 40+ 语言规则集，覆盖 NPE、线程安全、XSS、SQL 注入等缺陷类型，规则文档按语言/配置文件名独立组织（已见 18+ 个）（D1、D2）。</li>
+<li><strong>多平台 CI 门禁</strong>：examples/ 下提供 6 类 CI 集成模板（GitHub Actions、GitLab CI、Gerrit CI、Bitbucket Pipelines、Codeup CI、GitFlic CI）（D1、D9）。</li>
+<li><strong>Agent 生态嵌入</strong>：原生实现 MCP（modelcontextprotocol/go-sdk），提供 Claude Code、Codex、Cursor、OpenCode、QCA Forward 五类宿主 agent 插件，兼容 OpenAI 与 Anthropic 双协议（D1、D11）。</li>
+<li><strong>企业级可观测</strong>：OpenTelemetry trace+metric 全量 OTLP/stdout 导出、SARIF v2.1.0 输出、standard-webhooks、结构化 JSONL 与 stdout/stderr 分流（D7）。</li>
+<li><strong>跨平台交付</strong>：CGO_ENABLED=0 静态二进制，覆盖 linux/darwin/windows × amd64/arm64 共 6 个平台，npm 单命令安装（D7、D9）。</li>
+</ul>
+<h3>7.2 最适合做什么（场景匹配）</h3>
+<table>
+<thead>
+<tr>
+<th>场景</th>
+<th>适配度</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>企业 CI/CD 流水线代码门禁</td>
+<td>★★★★★</td>
+<td>6 类 CI 集成模板 + SARIF 输出 + 90% 覆盖率门禁的工程质量</td>
+</tr>
+<tr>
+<td>大型代码库全量审计</td>
+<td>★★★★★</td>
+<td><code>ocr scan</code> 模式 + Token 消耗约为通用 Agent 的 1/9 + 阿里内部数百万缺陷检出验证</td>
+</tr>
+<tr>
+<td>私有化/离线合规场景</td>
+<td>★★★★☆</td>
+<td>本地 CLI 运行、BYO-LLM 可接自建端点、无服务端无数据库</td>
+</tr>
+<tr>
+<td>coding agent 委托审查</td>
+<td>★★★★☆</td>
+<td>MCP Server + 五类宿主 agent 插件</td>
+</tr>
+<tr>
+<td>IDE 内实时审查</td>
+<td>★★★☆☆</td>
+<td>有 VSCode 扩展，但 UI 存在时区硬编码、国际化不彻底等瑕疵</td>
+</tr>
+<tr>
+<td>开箱即用的 SaaS 服务</td>
+<td>★★☆☆☆</td>
+<td>无托管服务、无 Dockerfile/Helm Chart，容器化与 K8s 标准化部署缺失</td>
+</tr>
+</tbody>
+</table>
+<h3>7.3 能力短板速览</h3>
+<ul>
+<li><strong>企业治理能力缺失</strong>：无 SSO/RBAC/多租户与访问审计（D7）。</li>
+<li><strong>无对外 API/SDK</strong>：无 REST/gRPC API 与官方 SDK，限制了被集成方二次开发（D7）。</li>
+<li><strong>无容器化交付</strong>：素材中未发现 Dockerfile / docker-compose.yml / Helm Chart（D9）。</li>
+<li><strong>无正式 CHANGELOG 与升级/回滚手册</strong>，配置仅支持本地 JSON + 环境变量策略链，无声明式配置中心（D7）。</li>
+</ul>
+<hr />
+<h2>八、短板识别：还缺少什么</h2>
+<h3>8.1 商业化短板（最致命）</h3>
+<ol>
+<li><strong>变现结构完全空白</strong>：仓库内无企业版、无付费墙、无 license-key、无 pricing 页面、无商业实体（D4）。这是综合评分被拉低至 78.2 而非进入 S 档的首要原因。</li>
+<li><strong>付费触发点缺位</strong>：CLI + BYO-LLM + 完整免费功能，开源版即完整价值（D10.3 满分），免费→付费转化逻辑不自然（D4、D10）。</li>
+<li><strong>定价天花板受压</strong>：BYO-LLM 使项目方无法切入用量计费，Apache-2.0 降低锁定（D4）。</li>
+<li><strong>无外部企业采用案例</strong>：品牌起点高（阿里自用 + OpenSSF Gold + Trendshift 徽章 + 五语 README），但技术会议曝光与外部企业采用案例无证据（D3）。</li>
+</ol>
+<h3>8.2 竞争壁垒短板</h3>
+<ol start="5">
+<li><strong>护城河偏浅</strong>：技术壁垒以生产数据沉淀的工具集/提示模板与内置多语言规则集为主，缺少专利与独占数据，Apache-2.0 全开源使复刻门槛偏低（D5）。</li>
+<li><strong>网络效应弱</strong>：CLI 工具属性决定用户增长不显著提升单用户价值（D5）。</li>
+<li><strong>切换成本低</strong>：CLI 无状态、无专有数据格式，规则为 Markdown、配置为 YAML，即插即用；粘性主要来自 CI 流水线落地后的流程惯性（D5）。</li>
+<li><strong>竞品验证不足</strong>：竞品搜索仅返回 1 条结果且为本项目的中文本地化 fork（1 star），未返回有效同类竞品；竞品对比表中除 Claude Code 可经 README 内部引用验证外，其余基于公开市场知识，未经搜索验证，置信度下降（D5）。</li>
+</ol>
+<h3>8.3 治理与社区短板</h3>
+<ol start="9">
+<li><strong>贡献者结构单一</strong>：绝对数量达标（160）但组织多样性数据缺失，厂商（阿里）主导特征明显，外部贡献占比未知（D3）。</li>
+<li><strong>非基金会中立治理</strong>：治理为 lazy consensus + 单一 Project Lead（@lizhengfeng101）终裁，非 CNCF/Apache/Linux Foundation 等基金会中立治理（D8）。</li>
+<li><strong>Bus factor 证据不足</strong>：GOVERNANCE 声明 bus factor &gt; 1 且关键子系统多人掌握，但未达 ≥5 的明确证据（D8）。</li>
+<li><strong>无外部资金支持证据</strong>：无 GitHub Sponsors / Open Collective / 外部融资数据，资金支持证据主要来自阿里公司背书（D8）。</li>
+</ol>
+<h3>8.4 工程与合规短板</h3>
+<ol start="13">
+<li><strong>代码整洁性瑕疵</strong>：存在超长文件（provider_tui.go &gt; 2000 行）与少量重复逻辑（D2）。</li>
+<li><strong>安全校验缺口</strong>：validateBaseURL 未全覆盖（D2）。</li>
+<li><strong>UI 细节瑕疵</strong>：时区硬编码（Asia/Shanghai）、前端内联样式、国际化不彻底（D2）。</li>
+<li><strong>发布节奏风险</strong>：90 天内 10+ 版本，存在既有 Breaking Change 风险（D2）。</li>
+<li><strong>商标与专利未核查</strong>：无商标检索/FTO 数据，Apache-2.0 第 6 条不授予商标使用权，名称与图标商业化需另行授权，仓库未见独立商标政策文件（D6）。</li>
+<li><strong>依赖数量偏大</strong>：Go 直接依赖 24 项、合计约 81 个模块，合规审查工作量中等偏高（D6）。</li>
+</ol>
+<h3>8.5 数据置信度短板</h3>
+<ol start="19">
+<li><strong>市场规模数据缺失</strong>：无外部市场规模数据验证，量级判断基于市场层级与竞品密度推论，market_data_confidence 为「低」（D1）。</li>
+<li><strong>关键指标未实测</strong>：Issue 平均关闭时间 N/A、GitHub Dependents N/A、PyPI 月下载 N/A（D3、D10、D11）。</li>
+</ol>
+<hr />
+<h2>九、风险提示</h2>
+<h3>9.1 高风险</h3>
+<table>
+<thead>
+<tr>
+<th>风险项</th>
+<th>说明</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>平台级颠覆</strong></td>
+<td>GitHub Copilot Code Review、Cursor Bugbot 等平台原生方案与通用模型能力提升，构成中高颠覆风险</td>
+<td>D5</td>
+</tr>
+<tr>
+<td><strong>变现路径未验证</strong></td>
+<td>仓库内零商业化信号，无任何付费转化先例，商业模式属纯假设</td>
+<td>D4</td>
+</tr>
+<tr>
+<td><strong>护城河可被快速复制</strong></td>
+<td>Apache-2.0 全开源 + 无专利 + 无独占数据 + 切换成本低</td>
+<td>D5</td>
+</tr>
+</tbody>
+</table>
+<h3>9.2 中风险</h3>
+<table>
+<thead>
+<tr>
+<th>风险项</th>
+<th>说明</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>厂商主导治理</strong></td>
+<td>单一 Project Lead 终裁、非基金会中立治理、外部贡献占比未知，存在治理集中风险</td>
+<td>D3、D8</td>
+</tr>
+<tr>
+<td><strong>发布节奏过快</strong></td>
+<td>90 天内 10+ 版本，存在 Breaking Change 风险，可能影响企业用户升级信心</td>
+<td>D2</td>
+</tr>
+<tr>
+<td><strong>商标商业化障碍</strong></td>
+<td>Apache-2.0 不授予商标使用权，名称与图标商业化需另行授权，且无独立商标政策文件</td>
+<td>D6</td>
+</tr>
+<tr>
+<td><strong>核心效用依赖外部闭源 LLM</strong></td>
+<td>本地 CLI 运行但核心效用仍依赖外部闭源 LLM 端点，未达完全本地化顶档</td>
+<td>D10</td>
+</tr>
+<tr>
+<td><strong>竞品情报不足</strong></td>
+<td>竞品搜索未返回有效同类竞品，竞争格局判断置信度下降</td>
+<td>D5</td>
+</tr>
+</tbody>
+</table>
+<h3>9.3 低风险 / 需关注</h3>
+<table>
+<thead>
+<tr>
+<th>风险项</th>
+<th>说明</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>依赖链合规工作量</strong></td>
+<td>约 81 个模块（24 个直接依赖），合规审查工作量中等偏高，但未发现传染性协议</td>
+<td>D6</td>
+</tr>
+<tr>
+<td><strong>企业治理能力缺失</strong></td>
+<td>无 SSO/RBAC/多租户与访问审计，可能阻碍大型企业采购</td>
+<td>D7</td>
+</tr>
+<tr>
+<td><strong>无容器化交付</strong></td>
+<td>无 Dockerfile/Helm Chart，K8s 环境落地需自行封装</td>
+<td>D9</td>
+</tr>
+<tr>
+<td><strong>数据置信度</strong></td>
+<td>市场规模数据、Issue 关闭时间、Dependents 等关键指标缺失或未实测</td>
+<td>D1、D3、D10、D11</td>
+</tr>
+</tbody>
+</table>
+<h3>9.4 一票否决风险</h3>
+<p><strong>当前无触发</strong>。D6 维度总分 8.5（阈值 &gt; 3）、D8.4 细则小分 3.0（阈值 &gt; 1）、D4.1 细则小分 2.0（阈值 &gt; 0.5），三项均安全。但需注意：<strong>若未来为变现而收紧许可协议（如转向 SSPL/Elastic License），D4.1 可能下探至 0.8 分档，虽仍不触发否决，但将显著损害「明星资产」画像下的社区声誉</strong>。</p>
+<hr />
+<h2>十、结论与建议</h2>
+<h3>10.1 核心结论</h3>
+<p><strong>alibaba/open-code-review 是一个综合评分 78.2/100、等级 A（高商业化潜力）、价值画像为 ⭐ 明星资产的优质开源项目。</strong> 其技术、工程、社区、合规四个基本面几乎全线处于优档，唯一的结构性短板集中在商业侧——D4（6.8）与 D5（6.6）是仅有的两个非优档维度，却恰好是权重最高的两项（合计 30%）。</p>
+<p>一句话概括：<strong>这是一个「已经证明了自己有用，但还没证明自己能赚钱」的项目。</strong> 阿里内部两年、数万开发者、数百万缺陷检出的生产验证，加上 4 个月 25,588 Star 的社区势能，构成了极强的商业化起点；但仓库内零商业化信号、BYO-LLM 导致的付费触发点缺位、以及 Apache-2.0 全开源带来的浅护城河，意味着从 A 档迈向 S 档需要一次明确的商业结构设计。</p>
+<h3>10.2 分阶段行动建议</h3>
+<p><strong>第一阶段（0–6 个月）：巩固生态，暂不变现</strong>
+- 补齐外部企业采用案例与技术会议曝光，弥补 D3 的品牌证据缺口
+- 补充正式 CHANGELOG 与升级/回滚手册，降低 Breaking Change 风险（D2、D7）
+- 完成商标检索与 FTO 核查，明确名称与图标的商业化授权路径（D6）
+- 补充 Issue 平均关闭时间、Dependents 等关键指标的实测数据（D3、D10）</p>
+<p><strong>第二阶段（6–12 个月）：搭建企业版增量层</strong>
+- 优先补齐 SSO/RBAC/多租户与访问审计——这既是 D7 的能力缺口，也是最自然的付费触发点
+- 建设对外 REST/gRPC API 与官方 SDK，打开被集成方二次开发空间（D7）
+- 提供 Dockerfile / Helm Chart 容器化交付，覆盖 K8s 标准化部署场景（D9）
+- 明确企业版与开源版的功能边界，<strong>确保不回收已有免费能力</strong>（维护明星资产画像）</p>
+<p><strong>第三阶段（12 个月+）：启动变现</strong>
+- 优先走 Open Core 企业版 + 阿里云产品引流 + 支持订阅三条路径
+- 托管 SaaS 需谨慎评估，BYO-LLM 模式下需先解决计费闭环问题
+- 全程避免改协议或许可证收紧类手段，参照 Elastic 改协议的反噬教训</p>
+<h3>10.3 关键决策点</h3>
+<ol>
+<li><strong>是否保留 Apache-2.0 全开源承诺</strong>——这是「明星资产」与「纯商业工具」两种画像的分水岭，建议在启动商业化前明确定位。</li>
+<li><strong>是否自建模型网关</strong>——决定能否切入用量计费，直接影响定价天花板（D4）。</li>
+<li><strong>是否引入基金会中立治理</strong>——决定能否缓解厂商主导与 bus factor 风险，影响大型企业采购信心（D8）。</li>
+</ol>
+<h3>10.4 最终判断</h3>
+<p>本项目<strong>具备立即投入商业化的条件</strong>（等级 A，无一票否决），但<strong>不建议立即启动变现</strong>。当前最优策略是：<strong>用 6–12 个月把 D4/D5 两块短板补齐，同时保持社区高速增长势头，再以 Open Core 企业版切入。</strong> 若能在补齐企业治理能力（SSO/RBAC/多租户）的同时维持 Apache-2.0 全开源承诺，本项目有较大概率从 A 档（78.2）迈入 S 档（80+），成为 AI 代码审查赛道中兼具商业价值与社区声誉的标杆项目。</p>
+<h2>十一、项目地址</h2>
+<p><svg class="ri ri-muted" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.001 2C6.47598 2 2.00098 6.475 2.00098 12C2.00098 16.425 4.86348 20.1625 8.83848 21.4875C9.33848 21.575 9.52598 21.275 9.52598 21.0125C9.52598 20.775 9.51348 19.9875 9.51348 19.15C7.00098 19.6125 6.35098 18.5375 6.15098 17.975C6.03848 17.6875 5.55098 16.8 5.12598 16.5625C4.77598 16.375 4.27598 15.9125 5.11348 15.9C5.90098 15.8875 6.46348 16.625 6.65098 16.925C7.55098 18.4375 8.98848 18.0125 9.56348 17.75C9.65098 17.1 9.91348 16.6625 10.201 16.4125C7.97598 16.1625 5.65098 15.3 5.65098 11.475C5.65098 10.3875 6.03848 9.4875 6.67598 8.7875C6.57598 8.5375 6.22598 7.5125 6.77598 6.1375C6.77598 6.1375 7.61348 5.875 9.52598 7.1625C10.326 6.9375 11.176 6.825 12.026 6.825C12.876 6.825 13.726 6.9375 14.526 7.1625C16.4385 5.8625 17.276 6.1375 17.276 6.1375C17.826 7.5125 17.476 8.5375 17.376 8.7875C18.0135 9.4875 18.401 10.375 18.401 11.475C18.401 15.3125 16.0635 16.1625 13.8385 16.4125C14.201 16.725 14.5135 17.325 14.5135 18.2625C14.5135 19.6 14.501 20.675 14.501 21.0125C14.501 21.275 14.6885 21.5875 15.1885 21.4875C19.259 20.1133 21.9999 16.2963 22.001 12C22.001 6.475 17.526 2 12.001 2Z"/></svg> <a href="https://github.com/alibaba/open-code-review">https://github.com/alibaba/open-code-review</a></p>
+<hr />
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+</blockquote>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家　<a href="https://www.mova.work">www.mova.work</a></p></body></html>

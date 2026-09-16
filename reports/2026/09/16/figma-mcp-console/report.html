@@ -1,0 +1,2333 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><title>Figma-mcp-console 商业价值分析报告</title><style>/* default — 品牌蓝紫主题（从 md2pdf.py 原 CSS 常量迁出，视觉与历史产物一致） */
+@page { size: A4; margin: 18mm 15mm 20mm 15mm; }
+* { box-sizing: border-box; }
+/* 字体规范：一律开源思源黑体 CN（OFL 免费商用）；正文 Regular/标题 Bold/大字数字 Light */
+body { font-family: "Source Han Sans CN","思源黑体 CN","Noto Sans SC",sans-serif; color:#1e293b; font-size:10.5pt; line-height:1.75; margin:0; }
+.cover { page-break-after: always; text-align:center; padding-top:40px; }
+.cover .kicker { color:#2563eb; letter-spacing:6px; font-size:12pt; font-weight:500; }
+.cover h1 { font-size:26pt; margin:14px 0 6px; }
+.cover .sub { color:#64748b; font-size:11pt; margin-bottom:22px; }
+.badge { display:inline-block; background:linear-gradient(135deg,#2563eb,#7c3aed); color:#fff; border-radius:18px; padding:16px 44px; margin:10px 0 18px; }
+.badge .g { font-size:34pt; font-weight:300; line-height:1; }
+.badge .s { font-size:12pt; opacity:.92; margin-top:4px; }
+.meta { color:#475569; font-size:9.5pt; margin-top:14px; }
+.bars { max-width:620px; margin:20px auto 0; text-align:left; }
+.bar-row { display:flex; align-items:center; gap:8px; margin:5px 0; font-size:9pt; }
+.bar-name { width:110px; text-align:right; color:#334155; font-weight:500; }
+.bar-track { flex:1; height:9px; background:#f1f5f9; border-radius:5px; overflow:hidden; }
+.bar-fill { display:block; height:100%; border-radius:5px; }
+.bar-val { width:30px; font-weight:700; color:#0f172a; }
+.bar-w { width:52px; color:#94a3b8; font-size:8pt; }
+h1 { font-size:17pt; color:#0f172a; border-bottom:3px solid #2563eb; padding-bottom:8px; }
+h2 { font-size:13.5pt; color:#1d4ed8; margin-top:26px; page-break-after: avoid; border-left:5px solid #2563eb; padding-left:10px; }
+h3 { font-size:11.5pt; color:#0f172a; margin-top:18px; page-break-after: avoid; }
+table { border-collapse:collapse; width:100%; margin:10px 0; font-size:9pt; page-break-inside:avoid; }
+th { background:#eff6ff; color:#1e3a8a; }
+th,td { border:1px solid #dbe3ef; padding:5px 8px; text-align:left; }
+tr:nth-child(even) td { background:#f8fafc; }
+code { background:#f1f5f9; border-radius:4px; padding:1px 5px; font-family:"JetBrains Mono","Cascadia Mono",monospace; font-size:9pt; color:#be185d; }
+pre { background:#0f172a; color:#e2e8f0; border-radius:8px; padding:12px 14px; overflow-x:auto; page-break-inside:avoid; }
+pre code { background:none; color:inherit; padding:0; }
+blockquote { border-left:4px solid #93c5fd; background:#eff6ff; margin:10px 0; padding:8px 14px; color:#334155; border-radius:0 8px 8px 0; }
+hr { border:none; border-top:1px dashed #cbd5e1; margin:22px 0; }
+strong { color:#0f172a; }
+.cover .disclaimer { max-width:620px; margin:16px auto 0; color:#64748b; font-size:8.5pt; line-height:1.6; text-align:left; border:1px solid #e2e8f0; border-radius:8px; padding:8px 12px; background:#f8fafc; }
+.credit { color:#2563eb; font-size:10.5pt; font-weight:700; letter-spacing:1px; margin-top:12px; }
+.at-acc { background:#dbeafe; color:#1d4ed8; border-radius:4px; padding:0 4px; font-weight:500; white-space:nowrap; }
+.tail { page-break-inside:avoid; margin-top:26px; border-top:2px solid #2563eb; padding-top:14px; }
+.tail p { color:#64748b; font-size:8.5pt; line-height:1.6; margin:0 0 10px; }
+.tail .credit { text-align:center; margin:0; }
+/* Remix Icon 内联 SVG（icon_mode=remix 时由脚本注入，语义色与评分条一致） */
+.ri { width:1.05em; height:1.05em; vertical-align:-0.18em; display:inline-block; }
+.ri-ok { color:#16a34a; } .ri-warn { color:#d97706; } .ri-bad { color:#dc2626; }
+.ri-muted { color:#64748b; } .ri-star { color:#f59e0b; } .ri-brand { color:#2563eb; }
+.ri-gold { color:#d4a017; } .ri-silver { color:#9ca3af; } .ri-bronze { color:#b45309; }
+/* 屏幕预览：@page 边距仅在打印时生效，浏览器中居中限宽并收边（不影响 PDF 输出） */
+@media screen {
+  body { margin: 0 auto; padding: 28px 36px 56px; max-width: 900px; }
+}
+</style></head><body><div class="cover">
+<div class="kicker">开源项目商业化潜力分析</div>
+<h1>GitHub 开源项目 Figma-mcp-console<br>商业价值分析报告</h1>
+<div class="sub">hoangann2000/figma-mcp-console · 免 token 的 Figma MCP 本地桥接服务端 · 九维度加权评估 61.1/100（B 级）</div>
+<div class="badge"><div class="g">B 级 · 61.1</div><div class="s">综合评分（满分 100）· 中等商业化潜力</div></div>
+<div><svg viewBox="0 0 560 480" width="560" height="480" xmlns="http://www.w3.org/2000/svg"><polygon points="280.0,209.6 299.5,216.7 309.9,234.7 306.3,255.2 290.4,268.6 269.6,268.6 253.7,255.2 250.1,234.7 260.5,216.7" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,179.2 319.1,193.4 339.9,229.4 332.7,270.4 300.8,297.1 259.2,297.1 227.3,270.4 220.1,229.4 240.9,193.4" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,148.8 338.6,170.1 369.8,224.2 359.0,285.6 311.2,325.7 248.8,325.7 201.0,285.6 190.2,224.2 221.4,170.1" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,118.4 358.2,146.8 399.8,218.9 385.3,300.8 321.6,354.3 238.4,354.3 174.7,300.8 160.2,218.9 201.8,146.8" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,88.0 377.7,123.6 429.7,213.6 411.6,316.0 332.0,382.8 228.0,382.8 148.4,316.0 130.3,213.6 182.3,123.6" fill="none" stroke="#e2e8f0" stroke-width="1"/><line x1="280.0" y1="240.0" x2="280.0" y2="88.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="377.7" y2="123.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="429.7" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="411.6" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="332.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="228.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="148.4" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="130.3" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="182.3" y2="123.6" stroke="#d8dee9" stroke-width="1"/><polygon points="280.0,133.6 346.4,160.8 339.9,229.4 357.7,284.8 303.9,305.7 239.5,351.4 199.7,286.4 203.7,226.5 201.8,146.8" fill="rgba(37,99,235,.22)" stroke="#2563eb" stroke-width="2.5"/><circle cx="280.0" cy="133.6" r="3.5" fill="#2563eb"/><circle cx="346.4" cy="160.8" r="3.5" fill="#2563eb"/><circle cx="339.9" cy="229.4" r="3.5" fill="#2563eb"/><circle cx="357.7" cy="284.8" r="3.5" fill="#2563eb"/><circle cx="303.9" cy="305.7" r="3.5" fill="#2563eb"/><circle cx="239.5" cy="351.4" r="3.5" fill="#2563eb"/><circle cx="199.7" cy="286.4" r="3.5" fill="#2563eb"/><circle cx="203.7" cy="226.5" r="3.5" fill="#2563eb"/><circle cx="201.8" cy="146.8" r="3.5" fill="#2563eb"/><text x="280.0" y="44.0" text-anchor="middle" font-size="12.5" fill="#334155" font-weight="600">D1</text><text x="280.0" y="58.0" text-anchor="middle" font-size="11" fill="#64748b">市场需求 7.0</text><text x="406.0" y="89.9" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D2</text><text x="406.0" y="103.9" text-anchor="start" font-size="11" fill="#64748b">技术成熟度 6.8</text><text x="473.0" y="206.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D3</text><text x="473.0" y="220.0" text-anchor="start" font-size="11" fill="#64748b">社区生态 4.0</text><text x="449.7" y="338.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D4</text><text x="449.7" y="352.0" text-anchor="start" font-size="11" fill="#64748b">变现潜力 5.9</text><text x="347.0" y="424.2" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D5</text><text x="347.0" y="438.2" text-anchor="start" font-size="11" fill="#64748b">竞争格局 4.6</text><text x="213.0" y="424.2" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D6</text><text x="213.0" y="438.2" text-anchor="end" font-size="11" fill="#64748b">法律合规 7.8</text><text x="110.3" y="338.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D7</text><text x="110.3" y="352.0" text-anchor="end" font-size="11" fill="#64748b">企业就绪 6.1</text><text x="87.0" y="206.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D8</text><text x="87.0" y="220.0" text-anchor="end" font-size="11" fill="#64748b">团队治理 5.1</text><text x="154.0" y="89.9" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D9</text><text x="154.0" y="103.9" text-anchor="end" font-size="11" fill="#64748b">上手难度 8.0</text></svg></div>
+<div class="bars"><div class="bar-row"><span class="bar-name">D9 上手难度</span>
+<span class="bar-track"><span class="bar-fill" style="width:80.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.0</span><span class="bar-w">权重10%</span></div>
+<div class="bar-row"><span class="bar-name">D6 法律合规</span>
+<span class="bar-track"><span class="bar-fill" style="width:78.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.8</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D1 市场需求</span>
+<span class="bar-track"><span class="bar-fill" style="width:70.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.0</span><span class="bar-w">权重13%</span></div>
+<div class="bar-row"><span class="bar-name">D2 技术成熟度</span>
+<span class="bar-track"><span class="bar-fill" style="width:68.0%;background:#d97706"></span></span>
+<span class="bar-val">6.8</span><span class="bar-w">权重14%</span></div>
+<div class="bar-row"><span class="bar-name">D7 企业就绪</span>
+<span class="bar-track"><span class="bar-fill" style="width:61.0%;background:#d97706"></span></span>
+<span class="bar-val">6.1</span><span class="bar-w">权重8%</span></div>
+<div class="bar-row"><span class="bar-name">D4 变现潜力</span>
+<span class="bar-track"><span class="bar-fill" style="width:59.0%;background:#dc2626"></span></span>
+<span class="bar-val">5.9</span><span class="bar-w">权重18%</span></div>
+<div class="bar-row"><span class="bar-name">D8 团队治理</span>
+<span class="bar-track"><span class="bar-fill" style="width:51.0%;background:#dc2626"></span></span>
+<span class="bar-val">5.1</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D5 竞争格局</span>
+<span class="bar-track"><span class="bar-fill" style="width:46.0%;background:#dc2626"></span></span>
+<span class="bar-val">4.6</span><span class="bar-w">权重12%</span></div>
+<div class="bar-row"><span class="bar-name">D3 社区生态</span>
+<span class="bar-track"><span class="bar-fill" style="width:40.0%;background:#dc2626"></span></span>
+<span class="bar-val">4.0</span><span class="bar-w">权重11%</span></div></div>
+<div class="meta">分析时点 2026-09-16 ｜ 数据来源：GitHub API + 仓库代码实测 ｜ 方法论 v1.3</div>
+<div class="credit">报告出品：@魔法工厂　@向量之心　@南山科学家</div>
+<div class="disclaimer"><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</div>
+</div><h1>Figma-mcp-console 商业化潜力分析报告（完整版）</h1>
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家</p>
+<p>方法论版本: v1.3 | 综合评分: <strong>61.1</strong> | 等级: <strong>B（中等商业化潜力）</strong> | 价值画像: 长尾项目</p>
+</blockquote>
+<h2>一、项目概览</h2>
+<h3>1.1 基本信息</h3>
+<ul>
+<li><strong>项目名称</strong>：figma-mcp-console（hoangann2000/figma-mcp-console）</li>
+<li><strong>仓库地址</strong>：github.com/hoangann2000/figma-mcp-console</li>
+<li><strong>核心技术栈</strong>：Go（2176 行 / 9 文件）+ Figma 插件 JavaScript（875 行 / 2 文件）+ WebSocket 本地桥接；直接依赖 2 个（github.com/coder/websocket、github.com/modelcontextprotocol/go-sdk），间接依赖 6 个；npm 运行时依赖 0</li>
+<li><strong>社区规模速览</strong>：Star 11 / Fork 3 / Watchers 0 / 贡献者 2 / 开放 Issue 0 / 90 天关闭 Issue 0 / 90 天新建 PR 2</li>
+<li><strong>代码与发布</strong>：总代码 3051 行，测试 546 行（测试占比 17.9%）；10 个 Release（v0.1.0 2026-07-19 → v0.5.4 2026-08-24）</li>
+<li><strong>协议</strong>：MIT License（LICENSE 文件 Copyright (c) 2026 T.ann）</li>
+<li><strong>分析时点 / 数据来源</strong>：项目创建于 2026-07-18，最后推送 2026-08-24（约 3 周停更）；数据来源为 GitHub 仓库实采、GitHub Search API 竞品验证、npm 包元数据与 README 原文</li>
+</ul>
+<h3>1.2 项目分类标签</h3>
+<table>
+<thead>
+<tr>
+<th>分类维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>开发者工具 / MCP 服务端（中间件）</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>通用/跨行业</td>
+</tr>
+<tr>
+<td>目标用户角色</td>
+<td>前端开发者、UI/UX 设计师、全栈开发者</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>设计转代码、需求转设计、设计令牌同步、批量图层编辑、设计系统治理</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>本地部署（本地二进制 + Figma Desktop 插件 + MCP 客户端三方条件）</td>
+</tr>
+</tbody>
+</table>
+<h3>1.3 一句话定位</h3>
+<blockquote>
+<p>figma-mcp-console 是一个 MCP 服务端（开发者工具/中间件），适用于跨行业的产品设计与研发协作场景，主要面向前端开发者和 UI/UX 设计师，用于让 AI 助手通过本地桥接实时读写 Figma 设计文件（设计转代码、需求转设计、设计令牌同步、批量图层编辑），无需 API token 且不受速率限制。</p>
+</blockquote>
+<hr />
+<h2>二、安装部署与使用指南</h2>
+<blockquote>
+<p>本项目的分发方式为 <strong>npm 包 <code>figma-mcp-console</code></strong>，无需 clone 仓库、无需编译 Go 代码，<code>npx</code> 会自动下载并运行；运行时<strong>不需要任何外部服务</strong>（无数据库/缓存/消息队列），本地桥接端口固定为 2000 且自动选举/接管，属"零配置"型工具。以下步骤均取自 README 原文。</p>
+</blockquote>
+<h2>1. 环境准备（Prerequisites）</h2>
+<ul>
+<li>[ ] <a href="https://nodejs.org">Node.js</a> 18+ —— 用 <code>node --version</code> 检查</li>
+<li>[ ] <strong>Figma Desktop</strong> 桌面应用（网页版无法运行 development 插件）</li>
+</ul>
+<h2>2. Step 1 — 把 MCP server 加入你的 AI 工具</h2>
+<p>无需安装，<code>npx</code> 自动下载并运行。</p>
+<p><strong>Claude CLI（单项目）</strong>，在项目目录内执行：</p>
+<pre><code class="language-sh">claude mcp add figma-console -- npx -y figma-mcp-console@latest
+</code></pre>
+<p><strong>Claude CLI（全局所有项目）</strong>：</p>
+<pre><code class="language-sh">claude mcp add --scope user figma-console -- npx -y figma-mcp-console@latest
+</code></pre>
+<p><strong>写入项目 <code>.mcp.json</code>（同样适用于 <code>.cursor/mcp.json</code>、Antigravity <code>mcp_config.json</code>）</strong>：</p>
+<pre><code class="language-json">{
+  &quot;mcpServers&quot;: {
+    &quot;figma-console&quot;: {
+      &quot;command&quot;: &quot;npx&quot;,
+      &quot;args&quot;: [&quot;-y&quot;, &quot;figma-mcp-console@latest&quot;]
+    }
+  }
+}
+</code></pre>
+<p><strong>Claude Desktop</strong>：<strong>Settings → Developer → Edit Config</strong>（<code>claude_desktop_config.json</code>）写入上述 JSON 后重启。Windows 上改用：</p>
+<pre><code class="language-json">&quot;command&quot;: &quot;cmd&quot;, &quot;args&quot;: [&quot;/c&quot;, &quot;npx&quot;, &quot;-y&quot;, &quot;figma-mcp-console@latest&quot;]
+</code></pre>
+<p><strong>Codex CLI</strong>：</p>
+<pre><code class="language-sh">codex mcp add figma-console -- npx -y figma-mcp-console@latest
+</code></pre>
+<p>或 <code>~/.codex/config.toml</code>：</p>
+<pre><code class="language-toml">[mcp_servers.figma-console]
+command = &quot;npx&quot;
+args = [&quot;-y&quot;, &quot;figma-mcp-console@latest&quot;]
+</code></pre>
+<p><strong>VS Code（GitHub Copilot）</strong> 新建 <code>.vscode/mcp.json</code>（或 <strong>Command Palette → "MCP: Add Server"</strong>），并在 Copilot Chat 的 <strong>Agent</strong> 模式下使用：</p>
+<pre><code class="language-json">{
+  &quot;servers&quot;: {
+    &quot;figma-console&quot;: {
+      &quot;type&quot;: &quot;stdio&quot;,
+      &quot;command&quot;: &quot;npx&quot;,
+      &quot;args&quot;: [&quot;-y&quot;, &quot;figma-mcp-console@latest&quot;],
+      &quot;cwd&quot;: &quot;${workspaceFolder}&quot;
+    }
+  }
+}
+</code></pre>
+<p><strong>其他 MCP 客户端</strong>（opencode、Windsurf、Cline、Gemini CLI、Zed 等）：使用标准 MCP stdio transport，command 设为 <code>npx</code>、args 设为 <code>["-y", "figma-mcp-console@latest"]</code>。</p>
+<h2>3. Step 2 — 安装 Figma 插件</h2>
+<p>先拿到插件目录，二选一：</p>
+<ul>
+<li><strong>Option A（推荐）</strong>：从 GitHub Releases 下载 <strong>plugin.zip</strong> → 解压</li>
+<li><strong>Option B</strong>：运行 <strong><code>npx figma-mcp-console install-plugin</code></strong>，它会保存插件目录并自动打开以便看到 <code>manifest.json</code></li>
+</ul>
+<p>两种方式之后：</p>
+<ol>
+<li>在 <strong>Figma Desktop</strong>：<strong>Plugins → Development → Import plugin from manifest…</strong> → 选择 <code>manifest.json</code>（一次性步骤）</li>
+<li>运行：<strong>Plugins → Development → Figma MCP Console</strong>，并在工作过程中<strong>保持插件窗口打开</strong>（🟢 绿点 = 已连接）</li>
+<li>同时处理多个 Figma 文件时，在<strong>每个</strong>文件里各运行一次插件，所有窗口连接同一个本地 bridge</li>
+</ol>
+<h2>4. Step 3 — 首次试用（提示词模板）</h2>
+<p><strong>Figma → 代码</strong>（在 Figma 里右键 frame → <strong>Copy link to selection</strong>）：</p>
+<pre><code class="language-text">Implement this Figma page in our project: &lt;paste link&gt;. Match layout, spacing,
+type and colors; export its icons/images into the project; screenshot the frame
+and compare when done.
+</code></pre>
+<p><strong>需求 → Figma</strong>：</p>
+<pre><code class="language-text">Design a SaaS landing page in Figma (desktop, 1440px): hero + CTA, three feature
+cards, pricing with three plans, footer. Light theme, use auto-layout, then
+screenshot and fix anything off.
+</code></pre>
+<h2>5. 资源导出规则（可选，放入项目 rules 文件一次性配置）</h2>
+<table>
+<thead>
+<tr>
+<th>AI 工具</th>
+<th>Rules 文件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Claude CLI / Claude Desktop</td>
+<td><code>CLAUDE.md</code></td>
+</tr>
+<tr>
+<td>Codex / opencode</td>
+<td><code>AGENTS.md</code></td>
+</tr>
+<tr>
+<td>Cursor</td>
+<td><code>.cursorrules</code></td>
+</tr>
+<tr>
+<td>VS Code Copilot</td>
+<td><code>.github/copilot-instructions.md</code></td>
+</tr>
+<tr>
+<td>Windsurf</td>
+<td><code>.windsurfrules</code></td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-markdown">## Figma asset rules
+- Icons: SVG into public/icons/. Images: PNG into public/images/.
+- File names: kebab-case English (arrow-left.svg, hero-banner.png).
+- Read design tokens with get_variable_defs; map them to our theme config.
+- After building a screen, screenshot and fix issues before finishing.
+</code></pre>
+<h2>6. 常见排障（README 原文对照表要点）</h2>
+<table>
+<thead>
+<tr>
+<th>问题</th>
+<th>处置</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"no Figma plugin is connected"</td>
+<td>在 Figma Desktop 打开插件并保持窗口开启（每个要操作的文件都要开）</td>
+</tr>
+<tr>
+<td>插件显示 "Searching for MCP server…"</td>
+<td>AI 客户端连接前属正常；一直连不上则点状态行重试或重启 AI 客户端</td>
+</tr>
+<tr>
+<td>"N Figma files are connected; pass the file parameter"</td>
+<td>指明要操作的文件名，或关闭多余插件窗口</td>
+</tr>
+<tr>
+<td>MCP server 不出现在 AI 工具中</td>
+<td>确认 Node.js 18+（<code>node -v</code>）</td>
+</tr>
+<tr>
+<td>导出文件落在错误目录</td>
+<td>导出相对于 server 运行目录，改为项目级配置注册或显式指定导出路径</td>
+</tr>
+<tr>
+<td>创建文本时字体报错</td>
+<td>Figma 文件用了本机未安装的字体，错误信息会点名该字体</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>三、评分总览</h2>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>权重</th>
+<th>加权得分</th>
+<th>评级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1 市场需求与商业机会</td>
+<td>7.0/10</td>
+<td>13%</td>
+<td>0.91</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D2 技术成熟度与产品质量</td>
+<td>6.8/10</td>
+<td>14%</td>
+<td>0.95</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D3 社区健康度与生态势能</td>
+<td>4.0/10</td>
+<td>11%</td>
+<td>0.44</td>
+<td>差</td>
+</tr>
+<tr>
+<td>D4 商业模式与变现潜力</td>
+<td>5.9/10</td>
+<td>18%</td>
+<td>1.06</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D5 竞争格局与差异化壁垒</td>
+<td>4.6/10</td>
+<td>12%</td>
+<td>0.55</td>
+<td>差</td>
+</tr>
+<tr>
+<td>D6 法律合规与知识产权</td>
+<td>7.8/10</td>
+<td>7%</td>
+<td>0.55</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D7 企业就绪度与可运营性</td>
+<td>6.1/10</td>
+<td>8%</td>
+<td>0.49</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D8 团队治理与可持续性</td>
+<td>5.1/10</td>
+<td>7%</td>
+<td>0.36</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D9 上手难度与易用性</td>
+<td>8.0/10</td>
+<td>10%</td>
+<td>0.80</td>
+<td>优</td>
+</tr>
+<tr>
+<td><strong>综合评分</strong></td>
+<td>—</td>
+<td>100%</td>
+<td><strong>61.1/100</strong></td>
+<td><strong>B（中等商业化潜力）</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>平行维度（不计入综合评分）</strong></p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10 功能价值</td>
+<td>6.6/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>D11 社会价值</td>
+<td>4.9/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>公共价值分</td>
+<td>5.8/10</td>
+<td>(D10+D11)/2</td>
+</tr>
+</tbody>
+</table>
+<p><strong>一票否决检查</strong>：未触发。D6 维度总分 7.8 &gt; 3；D8.4 细则小分 1.8 &gt; 1；D4.1 细则小分 2.0 &gt; 0.5。三项否决检查均已完成，无 N/A 跳过项。</p>
+<p><strong>价值画像</strong>：📦 长尾项目（综合评分 61.1 &lt; 65，公共价值分 5.8 &lt; 7）。综合评分落在 60–70 临界区间，报告标注「画像临界」，详见第五章。</p>
+<blockquote>
+<p>各维度细则分值构成详见「四、各维度详细分析」。</p>
+</blockquote>
+<hr />
+<h2>四、各维度详细分析</h2>
+<h3>D1. 市场需求与商业机会</h3>
+<h3>项目分类标签</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>开发者工具（主）、中间件、数据与AI</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>通用/跨行业</td>
+</tr>
+<tr>
+<td>目标用户角色</td>
+<td>前端开发者（主）、UI/UX设计师、全栈开发者、AI/ML工程师</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>研发流程优化（design-to-code）、原型验证、内容管理（设计资产管理）</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>本地部署（本机 bridge + Figma Desktop 开发插件 + npm/npx 分发）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>一句话定位</strong>：figma-mcp-console 是一个 MCP 服务端（开发者工具/中间件），适用于跨行业的产品设计与研发协作场景，主要面向前端开发者和 UI/UX 设计师，用于让 AI 助手通过本地桥接实时读写 Figma 设计文件（设计转代码、需求转设计、设计令牌同步、批量图层编辑），无需 API token 且不受速率限制。</p>
+<hr />
+<h3>D1.1 目标市场规模与增长性（2.5 分）→ 2.0 分</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TAM 估算</td>
+<td>落在「设计工具 × AI 编码助手」交叠带：设计交付/design-to-code 工具链 + MCP 生态工具市场。量级估算为十亿美元级（估算未经外部数据验证，置信度低）</td>
+</tr>
+<tr>
+<td>增长趋势</td>
+<td>扩张。MCP 协议自 2024 年末推出后快速成为 AI Agent 工具接入事实标准，2025–2026 年处于高速扩散期；AI 编码助手对「设计上下文」的接入需求同步增长</td>
+</tr>
+<tr>
+<td>市场层级</td>
+<td>成长期市场，但已被切分为多个细分（Figma MCP、design token 同步、UI 生成），属于「成长赛道中的细分位」</td>
+</tr>
+</tbody>
+</table>
+<p><strong>依据</strong>：README 呈现的能力（设计→代码、需求→设计、token 同步）对应的是所有做数字产品的团队都会遇到的交付环节，潜在用户池即 Figma 使用者 × AI 编码工具使用者，量级可观；但项目本身是一个社区级 MCP server（11 star / 2 contributor），可实际捕获的是该 TAM 中极小的一个切片。
+<strong>扣分点</strong>：无任何外部市场数据支撑，TAM 判断为纯量级估算，置信度低。</p>
+<hr />
+<h3>D1.2 痛点真实性与解决程度（2.5 分）→ 1.5 分</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>痛点真实性</td>
+<td>真实但非「非用不可」。设计稿到代码的还原偏差、设计 token 与代码 theme 漂移、AI 助手无设计上下文——这是前端/设计协作中长期存在的真实摩擦</td>
+</tr>
+<tr>
+<td>解决完整度</td>
+<td>较完整：同时提供读+写、批量图层/文本编辑、多文件多项目并行、资产导出（SVG/PNG，0.5–4x）、<code>get_variable_defs</code> 令牌读取、截图自检闭环</td>
+</tr>
+<tr>
+<td>替代成本</td>
+<td><strong>偏高</strong>。Figma 官方 Dev Mode MCP、Framelink 等社区 Figma MCP、cursor-talk-to-figma 类方案均在位；不接入时用户仍可用截图粘贴、手工量取、Dev Mode 标注等传统方式完成任务</td>
+</tr>
+</tbody>
+</table>
+<p><strong>关键风险</strong>：方案采用「Figma Desktop 开发插件 + 本地 bridge（端口 2000）」路径，硬性前置条件包括 Node 18+、<strong>Figma 桌面端</strong>（Web 端无法运行开发插件）、<strong>插件窗口需常开</strong>、多文件需逐个开插件。这把它锁死在「个人开发者本机工作流」，无法覆盖云/CI/设计团队协作场景——而这正是很多付费场景所在。
+<strong>需求验证信号缺失</strong>：0 个开放 Issue、0 个已关闭 Issue、仅 11 star、2 名贡献者、无 CONTRIBUTING/SECURITY 文件，无第三方用户反馈或功能请求可佐证需求热度。
+<strong>得分理由</strong>：落在 5–6 档（解决「锦上添花」型需求，方案基本可用，替代品众多）。</p>
+<hr />
+<h3>D1.3 市场时机判断（2.5 分）→ 1.5 分</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术成熟度曲线</td>
+<td>MCP 已越过概念炒作期、进入实质生产期（主流 AI 客户端普遍支持 stdio MCP），技术时机本身是好的</td>
+</tr>
+<tr>
+<td>竞争密度</td>
+<td>高。Figma 官方 MCP 服务端已在位并具备平台级优势（原生集成、官方维护、企业背书），社区侧另有多个同类实现；本项目 2026-07 创建，属该细分赛道的后进入者</td>
+</tr>
+<tr>
+<td>监管/标准</td>
+<td>MCP 协议标准化对项目是顺风（任何 MCP client 均可接入），但也意味着差异化只能靠实现质量而非协议红利</td>
+</tr>
+</tbody>
+</table>
+<p><strong>得分理由</strong>：技术上「时机不早」，但细分位已进入需要与官方选手正面竞争、且缺乏独占资源的阶段，落在 5–6 档（市场成熟期，需正面竞争）。若官方 Figma MCP 进一步开放写能力，本项目的核心差异点（免 token、免限流、可写）将被直接压缩。</p>
+<hr />
+<h3>D1.4 应用场景广度（2.5 分）→ 2.0 分</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>行业覆盖</td>
+<td>通用/跨行业——任何使用 Figma 做设计的软件团队（互联网、金融、医疗、电商、政务等）均可用</td>
+</tr>
+<tr>
+<td>场景多样性</td>
+<td>横向工具：设计→代码、需求→设计、token 双向同步、批量改名/替换文本/重排 frame，覆盖设计交付全链路</td>
+</tr>
+<tr>
+<td>可延展性</td>
+<td>中等偏上：核心能力（AI 读写设计文件 + 资产导出 + 令牌映射）可迁移至设计系统治理、主题配置生成、跨文件设计复用；但强绑定 Figma 单一生态，无法脱离该平台独立存在</td>
+</tr>
+</tbody>
+</table>
+<p><strong>得分理由</strong>：多行业可用、场景较丰富，但属于「单一平台内的横向工具」而非跨生态基础设施，落在 7–8 档（多行业可用，场景丰富）而非 9–10 档。</p>
+<hr />
+<h3>D1 维度结论</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1.1 目标市场规模与增长性</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8 档</td>
+</tr>
+<tr>
+<td>D1.2 痛点真实性与解决程度</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6 档</td>
+</tr>
+<tr>
+<td>D1.3 市场时机判断</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6 档</td>
+</tr>
+<tr>
+<td>D1.4 应用场景广度</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8 档</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>7.0</strong></td>
+<td><strong>约 7.0 / 10</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>核心判断</strong>：这是一个<strong>市场需求真实、赛道方向正确、但竞争位势偏弱</strong>的项目。它切入的是「AI Agent 需要设计上下文」这一正在扩张的真实需求，场景横向通用（任何用 Figma 的软件团队），timing 上踩中了 MCP 生态扩张期；但三处结构性弱点压制了 D1 得分：</p>
+<ol>
+<li><strong>替代品密集且存在官方强者</strong>——Figma 官方 Dev Mode MCP 是平台级对手，「免 token / 免限流」的差异点依赖官方不补齐写能力，护城河不稳固。</li>
+<li><strong>交付形态天然收窄付费人群</strong>——Figma 桌面端 + 开发插件常开 + 本机端口 bridge 的组合，把使用场景锁定在个人开发者本机，难以延伸至团队协作、云端、CI 等更易付费的场景。</li>
+<li><strong>零需求验证信号</strong>——11 star、0 Issue、2 贡献者，没有任何第三方使用或功能请求证据能佐证「非用不可」。</li>
+</ol>
+<p><strong>商业化含义</strong>：D1 得分 7.0 说明它<strong>可以成为一个有价值的产品</strong>，但其最有价值的资产是「免 token、可写入 Figma」这一技术路径与桥接实现，而非当前的产品形态。若要提升 D1，需向设计系统治理、团队级 token 同步、可托管/团队共享 bridge 方向扩展，从「个人开发者的便利插件」升级为「团队设计-代码一致性基础设施」——而这会同时把用户从个人开发者上移至有预算的团队决策者。</p>
+<p><strong>置信度声明</strong>：本维度评估中 D1.1 的市场量级为类型化估算，<strong>未经外部数据验证，置信度低</strong>；D1.2 的痛点判断为基于 README 场景推导，<strong>缺少 Issue/用户反馈等一手需求证据，置信度中低</strong>；D1.3、D1.4 依据项目定位与生态常识判断，置信度中。所有判断均未虚构具体市场规模数字或引用来源。</p>
+<h3>D2. 技术成熟度与产品质量</h3>
+<p><strong>项目类型判定</strong>: 本项目为 Go 编写的 MCP Server（后端服务/CLI 启动型），附带一个 Figma 插件（<code>plugin/</code>，作为浏览器沙箱内的桥接端）。核心交付形态为「无 GUI 的服务端 + 宿主内插件」，无独立自研 Web/桌面 GUI，D2.5 标记为 N/A，D2 总分按 7 项等比缩放。</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D2.1</td>
+<td>产品设计与创新性</td>
+<td>1.5</td>
+<td>1.2</td>
+<td>80%（良好）</td>
+</tr>
+<tr>
+<td>D2.2</td>
+<td>架构设计与工程质量</td>
+<td>2</td>
+<td>1.6</td>
+<td>80%（良好）</td>
+</tr>
+<tr>
+<td>D2.3</td>
+<td>代码整洁性与规范性</td>
+<td>1</td>
+<td>0.6</td>
+<td>60%（一般）</td>
+</tr>
+<tr>
+<td>D2.4</td>
+<td>安全性</td>
+<td>1</td>
+<td>0.6</td>
+<td>60%（一般）</td>
+</tr>
+<tr>
+<td>D2.5</td>
+<td>UI/UX/UE 人机交互</td>
+<td>1</td>
+<td>N/A</td>
+<td>不适用</td>
+</tr>
+<tr>
+<td>D2.6</td>
+<td>功能完备度与稳定性</td>
+<td>1.5</td>
+<td>0.9</td>
+<td>60%（一般）</td>
+</tr>
+<tr>
+<td>D2.7</td>
+<td>文档与开发者体验</td>
+<td>1</td>
+<td>0.6</td>
+<td>60%（一般）</td>
+</tr>
+<tr>
+<td>D2.8</td>
+<td>测试与质量保障</td>
+<td>1</td>
+<td>0.6</td>
+<td>60%（一般）</td>
+</tr>
+<tr>
+<td><strong>合计（缩放前）</strong></td>
+<td></td>
+<td><strong>9</strong></td>
+<td><strong>6.1</strong></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>D2 总分（缩放后）</strong></td>
+<td>6.1 ÷ 9 × 10</td>
+<td><strong>10</strong></td>
+<td><strong>6.8</strong></td>
+<td>一般偏上</td>
+</tr>
+</tbody>
+</table>
+<h3>逐项判断依据</h3>
+<p><strong>D2.1 产品设计与创新性 — 1.2/1.5（80%）</strong></p>
+<ul>
+<li><strong>产品理念清晰且有真实创新点</strong>：主流 Figma MCP 方案（如基于 Figma REST API 的实现）依赖 Personal Access Token，且受 API 速率限制、无法实时写入。本项目改用「Figma 插件作为本地桥接端 + Go 侧 MCP Server」的模式，插件运行在 Figma 宿主内直接读写文档，再通过 WebSocket 与本地 Server 通信——这在架构路径上绕开了 token 与限流两大痛点，属于<strong>模式创新</strong>而非简单复制。</li>
+<li><strong>功能设计围绕核心场景</strong>：Topics 覆盖 <code>design-to-code</code>、<code>design-tokens</code>、<code>design-system</code>、<code>figma-plugin</code>，说明读写能力与设计系统/设计令牌场景绑定，场景聚焦不散乱；客户端侧面向 Claude、Cursor、Copilot、Codex 等通用 MCP 客户端，定位为通用能力层而非单一客户端插件。</li>
+<li><strong>差异化明确</strong>：「no API token, no rate limits + 实时读写」是可验证的差异化卖点。</li>
+<li>扣分点：产品边界与「写入冲突/并发编辑」等关键取舍未见公开说明，创新性虽真但属于桥接层工程创新，护城河中等。</li>
+</ul>
+<p><strong>D2.2 架构设计与工程质量 — 1.6/2（80%）</strong></p>
+<ul>
+<li><strong>目录与分层符合 Go 工程范式</strong>：<code>cmd/figma-mcp</code>（入口）→ <code>internal/bridge</code>（通信桥接）→ <code>internal/tools</code>（MCP 工具实现）→ <code>npm/</code>（分发包装）→ <code>plugin/</code>（Figma 端），<code>cmd</code> + <code>internal</code> 是 Go 社区标准布局，<code>internal</code> 天然限制外部导入，边界意识明确。</li>
+<li><strong>模块解耦合理</strong>：桥接层与工具层分离，说明协议/传输与业务能力的关注点已拆分；依赖方向为 tools → bridge，方向正确。</li>
+<li><strong>依赖精简可控</strong>：Go 依赖仅 8 个直接模块，且均为可靠来源——官方 <code>modelcontextprotocol/go-sdk</code>、<code>coder/websocket</code>、<code>google/jsonschema-go</code>、<code>golang.org/x/oauth2</code>、<code>segmentio/encoding</code>（性能取向），无重量级框架，供应链面小。</li>
+<li><strong>代码量与功能匹配</strong>：总 3051 行（Go 2176 行/9 文件，JS 875 行/2 文件），对一个多工具 MCP Server + 插件桥接而言规模适中，既不臃肿也无明显残缺。</li>
+<li><strong>复刻难度中等偏上</strong>：难点不在 Go 代码量，而在于 Figma Plugin API 的领域知识、双向实时桥接协议设计、以及 MCP 工具 schema 的打磨；有一定工程积累门槛，但非算法/技术壁垒。</li>
+<li>扣分点：无 Dockerfile、无 CODEOWNERS，未见依赖图或接口文档；仅 2 名贡献者，架构演进仍处早期。</li>
+</ul>
+<p><strong>D2.3 代码整洁性与规范性 — 0.6/1（60%）</strong></p>
+<ul>
+<li><strong>正面证据</strong>：CI 中执行 <code>go vet ./...</code> 与 <code>go test -race ./...</code>，表明代码可被 <code>go vet</code> 通过（Go 官方惯例 gofmt 风格基本得到保证）；Go 标准布局下文件命名规范（<code>cmd</code>/<code>internal</code> 约定）；总代码量小，冗余空间有限。</li>
+<li><strong>证据不足之处</strong>：未发现 <code>.golangci.yml</code>、<code>.editorconfig</code>、<code>prettier</code>/<code>eslint</code> 等 lint/format 配置文件，JS 侧（875 行）无风格约束证据；未能实测重复率与函数长度；无 CONTRIBUTING 说明贡献规范。按「基本可读、命名大体规范、缺风格约束」判 60% 档。</li>
+</ul>
+<p><strong>D2.4 安全性 — 0.6/1（60%）</strong></p>
+<ul>
+<li><strong>正面证据</strong>：依赖 <code>google/jsonschema-go</code> 并用官方 MCP SDK，工具入参走 JSON Schema 校验，具备基础输入验证能力；依赖仅 8 个且全部为高信誉库，未见已知高危依赖；仓库中未发现明显敏感信息外泄迹象（描述明确宣传「无需 API token」，本身减少了密钥管理面）。</li>
+<li><strong>证据不足之处</strong>：无 <code>SECURITY.md</code>；<code>.github/workflows</code> 仅 <code>ci.yml</code>/<code>release.yml</code>，<strong>未集成 Dependabot/Snyk/Trivy/CodeQL 等安全扫描</strong>；WebSocket 桥接端（本地监听端口）未见鉴权/来源校验/绑定 localhost 的说明，若暴露为任意来源可连即存在本地攻击面；无硬编码密钥的自动化检测。</li>
+<li>综合判 60% 档（基本安全措施到位，存在少量中低风险未知项）。</li>
+</ul>
+<p><strong>D2.5 UI/UX/UE 人机交互 — N/A</strong></p>
+<p>项目主体为 MCP Server（无 GUI）；<code>plugin/</code> 为 Figma 宿主内的桥接端（875 行 JS 主要为 <code>code.js</code> 主体逻辑），无独立自研用户界面，且无截图/演示可用于界面质量评估。判定为 N/A，不参与计分，总分按 7 项等比缩放。</p>
+<p><strong>D2.6 功能完备度与稳定性 — 0.9/1.5（60%）</strong></p>
+<ul>
+<li><strong>功能覆盖</strong>：围绕「AI 实时读写 Figma」这一核心场景，读写、设计令牌/设计系统方向有对应工具集，核心能力无明显缺失。</li>
+<li><strong>版本成熟度</strong>：仍处 <strong>v0.x（最新 v0.5.4）</strong>，未发布 1.0。5 周内连发 10 个版本（v0.1.0 → v0.5.4），迭代极快——既说明维护活跃，也<strong>高度提示频繁 Breaking Change</strong>，按 0.x 语义化约定不保证兼容。</li>
+<li><strong>性能</strong>：桥接走本地 WebSocket，且引入 <code>segmentio/encoding</code> 等性能取向依赖，架构上无外部 API 限流瓶颈，实时性设计合理；但无基准测试数据佐证。</li>
+<li><strong>运行环境要求偏严苛</strong>：需同时具备 (1) 本地 Go 二进制（经 npm 分发）(2) Figma 客户端及插件安装 (3) 支持 MCP 的 AI 客户端——三方依赖缺一不可，用户上手链路较长；无 Docker 化部署路径。</li>
+<li><strong>硬件要求</strong>：无特殊硬件依赖（N/A）。</li>
+<li><strong>国际化</strong>：未见 i18n/l10n 支持证据（无多语言文档或本地化框架），对全球市场商业化是短板。</li>
+<li>综合判 60% 档。</li>
+</ul>
+<p><strong>D2.7 文档与开发者体验 — 0.6/1（100% 基准下的 60%）</strong></p>
+<ul>
+<li><strong>文档覆盖</strong>：仅 <code>README.md</code> 一个文档文件（<code>doc_files: ["./README.md"]</code>），无 <code>docs/</code> 目录、无独立 API 文档、<strong>无示例代码/示例目录（示例 0 文件）</strong>、无 CONTRIBUTING、无 FAQ/架构图。</li>
+<li><strong>正面</strong>：仓库 Description 与 Topics 撰写规范完整，作为双端安装型项目（npm 包 + Figma 插件），README 应包含安装与配置步骤，属基本可用文档。</li>
+<li>判 60% 档（有基本文档，但示例与深度文档缺失）。</li>
+</ul>
+<p><strong>D2.8 测试与质量保障 — 0.6/1（60%）</strong></p>
+<ul>
+<li><strong>测试覆盖</strong>：3 个测试文件、546 行测试，test_ratio 0.179（相对 2176 行 Go 代码约 25%），属「有部分测试」区间，远未达 50–80% 档的证据标准，无覆盖率报告。</li>
+<li><strong>CI/CD</strong>：配置了 2 条流水线——<code>ci.yml</code>（push/PR 触发，<code>go vet</code> + <code>go test -race</code>，含竞态检测，质量意识良好）、<code>release.yml</code>（tag 触发，打包 Figma 插件为 plugin.zip 并发 Release），发布自动化完善。</li>
+<li><strong>质量门禁</strong>：无 lint 门禁（无 golangci-lint）、无覆盖率阈值、无安全扫描、无 CODEOWNERS 审查机制、无多平台构建矩阵验证。</li>
+<li>综合判 60% 档。</li>
+</ul>
+<h3>结论</h3>
+<p>D2 维度得分 <strong>6.8 / 10（一般偏上）</strong>。项目在产品理念与架构工程层面表现良好：以「插件桥接替代 REST API」的创新路径绕开 token 与限流痛点，Go 侧 <code>cmd</code>/<code>internal</code> 分层清晰、依赖精简（8 个）、代码量（3051 行）与功能规模匹配，具备中等偏上的复刻门槛。但整体仍处早期：<strong>版本停留在 v0.5.x（5 周 10 次发版，Breaking Change 风险高）</strong>、文档仅单一 README 且零示例、测试比例不足 18%、无 lint/安全扫描门禁、无 i18n、无 Docker 化部署，运行环境需 Figma 客户端 + 插件 + MCP 客户端三方齐备，交付门槛偏高。<strong>当前技术成熟度可支撑早期尝鲜与开源采用，但尚不足以直接支撑企业级商业化交付，需补齐测试覆盖率、安全扫描、版本稳定性（1.0）与部署便捷性。</strong></p>
+<h3>D3. 社区健康度与生态势能（权重 11%）</h3>
+<blockquote>
+<p><strong>数据说明</strong>：近 90 天 Star 增量未补采到（API 缺失），D3.1 的 Star 增速采用退化公式 <code>Star 数 ÷ 项目年龄(月)</code>。本项目创建于 2026-07-18、最近推送 2026-08-24，库龄仅约 37 天（≈1.22 个月），此时退化公式与真实近期增速几乎等价，<strong>不存在老项目早期红利被高估的问题</strong>，可信度较高。Issue 响应时间因 90 天内无任何 Issue 关闭（issues_closed_90d = 0，open_issues = 0）而无法测量。</p>
+</blockquote>
+<h3>D3.1 社区活跃度指标（满分 3 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Star 增速</td>
+<td>11 Star ÷ 1.22 月 ≈ <strong>9.0 Star/月</strong>（退化公式）</td>
+<td>低于通用阈值下限 20/月，落入 3–4 档</td>
+</tr>
+<tr>
+<td>Fork 比率</td>
+<td>3 / 11 = <strong>27.3%</strong></td>
+<td>比率偏高，说明仓库被主动克隆/改编的意愿强于同星级项目；但绝对基数仅 3，统计意义有限</td>
+</tr>
+<tr>
+<td>Issue 活跃度（近 90 天）</td>
+<td>PR 2 个，Issue 关闭 <strong>0</strong> 个，开放 Issue <strong>0</strong></td>
+<td>无人提 Issue，也无人应答；社区参与量级极小</td>
+</tr>
+<tr>
+<td>响应速度</td>
+<td><strong>N/A</strong>（无 Issue 样本）</td>
+<td>无法评估，不作升降档依据</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判定</strong>：Star 月增远低于 20，社区参与仅体现为 2 个 PR，无 Issue 交互。唯一的正向信号是 5 周内连续发布 10 个版本（v0.1.0 → v0.5.4），说明<strong>维护者个人投入度高</strong>，但这属于「作者活跃度」而非「社区活跃度」，不能替代社区规模。本项目属于开发者工具 / 设计工具链垂直领域，按规则可整体下调一档判定；即便放宽一档，9 Star/月仍不满足 5–6 档（20–100/月）的门槛，故维持在 <strong>3–4 档</strong>。</p>
+<p><strong>小分：3 × 40% = 1.2 分</strong></p>
+<h3>D3.2 贡献者结构多样性（满分 2.5 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>贡献者数量</td>
+<td><strong>2 人</strong></td>
+<td>&lt;5 人，远低于「5–20 人」的 5–6 档门槛</td>
+</tr>
+<tr>
+<td>组织多样性</td>
+<td>无 COOWNERS / 无企业署名，仓库位于个人账号 <code>hoangann2000</code> 下</td>
+<td>无法识别出多组织来源；从仓库归属看高度集中于单一开发者</td>
+</tr>
+<tr>
+<td>核心团队占比</td>
+<td>2 名贡献者、5 周内 10 次发版节奏，呈现明显的单人主导 + 少量外部协助结构</td>
+<td>外部贡献占比极低</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判定</strong>：命中「&lt;5 贡献者，高度依赖 1 人」的 3–4 档描述。贡献者数为 2 而非 1，尚未落入「单人项目」的 1–2 档，但外部贡献者缺乏持续性证据。需注意：<strong>「核心人员离开后的传承风险」属 D8.1 巴士因子，本项仅从社区规模视角评估，不重复计分。</strong></p>
+<p><strong>小分：2.5 × 40% = 1.0 分</strong></p>
+<h3>D3.3 第三方生态成熟度（满分 3 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>插件/扩展</td>
+<td>无第三方插件市场、无第三方扩展的公开证据；仓库自带的是<strong>官方</strong> Figma 插件（需手动 Import manifest）</td>
+<td>第三方生态为零</td>
+</tr>
+<tr>
+<td>集成生态</td>
+<td>官方分发渠道为 npm（<code>figma-mcp-console</code>），README 覆盖 Claude CLI / Claude Desktop / Codex / VS Code Copilot / Cursor / Antigravity / Windsurf / Cline / Gemini CLI / Zed 等客户端</td>
+<td>这是<strong>项目主动适配 MCP 标准协议</strong>所带来的兼容性，而非被主流平台反向集成；应视为「协议红利」，不能等同于生态建设成果</td>
+</tr>
+<tr>
+<td>衍生项目</td>
+<td>未发现二次开发项目或商业衍生品</td>
+<td>无</td>
+</tr>
+<tr>
+<td>教程/课程</td>
+<td>未发现外部教程、课程或第三方博客</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判定</strong>：命中「几乎无第三方生态」的 3–4 档。MCP 协议本身的开放性是项目的结构性优势（任意外部 MCP 客户端即可零成本接入），但这属于 D1/D2 的技术与标准契合度范畴，在 D3.3 中不重复兑现。当前除作者自建的 npm 包与 Figma 插件外，无任何外部建树。</p>
+<p><strong>小分：3 × 40% = 1.2 分</strong></p>
+<h3>D3.4 品牌认知与行业影响力（满分 1.5 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>品牌辨识度</td>
+<td>11 Star，无社区讨论痕迹</td>
+<td>仅在极小范围内已知</td>
+</tr>
+<tr>
+<td>行业采用</td>
+<td>README 中无任何用户 logo、案例或企业背书</td>
+<td>无</td>
+</tr>
+<tr>
+<td>媒体覆盖</td>
+<td>未发现技术媒体报道或会议分享</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判定</strong>：命中「仅在极小范围已知」的 3–4 档。项目在 npm 上有可检索的包名，且 topics 覆盖 figma / mcp / design-to-code 等高热度标签，具备被检索到的入口，但尚未形成任何品牌认知。未落入 1–2 档的唯一依据是它已有可公开安装的分发产物（npm 包 + GitHub Release 插件包），并非完全无外部触达。</p>
+<p><strong>小分：1.5 × 40% = 0.6 分</strong></p>
+<h3>小结</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D3.1 社区活跃度指标</td>
+<td>3</td>
+<td>1.2</td>
+<td>3–4 档（40%）</td>
+</tr>
+<tr>
+<td>D3.2 贡献者结构多样性</td>
+<td>2.5</td>
+<td>1.0</td>
+<td>3–4 档（40%）</td>
+</tr>
+<tr>
+<td>D3.3 第三方生态成熟度</td>
+<td>3</td>
+<td>1.2</td>
+<td>3–4 档（40%）</td>
+</tr>
+<tr>
+<td>D3.4 品牌认知与行业影响力</td>
+<td>1.5</td>
+<td>0.6</td>
+<td>3–4 档（40%）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>4.0</strong></td>
+<td><strong>较弱</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：该项目<strong>尚不具备商业化所需的社区基础与生态势能</strong>。四项细则全部落在 3–4 档，合计 4.0/10，属于「低于平均，构成商业化障碍」区间。核心矛盾是：项目库龄仅约 5 周，除作者本人的高频发版（5 周 10 个版本）外，几乎不存在外部社区活动——11 Star、3 Fork、2 贡献者、0 Issue 关闭。</p>
+<p>必须区分两个容易被混淆的信号：（1）<strong>作者活跃 ≠ 社区活跃</strong>。10 次发版、README 详尽、CI 齐备（ci.yml / release.yml），反映的是维护者执行力和工程规范（应归入 D5/D6 维度），而不是社区势能。（2）<strong>MCP 协议兼容 ≠ 生态成熟</strong>。项目能被 Claude、Cursor、Copilot 等十余种客户端调用，是遵循开放标准的自然结果，属于技术契合度优势（D1/D2）。若把这两点误算作社区成绩，会严重高估 D3。</p>
+<p>对商业化的实际含义：该项目目前没有任何「社区即潜在客户池」的沉淀，获客必须完全依赖外部渠道（MCP 目录收录、npm 搜索、社区发帖），而非自然流量；同时贡献者结构脆弱，仅 2 人且明显单人主导，抗风险能力弱（传承风险另计于 D8.1）。若未来 3–6 个月 Star 未能进入月增 20+ 区间、且 Issue/PR 仍由作者自问自答，D3 将成为持续拖累总分与变现路径的短板。<strong>建议在报告中标注：本维度置信度中等偏上（硬指标齐全），但 Star 增速为退化公式推算值，Issue 响应维度因零样本无法评估。</strong></p>
+<h3>D4. 商业模式与变现潜力</h3>
+<blockquote>
+<p>权重 18%（本维度为九大维度中权重最高项）。本项目处于极早期（11 star、2 位贡献者、v0.5.4），<strong>仓库内不存在任何商业化痕迹</strong>（无定价页、无企业版、无赞助入口、无公司实体、无 CONTRIBUTING/SECURITY 文件）。以下评分基于「协议层可行空间」与「业态参照」推断，而非项目已实现的商业动作，置信度偏低。</p>
+</blockquote>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>折算档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D4.1 协议对变现模式的影响</td>
+<td>2</td>
+<td><strong>2.0</strong></td>
+<td>100%（9–10 档）</td>
+<td>LICENSE 文件与本地实测均为 <strong>MIT License</strong>（Copyright (c) 2026 T.ann），无 SPDX 冲突、无附加条款、无 CLA/双协议。MIT 下 Open Core、SaaS 托管、双协议、专业服务、插件市场等全部变现路径<strong>无任何法律约束</strong>。该细则为本维度唯一满分项，但属于"下限保障"而非商业优势。</td>
+</tr>
+<tr>
+<td>D4.2 变现路径清晰度</td>
+<td>3.5</td>
+<td><strong>2.1</strong></td>
+<td>60%（5–6 档）</td>
+<td>存在<strong>潜在但未经任何验证</strong>的路径：① Open Core（本地 free bridge + 团队治理/审计/多文件编排闭源）；② SaaS/托管（把"本地 bridge"升级为团队共享托管桥，但当前架构是刻意的 <strong>local-first、单端口 2000、进程内选举 owner</strong>，与托管模式方向相反）；③ 专业服务/定制（Figma↔代码工作流咨询）。参照系成熟（Figma Dev Mode MCP 官方免费、Anima/Locofy/Builder.io 的 design-to-code 付费产品）。但项目<strong>零商业信号</strong>：无定价、无 Enterprise 版、无赞助链接、无商业实体，且 3K 行薄层工具、无 Dockerfile、单维护者，缺乏承载商业化的工程形态。判定为"路径存在但尚不清晰，需验证"。</td>
+</tr>
+<tr>
+<td>D4.3 付费转化逻辑</td>
+<td>2.5</td>
+<td><strong>1.0</strong></td>
+<td>40%（3–4 档）</td>
+<td>免费层<strong>已被设计成完整可用的终态</strong>：<code>npx -y figma-mcp-console@latest</code> 一行接入，读+写 Figma、token 同步、批量编辑、多文件全部免费；无 seat 限制、无调用配额、无功能门禁。且 MCP server 品类的用户心智是"本地免费 npx 小工具"。可能的付费触发点（团队共享桥、CI/headless 无人值守、SSO/审计、SLA）<strong>当前均未实现</strong>，用户不存在"免费不够用→不得不升级"的自然拐点。付费意愿在 design-to-code 赛道客观存在（企业愿为设计系统治理付费），但本项目尚未建立任何漏斗入口（无注册、无账号体系、无用量统计）。</td>
+</tr>
+<tr>
+<td>D4.4 增值服务空间与定价天花板</td>
+<td>2</td>
+<td><strong>0.8</strong></td>
+<td>40%（3–4 档）</td>
+<td>增值方向理论存在：企业级治理（设计 token 规范校验、跨文件一致性审计）、CI 集成、私有化部署支持、培训。但现实约束重：① 交付物是"薄桥接层"，可替代性强、切换成本近零；② 直接竞品免费（Figma 官方 Dev Mode MCP）；③ 无 Dockerfile、无 SECURITY.md、无 CONTRIBUTING、无社区治理文件 → 企业采购尽调不通过；④ 单维护者、无 SLA 能力。合理客单价区间应为 <strong>$100–1K/年 per seat</strong>，难以支撑 $10K+/年 enterprise flat fee。</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>5.9</strong></td>
+<td>—</td>
+<td>5.9 / 10（"一般"档偏下）</td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<p><strong>D4 得分：5.9 / 10（一般，略低于行业平均）。</strong></p>
+<p>本项目的商业化上限被三重因素压制，且<strong>协议不是瓶颈（MIT 满分），瓶颈在产品与商业设计本身</strong>：</p>
+<ol>
+<li><strong>结构性风险（最重要）</strong>：核心卖点 "no API token, no rate limits" 的实现方式是<strong>绕过 Figma 官方 API，改用本地 Figma Desktop 插件桥接</strong>。这一路径依赖 Figma 插件沙箱的开放性，存在 ToS 灰色地带；一旦转为<strong>托管/云端 SaaS（最典型的 MCP 变现路径）</strong>，风险从"个人本地使用"升级为"商业规避官方 API 与配额"，被平台封堵或诉讼的概率显著上升。同时 Figma 官方 Dev Mode MCP Server 已免费提供同类能力，构成"平台吞噬"风险——这是本维度最大的负向因子。</li>
+<li><strong>免费层即完整产品</strong>：设计上无任何功能分层与配额，且 local-first 架构（单端口共享桥、进程接管）与"云服务计费"天然对立，导致 D4.3 付费触发点缺失。</li>
+<li><strong>无任何商业化执行证据</strong>：11 star / 3 fork / 2 contributors / 0 issue，10 个 release 全部在 5 周内发布（v0.1.0 → v0.5.4），呈现的是<strong>个人快速迭代的技术原型</strong>特征，而非商业项目形态。README 通篇为使用文档，无 Pricing、无 Enterprise、无 Sponsors 段落。</li>
+</ol>
+<p><strong>可行的最小变现假设（若需推进）</strong>：① 守住 MIT 与 local-first，转向 <strong>Open Core + 团队治理层</strong>（跨文件设计系统一致性审计、Token 规范校验、git 化设计变更追踪），规避云端托管带来的平台 ToS 风险；② 走 <strong>企业私有化支持/培训</strong> 专业服务路径（高客单、低合规门槛）；③ 纯社区赞助（参照 Vue.js，天花板约 $1M/年，本项目量级远未到）。但以上均需产品侧新增能力，当前仓库<strong>尚无任何一项落地</strong>。</p>
+<p><strong>置信度声明</strong>：本维度基于「协议 + 架构 + 业态参照」推断，因项目无商业信号、无付费用户、无企业版信息，实际变现潜力存在较大不确定性，建议在汇总报告中标注 D4 为<strong>低置信度项</strong>。</p>
+<h3>D5. 竞争格局与差异化壁垒（权重 12%）</h3>
+<h3>D5.1 竞品对比与市场定位（满分 3 分 → 1.8 分）</h3>
+<p><strong>竞品对比表</strong>（竞品均来自本次提供的 GitHub Search API 实测验证清单）</p>
+<table>
+<thead>
+<tr>
+<th>竞品名称</th>
+<th>类型</th>
+<th>仓库/官网</th>
+<th>验证方式</th>
+<th>Star/用户量</th>
+<th>核心差异</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>entireio/cli</td>
+<td>间接竞品（AI Agent 会话工具链）</td>
+<td>github.com/entireio/cli</td>
+<td>GitHub Search API 实测验证</td>
+<td>5,100</td>
+<td>把 AI agent 会话索引进 Git 工作流，解决「Agent 行为可追溯」，不触碰设计工具</td>
+</tr>
+<tr>
+<td>compozy/compozy</td>
+<td>间接竞品（Agent 编排 OS）</td>
+<td>github.com/compozy/compozy</td>
+<td>GitHub Search API 实测验证</td>
+<td>2,751</td>
+<td>把多个 Agent CLI 组成团队协作，是 MCP 客户端的「上游编排层」，非 Figma 连接器</td>
+</tr>
+<tr>
+<td>Infisical/agent-vault</td>
+<td>间接竞品（Agent 凭据代理）</td>
+<td>github.com/Infisical/agent-vault</td>
+<td>GitHub Search API 实测验证</td>
+<td>2,223</td>
+<td>为 Agent 提供 HTTP 凭据代理/Vault；本项目反其道而行——<strong>完全不用 token</strong>，走插件桥</td>
+</tr>
+<tr>
+<td>browserwing/browserwing</td>
+<td>间接竞品（浏览器→MCP 桥）</td>
+<td>github.com/browserwing/browserwing</td>
+<td>GitHub Search API 实测验证</td>
+<td>1,412</td>
+<td>把浏览器操作封成 MCP 命令，架构思路（宿主客户端 + 本地桥 + MCP）与本项目同构，但领域不同</td>
+</tr>
+<tr>
+<td>asheshgoplani/agent-deck</td>
+<td>间接竞品（Agent 终端管理）</td>
+<td>github.com/asheshgoplani/agent-deck</td>
+<td>GitHub Search API 实测验证</td>
+<td>901</td>
+<td>多 Agent TUI 会话管理，与本项目同处 MCP 客户端生态位但无功能交集</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>直接竞品情况说明（重要）</strong>：本次 GitHub Search API 返回的 5 个仓库<strong>全部是 AI Agent 工具链项目，无一为「Figma ↔ AI 的 MCP 服务器」</strong>，即同一问题域的直接竞品在本次检索样本中为 <strong>0 个</strong>。这属于检索关键词/排序偏差，<strong>不能据此判定「无直接竞品」</strong>：MCP（Model Context Protocol）生态已相当活跃，且「Figma 插件桥接 + 本地 WebSocket」是一条公开的技术路径，已知存在其他实现方向（包括 Figma 官方 Dev Mode 方向提供的 MCP 能力）。但本次素材未提供这些项目的可验证证据，依据防幻觉规则<strong>不予列名计分，仅作置信度下调说明</strong>。故 D5.1 的判断以「相邻生态竞品规模对比 + 本项目自身定位清晰度」为主，置信度中等偏低。</p>
+</blockquote>
+<p><strong>市场定位分析</strong>：</p>
+<ul>
+<li><strong>定位清晰度（高）</strong>：README 首屏即给出唯一、可验证的卖点——<code>no API token, no rate limits</code>，并明确双向能力（Figma → Code / 需求 → Figma / Token 同步 / 批量编辑），客户端兼容面写得极具体（Claude CLI、Claude Desktop、Codex、VS Code Copilot、Cursor、Antigravity 等逐一给出配置片段）。</li>
+<li><strong>位势对比（弱）</strong>：相邻 MCP 生态竞品 star 量级为 901–5,100，本项目 11 star / 3 fork / 0 watcher / 2 贡献者，处于数量级差距的跟随位势。</li>
+<li><strong>差异化未获市场验证</strong>：0 open issue、0 closed issue、0 watcher，说明尚无足够的采纳深度来验证「免 token 免限速」是否被用户真正认可。</li>
+</ul>
+<p><strong>判分依据</strong>：定位差异化真实且表述清晰（可判 7–8 档），但同类赛道实际拥挤、项目处于规模末位、差异化未被采纳数据验证（可判 3–4 档），综合取中间档 <strong>5–6 档（60%）→ 1.8 分</strong>。</p>
+<hr />
+<h3>D5.2 技术壁垒与网络效应（满分 3 分 → 1.2 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测情况</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术壁垒</td>
+<td>三层架构：Figma 插件（.js 875 行）+ 本地 WebSocket 桥（端口 2000）+ Go MCP server（.go 2,176 行），全量 3,051 行，测试 546 行（17.9%）；依赖均为公开库（<code>coder/websocket</code>、<code>modelcontextprotocol/go-sdk</code>、<code>google/jsonschema-go</code>、<code>segmentio/encoding</code>、<code>golang.org/x/oauth2</code>）</td>
+<td>无专利、无独家算法、无专有数据集、无模型资产。核心价值是「工程整合 + 平台灰色地带的架构选型」，属可复现工程而不是防御性技术</td>
+</tr>
+<tr>
+<td>网络效应</td>
+<td>每个用户本地运行；多 Figma 文件/多 AI 会话共享的是<strong>本机唯一一个桥</strong>，价值不随用户总数增长；无插件市场、无共享数据池、无社区共建资产</td>
+<td><strong>无网络效应</strong>。多客户端兼容性是「兼容性特征」，不是网络效应</td>
+</tr>
+<tr>
+<td>规模效应</td>
+<td>通过 <code>npx figma-mcp-console@latest</code> 分发，无服务端基础设施需要摊薄</td>
+<td>近乎为零；规模扩大只增加作者维护负担，不带来成本或体验优势</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判分依据</strong>：代码量中等（3k 行）、依赖全公开、无数据/生态/规模任何一类护城河，一个熟悉 Figma Plugin API + WebSocket 的开发者可在数周内复刻同等能力 → <strong>3–4 档（40%）→ 1.2 分</strong>。</p>
+<hr />
+<h3>D5.3 切换成本与用户粘性（满分 2 分 → 0.8 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测情况</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>迁移成本</td>
+<td>安装只需 <code>npx</code> 一行；配置是 <code>.mcp.json</code> / <code>claude_desktop_config.json</code> / <code>.cursor/mcp.json</code> / <code>.vscode/mcp.json</code> 中几行 JSON；切换方案 ≈ 改一行配置 + 装另一个插件</td>
+<td><strong>低</strong></td>
+</tr>
+<tr>
+<td>数据/资产锁定</td>
+<td>项目不持有用户数据：设计资产在 Figma 内，导出资产落在用户代码库中；无数据库、无云账号、无托管状态</td>
+<td><strong>无锁定</strong></td>
+</tr>
+<tr>
+<td>深度集成</td>
+<td>不是 SDK、不是运行时依赖，不侵入业务代码；仅在 Figma Desktop 一次性「Import plugin from manifest」</td>
+<td><strong>浅集成</strong></td>
+</tr>
+<tr>
+<td>习惯锁定</td>
+<td>存在少数轻度习惯成本：① 每个 Figma 文件需打开插件窗口并保持常开；② <code>CLAUDE.md</code> / <code>AGENTS.md</code> / <code>.cursorrules</code> 中沉淀的导出约定（命名规则、图标/图片目录、token 映射）需重写；③ 与 AI 会话提示词模板（"screenshot and compare"）绑定</td>
+<td><strong>轻度粘性</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>判分依据</strong>：整体接近「即插即用即走」，仅规则文件与插件安装习惯构成极轻量摩擦 → <strong>3–4 档（40%）→ 0.8 分</strong>。</p>
+<hr />
+<h3>D5.4 护城河可持续性（满分 2 分 → 0.8 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测情况</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>护城河趋势</td>
+<td>唯一卖点「no API token, no rate limits」的成立前提是 Figma 对 development plugin 能力的持续开放，属<strong>平台授予</strong>而非项目自有积累</td>
+<td><strong>不由项目掌控，趋势中性偏弱</strong></td>
+</tr>
+<tr>
+<td>颠覆风险</td>
+<td>明确且高：① 平台方收紧插件能力或将其纳入官方 MCP/token 体系，差异化被直接抹平；② 项目强依赖 <strong>Figma Desktop</strong>（README 明示 Web 版无法运行 development plugin），平台形态变化即为致命约束</td>
+<td><strong>高</strong></td>
+</tr>
+<tr>
+<td>时间窗口</td>
+<td>项目 2026-07-18 创建，2026-08-24 后无推送（分析时约 3 周停更）；10 个 release 集中在前 5 周（v0.1.0 → v0.5.4）；2 名贡献者、0 watcher、0 open issue、90 天 2 个 PR——维护动能与社区动能均未证明可持续</td>
+<td><strong>短</strong></td>
+</tr>
+<tr>
+<td>项目自身抗风险资产</td>
+<td>MIT 协议（无协议壁垒）、无专利、无商标（README 明确声明独立社区项目、非 Figma 官方关联）、无付费/商业实体</td>
+<td><strong>无</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>判分依据</strong>：护城河存在明确颠覆者（平台方自身），且项目自身无任何可延续的积累型资产，同时已有停更迹象 → <strong>3–4 档（40%）→ 0.8 分</strong>。</p>
+<hr />
+<h3>D5 维度结论</h3>
+<p><strong>D5 得分 = 1.8 + 1.2 + 0.8 + 0.8 = 4.6 / 10</strong></p>
+<p>本项目在<strong>定位叙事</strong>上是清晰且有一定锐度的（免 token、免限速、可读可写、多客户端全兼容、多文件共享桥），这一叙事在 MCP 生态中足以让人一眼记住；但从<strong>竞争位势与防御能力</strong>角度看，四项细则全部落在 3–6 档：相邻生态竞品 star 量级为 901–5,100，本项目 11 star，属数量级落后的跟随者；无技术/数据/生态/规模任何一类护城河；用户迁移成本接近零；唯一差异化招式的解释权掌握在平台方（Figma）手中，并已出现 3 周停更与社区零互动信号。整体判定为「低于平均，构成商业化障碍」。</p>
+<p><strong>置信度说明</strong>：中低。核心限制是本次竞品检索样本中<strong>直接竞品为 0</strong>（返回的 5 个均为间接生态竞品），D5.1 的位势判断主要依赖间接对比，真实赛道内竞争强度可能被低估或高估。</p>
+<h3>D6. 法律合规与知识产权</h3>
+<p><strong>维度得分：7.8 / 10</strong>（满分 10，四项细则合计 7.8；D6.3 未经人工核查，本维度置信度中低）</p>
+<p>项目采用 MIT 协议，依赖链全部为宽松许可，法律硬伤风险低；主要缺口集中在贡献者协议缺失（无 CONTRIBUTING/CLA/DCO）与商标未核查（项目名含第三方商标 "Figma"）。</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D6.1 开源协议合规性与商业限制</td>
+<td>3</td>
+<td><strong>3.0</strong></td>
+<td>9–10（100%）</td>
+<td>根目录存在标准 MIT LICENSE 全文；<code>npm/package.json</code> 声明 <code>"license": "MIT"</code>；无 Commons Clause / BUSL / SSPL 等商业附加条款；无 copyleft 传染源。协议文本完整、可商用、可闭源衍生，法律上无实质障碍</td>
+</tr>
+<tr>
+<td>D6.2 依赖链法律风险</td>
+<td>2.5</td>
+<td><strong>2.5</strong></td>
+<td>9–10（100%）</td>
+<td>go.mod 共 8 个依赖（2 直接 + 6 间接），全部来自知名组织且为宽松许可（coder/websocket、modelcontextprotocol/go-sdk、google/jsonschema-go、segmentio/* 系、yosida95/uritemplate 为 MIT/BSD 系，golang.org/x/oauth2、golang.org/x/sys 为 BSD-3-Clause）；npm 侧 <code>package.json</code> 无 <code>dependencies</code>/<code>devDependencies</code> 字段，运行时零外部包。无 AGPL/GPL 传染依赖，合规审查成本极低</td>
+</tr>
+<tr>
+<td>D6.3 商标与专利风险</td>
+<td>2.5</td>
+<td><strong>1.5</strong></td>
+<td>5–6（60%）</td>
+<td><strong>未经人工核查，置信度低</strong>。按方法论默认档位给分：未执行商标检索与专利排查，禁止凭模型记忆断言状态。可观测的硬事实是：仓库内无 TRADEMARK 文件与商标使用政策，且项目名/包名 <code>figma-mcp-console</code> 及 topics 直接包含第三方商标 "Figma"，与 Figma Inc. 品牌政策存在潜在冲突待人工确认；本项目通过 Figma Desktop 插件通道读写（宣称 "no API token, no rate limits"），是否触及 Figma 开发者条款亦需法务确认</td>
+</tr>
+<tr>
+<td>D6.4 贡献者协议完备性</td>
+<td>2</td>
+<td><strong>0.8</strong></td>
+<td>3–4（40%）</td>
+<td>无 CONTRIBUTING.md、无 CLA/DCO 配置、无 CODEOWNERS、无 SECURITY.md 及 <code>.github/</code> 贡献模板（仅有 ci.yml / release.yml 两个工作流）。贡献流程无成文规范；缓解因素是版权相对集中——LICENSE 署名单一权利人 "Copyright (c) 2026 T.ann"，全仓贡献者仅 2 人，尚未出现版权碎片化，但缺乏 CLA 会使未来双许可/换证等商业化操作难以取得全部贡献者授权</td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<ul>
+<li><strong>优势</strong>：协议层是干净的 MIT，无附加商业限制，可直接用于商业分发与闭源衍生；依赖面窄且全部宽松许可，无 GPL/AGPL 传染风险，是四条细则中确定性最高的两项（D6.1、D6.2 满分）。</li>
+<li><strong>主要风险点</strong>：
+  1. <strong>贡献者协议缺失（0.8/2）</strong>——目前版权集中风险低，但随着 PR 增长，无 CLA/DCO 将导致版权分散，直接封堵"开源版 + 商业版"双许可变现路径。建议最小成本补上 DCO（<code>Signed-off-by</code>）或轻量 CLA。
+  2. <strong>商标风险未验证（默认 1.5/2.5）</strong>——项目名含第三方商标 "Figma"，商业产品命名大概率需要改名或获得授权；同时"绕过官方 API Token 与限流"的定位需法务评估是否与 Figma 开发者条款冲突。此项为<strong>未经人工核查的低置信度判断</strong>，建议在投入商业化前完成一次商标检索与 Figma 平台条款确认。</li>
+<li><strong>对商业化的整体影响</strong>：协议与依赖层面不构成障碍，法律风险主要来自平台方（Figma）条款与品牌命名，而非开源许可本身。D6 是"可通过补齐文档 + 一次法务核查显著改善"的维度。</li>
+</ul>
+<h3>D7. 企业就绪度与可运营性（权重 8%）</h3>
+<p><strong>结论先行</strong>：本项目是典型的「本地优先开发者工具」——通过 <code>npx</code> 拉起 MCP server、经 localhost:2000 的本地桥接与 Figma Desktop 插件通信。这一形态使<strong>运维负担天然极低</strong>（无需部署服务端、无持久化数据、无数据迁移），但也从根本上决定了它<strong>不具备企业级运营特性</strong>：无认证/权限/审计体系，无水平扩展与集群高可用路径，可观测性薄弱。D7 维度得分 <strong>6.1 / 10</strong>，属"一般"档——作为单人/小组工具表现合格，作为企业客户付费采购的运营载体存在明显短板。</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+<th>折算</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D7.1 运维复杂度与升级路径</td>
+<td>3.0</td>
+<td><strong>2.4</strong></td>
+<td>7–8 良好</td>
+<td>80%</td>
+</tr>
+<tr>
+<td>D7.2 安全管理与权限控制</td>
+<td>2.5</td>
+<td><strong>1.0</strong></td>
+<td>3–4 较弱</td>
+<td>40%</td>
+</tr>
+<tr>
+<td>D7.3 可扩展性与高可用能力</td>
+<td>2.5</td>
+<td><strong>1.5</strong></td>
+<td>5–6 一般</td>
+<td>60%</td>
+</tr>
+<tr>
+<td>D7.4 集成兼容与可观测性</td>
+<td>2.0</td>
+<td><strong>1.2</strong></td>
+<td>5–6 一般</td>
+<td>60%</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>6.1</strong></td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>D7.1 运维复杂度与升级路径 —— 2.4 / 3.0（7–8 档）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>证据</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>配置管理</td>
+<td>配置载体为客户端侧 JSON（<code>.mcp.json</code> / <code>claude_desktop_config.json</code> / <code>config.toml</code> / <code>.cursor/mcp.json</code>），每条目仅 <code>command</code> + <code>args</code> 两个字段</td>
+<td>配置极其简单，但无环境变量体系、无配置中心，亦无配置项文档</td>
+</tr>
+<tr>
+<td>运维负担</td>
+<td><code>npx -y figma-mcp-console@latest</code> 即用，无服务端常驻、无数据库、无中间件</td>
+<td>运维成本接近下限，属本项最强项</td>
+</tr>
+<tr>
+<td>升级路径</td>
+<td><code>release.yml</code> 于 tag <code>vX.Y.Z</code> 触发，仅打包 <code>plugin/</code> 为 <code>plugin.zip</code> 并自动生成 release notes；npm 分发二进制。文档固定使用 <code>@latest</code>，无版本锁定指引，<strong>无回滚机制说明</strong></td>
+<td>升级动作平滑（<code>npx</code> 自动拉取），但<strong>不支持可控回滚</strong>：<code>@latest</code> 使客户端被动跟随最新版，企业无法钉住已验证版本</td>
+</tr>
+<tr>
+<td>数据迁移</td>
+<td>无持久化存储，state 仅存在于内存桥与 Figma 文档中</td>
+<td>无迁移负担（加分项），但也意味着无 CHANGELOG/迁移说明可依</td>
+</tr>
+</tbody>
+</table>
+<p><strong>扣分理由</strong>：缺少 CHANGELOG 文件与任何版本兼容性/破坏性变更说明（仓库 36 天内连发 10 个 0.x 版本：v0.1.0 → v0.5.4，2026-07-19 至 2026-08-24，主版本长期停留在 0.x 意味着 API 与插件协议均可能不兼容变更）；插件更新需用户重新下载 <code>plugin.zip</code> 并覆盖本地开发插件目录，属手动运维动作。未达 9–10 档所要求的"平滑升级 + 回滚 + 自动迁移"三要素齐备。</p>
+<hr />
+<h3>D7.2 安全管理与权限控制 —— 1.0 / 2.5（3–4 档）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>证据</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>认证授权</td>
+<td>无 SSO / LDAP / SAML；项目核心卖点恰为"<strong>no API token</strong>"。<code>golang.org/x/oauth2</code> 位于依赖树中，但从项目定位看属 MCP SDK / Figma 侧传递依赖，非自建认证体系</td>
+<td>无企业认证能力</td>
+</tr>
+<tr>
+<td>权限模型</td>
+<td>代码与文档中无 RBAC / ABAC 任何痕迹；工具集包含 <strong>写操作</strong>（批量重命名图层、跨页替换文本、重排 frame、从代码反向生成设计系统），一旦被调用即对用户 Figma 文件产生破坏性改动，无审批/白名单/作用域限制</td>
+<td>无权限控制，且写操作无护栏</td>
+</tr>
+<tr>
+<td>审计日志</td>
+<td>无审计日志、无安全事件记录；仓库无 <code>SECURITY.md</code>，仅在本地数据中记为 <code>has_security_md: false</code></td>
+<td>无审计能力</td>
+</tr>
+<tr>
+<td>数据安全</td>
+<td>全部通信限于本机（localhost:2000 桥 + Figma 插件），数据不出本地，天然的隔离性可视为<strong>唯一缓解因素</strong>；但桥接端口<strong>固定为 2000 且文档未提及任何鉴权</strong>，同机任意进程均可连接该 ws 端点并借 AI 通道操作 Figma 文档，构成明确的本地攻击面；无加密存储需求（无存储），无密钥管理</td>
+<td>弱</td>
+</tr>
+</tbody>
+</table>
+<p><strong>扣分理由</strong>：企业采购安全问卷的第一梯队问题（SSO、RBAC、审计、SECURITY.md、漏洞披露流程）<strong>全部为空</strong>。给予 3–4 档而非 1–2 档，是因为"本地进程内运行 + 数据不出机"在架构上回避了服务端多租户风险，且 Figma 自身账号体系提供了外层访问控制兜底；但对"企业级客户"这一付费主体而言，当前状态直接构成采购阻塞项。</p>
+<hr />
+<h3>D7.3 可扩展性与高可用能力 —— 1.5 / 2.5（5–6 档）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>证据</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>水平扩展</td>
+<td>架构为「MCP server 进程（stdio）→ 本地桥（固定端口 2000）→ Figma 插件（Figma Desktop 进程内）」，且明确要求 <strong>Figma Desktop 应用</strong>（Web 版无法跑开发插件）</td>
+<td>无水平扩展概念，且被 Figma Desktop 单机形态硬约束</td>
+</tr>
+<tr>
+<td>高可用</td>
+<td>README：多会话与多 Figma 文件<strong>共享同一个本地桥</strong>，首个启动者持有，后续自动加入；持有者退出后<strong>由其他会话在 1 秒内接管</strong></td>
+<td>存在本机进程内的 leader 接管机制，是本项唯一亮点；但无集群、无跨机故障转移</td>
+</tr>
+<tr>
+<td>性能瓶颈</td>
+<td>端口 2000 固定、单一桥进程为<strong>结构性单点</strong>；所有 AI 会话与所有 Figma 文件的流量汇聚于此；无背压/限流/队列描述</td>
+<td>存在明确单点故障与固定端口冲突风险（端口被占用时的行为未文档化）</td>
+</tr>
+<tr>
+<td>数据一致性</td>
+<td>无分布式状态、无副本，一致性由单进程串行保证</td>
+<td>不构成问题，但也无相关能力可评</td>
+</tr>
+</tbody>
+</table>
+<p><strong>扣分理由</strong>：达不到 7–8 档"可扩展但需额外配置 + 高可用基本支持"。本项目<strong>架构上被设计为不可作为团队共享服务运行</strong>——无法部署到服务器供多设计师/多团队共用，企业无法把它纳入统一的运维与容量规划。给予 5–6 档，是因为对"MCP 本地 server"这一品类而言单进程 localhost 是行业通行做法，且其桥接接管逻辑优于同类的"单点即整体失效"实现。</p>
+<hr />
+<h3>D7.4 集成兼容与可观测性 —— 1.2 / 2.0（5–6 档）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>证据</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>API 完备性</td>
+<td>基于 <code>github.com/modelcontextprotocol/go-sdk</code>（官方 SDK）+ <code>google/jsonschema-go</code> + <code>yosida95/uritemplate</code> 定义工具接口，schema 化程度良好；但<strong>仅有 MCP stdio 一种接口</strong>，无 REST / gRPC / 官方 SDK 封装</td>
+<td>接口规范但单一</td>
+</tr>
+<tr>
+<td>标准协议</td>
+<td>采用 <strong>MCP 标准协议</strong>（加分），并已适配 Claude CLI/Desktop、Codex、VS Code Copilot、Cursor、Antigravity 等客户端；但<strong>无 OpenTelemetry / Prometheus / Webhook</strong>，桥接层使用自定义 ws 协议而非标准</td>
+<td>部分达标</td>
+</tr>
+<tr>
+<td>监控告警</td>
+<td>无 <code>/health</code>、<code>/metrics</code>、无指标导出；唯一"可观测"信号是插件窗口的<strong>绿点连接指示</strong></td>
+<td>严重薄弱</td>
+</tr>
+<tr>
+<td>日志体系</td>
+<td>依赖中无 zap/zerolog/slog 相关结构化日志库；文档与 workflow 中无日志级别配置说明</td>
+<td>无证据，无法确认结构化日志</td>
+</tr>
+</tbody>
+</table>
+<p><strong>扣分理由</strong>：MCP 标准协议 + 官方 SDK 使集成面优于同类自研协议项目，但企业运营所需的监控告警这一半完全缺失，日志体系亦无任何可查证据。恰好卡在 5–6 档"有 API 但监控/日志薄弱"。</p>
+<hr />
+<h3>综合结论与商业化含义</h3>
+<ol>
+<li><strong>运维维度是相对优势</strong>：<code>npx</code> 即用、无服务端、无数据迁移，使该工具在"开箱运营"上优于任何需要部署中间件的方案。这是它适合个人开发者与小型团队的直接原因。</li>
+<li><strong>安全与治理是硬伤</strong>：无认证、无权限、无审计、无 <code>SECURITY.md</code>，配合"AI 可对 Figma 文档执行破坏性写操作"的能力，使企业安全评审几乎必然卡壳。这是本项目<strong>从明星开源工具走向企业付费的最大单一障碍</strong>。</li>
+<li><strong>架构天花板已定</strong>：绑定 Figma Desktop + 固定本地端口 + 单桥进程，意味着无法演进为团队共享服务；若要做企业版，需要新增服务端模式（多租户托管桥 + OAuth + RBAC + 审计）——这属于架构级改造而非功能叠加。</li>
+<li><strong>可运营性治理缺口</strong>：无 CHANGELOG、无回滚指引、无 CONTRIBUTING/CODEOWNERS、仅有 README 一份文档、10 个 0.x 版本在 36 天内密集发布——对愿意自建 fork 的企业客户，变更可控性差。正面因素为 CI 已跑 <code>go vet</code> + <code>go test -race</code>，测试占比 17.9%（546/3051 行），在 3k 行量级项目中属合格。</li>
+<li><strong>付费意愿映射</strong>：当前形态下企业愿意为"减少 Figma↔代码人工搬运"付费，但会以<strong>免费工具 + 自担风险</strong>方式使用，很难为治理空白支付溢价；D7 得分 6.1 意味着团队版/企业版必须有独立的运营层投入。</li>
+</ol>
+<h3>D8. 团队治理与可持续性</h3>
+<p><strong>维度权重</strong>: 7% ｜ <strong>维度满分</strong>: 10 分</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D8.1 核心维护者能力与背景</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6（60%）</td>
+<td>仓库归属个人账号 <code>hoangann2000</code>，contributors=2，无组织/公司背景可查。技术侧具备一定水准：Go 2176 行 + JS 875 行实现 MCP server，依赖 <code>modelcontextprotocol/go-sdk</code>、<code>coder/websocket</code>，含 546 行测试（test_ratio 17.9%），并配置 ci.yml/release.yml，37 天内连续发布 10 个版本（v0.1.0→v0.5.4），显示较高投入度。但无任何商业化/创业/企业服务经验证据，第二贡献者身份与投入度不可考，巴士因子最多按 2 计，且实际决策权高度集中于单一作者。</td>
+</tr>
+<tr>
+<td>D8.2 治理模型透明度</td>
+<td>2.0</td>
+<td>0.8</td>
+<td>3–4（40%）</td>
+<td>无 GOVERNANCE.md、无 CONTRIBUTING.md、无 CODEOWNERS、无 SECURITY.md，文档文件仅有 <code>./README.md</code> 一个，亦无公开路线图文档。唯一可视为"流程"的产物是 <code>.github/workflows/ci.yml</code> 与 <code>release.yml</code> 所体现的自动化发布约定。决策过程对外部贡献者不可见，PR 近 90 天仅 2 个，社区参与通道基本未建立。</td>
+</tr>
+<tr>
+<td>D8.3 资金支持与商业赞助</td>
+<td>2.5</td>
+<td>1.0</td>
+<td>3–4（40%）</td>
+<td>素材中无任何资金信号：无 GitHub Sponsors 页面信息、无 Open Collective、无组织页面对应商业实体、无外部融资记录。项目由个人以 MIT 协议发布，属于典型的"纯热情驱动"型。与 1–2 档的区别在于维护者当前高度活跃（pushed_at 紧贴采集时点、持续发版），尚未出现弃维护迹象。</td>
+</tr>
+<tr>
+<td>D8.4 项目可持续性与传承风险</td>
+<td>3.0</td>
+<td>1.8</td>
+<td>5–6（60%）</td>
+<td>活跃趋势明确向上：约 5 周内 10 次发版、最近推送 2026-08-24、is_archived=false、开放 Issue 为 0（无积压）。但可持续性基础薄弱——项目极新（创建于 2026-07-18）、社区规模小（11 star / 3 fork）、无治理与传承机制、巴士因子≈1，一旦唯一核心维护者退出，缺乏可接管的组织化路径；3 个 fork 尚不构成社区分裂信号，仅为正常扩散。</td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<p><strong>D8 得分：5.1 / 10（一般偏弱）</strong></p>
+<p>该项目在"人"的维度上呈现典型的<strong>早期个人项目画像</strong>：开发动能充足且节奏紧凑（5 周 10 个版本、CI/Release 自动化齐备、17.9% 测试覆盖），说明核心维护者技术执行力与投入度均不低；但在商业化最关键的治理与资金两项上几乎空白——无治理文档、无贡献指南、无基金会或公司背书、无任何公开资金渠道，决策与延续完全绑定在单一作者身上。</p>
+<p><strong>风险提示</strong>：
+1. <strong>巴士因子 ≈ 1</strong>：2 名贡献者中一名为主导者，缺少 CODEOWNERS 与决策交接机制，人员流失即等于项目停摆；
+2. <strong>无资金可持续性</strong>：无赞助/公司/VC 支撑，长期维护依赖个人意愿，难以支撑企业级 SLA 承诺；
+3. <strong>治理不透明</strong>：外部贡献者既无 CONTRIBUTING 指引也无决策参与路径，社区化放大能力受限；
+4. <strong>积极面</strong>：活跃度趋势向上、无 archived 标记、Issue 零积压，短期内不存在弃维护风险。</p>
+<p><strong>置信度说明</strong>：本维度基于 GitHub API 实采与本地仓库扫描，维护者的职业状态（全职/业余）、商业履历、所在地及真实资金状况均无法从素材中获取，D8.1 与 D8.3 的判断存在一定推断成分，整体置信度<strong>中等偏低</strong>。若后续出现赞助入口、公司背景披露或治理文档，应重新评估。</p>
+<h1>D9. 上手难度与易用性（权重 10%）</h1>
+<p><strong>结论：8.0 / 10 —— 🟢 简单（面向"所有人"档）</strong></p>
+<p>项目以 <code>npx</code> 单命令分发、零外部服务依赖、零配置文件模板（仅需在既有 MCP 客户端配置中粘贴一段 JSON），README 提供 3 步 Quick start、6+ 客户端配置片段、7 个 <code>&lt;details&gt;</code> 折叠说明与 6 条排障对照表，入门引导质量明显高于同类 11 star 的早期项目。扣分集中在：无 Docker/Compose/Helm 标准化部署物、硬性依赖 Figma Desktop 桌面应用并需手动 Import plugin from manifest、无示例工程/脚本（本地统计示例 0 文件、脚本 0 文件）、README 为唯一文档。</p>
+<h3>D9.1 安装难度 —— 2.0 / 2.5（80%，良好）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>事实依据</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>安装方式</td>
+<td>README：「No install needed — <code>npx</code> downloads and runs everything automatically」；<code>npx -y figma-mcp-console@latest</code>；<code>package.json</code> 的 <code>bin</code> 为 <code>run.js</code>，<code>files: ["run.js","bin/"]</code></td>
+<td>一键命令，无需 clone/编译</td>
+</tr>
+<tr>
+<td>依赖管理</td>
+<td>用户侧仅需 Node.js 18+（<code>engines.node: "&gt;=18"</code>）；Go 依赖仅 2 个 direct（<code>coder/websocket</code>、<code>modelcontextprotocol/go-sdk</code>）由 npm 包投递，用户无感</td>
+<td>依赖高度自包含</td>
+</tr>
+<tr>
+<td>环境要求</td>
+<td>必须安装 <strong>Figma Desktop</strong>（README 明示「the web app can't run development plugins」）；Windows 需改为 <code>cmd /c</code></td>
+<td>存在桌面应用硬前置</td>
+</tr>
+<tr>
+<td>平台覆盖</td>
+<td>Windows/macOS/Linux 均被 README 以条件分支覆盖；无 Dockerfile</td>
+<td>主流平台覆盖，但无容器化路径</td>
+</tr>
+</tbody>
+</table>
+<p><strong>扣分点</strong>：无法一台机器"纯命令行"跑通，必须落地 Figma Desktop 并手动导入开发插件。</p>
+<h3>D9.2 部署与配置难度 —— 2.0 / 2.5（80%，良好）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>事实依据</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>部署方式</td>
+<td><strong>无</strong> Dockerfile / docker-compose / Helm；部署 = 在既有 MCP 客户端写一段 JSON 或执行 <code>claude mcp add</code> / <code>codex mcp add</code></td>
+<td>分发极简，但缺标准化容器编排</td>
+</tr>
+<tr>
+<td>配置复杂度</td>
+<td>本地 bridge 固定端口 2000，「the first MCP server to start owns it, later ones join it automatically」、owner 退出后 1 秒内接管；README 明确「<strong>Nothing to configure</strong>」</td>
+<td>配置项近乎为零</td>
+</tr>
+<tr>
+<td>外部依赖初始化</td>
+<td>需在 Figma Desktop 一次性 Import plugin from manifest，并在每个目标文件打开插件窗口；无数据库/缓存/队列需初始化</td>
+<td>唯一"外部组件"是 Figma 插件</td>
+</tr>
+<tr>
+<td>快速验证</td>
+<td>README Step 3 给出可直接粘贴的提示词，未提供 demo 脚本 / Makefile（脚本 0 个），验证需 Figma Desktop + 插件窗口 + AI 客户端三方齐备</td>
+<td>缺一键冒烟脚本</td>
+</tr>
+<tr>
+<td>面向人群</td>
+<td>需要能编辑 <code>.mcp.json</code> / <code>.vscode/mcp.json</code> / <code>config.toml</code> 并操作 Figma 菜单；README 用 checkbox 前置项 + Option A/B 二选一 + 排障表降低门槛</td>
+<td>有技术基础者或熟练设计师可独立完成</td>
+</tr>
+</tbody>
+</table>
+<h3>D9.3 易用性与操作门槛 —— 2.0 / 2.5（80%，良好）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>事实依据</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>操作便捷度</td>
+<td>日常操作通过自然语言提示词完成，用户不直接调用 CLI；仅暴露 <code>npx figma-mcp-console install-plugin</code> 一个辅助子命令</td>
+<td>交互面极轻</td>
+</tr>
+<tr>
+<td>交互设计</td>
+<td>无独立 GUI/管理界面，工具由 AI 客户端的 MCP 面板呈现（README 出现 <code>get_variable_defs</code>、<code>list_files</code> 等工具名；VS Code 走 "MCP: Add Server" 图形入口）</td>
+<td>依赖宿主客户端的提示能力</td>
+</tr>
+<tr>
+<td>错误处理</td>
+<td>README「🔧 Troubleshooting」用 6 行"问题 → 修复"对照表覆盖连接、多文件、Node 版本、导出路径、字体缺失；且指出字体错误信息会点名具体字体</td>
+<td>错误信息可读、有明确处置</td>
+</tr>
+<tr>
+<td>默认合理性</td>
+<td>端口、多实例共享、多文件路由全自动；导出路径默认跟随 server 运行目录（README 提示可改为项目级注册或显式路径）</td>
+<td>默认即用，仅导出路径需一次性约定</td>
+</tr>
+<tr>
+<td>非专家可用性</td>
+<td>设计师/产品可用提示词驱动，但需理解"开发插件导入""MCP 客户端配置""多文件时传 <code>file</code> 参数"等少量概念</td>
+<td>非专家可上手，非零概念</td>
+</tr>
+</tbody>
+</table>
+<h3>D9.4 学习曲线与首体验 —— 2.0 / 2.5（80%，良好）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>事实依据</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>上手时间</td>
+<td>路径 = 装 Node + 装 Figma Desktop（前置）→ 1 条 <code>npx</code>/JSON 配置 → 导入插件 → 重启客户端 → 粘贴提示词；步骤均为瞬时操作，无需编译等待</td>
+<td>分钟级（约 10–30 分钟）</td>
+</tr>
+<tr>
+<td>学习曲线</td>
+<td>卖点即"no API token, no rate limits"，无需学习 Figma REST API、OAuth、配额策略；仅需 MCP 客户端配置常识</td>
+<td>曲线平缓，首个成功提示词即为 Aha Moment</td>
+</tr>
+<tr>
+<td>入门引导</td>
+<td>Quick start 分 Step 1/2/3；7 个客户端各自独立 <code>&lt;details&gt;</code> 折叠配置；前置条件用 checkbox 列出；提供 2 条成品提示词模板与 1 份 asset rules 模板</td>
+<td>引导完整，但无交互式教程/视频</td>
+</tr>
+<tr>
+<td>概念门槛</td>
+<td>需知"开发插件（Development plugin）"与"MCP server 配置"；不需要 Figma 领域 API 知识</td>
+<td>门槛低</td>
+</tr>
+<tr>
+<td>示例丰富度</td>
+<td>本地统计示例文件 <strong>0</strong>、脚本 <strong>0</strong>；可模仿素材只有提示词模板 + rules 片段 + 客户端配置片段，无模板工程</td>
+<td>示例偏薄，是主要失分项</td>
+</tr>
+</tbody>
+</table>
+<h3>小结</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D9.1 安装难度</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>80% 良好</td>
+</tr>
+<tr>
+<td>D9.2 部署与配置难度</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>80% 良好</td>
+</tr>
+<tr>
+<td>D9.3 易用性与操作门槛</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>80% 良好</td>
+</tr>
+<tr>
+<td>D9.4 学习曲线与首体验</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>80% 良好</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>8.0</strong></td>
+<td>🟢 <strong>简单</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>等级判定</strong>：8.0 分落入 8–10 区间 → 🟢 <strong>简单</strong>。故本报告「安装部署与使用指南」章节可按上文提供完整操作步骤与命令。需要提醒的边界是：这一评级建立在"用户已具备 Figma Desktop 与 MCP 客户端"的假设上——若目标客户未安装 Figma Desktop，则首步即受阻（web 版不受支持），这是本项目上手链路唯一的结构性硬约束，也是其与纯 CLI/纯云端工具在推广话术上必须区分的地方。</p>
+<h3>D10 功能价值——使用价值视角（平行维度，权重 0%，不计入综合评分）</h3>
+<blockquote>
+<p>本维度只问「用它能省多少」，不问「有没有人愿意付钱」。与 D1–D9 正交，仅用于最终 3.4 价值画像判定，不参与百分制综合评分与一票否决。</p>
+</blockquote>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10.1</td>
+<td>效用强度</td>
+<td>3</td>
+<td>1.8</td>
+<td>5–6 档（60%）</td>
+</tr>
+<tr>
+<td>D10.2</td>
+<td>实际使用规模</td>
+<td>3</td>
+<td>1.2</td>
+<td>3–4 档（40%）</td>
+</tr>
+<tr>
+<td>D10.3</td>
+<td>免费可得的完整效用</td>
+<td>2</td>
+<td>2.0</td>
+<td>9–10 档（100%）</td>
+</tr>
+<tr>
+<td>D10.4</td>
+<td>效用可持续性</td>
+<td>2</td>
+<td>1.6</td>
+<td>7–8 档（80%）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td><strong>6.6</strong></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>D10.1 效用强度：1.8 / 3</h3>
+<p><strong>判断依据（5–6 档：明确但有限的效率提升，易被替代）</strong></p>
+<ul>
+<li><strong>效用内容是真实的</strong>：README 给出四类可验证的效用场景——Figma 帧 → 代码实现（含图标/图片按扩展名导出到项目目录，而非让 AI 凭空臆造）、需求文本 → Figma 画稿（含"截图自检并修正"回路）、设计 token 双向同步、图层批量重命名/替换文本。这些对应设计-开发交接中确实存在的重复劳动，若工具可用，单次任务可省下数十分钟级的手工切图、量距、对照工作。</li>
+<li><strong>但效用层级停在"开发时工具"</strong>：它不进入任何生产运行时链路，不承载业务流量，停用只回退到人工操作。产品定位明确为「AI 客户端的一个 MCP 子进程」，不具备项目级依赖（如构建系统、运行时框架）的不可绕过性。</li>
+<li><strong>效用确定性偏弱</strong>：README 的 Troubleshooting 自述多个前置条件——必须使用 <strong>Figma Desktop</strong>（网页版无法运行开发插件）、必须<strong>在每个目标文件里保持插件窗口常开</strong>、依赖<strong>本地 2000 端口 bridge</strong>、连接失败需手动点击状态行重试。任一条不满足即无效用输出。此外它依赖 Figma 插件 API 的行为稳定性，属外部不可控变量。</li>
+<li><strong>替代品密集</strong>：Figma 官方 Dev Mode MCP、各 IDE 生态内的同类 Figma MCP server 均为直接竞品，用户在效用层面几乎无迁移成本（同一 MCP stdio 接口约定）。README 反复强调的"no API token, no rate limits"是差异化点，但这是<strong>接入摩擦的降低</strong>，而非效用层级的跃升。</li>
+</ul>
+<p>综合：单用户节省量可观、效用层级偏轻、确定性受多重前置条件约束、替代成本极低 → 落在 5–6 档。</p>
+<h3>D10.2 实际使用规模：1.2 / 3</h3>
+<p><strong>判断依据（3–4 档：千级及以下，小范围使用）</strong></p>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>实测值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GitHub Stars</td>
+<td>11</td>
+<td>实采</td>
+</tr>
+<tr>
+<td>GitHub Forks</td>
+<td>3</td>
+<td>实采</td>
+</tr>
+<tr>
+<td>Watchers</td>
+<td>0</td>
+<td>实采</td>
+</tr>
+<tr>
+<td>Contributors</td>
+<td>2</td>
+<td>实采（含作者本人，即实质单点维护）</td>
+</tr>
+<tr>
+<td>GitHub Dependents（Used by）</td>
+<td>N/A</td>
+<td>该仓库非库型依赖，无 dependents 统计</td>
+</tr>
+<tr>
+<td>npm 周下载量</td>
+<td>N/A</td>
+<td><strong>实采失败，按防幻觉规则不估算</strong></td>
+</tr>
+<tr>
+<td>生产采用证据</td>
+<td>无</td>
+<td>README 无任何用户案例、企业署名或生产环境报道</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>唯一可用的规模硬指标是 <strong>11 star / 3 fork / 0 watcher</strong>。这一量级即便按 star↔实际使用者 1:10 的宽松换算，也仅勉强触及「小范围使用」下限，远未进入万级依赖或月下载十万级的 5–6 档区间。</li>
+<li>npm 包已发布并有 npm 徽章、10 个语义化 release（v0.1.0→v0.5.4，创建后约 5 周内高频迭代），说明分发起步、维护活跃，但<strong>发布行为不等于被使用</strong>；下载量数据缺失，不能作为规模加分依据。</li>
+<li>项目无 issue 记录（开放 0 / 90 天关闭 0），既无法从 issue 中观察到使用深度，也不构成使用规模的正面证据。</li>
+<li>结论：<strong>萌芽期小范围使用</strong>，不下探至 1–2 档「几乎无人使用」（有 fork 分叉与外部 contributor 迹象），打 3–4 档。</li>
+</ul>
+<h3>D10.3 免费可得的完整效用：2.0 / 2</h3>
+<p><strong>判断依据（9–10 档：开源版即全部价值，无任何功能阉割）</strong></p>
+<ul>
+<li><strong>License 为 MIT</strong>（LICENSE 文件实采确认），无附加条款、无商业使用限制。</li>
+<li><strong>无付费层设计</strong>：仓库无 SaaS 端点、无 license key 校验、无 enterprise 目录、无 D10 意义上的功能分层。README 中的全部能力（Figma↔Code、token 同步、批量编辑、多文件/多项目共享 bridge、多客户端接入）均通过 <code>npx -y figma-mcp-console@latest</code> 一次拉取即完全可得，无任何"解锁"动作。</li>
+<li><strong>自托管即完整</strong>：插件从 GitHub Release 的 plugin.zip 或 <code>npx ... install-plugin</code> 本地取得，bridge 为本地进程（2000 端口），无需向作者或任何第三方服务注册/鉴权。官方托管形态根本不存在，因此不存在"自托管弱于托管版"的落差。</li>
+<li><strong>无隐性收费</strong>：唯一的成本项来自用户自己已持有的 Figma Desktop 客户端与订阅，与项目方无关；README 亦声明为独立社区项目、非 Figma 官方关联。</li>
+<li><strong>与 D4.3 的对照</strong>：本项满分意味着几乎没有把免费效用转化为付费的抓手——D10.3 与 D4.3 在此呈典型反相关，该项目属于"使用价值充分释放、交换价值通道基本缺失"的形态。这是价值结构描述，不是缺陷。</li>
+</ul>
+<h3>D10.4 效用可持续性：1.6 / 2</h3>
+<p><strong>判断依据（7–8 档：主体本地化，少量可替换的外部依赖）</strong></p>
+<ul>
+<li><strong>主体完全本地化</strong>：Go 编写（2176 行）/ 前端 JS（875 行），总计 3051 行，体量小；依赖清单仅 <code>coder/websocket</code>、<code>modelcontextprotocol/go-sdk</code>、<code>jsonschema-go</code>、<code>segmentio/encoding</code>、<code>golang.org/x/oauth2</code> 等公开通用库，无闭源 SDK、无厂商专有运行时。构建通过公开 CI（ci.yml / release.yml）执行，可重现性良好。</li>
+<li><strong>可分叉性高</strong>：MIT + 全量源码 + 3k 行规模 + 已存在的 3 个 fork，社区具备自行承接维护的现实能力；测试 546 行 / 测试比 17.9%，也为分叉后的正确性验证提供基础。</li>
+<li><strong>扣分项：核心效用锚定在第三方闭源客户端上</strong>。工具不能脱离 <strong>Figma Desktop + Figma 插件 API</strong> 独立产生效用——Figma 若调整开发插件机制、限制插件能力或改变 Desktop 的插件加载策略，本项目效用会立刻大幅衰减，且这部分风险不可由社区分叉消除。它本身还依赖 MCP 客户端（Claude / Cursor / Copilot 等）的 stdio 接口约定持续存在。</li>
+<li><strong>停维后效用存续判定</strong>：因无在线服务、无作者侧鉴权，停维后已安装的本地二进制在 Figma 插件 API 与 MCP 协议不变的窗口期内可继续工作（优于纯在线服务形态），但无法做到"完全无外部依赖、长期存续"。</li>
+</ul>
+<p>按指引"强依赖官方服务/闭源组件"应落 3–4 档、"主体本地化少量可替换外部依赖"落 7–8 档——本项目处于两者之间：本地化彻底但外部锚点不可替换，取较优侧的 7–8 档偏下。</p>
+<hr />
+<h3>D10 结论</h3>
+<p><strong>维度得分：6.6 / 10（平行维度，权重 0，不计入综合评分）</strong></p>
+<p>价值画像呈<strong>"效用真、规模小、无收费墙、可持续性中等偏上"</strong>的典型早期开源工具形态：</p>
+<ul>
+<li><strong>高效用—低规模的结构性错配</strong>是最大特征。D10.3 满分（完全免费、无阉割、可自托管）与 D10.1 中上档位（真实节省设计-开发交接工时）说明产品<strong>为使用者创造的价值是实在的</strong>；但 D10.2 仅 1.2 分（11 star / 3 fork / npm 下载量实采不可得）说明这份价值<strong>几乎没有被兑现到使用者手中</strong>。这是典型的"价值供给充分、分发与验证缺失"，而非"价值本身不足"。</li>
+<li><strong>效用天花板受前置条件压制</strong>：必须 Figma Desktop、必须逐文件常开插件窗口、依赖本地 bridge 存活，使效用确定性明显低于同类本地 CLI 工具，也压制了它从"便利工具"升格为"项目级依赖"的空间。</li>
+<li><strong>对商业化评估的补充含义</strong>：本项目接近"高使用价值、零交换价值"的极端一端——不存在任何"免费版可用但关键能力受限"的设计（与 D4.3 天然反相关）。若未来要建立交换价值，路径只能是托管化/团队协作等<strong>新增</strong>能力，而非对现有开源效用进行阉割。</li>
+<li><strong>置信度说明</strong>：D10.2 因 npm 周下载量实采失败（标 N/A，未做估算），规模判定仅依据 star / fork / contributor 三项硬指标，该细则存在一定低估或高估风险；其余细则均有 LICENSE、依赖清单、CI 配置、README 前置条件等一手素材支撑，置信度正常。</li>
+</ul>
+<h3>D11 社会价值（正外部性）—— 平行维度（权重 0%，不计入综合评分与一票否决）</h3>
+<blockquote>
+<p><strong>定位说明</strong>：本维度评「对行业/社会的外溢贡献本身」，与 D3.4（品牌影响力→商业势能）、D2.5/D2.6（i18n/无障碍工程事实）共用部分素材但视角不同。权重 0%，仅用于 3.4 价值画像。</p>
+</blockquote>
+<h4>D11.1 数字公共基础设施属性（满分 3 分）→ <strong>1.2 分</strong></h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测事实</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>关键依赖地位</td>
+<td>Dependents 计数：N/A（未采到）；npm 周下载：N/A；Go module 无下游引用证据</td>
+<td>无任何下游依赖证据</td>
+</tr>
+<tr>
+<td>停摆影响面</td>
+<td>Star 11 / Fork 3 / Contributors 2；项目为单点工具（Figma ↔ MCP 桥接），消失后可由 Figma 官方 Dev Mode MCP Server 或其它社区 MCP server 替代</td>
+<td>停摆影响面极小</td>
+</tr>
+<tr>
+<td>数字公共产品属性</td>
+<td>MIT 许可、源码开放、无商业授权限制，具备 DPG 形式要件；但生态位为「垂直场景小工具」，非公共底座</td>
+<td>形式开放，实质非公共基础设施</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：项目是「Figma ⇄ AI 助手」的本地桥接器，属于垂直场景的便利工具，而非 curl/OpenSSL 式的供应链底座。11 Star / 3 Fork / 无 Dependents 数据支撑任何「关键依赖」论断；停摆后使用者可退回 Figma 官方 MCP 或其它同类社区实现。符合 3–4 档「几乎无下游依赖，停摆影响微小」→ 3 × 40% = <strong>1.2</strong>。</p>
+<h4>D11.2 教育与人才价值（满分 2.5 分）→ <strong>1.0 分</strong></h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测事实</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>教学采用</td>
+<td>仓库仅 1 个 README，无 docs/、无示例文件（示例 0）、无 awesome/教程类外部资产证据；Star 11 量级不足以形成课程采用</td>
+<td>几乎无教学采用</td>
+</tr>
+<tr>
+<td>门槛降低效应</td>
+<td>README 提供 8 类客户端（Claude CLI/Desktop、Codex、VS Code、Cursor、Antigravity、opencode 等）的开箱配置；<code>npx</code> 免安装；「Figma→代码 / 需求→Figma」流程对非专业者有实操指导价值</td>
+<td>有一定入门引导价值</td>
+</tr>
+<tr>
+<td>源码学习价值</td>
+<td>3051 行（Go 2176 + JS 875），测试 546 行（17.9%），依赖 MCP Go SDK；属中小规模实现，未见被广泛研读/借鉴的痕迹</td>
+<td>学习价值有限</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：README 的「多客户端接入 + 可复制规则模板 + 排错表」降低了上手门槛，具备轻度教育外溢；但无任何证据显示被用于教学、课程或成为入门路径（无教程、无示例、无外部引用）。对照 5–6 档「有一定教学使用，影响限于小圈子」尚缺乏采用证据，落在 3–4 档 → 2.5 × 40% = <strong>1.0</strong>。</p>
+<h4>D11.3 普惠与可及性（满分 2.5 分）→ <strong>1.5 分</strong></h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测事实</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>能力平权化</td>
+<td>核心卖点「no API token, no rate limits」——以本地 Figma 插件桥接替代 Figma REST API/Dev Mode 授权路径，使免费/低配 Figma 用户也能获得 AI 设计到代码能力</td>
+<td>平权效应真实且明确</td>
+</tr>
+<tr>
+<td>替代价格差</td>
+<td>Figma 官方 Dev Mode MCP Server 需 Dev/Full 付费席位（Professional 及以上）方可使用；本项目 MIT 免费、<code>npx</code> 零成本获取</td>
+<td>存在显著价格差</td>
+</tr>
+<tr>
+<td>可及性支持</td>
+<td>仅英文 README（无 i18n 素材）；无无障碍相关说明；<strong>硬性要求 Figma Desktop 客户端</strong>（Web 版无法运行开发插件）、Node.js 18+，排除浏览器端/无桌面环境用户</td>
+<td>可及性存在硬约束</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：把「原本需付费席位才能获得的设计到代码能力」以零成本开放给个人与中小团队，属实质性普惠；但受限于必须安装 Figma 桌面端、需本地 Node 环境、纯英文文档、无 i18n/无障碍支持，覆盖人群被明显收窄，未达「覆盖主要人群」的 7–8 档。落在 5–6 档 → 2.5 × 60% = <strong>1.5</strong>。</p>
+<h4>D11.4 开放标准与行业推动（满分 2 分）→ <strong>1.2 分</strong></h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测事实</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>标准推动</td>
+<td>实现并遵循 MCP（Model Context Protocol）开放协议，stdin/stdout 标准传输，兼容任意 MCP 客户端，具反厂商锁定属性；但属标准<strong>消费者</strong>，未定义或主导标准</td>
+<td>遵循开放标准，无推动作用</td>
+</tr>
+<tr>
+<td>科研支撑</td>
+<td>论文引用检索：N/A（无可得数据）；无科研使用证据</td>
+<td>无</td>
+</tr>
+<tr>
+<td>行业示范效应</td>
+<td>与 Figma 官方付费 MCP 形成「开放/免费替代」示范；但 Star 11 量级，未见同行模仿或设计被借鉴的痕迹</td>
+<td>示范效应尚不成立</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：项目在协议层面明确选择开放 MCP 而非私有接口，对「设计工具不被单一厂商锁定」有正面意义；然而它只是标准的实现方之一，未参与标准定义，亦无学术引用与同行模仿证据。符合 5–6 档「遵循开放标准但无推动作用」→ 2 × 60% = <strong>1.2</strong>。</p>
+<h4>D11 细则分值汇总</h4>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D11.1</td>
+<td>数字公共基础设施属性</td>
+<td>3</td>
+<td>1.2</td>
+<td>3–4 档（40%）</td>
+</tr>
+<tr>
+<td>D11.2</td>
+<td>教育与人才价值</td>
+<td>2.5</td>
+<td>1.0</td>
+<td>3–4 档（40%）</td>
+</tr>
+<tr>
+<td>D11.3</td>
+<td>普惠与可及性</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6 档（60%）</td>
+</tr>
+<tr>
+<td>D11.4</td>
+<td>开放标准与行业推动</td>
+<td>2</td>
+<td>1.2</td>
+<td>5–6 档（60%）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td><strong>4.9</strong></td>
+<td><strong>较弱</strong></td>
+</tr>
+</tbody>
+</table>
+<h4>结论</h4>
+<p><strong>D11 社会价值（正外部性）：4.9 / 10（较弱）</strong></p>
+<ul>
+<li><strong>真实外溢点集中在「普惠」与「开放协议」两项</strong>：以本地插件桥接绕过 Figma API token/Dev Mode 付费门槛，把原本需付费席位才能获得的设计到代码能力零成本开放；同时严格实现 MCP 开放标准，兼容 Claude/Cursor/Copilot/Codex 等任意客户端，具反锁定属性。这是本项目最扎实的社会价值来源。</li>
+<li><strong>公共基础设施属性与教育价值均不成立</strong>：11 Star / 3 Fork / 2 Contributors、无 Dependents 与下载量数据，供应链位势几近于零；无 docs、无示例、无教程生态，源码学习价值未被验证，因此 D11.1 与 D11.2 均落在 3–4 档。</li>
+<li><strong>普惠性受硬约束收窄</strong>：必须使用 Figma 桌面客户端（Web 版不可用）、需本地 Node 18+ 环境、文档纯英文且无 i18n/无障碍支持，客观上排除了相当一部分潜在受益者，未能达到「覆盖主要人群」。</li>
+<li><strong>置信度提示</strong>：Dependents、npm 周下载、论文引用均不可得（N/A），D11.1 与 D11.2 的判断主要依赖 Star/Fork 规模与仓库内部事实，若未来出现真实下游依赖或教学采用，两项评分有上调空间。</li>
+<li><strong>对商业化的含义（仅作画像，不计分）</strong>：本维度不构成商业优势，但「免费替代付费 Dev Mode MCP」的定位是其对开发者最具吸引力的叙事素材，可作为获客切入点，而非护城河。</li>
+</ul>
+<h2>五、商业化价值判断</h2>
+<h3>5.1 综合结论</h3>
+<p>本项目综合评分 <strong>61.1/100，等级 B（中等商业化潜力）</strong>，价值画像为 <strong>📦 长尾项目</strong>，公共价值分 5.8/10。核心判断是：<strong>技术方向正确、工程质量合格、上手体验优秀，但商业化的三个关键环节——需求验证、变现入口、竞争壁垒——同时缺位。</strong></p>
+<h3>5.2 支撑商业化的正面因素</h3>
+<ol>
+<li><strong>赛道方向正确且处于实质生产期</strong>：切入 AI Agent 获取设计上下文这一真实且扩张中的需求，MCP 协议已成事实标准（D1）。</li>
+<li><strong>差异化真实存在</strong>：以 Figma 插件作为本地桥接端替代 REST API token 方案，绕开 token 管理与速率限制痛点，README 首屏即声明 no API token / no rate limits、Figma↔Code 双向读写（D1、D2、D5）。</li>
+<li><strong>工程架构规范</strong>：Go 采用 cmd/internal 标准布局，bridge 与 tools 分层解耦，依赖仅 8 个直接模块且均为高信誉库（D2）。</li>
+<li><strong>上手体验为全维度最高分项（D9 = 8.0）</strong>：npx 单命令分发、零外部服务依赖、README 明确 "Nothing to configure"，提供 3 步 Quick start、6+ 客户端配置片段、6 条 troubleshooting 对照表（D9）。</li>
+<li><strong>法律合规面干净（D6 = 7.8）</strong>：MIT 协议规范完整，无商业附加条款，无 copyleft 传染源，依赖链全部为 MIT/BSD 系宽松许可，npm 包无运行时依赖（D6）。</li>
+<li><strong>开发动能强劲</strong>：5 周内连发 10 个版本至 v0.5.4，CI 执行 go vet + go test -race（D2、D8）。</li>
+</ol>
+<h3>5.3 制约商业化的核心因素</h3>
+<ol>
+<li><strong>零需求验证信号</strong>：11 star、3 fork、2 contributor、0 开放 Issue、0 已关闭 Issue，无第三方反馈或功能请求可佐证需求热度（D1、D3）。</li>
+<li><strong>免费层即完整终态</strong>：npx 一行接入、读+写、token 同步、多文件全免费、无配额无门禁，付费转化触发点缺失（D4）。</li>
+<li><strong>交付形态自限市场</strong>：必须 Figma 桌面端 + 开发插件常开 + 本机 2000 端口 bridge，排除 Web/云端/CI 场景，用户被锁在个人开发者本机工作流，难以触达预算更充足的团队级场景（D1、D9）。</li>
+<li><strong>无任何可防御护城河</strong>：3051 行代码 + 全公开依赖，无专利/无专有数据/无模型/无网络效应/无规模效应，熟悉 Figma Plugin API 的开发者可在数周内复刻；切换成本约等于改一行配置（D5）。</li>
+<li><strong>竞争位势数量级落后</strong>：实测验证的 5 个相邻生态竞品 star 量级为 901–5,100，本项目仅 11 star，与最大竞品差距约 464 倍（D5）。</li>
+<li><strong>企业就绪度存在直接阻塞项</strong>：无 SSO/OAuth/LDAP/SAML、无 RBAC/ABAC、无审计日志、无 SECURITY.md；桥接端口固定 2000 且无鉴权，同机任意进程可接入，而工具集包含批量重命名/替换文本等破坏性写操作（D7）。</li>
+<li><strong>治理与资金双空白</strong>：无 GOVERNANCE/CONTRIBUTING/CODEOWNERS，无任何资金信号，巴士因子约等于 1（D8）。</li>
+</ol>
+<h3>5.4 画像临界说明</h3>
+<p>综合评分 61.1 落在 60–70 临界区间，公共价值分 5.8 未落入 6.5–7.5 临界区间。按判定规则取 <strong>📦 长尾项目</strong>，但需说明两种画像下的路径差异：</p>
+<ul>
+<li><strong>按长尾项目路径</strong>：技术借鉴或人才引进，不投入商业化。</li>
+<li><strong>若按公共产品型路径</strong>（假设公共价值分被低估）：走「影响力变现」——赞助/基金会托管/大厂雇佣维护者/围绕生态做服务与培训。</li>
+</ul>
+<p>考虑到 D10（6.6）与 D11（4.9）均未达到 7 分门槛，且 D11 的「数字公共基础设施属性不成立」（无 Dependents 与下载量数据支撑，停摆影响面极小），本报告维持长尾项目判定，但建议在第六章路径分析中保留轻量影响力变现的备选可能。</p>
+<hr />
+<h2>六、商业路径分析</h2>
+<h3>6.1 路径可行性总览</h3>
+<table>
+<thead>
+<tr>
+<th>路径</th>
+<th>可行性</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>直接 SaaS 订阅</td>
+<td>❌ 不可行</td>
+<td>local-first 架构（单端口 2000 共享桥、进程接管 owner）与云托管计费模式方向相反；转云端 SaaS 存在 Figma ToS 灰色风险与平台封堵风险（D4）</td>
+</tr>
+<tr>
+<td>Open Core 分层</td>
+<td>⚠️ 需重构</td>
+<td>免费层即完整终态，无付费触发点；潜在路径（Open Core 团队治理层、企业私有化支持）均未落地（D4）</td>
+</tr>
+<tr>
+<td>企业私有化支持</td>
+<td>⚠️ 需架构级新增</td>
+<td>企业版需架构级新增服务端托管桥、OAuth、RBAC 与审计能力（D7）</td>
+</tr>
+<tr>
+<td>社区赞助</td>
+<td>⚠️ 低天花板</td>
+<td>无 GitHub Sponsors / Open Collective 入口；11 star 规模不足以支撑赞助（D4、D8）</td>
+</tr>
+<tr>
+<td>影响力变现（备选）</td>
+<td>⚠️ 低天花板</td>
+<td>需先积累社区声誉，当前第三方生态实际为零（D3）</td>
+</tr>
+</tbody>
+</table>
+<h3>6.2 路径一：企业治理层 Open Core（唯一具备实质空间的路径）</h3>
+<p><strong>逻辑</strong>：企业会以免费工具+自担风险方式使用，很难为治理空白付费；企业版需架构级新增服务端托管桥、OAuth、RBAC 与审计能力（D7）。因此付费点不在「功能」而在「治理与合规」。</p>
+<p><strong>前提条件</strong>：
+- 补齐 SSO/OAuth/LDAP/SAML、RBAC/ABAC、审计日志（D7 明确列为直接阻塞项）
+- 为固定端口 2000 的无鉴权桥接增加认证层（D7）
+- 建立 CONTRIBUTING/CLA/DCO/CODEOWNERS，避免未来双许可或换证时的版权碎片化隐患（D6）</p>
+<p><strong>定价参考</strong>：合理客单价仅 $100–1K/年 per seat（D4）。</p>
+<p><strong>风险</strong>：核心卖点 no API token / no rate limits 依赖本地 Figma 插件桥接绕过官方 API，企业化改造后若转向托管桥，将直接暴露于 Figma ToS 灰色风险与平台封堵风险（D4）。</p>
+<h3>6.3 路径二：技术借鉴 / 人才引进（当前最务实选择）</h3>
+<p><strong>逻辑</strong>：项目为单人主导的极早期项目（contributors=2，巴士因子约等于 1），3051 行代码 + 全公开依赖，熟悉 Figma Plugin API 的开发者可在数周内复刻（D5）。其真正价值在于<strong>验证了一条「以本地插件桥接替代 API token」的工程路径</strong>，而非其代码资产本身。</p>
+<p><strong>适用对象</strong>：正在构建 MCP 生态工具链、或需要设计工具链桥接能力的团队。</p>
+<h3>6.4 路径三：影响力变现（备选，需先补社区）</h3>
+<p><strong>逻辑</strong>：若项目转向公共产品定位，可走赞助/基金会托管/大厂雇佣维护者/围绕生态做服务与培训。但当前第三方生态实际为零（无任何第三方插件、衍生项目或教程），README 无用户案例或企业背书，未发现媒体报道（D3），该路径需先经历漫长的社区建设期。</p>
+<h3>6.5 路径修正说明</h3>
+<p>按价值画像规则，📦 长尾项目对应「技术借鉴或人才引进，不投入商业化」。但鉴于综合评分处于 60–70 临界区间，且 D1（7.0）、D6（7.8）、D9（8.0）三项表现良好，本报告建议：<strong>以路径二为当前主路径，同时保留路径一的观察窗口</strong>——若项目方补齐企业治理能力并出现需求验证信号（Issue/PR/用户案例），可重新评估 Open Core 路径。</p>
+<hr />
+<h2>七、能力评估：能做什么 &amp; 最适合做什么</h2>
+<h3>7.1 项目当前具备的能力</h3>
+<p><strong>核心能力（已验证）</strong>：
+- 让 AI 助手通过本地桥接实时<strong>读写</strong> Figma 设计文件（D1、D2）
+- 免 API token、免速率限制（D1、D2、D5）
+- 覆盖设计→代码、需求→设计、设计令牌双向同步、批量图层编辑四类场景（D1）
+- 兼容 Claude CLI、Claude Desktop、Codex CLI、VS Code Copilot、Cursor、Antigravity 等 8 种 MCP 客户端（D9）
+- 本地桥持有者退出后 1 秒内由其他会话接管（D7）</p>
+<p><strong>工程能力（已验证）</strong>：
+- Go cmd/internal 标准布局，bridge 与 tools 分层解耦（D2）
+- 依赖极简：Go 直接依赖 2 个、间接 6 个；npm 运行时依赖 0（D6）
+- CI 执行 go vet + go test -race；测试占比 17.9%（546/3051 行）（D2、D7）
+- npx 单命令分发，用户侧仅要求 Node.js 18+（D9）</p>
+<p><strong>合规能力（已验证）</strong>：
+- MIT 协议规范完整，无商业附加条款，无 copyleft 传染源（D6）
+- 依赖链全部为 MIT/BSD 系宽松许可（D6）</p>
+<h3>7.2 项目当前不具备的能力</h3>
+<ul>
+<li>账号体系、订阅/授权入口、托管端点（D1 明确「商业化能力为零」）</li>
+<li>定价页、企业版、赞助入口、商业实体（D4）</li>
+<li>SSO/OAuth/LDAP/SAML、RBAC/ABAC、审计日志（D7）</li>
+<li>Dockerfile / docker-compose / Helm 部署路径（D2、D9）</li>
+<li>水平扩展与集群高可用（D7）</li>
+<li>REST/gRPC/OpenAPI 接口、Prometheus/OTel 指标、健康检查端点（D7）</li>
+<li>示例工程与脚本（示例 0 文件、脚本 0 文件）（D9）</li>
+<li>i18n 支持（README 仅英文）（D2、D11）</li>
+</ul>
+<h3>7.3 最适合做什么</h3>
+<p><strong>最适合</strong>：作为<strong>个人开发者本机工作流中的设计-代码桥接工具</strong>，服务于使用 Figma Desktop 的前端开发者与 UI/UX 设计师，在单机、单人或小团队场景下完成设计转代码、需求转设计、设计令牌同步与批量图层编辑。</p>
+<p><strong>最适合的技术定位</strong>：MCP 生态中「设计工具链桥接」这一细分环节的<strong>参考实现</strong>——其价值在于验证了「以本地插件桥接替代 API token」的工程路径（D5）。</p>
+<p><strong>不适合</strong>：团队级/企业级协作场景（受 Figma Desktop 单机形态硬约束）、Web/云端/CI 场景（交付形态自限）、需要治理与合规保障的采购场景（D7 阻塞项）。</p>
+<hr />
+<h2>八、短板识别：还缺少什么</h2>
+<h3>8.1 商业化短板（按严重程度排序）</h3>
+<table>
+<thead>
+<tr>
+<th>短板</th>
+<th>严重程度</th>
+<th>具体表现</th>
+<th>来源</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>付费转化触发点缺失</td>
+<td>🔴 致命</td>
+<td>免费层即完整终态，npx 一行接入、读+写、token 同步、多文件全免费、无配额无门禁</td>
+<td>D4.3</td>
+</tr>
+<tr>
+<td>零需求验证信号</td>
+<td>🔴 致命</td>
+<td>11 star、3 fork、2 contributor、0 开放 Issue、0 已关闭 Issue，无第三方反馈</td>
+<td>D1、D3</td>
+</tr>
+<tr>
+<td>无护城河</td>
+<td>🔴 致命</td>
+<td>无专利/无专有数据/无模型/无网络效应/无规模效应；切换成本约等于改一行配置</td>
+<td>D5.2、D5.3</td>
+</tr>
+<tr>
+<td>企业治理能力空白</td>
+<td>🟠 严重</td>
+<td>无 SSO/OAuth/LDAP/SAML、无 RBAC/ABAC、无审计日志、无 SECURITY.md；端口 2000 无鉴权</td>
+<td>D7.2</td>
+</tr>
+<tr>
+<td>交付形态自限</td>
+<td>🟠 严重</td>
+<td>必须 Figma 桌面端 + 插件常开 + 本机 2000 端口 bridge，排除 Web/云端/CI</td>
+<td>D1、D9</td>
+</tr>
+<tr>
+<td>竞争位势落后</td>
+<td>🟠 严重</td>
+<td>与最大竞品 star 差距约 464 倍</td>
+<td>D5.1</td>
+</tr>
+<tr>
+<td>治理与资金空白</td>
+<td>🟡 中等</td>
+<td>无 GOVERNANCE/CONTRIBUTING/CODEOWNERS，无任何资金信号，巴士因子约等于 1</td>
+<td>D8</td>
+</tr>
+<tr>
+<td>增值空间与定价天花板低</td>
+<td>🟡 中等</td>
+<td>合理客单价仅 $100–1K/年 per seat</td>
+<td>D4.4</td>
+</tr>
+</tbody>
+</table>
+<h3>8.2 工程与产品短板</h3>
+<table>
+<thead>
+<tr>
+<th>短板</th>
+<th>具体表现</th>
+<th>来源</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>版本成熟度不足</td>
+<td>仍处 v0.x 早期（最新 v0.5.4），5 周内连发 10 个版本，Breaking Change 风险高，未达生产就绪门槛</td>
+<td>D2.6</td>
+</tr>
+<tr>
+<td>文档与示例严重不足</td>
+<td>仅 README.md 一个文档文件，示例代码 0 个，无 docs/、无 API 文档、无 CONTRIBUTING</td>
+<td>D2.7</td>
+</tr>
+<tr>
+<td>测试与门禁薄弱</td>
+<td>3 个测试文件 / 546 行，CI 仅 go vet + go test -race，无覆盖率门禁、无 lint 配置、无安全扫描（Dependabot/CodeQL 均缺失）</td>
+<td>D2.8</td>
+</tr>
+<tr>
+<td>运维配套缺失</td>
+<td>无 CHANGELOG/回滚机制，文档固定使用 @latest 无法钉住版本；无 Dockerfile</td>
+<td>D7.1</td>
+</tr>
+<tr>
+<td>可观测性缺失</td>
+<td>无 Prometheus/OTel 指标、无健康检查端点，唯一可观测信号为插件窗口绿点</td>
+<td>D7.3</td>
+</tr>
+<tr>
+<td>运行环境要求偏严苛</td>
+<td>需同时具备本地二进制 + Figma 客户端插件 + MCP 客户端三方条件；无 i18n 支持</td>
+<td>D2.6</td>
+</tr>
+</tbody>
+</table>
+<h3>8.3 合规与治理短板</h3>
+<table>
+<thead>
+<tr>
+<th>短板</th>
+<th>具体表现</th>
+<th>来源</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>贡献者协议缺失</td>
+<td>无 CONTRIBUTING.md / CLA / DCO / CODEOWNERS，未来双许可或换证需全贡献者授权时存在版权碎片化隐患</td>
+<td>D6.4</td>
+</tr>
+<tr>
+<td>商标合规待确认</td>
+<td>项目名与 npm 包名含第三方商标 'Figma'，且无商标使用政策文件</td>
+<td>D6.3</td>
+</tr>
+<tr>
+<td>平台条款风险</td>
+<td>以 'no API token, no rate limits' 为卖点，依赖 Figma Desktop 插件通道，是否触及 Figma 开发者条款需法务核查</td>
+<td>D6.3</td>
+</tr>
+<tr>
+<td>治理文档为零</td>
+<td>无 GOVERNANCE.md / CONTRIBUTING.md / CODEOWNERS / SECURITY.md，唯一文档为 README.md</td>
+<td>D8.2</td>
+</tr>
+</tbody>
+</table>
+<h3>8.4 社区与生态短板</h3>
+<table>
+<thead>
+<tr>
+<th>短板</th>
+<th>具体表现</th>
+<th>来源</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>社区规模极小</td>
+<td>11 star / 3 fork / 0 watcher / 2 contributors</td>
+<td>D3.1、D3.2</td>
+</tr>
+<tr>
+<td>第三方生态为零</td>
+<td>无任何第三方插件、衍生项目或教程；npm 包适配多客户端属 MCP 开放协议红利</td>
+<td>D3.3</td>
+</tr>
+<tr>
+<td>品牌认知缺失</td>
+<td>README 无用户案例或企业背书，未发现媒体报道</td>
+<td>D3.4</td>
+</tr>
+<tr>
+<td>贡献者结构单一</td>
+<td>仓库归属个人账号，无组织多样性证据，高度依赖单一开发者</td>
+<td>D3.2</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>九、风险提示</h2>
+<h3>9.1 平台依赖风险（🔴 最高）</h3>
+<p><strong>风险描述</strong>：项目唯一差异化（免 token/免限速）依赖 Figma 对 development plugin 的开放度与官方 MCP 策略，属<strong>平台授予</strong>而非自建壁垒（D5.4）。Figma 官方 MCP 服务端已在位，属平台级强势竞争者（D1.2）。</p>
+<p><strong>触发条件与后果</strong>：若 Figma 收紧 development plugin 通道或补齐官方 MCP 能力，项目核心卖点将直接失效。转云端 SaaS 变现还存在 Figma ToS 灰色风险与平台封堵风险（D4.2）。</p>
+<p><strong>缓释建议</strong>：在法务层面核查 Figma 开发者条款（D6.3）；在技术上准备多平台适配方案。</p>
+<h3>9.2 竞争替代风险（🔴 高）</h3>
+<p><strong>风险描述</strong>：无任何可防御护城河，熟悉 Figma Plugin API 的开发者可在数周内复刻（D5.2）；切换成本极低且无数据锁定，迁移到同类方案成本约等于改一行配置（D5.3）；Figma 官方 Dev Mode MCP 免费构成直接替代（D4.2）。</p>
+<p><strong>触发条件与后果</strong>：任何具备 Figma 插件开发能力的团队均可快速推出同类产品；用户迁移无成本。</p>
+<h3>9.3 项目停维风险（🟠 中高）</h3>
+<p><strong>风险描述</strong>：2026-08-24 后无推送（约 3 周停更），10 个 release 集中在前 5 周内（D5.4）；巴士因子约等于 1，无治理与交接机制，核心人员退出后缺乏可接管的组织化路径（D8.4）。</p>
+<p><strong>注意</strong>：D8.4 细则小分 1.8 &gt; 1，<strong>未触发一票否决</strong>，项目仍处活跃趋势向上状态（开放 Issue 为 0，活跃趋势向上）。但停更迹象与单人主导结构叠加，传承风险客观存在。</p>
+<p><strong>缓释建议</strong>：关注后续推送频率；若考虑采用，建议评估自行维护成本。</p>
+<h3>9.4 安全与合规风险（🟠 中高）</h3>
+<p><strong>风险描述</strong>：桥接端口固定 2000 且无鉴权，同机任意进程可接入，而工具集包含批量重命名/替换文本等<strong>破坏性写操作</strong>，构成企业采购的直接阻塞项（D7.2）。无 SECURITY.md，无安全扫描（Dependabot/CodeQL 均缺失）（D2.8）。</p>
+<p><strong>触发条件与后果</strong>：多用户共享主机环境下存在未授权访问与误操作风险。</p>
+<h3>9.5 商标与法律风险（🟡 中）</h3>
+<p><strong>风险描述</strong>：项目名与 npm 包名含第三方商标 'Figma'，且无商标使用政策文件，品牌合规风险待确认（D6.3）。商标与专利状态未经人工检索，D6.3 按方法论默认 5-6 档给 1.5/2.5，<strong>该项置信度低</strong>（D6）。</p>
+<h3>9.6 商业化失败风险（🟠 中高）</h3>
+<p><strong>风险描述</strong>：仓库零商业化痕迹——无定价页、无企业版、无赞助入口、无商业实体、无 CONTRIBUTING/SECURITY.md（D4.2）；local-first 架构与云托管计费模式方向相反，进一步压缩主流 SaaS 变现路径（D4.2）。</p>
+<p><strong>置信度说明</strong>：D4 为<strong>低置信度项</strong>——无付费用户、无企业版、无商业信息可验证（D4）。</p>
+<h3>9.7 数据置信度风险（🟡 中）</h3>
+<p><strong>风险描述</strong>：
+- D5 直接竞品验证缺口：检索返回的 5 个仓库全部为 AI Agent 工具链项目，同一问题域（Figma MCP 服务器）的直接竞品在本次样本中为 0，属检索偏差，已按防幻觉规则不予虚构列名并下调置信度（D5.1）
+- D10 的 npm 周下载量与 GitHub Dependents 均为 N/A（D10.2）
+- D11 的 Dependents / npm 周下载 / 论文引用均为 N/A，评分主要基于仓库内部事实与 Star 规模，置信度中等偏下（D11）
+- D6.3 商标与专利状态未经人工检索，置信度低（D6）</p>
+<hr />
+<h2>十、结论与建议</h2>
+<h3>10.1 核心结论</h3>
+<p><strong>figma-mcp-console 综合评分 61.1/100，等级 B（中等商业化潜力），价值画像为 📦 长尾项目（画像临界），公共价值分 5.8/10，未触发一票否决。</strong></p>
+<p>一句话总结：<strong>这是一个方向正确、工程合格、上手优秀，但商业化三要素（需求验证、变现入口、竞争壁垒）同时缺位的极早期个人项目。</strong></p>
+<p>项目的真实价值不在于其代码资产（3051 行、可数周复刻），而在于它<strong>验证了一条「以本地 Figma 插件桥接替代 API token」的工程路径</strong>，并在 MCP 生态的设计工具链环节提供了一个可参考的实现样本。</p>
+<h3>10.2 分场景建议</h3>
+<p><strong>场景 A：投资方 / 商业化决策者</strong></p>
+<p>→ <strong>不建议直接投入商业化</strong>。理由：付费转化触发点缺失（D4.3）、零需求验证信号（D1）、无护城河（D5）、企业治理能力空白（D7）。</p>
+<p>→ <strong>可考虑技术借鉴或人才引进</strong>（长尾项目标准路径）。若对 MCP 生态设计工具链方向有战略兴趣，建议以「观察 + 接触维护者」方式跟进，而非直接投资。</p>
+<p>→ <strong>观察触发条件</strong>：若出现以下任一信号，可重新评估——① 社区规模突破（Star &gt; 500 或出现企业用户案例）；② 项目方补齐企业治理能力（OAuth/RBAC/审计）；③ Figma 官方 MCP 策略出现变化。</p>
+<p><strong>场景 B：企业技术选型</strong></p>
+<p>→ <strong>可用于个人开发者本机工作流</strong>，前提是接受：必须 Figma Desktop、插件需常开、端口 2000 无鉴权。</p>
+<p>→ <strong>不建议用于团队级/企业级协作</strong>。D7 明确列出阻塞项：无 SSO/OAuth/LDAP/SAML、无 RBAC/ABAC、无审计日志，且工具集包含破坏性写操作而端口无鉴权。</p>
+<p>→ <strong>若确需采用</strong>，建议：① 在隔离网络环境中部署；② 自行评估端口 2000 的访问控制；③ 关注项目停更风险，准备自维护预案。</p>
+<p><strong>场景 C：开源贡献者 / 潜在维护者</strong></p>
+<p>→ 项目治理完全空白（无 GOVERNANCE/CONTRIBUTING/CODEOWNERS），外部贡献与决策路径不可见（D8.2）。若有意参与，建议先通过 Issue 建立联系。</p>
+<p>→ 注意：无 CLA/DCO，未来若项目方考虑双许可或换证，存在版权碎片化隐患（D6.4）。</p>
+<p><strong>场景 D：项目方（若本报告被维护者看到）</strong></p>
+<p>按优先级排序的行动建议：</p>
+<ol>
+<li><strong>补齐治理基础设施</strong>（成本低、收益明确）：CONTRIBUTING.md、CODEOWNERS、SECURITY.md、CHANGELOG（D2、D6、D7、D8）</li>
+<li><strong>为桥接端口增加鉴权</strong>：这是企业采购的直接阻塞项，也是当前最实际的安全缺口（D7.2）</li>
+<li><strong>补充文档与示例</strong>：当前仅 README.md 一个文档文件、示例代码 0 个（D2.7、D9）</li>
+<li><strong>建立需求验证渠道</strong>：主动收集用户反馈，0 Issue 不等于 0 问题（D1、D3）</li>
+<li><strong>明确商业化意图</strong>：当前仓库零商业化痕迹，若无意商业化应明确声明；若有意，需先补齐账号体系与付费入口（D4）</li>
+</ol>
+<h3>10.3 风险重申</h3>
+<p>本项目面临的最大风险是<strong>平台依赖风险</strong>——其唯一差异化依赖 Figma 对 development plugin 的开放度，属平台授予而非自建壁垒（D5.4）。其次是<strong>项目停维风险</strong>——约 3 周停更 + 巴士因子约等于 1（D5.4、D8.4）。两者叠加意味着：<strong>即使不考虑商业化，项目的长期可用性本身也存在不确定性。</strong></p>
+<h3>10.4 最终评级</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>综合评分</td>
+<td><strong>61.1/100</strong></td>
+</tr>
+<tr>
+<td>商业化等级</td>
+<td><strong>B（中等商业化潜力）</strong></td>
+</tr>
+<tr>
+<td>价值画像</td>
+<td><strong>📦 长尾项目</strong>（画像临界，综合评分落在 60–70 区间）</td>
+</tr>
+<tr>
+<td>公共价值分</td>
+<td><strong>5.8/10</strong></td>
+</tr>
+<tr>
+<td>一票否决</td>
+<td>未触发（D6=7.8、D8.4=1.8、D4.1=2.0 均高于阈值）</td>
+</tr>
+<tr>
+<td>建议行动</td>
+<td>技术借鉴或人才引进；保留企业治理层 Open Core 路径的观察窗口</td>
+</tr>
+</tbody>
+</table>
+<h2>十一、项目地址</h2>
+<p><svg class="ri ri-muted" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.001 2C6.47598 2 2.00098 6.475 2.00098 12C2.00098 16.425 4.86348 20.1625 8.83848 21.4875C9.33848 21.575 9.52598 21.275 9.52598 21.0125C9.52598 20.775 9.51348 19.9875 9.51348 19.15C7.00098 19.6125 6.35098 18.5375 6.15098 17.975C6.03848 17.6875 5.55098 16.8 5.12598 16.5625C4.77598 16.375 4.27598 15.9125 5.11348 15.9C5.90098 15.8875 6.46348 16.625 6.65098 16.925C7.55098 18.4375 8.98848 18.0125 9.56348 17.75C9.65098 17.1 9.91348 16.6625 10.201 16.4125C7.97598 16.1625 5.65098 15.3 5.65098 11.475C5.65098 10.3875 6.03848 9.4875 6.67598 8.7875C6.57598 8.5375 6.22598 7.5125 6.77598 6.1375C6.77598 6.1375 7.61348 5.875 9.52598 7.1625C10.326 6.9375 11.176 6.825 12.026 6.825C12.876 6.825 13.726 6.9375 14.526 7.1625C16.4385 5.8625 17.276 6.1375 17.276 6.1375C17.826 7.5125 17.476 8.5375 17.376 8.7875C18.0135 9.4875 18.401 10.375 18.401 11.475C18.401 15.3125 16.0635 16.1625 13.8385 16.4125C14.201 16.725 14.5135 17.325 14.5135 18.2625C14.5135 19.6 14.501 20.675 14.501 21.0125C14.501 21.275 14.6885 21.5875 15.1885 21.4875C19.259 20.1133 21.9999 16.2963 22.001 12C22.001 6.475 17.526 2 12.001 2Z"/></svg> <a href="https://github.com/hoangann2000/figma-mcp-console">https://github.com/hoangann2000/figma-mcp-console</a></p>
+<hr />
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+</blockquote>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家　<a href="https://www.mova.work">www.mova.work</a></p></body></html>

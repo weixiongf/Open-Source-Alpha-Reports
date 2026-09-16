@@ -1,0 +1,2059 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><title>Worktrunk 商业价值分析报告</title><style>/* default — 品牌蓝紫主题（从 md2pdf.py 原 CSS 常量迁出，视觉与历史产物一致） */
+@page { size: A4; margin: 18mm 15mm 20mm 15mm; }
+* { box-sizing: border-box; }
+/* 字体规范：一律开源思源黑体 CN（OFL 免费商用）；正文 Regular/标题 Bold/大字数字 Light */
+body { font-family: "Source Han Sans CN","思源黑体 CN","Noto Sans SC",sans-serif; color:#1e293b; font-size:10.5pt; line-height:1.75; margin:0; }
+.cover { page-break-after: always; text-align:center; padding-top:40px; }
+.cover .kicker { color:#2563eb; letter-spacing:6px; font-size:12pt; font-weight:500; }
+.cover h1 { font-size:26pt; margin:14px 0 6px; }
+.cover .sub { color:#64748b; font-size:11pt; margin-bottom:22px; }
+.badge { display:inline-block; background:linear-gradient(135deg,#2563eb,#7c3aed); color:#fff; border-radius:18px; padding:16px 44px; margin:10px 0 18px; }
+.badge .g { font-size:34pt; font-weight:300; line-height:1; }
+.badge .s { font-size:12pt; opacity:.92; margin-top:4px; }
+.meta { color:#475569; font-size:9.5pt; margin-top:14px; }
+.bars { max-width:620px; margin:20px auto 0; text-align:left; }
+.bar-row { display:flex; align-items:center; gap:8px; margin:5px 0; font-size:9pt; }
+.bar-name { width:110px; text-align:right; color:#334155; font-weight:500; }
+.bar-track { flex:1; height:9px; background:#f1f5f9; border-radius:5px; overflow:hidden; }
+.bar-fill { display:block; height:100%; border-radius:5px; }
+.bar-val { width:30px; font-weight:700; color:#0f172a; }
+.bar-w { width:52px; color:#94a3b8; font-size:8pt; }
+h1 { font-size:17pt; color:#0f172a; border-bottom:3px solid #2563eb; padding-bottom:8px; }
+h2 { font-size:13.5pt; color:#1d4ed8; margin-top:26px; page-break-after: avoid; border-left:5px solid #2563eb; padding-left:10px; }
+h3 { font-size:11.5pt; color:#0f172a; margin-top:18px; page-break-after: avoid; }
+table { border-collapse:collapse; width:100%; margin:10px 0; font-size:9pt; page-break-inside:avoid; }
+th { background:#eff6ff; color:#1e3a8a; }
+th,td { border:1px solid #dbe3ef; padding:5px 8px; text-align:left; }
+tr:nth-child(even) td { background:#f8fafc; }
+code { background:#f1f5f9; border-radius:4px; padding:1px 5px; font-family:"JetBrains Mono","Cascadia Mono",monospace; font-size:9pt; color:#be185d; }
+pre { background:#0f172a; color:#e2e8f0; border-radius:8px; padding:12px 14px; overflow-x:auto; page-break-inside:avoid; }
+pre code { background:none; color:inherit; padding:0; }
+blockquote { border-left:4px solid #93c5fd; background:#eff6ff; margin:10px 0; padding:8px 14px; color:#334155; border-radius:0 8px 8px 0; }
+hr { border:none; border-top:1px dashed #cbd5e1; margin:22px 0; }
+strong { color:#0f172a; }
+.cover .disclaimer { max-width:620px; margin:16px auto 0; color:#64748b; font-size:8.5pt; line-height:1.6; text-align:left; border:1px solid #e2e8f0; border-radius:8px; padding:8px 12px; background:#f8fafc; }
+.credit { color:#2563eb; font-size:10.5pt; font-weight:700; letter-spacing:1px; margin-top:12px; }
+.at-acc { background:#dbeafe; color:#1d4ed8; border-radius:4px; padding:0 4px; font-weight:500; white-space:nowrap; }
+.tail { page-break-inside:avoid; margin-top:26px; border-top:2px solid #2563eb; padding-top:14px; }
+.tail p { color:#64748b; font-size:8.5pt; line-height:1.6; margin:0 0 10px; }
+.tail .credit { text-align:center; margin:0; }
+/* Remix Icon 内联 SVG（icon_mode=remix 时由脚本注入，语义色与评分条一致） */
+.ri { width:1.05em; height:1.05em; vertical-align:-0.18em; display:inline-block; }
+.ri-ok { color:#16a34a; } .ri-warn { color:#d97706; } .ri-bad { color:#dc2626; }
+.ri-muted { color:#64748b; } .ri-star { color:#f59e0b; } .ri-brand { color:#2563eb; }
+.ri-gold { color:#d4a017; } .ri-silver { color:#9ca3af; } .ri-bronze { color:#b45309; }
+/* 屏幕预览：@page 边距仅在打印时生效，浏览器中居中限宽并收边（不影响 PDF 输出） */
+@media screen {
+  body { margin: 0 auto; padding: 28px 36px 56px; max-width: 900px; }
+}
+</style></head><body><div class="cover">
+<div class="kicker">开源项目商业化潜力分析</div>
+<h1>GitHub 开源项目 Worktrunk<br>商业价值分析报告</h1>
+<div class="sub">max-sixty/worktrunk · 并行 AI Agent 工作流的 Git worktree 管理 CLI · 九维度加权评估</div>
+<div class="badge"><div class="g">A 级 · 67.0</div><div class="s">综合评分（满分 100）· 高商业化潜力</div></div>
+<div><svg viewBox="0 0 560 480" width="560" height="480" xmlns="http://www.w3.org/2000/svg"><polygon points="280.0,209.6 299.5,216.7 309.9,234.7 306.3,255.2 290.4,268.6 269.6,268.6 253.7,255.2 250.1,234.7 260.5,216.7" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,179.2 319.1,193.4 339.9,229.4 332.7,270.4 300.8,297.1 259.2,297.1 227.3,270.4 220.1,229.4 240.9,193.4" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,148.8 338.6,170.1 369.8,224.2 359.0,285.6 311.2,325.7 248.8,325.7 201.0,285.6 190.2,224.2 221.4,170.1" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,118.4 358.2,146.8 399.8,218.9 385.3,300.8 321.6,354.3 238.4,354.3 174.7,300.8 160.2,218.9 201.8,146.8" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,88.0 377.7,123.6 429.7,213.6 411.6,316.0 332.0,382.8 228.0,382.8 148.4,316.0 130.3,213.6 182.3,123.6" fill="none" stroke="#e2e8f0" stroke-width="1"/><line x1="280.0" y1="240.0" x2="280.0" y2="88.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="377.7" y2="123.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="429.7" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="411.6" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="332.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="228.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="148.4" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="130.3" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="182.3" y2="123.6" stroke="#d8dee9" stroke-width="1"/><polygon points="280.0,126.0 330.8,179.5 395.3,219.7 357.7,284.8 314.3,334.3 242.0,344.3 187.9,293.2 188.7,223.9 201.8,146.8" fill="rgba(37,99,235,.22)" stroke="#2563eb" stroke-width="2.5"/><circle cx="280.0" cy="126.0" r="3.5" fill="#2563eb"/><circle cx="330.8" cy="179.5" r="3.5" fill="#2563eb"/><circle cx="395.3" cy="219.7" r="3.5" fill="#2563eb"/><circle cx="357.7" cy="284.8" r="3.5" fill="#2563eb"/><circle cx="314.3" cy="334.3" r="3.5" fill="#2563eb"/><circle cx="242.0" cy="344.3" r="3.5" fill="#2563eb"/><circle cx="187.9" cy="293.2" r="3.5" fill="#2563eb"/><circle cx="188.7" cy="223.9" r="3.5" fill="#2563eb"/><circle cx="201.8" cy="146.8" r="3.5" fill="#2563eb"/><text x="280.0" y="44.0" text-anchor="middle" font-size="12.5" fill="#334155" font-weight="600">D1</text><text x="280.0" y="58.0" text-anchor="middle" font-size="11" fill="#64748b">市场需求 7.5</text><text x="406.0" y="89.9" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D2</text><text x="406.0" y="103.9" text-anchor="start" font-size="11" fill="#64748b">技术成熟度 5.2</text><text x="473.0" y="206.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D3</text><text x="473.0" y="220.0" text-anchor="start" font-size="11" fill="#64748b">社区生态 7.7</text><text x="449.7" y="338.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D4</text><text x="449.7" y="352.0" text-anchor="start" font-size="11" fill="#64748b">变现潜力 5.9</text><text x="347.0" y="424.2" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D5</text><text x="347.0" y="438.2" text-anchor="start" font-size="11" fill="#64748b">竞争格局 6.6</text><text x="213.0" y="424.2" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D6</text><text x="213.0" y="438.2" text-anchor="end" font-size="11" fill="#64748b">法律合规 7.3</text><text x="110.3" y="338.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D7</text><text x="110.3" y="352.0" text-anchor="end" font-size="11" fill="#64748b">企业就绪 7.0</text><text x="87.0" y="206.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D8</text><text x="87.0" y="220.0" text-anchor="end" font-size="11" fill="#64748b">团队治理 6.1</text><text x="154.0" y="89.9" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D9</text><text x="154.0" y="103.9" text-anchor="end" font-size="11" fill="#64748b">上手难度 8.0</text></svg></div>
+<div class="bars"><div class="bar-row"><span class="bar-name">D9 上手难度</span>
+<span class="bar-track"><span class="bar-fill" style="width:80.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.0</span><span class="bar-w">权重10%</span></div>
+<div class="bar-row"><span class="bar-name">D3 社区生态</span>
+<span class="bar-track"><span class="bar-fill" style="width:77.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.7</span><span class="bar-w">权重11%</span></div>
+<div class="bar-row"><span class="bar-name">D1 市场需求</span>
+<span class="bar-track"><span class="bar-fill" style="width:75.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.5</span><span class="bar-w">权重13%</span></div>
+<div class="bar-row"><span class="bar-name">D6 法律合规</span>
+<span class="bar-track"><span class="bar-fill" style="width:73.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.3</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D7 企业就绪</span>
+<span class="bar-track"><span class="bar-fill" style="width:70.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.0</span><span class="bar-w">权重8%</span></div>
+<div class="bar-row"><span class="bar-name">D5 竞争格局</span>
+<span class="bar-track"><span class="bar-fill" style="width:66.0%;background:#d97706"></span></span>
+<span class="bar-val">6.6</span><span class="bar-w">权重12%</span></div>
+<div class="bar-row"><span class="bar-name">D8 团队治理</span>
+<span class="bar-track"><span class="bar-fill" style="width:61.0%;background:#d97706"></span></span>
+<span class="bar-val">6.1</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D4 变现潜力</span>
+<span class="bar-track"><span class="bar-fill" style="width:59.0%;background:#dc2626"></span></span>
+<span class="bar-val">5.9</span><span class="bar-w">权重18%</span></div>
+<div class="bar-row"><span class="bar-name">D2 技术成熟度</span>
+<span class="bar-track"><span class="bar-fill" style="width:52.0%;background:#dc2626"></span></span>
+<span class="bar-val">5.2</span><span class="bar-w">权重14%</span></div></div>
+<div class="meta">分析时点 2026-09-16 ｜ 数据来源：GitHub API + 仓库代码实测 ｜ 方法论 v1.3</div>
+<div class="credit">报告出品：@魔法工厂　@向量之心　@南山科学家</div>
+<div class="disclaimer"><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</div>
+</div><h1>Worktrunk 商业化潜力分析报告（完整版）</h1>
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家</p>
+<p>方法论版本: v1.3 | 综合评分: <strong>67.0</strong> | 等级: <strong>A（高商业化潜力）</strong> | 价值画像: 纯商业工具</p>
+</blockquote>
+<h2>一、项目概览</h2>
+<h3>1.1 基本信息</h3>
+<ul>
+<li><strong>项目名称 / 仓库地址</strong>：Worktrunk（max-sixty/worktrunk）</li>
+<li><strong>核心技术栈</strong>：Rust（257,472 行 / 289 个 .rs 文件，代码总量 259,896 行），单二进制 CLI，最低 Rust 1.97（edition 2024），默认特性含 tree-sitter（需 C 编译）</li>
+<li><strong>社区规模速览</strong>：Star 7,789 / Fork 272（Fork 比率 3.49%）/ 贡献者 72 / Watchers 18 / 开放 Issue 53；近 90 天新建 PR 851 个、关闭 Issue 169 个</li>
+<li><strong>分析时点 / 数据来源</strong>：仓库创建于 2025-10-17，最后推送 2026-09-15，最新版本 v0.77.0（2026-09-08）；数据来源为 GitHub 仓库实采（README、LICENSE、Cargo.toml、CI 工作流、文档文件清单）</li>
+</ul>
+<h3>1.2 项目分类标签</h3>
+<table>
+<thead>
+<tr>
+<th>分类维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>开发者工具 / 开源 CLI 工具（本地部署，Open Source 单一模式，未见 Open Core 或云托管双轨）</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>通用/跨行业</td>
+</tr>
+<tr>
+<td>目标用户角色</td>
+<td>后端开发者、全栈开发者、DevOps/运维工程师、AI/ML 工程师</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>Git worktree 管理、并行开发、并行 AI Agent 工作流编排、PR 工作流、本地 merge、构建缓存共享、每 worktree dev server</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>本地部署（Homebrew / Cargo / Winget / AUR / Conda 分发，支持 macOS / Linux / Windows）</td>
+</tr>
+</tbody>
+</table>
+<h3>1.3 一句话定位</h3>
+<blockquote>
+<p>Worktrunk 是一个 Git worktree 管理 CLI 工具，适用于任意需要并行开发或并行 AI Agent 工作流的软件研发场景，主要面向使用 Claude Code / Codex 等 AI 编程代理的开发者与 DevOps 工程师，用于将 Git worktree 的创建、切换、列表、合并、清理简化为类似分支的核心命令。</p>
+</blockquote>
+<hr />
+<h2>二、安装部署与使用指南</h2>
+<blockquote>
+<p><strong>上手难度等级：🟢 简单（8.0 / 10）</strong> — 面向所有人，可提供详细操作步骤与命令。</p>
+</blockquote>
+<h3>一、安装（单命令，五条通道，覆盖三大平台）</h3>
+<p>Worktrunk 是以预编译二进制分发为主、多包管理器覆盖的 Rust CLI，<strong>无需安装数据库、缓存或任何服务端组件</strong>。README「Install」章节给出的通道如下（命令均为 README 原文）：</p>
+<p><strong>macOS &amp; Linux（Homebrew）：</strong></p>
+<pre><code class="language-bash">brew install worktrunk &amp;&amp; wt config shell install
+</code></pre>
+<p><strong>Cargo（源码构建）：</strong></p>
+<pre><code class="language-bash">cargo install worktrunk &amp;&amp; wt config shell install
+</code></pre>
+<p><strong>Windows（Winget）：</strong></p>
+<pre><code class="language-bash">winget install max-sixty.worktrunk
+git-wt config shell install
+</code></pre>
+<p><strong>Arch Linux：</strong></p>
+<pre><code class="language-bash">sudo pacman -S worktrunk &amp;&amp; wt config shell install
+</code></pre>
+<p><strong>Conda / Pixi（社区维护 feedstock）：</strong></p>
+<pre><code class="language-bash">conda install -c conda-forge worktrunk &amp;&amp; wt config shell install
+# 或
+pixi global install worktrunk &amp;&amp; wt config shell install
+</code></pre>
+<h3>二、初始化配置（一行命令）</h3>
+<p>每个安装片段末尾的 <code>wt config shell install</code> 即为初始化步骤，README 说明其作用是「Shell integration allows commands to change directories」——安装 shell 集成后，<code>wt switch</code> 等命令才能切换当前 shell 的工作目录。除此之外<strong>没有必须填写的配置文件</strong>，默认配置即可工作；<code>dev/*.example.toml</code> 与 <code>docs/public/config.md</code> 提供的配置模板均为可选。</p>
+<h3>三、首次验证（分钟级跑通 quickstart）</h3>
+<pre><code class="language-console">$ wt switch --create feature-auth
+✓ Created branch feature-auth from main and worktree @ ~/repo.feature-auth
+
+$ wt list
+  Branch        Status      HEAD±     main↕    main…±    Remote⇅  Commit    Age  Message
+@ feature-auth  +   ↑      +27   -8   ↑1       +31                4bc72dc    2h  Add authenticati…
+^ main              ^⇡                                    ⇡1      0e631ad    1d  Initial commit
+
+○ Showing 2 worktrees, 1 with changes, 1 ahead, hidden: Path
+</code></pre>
+<h3>四、日常使用（三条核心命令 + 清理）</h3>
+<table>
+<thead>
+<tr>
+<th>任务</th>
+<th>Worktrunk</th>
+<th>等价 plain git</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>切换 worktree</td>
+<td><code>wt switch feat</code></td>
+<td><code>cd ../repo.feat</code></td>
+</tr>
+<tr>
+<td>创建并启动 Claude</td>
+<td><code>wt switch -x claude feat</code></td>
+<td><code>git worktree add -b feat ../repo.feat &amp;&amp; cd ../repo.feat &amp;&amp; claude</code></td>
+</tr>
+<tr>
+<td>清理</td>
+<td><code>wt remove</code></td>
+<td><code>git worktree remove … &amp;&amp; git branch -d …</code></td>
+</tr>
+<tr>
+<td>带状态列表</td>
+<td><code>wt list</code></td>
+<td><code>git worktree list</code>（仅路径）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>PR 工作流：</strong> <code>wt step commit</code> → <code>gh pr create</code>（或 <code>glab mr create</code>）→ 合并后 <code>wt remove</code>。
+<strong>本地合并工作流：</strong> <code>wt merge main</code>（squash、rebase、fast-forward、清理一条命令完成）。
+<strong>并行 agent：</strong></p>
+<pre><code class="language-bash">wt switch -x claude -c feature-a -- 'Add user authentication'
+wt switch -x claude -c feature-b -- 'Fix the pagination bug'
+wt switch -x claude -c feature-c -- 'Write tests for the API'
+</code></pre>
+<p>（<code>-x</code> 表示切换后执行命令，<code>--</code> 之后的参数传给该命令。）</p>
+<p><strong>速查与交互式操作：</strong> <code>wt --help</code> 或 <code>wt &lt;command&gt; --help</code>；<code>wt switch</code> 提供 interactive picker，可用实时 diff 与 log 预览浏览 worktree，并支持 <code>alt-y</code> 复制分支名、<code>alt-o</code> 打开 PR。</p>
+<h3>五、注意事项（真实摩擦点）</h3>
+<ol>
+<li><strong>Windows 名称冲突</strong>：<code>wt</code> 默认与 Windows Terminal 的命令重名，Winget 因此额外安装 <code>git-wt</code> 二进制；README 给出的替代方案是「disable Windows Terminal's alias（Settings → Apps → Advanced app settings → App execution aliases → "Terminal"/"Terminal Preview"）」后直接使用 <code>wt</code>。</li>
+<li><strong>源码编译路径的额外门槛</strong>：<code>Cargo.toml</code> 声明 <code>edition = "2024"</code>、<code>rust-version = "1.97"</code>，即需要相当新的 Rust 工具链；默认特性 <code>default = ["cli", "syntax-highlighting"]</code> 会引入 <code>tree-sitter-bash</code> / <code>tree-sitter-highlight</code>，Cargo.toml 注释明确提示「This is optional to avoid C compilation issues on some platforms」，即默认构建可能需要 C 编译器。规避方式是 <code>cargo install worktrunk --no-default-features --features cli</code>。</li>
+<li><strong>开发/贡献路径较重</strong>：<code>cargo test</code> 可跑基础测试，但 shell integration 测试需要 bash、zsh、fish、nushell、pwsh 与 <code>jq</code>（<code>cargo test --test integration --features shell-integration-tests</code>）。此为贡献者路径，不影响最终用户。</li>
+</ol>
+<h3>六、可选进阶（非首次上手必需）</h3>
+<ul>
+<li>Hooks（<code>docs/public/hook.md</code>）：在 create / pre-merge / post-merge 等时机自动执行命令。</li>
+<li>LLM commit messages、<code>wt list --full</code>（CI 状态 + AI 摘要）、<code>wt switch pr:123</code>（PR checkout）。</li>
+<li>模板过滤器（如 <code>hash_port</code> 实现每 worktree 独立端口）与 aliases、per-branch 变量（<code>docs/public/config.md</code>、<code>docs/public/extending.md</code>、<code>docs/public/tips-patterns.md</code>）。</li>
+<li>Claude Code 集成与 Agent Skills 插件（<code>plugins/worktrunk/skills/worktrunk/SKILL.md</code>、<code>docs/public/claude-code.md</code>）。</li>
+</ul>
+<hr />
+<h2>三、评分总览</h2>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>权重</th>
+<th>加权得分</th>
+<th>评级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1 市场需求与商业机会</td>
+<td>7.5/10</td>
+<td>13%</td>
+<td>0.98</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D2 技术成熟度与产品质量</td>
+<td>5.2/10</td>
+<td>14%</td>
+<td>0.73</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D3 社区健康度与生态势能</td>
+<td>7.7/10</td>
+<td>11%</td>
+<td>0.85</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D4 商业模式与变现潜力</td>
+<td>5.9/10</td>
+<td>18%</td>
+<td>1.06</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D5 竞争格局与差异化壁垒</td>
+<td>6.6/10</td>
+<td>12%</td>
+<td>0.79</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D6 法律合规与知识产权</td>
+<td>7.3/10</td>
+<td>7%</td>
+<td>0.51</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D7 企业就绪度与可运营性</td>
+<td>7.0/10</td>
+<td>8%</td>
+<td>0.56</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D8 团队治理与可持续性</td>
+<td>6.1/10</td>
+<td>7%</td>
+<td>0.43</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D9 上手难度与易用性</td>
+<td>8.0/10</td>
+<td>10%</td>
+<td>0.80</td>
+<td>优</td>
+</tr>
+<tr>
+<td><strong>综合评分</strong></td>
+<td>—</td>
+<td>100%</td>
+<td><strong>67.0/100</strong></td>
+<td><strong>A（高商业化潜力）</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>平行维度（不计入综合评分）</strong></p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10 功能价值</td>
+<td>8.2/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>D11 社会价值</td>
+<td>5.4/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>公共价值分</td>
+<td>6.8/10</td>
+<td>(D10+D11)/2</td>
+</tr>
+</tbody>
+</table>
+<p><strong>一票否决检查</strong>：未触发。D6 维度总分 7.3 &gt; 3；D8.4 细则小分 2.4 &gt; 1；D4.1 细则小分 2.0 &gt; 0.5。三项否决条件均不成立，等级按综合评分正常判定为 A。</p>
+<p><strong>价值画像</strong>：综合评分 67.0 ≥ 65，公共价值分 6.8 &lt; 7 → <strong>💼 纯商业工具</strong>。需注意公共价值分 6.8 落在 6.5–7.5 的临界区间，构成<strong>画像临界</strong>，详见第五章说明。</p>
+<blockquote>
+<p>各维度细则分值构成详见「二、维度评分细则」。</p>
+</blockquote>
+<hr />
+<h2>四、各维度详细分析</h2>
+<h3>D1. 市场需求与商业机会</h3>
+<h3>D1.0 项目分类标签</h3>
+<p><strong>维度一 · 项目类型</strong>: 开发者工具（主）、DevOps与运维（辅）
+<strong>维度二 · 适用行业</strong>: 通用/跨行业
+<strong>维度三 · 目标用户角色</strong>: 后端开发者、全栈开发者、DevOps/运维工程师、AI/ML工程师
+<strong>维度四 · 适用场景</strong>: 研发流程优化、CI/CD流水线（PR/合并工作流）、协作沟通（多 Agent 并行）
+<strong>维度五 · 部署形态</strong>: 本地部署（CLI 二进制，通过 Homebrew/Cargo/Winget/AUR/Conda 分发）</p>
+<p><strong>一句话定位</strong>: Worktrunk 是一个 Git worktree 管理 CLI 工具，适用于任意需要并行开发或并行 AI Agent 工作流的软件研发场景，主要面向使用 Claude Code / Codex 等 AI 编程代理的开发者与 DevOps 工程师，用于将 Git worktree 的创建、切换、列表、合并、清理等操作简化为「像分支一样」的核心命令。</p>
+<hr />
+<h3>D1.1 目标市场规模与增长性（满分 2.5）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TAM 估算</td>
+<td>直接 TAM 为「Git 工作区/工作流管理工具」细分市场，属开发者工具长尾；若按「并行 AI Agent 编排与开发效率工具」口径，可挂靠到十亿美元级且高速增长的 AI 编程工具大盘</td>
+</tr>
+<tr>
+<td>增长趋势</td>
+<td>强扩张。项目 2025-10-17 创建，至 2026-09 已 7,789 star、72 贡献者、近 90 天 851 个 PR，迭代节奏为周级发版（v0.69→v0.77 于 2 个月内），需求侧信号极为密集</td>
+</tr>
+<tr>
+<td>市场层级</td>
+<td>成长期新兴细分市场，非成熟红海，但也非独立大品类，本质是 AI 编程工具生态的配套层</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分</strong>: 1.5 / 2.5（60%，对应 5–6 档）</p>
+<p><strong>依据</strong>: 按项目类型（开发者工具）与行业（通用/跨行业）做量级估算——worktree 管理本身是 Git 生态中的极窄切片，单独的付费市场大约在千万至亿美元级量级；其增长完全由上游「并行 AI Agent 编程」这一更大的成长期市场带动。<strong>该量级估算未经外部市场数据验证（本次分析无外部搜索），置信度低，禁止据此引用任何具体市场规模数字。</strong> 给 5–6 档而非更高的原因：可被本项目直接货币化的 TAM 偏窄，且上游 AI 编程厂商自建同类能力会压缩该切片的价值。</p>
+<hr />
+<h3>D1.2 痛点真实性与解决程度（满分 2.5）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>痛点真实性</td>
+<td>真实且有权威背书。README 引用 Anthropic 官方《Claude Code 最佳实践》中的 worktree 模式、incident.io 的并行 Agent 生产实践、以及 Claude Code 仓库 #1052 的社区讨论；原生 <code>git worktree</code> 需重复输入三次分支名并手动 <code>cd</code>，是高频摩擦</td>
+</tr>
+<tr>
+<td>解决完整度</td>
+<td>完整度高。核心三命令 <code>wt switch / list / remove</code> + <code>wt merge</code>，并补齐 hooks、LLM 提交信息、交互式 picker、构建缓存共享（APFS/btrfs/XFS reflink）、PR/PR:123 直切、每 worktree 独立 dev server 端口、别名与分支级变量、shell 集成</td>
+</tr>
+<tr>
+<td>替代成本</td>
+<td>中等偏低。免费替代品充足（原生 git 命令、通用 git TUI），但体验显著更差；痛点强度属「开发者工作流效率」而非「业务不可中断」级别</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分</strong>: 2.0 / 2.5（80%，对应 7–8 档）</p>
+<p><strong>依据</strong>: 痛点明确、方案完整、替代品存在但体验更差，完全吻合 7–8 档描述；未给 9–10 档是因为该痛点不是「非用不可」的生存型刚需——用户在极端情况下退回原生 <code>git worktree</code> 仍可完成任务，且同类开源 worktree 管理器并非不存在。真正的需求强度证据来自迭代信号：近 90 天 851 个 PR、169 个 Issue 关闭、53 个开放 Issue，以及 README 中作者自述「请把任何摩擦告诉我」的邀请式反馈入口，说明用户反馈密度高。</p>
+<hr />
+<h3>D1.3 市场时机判断（满分 2.5）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术成熟度曲线</td>
+<td>Git worktree 特性（2015 年）早已越过期望膨胀期，处于稳定生产期；AI 编程代理（Claude Code 2025 年初发布）正处于从早期采用进入规模生产期的拐点</td>
+</tr>
+<tr>
+<td>竞争密度</td>
+<td>格局未固化。开源侧有零散 worktree 管理脚本/工具，商业侧无垄断者；本项目自述「已成为最流行的 git worktree 管理器」</td>
+</tr>
+<tr>
+<td>监管/标准</td>
+<td>无直接监管；但存在事实标准推力——Anthropic 官方文档推荐 worktree 模式，属于强有力的行业实践背书</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分</strong>: 2.0 / 2.5（80%，对应 7–8 档）</p>
+<p><strong>依据</strong>: 项目创建于 2025-10-17，卡在 AI Agent 编程从试点走向规模化使用的成长期，时机判断为「成长期、有先行者但格局未定」，符合 7–8 档。未给 9–10 档的关键制约是<strong>平台风险</strong>：Claude Code / Codex / Cursor 等上游 Agent 厂商完全可能把 worktree 生命周期管理内建进自家产品，从而把这一层能力商品化；项目对此的防御是 cross-agent 中立性（topics 同时包含 <code>claude-code</code> 与 <code>codex</code>）与深度工作流能力（hooks、缓存共享、merge）。</p>
+<hr />
+<h3>D1.4 应用场景广度（满分 2.5）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>行业覆盖</td>
+<td>跨行业。任何使用 Git 的软件团队、任何技术栈（项目自身 Rust 实现即是佐证，与业务语言无关）</td>
+</tr>
+<tr>
+<td>场景多样性</td>
+<td>横向通用工具。已覆盖：并行多 Agent 开发、PR 评审工作流、本地 squash-rebase-merge、每 worktree 独立 dev server、构建缓存共享、monorepo 多分支、Zellij/tmux 多标签编排</td>
+</tr>
+<tr>
+<td>可延展性</td>
+<td>强。核心抽象（分支名寻址工作区 + 模板化路径 + hooks + 别名 + LLM 集成）可延展到 CI 触发、Agent 交接、数据库隔离等相邻场景，文档中有专门的 tips-patterns 章节</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分</strong>: 2.0 / 2.5（80%，对应 7–8 档）</p>
+<p><strong>依据</strong>: 「多行业可用、场景丰富」吻合 7–8 档。未达 9–10 档（跨行业通用基础设施级）的原因是：它是<strong>终端用户级 CLI 工具</strong>，而非被其他软件依赖运行的底层基础设施（无 SDK/API 生态扩展面）；且所有场景都收敛在「Git 工作区管理」这一个抽象之下，广度受限于开发者人群本身。</p>
+<hr />
+<h3>D1 维度小结</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1.1 目标市场规模与增长性</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6 档（60%）</td>
+</tr>
+<tr>
+<td>D1.2 痛点真实性与解决程度</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8 档（80%）</td>
+</tr>
+<tr>
+<td>D1.3 市场时机判断</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8 档（80%）</td>
+</tr>
+<tr>
+<td>D1.4 应用场景广度</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8 档（80%）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>7.5</strong></td>
+<td><strong>7–8 档</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>: Worktrunk 处在一个<strong>需求真实、时机良好、场景宽但市场切片偏窄</strong>的位置。它的三项强项（痛点真实性、时机、场景广度）都建立在同一个外部变量上——并行 AI Agent 编程从工作流惯例变成行业标准；而唯一明显短板（D1.1）也源于同一变量：项目本身是可被上游商品化的配套层，直接货币化 TAM 有限。<strong>商业化含义</strong>：这是一款典型的「生态卡位型」工具，其价值更像流量入口与工作流标准定义者，而非可直接按席位收费的独立品类；若走商业化，最自然的路径是向上游（Agent 编排/团队协作平台）或向下游（企业级 Git/CI 治理）延展，单纯卖 CLI 本身的市场天花板较低。</p>
+<p><strong>置信度说明</strong>: D1.1 的市场量级为基于项目类型与行业的量级估算，未使用外部市场数据验证，置信度低；D1.2–D1.4 均基于仓库内硬事实（README 引用来源、功能覆盖、迭代指标、topics 分布），置信度中高。</p>
+<h3>D2. 技术成熟度与产品质量（权重 14%）</h3>
+<p><strong>评估对象</strong>: max-sixty/worktrunk（Rust CLI，Git worktree 管理，面向并行 AI Agent 工作流）
+<strong>版本基线</strong>: v0.77.0（2026-09-08），最近推送 2026-09-15
+<strong>适用性判定</strong>: 项目为 CLI，但内置基于 skim 的交互式 TUI 选择器（双栏预览、<code>alt-x</code>/<code>alt-r</code> 键位、头部 flash、跨线程渲染槽位）、渐进式表格渲染与面向 Claude Code/tmux 的 statusline，属于「交互式 CLI」，故 <strong>D2.5 判定为适用</strong>，不按 N/A 剔除。</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>核心依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D2.1</td>
+<td>产品设计与创新性</td>
+<td>1.5</td>
+<td>1.2</td>
+<td>80%</td>
+<td>「AI Agent 并行 worktree」定位清晰，shell 指令集成 + hook 审批 + LLM 提交信息构成差异化</td>
+</tr>
+<tr>
+<td>D2.2</td>
+<td>架构设计与工程质量</td>
+<td>2.0</td>
+<td>1.6</td>
+<td>80%</td>
+<td>lib/CLI feature 切分 + 专用测试基建 + 缓存契约文档化；但存在多个 1000–3000 行巨型文件</td>
+</tr>
+<tr>
+<td>D2.3</td>
+<td>代码整洁性与规范性</td>
+<td>1.0</td>
+<td>0.8</td>
+<td>80%</td>
+<td>命名统一、注释详尽（含不变量与 issue 号）、pre-commit/rustfmt/clippy；个别函数分支复杂</td>
+</tr>
+<tr>
+<td>D2.4</td>
+<td>安全性</td>
+<td>1.0</td>
+<td>0.8</td>
+<td>80%</td>
+<td>注入防护与审批边界测试完备、无硬编码密钥；未见依赖漏洞扫描（cargo-audit/deny）</td>
+</tr>
+<tr>
+<td>D2.5</td>
+<td>UI/UX/UE 人机交互</td>
+<td>1.0</td>
+<td>0.8</td>
+<td>80%</td>
+<td>TUI 交互经 vt100 快照测试、样式集中管理、乐观更新+回滚；无无障碍相关实现</td>
+</tr>
+<tr>
+<td>D2.6</td>
+<td>功能完备度与稳定性</td>
+<td>1.5</td>
+<td>1.2</td>
+<td>80%</td>
+<td>功能面完整、性能工程扎实、环境要求合理；仍为 0.x，无 i18n</td>
+</tr>
+<tr>
+<td>D2.7</td>
+<td>文档与开发者体验</td>
+<td>1.0</td>
+<td>0.8</td>
+<td>80%</td>
+<td>87 个文档文件 + 每命令参考 + FAQ + 终端录制 + 文档-代码同步测试；无交互式教程</td>
+</tr>
+<tr>
+<td>D2.8</td>
+<td>测试与质量保障</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>100%</td>
+<td>测试占比 36.3%、insta/rstest/PTY 三层测试、15 个 workflow、覆盖多维度质量门禁</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td><strong>8.2</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>逐项分析</h3>
+<h4>D2.1 产品设计与创新性（1.2/1.5）</h4>
+<ul>
+<li><strong>产品理念清晰</strong>：以「一个分支 = 一个 worktree = 一个 AI Agent 会话」为核心命题，把 <code>switch/list/merge/remove/step</code> 收敛为围绕 worktree 生命周期的动词集，并提供 shell 集成（<code>wt_exec</code> 经由 <code>__WORKTRUNK_CD__</code>/<code>__WORKTRUNK_EXEC__</code> 指令文件回传 cd/exec），解决了 worktree 工具「无法改变当前 shell 目录」的长期痛点。</li>
+<li><strong>功能设计有取舍</strong>：配置采用系统→用户→项目三级 TOML 深合并，项目级 hook/alias 走<strong>审批</strong>（<code>approvals.toml</code>）而用户级免审批，说明作者对「仓库可携带可执行内容」的威胁模型有清醒认知，非功能堆砌。</li>
+<li><strong>创新性</strong>：LLM 提交信息生成（diff 预算/裁剪策略）、将 CI/PR 状态（GitHub/GitLab/Gitea/Azure DevOps）聚合进 <code>wt list</code>、面向 Claude Code 的 statusline（含速率限制窗口的贝叶斯后验与 Gauss–Hermite 积分）、<code>cargo-affected</code> 覆盖率选测，均超出同类 worktree 工具的常见能力边界。</li>
+<li><strong>差异化</strong>：同类项目多为「worktree 增删 + 列表」，本项目在<strong>与 Agent 宿主集成</strong>与<strong>审批安全模型</strong>两处形成明确差异点。</li>
+<li>未给满分：核心机制仍是 git worktree 语义的高质量工程化封装，属「集成式创新」而非新范式。</li>
+</ul>
+<h4>D2.2 架构设计与工程质量（1.6/2.0）</h4>
+<ul>
+<li><strong>架构清晰</strong>：<code>src/{cli, commands, config, git, output, shell, styling, testing, trace}</code> 分层明确；<code>git/repository/*</code> 按职责拆分为 branch/config/diff/integration/ref_snapshot/sha_cache/working_tree/worktrees 子模块；<code>commands/list/collect/{tasks,execution,results}</code> 将「并行采集」与「渲染」解耦。</li>
+<li><strong>可复用性与解耦</strong>：库/CLI 通过 <code>cli</code> feature 切分（clap/skim/crossterm/termimad 被门控），并有专门的 <code>feature-check</code> CI job 防止库消费者被动拉入 CLI 依赖图——这是少见的、被自动化守护的架构不变量。</li>
+<li><strong>抽象适当</strong>：<code>Diagnostic</code> trait 提供富终端渲染与 Display 分离；<code>RepoCache</code> 采用 OnceCell + DashMap + 磁盘 sha_cache 的分层缓存，并显式文档化失效契约；<code>CollectOptions</code>/<code>PickerProgressHandler</code> 等接口为渲染路径复用而设计。</li>
+<li><strong>目录与代码量</strong>：259,896 行 / 298 文件（.rs 257,472 行 / 289 文件）。扣除约 94k 测试行后生产代码约 16 万行，与「80+ 子命令 + 4 家 forge 集成 + 5 种 shell 集成 + TUI + statusline」的功能面基本匹配，但 <strong>单文件体量偏大</strong>：<code>shell_exec.rs</code>（~3000 行）、<code>config/approvals.rs</code>（1229 行）、<code>list/json_output.rs</code>（1188 行）、<code>progress.rs</code>（1084 行）、<code>commands/process.rs</code>（1082 行）、<code>config/state.rs</code>（820 行）等，存在进一步按职责拆分的空间。</li>
+<li><strong>复刻难度高</strong>：跨平台（Linux/macOS/Windows，含 musl 与 Intel mac 发布目标）、PTY/信号/进程组语义、git 边界行为、快照测试基建、forge 认证与限流处理，构成实打实的工程护城河。</li>
+<li><strong>技术债可控但非零</strong>：代码自述存在待办与「值得审计」处（如 <code>shell_value_name</code> 的 TODO、骨架前 fork 数量自评待审计），<code>RepoCache</code> 字段数量多、维护成本高，属于有意识记录而非失控的债。</li>
+</ul>
+<h4>D2.3 代码整洁性与规范性（0.8/1.0）</h4>
+<ul>
+<li>命名与风格统一（Rust 惯例、<code>snake_case</code> 模块化命名、错误类型 <code>GitError/WorktrunkError/CommandError</code> 分域清晰），<code>pre-commit/action</code> + clippy + rustfmt 在 CI 强制执行。</li>
+<li>注释质量显著高于平均：模块头注释说明设计权衡（如为何弃用 <code>wait-timeout</code>、<code>SELECTED_FAINT_FG</code> 与 <code>fg:-1</code> 的耦合、<code>STANDARD_FIXTURE_COMMIT_DATE</code> 的时区偏移 load-bearing）、引用 issue 号回归（#2310/#3123/#3645/#3934 等）。</li>
+<li>重复度低：<code>insta</code> 快照替代大量断言样板，公共夹具（<code>TestRepo</code>、<code>make_snapshot_cmd</code>）被广泛复用。</li>
+<li>扣分点：个别函数分支密集（如 <code>execute_instant_removal_or_fallback</code>、<code>scan_shell_configs</code>），部分测试文件中重复的 <code>RAYON_NUM_THREADS=1</code>/环境设置未抽公共辅助，属轻微不规范。</li>
+</ul>
+<h4>D2.4 安全性（0.8/1.0）</h4>
+<ul>
+<li><strong>注入防护扎实且有回归测试</strong>：<code>shell_escape::unix::escape</code> 广泛用于建议命令、CAS 删除尾命令、git alias 写入、LLM 调用；<code>test_configure_shell_rejects_unsafe_cmd_without_modifying_rc</code>（<code>wt; touch /tmp/pwn</code>）、<code>test_completion_registration_rejects_invalid_complete_name</code>（<code>wt$(id)</code>）等注入载荷测试到位。</li>
+<li><strong>审批边界与 TOCTOU</strong>：项目级 hook/alias 需审批，<code>test_post_merge_hook_from_rebased_in_config_does_not_run</code> 是明确的 TOCTOU 回归防线；picker 只执行已审批钩子。</li>
+<li><strong>敏感信息</strong>：未见硬编码 Token/密码；CI 全部经 <code>secrets.*</code> 注入；发布采用 crates.io Trusted Publishing（OIDC 短时令牌）而非长期 API Key；Windows 产物有 SignPath 签名与校验和重算流程。</li>
+<li><strong>环境隔离</strong>：测试基建主动设置 <code>protocol.allow = never</code>、<code>GIT_CONFIG_GLOBAL/SYSTEM</code> 指向不存在路径、清理 <code>GIT_DIR/GIT_WORK_TREE</code> 继承，避免环境泄漏与意外联网。</li>
+<li><strong>扣分点</strong>：15 个 workflow 中<strong>未见到依赖漏洞扫描</strong>（无 cargo-audit / cargo-deny / Dependabot / Trivy 配置），仅有 <code>cargo-udeps</code>（未使用依赖）与 <code>cargo msrv verify</code>；依赖安全补丁的持续可见性弱于其工程质量的其他方面。</li>
+</ul>
+<h4>D2.5 UI/UX/UE 人机交互（0.8/1.0）</h4>
+<ul>
+<li><strong>界面设计</strong>：基于 skim + ratatui 的双栏选择器（列表 + 预览），有独立 <code>styling</code> 模块统一配色；对选中行 <code>DIM</code> 被冲淡、ANSI 背景污染、列对齐（<code>PositionMask::FULL</code>）等细节做了专门处理，属终端 UI 中的上游水准。</li>
+<li><strong>交互体验</strong>：<code>alt-x</code> 就地移除采用「乐观 UI 更新 + 后台校验 + 失败回滚（<code>RemovalEffect::Dropped/Morphed/Kept</code>）」，<code>alt-r</code> 通过重建 skim 池避免光标跳顶；头部 flash 用 generation 计数防旧定时器擦除新消息；list 采用渐进式骨架渲染与列优先级分配（空数据列降权 <code>EMPTY_PENALTY=14</code>）。</li>
+<li><strong>一致性</strong>：色板/符号/提示集中在 <code>styling</code>，高亮、h</li>
+</ul>
+<h3>D3. 社区健康度与生态势能</h3>
+<p><strong>维度权重</strong>: 11% | <strong>维度得分</strong>: 7.7 / 10</p>
+<h3>D3.1 社区活跃度指标（满分 3 分）—— <strong>3.0 分（100%，9–10 档）</strong></h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Star 增速</td>
+<td>7789 Star ÷ 约 11.1 个月龄 ≈ <strong>702 Star/月</strong>（退化公式估算）</td>
+<td>超过 &gt;500/月 的 9–10 档阈值</td>
+</tr>
+<tr>
+<td>Fork 比率</td>
+<td>272 / 7789 = <strong>3.49%</strong></td>
+<td>偏低但属 Rust CLI 工具常见区间（如 ripgrep 约 3.5%），不构成硬伤</td>
+</tr>
+<tr>
+<td>Issue/PR 活跃度</td>
+<td>近 90 天新建 PR <strong>851</strong> 个、关闭 Issue <strong>169</strong> 个</td>
+<td>约 9.5 PR/天，社区参与度处于极高水位</td>
+</tr>
+<tr>
+<td>响应速度</td>
+<td>无 Issue 平均关闭时间 API 数据；但在库 Issue 仅 53 个、90 天关闭 169 个，且仓库配备 <code>tend-triage</code>/<code>tend-review</code>/<code>tend-ci-fix</code> 等自动分诊工作流，10 周内连发 10 个版本（v0.69.1→v0.77.0）</td>
+<td>响应与迭代节奏远快于 &lt;7 天档位</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>: 三项硬指标（Star 增速、PR 流量、Issue 吞吐）均落在 9–10 档；唯一短板是 Fork 比率偏低（3.49%），说明"拿来二次开发"的意愿一般，但作为单一 CLI 工具属正常范围。</p>
+<p><strong>数据可信度标注（必须）</strong>: Star 增速采用<strong>退化公式</strong>（Star 数 ÷ 项目年龄月数）估算，而非 GitHub API 实采的近 90 天 Star 增量。该值为历史平均值，会高估早期爆红红利——本项目于 2026 年初正式发布（README 自述），Star 增长具有明显前置集中特征，故 702 Star/月 应视为<strong>上界估计</strong>。即便实际近期增速折半（约 350/月），仍稳居 7–8 档。综合其余三项硬指标，本细则仍判 9–10 档。</p>
+<hr />
+<h3>D3.2 贡献者结构多样性（满分 2.5 分）—— <strong>2.0 分（80%，7–8 档）</strong></h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>贡献者数量</td>
+<td><strong>72</strong> 名（GitHub API contributors）</td>
+<td>数量已跨过 50+ 门槛</td>
+</tr>
+<tr>
+<td>组织多样性</td>
+<td><strong>无可用数据</strong>——无 PR 作者邮箱域名/组织归属的实采，且仓库存在大量自动化主体（<code>tend-*</code> 系列 8 个工作流、AGENTS.md/CLAUDE.md 驱动的 AI Agent 贡献流）</td>
+<td>无法验证 10+ 组织；91 天内 851 个 PR 中相当比例疑为机器人/Agent 自动化产出</td>
+</tr>
+<tr>
+<td>核心团队占比</td>
+<td>无 PR 作者维度的实采统计；项目由作者 max-sixty 主导，并自建 tend 维护机器人承担分诊/评审/通知</td>
+<td>核心团队 + 自动化占比高，外部自然人贡献占比不可考</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>: 贡献者总数（72）明确超过 9–10 档的 50+ 门槛，但 9–10 档是<strong>三项条件并列</strong>（50+ 贡献者 <strong>且</strong> 10+ 组织 <strong>且</strong> 外部贡献占比高）。后两项在现有素材中均无硬事实支撑，且该仓库高度自动化的贡献形态（Agent + tend 机器人）使"贡献者"口径本身存在虚高可能，故不能直接给满档。按 7–8 档（20–50 档位的上限区间）就高判定，取 80%。</p>
+<hr />
+<h3>D3.3 第三方生态成熟度（满分 3 分）—— <strong>1.8 分（60%，5–6 档）</strong></h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>插件/扩展</td>
+<td>仓库内置 <code>plugins/worktrunk/</code>（面向 Claude Code 的插件与 skills）、<code>docs/public/extending.md</code> 扩展文档、<code>docs/public/.well-known/agent-skills/index.json</code></td>
+<td>官方自建插件与扩展点，非第三方插件市场</td>
+</tr>
+<tr>
+<td>集成生态</td>
+<td>深度对齐 Claude Code / Codex 工作流；提供 shell-integration（bash/zsh/fish 补全）、hook 机制、crates.io 发布、Arch AUR PKGBUILD（<code>.github/aur/</code>）打包</td>
+<td>面向 Agent 工具链与包管理器的集成较扎实，但未见 CI/CD、云平台、IDE 等主流平台的官方集成背书</td>
+</tr>
+<tr>
+<td>衍生项目</td>
+<td>无外部二次开发项目或商业衍生产品的证据</td>
+<td>未证实</td>
+</tr>
+<tr>
+<td>教程/课程</td>
+<td>项目自有 87 个文档文件 + docs 站点 worktrunk.dev + 演示 GIF / X 发布帖；<strong>外部</strong>教程、课程、博客无硬证据</td>
+<td>自有内容强，外部内容不可考</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>: 生态资源以"官方自建"为主（文档、插件、skills、打包），第三方自发扩展与商业衍生品缺乏可验证证据，符合 5–6 档"少量第三方扩展"的描述，不给 7–8 档。</p>
+<hr />
+<h3>D3.4 品牌认知与行业影响力（满分 1.5 分）—— <strong>0.9 分（60%，5–6 档）</strong></h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>品牌辨识度</td>
+<td>README 自述"has quickly become the most popular git worktree manager"（<strong>自述，非第三方认证</strong>）；独立域名 worktrunk.dev 与 logo</td>
+<td>在 AI Agent 开发工具细分圈层内有辨识度</td>
+</tr>
+<tr>
+<td>行业采用</td>
+<td>README 节选中<strong>未见</strong>任何企业用户墙、案例研究或企业背书</td>
+<td>无硬证据</td>
+</tr>
+<tr>
+<td>媒体覆盖</td>
+<td>仅有作者本人 X 发布帖与项目自带 demos/twitter thread 素材；无第三方技术媒体/会议报道证据</td>
+<td>无硬证据</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>: 11 个月内积累 7789 Star 说明在小圈层（AI Agent + Git 工具链）已建立认知，但企业采用与媒体覆盖均无硬事实支撑，只达 5–6 档"小圈子内有认知度"。</p>
+<hr />
+<h3>结论</h3>
+<p>Worktrunk 的社区活跃度是<strong>本维度的绝对强项</strong>：7789 Star、72 位贡献者、近 90 天 851 个 PR / 关闭 169 个 Issue、10 周 10 个版本，开发与反馈回路极其紧凑，社区可直接视为高质量的潜在客户池。但商业化所需的"生态势能"目前<strong>明显弱于社区热度</strong>——第三方插件/衍生品/外部教程均无可验证证据，企业采用与媒体背书亦为空白，生态基本由官方自建内容支撑。此外，Star 增速为退化公式估算值（已在 D3.1 标注），贡献者组织多样性无实采数据，两项使本维度置信度略有下降。</p>
+<p><strong>维度得分 = (3.0 + 2.0 + 1.8 + 0.9) ÷ 10 × 10 = 7.7 / 10（良好）</strong></p>
+<p>===</p>
+<h3>D4. 商业模式与变现潜力</h3>
+<p><strong>维度得分：5.9 / 10</strong>（权重 18%）</p>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断摘要</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D4.1 协议对变现模式的影响</td>
+<td>2.0</td>
+<td><strong>2.0</strong></td>
+<td>100%（9–10 档）</td>
+<td>MIT OR Apache-2.0 双许可，零约束，全部变现路径合法可行</td>
+</tr>
+<tr>
+<td>D4.2 变现路径清晰度</td>
+<td>3.5</td>
+<td><strong>2.1</strong></td>
+<td>60%（5–6 档）</td>
+<td>存在可类比先例（Graphite、GitButler），但项目本身零商业化设计，路径待验证</td>
+</tr>
+<tr>
+<td>D4.3 付费转化逻辑</td>
+<td>2.5</td>
+<td><strong>1.0</strong></td>
+<td>40%（3–4 档）</td>
+<td>功能全量开源、纯本地执行，无免费/付费分层，升级触发点极弱</td>
+</tr>
+<tr>
+<td>D4.4 增值服务空间与定价天花板</td>
+<td>2.0</td>
+<td><strong>0.8</strong></td>
+<td>40%（3–4 档）</td>
+<td>无服务端组件，缺数据/存储/算力/协作等天然增值抓手，客单价天花板低</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>5.9</strong></td>
+<td>—</td>
+<td>协议无障碍，但变现设计整体缺位，属"未商业化"形态</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>D4.1 协议对变现模式的影响（2.0 / 2.0）</h3>
+<p><strong>依据（硬事实）：</strong>
+- <code>LICENSE</code> 文件明确声明："This project is dual-licensed under MIT and Apache-2.0. You may choose either license at your option."
+- <code>Cargo.toml</code> 声明 <code>license = "MIT OR Apache-2.0"</code>，与 LICENSE 文件一致。
+- GitHub API 返回的 <code>license</code> 字段为 <code>NOASSERTION</code>，系 SPDX 双许可表达式（<code>MIT OR Apache-2.0</code>）未被 GitHub 识别器规范化所致，<strong>不构成实际协议风险</strong>，本地实测与 SPDX 徽章均可证。
+- README 徽章：<code>License: MIT OR Apache-2.0</code>。</p>
+<p>MIT/Apache-2.0 属完全宽松型许可，无传染性、无云服务限制，Open Core、SaaS 托管、双协议商业授权、专业服务、市场/插件抽成等全部变现路径在法律层面均无障碍。Apache-2.0 附带专利授权条款，对企业客户而言反而是加分项。<strong>满分 2.0，取 100% 档。</strong></p>
+<p>（注：协议的合规性/法律风险本身归 D6.1 评估，此处仅就变现路径可行性判定。）</p>
+<h3>D4.2 变现路径清晰度（2.1 / 3.5）</h3>
+<p><strong>逐模式评估：</strong></p>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>可行性</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Open Core</td>
+<td>中等</td>
+<td>完全开源核心 CLI，理论上可拆出企业功能（团队策略下发、集中配置管理、审计日志、SSO），但本地 CLI 的"企业功能"边界天然模糊</td>
+</tr>
+<tr>
+<td>SaaS 托管</td>
+<td>低</td>
+<td>产品是单机 Rust 二进制（289 个 <code>.rs</code> 文件、25.7 万行），无任何服务端/云组件，无托管载体；仅"托管共享缓存""团队 worktree 仪表盘"等外围设想，无落地痕迹</td>
+</tr>
+<tr>
+<td>双协议许可</td>
+<td>中</td>
+<td>MIT/Apache 双许可已具备法律基础，可叠加商业授权，但需先有价值分层才有企业愿意购买豁免之外的商业合同</td>
+</tr>
+<tr>
+<td>专业服务</td>
+<td>中</td>
+<td>CLI 工具常见路径（培训/定制 hooks/工作流咨询），但单点工具服务空间有限、难规模化</td>
+</tr>
+<tr>
+<td>市场/插件</td>
+<td>低</td>
+<td>存在 <code>plugins/worktrunk/</code> 与 skill 生态（Claude Code skill、agent-skills index.json），具备轻量插件生态雏形，但无抽成机制设计</td>
+</tr>
+<tr>
+<td>认证/生态</td>
+<td>N/A</td>
+<td>无认证体系迹象</td>
+</tr>
+<tr>
+<td>捐赠/赞助</td>
+<td>高（可达）</td>
+<td>README "Contributing" 仅列 Star / 口口相传 / 提 Issue / 社交分享，<strong>未链接任何 GitHub Sponsors 或 Open Collective</strong>，连捐赠通道都尚未开启</td>
+</tr>
+</tbody>
+</table>
+<p><strong>关键背景：</strong>
+- 项目处于高热度赛道（parallel AI agent workflows），7789 stars、72 contributors、90 天 851 个 PR，迭代节奏极快（近两月 10 个 release，v0.69→v0.77），说明有真实且活跃的用户基础与开发者关注度。
+- 存在可信的同类商业化先例：Graphite（<code>gt</code> CLI + SaaS 已规模化）、GitButler（商业公司支持的 Git 工具）、GitKraken（闭源 GUI 变现）——证明"Git 工作流 CLI"这一细分并非无法变现。但这些先例的共同点是都叠加了 <strong>SaaS/协作层</strong>，而 Worktrunk 目前是纯本地工具。
+- 项目文档、README、主页（worktrunk.dev 为纯文档站）中<strong>完全没有任何商业化信号</strong>：无 pricing 页、无企业版、无商业授权说明、无赞助入口。作者（Maximilian Roos，另有 <code>tend</code> 项目）的公开表述聚焦"把 Worktrunk 做到卓越"，属典型个人主导的社区项目姿态。</p>
+<p><strong>判断：</strong> 存在 1 条可参照的主路径（Open Core / 企业级支持 + 潜在的 team 协作层），且有明确同类成功案例佐证路径本身不失真；但项目自身<strong>尚无任何变现设计落地</strong>，需要从零验证企业功能边界与付费意愿。符合"有潜在路径但尚不清晰，需验证"的 5–6 档描述。<strong>取 60% 档，2.1 分。</strong></p>
+<h3>D4.3 付费转化逻辑（1.0 / 2.5）</h3>
+<p><strong>依据：</strong>
+- <strong>无功能分层</strong>：README 列出的核心命令（<code>wt switch</code> / <code>wt list</code> / <code>wt merge</code> / <code>wt remove</code>）与全部进阶能力（hooks、LLM commit messages、interactive picker、共享构建缓存 <code>wt step copy-ignored</code>、<code>wt list --full</code> 的 CI 状态与 AI 摘要、PR checkout、per-branch 变量、aliases）<strong>全部在开源版本中提供</strong>，不存在任何"企业版专属"或"Pro 功能"。
+- <strong>无强制付费点</strong>：产品是本地执行的 CLI，运行时不依赖任何由作者控制的服务器，因此无法通过服务端鉴权、配额、许可证校验等常规手段构造付费闸门。
+- <strong>无企业/付费版功能对比素材</strong>：文档目录（87 个文档文件）中未见任何 pricing、plans、enterprise 相关页面。
+- <strong>付费意愿画像</strong>：目标用户为使用 Claude Code / Codex 的个人开发者与小团队。个人开发者对本地 CLI 工具付费意愿低（同类工具如 lazygit、gh、delta 均为免费/捐赠模式）；企业侧虽存在并行 agent 工作流治理（策略、审计、合规、SLA）的潜在需求，但这属于尚未被本产品触及的领域。
+- 唯一可设想的自然触发点是"5–10 个并行 agent 规模下的团队级治理与可见性"，但当前连团队协作功能都未提供，漏斗第一环即缺失。</p>
+<p><strong>判断：</strong> 免费版对主流用户已完全够用，升级触发点需从零构建且强度存疑，符合 3–4 档"付费逻辑勉强，用户更愿意用免费版"。<strong>取 40% 档，1.0 分。</strong></p>
+<h3>D4.4 增值服务空间与定价天花板（0.8 / 2.0）</h3>
+<p><strong>依据：</strong>
+- <strong>增值空间受限</strong>：SaaS 类工具可叠加数据存储、算力、协作、安全合规等增值层，而本地 CLI 工具的价值交付不经过作者的基础设施，缺乏天然的增值抓手。可设想的叠加项（优先支持/SLA、企业策略管理、托管构建缓存共享、团队仪表盘）均属外围，且部分能力（如 <code>wt step copy-ignored</code> 基于 APFS/btrfs/XFS 的本地轻量缓存共享）本质上就是本地优化，难以直接转化为付费服务。
+- <strong>定价天花板低</strong>：开发者 CLI 工具的通行客单价区间为 $5–20/seat/月，年化约 $60–240/seat；即便按中型团队 100 seats 估算，客单价也仅能触及 $10K/年量级的顶格，且需先补齐企业级能力。参照附录 C，纯社区模式天花板极低（Vue.js ≈ $1M+/年），Open Core 模式（Strapi ≈ $10M+）则需要明确的企业功能分层作为前提。
+- <strong>收入扩展性有限</strong>：既无 per-usage（无托管服务计量）也无 per-seat 的强绑定理由，收入规模高度依赖是否能长出协作/治理层，当前无此结构。</p>
+<p><strong>判断：</strong> 增值方向不明确、无服务端抓手、客单价天花板低，符合 3–4 档"增值空间小，客单价低"。<strong>取 40% 档，0.8 分。</strong></p>
+<hr />
+<h3>结论</h3>
+<p>Worktrunk 在 <strong>D4.1 协议维度几乎满分</strong>——MIT OR Apache-2.0 双许可使所有商业化路径在法律层面畅通无阻，且 Apache-2.0 的专利条款对企业采购友好。然而 <strong>D4.2–D4.4 三项均低于平均</strong>：项目当前是一个完全开源、纯本地执行、无任何商业化设计的 Rust CLI 工具，没有定价页、没有企业版、没有赞助入口，甚至连捐赠通道都尚未开通；功能全量免费使得"免费不够用→付费"的转化链条第一环缺失。</p>
+<p>其变现潜力并非为零：项目坐落在"并行 AI agent 工作流"这一 2025–2026 年最热的基础设施赛道，拥有 7789 stars、72 位贡献者和极高迭代频率，且 Git 工作流工具存在 Graphite、GitButler 等成功变现先例。但这些先例无一例外依赖 SaaS/协作层的叠加，而 Worktrunk 目前完全没有服务端组件。<strong>结论：这是一个"协议友好但商业化尚未起步"的项目，变现潜力取决于作者是否愿意在 Open Core 或团队协作层做出产品化投入，当前证据下属于高不确定性、需从零验证的状态。</strong></p>
+<p><strong>维度得分：5.9 / 10（权重 18%）</strong></p>
+<h3>D5. 竞争格局与差异化壁垒（权重 12%）</h3>
+<h3>D5.1 竞品对比与市场定位（满分 3 分）</h3>
+<blockquote>
+<p><strong>⚠️ 竞品验证声明（防幻觉）</strong>：本次评估运行环境<strong>未提供 GitHub Search API / Web 搜索能力</strong>，因此竞品清单<strong>未经外部搜索验证，可能存在偏差</strong>。依据「仓库内引用」验证方式，仅列举 README/docs 中<strong>明确提及</strong>的实体。经检索 README 全文，仓库中被明确点名的同类/相邻工具仅 <code>git worktree</code>（原生）与 <code>Claude Code</code>、<code>Codex</code>（上游 agent 生态）三类；README 同时提及 Zellij、tend、SignPath.io 等，但经判定属<strong>互补工具/服务而非竞品</strong>，予以排除。<strong>专有的第三方 git-worktree CLI 竞品无法在本次运行中验证，故未列入，直接竞品覆盖面存在缺口，D5.1 置信度下降。</strong></p>
+</blockquote>
+<p><strong>竞品对比表（均以「仓库内引用」验证）</strong></p>
+<table>
+<thead>
+<tr>
+<th>竞品名称</th>
+<th>类型</th>
+<th>仓库/官网</th>
+<th>验证方式</th>
+<th>Star/用户量</th>
+<th>核心差异</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>git worktree</code>（原生 git）</td>
+<td>直接竞品（零成本在位者）</td>
+<td>git-scm.com/docs/git-worktree</td>
+<td>仓库内引用：README 对比表逐项对标 + Further reading 官方文档链接</td>
+<td>Git 事实标准，用户量以千万计</td>
+<td>无 UX 层：建 worktree 需三写分支名 + 手动 <code>cd</code>；无 hooks、无状态化 <code>list</code>、无 LLM 提交/摘要、无合并工作流、无并行 agent 编排。Worktrunk 的<strong>全部价值主张即建立在此差距之上</strong></td>
+</tr>
+<tr>
+<td>Claude Code（Anthropic）</td>
+<td>间接竞品 / 上游平台风险</td>
+<td>github.com/anthropics/claude-code</td>
+<td>仓库内引用：README「Context」段与 Further reading 引用其 issue #1052「Git worktree pattern discussion」</td>
+<td>极大规模（未采集）</td>
+<td>本身是 coding agent，不含 worktree 管理；但 README 自述其场景依赖该平台，且被引用的社区讨论显示「worktree 编排」需求由上游社区直接讨论——<strong>若平台原生内置并行 worktree 编排，将直接吞并本项目核心场景</strong></td>
+</tr>
+<tr>
+<td>Codex（OpenAI）</td>
+<td>间接竞品 / 上游平台风险</td>
+<td>仅 README 正文与 topics 中提及（"AI agents like Claude Code and Codex"）</td>
+<td>仓库内引用：README 正文提及 + repo topics 含 <code>codex</code></td>
+<td>未采集</td>
+<td>同类上游 agent 生态；风险路径同 Claude Code，即编排能力内化</td>
+</tr>
+</tbody>
+</table>
+<p><strong>定位清晰度（高）</strong>：README 给出非常明确且可验证的差异化定位——「Worktrees are addressed by branch name; paths are computed from a configurable template」，并以三张对照表（<code>wt switch</code> / <code>-x claude</code> / <code>wt remove</code> / <code>wt list</code>）直接对标原生 git 的命令冗长度。核心命令仅 3 个（switch/list/merge/remove），进阶能力（hooks、LLM commit、reflink 缓存共享、CI 状态、PR 检出、agent skills 插件）分层展开，定位叙事完整。</p>
+<p><strong>需打折之处</strong>：
+1. README 自述「has quickly become the most popular git worktree manager」属<strong>作者自陈</strong>，本次无法用任何外部数据交叉验证；
+2. 底层能力是 <strong>git 之上的 UX 封装层</strong>，护城河本质是「体验差」，而非不可替代的技术事实；
+3. 直接竞品清单因搜索能力缺失而不完整，无法排除存在同类 Rust/Go 实现。</p>
+<p><strong>小分：2.4 / 3（80%，7–8 档）</strong> —— 有竞品（原生 git 为强在位者）但本项目差异化定位明确、叙事清晰、用户规模在同赛道内领先（7,789 star / 72 贡献者）。未给满档的原因：定位属 UX 层差异化而非品类独占，且竞品验证不完整。</p>
+<hr />
+<h3>D5.2 技术壁垒与网络效应（满分 3 分）</h3>
+<blockquote>
+<p>本节仅从<strong>商业防御效果</strong>评估壁垒，工程复刻难度已在其他维度计分，不重复计入。</p>
+</blockquote>
+<p><strong>技术壁垒（中等偏上，但非专利型）</strong>
+- 无专利、无独占算法、无私有数据源的证据（LICENSE 为 MIT/Apache-2.0 双许可，代码 25.7 万行 Rust 全部开源）；
+- 真实壁垒来自<strong>工程广度与正确性密度</strong>：跨 5 种 shell（bash/zsh/fish/nushell/pwsh）的 shell integration、跨 APFS/btrfs/XFS 的 reflink 式 <code>wt step copy-ignored</code>（十份 worktree 共享 <code>target/</code>、<code>node_modules/</code>）、snapshot 驱动的测试基建（测试占比 36.3%、94,239 行测试）、15 条 CI workflow。此类「细节正确性」累积难以被单人 fork 短期追平，但<strong>原理上可被有决心的团队复制</strong>。
+- 上游依赖薄：核心依赖为 git 本身，无第三方平台锁定，反面也意味着无供应商侧壁垒。</p>
+<p><strong>网络效应（弱）</strong>
+- 本质是<strong>本地 CLI</strong>，用户增加不直接提升其他用户价值，不存在双边市场或数据飞轮；
+- 仅存在<strong>弱生态雏形</strong>：<code>plugins/worktrunk</code>（Claude Code 插件）、<code>docs/public/.well-known/agent-skills/index.json</code>（agent skills 索引）、hooks/aliases 可扩展点（<code>docs/public/extending.md</code>）。这是单向分发，不是网络效应；
+- 存在<strong>维护侧的运营规模效应</strong>：仓库自建 <code>tend-*</code> 系列 8 条自动化 workflow（triage/review/mention/nightly/weekly 等）+ 90 天 851 PR、169 issue closed，用自动化摊薄维护成本，形成「小团队维持高迭代节奏」的效率优势——但这属于作者自制工具的可复制能力，不构成排他壁垒。</p>
+<p><strong>小分：1.8 / 3（60%，5–6 档）</strong> —— 「有一定壁垒但不深厚」：工程正确性密度与自动化维护构成一定门槛，但无专利/数据/网络效应中的任何一项强护城河，且核心可被上游平台或同类工具吸收。</p>
+<hr />
+<h3>D5.3 切换成本与用户粘性（满分 2 分）</h3>
+<p><strong>迁移成本（低—中）</strong>
+- <strong>数据层几乎零锁定</strong>：所有状态（branch、worktree、commit）均为 git 原生对象，卸载 Worktrunk 后工作目录、分支、历史完全可用，无专有数据格式；
+- <strong>配置层有一定沉没成本</strong>：<code>dev/*.example.toml</code> 与 <code>config.md</code> 表明配置面较宽（worktree 路径模板、hook 定义、aliases、<code>wt config state</code> 的 per-branch 变量、shell integration）。这些配置在切换后需<strong>手工重写为原生 git 脚本或等价工具配置</strong>，构成中等迁移成本；
+- <strong>流程层粘性较强</strong>：hooks（create/pre-merge/post-merge）、<code>wt merge</code> 的 squash-rebase-merge-clean 一体化、<code>wt list --full</code> 的 CI 状态与 LLM 摘要，容易被写进团队 SOP；README 明确以并行 agent 工作流（多 worktree + <code>-x claude</code>）作为主场景，一旦团队按此组织协作，替换意味着重写团队工作流而非换一条命令。</p>
+<p><strong>深度集成程度（中）</strong>
+- 需要执行 <code>wt config shell install</code> 才能获得目录切换能力，属<strong>中等深度集成</strong>；
+- 但集成点是 shell + git，均为通用层，不涉及业务代码侵入（用户无需修改自身项目源码即可接入，也无需修改即可退出）。</p>
+<p><strong>小分：1.2 / 2（60%，5–6 档）</strong> —— 「迁移成本中等，有部分粘性」：配置与团队流程有迁移成本，但底层数据完全开放、退出无残留，达不到 7–8 档（高迁移成本）的水平。</p>
+<hr />
+<h3>D5.4 护城河可持续性（满分 2 分）</h3>
+<p><strong>增强因素（可实测）</strong>
+- 迭代节奏极快且稳定：近 10 个版本集中在 2026-07-25 ~ 2026-09-08（约 6 周内 10 次发版，含 v0.77.0）；90 天 851 PR / 169 issue closed；72 名贡献者；创建（2025-10-17）至今不足 12 个月即获 7,789 star、272 fork。开源社区动能处于<strong>上升期</strong>；
+- 自建 8 条 <code>tend-*</code> 自动化维护 workflow，使维护带宽不随 issue 数（当前 53 open）线性恶化，有利于长期维持迭代速度；
+- 分发渠道已覆盖 Homebrew、Cargo、Winget、pacman（AUR）、conda-forge、Pixi，并获 SignPath 免费代码签名，<strong>渠道铺设的边际成本已支付</strong>，后发者需重复该工作。</p>
+<p><strong>削弱/颠覆风险（明确存在）</strong>
+- <strong>上游内化风险（主要）</strong>：项目场景强绑定 <code>Claude Code</code> / <code>Codex</code>，而 README 引用的 <code>anthropics/claude-code</code> issue #1052 正是社区在讨论内建 worktree 模式。一旦 agent 厂商原生提供并行 worktree 编排，本项目核心价值被平台吸收；
+- <strong>原生 git 改善风险</strong>：<code>git worktree</code> 的 UX 若被上游改善，差异化基础被削弱；README 亦承认对标对象就是原生 git 的冗长；
+- <strong>品类复制风险</strong>：定位为 UX 封装层，复制门槛低于基础设施类项目，且自身 MIT/Apache 双许可，代码可被直接借鉴。</p>
+<p><strong>时间窗口判断</strong>：在 agent 厂商未原生内化、原生 git 未改善 UX 的前提下，当前领先窗口约 <strong>12–24 个月</strong>；一旦上述任一条件触发，优势将快速稀释。当前护城河属<strong>稳定但非加深</strong>。</p>
+<p><strong>小分：1.2 / 2（60%，5–6 档）</strong> —— 「护城河一般，有中等颠覆风险」：社区动能与渠道铺设是加分项，但依赖平台方善意这一结构性风险显著，未达 7–8 档（颠覆风险低）。</p>
+<hr />
+<h3>细则打分汇总</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>核心判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D5.1 竞品对比与市场定位</td>
+<td>3</td>
+<td>2.4</td>
+<td>80%（7–8 档）</td>
+<td>差异化定位清晰（对标原生 git，命令对照表 + 单一场景叙事）；7,789 star 领先；但竞品验证不完整、属 UX 层差异化</td>
+</tr>
+<tr>
+<td>D5.2 技术壁垒与网络效应</td>
+<td>3</td>
+<td>1.8</td>
+<td>60%（5–6 档）</td>
+<td>工程正确性密度高、维护自动化强，但无专利/数据/网络效应，本地 CLI 无网络效应</td>
+</tr>
+<tr>
+<td>D5.3 切换成本与用户粘性</td>
+<td>2</td>
+<td>1.2</td>
+<td>60%（5–6 档）</td>
+<td>数据零锁定、退出无残留；粘性来自 hooks/aliases/团队 SOP 与 shell integration</td>
+</tr>
+<tr>
+<td>D5.4 护城河可持续性</td>
+<td>2</td>
+<td>1.2</td>
+<td>60%（5–6 档）</td>
+<td>6 周 10 版、90 天 851 PR 动能强、渠道已铺；但上游 agent 平台内化风险明确，窗口 12–24 个月</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>6.6</strong></td>
+<td>—</td>
+<td>无 N/A 细则，按原满分计</td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<p><strong>D5 得分：6.6 / 10（一般，达到行业中位、有改进空间）</strong></p>
+<p>Worktrunk 在<strong>定位清晰度</strong>上表现最好：以「worktrees 像 branch 一样使用」+「并行 AI agent 工作流」双锚点，直接对标原生 <code>git worktree</code> 的冗长命令，并用 7,789 star / 72 贡献者 / 6 周 10 次发版证明其叙事被市场接受。但<strong>壁垒性质偏软</strong>：数据完全开放（git 原生对象，退出零残留）、无专利/数据/网络效应、核心是 git 之上的 UX 封装层，且强依赖 <code>Claude Code</code> / <code>Codex</code> 生态——而该生态的社区讨论（README 引用的 anthropics/claude-code issue #1052）本身就指向「上游可能原生内化 worktree 编排」这一最直接颠覆路径。</p>
+<p><strong>商业化含义</strong>：适合「快速占领心智 + 渠道前置 + 流程粘性」的路线，而不具备长期独占性。若要加固护城河，方向应是<strong>把一次性 UX 优势转化为流程锁定</strong>（团队级 hook/alias 配置分发、agent skills 生态、跨 worktree 状态与缓存的规模化能力）以及<strong>多 agent 平台中立性</strong>（避免单平台依赖被反向吞噬）。</p>
+<p><strong>置信度说明</strong>：本次运行<strong>无 GitHub Search / Web 搜索能力</strong>，竞品清单仅基于仓库内引用，<strong>未经外部搜索验证，可能存在偏差</strong>；专有的第三方 git-worktree CLI 竞品未能覆盖，D5.1 的竞争强度判断可能偏乐观。同时需注意素材内部不一致：GitHub API 返回 <code>license: NOASSERTION</code>，而本地 <code>LICENSE</code> 为 MIT、<code>Cargo.toml</code> 声明 <code>MIT OR Apache-2.0</code>，以本地实测为准，该不一致不影响本维度评分。</p>
+<h3>D6. 法律合规与知识产权</h3>
+<p><strong>维度得分：7.3 / 10</strong>（权重 7%）｜置信度：中高（D6.3 未经人工核查）</p>
+<h3>D6.1 开源协议合规性与商业限制（满分 3 分 → <strong>3.0 分</strong>）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测证据</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>协议明确性</td>
+<td>根目录 <code>LICENSE</code> 完整收录 MIT 全文 + Apache-2.0 全文，开头明确「dual-licensed under MIT and Apache-2.0 / You may choose either license at your option」；<code>Cargo.toml</code> 声明 <code>license = "MIT OR Apache-2.0"</code>（规范 SPDX 表达式，Rust 生态标准做法）</td>
+<td>✅ 规范</td>
+</tr>
+<tr>
+<td>copyleft 传染性</td>
+<td>项目自身为宽松双许可，无 copyleft 头；依赖侧未见传染性协议（见 D6.2）</td>
+<td>✅ 无风险</td>
+</tr>
+<tr>
+<td>商业附加条款</td>
+<td>无 Commons Clause、BUSL、SSPL、Elastic License 等限制性条款；无非商业/延迟开源条款</td>
+<td>✅ 无限制</td>
+</tr>
+</tbody>
+</table>
+<p><strong>注意点（不构成实质障碍）</strong>：GitHub API 与代码托管平台的自动识别结果为 <code>NOASSERTION</code>，原因是自定义双许可抬头拼接了两段全文，超出 GitHub license 检测器的匹配模板。法律层面许可清晰，但<strong>企业级 SCA/合规扫描工具（FOSSA、ScanCode、GitHub 合规看板）可能报「未知许可」</strong>，需要在使用方内部流程中人工登记备案，属于可管理的运营摩擦而非法律风险。另：仓库未见 <code>NOTICE</code> 文件，故 Apache-2.0 §4(d) 的 NOTICE 传播义务暂不触发。</p>
+<p><strong>评分理由</strong>：协议明确、SPDX 规范、无传染性、无商业附加条款，完全满足 9–10 档全部条件。唯一瑕疵是平台识别为 NOASSERTION 带来的自动化合规摩擦，不足以降档。</p>
+<h3>D6.2 依赖链法律风险（满分 2.5 分 → <strong>2.0 分</strong>）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测证据</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>依赖协议审查</td>
+<td>直接依赖清单中未出现 GPL / AGPL / LGPL / SSPL。主要依赖均为 Rust 生态主流宽松许可：<code>clap</code>、<code>serde</code>、<code>tokio</code>、<code>anyhow</code>、<code>rayon</code>、<code>regex</code>、<code>ignore</code>、<code>ratatui</code>、<code>crossterm</code>、<code>nix</code>、<code>signal-hook</code>、<code>tempfile</code>、<code>insta</code>、<code>criterion</code>、<code>tree-sitter-*</code>（MIT 系）、<code>minijinja</code>（Apache-2.0）、<code>arboard</code>（MIT/Apache-2.0）、<code>open</code>、<code>fs2</code>、<code>dashmap</code>、<code>dunce</code> 等</td>
+<td>✅ 未见传染性协议</td>
+</tr>
+<tr>
+<td>依赖数量</td>
+<td><code>Cargo.toml</code> 中约 <strong>67 个直接依赖</strong>（含 optional 与 <code>cfg(unix)</code> 限定），另有 ~12 个 dev-dependencies、1 个 build-dependency；文档站点 <code>docs/package.json</code> 含 6 个生产依赖 + 3 个开发依赖（<code>astro</code>/<code>@astrojs/starlight</code> MIT、<code>playwright</code>/<code>typescript</code> Apache-2.0），且 <code>private: true</code> 不对外发布</td>
+<td>⚠️ 数量偏多，审查表面积大</td>
+</tr>
+<tr>
+<td>依赖来源</td>
+<td>全部为 crates.io 具名 crate 与 npm 公开包，来源可靠；无 git 直接引用、无本地 vendor 二进制、无来源不明包。<code>petname</code> / <code>petname-macros</code> 为精确锁定（<code>=3.2.0</code>），可复现</td>
+<td>✅ 来源可靠</td>
+</tr>
+</tbody>
+</table>
+<p><strong>扣分依据</strong>：直接依赖规模偏大（≈67 个），且<strong>素材未提供 <code>Cargo.lock</code></strong>，传递依赖树（transitive，实际可能是数百个 crate）未被完整审计——Rust 生态虽以 MIT/Apache-2.0 为主流，但传递依赖中偶有 MPL-2.0（如 <code>option-ext</code> 类）等弱 copyleft，需以 <code>cargo-deny</code> / <code>cargo-licenses</code> 实测确认。整体属"有轻微注意事项但无实质法律障碍"，因传递依赖未实证而非"依赖少且来源可靠"，取 7–8 档。</p>
+<h3>D6.3 商标与专利风险（满分 2.5 分 → <strong>1.5 分</strong>，按规则默认 5–6 档）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测证据</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>商标可用性</td>
+<td>「worktrunk」名称<strong>未经人工商标检索</strong>（USPTO/EUIPO/CNIPA 均未查）；仓库文件清单中未见 <code>TRADEMARK.md</code> 或商标使用政策文件</td>
+<td>未知</td>
+</tr>
+<tr>
+<td>专利风险</td>
+<td>技术领域为 Git worktree 管理与 CLI 编排，属成熟工程实践，直观上专利密集度低，但<strong>未做专利排查</strong></td>
+<td>未知</td>
+</tr>
+<tr>
+<td>商标政策</td>
+<td>无独立商标政策；Apache-2.0 §6 为标准的不授予商标权条款（仅允许指明来源的习惯性使用），可作为底线依据</td>
+<td>弱</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分说明</strong>：按细则规定，商标检索与专利排查无法由自动化流程完成，在无人工核查数据时<strong>默认按 5–6 档给 1.5/2.5，并标注「未经人工核查，置信度低」</strong>，禁止凭模型记忆断言商标/专利状态。此处严格遵循该规则。补充可观测事实：名称含描述性词根 "worktree/worktrunk"，在软件工具类目通常可注册但显著性偏弱；Apache-2.0 未授予商标许可，意味着<strong>商业衍生品若要沿用「worktrunk」品牌，需另行取得授权</strong>，而项目也未见允许性商标政策文件，故品牌商业化路径存在一问。</p>
+<h3>D6.4 贡献者协议完备性（满分 2 分 → <strong>0.8 分</strong>）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测证据</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CLA / DCO</td>
+<td>仓库未见 <code>CLA.md</code>、<code>.github/CLA</code>、DCO 机器人配置或 <code>Signed-off-by</code> 强制检查的证据</td>
+<td>❌ 无正式贡献者协议</td>
+</tr>
+<tr>
+<td>版权归属</td>
+<td><code>LICENSE</code> 版权人署名统一为「Copyright (c) 2025 Maximilian Roos」，主体单一；但 API 实测 <strong>contributors = 72</strong>、90 天 PR 851 个，且工作流含大量 AI 代理自动化（<code>tend-*</code> 系列共 10 个），<strong>实际版权分散在 72 位贡献者手中，无 CLA 集中授权</strong>。缓解因素：Apache-2.0 §5 规定「除非另行明确声明，有意提交的贡献默认按本许可条款授权」（inbound=outbound），使贡献至少在 Apache-2.0 分支上授权链条可追溯；但仓库为 MIT/Apache-2.0 双许可，缺少 CLA 会使「以 MIT 名义再授权 / 商业闭源双许可」的版权凭证存在瑕疵</td>
+<td>⚠️ 版权分散</td>
+</tr>
+<tr>
+<td>贡献流程</td>
+<td>有 <code>AGENTS.md</code>、<code>CLAUDE.md</code>、<code>.github/CLAUDE.md</code> 等 AI 代理协作规范，15 个 CI 工作流（含 <code>affected.yaml</code>、<code>coverage.yaml</code>、<code>tend-review.yaml</code>）表明工程治理成熟；但<strong>未在文件清单中发现面向人类贡献者的 <code>CONTRIBUTING.md</code> / <code>CODE_OF_CONDUCT.md</code></strong>（该清单顶层文件部分完整，缺失可判定为大概率不存在，中等置信度）</td>
+<td>⚠️ 面向人类贡献者的流程文档缺失</td>
+</tr>
+</tbody>
+</table>
+<p><strong>扣分依据</strong>：无 CLA/DCO、72 人贡献且版权分散、无 <code>CONTRIBUTING.md</code>，落在"贡献流程不规范、版权分散"的 3–4 档。Apache-2.0 §5 的默认贡献授权与完善 CI 治理作为正向缓解，使其不至于落入 1–2 档；但若商业化路径涉及<strong>闭源商业授权或双许可重授权</strong>，缺少 CLA 是需要在尽调中优先修补的实质缺口（可事后补采 CLA，或对历史贡献做一次版权确认）。</p>
+<h3>结论</h3>
+<ul>
+<li><strong>本维度得分 7.3/10，法律合规总体为中等偏优</strong>：许可清晰宽松（MIT OR Apache-2.0）、无 copyleft 与商业附加条款，<strong>不存在阻断商业化路径的法律硬伤</strong>，闭源衍生、SaaS 化、商业支持、双许可均无协议层障碍。</li>
+<li><strong>三项需要处理的实务事项</strong>：
+  1. <strong>贡献者版权凭证</strong>（最需优先处理）：72 位贡献者、无 CLA/DCO，若要做闭源商业授权或双许可重授权，版权链不完整；建议引入 CLA/DCO 并对历史贡献做版权确认。
+  2. <strong>依赖合规实证</strong>：未见 <code>Cargo.lock</code>，传递依赖未审计；建议在商业化前用 <code>cargo-deny</code> 生成完整依赖许可清单并归档。
+  3. <strong>商标</strong>：无商标政策、未做检索；「worktrunk」品牌若用于商业产品需先做商标检索与授权安排（Apache-2.0 §6 不授予商标权）。</li>
+<li><strong>轻微摩擦</strong>：GitHub 识别为 <code>NOASSERTION</code>，企业 SCA 工具可能误报，需人工登记。</li>
+<li><strong>置信度说明</strong>：D6.1、D6.2、D6.4 基于仓库实采文件（LICENSE、Cargo.toml、文档清单），置信度中高；D6.2 因缺 <code>Cargo.lock</code> 传递依赖未实证、D6.4 因 <code>CONTRIBUTING.md</code> 缺失为推断，置信度中等；<strong>D6.3 完全未经人工商标/专利核查，置信度低</strong>。</li>
+</ul>
+<h3>D7. 企业就绪度与可运营性</h3>
+<p>Worktrunk 是一个<strong>单二进制、本地运行的 CLI 开发工具</strong>（非服务端应用），因此本维度中的 SSO/RBAC/水平扩展/集群高可用等考察点在企业语境下部分不适用（N/A），评估聚焦于对「企业采用」实际有意义的运营特性：配置治理、命令审批安全边界、性能工程与可观测性。</p>
+<h3>D7.1 运维复杂度与升级路径（满分 3）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测依据</th>
+<th>评价</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>配置管理</td>
+<td>三级配置体系（system/user/project TOML），支持 XDG_CONFIG_DIRS、<code>WORKTRUNK_PROJECT_CONFIG_PATH</code>/<code>WORKTRUNK_CONFIG_PATH</code> 环境变量覆盖、项目级通配键匹配；<code>wt config show</code> 可展示配置来源与运行时诊断</td>
+<td>优秀，配置清晰且支持环境变量覆盖</td>
+</tr>
+<tr>
+<td>运维负担</td>
+<td>单二进制 CLI，通过 cargo-dist 分发到 Homebrew/winget/AUR/cargo/install.sh；无守护进程、无外部依赖服务；<code>wt config shell install</code> 一条命令完成 shell 集成</td>
+<td>极低</td>
+</tr>
+<tr>
+<td>升级路径</td>
+<td>发布极频繁（近 2 个月 10 个版本，v0.69.1→v0.77.0，约每周 1–2 次）；语义化版本 + cargo-dist 生成校验和；包管理器支持版本回退</td>
+<td>平滑；但<strong>无工具内显式回滚机制</strong>，回滚依赖包管理器</td>
+</tr>
+<tr>
+<td>数据迁移</td>
+<td><code>src/config/deprecation.rs</code> 表驱动废弃规则：结构性废弃在加载时<strong>静默幂等自动重写</strong>（<code>toml_edit</code> 保留注释/空白），其余经 <code>wt config update</code> 显式物化；检测与迁移共享同一谓词保证不漂移；<code>test_hook_show_accepts_deprecated_create_hooks</code> 等测试覆盖迁移</td>
+<td>配置自动迁移成熟；无数据库级迁移需求</td>
+</tr>
+</tbody>
+</table>
+<p><strong>小分：2.4 / 3（80%，7–8 档）</strong>——配置治理与自动迁移达到优秀水准，单机 CLI 运维负担天然极低；扣分点在于缺少显式回滚机制、版本迭代快（每周多次）对需要版本稳定的企业带来跟进压力。</p>
+<h3>D7.2 安全管理与权限控制（满分 2.5）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测依据</th>
+<th>评价</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>认证授权</td>
+<td>无 SSO/OAuth/LDAP/SAML（CLI 本地工具，<strong>该项 N/A</strong>）；但存在<strong>项目命令审批机制</strong>：<code>approvals.toml</code> 按项目/命令/通配键审批，项目 hooks/aliases 需审批后方可执行，用户级 hooks 免审批</td>
+<td>企业认证 N/A；授权（审批）机制设计完善</td>
+</tr>
+<tr>
+<td>权限模型</td>
+<td>非 RBAC/ABAC；但审批模型细粒度（精确键 &gt; 更具体通配 &gt; 更宽通配），有 TOCTOU 防护（<code>test_post_merge_hook_from_rebased_in_config_does_not_run</code> 防 rebase 引入未审批 hook 执行）</td>
+<td>面向"不可信仓库配置"的授权边界强</td>
+</tr>
+<tr>
+<td>审计日志</td>
+<td><code>tracing</code> 结构化日志（JSONL trace 格式）、<code>wt config state logs</code> 查询 hook 输出日志、诊断报告（<code>vv</code> 生成含环境变量/trace 的报告）、<code>diagnostic.rs</code> 测试覆盖</td>
+<td>具备操作审计能力</td>
+</tr>
+<tr>
+<td>数据安全</td>
+<td>无加密存储/传输（本地工具）；但全线 shell 注入防护（<code>shell_escape</code> 转义、<code>--</code> 分隔分支名）、所有权边界（拒绝移除外部仓库、CAS 分支删除防误删）、fail-closed 设计</td>
+<td>安全编码实践扎实；无企业加密体系</td>
+</tr>
+</tbody>
+</table>
+<p><strong>小分：1.5 / 2.5（60%，5–6 档）</strong>——企业级认证（SSO/LDAP）完全缺失（因 CLI 属性记为不适用），加密体系不存在；但针对其领域真正重要的"执行克隆仓库中的配置命令"这一供应链风险，提供了完善的项目命令审批 + TOCTOU 防护 + 注入防护 + 审计日志，安全工程水准实际高于同类的裸 CLI 工具。</p>
+<h3>D7.3 可扩展性与高可用能力（满分 2.5）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测依据</th>
+<th>评价</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>水平扩展</td>
+<td>单进程 CLI，无服务端，"水平扩展"概念不适用（<strong>N/A</strong>）；但其核心用例即为并行 AI agent 工作流（管理 5–10+ 并行 worktree）</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>高可用</td>
+<td>无集群/故障转移概念（本地工具，<strong>N/A</strong>）</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>性能瓶颈</td>
+<td>性能为一等公民：独立 <code>benchmarks.yaml</code> 工作流（criterion + 时间序列 gist 追踪）、专用 rayon 线程池（<code>COLLECT_POOL</code> 与 picker 隔离）、多级缓存（<code>sha_cache</code>、merge-tree、ahead-behind、SHA-pair）、批量 <code>git log --no-walk</code>、惰性加载与渐进式渲染</td>
+<td>单机性能工程优秀</td>
+</tr>
+<tr>
+<td>数据一致性</td>
+<td>依赖 git 自身一致性；仓库内用 CAS（<code>update-ref -d &lt;ref&gt; &lt;sha&gt;</code>）防分支 tip 移动误删；<code>DashMap::entry</code> 持锁避免 TOCTOU</td>
+<td>处理得当</td>
+</tr>
+</tbody>
+</table>
+<p><strong>小分：1.5 / 2.5（60%，5–6 档）</strong>——高可用/水平扩展对企业服务是关键，但对本地 CLI 完全 N/A；在适用的性能维度上，项目投入显著（专属基准工作流、进程池隔离、多级缓存、渐进渲染），可视为 CLI 领域的高水准。因失败转移/分布式一致性不适用，按行业平均档打分。</p>
+<h3>D7.4 集成兼容与可观测性（满分 2）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测依据</th>
+<th>评价</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>API 完备性</td>
+<td>无 REST/gRPC 服务端 API（CLI，<strong>部分 N/A</strong>）；但提供多套 <strong>JSON 输出 schema</strong>（<code>json_v2.rs</code> 用 <code>schemars</code> 生成正式 JSON Schema，schema 1/2 可选与降级）、shell 补全（bash/zsh/fish/nushell/PowerShell）、library/CLI 拆分（<code>worktrunk</code> 作为 lib crate 供下游如 worktrunk-sync 消费，<code>feature-check</code> 工作流守护该边界）、Claude Code 插件</td>
+<td>CLI JSON API + JSON Schema + 库 API 齐全</td>
+</tr>
+<tr>
+<td>标准协议</td>
+<td>使用 <code>tracing</code>/<code>tracing_subscriber</code> 结构化日志（JSONL）；无 OpenTelemetry 导出器、无 Prometheus、无 Webhook</td>
+<td>标准可观测协议支持薄弱</td>
+</tr>
+<tr>
+<td>监控告警</td>
+<td>无健康检查/指标端点（CLI 不适用）；但内置诊断报告（<code>vv</code> 生成含 profile/git 命令 trace 的报告）、<code>wt step</code> 别名、profiling（<code>wt config state logs profile</code>）</td>
+<td>诊断能力强，无监控端点</td>
+</tr>
+<tr>
+<td>日志体系</td>
+<td>结构化日志 + 多级别（<code>RUST_LOG</code>、<code>WORKTRUNK_VERBOSE</code>、<code>-v/-vv</code>）、trace 文件、子进程日志（含 stdin 捕获、控制字节转义）、<code>logging.rs</code> 快照测试覆盖</td>
+<td>日志体系成熟</td>
+</tr>
+</tbody>
+</table>
+<p><strong>小分：1.6 / 2（80%，7–8 档）</strong>——作为 CLI，其 JSON 输出有正式 JSON Schema、提供 library API、集成 Claude Code 插件与多 shell 补全，并具备成熟的 structured logging / trace / profiling / 诊断体系，可观测性显著强于"基本监控"档位；扣分在于缺少 OTel/Prometheus 等标准协议导出。</p>
+<h3>结论</h3>
+<p><strong>D7 得分 = 2.4 + 1.5 + 1.5 + 1.6 = 7.0 / 10（良好偏上）</strong></p>
+<p>作为单二进制 CLI 开发工具，Worktrunk 的运维负担、配置治理、自动迁移与性能工程均达到较高水准；其安全亮点不在企业认证，而在于针对"AI agent 并行工作流 + 不可信仓库配置"的真实威胁模型，构建了项目命令审批、TOCTOU 防护、注入防护与审计日志。主要短板是：企业级认证/SSO、标准可观测协议（OTel/Prometheus）、显式回滚机制均缺失——其中相当部分属于 CLI 属性下的 N/A，而非实现缺陷。若面向企业客户商业化，建议补齐 OTel 指标导出、企业系统集成（如与 CI/身份系统的桥接）与版本支持策略（LTS）。</p>
+<h3>D8. 团队治理与可持续性</h3>
+<h3>D8.1 核心维护者能力与背景（满分 2.5）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术能力</td>
+<td>强</td>
+<td>Rust 为主的语言栈，25.7 万行 <code>.rs</code>、测试占比 36.3%，自研 <code>cargo-affected</code> 增量测试规则、15 条 CI 流水线（含 coverage/benchmark/nightly），工程复杂度与工程质量均属高水准</td>
+</tr>
+<tr>
+<td>商业经验</td>
+<td>无法验证</td>
+<td>素材中无任何公司/创业/企业服务背景信息，仓库位于个人命名空间 <code>max-sixty</code>，非组织账号</td>
+</tr>
+<tr>
+<td>投入度</td>
+<td>高</td>
+<td>90 天 851 个 PR、169 个 Issue 关闭、6 周内连发 10 个 release（v0.69.1 → v0.77.0），投入强度接近全职</td>
+</tr>
+<tr>
+<td>巴士因子</td>
+<td>中低（约 2–3）</td>
+<td>贡献者 72 人，但决策与版本节奏明显由单一维护者主导；15 条 CI 中 8 条为 <code>tend-*</code>（ci-fix / review / triage / weekly / nightly / notifications）——用 AI Agent 自治流水线对冲单点人力风险，属于「以自动化替代人力冗余」而非真实的多人巴士因子</td>
+</tr>
+</tbody>
+</table>
+<p><strong>小分：1.5 / 2.5（60%，5–6 档）</strong></p>
+<p>判断依据：单人主导的个人仓库，但技术能力与投入度显著高于典型业余项目，并配备罕见的 Agent 自动化运维体系，故不落入 3–4 档；然而「商业经验无法验证」+「巴士因子未达 3」使其不足以进入 7–8 档。</p>
+<h3>D8.2 治理模型透明度（满分 2）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>治理文档</td>
+<td>部分具备</td>
+<td>存在 <code>README.md</code>、<code>CHANGELOG.md</code>、<code>AGENTS.md</code>、<code>CLAUDE.md</code>、87 个文档文件与完整站点文档（docs/src/content/docs），但素材中<strong>未见 GOVERNANCE.md / CONTRIBUTING.md / 公开路线图</strong></td>
+</tr>
+<tr>
+<td>开放程度</td>
+<td>中等</td>
+<td>Issue/PR 全公开，且有 <code>tend-triage</code>、<code>tend-review</code> 自动化处理流程；但决策权集中于个人仓库所有者，无外部贡献者进入决策层的机制性证据</td>
+</tr>
+<tr>
+<td>基金会/组织</td>
+<td>无</td>
+<td>非 CNCF / Apache / Linux Foundation 成员，无组织化治理主体</td>
+</tr>
+</tbody>
+</table>
+<p><strong>小分：1.2 / 2（60%，5–6 档）</strong></p>
+<p>判断依据：有较完善的用户文档与自动化协作流程，但缺治理文档与决策机制说明，符合「有简单贡献指南、决策由核心团队（此处为核心个人）主导」的 5–6 档描述。</p>
+<h3>D8.3 资金支持与商业赞助（满分 2.5）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>现有资金</td>
+<td>无可见证据</td>
+<td>素材中无 VC、公司或基金会资助信息</td>
+</tr>
+<tr>
+<td>赞助收入</td>
+<td>无可见证据</td>
+<td>无 GitHub Sponsors / Open Collective 数据；<code>FUNDING</code> 类文件未出现在文件清单中</td>
+</tr>
+<tr>
+<td>商业实体</td>
+<td>无可见证据</td>
+<td>仓库属个人命名空间；仅存在自有域名 <code>worktrunk.dev</code>，可视为未来商业化预留，但当前无公司实体运营证据</td>
+</tr>
+<tr>
+<td>资金可持续性</td>
+<td>弱</td>
+<td>无资金信号，项目完全依赖维护者个人投入 + 自动化流水线维持</td>
+</tr>
+</tbody>
+</table>
+<p><strong>小分：1.0 / 2.5（40%，3–4 档）</strong></p>
+<p>判断依据：无任何资金、赞助或商业实体支撑的硬证据，接近「几乎无资金支持，纯靠热情」；但因存在自有域名与商业化产品化雏形（code-signing、homebrew/AUR 分发、插件体系），不落至 1–2 档。数据存在缺失，本项判断置信度中等。</p>
+<h3>D8.4 项目可持续性与传承风险（满分 3）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>活跃趋势</td>
+<td>强劲上升</td>
+<td>创建于 2025-10-17，最近推送 2026-09-15；90 天 851 PR / 169 Issue 关闭；6 周 10 个版本，发布节奏密集且未见衰减</td>
+</tr>
+<tr>
+<td>维护延续性</td>
+<td>中等</td>
+<td>72 名贡献者形成一定社区基础；但无治理文档、无基金会背书，核心维护者退出后的接管路径不明确</td>
+</tr>
+<tr>
+<td>历史信号</td>
+<td>健康</td>
+<td><code>archived: false</code>，无 deprecated / unmaintained 标记</td>
+</tr>
+<tr>
+<td>分叉风险</td>
+<td>低</td>
+<td>Fork 272 / Star 7789 ≈ 3.5%，属正常协作型分叉，无社区分裂迹象；开放 Issue 53 个，相对 7.8k Star 规模属可控积压</td>
+</tr>
+</tbody>
+</table>
+<p><strong>小分：2.4 / 3（80%，7–8 档）</strong></p>
+<p>判断依据：活跃度处于明确上升通道、无停滞或废弃信号、无分裂风险，可得 100% 档；但「治理完善可传承」这一 9–10 档要件不成立（无治理文档、单点依赖），故下调至 7–8 档。</p>
+<p><strong>附注（不计分但影响判断）</strong>：License 存在不一致——GitHub API 返回 <code>NOASSERTION</code>，<code>LICENSE</code> 文件为 MIT，而 <code>Cargo.toml</code> 声明 <code>MIT OR Apache-2.0</code>。属轻微合规瑕疵，但双许可模式对商业化通常有利。</p>
+<h3>D8 维度结论</h3>
+<p><strong>得分：6.1 / 10（一般偏弱）</strong></p>
+<p>Worktrunk 呈现「单人高杠杆 + 自动化运维」的典型新生代开源形态：技术执行力与迭代速度一流（6 周 10 个 release、90 天 851 PR），并以 8 条 <code>tend-*</code> Agent 流水线部分替代了传统团队的人力冗余，使其在活跃趋势与传承风险项上表现良好（D8.4 = 2.4）。但商业化视角下的三块短板突出：</p>
+<ol>
+<li><strong>人</strong>：核心能力高度绑定单一维护者，商业经验无法验证，巴士因子约 2–3；</li>
+<li><strong>治</strong>：无 GOVERNANCE.md / CONTRIBUTING.md / 路线图，无基金会或组织化治理；</li>
+<li><strong>钱</strong>：无任何可见资金、赞助或商业实体，可持续性完全依赖个人投入与自动化（D8.3 仅 1.0）。</li>
+</ol>
+<p>对商业化的直接含义：项目本身是高质量的可收购/可整合资产（代码、测试、发布工程均达生产级），但<strong>当前不存在可承接商业化的组织载体</strong>——任何商业合作方都需要先补齐「引入公司实体/全职团队/明确治理与 CLA 授权」这三步，否则将承担单点人才流失风险。License 表述不一致也应在尽调阶段予以澄清。</p>
+<h3>D9. 上手难度与易用性（权重 10%）</h3>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D9.1 安装难度</td>
+<td>2.5</td>
+<td><strong>2.0</strong></td>
+<td>7–8（80%）</td>
+<td>README 提供 5 条单命令安装通道（Homebrew / Cargo / Winget / pacman / Conda-Pixi），覆盖 macOS / Linux / Windows；无数据库、缓存、消息队列等外部组件；但 Windows 上 <code>wt</code> 与 Windows Terminal 别名冲突需改用 <code>git-wt</code>，源码安装路径要求 Rust 1.97（edition 2024）且默认特性含 tree-sitter（Cargo.toml 注释提示需 C 编译器）</td>
+</tr>
+<tr>
+<td>D9.2 部署与配置难度</td>
+<td>2.5</td>
+<td><strong>2.0</strong></td>
+<td>7–8（80%）</td>
+<td>作为本地 CLI 无服务端部署形态，无 Docker/K8s/Helm（无关也无需），不存在外部依赖初始化；初始化仅需一行 <code>wt config shell install</code>，配置文件全部可选（<code>dev/*.example.toml</code> 为模板）；README quickstart 可在分钟级跑通；但 shell 集成是获得 <code>cd</code> 行为的必要步骤，hooks/模板配置有一定深度</td>
+</tr>
+<tr>
+<td>D9.3 易用性与操作门槛</td>
+<td>2.5</td>
+<td><strong>2.0</strong></td>
+<td>7–8（80%）</td>
+<td>核心操作被简化为单命令（<code>wt switch feat</code> / <code>wt list</code> / <code>wt merge main</code> / <code>wt remove</code>），README 用对照表直观展示相对 plain git 的简化；内置基于 skim/ratatui 的交互式 picker（实时 diff/log 预览、模糊匹配、<code>alt-y</code>/<code>alt-o</code> 快捷键）；<code>wt --help</code> 提供 CLI 速查；仓库含专注用户输出的 skill（<code>.claude/skills/writing-user-outputs/SKILL.md</code>）且维护者公开征集「imperfect user message」反馈。扣分点：仍需 git worktree/branch 领域概念，<code>-x</code>、<code>--create</code>、<code>--</code> 等参数需查文档，hooks/模板过滤器属专家向</td>
+</tr>
+<tr>
+<td>D9.4 学习曲线与首体验</td>
+<td>2.5</td>
+<td><strong>2.0</strong></td>
+<td>7–8（80%）</td>
+<td>安装后即可用 <code>wt switch --create feature-auth</code> 获得首次成功体验（分钟级），README 提供 quickstart、命令对照表、多段 GIF 演示（wt-core / wt-zellij-omnibus）与「Next steps」导航；文档体系庞大（87 个 Markdown 文件，<code>docs/public</code> 与 <code>docs/src/content/docs</code> 下 14 个专题页，含 FAQ、tips-patterns、各命令独立页）。扣分点：仓库内示例项目数为 0，无交互式 onboarding 教程，进阶能力（hooks、aliases、模板过滤器、per-branch 变量）需额外学习</td>
+</tr>
+</tbody>
+</table>
+<p><strong>维度总分：2.0 + 2.0 + 2.0 + 2.0 = 8.0 / 10 → 🟢 简单（面向所有人）</strong></p>
+<h3>分析</h3>
+<p><strong>1）安装链路是该项目最强的上手优势。</strong> 五条包管理器通道把「从零到有」压缩为一行命令，且三条覆盖 macOS/Linux 的通道（brew / pacman / conda）交付预编译二进制，用户不需要 Rust 工具链。项目本身是单二进制 CLI，<strong>不存在需要单独初始化的数据库、缓存或消息队列</strong>——这是很多同类工具在部署环节失分的地方，Worktrunk 天然不存在。</p>
+<p><strong>2）两处真实摩擦使其未达满分。</strong> 其一是 Windows 平台的名称冲突：README 明确说明 Winget「additionally installs Worktrunk as <code>git-wt</code> to avoid the conflict」，用户要么改用 <code>git-wt</code>，要么手动关闭 Windows Terminal 的 app execution alias；其二是源码安装路径的新工具链要求（<code>rust-version = "1.97"</code>、<code>edition = "2024"</code>）与默认特性带来的 C 编译依赖（<code>tree-sitter-bash</code> / <code>tree-sitter-highlight</code>），Cargo.toml 注释本身即为规避此问题而存在。这两点均属「有替代路径但需阅读文档」，符合 7–8 档描述。</p>
+<p><strong>3）日常操作门槛被有意压低，且以交互式 UI 弥补 CLI 记忆成本。</strong> 项目将 git worktree 的三次分支名输入压缩为 <code>wt switch feat</code>，<code>wt remove</code> 一条命令完成「移除 worktree + 删分支」，<code>wt merge</code> 把 squash/rebase/ff/cleanup 合并为一次调用。<code>wt switch</code> 内置的 picker 提供实时 diff/log 预览、模糊搜索与 <code>alt-y</code>（复制分支名）/<code>alt-o</code>（打开 PR）快捷键，说明其交互设计已从「纯 CLI 参数」向「可视化选择」延伸。同时仓库中存在专门规范用户可见输出的 skill，是易用性被系统性对待的间接证据。</p>
+<p><strong>4）学习曲线平缓但存在领域前置知识。</strong> 「Aha Moment」足够直接：安装后一条命令创建并切换 worktree，随即 <code>wt list</code> 即可看到类似 <code>git status</code> 的富信息视图。文档厚度是该项目在 D9.4 的主要支撑——14 个专题文档页覆盖每条命令、FAQ、tips-patterns、shell-integration、claude-code 等。扣分主要来自：仓库内<strong>没有任何示例项目</strong>，能力探索依赖在线文档与 GIF 演示；hooks、aliases、模板过滤器（<code>hash_port</code>、<code>codename</code>）、per-branch 变量等自动化能力面向进阶用户；非 git worktree 使用经验者仍需先理解「分支 ↔ 工作目录」映射模型。</p>
+<p><strong>5）面向人群结论。</strong> 目标用户为使用 Claude Code / Codex 等 agent 并行开发的开发者，在此人群内上手难度极低（🟢）；但对完全无 CLI/git 经验的非开发者，<code>wt config shell install</code> 与 shell/Windows 别名层面的操作仍需技术背景——这与其产品定位一致，不构成商业化障碍。</p>
+<h3>D10. 功能价值——使用价值视角（平行维度，权重 0%）</h3>
+<p><strong>评估对象</strong>: <code>max-sixty/worktrunk</code> — Git worktree 管理 CLI，面向并行 AI Agent 工作流
+<strong>数据基础</strong>: 仓库实采元数据、本地代码实测（259,896 行，Rust 占 99%）、README 与 docs 场景描述。<strong>包管理下载量/Dependents 未取到，已按要求标 N/A，不以模型记忆补填。</strong></p>
+<h3>D10.1 效用强度（3 分）→ <strong>2.4 / 3</strong></h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>单用户节省量</td>
+<td>README 核心对照表显示：创建+进入 worktree 从 <code>git worktree add -b feat ../repo.feat &amp;&amp; cd ../repo.feat</code>（分支名敲 3 次）压缩为 <code>wt switch -c feat</code>；清理从 3 条命令压缩为 <code>wt remove</code>；并行启动 agent 从多步串联变为 <code>wt switch -x claude -c feat -- '...'</code>。以「每天十余次 worktree 操作 × 每次数十秒」计，单用户日省分钟级、月省小时级</td>
+</tr>
+<tr>
+<td>效用层级</td>
+<td><strong>项目级依赖</strong>：一旦接入并行 agent 工作流，<code>switch / list / merge / remove</code> 就成为日常必用命令链，而非单点便利工具。但并未达到「业务命脉级基础设施」——其底座是 git 自带的 worktree 能力，本工具是高效封装 + 工作流编排</td>
+</tr>
+<tr>
+<td>效用确定性</td>
+<td>高。纯本地确定性 CLI，输出可预期，不依赖网络或外部服务（LLM 提交信息/AI 摘要为可选增强）</td>
+</tr>
+<tr>
+<td>非替代性增量</td>
+<td>存在若干难以自研复刻的能力：<code>wt step copy-ignored</code> 借 APFS/btrfs/XFS 的 reflink/COW 在十个 worktree 间共享 <code>target/</code>、<code>node_modules/</code>，省去重复构建；<code>hash_port</code> 为每个 worktree 分配独立端口；hook 类型覆盖 create/pre-merge/post-merge 全生命周期。这些是「省时间」之外的实打实成本削减</td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>: 落在 7–8 档（项目级依赖，显著节省开发/运营成本），按 80% 折算 2.4 分。未给 9–10 档，因为对非并行-agent 用户，plain git + 少量脚本仍是成本可接受的替代路径。</p>
+<h3>D10.2 实际使用规模（3 分）→ <strong>1.8 / 3（降置信度）</strong></h3>
+<blockquote>
+<p>⚠️ <strong>数据缺口</strong>: GitHub Dependents（Used by）计数未采集到；npm/PyPI 指标本生态不适用（实采返回 N/A）；Cargo/crates.io 下载量与 Docker pulls 未取到。以下评分<strong>不含任何编造的下载量/依赖方数字</strong>，仅基于已实采的替代指标。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>已实采硬指标</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stars</td>
+<td>7,789</td>
+</tr>
+<tr>
+<td>Forks</td>
+<td>272</td>
+</tr>
+<tr>
+<td>Contributors</td>
+<td>72</td>
+</tr>
+<tr>
+<td>近 90 天新建 PR</td>
+<td>851</td>
+</tr>
+<tr>
+<td>近 90 天关闭 Issue</td>
+<td>169</td>
+</tr>
+<tr>
+<td>发布节奏</td>
+<td>v0.69→v0.77 约 2 个月十余次，近乎周更</td>
+</tr>
+<tr>
+<td>第三方采用证据</td>
+<td>incident.io 并行 agent 工作流博客引用；@DevOpsToolbox 视频讲解；conda-forge 社区维护 feedstock；Homebrew / Arch AUR / Winget / Cargo 多通道分发</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断</strong>: 项目创建于 2025-10，约 11 个月积累 7.8k star、272 fork，属「快速上升期的小众专业工具」，对应「万级使用者」量级更合理（CLI 工具的 star:active user 比通常在 1:0.1~1:0.3 之间）；但<strong>分布渠道的下载计数缺失，无法证实十万级/百万级体量</strong>。近 90 天 851 个 PR 需警惕：仓库自带 <code>tend-*.yaml</code>（11 个 AI agent 维护工作流），大量 PR 可能由自动化流程产生，不能直接读作社区使用深度。</p>
+<p><strong>结论</strong>: 5–6 档（万级依赖方/月下载十万级）的边缘，按 60% 折算 1.8 分，<strong>置信度中低</strong>。若后续补采到 crates.io 月度下载量，该项可在 1.2（千级）至 2.4（十万级）之间重新校准。</p>
+<h3>D10.3 免费可得的完整效用（2 分）→ <strong>2.0 / 2</strong></h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>开源版完整性</td>
+<td>LICENSE 实测为 <strong>MIT OR Apache-2.0</strong>（NOASSERTION 系 GitHub 识别问题），仓库无 enterprise/paid 目录，无线索表明存在闭源商业版；docs/public 与 docs/src/content 双份全量文档公开</td>
+</tr>
+<tr>
+<td>自托管完整性</td>
+<td>无官方托管服务，工具本身就是「自托管」形态，本地 <code>cargo install</code>/<code>brew install</code> 后即为完整能力</td>
+</tr>
+<tr>
+<td>无隐性收费</td>
+<td>无订阅、无 license key、无用量限制。LLM 提交信息与 <code>wt list --full</code> 的 AI 摘要需用户<strong>自带 API key</strong>（BYOK），属用户侧外部成本，非项目方付费墙</td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>: 9–10 档（开源版即全部价值，无功能阉割），2.0 分满分。此项与 D4.3 天然反相关——本维度满分恰恰预告了该项目「使用价值全量免费」意味着极低的付费转化空间，两者不矛盾，共同刻画了 Gin 式的价值结构。</p>
+<h3>D10.4 效用可持续性（2 分）→ <strong>2.0 / 2</strong></h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>停维后效用存续</td>
+<td>Rust 编译的本地单文件二进制，操作对象是本地 git 仓库，<strong>停维后已安装用户的既有能力不受影响</strong>，仅失去新特性与安全更新</td>
+</tr>
+<tr>
+<td>供应商锁定</td>
+<td>无。不依赖任何厂商云服务；LLM 相关能力对接用户自选的 OpenAI 兼容端点，可替换</td>
+</tr>
+<tr>
+<td>可分叉维护性</td>
+<td>MIT/Apache-2.0 双许可，分叉、商用、闭源再发布均无阻碍；<code>cargo test</code> + 15 个 CI workflow + 36.3% 测试占比（94,239 行测试代码）使构建与回归可复现</td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>: 9–10 档（完全本地化、可自由分叉、停维后效用长期存续），2.0 分满分。唯一轻微扣分项本应是「LLM 特性依赖外部 API」，但该部分为可选增量而非核心效用，且供应商可替换，不足以降到 7–8 档。</p>
+<h3>D10 细则得分汇总</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10.1</td>
+<td>效用强度</td>
+<td>3</td>
+<td>2.4</td>
+<td>7–8（80%）</td>
+</tr>
+<tr>
+<td>D10.2</td>
+<td>实际使用规模</td>
+<td>3</td>
+<td>1.8</td>
+<td>5–6（60%，降置信度）</td>
+</tr>
+<tr>
+<td>D10.3</td>
+<td>免费可得的完整效用</td>
+<td>2</td>
+<td>2.0</td>
+<td>9–10（100%）</td>
+</tr>
+<tr>
+<td>D10.4</td>
+<td>效用可持续性</td>
+<td>2</td>
+<td>2.0</td>
+<td>9–10（100%）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td><strong>8.2</strong></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<p>Worktrunk 的功能价值画像为 <strong>「高确定性、全量免费、可长期存续的开发效率工具，规模证据待补」</strong>：</p>
+<ul>
+<li><strong>强项在使用价值本身</strong>（D10.1 + D10.3 + D10.4 = 8.4/10 权重段）：它把一个长期被公认「clunky」的 git 原生能力重做成一行命令，并叠加了 COW 构建缓存共享、hook 生命周期、per-worktree 端口等难以自研的增量效用；MIT/Apache-2.0 全开放、纯本地方案、可自由分叉，使这层效用既不设门槛也不设到期日。对每天开 5–10 个并行 agent 的开发者，这是项目级依赖而非锦上添花。</li>
+<li><strong>弱项在规模证据链</strong>（D10.2）：Dependents 计数与 Cargo 下载量均未取到，7.8k star / 272 fork / 72 contributors 只能作为量级代理，且近 90 天 851 PR 中相当比例可能来自仓库自带的 <code>tend-*</code> AI 维护流水线，不能直接等同于用户深度使用。这是本维度置信度下降的唯一来源，也是后续若要做商业判断时最该优先补齐的数据。</li>
+<li><strong>与商业维度的对读</strong>: D10.3 满分与 D4.3（付费转化）预期偏弱是同一枚硬币的两面——效用全量免费、无付费墙、无锁定，正是它能做到「最受欢迎的 git worktree 管理器」的原因，也同时封死了直接收费的路径。它的商业化答案不在「把功能锁起来」，而在托管协同层、团队配置分发或企业支持等开源版之外的位置。</li>
+</ul>
+<h3>D11 社会价值——正外部性评估</h3>
+<blockquote>
+<p>本维度为平行维度（权重 0%，不计入综合评分与一票否决），仅用于 D3.4 价值画像。评估视角为「项目对使用者之外的行业与社会的外溢贡献」。</p>
+</blockquote>
+<p>Worktrunk 是一款面向并行 AI Agent 工作流的 Git worktree 管理 CLI（Rust，7789 Stars，72 位贡献者，MIT OR Apache-2.0 双许可）。它的正外部性主要来自三处：把 Git 原生的 worktree 能力从「命令行三连」降到「像分支一样简单」、围绕并行 Agent 这一 2025–2026 年新兴工作范式沉淀了 87 份文档与 Agent Skills 资产、以及通过 Homebrew/Cargo/Winget/pacman/conda-forge 等渠道免费覆盖全平台。</p>
+<h3>D11.1 数字公共基础设施属性（满分 3）</h3>
+<p><strong>小分：1.2 / 3（40%，3–4 档）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>关键依赖地位</td>
+<td>不是库级依赖，无下游代码依赖者可查（Dependents 数据不可得，标 N/A）；用户以「安装的 CLI」方式消费，属工具而非底座</td>
+</tr>
+<tr>
+<td>停摆影响面</td>
+<td>若项目消失，用户退回 <code>git worktree</code> 原生命令，软件供应链几乎无波及</td>
+</tr>
+<tr>
+<td>数字公共产品属性</td>
+<td>符合 DPG 的开放/可复用特征（MIT OR Apache-2.0 双许可、源码完整、官网与文档全开放），但服务对象是开发者效率而非公共基础设施</td>
+</tr>
+</tbody>
+</table>
+<p>判断依据：Worktrunk 封装的是 Git 已有能力，可替代性极强（原生 git 命令 + 少量 shell 脚本即可覆盖核心三命令）。它不构成 curl/OpenSSL 式的供应链节点，停摆影响限于使用者的工作流摩擦，未达「领域内重要基础依赖」的门槛。数字公共产品属性在「开放许可 + 免费 + 完整文档」上成立，故给 3–4 档上限附近。</p>
+<h3>D11.2 教育与人才价值（满分 2.5）</h3>
+<p><strong>小分：1.5 / 2.5（60%，5–6 档）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>教学采用</td>
+<td>有第三方教学素材：README 收录 @DevOpsToolbox 视频教程、incident.io《Shipping faster with Claude Code and Git Worktrees》实践文、Anthropic 官方 Claude Code 最佳实践（含 worktree 模式）等外部链接；但项目自身发布时间短（2025-10 创建），尚无课程/教材级沉淀</td>
+</tr>
+<tr>
+<td>门槛降低效应</td>
+<td>显著——把 worktree 心智负担降为「分支名寻址」，使「并行跑 5–10 个 Agent」从专家技巧变为普通开发者的默认工作流</td>
+</tr>
+<tr>
+<td>源码学习价值</td>
+<td>高测试密度（test_ratio 36.3%，9.4 万行测试）、15 个 CI workflow、明确的工程规范文档（AGENTS.md/CLAUDE.md/各目录 CLAUDE.md），是 Rust CLI 工程范本；但被广泛研读的程度尚无独立证据</td>
+</tr>
+</tbody>
+</table>
+<p>判断依据：教育外溢主要体现在「降低并行 Agent 工作流的入门门槛」这一新范式上，且已有外部教程/博客/视频引用，符合「常见于教学与入门路径」的 7–8 档部分特征；但缺乏被系统性纳入课程或成为「事实教材」的证据，且生态存在时间短，取 5–6 档。</p>
+<h3>D11.3 普惠与可及性（满分 2.5）</h3>
+<p><strong>小分：1.5 / 2.5（60%，5–6 档）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>能力平权化</td>
+<td>把「并行多工作区管理」这一原本需要自建脚本/资深 Git 经验的工程能力，以零成本开放给个人与中小团队</td>
+</tr>
+<tr>
+<td>替代价格差</td>
+<td>未发现同能力商业方案定价可比（竞品清单未经搜索验证，N/A）；但项目本身免费且双许可宽松</td>
+</tr>
+<tr>
+<td>可及性支持</td>
+<td>平台覆盖广：macOS/Linux/Windows/Arch/Conda/Pixi 全渠道分发，shell 集成支持 bash/zsh/fish/nushell/pwsh；免费代码签名（SignPath）降低 Windows 安装摩擦；<strong>未见 i18n/多语言文档或无障碍支持证据</strong>，文档为英文单语</td>
+</tr>
+</tbody>
+</table>
+<p>判断依据：免费 + 宽松双许可 + 全平台分发 + 多 shell 支持构成不错的普惠基础；但存在两处限制：其一，核心价值场景依赖 Claude Code / Codex 等付费 Agent 工具，实际受益人群偏「已有 AI 工具预算的开发者」；其二，无 i18n/无障碍投入，非英语开发者可及性打折。综合落在 5–6 档。</p>
+<h3>D11.4 开放标准与行业推动（满分 2）</h3>
+<p><strong>小分：1.2 / 2（60%，5–6 档）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>标准推动</td>
+<td>基于 Git 原生 worktree 这一开放性事实标准构建，并打通 GitHub PR / GitLab MR 流程；仓库内含 <code>docs/public/.well-known/agent-skills/index.json</code> 与 plugins/skills 结构，跟进 Agent Skills 这一新兴开放约定；但项目本身未定义或主导任何标准</td>
+</tr>
+<tr>
+<td>科研支撑</td>
+<td>未检索到学术引用/科研使用证据（外部搜索不可得，N/A，不据此扣分）</td>
+</tr>
+<tr>
+<td>行业示范效应</td>
+<td>README 自述「已迅速成为最流行的 git worktree 管理器」；对「并行 Agent + worktree」范式有推广作用，配套开源 tend 自动化维护体系亦有方法论示范；但大规模被同行模仿的独立证据不足</td>
+</tr>
+</tbody>
+</table>
+<p>判断依据：遵循而非定义标准，属于「遵循开放标准但无显著推动作用」与「实现并推广了重要开放标准」之间的位置——它对 Git worktree 用法的普及与 Agent Skills 约定的跟进可计入轻度推动，取 5–6 档。</p>
+<h3>细则分值汇总</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D11.1</td>
+<td>数字公共基础设施属性</td>
+<td>3</td>
+<td>1.2</td>
+<td>40%（3–4 档）</td>
+</tr>
+<tr>
+<td>D11.2</td>
+<td>教育与人才价值</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>60%（5–6 档）</td>
+</tr>
+<tr>
+<td>D11.3</td>
+<td>普惠与可及性</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>60%（5–6 档）</td>
+</tr>
+<tr>
+<td>D11.4</td>
+<td>开放标准与行业推动</td>
+<td>2</td>
+<td>1.2</td>
+<td>60%（5–6 档）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td><strong>5.4</strong></td>
+<td><strong>一般偏上</strong></td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<p><strong>D11 得分 5.4 / 10（一般偏上，平行维度，不计入综合评分）。</strong></p>
+<p>Worktrunk 的正外部性是「范式型」而非「底座型」：它不构成软件供应链的关键节点（无库级下游依赖，停摆影响仅限工作流摩擦），但在两个方向产生了真实外溢——其一，把 Git worktree 从专家技巧平权为大众能力，降低了 2025–2026 年新兴的「并行 AI Agent」工作范式的进入门槛，并已获得第三方教程、博客与视频的传播；其二，以双宽松许可 + 全平台免费分发 + 高质量开源工程（36% 测试占比、15 个 CI workflow、完整的中文以外的英文文档与 Agent Skills 资产）树立了 Rust CLI 与 Agent 工具链的工程范本。</p>
+<p>主要短板有三：无 i18n/无障碍支持，普惠覆盖受语言限制；核心场景依赖付费 Agent 订阅，受益人群偏有预算的开发者；不定义标准、无科研引用证据，行业推动力以「普及既有开放标准」为主。若后续补齐多语言文档与更独立的生态采用证据，D11.2/D11.3 有上行空间。</p>
+<blockquote>
+<p><strong>置信度说明</strong>：Dependents 计数、npm/PyPI 下载量、学术引用均不可得（标 N/A 或未纳入评分依据），D11.1 的「下游依赖」与 D11.4 的「科研支撑」判断主要依赖生态位定性分析，置信度中等。</p>
+</blockquote>
+<h2>五、商业化价值判断</h2>
+<h3>5.1 综合结论</h3>
+<p>Worktrunk 综合评分 <strong>67.0/100，等级 A（高商业化潜力）</strong>，价值画像为 <strong>💼 纯商业工具</strong>。项目在需求真实性、社区活跃度、易用性三个维度表现突出（D1 7.5、D3 7.7、D9 8.0），在功能价值上更是达到 8.2/10 的高位；但商业模式（D4 5.9）、技术成熟度（D2 5.2）与团队治理（D8 6.1）构成明显拖累，且项目当前<strong>没有任何商业化载体</strong>——无付费层、无云服务、无企业版痕迹、无赞助通道。</p>
+<h3>5.2 支撑商业化的核心资产</h3>
+<ol>
+<li><strong>真实且被权威背书的痛点</strong>：README 直接引用 Anthropic 官方 Claude Code 最佳实践、incident.io 并行 Agent 生产实践与 Claude Code 仓库 #1052 讨论；原生 git worktree 需重复输入分支名三次是高频摩擦（D1）。</li>
+<li><strong>高密度需求侧信号</strong>：11 个月内 7,789 star、72 贡献者、近 90 天 851 PR / 169 Issue 关闭、周级发版（近 2 个月 10 个版本），说明是真实使用而非纯收藏（D1、D3）。</li>
+<li><strong>难以自研的增量效用</strong>：<code>wt step copy-ignored</code> 借 APFS/btrfs/XFS reflink 在多个 worktree 间共享 target/、node_modules，省去重复构建；叠加 hook 生命周期、hash_port 每 worktree 独立端口、merge 一键 squash-rebase-cleanup（D10）。</li>
+<li><strong>极低的采用摩擦</strong>：5 条单命令安装通道覆盖三大平台，无外部服务依赖，初始化仅需 <code>wt config shell install</code>，分钟级首次成功体验，上手难度等级 🟢 简单（D9）。</li>
+<li><strong>法律路径干净</strong>：MIT OR Apache-2.0 双许可，无 copyleft、无 Commons Clause/BUSL 类商业附加条款，所有变现路径无法律约束，D4.1 满分（D4、D6）。</li>
+</ol>
+<h3>5.3 制约商业化的结构性短板</h3>
+<ol>
+<li><strong>变现载体缺失</strong>：项目为纯本地 Rust CLI（259,896 行代码、289 个 .rs 文件），无任何服务端/云组件，SaaS 托管与数据/算力类增值路径缺乏落地载体（D4）。</li>
+<li><strong>功能全量免费</strong>：核心命令与全部进阶功能（hooks、LLM commits、共享构建缓存、CI 状态、AI 摘要、aliases）均完全开源，无企业版/Pro 分层，README 与 87 个文档文件中无 pricing 或商业授权信息（D4、D10）。</li>
+<li><strong>付费转化逻辑薄弱</strong>：D4.3 仅 1.0/2.5、D4.4 仅 0.8/2.0，是 D4 内部最弱的两项；LLM 提交信息与 AI 摘要为可选 BYOK 增强，用户无强制付费触发点（D4、D10）。</li>
+<li><strong>技术壁垒为软壁垒</strong>：无专利/私有数据，核心是 git 之上的 UX 封装层，原理上可被复制；无网络效应，本地 CLI 不存在数据飞轮或双边市场（D5）。</li>
+<li><strong>单点人力与零资金</strong>：单人主导的个人命名空间仓库（max-sixty），无任何资金、赞助或商业实体证据，可持续性完全依赖个人投入（D8）。</li>
+</ol>
+<h3>5.4 价值画像的临界说明</h3>
+<p>公共价值分 6.8 落在 6.5–7.5 临界区间，两种画像下的路径差异如下：</p>
+<ul>
+<li><strong>按「纯商业工具」解读</strong>（当前判定）：按 D4 最优路径直接变现，重点在于尽快构建付费层或服务层。</li>
+<li><strong>按「公共产品型」解读</strong>（若公共价值被低估）：走影响力变现——赞助/基金会托管/大厂雇佣维护者/围绕生态做服务与培训。</li>
+</ul>
+<p>考虑到 D11 社会价值仅 5.4（非软件供应链底座、文档仅英文无 i18n、核心价值场景依赖付费 Agent 工具、未定义或主导任何标准），本报告倾向维持「纯商业工具」判定，但建议在商业化早期同步经营社区声誉，避免竭泽而渔。</p>
+<hr />
+<h2>六、商业路径分析</h2>
+<h3>6.1 路径可行性排序</h3>
+<p>基于 D4 的变现路径清晰度（2.1/3.5）、付费转化逻辑（1.0/2.5）与增值服务空间（0.8/2.0），结合 D5 的竞争格局判断，可行路径按优先级排序如下：</p>
+<p><strong>路径一：企业支持与合规服务（可行性最高，短期）</strong></p>
+<ul>
+<li>依据：D6 指出 GitHub/平台自动识别为 NOASSERTION（自定义双许可抬头所致），企业 SCA 工具可能误报，需人工备案；D6.4 贡献者协议完备性仅 0.8/2.0，CLA/DCO 缺失是最大缺口。</li>
+<li>做法：为企业提供许可澄清与合规备案服务、SCA 白名单支持、私有化部署咨询。</li>
+<li>优势：不改变开源承诺，不触发社区反弹；直接对应已识别的真实合规痛点。</li>
+<li>天花板：受限于 D1 指出的「可直接货币化的 TAM 偏窄」，属小而稳的收入。</li>
+</ul>
+<p><strong>路径二：托管/协作层 SaaS（可行性中等，中期）</strong></p>
+<ul>
+<li>依据：D4 明确指出变现参照先例存在（Graphite CLI+SaaS、GitButler、GitKraken），但<strong>均依赖 SaaS/协作层，Worktrunk 尚未构建该层</strong>；且项目当前无任何服务端/云组件。</li>
+<li>做法：构建团队级 worktree 编排面板、跨机器 worktree 状态同步、团队 SOP 与 hooks 集中管理。</li>
+<li>风险：需要从零构建服务端，与现有「纯本地 CLI」架构定位存在张力；D5 指出上游 agent 平台（Claude Code/Codex）原生内化 worktree 编排是主要风险路径，领先窗口估计仅 12–24 个月。</li>
+</ul>
+<p><strong>路径三：增值功能分层（可行性中等偏低）</strong></p>
+<ul>
+<li>依据：D4 指出核心命令与全部进阶功能均完全开源，无企业版/Pro 分层；D10 指出效用全量免费，无企业版/付费墙/license key。</li>
+<li>做法：将企业级能力（如审计日志集中化、策略强制、SSO 集成）划入付费层。</li>
+<li>风险：D7 指出无 SSO/OAuth/LDAP/SAML 与企业加密体系（CLI 属性下 N/A），意味着这些能力本身尚不存在，需要新增开发；且对本地 CLI 而言，企业采购意愿通常低于服务端产品。</li>
+</ul>
+<p><strong>路径四：赞助与捐赠（可行性高，但天花板极低）</strong></p>
+<ul>
+<li>依据：D4 指出 README Contributing 仅列 Star/分享/提 Issue，<strong>未开启任何赞助或捐赠通道</strong>；D8 指出无任何资金、赞助或商业实体证据。</li>
+<li>做法：开通 GitHub Sponsors / Open Collective。</li>
+<li>定位：这是零成本可立即执行的补短板动作，但不足以支撑项目全职运营，应作为过渡而非终局。</li>
+</ul>
+<h3>6.2 路径组合建议</h3>
+<p>考虑到价值画像为「纯商业工具」且综合评分处于 A 级下沿（67.0，距 65 分线仅 2 分），建议采取<strong>「先补合规与赞助短板 → 再验证 SaaS 需求」</strong>的两阶段策略：</p>
+<ul>
+<li><strong>阶段一（0–6 个月）</strong>：开通赞助通道、补齐 CLA/DCO 与 CONTRIBUTING.md、完成商标检索与许可备案。这些动作成本低、直接对应 D6.4（0.8/2.0）与 D8.3（1.0/2.5）两个最低分子项。</li>
+<li><strong>阶段二（6–18 个月）</strong>：在领先窗口（D5 估计 12–24 个月）内验证团队级协作层的付费意愿，避免在上游平台内化 worktree 编排后被商品化。</li>
+</ul>
+<hr />
+<h2>七、能力评估：能做什么 &amp; 最适合做什么</h2>
+<h3>7.1 当前已具备的能力</h3>
+<table>
+<thead>
+<tr>
+<th>能力项</th>
+<th>证据来源</th>
+<th>成熟度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Git worktree 全生命周期管理（switch/list/merge/remove）</td>
+<td>D9：三核心命令对标原生 git 冗长操作</td>
+<td>成熟</td>
+</tr>
+<tr>
+<td>跨 worktree 构建缓存共享</td>
+<td>D10：借 APFS/btrfs/XFS reflink 共享 target/、node_modules</td>
+<td>成熟</td>
+</tr>
+<tr>
+<td>并行 AI Agent 工作流编排</td>
+<td>D1：README 引用 Anthropic 官方最佳实践与 incident.io 生产实践</td>
+<td>成熟</td>
+</tr>
+<tr>
+<td>多 shell 集成</td>
+<td>D9：覆盖 bash/zsh/fish/nushell/pwsh</td>
+<td>成熟</td>
+</tr>
+<tr>
+<td>配置治理与自动迁移</td>
+<td>D7：三级配置体系 + XDG + 表驱动废弃规则幂等迁移</td>
+<td>成熟</td>
+</tr>
+<tr>
+<td>结构化可观测性</td>
+<td>D7：tracing 结构化日志、JSONL trace、诊断报告、hook 输出审计日志</td>
+<td>成熟</td>
+</tr>
+<tr>
+<td>面向不可信仓库的授权边界</td>
+<td>D7：命令审批（approvals.toml）+ TOCTOU 防护 + 全线注入防护</td>
+<td>成熟</td>
+</tr>
+<tr>
+<td>正式 API 契约</td>
+<td>D7：schemars 生成的 JSON Schema + library API（lib/cli 拆分）</td>
+<td>成熟</td>
+</tr>
+<tr>
+<td>性能工程</td>
+<td>D7：专属 benchmarks 工作流 + rayon 线程池隔离 + 多级缓存 + 渐进渲染</td>
+<td>成熟</td>
+</tr>
+<tr>
+<td>自动化维护流水线</td>
+<td>D8：15 条 CI 中 8 条 tend-* AI Agent 自治流水线</td>
+<td>成熟</td>
+</tr>
+</tbody>
+</table>
+<h3>7.2 最适合做什么</h3>
+<p><strong>最适合：面向 AI 编程代理用户的开发者效率工具，以「本地 CLI + 极低采用摩擦」为核心竞争力，在 12–24 个月窗口内建立开发者心智与团队 SOP 粘性。</strong></p>
+<p>理由：</p>
+<ol>
+<li><strong>效用强度已被验证</strong>：D10.1 得 2.4/3，核心效用属项目级依赖而非分钟级便利；D10.4 效用可持续性满分（纯本地 Rust 二进制、无厂商锁定、可自由分叉）。</li>
+<li><strong>采用摩擦极低</strong>：D9 得 8.0/10，🟢 简单等级，5 条安装通道 + 分钟级首次成功体验，是快速铺开用户基数的理想形态。</li>
+<li><strong>切换成本来自配置而非数据</strong>：D5 指出数据层零锁定（branch/worktree/commit 均为 git 原生对象，退出无残留），粘性主要来自 hooks/aliases/per-branch state 配置与团队 SOP 及 shell integration——这意味着<strong>团队级配置管理</strong>是最自然的付费切入点。</li>
+<li><strong>不应追求的能力方向</strong>：D4 明确指出无服务端/云组件，SaaS 托管与数据/算力类增值路径缺乏落地载体；D7 指出高可用/水平扩展对本地 CLI 为 N/A。强行转向重服务端产品会偏离项目已验证的能力边界。</li>
+</ol>
+<hr />
+<h2>八、短板识别：还缺少什么</h2>
+<h3>8.1 商业化闭环缺失（最严重）</h3>
+<ul>
+<li><strong>无付费层</strong>：D4 指出核心命令与全部进阶功能均完全开源，无企业版/Pro 分层，README 与 87 个文档文件中无 pricing 或商业授权信息。</li>
+<li><strong>无赞助通道</strong>：D4 指出 README Contributing 仅列 Star/分享/提 Issue，未开启任何赞助或捐赠通道；D8 指出无任何资金、赞助或商业实体证据。</li>
+<li><strong>无商业实体</strong>：D8 指出仅自有域名 worktrunk.dev 暗示产品化意图，可持续性完全依赖个人投入。</li>
+<li><strong>量化表现</strong>：D4.3 付费转化逻辑 1.0/2.5、D4.4 增值服务空间与定价天花板 0.8/2.0，是全部 40 个细则中最低的两项之一。</li>
+</ul>
+<h3>8.2 法律凭证缺口</h3>
+<ul>
+<li><strong>贡献者协议缺失</strong>：D6 指出 72 位贡献者、90 天 851 个 PR，未见 CLA/DCO，且未发现 CONTRIBUTING.md；版权分散，若走闭源商业授权/双许可重授权需先补 CLA 并回溯确认历史贡献。D6.4 仅 0.8/2.0。</li>
+<li><strong>商标状态未核查</strong>：D6 指出无 TRADEMARK.md、无商标使用政策，Apache-2.0 §6 不授予商标权，商业产品沿用 worktrunk 品牌需另行授权与检索，置信度低。</li>
+<li><strong>依赖链未全量审计</strong>：D6 指出未提供 Cargo.lock，传递依赖未实证，建议 cargo-deny 全量审计。</li>
+<li><strong>许可表述不一致</strong>：D8 指出 GitHub API 为 NOASSERTION、LICENSE 文件为 MIT、Cargo.toml 声明 MIT OR Apache-2.0，属轻微合规瑕疵需在尽调中澄清。</li>
+</ul>
+<h3>8.3 治理与组织短板</h3>
+<ul>
+<li><strong>治理透明度不足</strong>：D8 指出存在 87 个文档文件与完整站点/CHANGELOG，但未见 GOVERNANCE.md、CONTRIBUTING.md 或公开路线图，非任何基金会成员。D8.2 仅 1.2/2.0。</li>
+<li><strong>单点人力风险</strong>：D8 指出单人主导的个人命名空间仓库，商业经验无任何可验证证据；虽以 8 条 tend-* AI 流水线对冲，使有效巴士因子约 2–3，但仍属结构性风险。D8.1 仅 1.5/2.5。</li>
+</ul>
+<h3>8.4 生态与品牌短板</h3>
+<ul>
+<li><strong>第三方生态薄弱</strong>：D3 指出生态以官方自建为主（内置 Claude Code 插件、skills、87 份文档、AUR 打包、worktrunk.dev），第三方插件、衍生项目、外部教程均无硬证据。</li>
+<li><strong>品牌认知局限</strong>：D3 指出品牌仅在 AI Agent 开发工具小圈层有认知；README 无企业用户墙/案例，无第三方媒体报道证据，行业采用与媒体覆盖双空白。D3.4 仅 0.9/1.5。</li>
+<li><strong>Fork 意愿一般</strong>：D3 指出 Fork 比率仅 3.49%，属 Rust CLI 工具常见区间，衍生开发意愿一般。</li>
+</ul>
+<h3>8.5 数据与验证缺口</h3>
+<ul>
+<li><strong>规模证据不完整</strong>：D10 指出 GitHub Dependents 与 crates.io 下载量均未取到，npm/PyPI 指标对本生态不适用，D10.2 置信度中低。</li>
+<li><strong>竞品验证不完整</strong>：D5 指出竞品清单未经外部搜索验证（本次运行无 GitHub Search/Web 搜索能力），直接竞品覆盖不完整，D5.1 置信度下降。</li>
+<li><strong>Star 增速为估算值</strong>：D3 指出 702/月为退化公式估算（非 API 实采近 90 天增量），应视为上界估计。</li>
+</ul>
+<h3>8.6 产品与文档细节</h3>
+<ul>
+<li><strong>无示例项目</strong>：D9 指出仓库内示例项目数为 0，无交互式 onboarding 教程，hooks/aliases/模板过滤器等进阶能力需额外学习。</li>
+<li><strong>Windows 安装摩擦</strong>：D9 指出 Windows 上 <code>wt</code> 与 Windows Terminal 别名冲突，Winget 以 <code>git-wt</code> 名称安装并要求用户关闭别名或改用 <code>git-wt</code>。</li>
+<li><strong>无标准协议导出</strong>：D7 指出无 OpenTelemetry/Prometheus 标准协议导出。</li>
+<li><strong>无工具内回滚机制</strong>：D7 指出近 2 个月 10 次发布，迭代极快，但无工具内显式回滚机制。</li>
+</ul>
+<hr />
+<h2>九、风险提示</h2>
+<h3>9.1 平台商品化风险（最高优先级）</h3>
+<p>D5 明确指出：<strong>上游 agent 平台（Claude Code/Codex）原生内化 worktree 编排为主要风险路径</strong>，README 引用的 anthropics/claude-code issue #1052 即为该社区讨论；领先窗口估计 12–24 个月。D1 同样指出 Claude Code/Codex/Cursor 等上游厂商存在把 worktree 管理内建、商品化该层的平台风险。这是本项目最根本的生存性风险——一旦上游内化，Worktrunk 的核心价值场景将被直接覆盖。</p>
+<h3>9.2 变现路径风险</h3>
+<p>D4 指出项目为纯本地 Rust CLI，无任何服务端/云组件，SaaS 托管与数据/算力类增值路径缺乏落地载体；变现参照先例（Graphite CLI+SaaS、GitButler、GitKraken）均依赖 SaaS/协作层，而 Worktrunk 尚未构建该层。若强行构建，需从零投入服务端研发，且与现有架构定位存在张力。</p>
+<h3>9.3 可持续性风险</h3>
+<p>D8 指出项目无任何资金、赞助或商业实体证据，可持续性完全依赖个人投入；虽以 8 条 tend-* AI Agent 自治流水线对冲单点人力风险，使有效巴士因子约 2–3，但核心维护者的商业经验无任何可验证证据。若核心维护者退出，项目存在停滞风险（当前 D8.4 得 2.4/3，未触发否决，但需持续监控）。</p>
+<h3>9.4 法律合规风险</h3>
+<p>D6 指出贡献者版权凭证是最大缺口：72 位贡献者、90 天 851 个 PR，未见 CLA/DCO，且未发现 CONTRIBUTING.md；版权分散，若走闭源商业授权/双许可重授权需先补 CLA 并回溯确认历史贡献。此外，商标与专利状态未经人工核查，商业产品沿用 worktrunk 品牌需另行授权与检索。GitHub/平台自动识别为 NOASSERTION，企业 SCA 工具可能误报。</p>
+<h3>9.5 竞争壁垒风险</h3>
+<p>D5 指出技术壁垒为软壁垒：无专利/私有数据，核心是 git 之上的 UX 封装层，原理上可被复制；无网络效应，本地 CLI 不存在数据飞轮或双边市场；切换成本中等，数据层零锁定。护城河稳定但未加深。</p>
+<h3>9.6 数据置信度风险</h3>
+<p>D3 指出 Star 增速 702/月为退化公式估算，应视为上界估计；D5 指出竞品清单未经外部搜索验证，直接竞品覆盖不完整；D10 指出 GitHub Dependents 与 crates.io 下载量均未取到，D10.2 置信度中低，且 851 PR 中相当比例可能来自仓库自带 tend-* AI 维护流水线。D2 评分卡存在 <code>scorecard_rebuilt_by_regex</code> 退化标记，其 key_findings 与 hard_facts 为空，该维度结论的细节支撑弱于其他维度。</p>
+<h3>9.7 普惠性风险</h3>
+<p>D11 指出普惠存在两处限制：文档仅英文无 i18n/无障碍支持，且核心价值场景依赖付费 Agent 工具（Claude Code/Codex），受益人群偏已有 AI 预算的开发者。这限制了项目向更广泛开发者群体扩散的潜力。</p>
+<hr />
+<h2>十、结论与建议</h2>
+<h3>10.1 结论</h3>
+<p>Worktrunk 是一个<strong>综合评分 67.0/100、等级 A（高商业化潜力）、价值画像为「纯商业工具」</strong>的开源 Git worktree 管理 CLI 工具。项目在需求真实性（D1 7.5）、社区活跃度（D3 7.7）、易用性（D9 8.0）与功能价值（D10 8.2）上表现优异，具备真实且被权威背书的痛点、高密度的需求侧信号、难以自研的增量效用与极低的采用摩擦。</p>
+<p>但项目同时面临<strong>三重结构性约束</strong>：其一，商业模式（D4 5.9）与付费转化逻辑（D4.3 1.0/2.5、D4.4 0.8/2.0）严重薄弱，项目当前无任何商业化载体；其二，技术壁垒为软壁垒（D5 6.6），无网络效应，且面临上游 agent 平台商品化的生存性风险，领先窗口仅 12–24 个月；其三，团队治理（D8 6.1）为单人主导、零资金、无商业实体，可持续性完全依赖个人投入。</p>
+<p>综合评分 67.0 处于 A 级下沿（距 65 分线仅 2 分），意味着<strong>等级判定对短板补齐高度敏感</strong>——D6.4（0.8/2.0）、D8.3（1.0/2.5）、D4.3（1.0/2.5）、D4.4（0.8/2.0）四个最低分子项中任何一项的改善都可能显著提升综合评分。</p>
+<h3>10.2 建议</h3>
+<p><strong>立即执行（0–3 个月，低成本高杠杆）</strong></p>
+<ol>
+<li><strong>开通赞助通道</strong>：README Contributing 章节增加 GitHub Sponsors / Open Collective 链接，直接改善 D8.3（当前 1.0/2.5）。</li>
+<li><strong>补齐贡献者协议</strong>：新增 CONTRIBUTING.md 并引入 DCO 或 CLA，回溯确认历史贡献授权，直接改善 D6.4（当前 0.8/2.0），并为未来双许可重授权保留法律空间。</li>
+<li><strong>澄清许可表述</strong>：统一 LICENSE 文件、Cargo.toml 与 GitHub 平台识别口径，消除企业 SCA 工具误报，降低企业采用摩擦。</li>
+<li><strong>完成商标检索与备案</strong>：明确 worktrunk 品牌在目标市场的商标状态，避免商业化后的品牌风险。</li>
+</ol>
+<p><strong>中期推进（3–12 个月，验证性投入）</strong></p>
+<ol start="5">
+<li><strong>验证团队级协作层付费意愿</strong>：在领先窗口内，围绕「团队 SOP 与 hooks 集中管理、跨机器 worktree 状态同步」设计最小可行付费产品，验证 D4.3 付费转化逻辑。</li>
+<li><strong>补齐治理透明度</strong>：新增 GOVERNANCE.md 与公开路线图，改善 D8.2（当前 1.2/2.0），降低单点人力风险的感知。</li>
+<li><strong>强化生态建设</strong>：D3 指出第三方生态以官方自建为主，应主动培育第三方插件、衍生项目与外部教程，改善 D3.3（当前 1.8/3）与 D3.4（当前 0.9/1.5）。</li>
+<li><strong>补充示例项目与交互式 onboarding</strong>：D9 指出仓库内示例项目数为 0，改善后可进一步巩固 D9 的领先优势。</li>
+</ol>
+<p><strong>持续监控</strong></p>
+<ol start="9">
+<li><strong>上游平台动向</strong>：持续跟踪 Claude Code / Codex / Cursor 是否原生内化 worktree 编排（D5 已识别 anthropics/claude-code issue #1052 为观察点），一旦出现明确内化信号，应立即调整商业路径。</li>
+<li><strong>核心维护者可持续性</strong>：D8.4 当前 2.4/3 未触发否决，但项目无资金、无商业实体，需持续监控维护者投入度与项目活跃度变化。</li>
+</ol>
+<p><strong>不建议</strong></p>
+<ol start="11">
+<li><strong>不建议直接投入重服务端 SaaS 转型</strong>：D4 明确指出项目无服务端/云组件，SaaS 托管与数据/算力类增值路径缺乏落地载体；D7 指出高可用/水平扩展对本地 CLI 为 N/A。在验证团队级付费意愿之前，重服务端投入与项目已验证的能力边界不符。</li>
+<li><strong>不建议采用限制性协议变更</strong>：D4.1 当前满分（2.0/2.0），MIT OR Apache-2.0 双许可是项目的重要资产；参照 Elastic 改协议的反噬教训，在社区声誉尚未充分积累时变更协议风险极高。</li>
+</ol>
+<h2>十一、项目地址</h2>
+<p><svg class="ri ri-muted" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.001 2C6.47598 2 2.00098 6.475 2.00098 12C2.00098 16.425 4.86348 20.1625 8.83848 21.4875C9.33848 21.575 9.52598 21.275 9.52598 21.0125C9.52598 20.775 9.51348 19.9875 9.51348 19.15C7.00098 19.6125 6.35098 18.5375 6.15098 17.975C6.03848 17.6875 5.55098 16.8 5.12598 16.5625C4.77598 16.375 4.27598 15.9125 5.11348 15.9C5.90098 15.8875 6.46348 16.625 6.65098 16.925C7.55098 18.4375 8.98848 18.0125 9.56348 17.75C9.65098 17.1 9.91348 16.6625 10.201 16.4125C7.97598 16.1625 5.65098 15.3 5.65098 11.475C5.65098 10.3875 6.03848 9.4875 6.67598 8.7875C6.57598 8.5375 6.22598 7.5125 6.77598 6.1375C6.77598 6.1375 7.61348 5.875 9.52598 7.1625C10.326 6.9375 11.176 6.825 12.026 6.825C12.876 6.825 13.726 6.9375 14.526 7.1625C16.4385 5.8625 17.276 6.1375 17.276 6.1375C17.826 7.5125 17.476 8.5375 17.376 8.7875C18.0135 9.4875 18.401 10.375 18.401 11.475C18.401 15.3125 16.0635 16.1625 13.8385 16.4125C14.201 16.725 14.5135 17.325 14.5135 18.2625C14.5135 19.6 14.501 20.675 14.501 21.0125C14.501 21.275 14.6885 21.5875 15.1885 21.4875C19.259 20.1133 21.9999 16.2963 22.001 12C22.001 6.475 17.526 2 12.001 2Z"/></svg> <a href="https://github.com/max-sixty/worktrunk">https://github.com/max-sixty/worktrunk</a></p>
+<hr />
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+</blockquote>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家　<a href="https://www.mova.work">www.mova.work</a></p></body></html>

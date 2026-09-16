@@ -1,0 +1,1579 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><title>No-ai-slop 商业价值分析报告</title><style>/* default — 品牌蓝紫主题（从 md2pdf.py 原 CSS 常量迁出，视觉与历史产物一致） */
+@page { size: A4; margin: 18mm 15mm 20mm 15mm; }
+* { box-sizing: border-box; }
+/* 字体规范：一律开源思源黑体 CN（OFL 免费商用）；正文 Regular/标题 Bold/大字数字 Light */
+body { font-family: "Source Han Sans CN","思源黑体 CN","Noto Sans SC",sans-serif; color:#1e293b; font-size:10.5pt; line-height:1.75; margin:0; }
+.cover { page-break-after: always; text-align:center; padding-top:40px; }
+.cover .kicker { color:#2563eb; letter-spacing:6px; font-size:12pt; font-weight:500; }
+.cover h1 { font-size:26pt; margin:14px 0 6px; }
+.cover .sub { color:#64748b; font-size:11pt; margin-bottom:22px; }
+.badge { display:inline-block; background:linear-gradient(135deg,#2563eb,#7c3aed); color:#fff; border-radius:18px; padding:16px 44px; margin:10px 0 18px; }
+.badge .g { font-size:34pt; font-weight:300; line-height:1; }
+.badge .s { font-size:12pt; opacity:.92; margin-top:4px; }
+.meta { color:#475569; font-size:9.5pt; margin-top:14px; }
+.bars { max-width:620px; margin:20px auto 0; text-align:left; }
+.bar-row { display:flex; align-items:center; gap:8px; margin:5px 0; font-size:9pt; }
+.bar-name { width:110px; text-align:right; color:#334155; font-weight:500; }
+.bar-track { flex:1; height:9px; background:#f1f5f9; border-radius:5px; overflow:hidden; }
+.bar-fill { display:block; height:100%; border-radius:5px; }
+.bar-val { width:30px; font-weight:700; color:#0f172a; }
+.bar-w { width:52px; color:#94a3b8; font-size:8pt; }
+h1 { font-size:17pt; color:#0f172a; border-bottom:3px solid #2563eb; padding-bottom:8px; }
+h2 { font-size:13.5pt; color:#1d4ed8; margin-top:26px; page-break-after: avoid; border-left:5px solid #2563eb; padding-left:10px; }
+h3 { font-size:11.5pt; color:#0f172a; margin-top:18px; page-break-after: avoid; }
+table { border-collapse:collapse; width:100%; margin:10px 0; font-size:9pt; page-break-inside:avoid; }
+th { background:#eff6ff; color:#1e3a8a; }
+th,td { border:1px solid #dbe3ef; padding:5px 8px; text-align:left; }
+tr:nth-child(even) td { background:#f8fafc; }
+code { background:#f1f5f9; border-radius:4px; padding:1px 5px; font-family:"JetBrains Mono","Cascadia Mono",monospace; font-size:9pt; color:#be185d; }
+pre { background:#0f172a; color:#e2e8f0; border-radius:8px; padding:12px 14px; overflow-x:auto; page-break-inside:avoid; }
+pre code { background:none; color:inherit; padding:0; }
+blockquote { border-left:4px solid #93c5fd; background:#eff6ff; margin:10px 0; padding:8px 14px; color:#334155; border-radius:0 8px 8px 0; }
+hr { border:none; border-top:1px dashed #cbd5e1; margin:22px 0; }
+strong { color:#0f172a; }
+.cover .disclaimer { max-width:620px; margin:16px auto 0; color:#64748b; font-size:8.5pt; line-height:1.6; text-align:left; border:1px solid #e2e8f0; border-radius:8px; padding:8px 12px; background:#f8fafc; }
+.credit { color:#2563eb; font-size:10.5pt; font-weight:700; letter-spacing:1px; margin-top:12px; }
+.at-acc { background:#dbeafe; color:#1d4ed8; border-radius:4px; padding:0 4px; font-weight:500; white-space:nowrap; }
+.tail { page-break-inside:avoid; margin-top:26px; border-top:2px solid #2563eb; padding-top:14px; }
+.tail p { color:#64748b; font-size:8.5pt; line-height:1.6; margin:0 0 10px; }
+.tail .credit { text-align:center; margin:0; }
+/* Remix Icon 内联 SVG（icon_mode=remix 时由脚本注入，语义色与评分条一致） */
+.ri { width:1.05em; height:1.05em; vertical-align:-0.18em; display:inline-block; }
+.ri-ok { color:#16a34a; } .ri-warn { color:#d97706; } .ri-bad { color:#dc2626; }
+.ri-muted { color:#64748b; } .ri-star { color:#f59e0b; } .ri-brand { color:#2563eb; }
+.ri-gold { color:#d4a017; } .ri-silver { color:#9ca3af; } .ri-bronze { color:#b45309; }
+/* 屏幕预览：@page 边距仅在打印时生效，浏览器中居中限宽并收边（不影响 PDF 输出） */
+@media screen {
+  body { margin: 0 auto; padding: 28px 36px 56px; max-width: 900px; }
+}
+</style></head><body><div class="cover">
+<div class="kicker">开源项目商业化潜力分析</div>
+<h1>GitHub 开源项目 No-ai-slop<br>商业价值分析报告</h1>
+<div class="sub">petergyang/no-ai-slop · 生成式AI写作编辑技能（Agent Skill）· 九维度加权评估</div>
+<div class="badge"><div class="g">B 级 · 59.5</div><div class="s">综合评分（满分 100）· 中等商业化潜力</div></div>
+<div><svg viewBox="0 0 560 480" width="560" height="480" xmlns="http://www.w3.org/2000/svg"><polygon points="280.0,209.6 299.5,216.7 309.9,234.7 306.3,255.2 290.4,268.6 269.6,268.6 253.7,255.2 250.1,234.7 260.5,216.7" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,179.2 319.1,193.4 339.9,229.4 332.7,270.4 300.8,297.1 259.2,297.1 227.3,270.4 220.1,229.4 240.9,193.4" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,148.8 338.6,170.1 369.8,224.2 359.0,285.6 311.2,325.7 248.8,325.7 201.0,285.6 190.2,224.2 221.4,170.1" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,118.4 358.2,146.8 399.8,218.9 385.3,300.8 321.6,354.3 238.4,354.3 174.7,300.8 160.2,218.9 201.8,146.8" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,88.0 377.7,123.6 429.7,213.6 411.6,316.0 332.0,382.8 228.0,382.8 148.4,316.0 130.3,213.6 182.3,123.6" fill="none" stroke="#e2e8f0" stroke-width="1"/><line x1="280.0" y1="240.0" x2="280.0" y2="88.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="377.7" y2="123.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="429.7" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="411.6" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="332.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="228.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="148.4" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="130.3" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="182.3" y2="123.6" stroke="#d8dee9" stroke-width="1"/><polygon points="280.0,126.0 341.6,166.6 362.3,225.5 357.7,284.8 305.0,308.6 239.5,351.4 222.1,273.4 203.7,226.5 280.0,240.0" fill="rgba(37,99,235,.22)" stroke="#2563eb" stroke-width="2.5"/><circle cx="280.0" cy="126.0" r="3.5" fill="#2563eb"/><circle cx="341.6" cy="166.6" r="3.5" fill="#2563eb"/><circle cx="362.3" cy="225.5" r="3.5" fill="#2563eb"/><circle cx="357.7" cy="284.8" r="3.5" fill="#2563eb"/><circle cx="305.0" cy="308.6" r="3.5" fill="#2563eb"/><circle cx="239.5" cy="351.4" r="3.5" fill="#2563eb"/><circle cx="222.1" cy="273.4" r="3.5" fill="#2563eb"/><circle cx="203.7" cy="226.5" r="3.5" fill="#2563eb"/><circle cx="280.0" cy="240.0" r="3.5" fill="#2563eb"/><text x="280.0" y="44.0" text-anchor="middle" font-size="12.5" fill="#334155" font-weight="600">D1</text><text x="280.0" y="58.0" text-anchor="middle" font-size="11" fill="#64748b">市场需求 7.5</text><text x="406.0" y="89.9" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D2</text><text x="406.0" y="103.9" text-anchor="start" font-size="11" fill="#64748b">技术成熟度 6.3</text><text x="473.0" y="206.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D3</text><text x="473.0" y="220.0" text-anchor="start" font-size="11" fill="#64748b">社区生态 5.5</text><text x="449.7" y="338.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D4</text><text x="449.7" y="352.0" text-anchor="start" font-size="11" fill="#64748b">变现潜力 5.9</text><text x="347.0" y="424.2" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D5</text><text x="347.0" y="438.2" text-anchor="start" font-size="11" fill="#64748b">竞争格局 4.8</text><text x="213.0" y="424.2" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D6</text><text x="213.0" y="438.2" text-anchor="end" font-size="11" fill="#64748b">法律合规 7.8</text><text x="110.3" y="338.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D7</text><text x="110.3" y="352.0" text-anchor="end" font-size="11" fill="#64748b">企业就绪 4.4</text><text x="87.0" y="206.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D8</text><text x="87.0" y="220.0" text-anchor="end" font-size="11" fill="#64748b">团队治理 5.1</text><text x="154.0" y="89.9" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D9</text><text x="154.0" y="103.9" text-anchor="end" font-size="11" fill="#64748b">上手难度 N/A</text></svg></div>
+<div class="bars"><div class="bar-row"><span class="bar-name">D6 法律合规</span>
+<span class="bar-track"><span class="bar-fill" style="width:78.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.8</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D1 市场需求</span>
+<span class="bar-track"><span class="bar-fill" style="width:75.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.5</span><span class="bar-w">权重13%</span></div>
+<div class="bar-row"><span class="bar-name">D2 技术成熟度</span>
+<span class="bar-track"><span class="bar-fill" style="width:63.0%;background:#d97706"></span></span>
+<span class="bar-val">6.3</span><span class="bar-w">权重14%</span></div>
+<div class="bar-row"><span class="bar-name">D4 变现潜力</span>
+<span class="bar-track"><span class="bar-fill" style="width:59.0%;background:#dc2626"></span></span>
+<span class="bar-val">5.9</span><span class="bar-w">权重18%</span></div>
+<div class="bar-row"><span class="bar-name">D3 社区生态</span>
+<span class="bar-track"><span class="bar-fill" style="width:55.0%;background:#dc2626"></span></span>
+<span class="bar-val">5.5</span><span class="bar-w">权重11%</span></div>
+<div class="bar-row"><span class="bar-name">D8 团队治理</span>
+<span class="bar-track"><span class="bar-fill" style="width:51.0%;background:#dc2626"></span></span>
+<span class="bar-val">5.1</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D5 竞争格局</span>
+<span class="bar-track"><span class="bar-fill" style="width:48.0%;background:#dc2626"></span></span>
+<span class="bar-val">4.8</span><span class="bar-w">权重12%</span></div>
+<div class="bar-row"><span class="bar-name">D7 企业就绪</span>
+<span class="bar-track"><span class="bar-fill" style="width:44.0%;background:#dc2626"></span></span>
+<span class="bar-val">4.4</span><span class="bar-w">权重8%</span></div>
+<div class="bar-row"><span class="bar-name">D9 上手难度</span>
+<span class="bar-track"><span class="bar-fill" style="width:0.0%;background:#dc2626"></span></span>
+<span class="bar-val">N/A</span><span class="bar-w">权重10%</span></div></div>
+<div class="meta">分析时点 2026-09-16 ｜ 数据来源：GitHub API + 仓库代码实测 ｜ 方法论 v1.3</div>
+<div class="credit">报告出品：@魔法工厂　@向量之心　@南山科学家</div>
+<div class="disclaimer"><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</div>
+</div><h1>No-ai-slop 商业化潜力分析报告（完整版）</h1>
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家</p>
+<p>方法论版本: v1.3 | 综合评分: <strong>59.5</strong> | 等级: <strong>B（中等商业化潜力）</strong> | 价值画像: 长尾项目</p>
+</blockquote>
+<h2>一、项目概览</h2>
+<h3>1.1 基本信息</h3>
+<ul>
+<li><strong>项目名称 / 仓库地址</strong>：petergyang/no-ai-slop</li>
+<li><strong>核心技术栈</strong>：Python（仅 1 个源文件、127 行，为构建/打包脚本）；核心交付物为 Markdown 提示词规则包（SKILL.md / eval.md），零第三方依赖</li>
+<li><strong>社区规模速览</strong>：Star 9,862 / Fork 698（Fork 比率 7.08%）/ 贡献者 2 人 / 开放 Issue 22 个 / 近 90 天新建 PR 44 个 / 近 90 天关闭 Issue 0 个</li>
+<li><strong>协议</strong>：MIT（LICENSE 文件规范，无附加商业限制条款）</li>
+<li><strong>分析时点 / 数据来源</strong>：项目创建于 2026-07-07，最后推送 2026-09-02，项目年龄约 1.87 个月；数据来源为 GitHub 仓库元数据、GitHub Search API 竞品验证及仓库内文档（README / PRIVACY.md / TERMS.md / plugin-submission.md / SKILL.md / eval.md）</li>
+</ul>
+<h3>1.2 项目分类标签</h3>
+<table>
+<thead>
+<tr>
+<th>分类维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>数据与AI（生成式AI写作技能 / Agent Skill）</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>通用/跨行业</td>
+</tr>
+<tr>
+<td>目标用户角色</td>
+<td>非技术用户（内容写作者 / 内容营销人员）+ 全栈开发者（AI 编码代理使用者）</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>内容创作与写作编辑（识别并清除 AI 生成文本的套路化模式）</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>云原生（随宿主 Agent 运行的 Skill/插件，支持 npx 全局安装）</td>
+</tr>
+</tbody>
+</table>
+<h3>1.3 一句话定位</h3>
+<blockquote>
+<p>No AI Slop 是一个生成式AI写作编辑技能（Agent Skill / 提示词工程包），适用于通用内容创作与写作场景，主要面向内容写作者、内容营销人员及使用 AI 编码代理的开发者，用于识别并清除 20+ 种 AI 生成文本的套路化模式并保留作者个人文风。</p>
+</blockquote>
+<hr />
+<h2>二、安装部署与使用指南</h2>
+<blockquote>
+<p>上手难度等级：🟢 <strong>简单</strong>（D9 = 8.5/10）——无需服务器、无需数据库、无需编译，面向包括非技术用户在内的所有人群。以下步骤可直接照做。</p>
+</blockquote>
+<h3>一、这个项目是什么形态</h3>
+<p>No AI Slop <strong>不是一个需要部署的服务或应用</strong>，而是一组「AI Agent 技能包」（Skill）：核心内容是 <code>skills/no-ai-slop/SKILL.md</code>（改写规则与工作流）与 <code>skills/no-ai-slop/eval.md</code>（自检清单）等 Markdown 指令文件，外加 <code>scripts/build_plugin.py</code>（127 行，用于打包/校验插件）与 <code>.codex-plugin/plugin.json</code>（ChatGPT/Codex 插件元数据）。因此<strong>没有 Dockerfile、没有 docker-compose/Helm、没有任何运行时依赖清单（dependencies 为空）</strong>，也不需要初始化数据库/缓存/消息队列。所谓「部署」= 把技能装进你已经在用的 AI 编程助手里。</p>
+<h3>二、安装（二选一，均为单步操作）</h3>
+<p><strong>方式 A：自然语言安装（推荐，最简）</strong>——把下面这句原样粘贴进 ChatGPT、Claude Code、Codex 或你常用的 coding agent：</p>
+<pre><code class="language-text">Install the /no-ai-slop skill globally from https://github.com/petergyang/no-ai-slop
+</code></pre>
+<p><strong>方式 B：npx 命令行安装</strong>（需本机已具备 Node.js/npx 环境）：</p>
+<pre><code class="language-sh">npx skills add petergyang/no-ai-slop --skill no-ai-slop --global --yes
+</code></pre>
+<p>安装完成后无需任何配置文件、环境变量或参数调优即可使用。此外，README 说明该技能在 ChatGPT 中也可作为官方插件使用（"No AI Slop is also available as a plugin in ChatGPT"）。</p>
+<h3>三、日常使用（三条命令覆盖全部能力）</h3>
+<p><strong>1. 改写你的文字（去 AI 味，保留个人语气并列出改动）</strong></p>
+<pre><code class="language-text">/no-ai-slop (your writing)
+</code></pre>
+<p><strong>2. 检测文字是否为 AI 味（逐条引用命中的模式，不臆断作者是否用了 AI）</strong></p>
+<pre><code class="language-text">/no-ai-slop is this slop? (your writing)
+</code></pre>
+<p><strong>3. 反向玩梗：生成最"土味"的 AI 文案（用于调侃）</strong></p>
+<pre><code class="language-text">Draft an AI slop post about (topic)
+</code></pre>
+<h3>四、首次验证建议</h3>
+<p>安装后立刻执行第 2 条指令，粘贴一段任意文字（如 "It's not X. It's Y."），观察技能是否逐条引用命中的 slop 模式。全程无需等待环境就绪，属于分钟级验证。</p>
+<h3>五、仓库内值得一看的文件</h3>
+<ul>
+<li><code>skills/no-ai-slop/SKILL.md</code> —— 改写规则与工作流（技能主体）</li>
+<li><code>skills/no-ai-slop/eval.md</code> —— 技能对自己产出运行的检查项</li>
+<li><code>.codex-plugin/plugin.json</code> —— ChatGPT / Codex 插件元数据</li>
+<li><code>scripts/build_plugin.py</code> —— 构建并校验插件包（仓库维护用途，普通用户无需执行）</li>
+</ul>
+<hr />
+<h2>三、评分总览</h2>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>权重</th>
+<th>加权得分</th>
+<th>评级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1 市场需求与商业机会</td>
+<td>7.5/10</td>
+<td>13%</td>
+<td>0.98</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D2 技术成熟度与产品质量</td>
+<td>6.3/10</td>
+<td>14%</td>
+<td>0.88</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D3 社区健康度与生态势能</td>
+<td>5.5/10</td>
+<td>11%</td>
+<td>0.61</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D4 商业模式与变现潜力</td>
+<td>5.9/10</td>
+<td>18%</td>
+<td>1.06</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D5 竞争格局与差异化壁垒</td>
+<td>4.8/10</td>
+<td>12%</td>
+<td>0.58</td>
+<td>差</td>
+</tr>
+<tr>
+<td>D6 法律合规与知识产权</td>
+<td>7.8/10</td>
+<td>7%</td>
+<td>0.55</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D7 企业就绪度与可运营性</td>
+<td>4.4/10</td>
+<td>8%</td>
+<td>0.35</td>
+<td>差</td>
+</tr>
+<tr>
+<td>D8 团队治理与可持续性</td>
+<td>5.1/10</td>
+<td>7%</td>
+<td>0.36</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D9 上手难度与易用性</td>
+<td>N/A</td>
+<td>10%</td>
+<td>—</td>
+<td>N/A（分析失败，已剔除）</td>
+</tr>
+<tr>
+<td><strong>综合评分</strong></td>
+<td>—</td>
+<td>100%</td>
+<td><strong>59.5/100</strong></td>
+<td><strong>B（中等商业化潜力）</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>口径说明</strong>：D9 因分析失败被标 N/A（degradation_flags: scorecard_rebuilt_by_regex），未参与加权计算；综合评分 59.5 为代码计算结果，本报告未重算。</p>
+</blockquote>
+<p><strong>平行维度（不计入综合评分）</strong></p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10 功能价值</td>
+<td>6.6/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>D11 社会价值</td>
+<td>5.4/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>公共价值分</td>
+<td>6.0/10</td>
+<td>(D10+D11)/2</td>
+</tr>
+</tbody>
+</table>
+<p><strong>一票否决检查</strong>：未触发（veto = null）。D6 维度总分 7.8 &gt; 3；D8.4 小分 1.8 &gt; 1；D4.1 小分 2.0 &gt; 0.5。三项否决检查均完整执行，无跳过项。</p>
+<hr />
+<h2>四、各维度详细分析</h2>
+<h3>D1. 市场需求与商业机会</h3>
+<h3>分类标签与一句话定位</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>数据与AI（生成式 AI 写作技能 / Agent Skill）；兼具开发者工具属性（以插件/CLI 形式装入 AI 编码代理）</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>通用/跨行业</td>
+</tr>
+<tr>
+<td>目标用户角色</td>
+<td>非技术用户（内容写作者、内容营销人员）；全栈开发者（使用 Claude Code / Codex / ChatGPT 等 AI 代理的用户）</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>内容管理、研发流程优化（写作质量门禁）、学习研究</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>云原生（随宿主 Agent 运行的 Skill/插件，支持 <code>npx</code> 全局安装与 ChatGPT 插件市场分发）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>一句话定位</strong>：No AI Slop 是一个生成式 AI 写作编辑技能（Agent Skill / 提示工程包），适用于通用内容创作与写作场景，主要面向内容写作者、内容营销人员以及使用 AI 编码代理的开发者，用于识别并清除 20+ 种 AI 生成文本的套路化模式，同时保留作者的个人文风。</p>
+<hr />
+<h3>D1.1 目标市场规模与增长性 —— 2.0 / 2.5（80% 档）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TAM 估算</td>
+<td>所属母市场为「AI 写作助手 / 内容创作与编辑工具」，量级为十亿美元级并保持双位数增长；本项目所处子赛道「AI 味（slop）识别与去除 + 文风保留」是该母市场中的窄切片</td>
+</tr>
+<tr>
+<td>增长趋势</td>
+<td>扩张期。AI 生成内容泛滥催生「去 AI 味 / 保留人味」的反向需求，属于随生成式 AI 普及而同步放大的派生市场</td>
+</tr>
+<tr>
+<td>市场层级</td>
+<td>成长期市场中的新兴细分，尚无明确定价品类</td>
+</tr>
+</tbody>
+</table>
+<p><strong>依据</strong>：README 明确定位为「any piece of writing」的通用写作质量工具，触达面覆盖所有使用 AI 辅助写作的人群，市场边界由 AI 写作工具的母市场决定。但需注意，该能力目前更像「母市场中的一个功能点」而非独立品类，独立可付费 TAM 显著小于母市场。</p>
+<blockquote>
+<p>说明：外部市场规模搜索不可用，上述量级判断基于项目类型/行业类别估算，<strong>未经外部数据验证，置信度低</strong>；未引用任何具体市场规模数字。</p>
+</blockquote>
+<hr />
+<h3>D1.2 痛点真实性与解决程度 —— 1.5 / 2.5（60% 档）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>痛点真实性</td>
+<td>真实且具时效性。「AI 生成文本千篇一律」「改稿抹平个人文风」是 2025–2026 年被广泛讨论的实际困扰；README 用具体反例（"It's not X. It's Y."）精准命名了痛点</td>
+</tr>
+<tr>
+<td>解决完整度</td>
+<td>中等偏上但范围窄。以 20+ 条模式化规则 + <code>SKILL.md</code> 规则工作流 + <code>eval.md</code> 自检构成闭环，并提供「编辑 / 检测 / 反讽生成」三种模式，在<strong>单一任务</strong>内较完整；但底层是一次提示词规则集（正文仅 127 行 Python 构建脚本），并非有护城河的系统</td>
+</tr>
+<tr>
+<td>替代成本</td>
+<td><strong>极低</strong>。用户可自行编写一条反 slop 提示词，或改用 Grammarly、Wordtune、通用大模型编辑指令、人工编辑等，替代品众多且多数免费</td>
+</tr>
+</tbody>
+</table>
+<p><strong>依据</strong>：痛点成立，但「锦上添花」属性明显——属于写作质量优化而非「非用不可」的刚需；核心资产是提示词规则集，复制门槛接近零。9.8k Star 证明关注度高，但关注 ≠ 付费意愿，无法据此上调解决程度得分。</p>
+<hr />
+<h3>D1.3 市场时机判断 —— 2.0 / 2.5（80% 档）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术成熟度曲线</td>
+<td>大模型写作能力已越过期望膨胀期、进入实质生产期；而「Agent Skill / ChatGPT 插件」这一<strong>分发形态</strong>在 2026 年尚处极早期</td>
+</tr>
+<tr>
+<td>竞争密度</td>
+<td>泛写作助手赛道拥挤（Grammarly 等巨头），但「专门去 AI 味 + 保个人文风」这一细分尚未出现垄断者，格局未定</td>
+</tr>
+<tr>
+<td>监管/标准</td>
+<td>生成式 AI 内容标识与透明度要求（如各司法辖区对 AI 生成内容的披露规范）客观上强化了「识别 AI 痕迹」的需求；但无直接强制采购驱动</td>
+</tr>
+</tbody>
+</table>
+<p><strong>依据</strong>：项目创建于 2026-07-07，7 天内连发 v1.0.0–v1.0.6 共 7 个版本，节奏贴合早期生态窗口；「反 AI 味」是 2026 年正在起势的话题，时机偏早但未超前。扣分点：赛道本身易被母市场功能化吸收（Grammarly 类产品加一个检测开关即可覆盖）。</p>
+<hr />
+<h3>D1.4 应用场景广度 —— 2.0 / 2.5（80% 档）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>行业覆盖</td>
+<td>近乎全行业——任何产生书面内容的行业均可使用（媒体、营销、教育、金融合规文案、政府公文、企业内部沟通等）</td>
+</tr>
+<tr>
+<td>场景多样性</td>
+<td>横向通用工具。博客/营销文案/邮件/社媒/文档/PR/学术写作均可套用，且可接入 Claude Code、Codex、ChatGPT 等任意宿主</td>
+</tr>
+<tr>
+<td>可延展性</td>
+<td>可迁移至语气调校、本地化、反 AI 检测对抗、企业文风规范统一等相邻场景；核心能力为「文本风格规则识别」，迁移成本低</td>
+</tr>
+</tbody>
+</table>
+<p><strong>依据</strong>：README 与 <code>SKILL.md</code> 均未限定行业或格式，属典型横向写作基础设施型能力，但功能维度单一（只做「去 slop」一件事），未达平台级通用基础设施（9–10 档）标准。</p>
+<hr />
+<h3>D1 维度结论</h3>
+<p><strong>得分：2.0 + 1.5 + 2.0 + 2.0 = 7.5 / 10（权重 13%）</strong></p>
+<p>需求侧整体成立：痛点真实且有 2026 年的时代红利，市场母盘大且增长，应用面横跨全行业，切入时机处于 Agent Skill 生态的早期窗口。两项主要拖累：</p>
+<ol>
+<li><strong>D1.2 替代成本近零</strong> —— 核心资产是可被一条提示词复制的方法论规则集（127 行代码、2 名贡献者、无测试），用户付费意愿天然低，需要靠品牌/分发/持续规则迭代而非技术壁垒建立差异。</li>
+<li><strong>D1.1 TAM 偏窄</strong> —— 更接近母市场（AI 写作工具）的一个功能点，而非独立十亿美元级品类；独立可付费规模小于母市场量级。</li>
+</ol>
+<p>变现路径信号（供后续维度参考）：MIT 协议完全免费，README 中显著导流至作者个人品牌资产（Behind the Craft 付费 AI 系统与课程、YouTube 频道、creatoreconomy.so 订阅），呈现典型「开源技能引流 → 创作者付费内容变现」的双轨结构，而非直接售卖软件。</p>
+<blockquote>
+<p>全维度说明：外部市场数据源不可用，D1.1 的规模量级为基于项目类型的估算，未经外部验证，置信度低；D1.2–D1.4 判断均基于 README、仓库实测数据与 Star/PR/Issue 硬事实。</p>
+</blockquote>
+<h3>D2. 技术成熟度与产品质量（权重 14%）</h3>
+<h3>维度概述</h3>
+<p><code>no-ai-slop</code> 是一个以「Skill / Plugin」形态交付的写作净化工具：核心价值载体是 <code>skills/no-ai-slop/SKILL.md</code> 等提示词与规则集，附带的 Python 代码仅 127 行（单文件），用于将内容打包为可发布插件（<code>scripts/build_plugin.py</code> → <code>dist/no-ai-slop-plugin-*.zip</code>）。因此本维度评估需注意：<strong>这是一个代码量极小、内容/提示词驱动的项目</strong>，其「技术成熟度」更多体现在产品设计、发布工程与文档，而非传统软件架构。</p>
+<p><strong>判定 D2.5 为 N/A</strong>：项目自身无 Web / GUI / 移动端界面，也不提供交互式 CLI，交互完全发生在宿主 AI 工具（Claude Code / Codex）的对话界面内，不构成本项目的 UI 资产。按规则 D2.5 剔除，D2 总分按其余 7 项（满分 9）等比缩放至 10 分。</p>
+<hr />
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>主要依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D2.1</td>
+<td>产品设计与创新性</td>
+<td>1.5</td>
+<td>1.2</td>
+<td>80%</td>
+<td>定位清晰（消除 20+ 类 AI 腔套路），切入「AI 生成文本去味」这一真实且新颖的细分需求，以插件形态嵌入主流 AI 编码/写作工具，差异化明显；9.8k star 反映产品共鸣强。但本质是规则集 + 提示词编排，非底层技术创新</td>
+</tr>
+<tr>
+<td>D2.2</td>
+<td>架构设计与工程质量</td>
+<td>2</td>
+<td>1.2</td>
+<td>60%</td>
+<td>目录分层合理（<code>skills/</code> <code>agents/</code> <code>scripts/</code> <code>.codex-plugin/</code> <code>assets/</code>），构建脚本与内容资产解耦；但源码仅 1 文件 127 行，无类/接口抽象层次可言，复用性与模块化证据有限，复刻门槛主要在规则内容的领域积累而非工程深度，代码量与功能复杂度匹配（内容型项目）</td>
+</tr>
+<tr>
+<td>D2.3</td>
+<td>代码整洁性与规范性</td>
+<td>1</td>
+<td>0.6</td>
+<td>60%</td>
+<td>代码规模极小（127 行/1 文件），未发现明显冗余；但仓库无 lint/format 配置、无风格强制，无法从证据上确认风格一致性，属「基本可读、无约束」档</td>
+</tr>
+<tr>
+<td>D2.4</td>
+<td>安全性</td>
+<td>1</td>
+<td>0.8</td>
+<td>80%</td>
+<td>无第三方依赖（供应链面为零），无硬编码密钥/Token 证据；CI 中所有 GitHub Actions 均锁定到 commit SHA（<code>actions/checkout@3d3c42e…</code> 等），安全实践优于多数同类项目；但无 <code>SECURITY.md</code>、无 Dependabot/Snyk 等扫描集成，扣一档</td>
+</tr>
+<tr>
+<td>D2.5</td>
+<td>UI/UX/UE 人机交互</td>
+<td>1</td>
+<td>N/A</td>
+<td>—</td>
+<td>无自研 UI，交互托管于宿主 AI 工具，不适用</td>
+</tr>
+<tr>
+<td>D2.6</td>
+<td>功能完备度与稳定性</td>
+<td>1.5</td>
+<td>0.9</td>
+<td>60%</td>
+<td>已发布 v1.0.0–v1.0.6 共 7 个正式版本（最新 v1.0.6，2026-08-01），版本成熟度达标；核心功能（20+ 去 AI 腔模式）围绕单一场景，边界清晰。但运行环境强依赖特定插件宿主（Claude Code / Codex），无 i18n/本地化框架（英文内容），且 90 天内关闭 Issue 为 0、开放 Issue 22 个，维护响应性存疑</td>
+</tr>
+<tr>
+<td>D2.7</td>
+<td>文档与开发者体验</td>
+<td>1</td>
+<td>0.6</td>
+<td>60%</td>
+<td>文档覆盖面较好：README + <code>SKILL.md</code>（技能说明）+ <code>eval.md</code>（评估基准）+ <code>PRIVACY.md</code> + <code>TERMS.md</code> + <code>plugin-submission.md</code>，对一个 127 行项目而言文档密度高；但未见架构图、API 参考、交互式教程，且无法确认与版本同步性</td>
+</tr>
+<tr>
+<td>D2.8</td>
+<td>测试与质量保障</td>
+<td>1</td>
+<td>0.4</td>
+<td>40%</td>
+<td>测试文件 0、测试行 0（test_ratio 0.0），无任何单元/集成测试；CI（<code>plugin.yml</code>）仅做构建打包 + tag 触发发布，构建校验环节可视为一道产物门禁，但没有测试门禁、无静态分析/覆盖率。属「测试缺失但 CI 真实存在」档</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>9（D2.5 剔除后）</strong></td>
+<td><strong>5.7</strong></td>
+<td></td>
+<td><strong>D2 折算得分 = 5.7 / 9 × 10 ≈ 6.3</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>关键发现</h3>
+<ol>
+<li><strong>产品侧强、工程侧薄</strong>：项目商业价值集中在规则集/提示词设计（D2.1 良好），而传统工程指标（架构、测试、安全扫描）因代码量极小（127 行）而普遍处于「一般/较弱」档，二者形成明显落差。</li>
+<li><strong>发布工程成熟度超出代码规模</strong>：7 个正式版本 + 自动构建/tag 发布流水线 + Actions 全 SHA 锁定，说明维护者在发布流程与供应链安全上有意识，是加分项。</li>
+<li><strong>测试是最大短板</strong>：0 测试文件、CI 不含测试与静态检查，任何规则集改动都缺乏自动化回归保护，对「改动即影响输出质量」的提示词型项目风险尤高。</li>
+<li><strong>维护活跃度存疑</strong>：90 天内创建 PR 44 个但关闭 Issue 为 0，开放 Issue 累积至 22 个（2 名贡献者），提示响应与质量闭环能力有限。</li>
+<li><strong>环境与国际化限制</strong>：强绑定特定 AI 插件宿主、仅英文，限制了跨平台与全球化商业化的通用性（D2.6）。</li>
+</ol>
+<h3>结论</h3>
+<p><strong>D2 技术成熟度与产品质量得分：6.3 / 10（一般）</strong></p>
+<p>项目在产品定位、差异化与发布工程上表现良好，具备可交付的成熟版本；但受限于内容驱动、代码量极小的形态，在架构抽象、代码规范强制、测试与质量门禁、国际化等方面均未达到商业级工程标准。<strong>核心商业风险在于缺乏自动化测试与质量闭环</strong>——对于以输出质量为核心卖点的写作净化工具，这是最需要补强的环节。评分置信度：中高（代码/测试/CI/发布数据为本地实测硬事实，架构与代码整洁度部分因样本过小（1 文件）而无法充分评估）。</p>
+<h3>D3. 社区健康度与生态势能</h3>
+<p><strong>维度权重</strong>: 11% | <strong>维度得分</strong>: 5.5 / 10</p>
+<blockquote>
+<p>说明：本项目创建于 2026-07-07，至最近推送 2026-09-02 仅约 1.9 个月，属"新项目高热度"型。Star 增速采用退化公式（Star 数 ÷ 项目年龄月数）计算，对老项目会高估早期红利；本项目年龄极短，该公式近似等于近期真实增速，但仍应理解为"品牌导入期的一次性冲量"，而非可持续的社区惯性。</p>
+</blockquote>
+<h4>D3.1 社区活跃度指标（满分 3 分，得 2.4 分）</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Star 增速</td>
+<td>9,862 Star ÷ 1.87 月 ≈ <strong>5,273/月</strong>（退化公式）</td>
+<td>远超 &gt;500/月 的顶级阈值</td>
+</tr>
+<tr>
+<td>Fork 比率</td>
+<td>698 / 9,862 = <strong>7.08%</strong></td>
+<td>处于健康区间（5%–20%），衍生意愿良好</td>
+</tr>
+<tr>
+<td>Issue 活跃度</td>
+<td>近 90 天 PR 44 个；开放 Issue 22 个</td>
+<td>PR 提交频繁，但 Issue 池持续累积</td>
+</tr>
+<tr>
+<td>响应速度</td>
+<td>近 90 天 Issue 关闭数 = <strong>0</strong></td>
+<td>无任何 Issue 被关闭，响应能力证据缺失且偏负面</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>: Star 增速（~5.3k/月）与 Fork 比率（7.1%）均属优秀档，近 90 天 44 个 PR 也显示外部参与意愿活跃。但 GitHub API 显示近 90 天关闭 Issue 数为 0，22 个开放 Issue 无处置记录，与"9–10 档：Issue 响应 &lt;2 天"直接冲突，故不能进入最高档。综合为"绝对热度顶级、维护响应存疑"，落于 7–8 档（80%）。</p>
+<blockquote>
+<p>补采数据中 contributors 仅 2 人却产生 44 个 PR，提示 PR 主要来自维护者本人或自动化流程，社区参与深度弱于表观数字，已在 D3.2 中扣减。</p>
+</blockquote>
+<h4>D3.2 贡献者结构多样性（满分 2.5 分，得 1.0 分）</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>贡献者数量</td>
+<td><strong>2 人</strong>（GitHub API contributors）</td>
+<td>极低</td>
+</tr>
+<tr>
+<td>组织多样性</td>
+<td>实质来自作者个人及 1 名协作者，无多组织痕迹</td>
+<td>单一</td>
+</tr>
+<tr>
+<td>核心团队占比</td>
+<td>代码库仅 127 行 / 1 个 .py 文件，几乎完全由作者掌控</td>
+<td>高度依赖 1 人</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>: 9,862 Star 对应的贡献者仅 2 人，组织多样性无从谈起，代码体量（127 行）也决定其难以承载多人协作的分层结构。对照"3–4 档：&lt;5 贡献者，高度依赖 1 人"，取 40%。</p>
+<blockquote>
+<p>依评分细则说明，本项仅从社区规模视角评估；"核心人员离开后的传承风险"归 D8.1 巴士因子，此处不重复计分。</p>
+</blockquote>
+<h4>D3.3 第三方生态成熟度（满分 3 分，得 1.2 分）</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>插件/扩展</td>
+<td>项目自身即 ChatGPT / Codex / Claude Code 技能插件，但<strong>无第三方为其开发的扩展</strong></td>
+<td>弱</td>
+</tr>
+<tr>
+<td>集成生态</td>
+<td>提供 <code>npx skills add</code> 安装路径，仓库含 <code>.codex-plugin/plugin.json</code>、<code>plugin-submission.md</code>，已进入 ChatGPT 插件体系</td>
+<td>中</td>
+</tr>
+<tr>
+<td>衍生项目</td>
+<td>未发现任何二次开发项目或商业衍生产品</td>
+<td>无</td>
+</tr>
+<tr>
+<td>教程/课程</td>
+<td>仅作者自有 YouTube / newsletter / Behind the Craft 课程引流，非第三方教程生态</td>
+<td>弱</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>: Topics 为空数组，无任何生态关键词；未发现 awesome 列表、社区插件或衍生项目。唯一亮点是被主流 Agent 平台（ChatGPT 插件目录）接纳，属"被集成"而非"生态外溢"。对照"3–4 档：几乎无第三方生态"，考虑平台集成要素，取 40%。</p>
+<h4>D3.4 品牌认知与行业影响力（满分 1.5 分，得 0.9 分）</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>品牌辨识度</td>
+<td>"No AI Slop" 在 AI 写作/AI 内容创作者圈层有较高辨识度，2 个月 9.8k Star 属病毒式传播</td>
+<td>中上</td>
+</tr>
+<tr>
+<td>行业采用</td>
+<td>README 未列出任何企业用户、案例或背书；无头部企业采用证据</td>
+<td>弱</td>
+</tr>
+<tr>
+<td>媒体覆盖</td>
+<td>主要依托作者个人频道（YouTube / creatoreconomy.so 通讯）扩散，未见第三方技术媒体/会议记录</td>
+<td>中</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>: 品牌热度真实存在，但高度绑定作者个人 IP，且缺乏企业采用与第三方媒体报道的独立佐证，无法进入"7–8 档：有知名企业背书"。对照"5–6 档：小圈子内有认知度"，取 60%。</p>
+<h4>D3 结论</h4>
+<p><strong>得分 5.5 / 10（一般）</strong>。本项目呈现"热度耀眼、生态贫瘠"的典型新项目画像：Star 增速与 Fork 比率两项硬指标达顶级水准，说明选题切中"AI 味写作"痛点且作者自带流量；但贡献者仅 2 人、近 90 天 0 个 Issue 被关闭、Topics 为空、无任何第三方扩展或衍生项目，社区实质上仍是"一个人的项目 + 一群围观者"。</p>
+<p>对商业化的含义：<strong>短期获客势能强，长期客户池与生态护城河弱</strong>。9.8k Star 提供了低成本触达早期用户的机会，但缺少多组织贡献者、第三方集成与独立口碑，意味着社区无法自我造血；一旦作者停更（D8 巴士因子风险），社区势能很可能快速衰减。建议商业化路径优先绑定作者个人品牌渠道变现，同时尽快引入外部维护者与生态集成，将"围观流量"转化为"参与型社区"。</p>
+<h3>D4. 商业模式与变现潜力</h3>
+<p><strong>项目定位判断</strong>：<code>no-ai-slop</code> 本质是一个<strong>提示词型 Agent 技能包</strong>（<code>skills/no-ai-slop/SKILL.md</code> + <code>eval.md</code> 承载全部核心逻辑），Python 代码仅 127 行（<code>scripts/build_plugin.py</code> 构建脚本），无依赖、无测试。它是作者 Peter Yang 内容生态（Behind the Craft 课程、YouTube、newsletter）的<strong>引流触点</strong>，而非独立可变现产品。以下评估以此定位为基准。</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分档位</th>
+<th>小分</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D4.1 协议对变现模式的影响</td>
+<td>2.0</td>
+<td>100%（9–10档）</td>
+<td><strong>2.0</strong></td>
+<td>LICENSE 文件确认为标准 MIT License（SPDX: MIT，Copyright 2026 Peter Yang）。MIT 对 Open Core、SaaS、双协议、专业服务等所有路径均无法律约束，变现路径无障碍。</td>
+</tr>
+<tr>
+<td>D4.2 变现路径清晰度</td>
+<td>3.5</td>
+<td>60%（5–6档）</td>
+<td><strong>2.1</strong></td>
+<td>存在潜在但<strong>尚不清晰</strong>的路径：① 内容生态漏斗——README 明确导流至作者付费产品（Behind the Craft 课程、newsletter），属创作者主导型 OSS 的成熟模式；② 赞助/捐赠。但项目自身作为纯提示词技能（可被完整复制），<strong>无法构建 Open Core 分层</strong>（核心逻辑即全部逻辑，无闭源企业版可分），不具备 SaaS 独占性，变现依赖作者个人品牌而非项目资产。</td>
+</tr>
+<tr>
+<td>D4.3 付费转化逻辑</td>
+<td>2.5</td>
+<td>40%（3–4档）</td>
+<td><strong>1.0</strong></td>
+<td>技能本身为完全免费的提示词，无任何功能分层，<strong>不存在产品内的"免费不够用→升级付费"触发点</strong>。唯一转化逻辑是"使用技能 → 关注作者 → 购买课程/订阅"，链条长且绕过项目本体，付费意愿与转化漏斗均不自然。目标用户（写作人群）更倾向直接使用免费技能或原生 ChatGPT。</td>
+</tr>
+<tr>
+<td>D4.4 增值服务空间与定价天花板</td>
+<td>2.0</td>
+<td>40%（3–4档）</td>
+<td><strong>0.8</strong></td>
+<td>增值空间狭小：提示词工具难以叠加安全/合规/SLA/分析等企业级增值层。理论方向（团队风格规范、托管式风格校验 API、集成）天花板极低，客单价预计 &lt; $100/年；无法从 per-seat 扩展到有意义的 per-usage 或 enterprise flat fee。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>合计：5.9 / 10</strong></p>
+<h3>结论</h3>
+<p><code>no-ai-slop</code> 是一个<strong>高关注度、低商业承载</strong>的提示词技能包（9.8K stars / 698 forks / 仅 2 位贡献者 / 127 行代码）。</p>
+<ul>
+<li><strong>协议层面无短板</strong>：MIT 赋予全部变现路径的法律自由（D4.1 满分）。</li>
+<li><strong>商业承载极弱</strong>：核心交付物是可被完整复制的提示词文本，既无 Open Core 分层空间，也无 SaaS 独占性，更无企业增值层。项目唯一的商业价值是作为<strong>创作者内容漏斗的入口</strong>——这也正是 README 的实际写法（导流至 Behind the Craft、YouTube、newsletter）。该模式虽有先例，但变现主体是作者个人品牌，而非本项目。</li>
+<li><strong>付费触发点缺失</strong>：产品内不存在任何付费墙或升级逻辑，转化依赖长链路且绕过本体。</li>
+<li><strong>量级判断</strong>：即便实现，客单价天花板低（&lt;$100/年 range），对应评分标尺中"增值空间小、客单价低"档。</li>
+</ul>
+<p>综合而言，本维度得分为 <strong>5.9/10</strong>——协议无障碍但商业模式实质缺位，属于"创作者副产物"而非"可独立变现的开源产品"。若作者日后推出配套 SaaS 托管或企业风格治理服务，评分可上修。</p>
+<h3>D5. 竞争格局与差异化壁垒（权重 12%）</h3>
+<h3>D5.1 竞品对比与市场定位（2.4 / 3）</h3>
+<p><strong>竞品验证说明</strong>：本节竞品全部通过 GitHub Search API 实测搜索关键词（"AI slop removal / anti-slop skill / deslop"）确认仓库真实存在，均标注 star 数与最近推送时间，未经记忆推测；未采用无法验证的商业产品名。</p>
+<table>
+<thead>
+<tr>
+<th>竞品名称</th>
+<th>类型</th>
+<th>仓库/官网</th>
+<th>验证方式</th>
+<th>Star/用户量</th>
+<th>核心差异</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ProfSynapse/DeSlop</td>
+<td>直接竞品</td>
+<td>github.com/ProfSynapse/DeSlop</td>
+<td>GitHub 搜索确认（2026-08-11 活跃）</td>
+<td>2 stars</td>
+<td>36 条模式目录 + 逐模式修复协议 + 误判裁定 + 机械交付闸门，规则集比本项目更细</td>
+</tr>
+<tr>
+<td>sanketagarwal/mega-anti-slop</td>
+<td>直接竞品</td>
+<td>github.com/sanketagarwal/mega-anti-slop</td>
+<td>GitHub 搜索确认（2026-08-26 活跃）</td>
+<td>1 star</td>
+<td>同为 Agent Skill，覆盖邮件/产品文案/社交/长文多体裁，主打「证据驱动」</td>
+</tr>
+<tr>
+<td>rankgnar/deslop</td>
+<td>直接竞品</td>
+<td>github.com/rankgnar/deslop</td>
+<td>GitHub 搜索确认（2026-03-22）</td>
+<td>1 star</td>
+<td>走 CLI 工具路线（可脚本化批处理），而非 agent skill 路线</td>
+</tr>
+<tr>
+<td>Romyleads/stop-slop-multilingual</td>
+<td>间接竞品</td>
+<td>github.com/Romyleads/stop-slop-multilingual</td>
+<td>GitHub 搜索确认（2026-07-21）</td>
+<td>0 stars</td>
+<td>Claude skill，聚焦俄/乌/白/保/德多语言，技术路径相同但语言市场错位</td>
+</tr>
+<tr>
+<td>srobroek/slopvac</td>
+<td>间接竞品</td>
+<td>github.com/srobroek/slopvac</td>
+<td>GitHub 搜索确认（2026-09-15 活跃）</td>
+<td>0 stars</td>
+<td>用 Vale 语法检查作为硬门禁 + 多 agent skill，技术路径为「linter 规则引擎」而非纯提示词</td>
+</tr>
+</tbody>
+</table>
+<p><strong>对比结论</strong>：
+1. <strong>赛道真实且拥挤</strong>：搜索可确认的直接/间接竞品至少 5 个，且全部创建于本项目前后数月内（本项目 2026-07-07 创建），属于典型的「低门槛、快速跟风」品类。按防幻觉规则如实说明：已确认的同类开源竞品 ≥ 5 个，不存在「无竞品」的情况。
+2. <strong>本项目的领先幅度是压倒性的</strong>：9862 stars vs 最强竞品 2 stars，差距约 4 个数量级；fork 698，说明已有二次分发与派生。搜索未发现任何规模量级可比的对手。
+3. <strong>定位清晰但非独占</strong>："Remove 20+ patterns of AI slop without flattening your personal voice" 一句同时点出「去模式」与「保留个人声音」两个卖点，并用 <code>Describe → 检测 / 改写 / 反向生成讽刺文案</code> 三档用法界定了场景；分发上同时覆盖 ChatGPT 插件与 <code>npx skills add ... --global</code> 的 CLI 技能生态，这是同类小项目普遍缺失的渠道能力。
+4. <strong>差异化更多来自品牌与渠道而非功能</strong>：竞品 DeSlop 的模式目录（36 条）甚至比本项目的 20+ 条更细，slopvac 有 linter 硬门禁，mega-anti-slop 覆盖面更广的体裁。也就是说，功能层面本项目并不唯一、也不明显更强。</p>
+<p><strong>判断</strong>：有明显竞品但本项目在用户规模、定位表达与分发渠道上「明显领先」，符合 7–8 档描述（有竞品但本项目有明确差异化定位）。但考虑到品类内功能高度同质、差异化主要靠品牌与渠道而非不可替代能力，未达 9–10 档的「无直接竞品或明显领先到独特」。<strong>打分：80% → 2.4 / 3</strong>。</p>
+<h3>D5.2 技术壁垒与网络效应（1.2 / 3）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术壁垒</td>
+<td><strong>几乎为零</strong>。核心资产是 <code>skills/no-ai-slop/SKILL.md</code> + <code>eval.md</code> 两份提示词规则文档；全部可执行代码仅 127 行 Python（<code>scripts/build_plugin.py</code> 打包校验脚本），测试 0 行。无算法、无专利、无专有数据集、无模型权重，MIT 协议完全开源。任何开发者可在数小时内复刻同等功能——竞品在项目发布后 1–2 个月内大量出现即为直接证据。</td>
+</tr>
+<tr>
+<td>网络效应</td>
+<td><strong>弱</strong>。无插件市场、无用户间协作、无数据飞轮；技能本身是单向「文本进 → 文本出」的工具，第 N 个用户不会为第 N+1 个用户创造价值。ChatGPT 插件与 <code>npx skills</code> 渠道带来的是<strong>分发杠杆</strong>（一次性触达），而非网络效应（随用户增长而自我强化）。</td>
+</tr>
+<tr>
+<td>规模效应</td>
+<td><strong>不适用/不成立</strong>。技能为无状态本地提示词，用户规模扩大不带来边际成本下降或体验提升。生态侧证据：contributors 仅 2 人，90 天 PR 44 个但关闭 issue 0 个，社区呈「消费者型」而非「共建型」，未形成贡献者飞轮。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断</strong>：技术壁垒薄弱、易被复制，网络效应与规模效应均基本缺位，接近 3–4 档「壁垒薄弱，容易被复制」；但并非完全无壁垒——9.8k star 带来的品牌认知与「Behind the Craft / YouTube / newsletter」作者渠道构成软性分发壁垒，故不落入 1–2 档。<strong>打分：40% → 1.2 / 3</strong>。</p>
+<h3>D5.3 切换成本与用户粘性（0.4 / 2）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>迁移成本</td>
+<td><strong>极低</strong>。用户资产仅为一条安装命令与一份可读的 Markdown 规则文件；切换到竞品只需 <code>npx skills add &lt;竞品&gt;</code>，无需迁移任何数据、配置或业务逻辑。</td>
+</tr>
+<tr>
+<td>深度集成</td>
+<td><strong>浅</strong>。不写业务代码、不接 API、不入 CI 管道（仓库内 1 个 CI workflow 为 <code>plugin.yml</code>，用于插件打包校验而非用户侧集成），属于「即插即用」型工具。</td>
+</tr>
+<tr>
+<td>习惯锁定</td>
+<td><strong>中等偏弱</strong>。唯一粘性来源是用户把 <code>/no-ai-slop</code> 嵌入了个人写作流程与肌肉记忆；但这种习惯绑定的是「去 AI 味」这一动作，而非本项目本身——竞品提供同等的斜杠命令即可无缝承接。无组织级流程依赖、无团队协作层锁定的证据。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断</strong>：迁移成本几乎为零，用户可轻易切换，符合 1–2 档「无切换成本，即插即用即走」；考虑到部分用户会形成写作习惯依赖，给到该档上限而非 0。<strong>打分：20% → 0.4 / 2</strong>。</p>
+<h3>D5.4 护城河可持续性（0.8 / 2）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>护城河趋势</td>
+<td><strong>偏削弱</strong>。项目自身指标健康（2026-07-07 创建至 2026-09-02 持续推送，7 个 release，90 天 44 个 PR），但赛道正在快速商品化：搜索到的竞品均集中在 2026 年 3–9 月涌现，功能高度重合，且个别竞品在规则粒度上已反超。「先发 + 品牌」的优势随时间被稀释，而非加深。</td>
+</tr>
+<tr>
+<td>颠覆风险</td>
+<td><strong>高</strong>。两类颠覆者清晰存在：① 模型厂商自身——各家模型内置的风格控制/自定义指令能力（间接竞品，技术路径为模型原生而非外挂技能）一旦成熟，外挂式去 slop 技能的价值将被平台吸收，此类平台级替代未在本次搜索中独立验证，标注为定性风险；② 同类开源克隆——因复制成本近零，任何具备更大分发渠道的团队都可快速推出同款。</td>
+</tr>
+<tr>
+<td>时间窗口</td>
+<td><strong>短</strong>，估计以季度计。当前优势实质是「品类命名权 + 作者个人品牌 + 先发的 9.8k star 社交证明」，属于可在数个月内被追赶的软优势，不存在结构性护城河支撑其长期维持。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断</strong>：护城河并未失效（品牌与分发仍在，项目仍活跃更新），但趋势是减弱而非增强，且面临平台级与克隆级双重颠覆风险，介于 3–4 档「护城河在削弱，有明确颠覆者」与 5–6 档之间，鉴于缺乏任何结构性防御资产，取 3–4 档。<strong>打分：40% → 0.8 / 2</strong>。</p>
+<h3>D5 维度小结</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D5.1 竞品对比与市场定位</td>
+<td>3</td>
+<td>2.4</td>
+<td>7–8（80%）</td>
+</tr>
+<tr>
+<td>D5.2 技术壁垒与网络效应</td>
+<td>3</td>
+<td>1.2</td>
+<td>3–4（40%）</td>
+</tr>
+<tr>
+<td>D5.3 切换成本与用户粘性</td>
+<td>2</td>
+<td>0.4</td>
+<td>1–2（20%）</td>
+</tr>
+<tr>
+<td>D5.4 护城河可持续性</td>
+<td>2</td>
+<td>0.8</td>
+<td>3–4（40%）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>4.8</strong></td>
+<td><strong>较弱</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：本项目处在一个<strong>真实存在、门槛极低、参与者众多</strong>的细分赛道，并已凭借品牌表达与分发渠道取得碾压式的规模领先（9862 stars，最强竞品仅 2 stars），市场定位清晰（去 20+ AI 套路模式 + 保留个人声音）。但竞争格局的四个维度一致指向同一结论：<strong>领先来自软性要素，缺少硬性护城河</strong>。核心资产是不到 130 行 Python 加两份 Markdown 提示词，无专利、无专有数据、无网络效应、无规模效应，用户迁移成本近乎为零；与此同时，赛道在两个月内已出现数个功能相当的克隆，部分竞品在规则粒度或工程化（linter 门禁、CLI 路线、多语言）上更胜一筹。因此其优势更像一次成功的品类定义与内容分发，而非可持续的商业壁垒——除非把当前的品牌与渠道势能转化为产品化能力（如评测基准、团队级集成、垂直场景定制），否则护城河将随时间窗口关闭而快速收窄。</p>
+<h3>D6. 法律合规与知识产权</h3>
+<p><strong>维度得分：7.8 / 10</strong>（权重 7%）</p>
+<p>项目采用标准 MIT 协议，零声明依赖，法律基础设施表面简洁；主要短板在于贡献者协议完全缺失，以及商标/专利状态无法自动核查。</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D6.1 开源协议合规性与商业限制</td>
+<td>3.0</td>
+<td><strong>3.0</strong></td>
+<td>9–10（100%）</td>
+<td>LICENSE 为标准 MIT 全文，含明确版权人（Copyright (c) 2026 Peter Yang），SPDX 标识规范；无 GPL/AGPL 等 copyleft 传染；无 Commons Clause / BUSL 等商业附加条款。协议对任何商业模式均无法律障碍。</td>
+</tr>
+<tr>
+<td>D6.2 依赖链法律风险</td>
+<td>2.5</td>
+<td><strong>2.5</strong></td>
+<td>9–10（100%）</td>
+<td><code>dependencies</code> 实测为空（无 requirements.txt / pyproject 等依赖清单），单文件 127 行 Python。依赖链无传染性协议、无来源不明包，供应链合规风险接近于零。</td>
+</tr>
+<tr>
+<td>D6.3 商标与专利风险</td>
+<td>2.5</td>
+<td><strong>1.5</strong></td>
+<td>5–6（60%）</td>
+<td><strong>未经人工核查，置信度低。</strong> 无商标数据库检索与专利排查数据，依方法论默认按 5–6 档给分。项目名 "no-ai-slop" 为描述性短语，显著性弱，作为商标的保护强度存疑；技术为文本规则处理，专利风险从描述看较低，但均无法据此断言。</td>
+</tr>
+<tr>
+<td>D6.4 贡献者协议完备性</td>
+<td>2.0</td>
+<td><strong>0.8</strong></td>
+<td>3–4（40%）</td>
+<td>无 CONTRIBUTING.md、无 CLA/DCO、无 CODEOWNERS、无 .github 贡献模板；近 90 天产生 44 个 PR，外部贡献在无正式授权协议下并入。版权因 MIT 的 inbound=outbound 惯例与单一主作者（2 位贡献者）尚算集中，但贡献流程与版权确权机制不规范，对双协议/再许可类商业化构成隐患。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>合计：3.0 + 2.5 + 1.5 + 0.8 = 7.8 / 10</strong></p>
+<h3>结论</h3>
+<p><strong>优势</strong>：MIT 协议清晰规范、无传染性依赖、无商业附加条款，法律硬伤风险低，几乎不存在"法律阻断商业路径"的问题。这是本维度得分的主要支撑。</p>
+<p><strong>风险点</strong>：
+1. <strong>贡献者协议缺失（最实质短板）</strong>：无 CLA/DCO 意味着外部贡献的版权未做集中授权，若未来需要双协议授权（如开源版 + 商业版）或再许可，需回溯取得所有历史贡献者同意，486个 PR 的历史贡献者授权链可能难以闭合。
+2. <strong>商标/专利状态未核</strong>：项目名描述性强，商标可用性存疑；需人工做商标检索与技术专利 FTO 分析后方可定论。
+3. <strong>附加法律文档待审</strong>：仓库含 <code>TERMS.md</code> 与 <code>PRIVACY.md</code>（面向插件/服务场景），其条款是否对代码使用施加额外约束，需人工阅读原文确认——本评估仅基于 LICENSE 文件，无法排除。</p>
+<p><strong>评分置信度</strong>：中。D6.1/D6.2/D6.4 基于本地实测硬数据，置信度高；D6.3 因缺乏人工核查数据，置信度低。</p>
+<h3>D7. 企业就绪度与可运营性（权重 8%）</h3>
+<p><strong>结论：4.4 / 10（其中 D7.3 标记 N/A，置信度下调）</strong></p>
+<p>本项目本质是面向个人写作者的<strong>提示词/技能包（prompt skill）</strong>，而非可部署的服务端系统：主语言 Python 仅 127 行、1 个源文件（<code>scripts/build_plugin.py</code> 构建脚本），无任何运行时依赖（dependencies 为空），无 Dockerfile、无测试。因此企业级"可运营性"的大多数考察点落在"不适用"或"完全缺失"两端，整体呈现"运维负担极低但企业级能力近乎空白"的特征。</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D7.1 运维复杂度与升级路径</td>
+<td>3</td>
+<td>2.4</td>
+<td>7–8（80%）</td>
+<td>无服务端组件，运维负担近乎为零；发布流程有 CI（<code>plugin.yml</code>）校验并自动把 <code>dist/no-ai-slop-plugin-*.zip</code> 附加到 GitHub Release；版本语义清晰（v1.0.0→v1.0.6）。但<strong>无配置管理</strong>（无环境变量/配置中心，亦无配置需求）、<strong>无显式回滚机制</strong>、数据迁移概念不适用</td>
+</tr>
+<tr>
+<td>D7.2 安全管理与权限控制</td>
+<td>2.5</td>
+<td>0.5</td>
+<td>1–2（20%）</td>
+<td>无 SSO/OAuth/LDAP/SAML、无 RBAC/ABAC、无审计日志、无加密/密钥管理；无 <code>SECURITY.md</code>。仅存在 <code>PRIVACY.md</code>/<code>TERMS.md</code>（法律文本，非安全能力）；CI 对 GitHub Action 使用 SHA 固定（轻微供应链卫生加分，但不足以改变档位）</td>
+</tr>
+<tr>
+<td>D7.3 可扩展性与高可用能力</td>
+<td>2.5</td>
+<td>N/A</td>
+<td>—</td>
+<td>本地运行的静态技能，无服务端、无分布式基础设施，集群部署/故障转移/分布式一致性等考察点<strong>不适用</strong>，无法评估</td>
+</tr>
+<tr>
+<td>D7.4 集成兼容与可观测性</td>
+<td>2</td>
+<td>0.4</td>
+<td>1–2（20%）</td>
+<td>无 REST/gRPC/SDK API、无 OpenAPI/protobuf 定义；无 Prometheus/OpenTelemetry/Webhook 等标准协议；无健康检查与监控指标；无结构化日志/日志级别管理。集成方式仅为 slash 命令 <code>npx skills add</code> 与 <code>.codex-plugin/plugin.json</code> 插件清单</td>
+</tr>
+</tbody>
+</table>
+<p><strong>计算</strong>：非 N/A 项得分 2.4 + 0.5 + 0.4 = 3.3，非 N/A 满分 3 + 2.5 + 2 = 7.5 → 3.3 ÷ 7.5 × 10 = <strong>4.4</strong></p>
+<h3>关键判断</h3>
+<ol>
+<li><strong>"低运维"是资产，但非企业级能力</strong>：项目没有需要运维的服务，日常投入趋近于零，升级靠 <code>npx</code> 重装/版本切换完成；但缺少配置管理、回滚机制与迁移策略——对个人用户够用，对企业采购所需的"可控更新"流程不足。</li>
+<li><strong>安全维度几乎全空</strong>：认证、授权、审计、加密四项全无，是本维度最硬的企业级障碍。对于任何会在企业环境内执行的第三方代码/提示词资产，缺乏安全声明与治理文档（无 <code>SECURITY.md</code>）会直接卡住安全审查。</li>
+<li><strong>集成与可观测性薄弱</strong>：既无程序化 API，也无监控/日志体系，企业难以将其纳入既有 SIEM/可观测性栈，也难以做用量与效果度量。</li>
+<li><strong>可扩展性维度不适用</strong>：由于无服务端，规划性扩展问题不存在，故按规则标记 N/A，导致本维度总分基于 7.5 分剩余满分等比缩放，<strong>评分置信度相应下降</strong>。</li>
+<li><strong>项目治理偏个人化</strong>：贡献者仅 2 人，无 <code>CODEOWNERS</code>、无 <code>CONTRIBUTING</code>，且 README 明确导流作者的个人 YouTube/Newsletter/课程——定位是内容营销型个人工具，而非企业产品。</li>
+</ol>
+<blockquote>
+<p><strong>置信度说明</strong>：D7.3 因不适用被剔除（2.5 分），本维度结论建立在剩余 7.5 分满分之上，且项目为客户端技能包而非服务端系统，企业运维类指标多为结构性缺失而非可量化短板，评估置信度中等偏低。</p>
+</blockquote>
+<h3>D8. 团队治理与可持续性</h3>
+<h3>D8.1 核心维护者能力与背景（2.5 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测信号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术能力</td>
+<td>项目本质为写作后处理工具，源码仅 1 个 <code>.py</code> 文件 / 127 行，无测试（test_ratio = 0），技术复杂度低</td>
+</tr>
+<tr>
+<td>商业经验</td>
+<td>无公司实体、无组织（owner 为个人账号 <code>petergyang</code>），无商业化证据</td>
+</tr>
+<tr>
+<td>投入度</td>
+<td>90 天 44 个 PR、1 个月内连发 7 个版本（v1.0.0→v1.0.6），近期推送（2026-09-02），节奏活跃但项目仅存在约 2 个月</td>
+</tr>
+<tr>
+<td>巴士因子</td>
+<td>贡献者总数 = <strong>2</strong>，高度依赖单一 owner</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断</strong>: 项目由个人主导、仅 2 名贡献者，短期迭代活跃，但缺乏团队化与技术纵深（127 行、零测试）。符合「业余投入但活跃、巴士因子 ≈ 2」的 5–6 档区间（60%）。
+<strong>小分: 1.5 / 2.5</strong></p>
+<h3>D8.2 治理模型透明度（2 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测信号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>治理文档</td>
+<td>无 <code>GOVERNANCE.md</code>、无 <code>CONTRIBUTING.md</code>、无 <code>CODEOWNERS</code>、无路线图文档（<code>has_contributing=false</code>, <code>has_codeowners=false</code>）</td>
+</tr>
+<tr>
+<td>开放程度</td>
+<td>无公开决策流程，全部由 owner 单方决策</td>
+</tr>
+<tr>
+<td>基金会/组织</td>
+<td>不属于 CNCF / Apache / Linux Foundation 等任何基金会，无组织实体</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断</strong>: 仅有 <code>TERMS.md</code>、<code>PRIVACY.md</code>（法律文本）与 <code>README.md</code>，属于「无正式治理结构、决策由核心（单人）主导」的状态，落入 3–4 档（40%）。
+<strong>小分: 0.8 / 2</strong></p>
+<h3>D8.3 资金支持与商业赞助（2.5 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测信号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>现有资金</td>
+<td>无任何公司/基金会/VC 支持证据</td>
+</tr>
+<tr>
+<td>赞助收入</td>
+<td>无 GitHub Sponsors / Open Collective 证据</td>
+</tr>
+<tr>
+<td>商业实体</td>
+<td>owner 为个人账号，无运营公司实体</td>
+</tr>
+<tr>
+<td>资金可持续性</td>
+<td>无资金信息，依赖维护者个人投入</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断</strong>: 纯个人驱动项目，无可见的资金与商业赞助通道，符合「几乎无资金支持、纯靠热情」的 3–4 档（40%）。
+<strong>小分: 1.0 / 2.5</strong></p>
+<h3>D8.4 项目可持续性与传承风险（3 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测信号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>活跃趋势</td>
+<td>2026-07 创建，1 个月内发 7 个版本，90 天 44 PR，2026-09-02 仍有推送 → 趋势向上（但历史仅约 2 个月，样本极短）</td>
+</tr>
+<tr>
+<td>维护延续性</td>
+<td>仅 2 名贡献者、无 governance/CODEOWNERS，核心退出后无制度性接管路径</td>
+</tr>
+<tr>
+<td>历史信号</td>
+<td><code>archived=false</code>，无 deprecated/unmaintained 标记</td>
+</tr>
+<tr>
+<td>分叉/积压</td>
+<td>Fork 698 / Star 9862（≈7%，正常范围）；<strong>90 天关闭 Issue = 0</strong>，开放 Issue 22 个，积压未处理</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断</strong>: 活跃度短期向上，但存在「巴士因子低 + 无传承机制 + Issue 零关闭」的组合风险，传承不确定性偏高，落入 5–6 档（60%）。
+<strong>小分: 1.8 / 3</strong></p>
+<h3>结论</h3>
+<p><strong>D8 综合得分 = 1.5 + 0.8 + 1.0 + 1.8 = 5.1 / 10（一般）</strong></p>
+<p>该项目是一个高热度（近万 Star）但<strong>高度个人化、治理与资金完全空白</strong>的独立工具项目。优点是维护者短期投入度高、迭代与发布节奏密集；短板是：仅 2 名贡献者、无治理/贡献文档、无任何资金或商业实体支撑、90 天零 Issue 关闭，团队化与传承能力构成商业化（尤其企业级采购所需的 SLA、合规与持续支持）的实质障碍。若需商业化，首要补齐的是治理结构、贡献/安全流程与可持续的资金/团队安排。</p>
+<h3>D9. 上手难度与易用性</h3>
+<p><strong>维度得分：8.5 / 10（🟢 简单）</strong></p>
+<p>本项目在四个细则上均表现优异：安装为「单条命令或一句话粘贴」，零依赖、零配置、零外部组件，操作界面是自然语言斜杠指令，非技术写作人群也能直接使用。唯一拉低得分的是：它没有标准化的容器化部署产物（无 Dockerfile/compose/Helm）、没有独立的示例目录与交互式入门教程，且错误提示与帮助信息完全依赖宿主 Agent 而非项目自身。</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D9.1 安装难度</td>
+<td>2.5</td>
+<td><strong>2.5</strong></td>
+<td>9–10（100%）</td>
+<td>支持两条一键路径：① 向 ChatGPT/Claude Code/Codex 等 Agent 粘贴一句自然语言安装指令（README 明确称为 "The easiest way to install"）；② <code>npx skills add petergyang/no-ai-slop --skill no-ai-slop --global --yes</code> 单条命令。本地实测 <code>dependencies</code> 为空对象，无 requirements.txt / package.json / go.mod，无需编译、无需系统级库、无需数据库。技能本体为平台无关的 Markdown，Windows/macOS/Linux 均可（npx 路径需宿主具备 Node）。</td>
+</tr>
+<tr>
+<td>D9.2 部署与配置难度</td>
+<td>2.5</td>
+<td><strong>2.0</strong></td>
+<td>7–8（80%）</td>
+<td>零配置项、零外部组件初始化（无 DB/缓存/MQ），装完即用，10 分钟内可完成验证，非技术人员通过「粘贴到 ChatGPT」即可独立完成——这些均达到 9–10 档。但扣分点在于：<strong>不支持 Docker/K8s/Helm/docker-compose 等标准化部署</strong>（<code>has_dockerfile=false</code>，无 compose/Helm 清单），也无 quickstart/demo 脚本，安装路径因宿主 Agent 而异（Codex 插件 / ChatGPT 插件 / Claude Code 技能三条路径文档分散），缺少统一的「一键起环境」入口。</td>
+</tr>
+<tr>
+<td>D9.3 易用性与操作门槛</td>
+<td>2.5</td>
+<td><strong>2.0</strong></td>
+<td>7–8（80%）</td>
+<td>操作极致简单：三条自然语言指令 <code>/no-ai-slop (your writing)</code>、<code>/no-ai-slop is this slop?</code>、<code>Draft an AI slop post about (topic)</code> 覆盖全部功能，无需记忆任何参数或 flag；默认配置即用，完全不需要调参；目标人群明确包含非技术写作者。扣分点在于：项目<strong>自身不提供 CLI help、API 文档或错误提示体系</strong>，出错反馈与交互提示完全由宿主 Agent 承担（项目内无相关证据），改写的可解释性也依赖宿主模型输出质量，用户难以自查「为什么它这么改」。</td>
+</tr>
+<tr>
+<td>D9.4 学习曲线与首体验</td>
+<td>2.5</td>
+<td><strong>2.0</strong></td>
+<td>7–8（80%）</td>
+<td>首次成功使用可控制在 10 分钟内（安装一步 + 一条指令），学习曲线平缓，概念门槛极低（无需领域知识或框架原理），README 提供安装说明、三条使用配方、一段演示视频链接，并列出 20+ 种被捕获的 slop 模式及中英示例（如 "It's not X. It's Y."），「Aha Moment」清晰（立刻看到自己的文字被去 AI 味）。扣分点在于：<strong>无交互式教程/onboarding 流程，仓库内示例文件为 0（无 examples/ 或模板项目），也无初学者教程目录</strong>，仅有文档类材料供参考。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>总分计算</strong>：2.5 + 2.0 + 2.0 + 2.0 = <strong>8.5 / 10</strong> → 🟢 <strong>简单（8–10）</strong>，面向所有人。</p>
+<h3>分析结论</h3>
+<ul>
+<li><strong>商业化门槛极低</strong>：本项目是典型的「零安装成本」产品形态——无编译、无依赖、无服务端、无配置，安装与使用各只需一步。对于试用转化而言，这是最理想的结构：用户从看到 README 到亲眼见到效果，路径不超过几分钟，不存在因环境搭建失败而流失的风险。这构成 D9 维度上的显著商业优势。</li>
+<li><strong>主要短板是「交付形态不规范」而非「难用」</strong>：项目没有 Dockerfile / docker-compose / Helm，也没有 quickstart 脚本或示例仓库，安装方式依宿主 Agent 分化（ChatGPT 插件 / Codex 插件 / Claude Code 技能 / npx 通用安装）。这会给企业采购场景带来可复制性疑问——无法用统一的企业内网部署方案交付，也难以做版本化的技能灰度与审计。</li>
+<li><strong>质量反馈闭环薄弱</strong>：项目自身无测试（test_ratio = 0）、无 error/help 体系，改写结果的好坏完全取决于宿主模型与 SKILL.md 提示词质量。对愿意付费的企业用户而言，「输出是否稳定可控」的验证成本被转移到了用户侧。</li>
+<li><strong>与体量相符</strong>：全仓仅 127 行 Python（仅 <code>build_plugin.py</code>）与 5 个文档文件，产品本质是「提示词 + 规则集」。上手体验之所以优秀，正是因为交付物极简；但也意味着其上手优势不易转化为部署/运维层面的护城河，只能转化为「试用转化率」层面的优势。</li>
+</ul>
+<blockquote>
+<p>说明：本维度全部细则均有实测硬数据支撑（README 原文命令、dependencies 清单、has_dockerfile 标记、doc_files 清单），无 N/A 项，评分置信度高。</p>
+</blockquote>
+<h3>D10. 功能价值（使用价值视角｜平行维度，权重 0%）</h3>
+<blockquote>
+<p>本维度仅用于 3.4 价值画像判定，不计入百分制综合评分，不参与一票否决。</p>
+</blockquote>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10.1</td>
+<td>效用强度</td>
+<td>3</td>
+<td>1.8</td>
+<td>5–6 档（有限效率提升，易替代）</td>
+</tr>
+<tr>
+<td>D10.2</td>
+<td>实际使用规模</td>
+<td>3</td>
+<td>1.2</td>
+<td>3–4 档（千级及以下，数据受限）</td>
+</tr>
+<tr>
+<td>D10.3</td>
+<td>免费可得的完整效用</td>
+<td>2</td>
+<td>2.0</td>
+<td>9–10 档（MIT 全开源即全价值）</td>
+</tr>
+<tr>
+<td>D10.4</td>
+<td>效用可持续性</td>
+<td>2</td>
+<td>1.6</td>
+<td>7–8 档（本地化，主机代理为可替换外部依赖）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td><strong>6.6</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>分项判断依据</h3>
+<p><strong>D10.1 效用强度 = 1.8 / 3</strong>
+- 单用户节省量：帮助作者快速识别/清除「It's not X. It's Y.」「What nobody tells you」等 20+ 类 AI 写作套路，节省人工润色时间，属于<strong>分钟级写作辅助</strong>，而非项目级依赖。
+- 效用层级：本质是一段可复制的提示词规则（<code>SKILL.md</code>），核心效用极易被等价 prompt 或用户自有规则替代，替代成本近乎为零。
+- 效用确定性：效果高度依赖所用 LLM、文本语境与主观审美（「保留个人 voice」难以稳定量化），确定性中等偏低。
+- 综合落在「明确但有限的效率提升，易被替代」（5–6 档）。</p>
+<p><strong>D10.2 实际使用规模 = 1.2 / 3（数据受限，置信度下调）</strong>
+- 依赖方数量：本项目为 agent skill，无包依赖关系，GitHub Dependents 不可得。
+- 下载/拉取量：<code>npm_weekly_downloads = N/A</code>，<code>pypi_monthly_downloads = N/A</code>，官方渠道无公开计数。
+- 生产采用证据：README 未展示第三方用户案例，仅有作者自身产品（Behind the Craft / YouTube）导流。
+- 可用硬事实仅 Stars 9862、Forks 698（约 2 个月生命周期内）。以 Fork 数作为弱代理推断活跃采用量级在数百至千级区间，落 3–4 档。<strong>本项无直接实采使用规模数据，为该维度主要不确定性来源。</strong></p>
+<p><strong>D10.3 免费可得的完整效用 = 2.0 / 2</strong>
+- 采用 MIT 协议，编辑规则、评估规则、插件元数据与构建脚本全部开源可读。
+- 安装即得完整能力（<code>npx skills add ...</code> 或粘贴安装指令），无功能分层、无付费墙、无隐性收费；作者另有付费课程，但与本工具能力<strong>不构成 gating</strong>。
+- 免费版即全部价值（9–10 档）。此项与 D4.3 付费转化逻辑呈典型反相关，是理解本项目「使用价值高、交换价值薄」价值结构的关键。</p>
+<p><strong>D10.4 效用可持续性 = 1.6 / 2</strong>
+- 形态为本地 markdown 规则 + 127 行 Python 构建脚本，无服务端、无云组件、无数据库，停维后规则文本仍可长期使用，可分叉、可复制。
+- 唯一外部依赖是宿主 LLM agent（ChatGPT / Claude Code / Codex 等），但该依赖<strong>通用且可替换</strong>，不构成厂商锁定。
+- 属「主体本地化 + 少量可替换外部依赖」（7–8 档）。</p>
+<h3>结论</h3>
+<p>本项目的使用价值呈现<strong>「高免费完整度 × 低效用层级」</strong>的鲜明结构：D10.3 满分（MIT 全开源、即装即用）、D10.4 良好（本地化、可自由分叉），但 D10.1 与 D10.2 偏弱——效用停留在个人写作辅助的分钟级便利，且缺乏可验证的使用规模数据支撑。它是一类典型的「病毒式传播的轻量 prompt 制品」：以极低门槛创造即时、免费、可复制的价值，却难以形成项目级依赖或业务命脉级基础设施地位。功能价值综合 <strong>6.6/10（一般偏上）</strong>，主要扣分来自效用可替代性强与使用规模证据不足，建议在最终报告中将其标注为<strong>高免费效用、低锁定度</strong>的价值画像，D10.2 结论置信度下调。</p>
+<h3>D11 社会价值——正外部性评估</h3>
+<blockquote>
+<p>本维度为平行维度（权重 0%，不计入综合评分与一票否决），仅用于 3.4 价值画像。评估视角为「项目对使用者之外行业/社会的外溢贡献」，与 D3.4（品牌对商业势能的助力）、D2.5/D2.6（工程质量层面的 i18n/无障碍）区分。</p>
+</blockquote>
+<h3>D11.1 数字公共基础设施属性（满分 3 分）</h3>
+<p><strong>得分：1.2 / 3（40%，对应 3–4 档）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测事实</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>关键依赖地位</td>
+<td>无任何包管理器发布记录（npm/pypi 下载量 N/A）；源码仅 1 个 py 文件 / 127 行；无下游库依赖链</td>
+<td>非数字底座型依赖</td>
+</tr>
+<tr>
+<td>停摆影响面</td>
+<td>交付物为 Markdown 规则包（<code>SKILL.md</code>/<code>eval.md</code>），Fork 698、Star 9862 说明有使用者，但功能可由同行工具零成本复刻（竞品清单中 5 个同类项目，如 DeSlop、deslop、slopvac）</td>
+<td>停摆对软件供应链影响微小</td>
+</tr>
+<tr>
+<td>数字公共产品属性</td>
+<td>MIT 授权、开放可复用、面向公共写作质量提升，具备 DPG 的「开放 + 服务公共利益」特征，但无基础设施级复用性</td>
+<td>有公共品气质，无底座属性</td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：项目是内容规则型 Agent Skill，不是被大量下游软件依赖的基础构件；其规则可被轻易重写或替代（同领域已存在 5 个竞品）。符合「几乎无下游依赖、停摆影响微小」的 3–4 档描述，但因其开放性、MIT 授权与近万 Star 的公共可见度，取该档位高档，计 40%。</p>
+<h3>D11.2 教育与人才价值（满分 2.5 分）</h3>
+<p><strong>得分：1.5 / 2.5（60%，对应 5–6 档）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测事实</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>教学采用</td>
+<td>README 附带「Behind the Craft」课程/YouTube/Newsletter 生态，但无第三方高校/课程采用证据</td>
+<td>有教学属性，未见规模化教学采用</td>
+</tr>
+<tr>
+<td>门槛降低效应</td>
+<td>将「20+ AI 腔模式」整理为可复用清单，帮助非写作专业人员识别与修正套路化文本</td>
+<td>降低写作打磨门槛，作用域限于写作圈</td>
+</tr>
+<tr>
+<td>源码学习价值</td>
+<td>源码仅 127 行且无测试（test_ratio 0），工程范本价值低；但 <code>SKILL.md</code> 的「模式目录 + 修改说明」本身是 prompt/规则工程的学习材料</td>
+<td>规则文档有参考价值，代码无研读价值</td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：项目本身是一个「写作规则教材」式的技能包，模式清单具备一定教学示范性，作者也以课程/内容生态强化教育定位，但缺乏可验证的课程采用与源码研读证据，影响主要限于 AI 写作与 Agent Skill 小圈子，计 60%。</p>
+<h3>D11.3 普惠与可及性（满分 2.5 分）</h3>
+<p><strong>得分：1.5 / 2.5（60%，对应 5–6 档）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测事实</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>能力平权化</td>
+<td>MIT 免费，<code>npx skills add ... --global --yes</code> 一行安装，兼容 ChatGPT / Claude Code / Codex 等主流 Agent，同时以 ChatGPT 插件形式分发</td>
+<td>显著降低「高质量文字打磨」的获取成本</td>
+</tr>
+<tr>
+<td>替代价格差</td>
+<td>商业写作润色/AI 检测服务通常为订阅付费，本项目 0 成本；但使用前提是已订阅付费 LLM Agent</td>
+<td>名义免费，实际依赖付费 Agent 底座</td>
+</tr>
+<tr>
+<td>可及性支持</td>
+<td>无 i18n：README 明确其 20+ 模式全部为英语句式（"It's not X. It's Y." 等），对非英语写作者无效；竞品中已有专门的多语言版本（stop-slop-multilingual）；无本地化/无障碍相关声明</td>
+<td>语言可及性是明确短板</td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：免费 + 开放 + 跨 Agent 分发的组合带来真实普惠效果，但受「必须已有付费 LLM Agent」与「英语模式集」双重限制，覆盖人群被显著收窄，计 60%。</p>
+<h3>D11.4 开放标准与行业推动（满分 2 分）</h3>
+<p><strong>得分：1.2 / 2（60%，对应 5–6 档）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测事实</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>标准推动</td>
+<td>遵循新兴的 Agent Skill 约定（<code>skills/</code> 目录、<code>plugin.json</code> 插件元数据、<code>npx skills add</code> 分发），但未定义或主导任何标准</td>
+<td>遵循标准，无推动作用</td>
+</tr>
+<tr>
+<td>科研支撑</td>
+<td>无学术引用/可重现性支撑证据（不可得，不单独计分）</td>
+<td>与科研无关</td>
+</tr>
+<tr>
+<td>行业示范效应</td>
+<td>「20+ AI slop 模式清单」被同领域竞品借鉴（DeSlop 扩展为 36 模式目录，multilingual 版做语种扩展，slopvac 做 Vale gate 集成），形成小型品类</td>
+<td>有品类示范效应，但影响面窄</td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：项目未定义标准，亦无学术支撑，但通过把「AI 腔」模式化并公开，催生了一个可辨识的「反 AI slop」小品类（GitHub 上至少 5 个同向项目），具备有限度的行业示范效应，计 60%。</p>
+<h3>D11 细则分值汇总</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D11.1</td>
+<td>数字公共基础设施属性</td>
+<td>3</td>
+<td>1.2</td>
+<td>40%（3–4 档）</td>
+</tr>
+<tr>
+<td>D11.2</td>
+<td>教育与人才价值</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>60%（5–6 档）</td>
+</tr>
+<tr>
+<td>D11.3</td>
+<td>普惠与可及性</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>60%（5–6 档）</td>
+</tr>
+<tr>
+<td>D11.4</td>
+<td>开放标准与行业推动</td>
+<td>2</td>
+<td>1.2</td>
+<td>60%（5–6 档）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td><strong>5.4</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>维度结论</h3>
+<p><strong>D11 = 5.4 / 10（一般，略低于中位；权重 0%，不入综合评分）。</strong></p>
+<p>no-ai-slop 是一个典型的「高社会可见度、低基础设施属性」项目：它以 MIT 免费开放、一行命令跨主流 Agent 分发，把写作打磨这一原本依赖付费润色/编辑服务的能力平权化，并通过公开「20+ AI slop 模式清单」催生了一个小型反 AI 腔品类，具备实实在在的正外部性。但其交付物只是规则文本包（127 行代码、0 测试），不被任何下游软件依赖，功能可被同行轻易复刻；同时模式集为英语专有、且实际使用仍依赖付费 LLM Agent，普惠效果被语种与底座双重收窄。因此本维度各项均在 40%–60% 区间，未出现任何卓越项或严重缺陷项。</p>
+<p><strong>置信度说明</strong>：中等。D11.1/D11.4 的核心判断基于仓库结构、竞品清单与文档事实，证据充分；D11.2/D11.3 缺少教程采用量、i18n 实际情况、外部引用等外部检索数据（npm/pypi 下载量为 N/A），教育与普惠评分存在一定推断成分。</p>
+<h2>五、商业化价值判断</h2>
+<p><strong>综合评分 59.5/100，等级 B（中等商业化潜力）；公共价值分 6.0/10，价值画像为「📦 长尾项目」。</strong></p>
+<p>这一画像的判定逻辑是：综合评分低于 65 且公共价值分低于 7，按方法论 3.4 落入「长尾项目」象限——技术借鉴或人才引进，不投入商业化。需要说明的是，公共价值分 6.0 处于 6.5–7.5 临界区间之下但距离不远，且综合评分 59.5 落在 60–70 临界区间边缘，<strong>本报告标注「画像临界」</strong>：若后续 D9 补齐、社区治理改善使综合评分上探至 65 附近，画像可能向「🏛️ 公共产品型」迁移，路径差异见第六章。</p>
+<p>支撑这一判断的核心事实是<strong>注意力与变现能力的严重错配</strong>：</p>
+<ul>
+<li><strong>注意力侧极强</strong>：9,862 Star、698 Fork，Star 月增速约 5,273（退化公式估算），远超 &gt;500/月 的顶级阈值；7 个正式 Release（v1.0.0–v1.0.6）在不到一个月内密集发布，发布工程成熟度超出代码规模。</li>
+<li><strong>变现侧极弱</strong>：核心交付物是可完整复制的提示词技能（SKILL.md / eval.md），Python 仅 127 行构建脚本，无法构建 Open Core 分层，无 SaaS 独占性；产品内不存在任何付费墙或升级触发点；唯一可识别变现路径是创作者内容漏斗（Behind the Craft 课程 / newsletter / YouTube），<strong>变现主体为作者个人品牌而非项目本体</strong>。D4 明确指出「9.8K stars 反映的是注意力而非付费意愿」。</li>
+<li><strong>免费效用与付费转化呈典型反相关</strong>：D10.3 满分——MIT 全开源、即装即用、无付费墙，免费版即全部价值；对应 D4.3 付费转化仅 1.0/2.5。</li>
+</ul>
+<p><strong>价值本质判断</strong>：这是一个「高免费效用、低锁定度、低效用层级」的分钟级写作辅助工具（D10 结论）。其真实资产不是代码（127 行、0 测试），而是<strong>品类命名权 + 作者个人品牌 + 分发渠道（ChatGPT 插件 + npx skills）</strong>——D5 明确指出领先来源正是这三者，而非不可替代的功能。</p>
+<hr />
+<h2>六、商业路径分析</h2>
+<h3>6.1 路径可行性排序</h3>
+<p><strong>路径一：创作者内容漏斗变现（唯一已验证可行路径）</strong></p>
+<p>项目已呈现 Open Core 双轨雏形：MIT 免费开源技能导流至作者付费资产（Behind the Craft 课程/系统、YouTube、creatoreconomy.so 订阅）。这是当前唯一可识别的变现路径，且已被作者实际运营。但其结构性缺陷在于：<strong>变现主体是作者个人品牌，项目只是流量入口</strong>，收入不归属于项目本体，也无法通过项目治理或融资放大。</p>
+<p><strong>路径二：影响力变现（赞助 / 基金会托管 / 大厂雇佣维护者）</strong></p>
+<p>鉴于公共价值分 6.0 接近临界、且项目具备「把写作打磨能力平权化」的普惠属性（D11.3），若综合评分未能上探至 65，这是比直接变现更匹配的路径。但需注意 D11.1 的硬约束：交付物为 Markdown 规则包，无包管理器发布（npm/pypi 下载量 N/A），<strong>不构成任何下游软件的依赖底座，停摆对供应链影响微小</strong>——这削弱了其作为「数字公共基础设施」获得基金会托管的正当性。</p>
+<p><strong>路径三：直接软件变现（SaaS / 企业版 / 增值服务）——不建议</strong></p>
+<p>D4 已明确否定：核心交付物可完整复制，无法构建 Open Core 分层，无 SaaS 独占性；增值空间狭小，难叠加企业级安全/合规/SLA/分析层，客单价天花板低。D7 进一步佐证：无 SSO/OAuth/LDAP/SAML、无 RBAC、无审计日志、无加密与密钥管理、无 SECURITY.md、无 REST/gRPC/SDK API、无可观测性集成——企业就绪度 4.4/10，不具备承接企业客户的基础。</p>
+<h3>6.2 画像临界下的路径差异</h3>
+<ul>
+<li><strong>若维持「长尾项目」画像</strong>：不投入商业化，走技术借鉴或人才引进；对作者而言，继续以项目为个人品牌流量入口是理性选择。</li>
+<li><strong>若上探至「公共产品型」画像</strong>：走影响力变现——赞助 / 基金会托管 / 大厂雇佣维护者 / 围绕生态做服务与培训，而非直接售卖软件。</li>
+</ul>
+<p>两条路径的共同点是：<strong>都不应尝试把提示词规则包包装成付费软件产品</strong>。</p>
+<h3>6.3 时间窗口警告</h3>
+<p>D5 给出明确判断：赛道两个季度内商品化，叠加模型厂商内置风格控制能力的平台级替代风险，<strong>当前优势时间窗口估计以季度计</strong>。任何商业化动作都必须在窗口关闭前完成，而当前项目连基础的付费触发点都不存在，时间上已相当紧张。</p>
+<hr />
+<h2>七、能力评估：能做什么 &amp; 最适合做什么</h2>
+<h3>7.1 项目当前实际具备的能力</h3>
+<table>
+<thead>
+<tr>
+<th>能力项</th>
+<th>证据</th>
+<th>强度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>清除 20+ 种 AI 腔模式的写作编辑</td>
+<td>SKILL.md 工作流 + eval.md 自检</td>
+<td>强（单一任务内较完整）</td>
+</tr>
+<tr>
+<td>跨宿主 Agent 分发</td>
+<td>被 ChatGPT 插件目录接纳，支持 npx skills 安装，兼容 Claude Code / Codex</td>
+<td>强</td>
+</tr>
+<tr>
+<td>零依赖、零运维负担部署</td>
+<td>0 第三方依赖、无 Dockerfile、无运行时依赖、127 行构建脚本</td>
+<td>强</td>
+</tr>
+<tr>
+<td>发布工程规范</td>
+<td>7 个 Release、CI 自动构建+tag 发布、Actions 锁定 commit SHA</td>
+<td>强（超出代码规模）</td>
+</tr>
+<tr>
+<td>法律合规清洁度</td>
+<td>MIT 标准协议、零声明依赖、无 copyleft 传染</td>
+<td>强</td>
+</tr>
+<tr>
+<td>社区共建</td>
+<td>贡献者 2 人、90 天关闭 Issue 0 个</td>
+<td>极弱</td>
+</tr>
+<tr>
+<td>质量保障</td>
+<td>0 测试文件 / 0 测试行、CI 无测试门禁/静态分析/安全扫描</td>
+<td>极弱</td>
+</tr>
+<tr>
+<td>企业级能力</td>
+<td>无认证、无权限、无审计、无 API、无可观测性</td>
+<td>缺失</td>
+</tr>
+</tbody>
+</table>
+<h3>7.2 最适合做什么</h3>
+<p><strong>最适合：作为个人创作者 / 内容团队的低成本写作辅助工具，以及作为「Agent Skill 生态早期分发」的示范案例。</strong></p>
+<p>理由：D1 指出应用场景高度横向（全行业通用、多写作渠道覆盖），并可迁移至语气调校/本地化等相邻场景；D9 相关事实显示安装为一行 npx 命令、零依赖，上手门槛极低。它天然适合「即装即用、用完即走」的轻量使用模式。</p>
+<p><strong>不适合：作为企业级内容合规平台、作为可融资的独立商业实体、作为需要 SLA 保障的生产系统组件。</strong></p>
+<p>理由：D7 企业就绪度 4.4/10，安全能力全面缺失；D4 无 SaaS 独占性、无付费触发点；D11.1 不构成下游依赖底座。</p>
+<hr />
+<h2>八、短板识别：还缺少什么</h2>
+<p>按严重程度排序：</p>
+<p><strong>1. 质量保障体系完全缺失（最严重）</strong>
+0 测试文件、0 测试行、test_ratio 0.0；CI 仅做打包与发布，无测试门禁、无静态分析、无安全扫描集成。D2 将质量保障列为「最大短板」。</p>
+<p><strong>2. 社区共建机制缺位</strong>
+贡献者仅 2 人，巴士因子 ≈2；90 天关闭 Issue 为 0、22 个开放 Issue 无处置记录；44 个 PR 主要来自维护者自身。D3 判定社区呈「消费型而非共建型」。</p>
+<p><strong>3. 治理与确权文档缺失</strong>
+无 GOVERNANCE.md / CONTRIBUTING.md / CODEOWNERS / 路线图；无 CLA/DCO，44 个 PR 在无正式贡献授权协议下并入，版权确权机制不规范（D6.4 仅 0.8/2）；不属于任何基金会，治理完全由单人决策。</p>
+<p><strong>4. 企业级能力全面空白</strong>
+无 SSO/OAuth/LDAP/SAML、无 RBAC、无审计日志、无加密与密钥管理、无 SECURITY.md；无 REST/gRPC/SDK API、无 OpenAPI/protobuf、无 Prometheus/OpenTelemetry/Webhook、无健康检查与结构化日志。</p>
+<p><strong>5. 变现结构缺失</strong>
+无付费墙、无升级触发点、无 Open Core 分层可能；增值空间狭小，客单价天花板低。</p>
+<p><strong>6. 国际化缺失</strong>
+仅英文，无 i18n 框架；20+ AI slop 模式清单为英语专有句式，对非英语写作者无效——同领域已有 stop-slop-multilingual 等语种扩展版本。</p>
+<p><strong>7. 资金与商业实体缺失</strong>
+无任何资金、赞助（Sponsors / Open Collective）或商业实体证据，纯个人热情驱动。</p>
+<p><strong>8. 分析完整性缺口</strong>
+D9（上手难度与易用性，权重 10%）分析失败被标 N/A，导致综合评分缺少一个权重维度的输入，<strong>综合评分置信度下降</strong>。</p>
+<hr />
+<h2>九、风险提示</h2>
+<p><strong>🔴 高风险：护城河近乎为零，复制成本约数小时</strong>
+核心资产是 SKILL.md / eval.md 两份提示词文档，可执行代码仅 127 行 Python（打包脚本）、测试 0 行、MIT 完全开源、无专利/无专有数据集/无模型权重。用户迁移成本极低——资产仅为一条安装命令与一份可读 Markdown，切换竞品无需迁移任何数据或配置，无深度集成、无团队流程锁定。</p>
+<p><strong>🔴 高风险：赛道快速商品化 + 平台级替代</strong>
+GitHub Search API 确认至少 5 个同类竞品（DeSlop 2★、mega-anti-slop 1★、rankgnar/deslop 1★、stop-slop-multilingual 0★、slopvac 0★），全部在 2026 年 3–9 月涌现。部分竞品在规则粒度（DeSlop 36 条）或工程化（slopvac 的 Vale 门禁）上已反超。叠加模型厂商内置风格控制能力的平台级替代风险，D5 判断优势时间窗口「以季度计」。</p>
+<p><strong>🟠 中风险：巴士因子 ≈2，项目可持续性存疑</strong>
+项目由单一 owner 个人账号主导，无组织/公司实体，无资金支持。虽然当前无 archived/deprecated 标记、短期活跃度向上（2 个月内 7 个 release、90 天 44 PR），但零测试 + Issue 积压 + 单人决策构成结构性脆弱。D8.4 小分 1.8/3，未触发一票否决，但已反映传承风险。</p>
+<p><strong>🟠 中风险：热度为病毒式冲量，可持续性未验证</strong>
+Star 增速约 5,273/月来自 1.87 个月的短窗口，D3 明确指出「热度为 2 个月内的病毒式冲量，叠加巴士因子风险，社区势能的可持续性存疑」。品牌认知依赖作者个人 IP，无企业采用与第三方媒体报道佐证。</p>
+<p><strong>🟡 低风险：法律合规整体清洁，但存在两处细节瑕疵</strong>
+MIT 协议无商业障碍、零依赖供应链风险接近于零（D6 得分 7.8，为九维最高）。瑕疵在于：①无 CLA/DCO，贡献者版权确权不规范；②仓库含 TERMS.md、PRIVACY.md 等附加法律文档，其条款是否对代码使用施加额外约束<strong>未经审阅</strong>；③项目名 'no-ai-slop' 为描述性短语，商标显著性弱，商标/专利状态未经人工核查，置信度低。</p>
+<p><strong>🟡 低风险：分析完整性缺口</strong>
+D9 分析失败（scorecard_rebuilt_by_regex），权重 10% 的维度缺失，综合评分 59.5 的置信度需相应下调。一票否决检查虽完整执行且未触发，但评分本身的完整性存在缺口。</p>
+<hr />
+<h2>十、结论与建议</h2>
+<h3>10.1 结论</h3>
+<p><strong>No AI Slop 是一个「注意力资产」而非「商业资产」。</strong> 综合评分 59.5/100、等级 B（中等商业化潜力）、价值画像「📦 长尾项目」（画像临界），公共价值分 6.0/10。</p>
+<p>它用 127 行 Python 和两份 Markdown 文档，在不到两个月内获得了 9,862 Star 和 698 Fork，验证了「去 AI 味」这一痛点在 2026 年的真实性与时效性，也验证了 Agent Skill 生态极早期窗口的分发红利。但它的核心资产——提示词规则集——替代成本近零，无法构建 Open Core 分层，无 SaaS 独占性，无网络效应，无数据飞轮，无用户间协作。9.8K Star 反映的是注意力而非付费意愿。</p>
+<p><strong>不建议对本项目投入直接商业化资源。</strong> 其价值应通过技术借鉴、人才引进或影响力变现实现，而非包装为付费软件产品。</p>
+<h3>10.2 分角色建议</h3>
+<p><strong>对潜在商业投资者 / 收购方</strong>：
+不建议投资或收购。若目标是获取该赛道能力，直接借鉴其 SKILL.md 规则集（MIT 协议允许）并自建工程化版本，成本远低于收购，且可规避巴士因子 ≈2 与零测试的继承风险。若目标是人才引进，作者的个人品牌运营能力（YouTube / newsletter / 课程体系）比项目代码本身更有价值。</p>
+<p><strong>对作者（项目维护者）</strong>：
+当前路径（免费开源技能导流至个人付费内容）是理性且已验证的选择，建议继续。若要提升项目本身的商业价值，优先级排序为：①补齐测试与 CI 门禁（当前 0 测试是最大短板）；②建立 CONTRIBUTING.md / CLA / CODEOWNERS，降低巴士因子；③考虑 i18n 扩展以突破英语市场天花板。但需清醒认识到：即便全部补齐，D5 判断的护城河缺失与平台级替代风险依然存在，时间窗口以季度计。</p>
+<p><strong>对内容创作者 / 内容团队用户</strong>：
+可作为低成本写作辅助工具采用，一行 npx 安装、零依赖、MIT 免费。但需注意：①仅支持英文；②无企业级 SLA 与安全能力，不适合合规敏感场景；③项目可持续性存疑，建议保留自建规则集的能力作为备份。</p>
+<p><strong>对生态观察者</strong>：
+本项目是「Agent Skill 生态极早期分发红利」的典型样本——品类命名权 + 个人品牌 + 渠道卡位可以在短期内制造 4 个数量级的规模领先（9,862★ vs 最强竞品 2★），但这种领先在功能可复制、无网络效应的品类中不可持续。该案例对评估其他 Agent Skill 类项目的商业价值具有参考意义。</p>
+<h3>10.3 置信度声明</h3>
+<p>本报告综合评分 59.5 的置信度受两项因素影响：①D9（权重 10%）分析失败被标 N/A，未参与加权；②D1 中「独立可付费 TAM 偏窄」为估算，未经外部数据验证；③D10.2 实际使用规模数据（Dependents / npm / PyPI 下载量）均为 N/A，仅以 Stars/Forks 作弱代理。一票否决检查完整执行，未触发。</p>
+<h2>十一、项目地址</h2>
+<p><svg class="ri ri-muted" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.001 2C6.47598 2 2.00098 6.475 2.00098 12C2.00098 16.425 4.86348 20.1625 8.83848 21.4875C9.33848 21.575 9.52598 21.275 9.52598 21.0125C9.52598 20.775 9.51348 19.9875 9.51348 19.15C7.00098 19.6125 6.35098 18.5375 6.15098 17.975C6.03848 17.6875 5.55098 16.8 5.12598 16.5625C4.77598 16.375 4.27598 15.9125 5.11348 15.9C5.90098 15.8875 6.46348 16.625 6.65098 16.925C7.55098 18.4375 8.98848 18.0125 9.56348 17.75C9.65098 17.1 9.91348 16.6625 10.201 16.4125C7.97598 16.1625 5.65098 15.3 5.65098 11.475C5.65098 10.3875 6.03848 9.4875 6.67598 8.7875C6.57598 8.5375 6.22598 7.5125 6.77598 6.1375C6.77598 6.1375 7.61348 5.875 9.52598 7.1625C10.326 6.9375 11.176 6.825 12.026 6.825C12.876 6.825 13.726 6.9375 14.526 7.1625C16.4385 5.8625 17.276 6.1375 17.276 6.1375C17.826 7.5125 17.476 8.5375 17.376 8.7875C18.0135 9.4875 18.401 10.375 18.401 11.475C18.401 15.3125 16.0635 16.1625 13.8385 16.4125C14.201 16.725 14.5135 17.325 14.5135 18.2625C14.5135 19.6 14.501 20.675 14.501 21.0125C14.501 21.275 14.6885 21.5875 15.1885 21.4875C19.259 20.1133 21.9999 16.2963 22.001 12C22.001 6.475 17.526 2 12.001 2Z"/></svg> <a href="https://github.com/petergyang/no-ai-slop">https://github.com/petergyang/no-ai-slop</a></p>
+<hr />
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+</blockquote>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家　<a href="https://www.mova.work">www.mova.work</a></p></body></html>

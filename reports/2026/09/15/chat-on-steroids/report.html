@@ -1,0 +1,1838 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><title>Chat-on-steroids 商业价值分析报告</title><style>/* default — 品牌蓝紫主题（从 md2pdf.py 原 CSS 常量迁出，视觉与历史产物一致） */
+@page { size: A4; margin: 18mm 15mm 20mm 15mm; }
+* { box-sizing: border-box; }
+/* 字体规范：一律开源思源黑体 CN（OFL 免费商用）；正文 Regular/标题 Bold/大字数字 Light */
+body { font-family: "Source Han Sans CN","思源黑体 CN","Noto Sans SC",sans-serif; color:#1e293b; font-size:10.5pt; line-height:1.75; margin:0; }
+.cover { page-break-after: always; text-align:center; padding-top:40px; }
+.cover .kicker { color:#2563eb; letter-spacing:6px; font-size:12pt; font-weight:500; }
+.cover h1 { font-size:26pt; margin:14px 0 6px; }
+.cover .sub { color:#64748b; font-size:11pt; margin-bottom:22px; }
+.badge { display:inline-block; background:linear-gradient(135deg,#2563eb,#7c3aed); color:#fff; border-radius:18px; padding:16px 44px; margin:10px 0 18px; }
+.badge .g { font-size:34pt; font-weight:300; line-height:1; }
+.badge .s { font-size:12pt; opacity:.92; margin-top:4px; }
+.meta { color:#475569; font-size:9.5pt; margin-top:14px; }
+.bars { max-width:620px; margin:20px auto 0; text-align:left; }
+.bar-row { display:flex; align-items:center; gap:8px; margin:5px 0; font-size:9pt; }
+.bar-name { width:110px; text-align:right; color:#334155; font-weight:500; }
+.bar-track { flex:1; height:9px; background:#f1f5f9; border-radius:5px; overflow:hidden; }
+.bar-fill { display:block; height:100%; border-radius:5px; }
+.bar-val { width:30px; font-weight:700; color:#0f172a; }
+.bar-w { width:52px; color:#94a3b8; font-size:8pt; }
+h1 { font-size:17pt; color:#0f172a; border-bottom:3px solid #2563eb; padding-bottom:8px; }
+h2 { font-size:13.5pt; color:#1d4ed8; margin-top:26px; page-break-after: avoid; border-left:5px solid #2563eb; padding-left:10px; }
+h3 { font-size:11.5pt; color:#0f172a; margin-top:18px; page-break-after: avoid; }
+table { border-collapse:collapse; width:100%; margin:10px 0; font-size:9pt; page-break-inside:avoid; }
+th { background:#eff6ff; color:#1e3a8a; }
+th,td { border:1px solid #dbe3ef; padding:5px 8px; text-align:left; }
+tr:nth-child(even) td { background:#f8fafc; }
+code { background:#f1f5f9; border-radius:4px; padding:1px 5px; font-family:"JetBrains Mono","Cascadia Mono",monospace; font-size:9pt; color:#be185d; }
+pre { background:#0f172a; color:#e2e8f0; border-radius:8px; padding:12px 14px; overflow-x:auto; page-break-inside:avoid; }
+pre code { background:none; color:inherit; padding:0; }
+blockquote { border-left:4px solid #93c5fd; background:#eff6ff; margin:10px 0; padding:8px 14px; color:#334155; border-radius:0 8px 8px 0; }
+hr { border:none; border-top:1px dashed #cbd5e1; margin:22px 0; }
+strong { color:#0f172a; }
+.cover .disclaimer { max-width:620px; margin:16px auto 0; color:#64748b; font-size:8.5pt; line-height:1.6; text-align:left; border:1px solid #e2e8f0; border-radius:8px; padding:8px 12px; background:#f8fafc; }
+.credit { color:#2563eb; font-size:10.5pt; font-weight:700; letter-spacing:1px; margin-top:12px; }
+.at-acc { background:#dbeafe; color:#1d4ed8; border-radius:4px; padding:0 4px; font-weight:500; white-space:nowrap; }
+.tail { page-break-inside:avoid; margin-top:26px; border-top:2px solid #2563eb; padding-top:14px; }
+.tail p { color:#64748b; font-size:8.5pt; line-height:1.6; margin:0 0 10px; }
+.tail .credit { text-align:center; margin:0; }
+/* Remix Icon 内联 SVG（icon_mode=remix 时由脚本注入，语义色与评分条一致） */
+.ri { width:1.05em; height:1.05em; vertical-align:-0.18em; display:inline-block; }
+.ri-ok { color:#16a34a; } .ri-warn { color:#d97706; } .ri-bad { color:#dc2626; }
+.ri-muted { color:#64748b; } .ri-star { color:#f59e0b; } .ri-brand { color:#2563eb; }
+.ri-gold { color:#d4a017; } .ri-silver { color:#9ca3af; } .ri-bronze { color:#b45309; }
+/* 屏幕预览：@page 边距仅在打印时生效，浏览器中居中限宽并收边（不影响 PDF 输出） */
+@media screen {
+  body { margin: 0 auto; padding: 28px 36px 56px; max-width: 900px; }
+}
+</style></head><body><div class="cover">
+<div class="kicker">开源项目商业化潜力分析 · 第 100 期</div>
+<h1>GitHub 开源项目 Chat-on-steroids<br>商业价值分析报告</h1>
+<div class="sub">totec448-spec/chat-on-steroids · ChatGPT本地MCP桥接桌面Agent · 九维度加权评估</div>
+<div class="badge"><div class="g">A 级 · 68.2</div><div class="s">综合评分（满分 100）· 高商业化潜力</div></div>
+<div><svg viewBox="0 0 560 480" width="560" height="480" xmlns="http://www.w3.org/2000/svg"><polygon points="280.0,209.6 299.5,216.7 309.9,234.7 306.3,255.2 290.4,268.6 269.6,268.6 253.7,255.2 250.1,234.7 260.5,216.7" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,179.2 319.1,193.4 339.9,229.4 332.7,270.4 300.8,297.1 259.2,297.1 227.3,270.4 220.1,229.4 240.9,193.4" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,148.8 338.6,170.1 369.8,224.2 359.0,285.6 311.2,325.7 248.8,325.7 201.0,285.6 190.2,224.2 221.4,170.1" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,118.4 358.2,146.8 399.8,218.9 385.3,300.8 321.6,354.3 238.4,354.3 174.7,300.8 160.2,218.9 201.8,146.8" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,88.0 377.7,123.6 429.7,213.6 411.6,316.0 332.0,382.8 228.0,382.8 148.4,316.0 130.3,213.6 182.3,123.6" fill="none" stroke="#e2e8f0" stroke-width="1"/><line x1="280.0" y1="240.0" x2="280.0" y2="88.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="377.7" y2="123.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="429.7" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="411.6" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="332.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="228.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="148.4" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="130.3" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="182.3" y2="123.6" stroke="#d8dee9" stroke-width="1"/><polygon points="280.0,133.6 367.0,136.4 369.8,224.2 362.9,287.9 309.1,320.0 240.0,350.0 187.9,293.2 205.2,226.8 206.7,152.7" fill="rgba(37,99,235,.22)" stroke="#2563eb" stroke-width="2.5"/><circle cx="280.0" cy="133.6" r="3.5" fill="#2563eb"/><circle cx="367.0" cy="136.4" r="3.5" fill="#2563eb"/><circle cx="369.8" cy="224.2" r="3.5" fill="#2563eb"/><circle cx="362.9" cy="287.9" r="3.5" fill="#2563eb"/><circle cx="309.1" cy="320.0" r="3.5" fill="#2563eb"/><circle cx="240.0" cy="350.0" r="3.5" fill="#2563eb"/><circle cx="187.9" cy="293.2" r="3.5" fill="#2563eb"/><circle cx="205.2" cy="226.8" r="3.5" fill="#2563eb"/><circle cx="206.7" cy="152.7" r="3.5" fill="#2563eb"/><text x="280.0" y="44.0" text-anchor="middle" font-size="12.5" fill="#334155" font-weight="600">D1</text><text x="280.0" y="58.0" text-anchor="middle" font-size="11" fill="#64748b">市场需求 7.0</text><text x="406.0" y="89.9" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D2</text><text x="406.0" y="103.9" text-anchor="start" font-size="11" fill="#64748b">技术成熟度 8.9</text><text x="473.0" y="206.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D3</text><text x="473.0" y="220.0" text-anchor="start" font-size="11" fill="#64748b">社区生态 6.0</text><text x="449.7" y="338.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D4</text><text x="449.7" y="352.0" text-anchor="start" font-size="11" fill="#64748b">变现潜力 6.3</text><text x="347.0" y="424.2" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D5</text><text x="347.0" y="438.2" text-anchor="start" font-size="11" fill="#64748b">竞争格局 5.6</text><text x="213.0" y="424.2" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D6</text><text x="213.0" y="438.2" text-anchor="end" font-size="11" fill="#64748b">法律合规 7.7</text><text x="110.3" y="338.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D7</text><text x="110.3" y="352.0" text-anchor="end" font-size="11" fill="#64748b">企业就绪 7.0</text><text x="87.0" y="206.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D8</text><text x="87.0" y="220.0" text-anchor="end" font-size="11" fill="#64748b">团队治理 5.0</text><text x="154.0" y="89.9" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D9</text><text x="154.0" y="103.9" text-anchor="end" font-size="11" fill="#64748b">上手难度 7.5</text></svg></div>
+<div class="bars"><div class="bar-row"><span class="bar-name">D2 技术成熟度</span>
+<span class="bar-track"><span class="bar-fill" style="width:89.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.9</span><span class="bar-w">权重14%</span></div>
+<div class="bar-row"><span class="bar-name">D6 法律合规</span>
+<span class="bar-track"><span class="bar-fill" style="width:77.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.7</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D9 上手难度</span>
+<span class="bar-track"><span class="bar-fill" style="width:75.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.5</span><span class="bar-w">权重10%</span></div>
+<div class="bar-row"><span class="bar-name">D1 市场需求</span>
+<span class="bar-track"><span class="bar-fill" style="width:70.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.0</span><span class="bar-w">权重13%</span></div>
+<div class="bar-row"><span class="bar-name">D7 企业就绪</span>
+<span class="bar-track"><span class="bar-fill" style="width:70.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.0</span><span class="bar-w">权重8%</span></div>
+<div class="bar-row"><span class="bar-name">D4 变现潜力</span>
+<span class="bar-track"><span class="bar-fill" style="width:63.0%;background:#d97706"></span></span>
+<span class="bar-val">6.3</span><span class="bar-w">权重18%</span></div>
+<div class="bar-row"><span class="bar-name">D3 社区生态</span>
+<span class="bar-track"><span class="bar-fill" style="width:60.0%;background:#d97706"></span></span>
+<span class="bar-val">6.0</span><span class="bar-w">权重11%</span></div>
+<div class="bar-row"><span class="bar-name">D5 竞争格局</span>
+<span class="bar-track"><span class="bar-fill" style="width:56.0%;background:#dc2626"></span></span>
+<span class="bar-val">5.6</span><span class="bar-w">权重12%</span></div>
+<div class="bar-row"><span class="bar-name">D8 团队治理</span>
+<span class="bar-track"><span class="bar-fill" style="width:50.0%;background:#dc2626"></span></span>
+<span class="bar-val">5.0</span><span class="bar-w">权重7%</span></div></div>
+<div class="meta">分析时点 2026-09-15 ｜ 数据来源：GitHub API + 仓库代码实测 ｜ 方法论 v1.3</div>
+<div class="credit">报告出品：@魔法工厂　@向量之心　@南山科学家</div>
+<div class="disclaimer"><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</div>
+</div><h1>Chat-on-steroids 商业化潜力分析报告（完整版）</h1>
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家</p>
+<p>方法论版本: v1.3 | 综合评分: <strong>68.2</strong> | 等级: <strong>A（高商业化潜力）</strong> | 价值画像: 纯商业工具</p>
+</blockquote>
+<h2>一、项目概览</h2>
+<h3>1.1 基本信息</h3>
+<ul>
+<li><strong>项目名称 / 仓库地址</strong>：Chat On Steroids（<code>totec448-spec/chat-on-steroids</code>）</li>
+<li><strong>核心技术栈</strong>：TypeScript（主语言）；Electron 桌面应用（main/preload/renderer/shared/extension/native 分层）+ 本地 MCP 服务 + Chrome 扩展 + ChatGPT 自定义 App；深度消费 MCP 开放标准（<code>@modelcontextprotocol/client|server|node</code>、<code>mcpb</code>）</li>
+<li><strong>社区规模速览</strong>：Star 2,596 / Fork 339（Fork 比率 13.1%）/ Watchers 8 / 贡献者 7 人；90 天 PR 118、已关闭 Issue 76、开放 Issue 69；采样期内 10 个版本（v2.0.2 → v2.1.12）</li>
+<li><strong>分析时点 / 数据来源</strong>：仓库创建于 2026-08-22，最近推送 2026-09-14，项目年龄约 3 周（0.77 个月）；数据来源为 GitHub 仓库元数据、README、docs 目录（45 份文档）、CI 工作流与 Release 产物清单</li>
+</ul>
+<h3>1.2 项目分类标签</h3>
+<table>
+<thead>
+<tr>
+<th>分类维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>开发者工具（次级：中间件/MCP 桥接、应用软件）</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>通用/跨行业（以软件研发为主）</td>
+</tr>
+<tr>
+<td>目标用户角色</td>
+<td>后端开发者、全栈开发者、AI/ML 工程师、技术管理者/CTO</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>本地文件读写、终端命令执行、桌面控制、多智能体工作流编排、Chrome 浏览器自动化</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>本地部署（local-first）/ 混合部署（本地 MCP + 隧道接入 ChatGPT 云端会话）</td>
+</tr>
+</tbody>
+</table>
+<h3>1.3 一句话定位</h3>
+<blockquote>
+<p>Chat On Steroids 是一个 Electron 桌面端 AI Agent 本地桥接工具（本地 MCP 服务 + Chrome 扩展 + ChatGPT 自定义 App），适用于软件开发与自动化场景，主要面向使用 ChatGPT 的开发者与技术团队，用于让 ChatGPT 直接读写本地文件、运行终端命令、控制桌面并编排多智能体工作流。</p>
+</blockquote>
+<hr />
+<h2>二、安装部署与使用指南</h2>
+<h2>D9. 上手难度与易用性</h2>
+<h3>安装部署与使用指南</h3>
+<blockquote>
+<p>判定等级：🟡 <strong>中等（7.5/10）</strong> — 面向有技术基础者。以下仅列出关键步骤，省略系统级基础操作（下载、双击安装、浏览器安装等）。</p>
+</blockquote>
+<p><strong>部署形态概要</strong>：Chat On Steroids（CoS）是一个 Electron 桌面应用（安装包分发），配合 Chrome 侧配套扩展与 ChatGPT Developer mode 下的 MCP 应用使用。<strong>项目不提供 Docker / Dockerfile / docker-compose / Helm 等容器化部署路径</strong>；本地 MCP Core 由桌面应用承载，通过隧道与 ChatGPT 侧应用对接，因此「部署」实质上是「安装桌面应用 + 在 ChatGPT/Chrome 两端完成一次性授权配对」。</p>
+<p><strong>1. 目标平台与前置条件</strong>（README 原文列举）</p>
+<ul>
+<li>Windows 10/11、<strong>macOS 13 Ventura 或更新版本</strong>，或当前版桌面 Linux</li>
+<li>Chrome 116+ 或当前版 Edge</li>
+<li>一个具备 <strong>Developer mode 与 custom MCP apps</strong> 的 ChatGPT 账号/工作区（README 指引至 OpenAI 帮助页核实账号可用性）</li>
+</ul>
+<p><strong>2. 安装（最终用户）</strong>：按平台下载预编译安装包，无外部运行时依赖需要手工安装。</p>
+<table>
+<thead>
+<tr>
+<th>平台</th>
+<th>安装包（README 直链文件名）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Windows x64</td>
+<td><code>Chat-On-Steroids-Setup-x64.exe</code></td>
+</tr>
+<tr>
+<td>macOS Apple silicon</td>
+<td><code>Chat-On-Steroids-macOS-arm64.dmg</code></td>
+</tr>
+<tr>
+<td>Linux x64</td>
+<td><code>Chat-On-Steroids-Linux-x64.deb</code></td>
+</tr>
+</tbody>
+</table>
+<p>README 中列明的安装注意事项（原文要点）：</p>
+<ul>
+<li><strong>Unsigned beta</strong>：Windows 未做发布者签名；macOS 未签名且未公证（unnotarized），应比对 release checksums 校验安装包。</li>
+<li><strong>Linux</strong>：需要 Secret Service keyring；优先使用 DEB；当 unprivileged user namespaces 被禁用时，AppImage 启动器可回退到 <code>--no-sandbox</code>。</li>
+<li><strong>更新后</strong>：需重新加载配套扩展，并在提示时刷新 ChatGPT 中的 CoS apps。</li>
+</ul>
+<p><strong>3. 初始配置（README「Get started」四步）</strong></p>
+<ol>
+<li><strong>Install CoS</strong>，并在 <strong>Settings → Workspace</strong> 中批准你的项目文件夹。</li>
+<li>通过 <strong>Settings → Setup</strong> 连接 Core，并在 ChatGPT 的 Developer mode 中添加它（隧道配置见 <code>docs/setup.md#tunnel-setup</code>）。</li>
+<li><strong>加载配套扩展</strong>：点击 <strong>Open extension folder</strong>，然后在 Chrome 扩展设置中执行 <strong>Load unpacked</strong>；配对为自动完成。</li>
+<li><strong>选择模型、写下任务并发送。</strong></li>
+</ol>
+<p><strong>4. 默认能力与权限</strong>（README 原文要点）：全新安装默认启用 Core capabilities 与两个 workers；Windows 上还默认启用 Desktop permissions；Shell 命令以当前普通用户权限运行。首次连接前需选择已批准文件夹并复核 capabilities。</p>
+<p><strong>5. 从源码构建（仅面向开发者，非商业化推广路径）</strong>：需自备 Node.js/npm 工具链。<code>package.json</code> 提供的脚本包括 <code>dev</code>（<code>electron-vite dev</code>）、<code>build</code>（<code>electron-vite build</code>）、<code>test</code>（<code>vitest run</code>）、<code>dist</code>（<code>node scripts/package.mjs --arch x64,arm64</code>）及各平台 <code>dist:*</code> 变体。源码构建涉及 <code>node-pty</code>（<code>1.2.0-beta.15</code>）、<code>sharp</code>、<code>tree-sitter</code>、<code>quickjs-emscripten-core</code> 等原生/预编译模块，并需通过 <code>scripts/fetch-ripgrep.mjs</code>、<code>scripts/fetch-tunnel-client.mjs</code>、<code>scripts/prepare-packaging-native.mjs</code> 等脚本拉取额外二进制。项目<strong>无 Dockerfile</strong>，容器化部署不可行。</p>
+<h2>三、评分总览</h2>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>权重</th>
+<th>加权得分</th>
+<th>评级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1 市场需求与商业机会</td>
+<td>7.0/10</td>
+<td>13%</td>
+<td>0.91</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D2 技术成熟度与产品质量</td>
+<td>8.9/10</td>
+<td>14%</td>
+<td>1.25</td>
+<td>优</td>
+</tr>
+<tr>
+<td>D3 社区健康度与生态势能</td>
+<td>6.0/10</td>
+<td>11%</td>
+<td>0.66</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D4 商业模式与变现潜力</td>
+<td>6.3/10</td>
+<td>18%</td>
+<td>1.13</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D5 竞争格局与差异化壁垒</td>
+<td>5.6/10</td>
+<td>12%</td>
+<td>0.67</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D6 法律合规与知识产权</td>
+<td>7.7/10</td>
+<td>7%</td>
+<td>0.54</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D7 企业就绪度与可运营性</td>
+<td>7.0/10</td>
+<td>8%</td>
+<td>0.56</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D8 团队治理与可持续性</td>
+<td>5.0/10</td>
+<td>7%</td>
+<td>0.35</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D9 上手难度与易用性</td>
+<td>7.5/10</td>
+<td>10%</td>
+<td>0.75</td>
+<td>良</td>
+</tr>
+<tr>
+<td><strong>综合评分</strong></td>
+<td>—</td>
+<td>100%</td>
+<td><strong>68.2/100</strong></td>
+<td><strong>A（高商业化潜力）</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>平行维度（不计入综合评分）</strong></p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10 功能价值</td>
+<td>6.4/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>D11 社会价值</td>
+<td>5.4/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>公共价值分</td>
+<td>5.9/10</td>
+<td>(D10+D11)/2</td>
+</tr>
+</tbody>
+</table>
+<p><strong>一票否决检查</strong>：未触发。D6 维度总分 7.7（&gt; 3）；D8.4 细则小分 1.8（&gt; 1）；D4.1 细则小分 2.0（&gt; 0.5）。三项否决检查均完整执行，无 N/A 跳过项。</p>
+<p><strong>价值画像</strong>：💼 纯商业工具（综合评分 68.2 ≥ 65，公共价值分 5.9 &lt; 7）。</p>
+<blockquote>
+<p>各维度细则分值构成详见「四、各维度详细分析」。</p>
+</blockquote>
+<hr />
+<h2>四、各维度详细分析</h2>
+<h3>D1. 市场需求与商业机会</h3>
+<h3>项目分类标签</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>开发者工具 / 中间件（MCP 桥接层）/ 应用软件</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>通用/跨行业（以软件研发为主，可延伸至数据分析、运维、办公自动化）</td>
+</tr>
+<tr>
+<td>目标用户角色</td>
+<td>后端开发者、全栈开发者、AI/ML工程师、技术管理者/CTO</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>研发流程优化、基础设施搭建、数据处理与分析、原型验证</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>本地部署（本地优先）/ 混合部署（本地 MCP 服务 + 隧道接入 ChatGPT 云端会话）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>一句话定位</strong>：Chat On Steroids 是一个 Electron 桌面端 AI Agent 本地桥接工具（本地 MCP 服务 + Chrome 扩展 + ChatGPT 自定义 App），适用于软件开发与自动化场景，主要面向使用 ChatGPT 的开发者与技术团队，用于让 ChatGPT 直接读写本地文件、运行终端命令、控制桌面并编排多智能体（Worker）工作流。</p>
+<h3>细则打分</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1.1 目标市场规模与增长性</td>
+<td>2.5</td>
+<td><strong>2.0</strong></td>
+<td>7–8（80%）</td>
+<td>项目所处赛道为「AI 编码代理 / Agent 工具链」，按项目类型（开发者工具+AI Agent）做量级估算属十亿美元级以上且处于高速增长期：Microsoft/OpenAI/Anthropic/Google 均在此赛道投入，开源侧 Cline、OpenHands、Goose 等活跃。CoS 触达的是「持有 ChatGPT 订阅、需要本地 agent 能力」的开发者的细分市场，TAM 小于整个 AI 编码工具市场，但远大于千万美元级、且不是停滞市场。<strong>外部市场规模数据不可得，本项为按行业类别的量级估算，未经外部数据验证，置信度低</strong>，故不给 9–10 档。</td>
+</tr>
+<tr>
+<td>D1.2 痛点真实性与解决程度</td>
+<td>2.5</td>
+<td><strong>1.5</strong></td>
+<td>5–6（60%）</td>
+<td>痛点真实：ChatGPT 网页/客户端无法触达本地文件与终端，是 ChatGPT 重度开发者明确感知的能力缺口；项目 2026-08-22 创建、3 周内积攒 2596 star / 339 fork、90 天 118 个 PR 与 76 个已关闭 Issue，属强需求验证信号。但解决完整度与替代成本拖累该档：①替代品极多且成熟度不低（OpenAI Codex、Cursor、Claude Code、Cline、Aider 等），替代成本低；②落地链路长（需 ChatGPT Developer mode + 自定义 MCP Apps、隧道配置、Chrome/Edge 手动加载 unpacked 扩展），且 Windows 未签名、macOS 未公证，属「beta 可用」而非「开箱完整」；③docs 中存在公共历史隐私事件复盘与多轮 bug-audit / tool-error-rate 报告，说明方案仍在补稳定性。综合落在「解决明确痛点、方案基本可用、替代品众多」区间。</td>
+</tr>
+<tr>
+<td>D1.3 市场时机判断</td>
+<td>2.5</td>
+<td><strong>1.5</strong></td>
+<td>5–6（60%）</td>
+<td>技术层面时机不差：MCP 已成事实标准（依赖树中直接引用 <code>@modelcontextprotocol/*</code>），ChatGPT 自定义 MCP Apps / Developer mode 是 2026 年新开放的能力，本地优先（local-first）需求上行，窗口真实存在。但时机扣分来自竞争密度与平台依附：CoS 的差异化本质是「复用既有 ChatGPT 订阅获得类 Codex 本地编码」，而 Codex 本身由平台方提供并共享同一用量池，平台方随时可用原生能力覆盖该场景；同时 Cursor / Claude Code 等已形成强势心智。属「需正面竞争、且护城河受平台政策窗口约束」的成熟竞争格局，而非爆发前夜的空位期。</td>
+</tr>
+<tr>
+<td>D1.4 应用场景广度</td>
+<td>2.5</td>
+<td><strong>2.0</strong></td>
+<td>7–8（80%）</td>
+<td>核心能力（本地文件读写、终端执行、桌面控制、多 Agent 编排、Markdown Skills 导入）本身跨行业通用，可迁移到软件研发、数据分析、运维自动化、桌面办公自动化等场景；MIT 协议 + MCP 标准接口 + 跨平台打包（Windows/macOS/Linux 三平台安装包）进一步降低复用门槛。扣分项：实际使用强依赖开发者环境（node-pty、tree-sitter、终端、Developer mode、手动加载扩展），非技术用户进入成本高，因此达不到「通用基础设施级」的 9–10 档，属「多行业可用但以开发者为主」的次级档。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>D1 合计：2.0 + 1.5 + 1.5 + 2.0 = 7.0 / 10</strong></p>
+<h3>结论</h3>
+<ul>
+<li><strong>需求真实性高、需求强度已被市场验证</strong>：3 周内 2596 star、339 fork、7 名贡献者、90 天 118 PR / 76 Issue 关闭、10+ 次版本发布（v2.0.2 → v2.1.12），说明「让 ChatGPT 操作我的本地机器」不是伪需求，而是被大量开发者主动寻找的能力缺口。</li>
+<li><strong>商业机会明确但护城河薄</strong>：价值主张是「用你已有的 ChatGPT 计划获得 Codex 式本地编码」，本质是对平台用量与能力的套利层。它依赖 ChatGPT Developer mode、自定义 MCP Apps 与隧道机制，平台的开放程度直接决定项目生死；一旦 Codex 原生覆盖同一体验，需求将被上游吸收。</li>
+<li><strong>竞争属于「正面硬碰」级别</strong>：面对 Cursor、Claude Code、Codex 以及 Cline/Aider 等开源替代，CoS 必须持续在「零额外订阅成本 + 本地优先 + 多智能体 Worker 上下文续接 + Skills 可插拔」上维持差异化体验，否则用户流失成本极低。</li>
+<li><strong>场景广度足够支撑向相邻市场扩散</strong>：MCP 标准接口 + 三平台安装包 + MIT 协议，使其有能力从「编码助手」横向延展到数据/运维/桌面自动化，是估值上的加分项。</li>
+<li><strong>限制与风险</strong>：安装与配置门槛高（未签名/未公证包、手动加载扩展、隧道配置）、工程稳定性仍在修补期（多份 bug-audit 与隐私事件复盘文档）、且无任何付费机制，商业化路径尚未启动。</li>
+<li><strong>数据置信度声明</strong>：D1.1 的 TAM 判断基于项目类型与行业类别的量级估算，<strong>无外部市场数据验证，置信度低</strong>；D1.2/D1.3 依赖 README 与仓库可见的工程事实；D1.3 的「竞争密度」判断基于公开可辨识的同类产品集合，未做系统性竞品量化。</li>
+</ul>
+<h1>D2. 技术成熟度与产品质量评估</h1>
+<blockquote>
+<p>项目：<code>totec448-spec/chat-on-steroids</code>（Cross-platform local MCP capabilities for ChatGPT，TypeScript / Electron + Chrome Extension）
+版本：v2.1.12 ｜ License: MIT ｜ 代码总量：178,582 行 / 373 个源码文件</p>
+</blockquote>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D2.1</td>
+<td>产品设计与创新性</td>
+<td>1.5</td>
+<td><strong>1.5</strong></td>
+<td>9–10（100%）</td>
+</tr>
+<tr>
+<td>D2.2</td>
+<td>架构设计与工程质量</td>
+<td>2</td>
+<td><strong>1.6</strong></td>
+<td>7–8（80%）</td>
+</tr>
+<tr>
+<td>D2.3</td>
+<td>代码整洁性与规范性</td>
+<td>1</td>
+<td><strong>0.8</strong></td>
+<td>7–8（80%）</td>
+</tr>
+<tr>
+<td>D2.4</td>
+<td>安全性</td>
+<td>1</td>
+<td><strong>1.0</strong></td>
+<td>9–10（100%）</td>
+</tr>
+<tr>
+<td>D2.5</td>
+<td>UI/UX/UE 人机交互</td>
+<td>1</td>
+<td><strong>0.8</strong></td>
+<td>7–8（80%）</td>
+</tr>
+<tr>
+<td>D2.6</td>
+<td>功能完备度与稳定性</td>
+<td>1.5</td>
+<td><strong>1.2</strong></td>
+<td>7–8（80%）</td>
+</tr>
+<tr>
+<td>D2.7</td>
+<td>文档与开发者体验</td>
+<td>1</td>
+<td><strong>1.0</strong></td>
+<td>9–10（100%）</td>
+</tr>
+<tr>
+<td>D2.8</td>
+<td>测试与质量保障</td>
+<td>1</td>
+<td><strong>1.0</strong></td>
+<td>9–10（100%）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td><strong>8.9</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>D2.1 产品设计与创新性（1.5 / 1.5）</h3>
+<p><strong>产品理念清晰且创新显著。</strong> 项目将「让 ChatGPT 具备本地 MCP 能力」这一命题拆解为三条清晰的技术路径，且每一环都有独到设计：</p>
+<ul>
+<li><strong>Chrome 集成路径</strong>：通过 <code>extension/fiber.js</code> 在页面 MAIN world 读取 React Fiber，跨过 DOM 遮蔽提取「被折叠的工具调用行、账户评估的模型选择、已安装连接器的工具声明」，并以<strong>白名单</strong>方式回传隔离世界 —— 这是对「无法从 DOM 稳定读取的信息」的巧妙绕行，明显区别于同类「DOM 抓取」方案的脆弱性。</li>
+<li><strong>Goal/Loop 第二模型循环</strong>：<code>src/main/goal.ts</code> 引入独立 LLM（OpenRouter / 自定义）在一轮结束后判定请求是否真正完成，并生成下一条用户消息草稿，属<strong>模式创新</strong>而非功能堆砌。</li>
+<li><strong>Compact &amp; Resume</strong>：将「会话从一个 ChatGPT 聊天迁移到另一个聊天」做成<strong>一次性事务</strong>（<code>continuation.ts</code> 的两阶段提交），解决了语境搬迁的身份/工作区/swarm 绑定原子性问题。</li>
+<li><strong>Durable multi-agent workflows</strong>：prime 拥有 worker 家族，带崩溃一致性持久化与恢复。</li>
+</ul>
+<p>功能围绕「本地优先（local-first）+ 跨平台 + 多智能体」核心场景展开，信息架构（Core / Desktop / Plugins 三连接器 + 隧道）取舍得当，无冗余堆砌。差异化明确：目前少见把「ChatGPT 页面观察 → MCP 工具执行 → 目标闭环」打通为端到端工作流的开源实现。</p>
+<p><strong>结论：9–10 档（1.5 分）。</strong></p>
+<hr />
+<h3>D2.2 架构设计与工程质量（1.6 / 2）</h3>
+<p><strong>架构整体优秀，但存在显著的大文件（巨型模块）技术债。</strong></p>
+<p><strong>优点：</strong>
+- 分层清晰：<code>src/main</code>（主进程）/ <code>src/preload</code>（受限 IPC 接口）/ <code>src/renderer</code>（UI）/ <code>src/shared</code>（共享类型与纯函数）/ <code>extension</code>（MV3）/ <code>native</code>（macOS Swift 辅助程序）职责分明，符合 Electron 设计范式。
+- 抽象层次恰当且丰富：命令模式（<code>CommandSpec</code>）、状态机（AgentState / ContinuationState / CommandPhase）、两阶段提交 + WAL（<code>durable.ts</code>/<code>continuation.ts</code>）、事务暂存（<code>activeSpawnStages</code>）、代际令牌防过期回调（<code>connectionGeneration</code>、<code>helperReplyGeneration</code>）、依赖注入（<code>configureInputDelivery</code>、<code>SurfaceRegistrar</code>）、单飞锁（<code>capture</code>/<code>commitLocks</code>）。
+- 高内聚低耦合处理到位：<code>sandbox.ts</code> 作为文件系统唯一入口守卫；<code>chatgpt-dom.js</code> 作为唯一 DOM 适配层；<code>kernel.ts</code> 抽出与连接器无关的公共机制；<code>shared/*</code> 被主进程/渲染进程/扩展三方复用。
+- <strong>复刻难度高，技术护城河强</strong>：涉及 React Fiber 私有结构读取、<code>timingSafeEqual</code> 常量时间鉴权、loopback 桥接协议（<code>BRIDGE_PROTOCOL=13</code>）、崩溃一致的会话存储（JSONL 撕裂尾行封口 <code>sealTornTail</code>）、跨平台 computer-use（Windows <code>SendInput</code> + UIA / macOS CGWindowList + Accessibility API）、Rust <code>unified_exec</code> 的忠实移植（含 tokio <code>Notify</code>/<code>Mutex</code> 复刻）。领域知识门槛与工程积累量远超普通项目。
+- 目录/命名规范一致；代码量（178k 行）与功能复杂度基本匹配。</p>
+<p><strong>扣分项：</strong>
+- <strong>巨型模块</strong>：<code>extension/content.js</code> 超 10,000 行；<code>src/main/bridge.ts</code> 超 7,500 行（路由 + 命令生命周期 + 持久化 + 浏览器唤醒 + goal + continuation 混合）；<code>agents.ts</code> &gt;3,400 行、<code>renderer/chat.ts</code> &gt;3,000 行、<code>goal.ts</code>/<code>recorder.ts</code>/<code>computer/index.ts</code> 均约 2,000+ 行。职责过载，阅读与维护成本高，属明确的架构层技术债。
+- 大量 <code>try/catch</code> 静默吞异常，调试路径不透明。</p>
+<p><strong>结论：7–8 档（1.6 分）。</strong> 架构设计水平与复刻壁垒属高端，但被巨型单体文件拉低一档。</p>
+<hr />
+<h3>D2.3 代码整洁性与规范性（0.8 / 1）</h3>
+<p><strong>整体整洁度良好，注释质量突出，但存在局部重复。</strong></p>
+<ul>
+<li><strong>注释质量极高</strong>：几乎每个常量都注明了历史成因与实测依据（如 <code>TURN_SETTLE_MS</code> 的 400ms–2.7s 实测窗口、<code>assertReady</code> 的历史教训、<code>RETRY_PERIOD_MIN=0.5</code> 的 Chrome 下限陷阱）。这对长期维护是稀缺优势。</li>
+<li><strong>命名规范统一</strong>：<code>MAX_*</code>/<code>TTL</code>/<code>*_MS</code> 常量集中，函数粒度总体较小（如 <code>chatgpt-dom.js</code>、<code>fiber.js</code> 职责单一）。</li>
+<li><strong>风格约束</strong>：TypeScript 严格类型，使用 <code>zod</code> 做运行时校验，<code>vitest</code> + lint 工具链齐备。</li>
+<li><strong>扣分项</strong>：</li>
+<li>局部重复/拼接痕迹：<code>src/shared/types.ts</code> 中 <code>isNewer</code>、<code>MacOSDesktopAccessStatus</code>、<code>AppState</code> 在省略区前后重复出现，疑似复制痕迹。</li>
+<li>冗长重复的逐字段三方合并逻辑（<code>mergeSettings</code>）易漏字段。</li>
+<li>大量 <code>try/catch</code> 吞异常降低可读性与可观测性。</li>
+</ul>
+<p><strong>结论：7–8 档（0.8 分）。</strong></p>
+<hr />
+<h3>D2.4 安全性（1.0 / 1.0）</h3>
+<p><strong>安全编码实践完善，是本维度最强项，无高危漏洞迹象。</strong></p>
+<ul>
+<li><strong>无硬编码密钥</strong>：API key 仅存于主进程，通过 Electron <code>safeStorage</code>（DPAPI/Keychain）加密；扩展仅收到 reply 而非 key；<code>AppState</code> 只暴露 <code>hasApiKey</code> 布尔。</li>
+<li><strong>注入防护</strong>：<code>exec.ts</code> 使用 PowerShell <code>-EncodedCommand</code> + <code>shell:false</code> 避免命令注入；<code>search.ts</code> 中 <code>shell:false</code> + <code>--</code> 分隔 + glob 元字符转义；<code>apply-patch</code>、<code>session-tool</code> 全部经 <code>zod .strict()</code> 与 <code>superRefine</code> 交叉校验。</li>
+<li><strong>路径沙箱</strong>：<code>sandbox.ts</code> 拒绝 <code>..</code>、null 字节、控制字符、Windows 保留设备名、ADS 冒号、UNC；realpath 后二次 containment 检查（击败 junction/符号链接）；<code>skills.ts</code> 用 <code>lstat</code> + 文件身份比对防 TOCTOU。</li>
+<li><strong>传输安全</strong>：bridge 仅绑定 <code>127.0.0.1</code>（拒绝 <code>0.0.0.0</code>），除 <code>/hello</code>、<code>/pair</code> 外全部需 bearer token 且用 <code>timingSafeEqual</code> 常量时间比较，校验 Origin 为 <code>chrome-extension://</code>，请求体上限 2MB + 速率限制 900/min。</li>
+<li><strong>进程隔离</strong>：Electron <code>sandbox:true</code>、<code>contextIsolation:true</code>、<code>nodeIntegration:false</code>、严格 CSP（<code>default-src 'none'</code>）、拒绝所有权限请求与窗口打开。</li>
+<li><strong>其它</strong>：存在 <code>SECURITY.md</code>；CI 内嵌 <code>verify-public-history.mjs</code> 隐私校验；<code>redaction.ts</code> 递归脱敏；插件凭据键名正则校验、响应体限 16MiB。</li>
+<li>未见到显式 Dependabot/Snyk 配置文件（CI 有依赖与版本一致性门禁），但依赖更新通过 <code>verify:tunnel-current</code> 等钉扎机制管理。</li>
+</ul>
+<p><strong>结论：9–10 档（1.0 分）。</strong></p>
+<hr />
+<h3>D2.5 UI/UX/UE 人机交互（0.8 / 1）</h3>
+<p><strong>本项目含用户界面（Electron 桌面端 + Chrome 扩展），D2.5 适用。</strong></p>
+<ul>
+<li><strong>界面构成</strong>：<code>renderer/main.ts</code>（权限分组 + 设置面板 + Tab 切换）、<code>renderer/chat.ts</code>（会话列表、工具调用流、composer、Agent 面板、历史分页）、<code>renderer/plugins.ts</code>、<code>usage.js</code>、<code>setup-guide.js</code>、<code>extension/overlay.css</code>（页面内覆盖式活动流），并有 <code>docs/images/</code> 截图。</li>
+<li><strong>交互设计合理</strong>：分页/增量加载、草稿按 <code>draftKey</code> 隔离、脏字段保护、三方合并解决并发写、错误提示（<code>friendlyError</code> 做脱敏且友好）、权限行按 read/write/desktop/run 分组。</li>
+<li><strong>一致性</strong>：<code>i18n.js</code> 模块化文案，<code>dom.js</code> 统一 DOM 工具，<code>toast</code>/对话框统一。</li>
+<li><strong>无障碍</strong>：<code>chatgpt-dom.js</code> 中 <code>displayed</code> 区分可见横幅与屏幕阅读器 live region，说明考虑过 SR 场景，但未见系统性 WCAG/键盘导航说明。</li>
+<li><strong>扣分项</strong>：<code>chat.ts</code> 单文件 &gt;3,000 行、<code>init()</code> 事件绑定密集、<code>sessionBadges</code> 分支繁多，UI 逻辑与状态管理混杂，暗示界面复杂度管控一般。</li>
+</ul>
+<p><strong>结论：7–8 档（0.8 分）。</strong></p>
+<hr />
+<h3>D2.6 功能完备度与稳定性（1.2 / 1.5）</h3>
+<p><strong>功能高度完备，版本成熟，但迭代极快，稳定性存在客观风险。</strong></p>
+<ul>
+<li><strong>功能覆盖完整</strong>：MCP Core/Desktop/Plugins 三连接器、Chrome 集成、Goal/Loop、Compact &amp; Resume、多智能体 swarm、跨平台 computer-use、插件系统（含 OAuth）、隧道（OpenAI Secure Tunnel + cloudflared）。</li>
+<li><strong>版本成熟度</strong>：已达 <strong>v2.1.12</strong>，且近一个月内连发 10 个 release（v2.0.2 → v2.1.12），说明维护活跃；CHANGELOG 与逐版本 release notes 齐全。</li>
+<li><strong>运行环境通用</strong>：Node 22 + Electron，无特殊硬件依赖（无 GPU/TPU 要求），Windows/macOS/Linux × x64/arm64 六平台产物齐备（含 AppImage/deb/dmg/exe）。</li>
+<li><strong>国际化</strong>：存在 <code>renderer/i18n.js</code> 模块，具备 l10n 框架基础。</li>
+<li><strong>向后兼容/稳定性风险（扣分主因）</strong>：</li>
+<li>3 周内 10 次发版、命名如 <code>model-picker-hotfix</code>、<code>recovery-usage</code>、<code>setup-and-recovery-refinement</code>，反映<strong>快速迭代伴随修复型补丁密集</strong>；</li>
+<li><strong>69 个开放 Issue</strong>，<code>docs/</code> 中多份 <code>bug-audit-*</code>、<code>bughunt-*</code>、<code>tool-error-rate-*</code> 报告（含公开历史隐私事故文档），说明仍存在一定缺陷密度；</li>
+<li>v1→v2 含大量迁移函数（<code>migrateCapabilities</code>、<code>recalibrateTokens</code> 等），暗示历史 breaking change。</li>
+<li><strong>性能</strong>：全链路有界预算设计（读取/输出/日志/队列上限、token 估算、<code>boundResult</code> 超限抛错），未见明显性能瓶颈，但 <code>sweep</code> 每次查询全量遍历等存在潜在热点。</li>
+</ul>
+<p><strong>结论：7–8 档（1.2 分）。</strong> 功能与平台覆盖达成熟产品水准，但缺陷密度与激进迭代使其未达「稳定卓越」。</p>
+<hr />
+<h3>D2.7 文档与开发者体验（1.0 / 1.0）</h3>
+<p><strong>文档体系极其完善，属行业标杆水平。</strong></p>
+<ul>
+<li><strong>覆盖全面（45 个文档文件）</strong>：<code>README.md</code>、<code>docs/setup.md</code>、<code>docs/skills.md</code>、<code>docs/plugins.md</code>、<code>docs/tool-surface.md</code>、<code>docs/computer-use-overhaul-plan/implementation.md</code>、<code>docs/chatgpt-turn-signals.md</code>、<code>docs/codex-desktop-bridge.md</code>，以及 <code>docs/release-notes/v2.0.0</code>–<code>v2.1.13</code> <strong>逐版本发布说明</strong>。</li>
+<li><strong>工程治理文档</strong>：<code>CHANGELOG.md</code>、<code>CONTRIBUTING.md</code>、<code>CONTRIBUTORS.md</code>、<code>SECURITY.md</code>、<code>AGENTS.md</code>、<code>CLAUDE.md</code>、<code>.github/pull_request_template.md</code>、<code>docs/licenses/*</code>（含 native/plugins/license 审计）。</li>
+<li><strong>文档与版本同步</strong>：<code>publish.yml</code> 强制校验 CHANGELOG 顶部条目、<code>docs/release-notes/v{version}.md</code> 与 <code>package.json</code>/<code>lock</code>/<code>manifest.json</code>/<code>version.ts</code> 版本一致，否则拒绝发版 —— 从流程上杜绝过时文档。</li>
+<li><strong>质量高</strong>：含架构说明、失败模式解释、恢复流程文档，非流水账式 README。</li>
+</ul>
+<p><strong>结论：9–10 档（1.0 分）。</strong></p>
+<hr />
+<h3>D2.8 测试与质量保障（1.0 / 1.0）</h3>
+<p><strong>测试与质量门禁同属顶级水准。</strong></p>
+<ul>
+<li><strong>测试体量惊人</strong>：183 个测试文件 / 88,084 行，<code>test_ratio = 0.495</code>（测试代码几近源码一半），包含真实插件 live 测试（<code>plugins-live-proxy</code>、<code>plugins-python-live</code>、<code>plugins-catalog-live</code>）。</li>
+<li><strong>CI/CD 完善（3 个 workflow）</strong>：</li>
+<li><code>ci.yml</code>：Windows/macOS/Linux 三平台矩阵 <code>npm run verify:ci</code> + 真实插件运行；</li>
+<li><code>release.yml</code>：六平台原生打包 + <strong>打包产物冒烟测试</strong>（<code>smoke-packaged-runtime</code>、macOS bundle 审计、DMG/ZIP 结构验证、DEB 安装与 Xvfb GUI 启动、AppImage 正常/强制 no-sandbox 双路径冒烟）+ SHA256 校验；</li>
+<li><code>publish.yml</code>：preflight（tag/版本一致性/发布说明/隐私校验/隧道 pin）→ candidate → publish，<strong>发布前二次校验 checksum</strong>。</li>
+<li><strong>多层质量门禁</strong>：版本一致性门禁、<code>verify:tunnel-current</code> 钉扎、<code>verify-public-history</code> 隐私校验、<code>refuse existing release</code> 竞态关闭、CI action 全部 SHA 钉扎。</li>
+</ul>
+<p><strong>结论：9–10 档（1.0 分）。</strong></p>
+<hr />
+<h3>维度结论</h3>
+<p><code>chat-on-steroids</code> 在 D2 维度表现<strong>优秀（8.9 / 10）</strong>，处于「良好」上沿并向「卓越」靠拢。其突出优势在于：<strong>安全编码（1.0 满分）</strong>、<strong>文档体系（1.0 满分）</strong>、<strong>测试与质量保障（1.0 满分）</strong> 三项均达行业标杆；产品创新性与复刻壁垒（React Fiber 桥接、第二模型循环、Compact &amp; Resume 事务、跨平台 computer-use）构成真实商业护城河。</p>
+<p>主要短板集中在<strong>架构层面的巨型单体文件</strong>（<code>content.js</code> &gt;10k 行、<code>bridge.ts</code> &gt;7.5k 行）与<strong>快速迭代下的缺陷密度</strong>（69 开放 Issue + 密集 bug-audit 文档），这使其在可维护性与稳定性上未能拿到满分档。总体而言，工程成熟度足以支撑商业化交付，建议后续优先进行大文件模块化拆分与缺陷密度收敛。</p>
+<h3>D3. 社区健康度与生态势能</h3>
+<blockquote>
+<p><strong>数据说明</strong>: 项目创建于 2026-08-22，最近推送 2026-09-14，<strong>存活仅约 23 天（≈0.77 个月）</strong>。因此"近 90 天"窗口实为"项目全生命周期"，所有 90 天口径指标均等于全量指标；Star 月增采用退化公式（Star 数 ÷ 项目年龄月数）。<strong>注意：退化公式"高估老项目早期红利"的缺陷在本项目不成立</strong>——项目仅 0.77 个月，该公式在此近似等于真实月增速，可直接采信。</p>
+</blockquote>
+<h3>D3.1 社区活跃度指标（满分 3 分，实得 2.4 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Star 增速</td>
+<td>2,596 Star ÷ 0.77 月 ≈ <strong>3,371 Star/月</strong>（118 PR/23 天同步佐证）</td>
+<td>远超 &gt;500/月 阈值，属 9–10 档</td>
+</tr>
+<tr>
+<td>Fork 比率</td>
+<td>339 / 2,596 = <strong>13.1%</strong></td>
+<td>显著高于工具类项目常见 5–10%，衍生意愿强</td>
+</tr>
+<tr>
+<td>Issue 活跃度</td>
+<td>近 90 天新建 PR <strong>118</strong> 个、关闭 Issue <strong>76</strong> 个（23 天内）</td>
+<td>日均 &gt;5 个 PR、&gt;3 个 Issue 关闭，社区参与度极高</td>
+</tr>
+<tr>
+<td>响应速度</td>
+<td>无平均关闭时长直接数据；但 10 次发版集中在 23 天内（最新 v2.1.12 与末次推送同日），Issue 流转速度快</td>
+<td>间接推断 &lt;7 天，未达可验证的 &lt;2 天</td>
+</tr>
+</tbody>
+</table>
+<p><strong>打分</strong>: 3 × 80% = <strong>2.4</strong>
+<strong>依据</strong>: Star 增速、Fork 比率、Issue/PR 活跃度三项均处于 9–10 档，但存在两点保留：(1) Issue 平均关闭时长缺失，无法确认是否达 &lt;2 天档位；(2) 开放 Issue 69 个、占累计约 145 个 Issue 的 47%，绝对积压量偏大，说明工单流入速度超过消化速度。综合判为 7–8 档（80%），而非顶格。</p>
+<h3>D3.2 贡献者结构多样性（满分 2.5 分，实得 1.5 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>贡献者数量</td>
+<td><strong>7 人</strong>（GitHub API contributors）</td>
+<td>落入 5–20 区间下沿，对应 5–6 档</td>
+</tr>
+<tr>
+<td>组织多样性</td>
+<td>仓库归属个人账号 <code>totec448-spec</code>，无 CODEOWNERS，无组织级背书痕迹</td>
+<td>推断主要来自 1–2 个组织/个人</td>
+</tr>
+<tr>
+<td>核心团队占比</td>
+<td>无 PR 作者细分数据；118 PR / 7 人 ≈ 人均 16.9 PR，产能高度集中</td>
+<td>外部贡献占比存疑</td>
+</tr>
+</tbody>
+</table>
+<p><strong>打分</strong>: 2.5 × 60% = <strong>1.5</strong>
+<strong>依据</strong>: 按评分指引，"5–20 贡献者、主要来自 1–2 个组织"明确对应 5–6 档。项目虽在 23 天内产生 118 个 PR，活跃度极高，但贡献者基数仅 7 人，人均产能异常高，提示核心小团队驱动为主，尚未形成分布式社区结构。（核心成员离开后的传承风险不在本项计分，归 D8.1 巴士因子。）</p>
+<h3>D3.3 第三方生态成熟度（满分 3 分，实得 1.2 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>插件/扩展</td>
+<td>仓库内有 <code>docs/plugins.md</code>、<code>docs/plugin-licenses.md</code>、Skills 导入机制（<code>+ → Skills</code>）</td>
+<td>存在<strong>第一方插件框架</strong>，但无外部作者产出的插件市场证据</td>
+</tr>
+<tr>
+<td>集成生态</td>
+<td>自身作为 MCP 客户端接入 ChatGPT Developer mode + Chrome 扩展（<code>@modelcontextprotocol/*</code> 依赖），可消费第三方 MCP Server</td>
+<td>属"接入他人生态"，非"被主流平台集成"，方向相反</td>
+</tr>
+<tr>
+<td>衍生项目</td>
+<td>未发现基于本项目的二次开发项目或商业衍生品</td>
+<td>无</td>
+</tr>
+<tr>
+<td>教程/课程</td>
+<td>未发现外部教程、课程、博客；文档 45 份全部为仓库内自述</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<p><strong>打分</strong>: 3 × 40% = <strong>1.2</strong>
+<strong>依据</strong>: 项目具备可扩展的插件/Skills 接口，且天然处于 MCP 这一庞大生态的消费端，这为未来生态势能留出空间；但<strong>目前没有证据表明存在围绕本项目的外部插件、衍生项目或教学内容</strong>。按指引"几乎无第三方生态"对应 3–4 档（40%）。若后续出现第三方插件目录或集成案例，该项具备上修至 60% 的空间。</p>
+<h3>D3.4 品牌认知与行业影响力（满分 1.5 分，实得 0.9 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>品牌辨识度</td>
+<td>23 天获 2,596 Star，"Chat On Steroids"在 ChatGPT 本地化/MCP 工具圈形成一定声量</td>
+<td>垂直圈层内可识别</td>
+</tr>
+<tr>
+<td>行业采用</td>
+<td>README 未列出任何具名企业用户或案例背书；仅有自建 X 账号（@dummerspast39）做缺陷支持</td>
+<td>无企业级背书</td>
+</tr>
+<tr>
+<td>媒体覆盖</td>
+<td>无技术媒体/会议出席的可见证据</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<p><strong>打分</strong>: 1.5 × 60% = <strong>0.9</strong>
+<strong>依据</strong>: 3 周内近 2,600 Star 说明项目在小众开发者圈子中已建立认知度，符合"小圈子内有认知度"的 5–6 档；但缺乏知名企业采用、案例展示与媒体曝光，不足以进入 7–8 档。另需注意 README 声明"Not affiliated with or endorsed by OpenAI"，品牌本身依附于 ChatGPT 生态，独立品牌资产较弱。</p>
+<h3>维度小结</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D3.1 社区活跃度</td>
+<td>3.0</td>
+<td>2.4</td>
+<td>7–8（80%）</td>
+</tr>
+<tr>
+<td>D3.2 贡献者结构多样性</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6（60%）</td>
+</tr>
+<tr>
+<td>D3.3 第三方生态成熟度</td>
+<td>3.0</td>
+<td>1.2</td>
+<td>3–4（40%）</td>
+</tr>
+<tr>
+<td>D3.4 品牌认知与行业影响力</td>
+<td>1.5</td>
+<td>0.9</td>
+<td>5–6（60%）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>6.0</strong></td>
+<td><strong>6.0 / 10</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>: 该项目呈现典型的"<strong>高热度、浅生态、单核驱动</strong>"早期开源项目形态。需求侧验证强烈——0.77 个月内 2,596 Star、13.1% Fork 比率、118 个 PR，说明"把 ChatGPT 变成本地编码代理"这一痛点真实且受众明确，社区的<strong>潜在客户池已具雏形</strong>。但生态侧几乎空白：7 名贡献者、无第三方插件、无衍生项目、无企业背书，商业化的杠杆目前完全依赖核心团队自身产能。对商业化而言，D3 得 6.0 属于"达到平均、有改进空间"——<strong>社区提供了可转化的早期用户基数与需求证据，但尚不构成可持续的分发渠道或生态护城河</strong>；此外项目仅 23 天，Star 增速中可能包含发布期热度红利，需在后续 3–6 个月复测以确认留存与增速的可持续性（置信度中等）。</p>
+<h1>D4. 商业模式与变现潜力（权重 18%）</h1>
+<blockquote>
+<p>本维度权重最高（18%），核心判断目标是「能不能赚钱」。本项目为 MIT 许可的跨平台 Electron 桌面应用 + Chrome 扩展，通过本地 MCP 能力把 ChatGPT 变成「Codex 式」本地编码代理，具备多智能体 Worker、Goal/Loop、Compact &amp; Resume、Skills/Plugins 体系。评估重点在于：它是否有可落地、可持续并具备付费触发点的商业路径。</p>
+</blockquote>
+<h3>D4.1 协议对变现模式的影响（满分 2 分）</h3>
+<p><strong>实测依据</strong>：仓库根目录 <code>LICENSE</code> 为 <strong>MIT License</strong>（Copyright (c) 2026 Chat On Steroids contributors），<code>package.json</code> 未声明额外限制性条款；<code>docs/licenses/</code> 下另有 Apache-2.0（源自 OpenAI Codex 的第三方归属）与原生/插件许可清单，均为上游依赖的合规声明，不影响主项目授权。</p>
+<table>
+<thead>
+<tr>
+<th>评估项</th>
+<th>实测结果</th>
+<th>对变现的影响</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>主协议</td>
+<td>MIT</td>
+<td>无任何约束</td>
+</tr>
+<tr>
+<td>传染性</td>
+<td>无</td>
+<td>允许闭源衍生、SaaS 托管、Open Core、双协议、再授权</td>
+</tr>
+<tr>
+<td>附加限制</td>
+<td>无 SSPL/BUSL/Commons Clause</td>
+<td>无云服务竞争限制</td>
+</tr>
+<tr>
+<td>合规声明</td>
+<td><code>docs/licenses/*</code>、<code>docs/plugin-licenses.md</code>、<code>docs/plugin-notice-audit.md</code> 完备</td>
+<td>上下游许可边界清晰，便于商业分发</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断</strong>：MIT 是变现自由度最高的协议档位——Open Core（核心开源 + 企业功能闭源）、SaaS 托管、双协议授权、专业服务、商业再授权全部合法可行，无需担心 GPL/AGPL 的传染或 SSPL 的云服务限制。唯一需注意的反向风险（不属本细则，但影响 D4.5 之外的商业叙事）：MIT 允许第三方直接闭源 fork 并商业化，护城河完全依赖执行速度与生态而非许可壁垒。</p>
+<p><strong>小分：2.0 / 2（100%，9–10 档）</strong></p>
+<h3>D4.2 变现路径清晰度（满分 3.5 分）</h3>
+<p>逐一对照七类开源商业化模式的适配度：</p>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>适配性</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Open Core</strong></td>
+<td>★★★☆ 潜在主路径</td>
+<td>已具备清晰的功能分层素材：本地 MCP Core、多智能体 Worker、Goal/Loop、Skills/Plugins。企业级可切分面明确（策略管控、审计日志、SSO、共享技能库、Worker 配额），但<strong>当前全部功能免费开放，无任何闭源企业模块</strong>**</td>
+</tr>
+<tr>
+<td><strong>SaaS 托管</strong></td>
+<td>★★☆ 结构受限</td>
+<td>产品是 local-first 桌面程序（Electron + Chrome 扩展），本地执行 shell/文件/桌面，无可搬上云的"核心算力"；唯一可服务化的是 <code>docs/setup.md#tunnel-setup</code> 的 <strong>Core 隧道中继</strong>（可做付费托管中继/团队同步），但目前自托管</td>
+</tr>
+<tr>
+<td><strong>双协议许可</strong></td>
+<td>★★☆ 可行但无先例支撑</td>
+<td>MIT 下可追加商业授权，但需先有企业客户主动索取闭源衍生权利，属被动路径</td>
+</tr>
+<tr>
+<td><strong>专业服务</strong></td>
+<td>★★☆ 有限</td>
+<td>多平台安装、未签名/未公证二进制、Linux keyring 依赖、企业安全评审——部署复杂度确实能催生定制集成/支持服务，但难以规模化</td>
+</tr>
+<tr>
+<td><strong>市场/插件</strong></td>
+<td>★★★ 潜在路径</td>
+<td><code>docs/plugins.md</code>、<code>docs/skills.md</code> 显示已有 Skill/Plugin 导入体系（"+ → Skills"、"/" 触发），具备做技能市场抽成或官方认证插件的雏形，但无商业框架</td>
+</tr>
+<tr>
+<td><strong>认证/生态</strong></td>
+<td>★ 不适用</td>
+<td>无认证体系、无合作伙伴计划</td>
+</tr>
+<tr>
+<td><strong>捐赠/赞助</strong></td>
+<td>★★ 兜底</td>
+<td>有 <code>CONTRIBUTORS.md</code> 社区贡献者名单、署名支持者（README 顶部 X 账号），但无 Sponsor 链接、无 Open Collective</td>
+</tr>
+</tbody>
+</table>
+<p><strong>关键负面因子（拉低清晰度）</strong>：</p>
+<ol>
+<li><strong>定位天然抗付费</strong>。README 明确宣传「Uses your ChatGPT conversation rather than invoking Codex directly」并链接 OpenAI 定价页，实质卖点是<strong>"用你已有的 ChatGPT 订阅省钱"</strong>——目标用户是对 agent 工具成本敏感的人群，向省钱人群二次收费逻辑相悖。</li>
+<li><strong>强平台依附</strong>。功能完全依赖 ChatGPT Developer mode + custom MCP apps，README 显式声明「Not affiliated with or endorsed by OpenAI」，且提示「ChatGPT Work and Codex share usage limits」。变现通道的开关握在第三方手里（OpenAI 可原生吸收本地能力或收紧 MCP 政策），任何商业化都建在不可控地基上。</li>
+<li><strong>零商业化信号</strong>。2596 stars / 339 forks / 7 contributors 的体量下，无定价页、无企业版说明、无云服务、无商业实体信息、无 Sponsor 入口；<code>has_dockerfile=false</code>，无托管部署形态。</li>
+<li><strong>项目极早期</strong>。创建于 2026-08-22，分析时仅约 3 周历史（10 个大版本迭代，开发极快），尚不足以验证任何付费假设。</li>
+</ol>
+<p><strong>判断</strong>：MIT 解锁了所有路径，但项目自身的<strong>定位（省钱工具）+ 架构（local-first 无服务可卖）+ 平台依附（OpenAI 可收回）+ 零商业动作</strong>四重叠加，使路径停留在"可设想"而非"清晰可行"。存在 2 条有素材支撑的候选路径（企业级 Open Core 治理层、Core 中继/技能市场的托管与抽成），但均未验证，需要大量探索。落在「有潜在路径但尚不清晰，需验证」档位。</p>
+<p><strong>小分：2.1 / 3.5（60%，5–6 档）</strong></p>
+<h3>D4.3 付费转化逻辑（满分 2.5 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测分析</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>免费到付费触发点</strong></td>
+<td><strong>不存在</strong>。全功能免费，无 license key、无席位限制、无功能开关；MIT 允许任意 fork，用户可自行构建绕过任何未来限制。可设想的触发点（Worker 并发数上限、企业策略/审计、团队技能库、托管中继 SLA）<strong>当前全部默认开放</strong>（README：「Fresh installs enable Core capabilities and two workers」，这是产品默认值而非付费墙）</td>
+</tr>
+<tr>
+<td><strong>付费意愿强度</strong></td>
+<td>偏弱且存在"双重付费"阻力：用户必须先持有 ChatGPT 付费订阅 + Developer mode 权限（README 链接 OpenAI 帮助中心核验账号资格），再为"桥接层"付第二笔费用，心理账户上属于可被免费替代的外围工具</td>
+</tr>
+<tr>
+<td><strong>转化漏斗</strong></td>
+<td>下载安装 → 授权项目目录 → 连 Core → 装扩展 → 发送任务。漏斗本身顺滑（一键安装包 + 自动配对），但<strong>漏斗终点是"继续免费使用"</strong>，没有任何付费节点；且漏斗上游（OpenAI 账号资格）完全不由项目掌控</td>
+</tr>
+<tr>
+<td><strong>竞品定价参照</strong></td>
+<td>同类本地 agent 工具（Cline/Roo Code 等扩展）以免费 + 自带 API Key 或企业版为主要形态，免费版功能覆盖度高，付费转化普遍困难；本项目进一步把"复用订阅额度"作为卖点，付费替代方案（直接买 API 额度）反而更"正当"</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断</strong>：有理论上的升级逻辑（个人 → 团队 → 企业治理），但触发点极不自然——用户在当前完全免费的 MIT 产品上找不到任何"不得不用付费版"的场景，理性选择永远是继续用免费版或自行 fork。付费逻辑勉强。</p>
+<p><strong>小分：1.0 / 2.5（40%，3–4 档）</strong></p>
+<h3>D4.4 增值服务空间与定价天花板（满分 2 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测分析</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>增值空间</strong></td>
+<td>存在但偏窄。可叠加方向：① 企业级<strong>策略与审计</strong>（谁在什么目录跑了什么 shell/桌面操作，<code>docs/bug-audit-*</code>、<code>docs/tool-error-rate-*</code>、<code>docs/usage-model-attribution.md</code> 显示已有可观测性素材）；② <strong>托管 Core 中继/团队同步</strong>（<code>tunnel-setup</code> 已存在架构锚点）；③ <strong>共享技能/插件库</strong>（<code>docs/plugins.md</code>、<code>docs/skills.md</code>）；④ 安全加固与合规包（该产品运行 shell 并具备桌面权限，安全诉求真实）。但以上均<strong>未实现</strong>，属纸面空间</td>
+</tr>
+<tr>
+<td><strong>定价天花板约束</strong></td>
+<td>三重压制：① 单人桌面工具，prosumer 区间惯常 $5–20/月（$60–240/年）；② 企业采购需过安全评审，而 README 自陈「<strong>Unsigned beta</strong>：Windows 未签名，macOS 未签名且未公证，需自行校验 checksum」，加上「Shell commands run with your normal user privileges」——企业安全团队对"未签名二进制 + 本地 shell + 桌面控制"的接受度是硬门槛；③ 产品价值依附于客户已有的 ChatGPT 席位预算，天花板无法独立抬高</td>
+</tr>
+<tr>
+<td><strong>收入扩展性</strong></td>
+<td>从 per-seat 向 per-usage / enterprise flat fee 扩展的杠杆有限——本地执行不产生可计量的云消耗，缺少 Supabase/Vercel 式的"用量随价值自然增长"的计费维度；企业 flat fee 需先解决上述安全与治理缺口</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断</strong>：增值方向可辨识（企业治理、托管中继、技能生态），但落地路径长、客单价受 prosumer 定位与安全审计门槛双重约束，合理预期落在 $100–1K/年/席 区间，且短期内无指数级扩展机制。</p>
+<p><strong>小分：1.2 / 2（60%，5–6 档）</strong></p>
+<h3>D4 维度小结</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>核心判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D4.1 协议对变现模式的影响</td>
+<td>2</td>
+<td><strong>2.0</strong></td>
+<td>9–10 档（100%）</td>
+<td>MIT，所有变现路径无法律障碍</td>
+</tr>
+<tr>
+<td>D4.2 变现路径清晰度</td>
+<td>3.5</td>
+<td><strong>2.1</strong></td>
+<td>5–6 档（60%）</td>
+<td>有 2 条候选路径（企业 Open Core、Core 中继/技能市场），但零商业化动作、定位抗付费、强平台依附</td>
+</tr>
+<tr>
+<td>D4.3 付费转化逻辑</td>
+<td>2.5</td>
+<td><strong>1.0</strong></td>
+<td>3–4 档（40%）</td>
+<td>全功能免费 + MIT 可 fork + local-first 无服务可卖，找不到自然付费触发点</td>
+</tr>
+<tr>
+<td>D4.4 增值服务空间与定价天花板</td>
+<td>2</td>
+<td><strong>1.2</strong></td>
+<td>5–6 档（60%）</td>
+<td>增值方向存在（治理/审计/中继/生态），但客单价 $100–1K/年且受未签名二进制与企业安全门槛压制</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>6.3</strong></td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论：D4 得分 6.3 / 10（一般，达到行业平均偏上，但商业化短板明确）。</strong></p>
+<p>本项目呈现典型的"<strong>许可极优 + 商业极空</strong>"剪刀差：
+- <strong>最强项</strong>是协议（MIT 满分 2.0），法律层面无任何变现约束，Open Core / SaaS / 双协议 / 市场抽成全部可行；
+- <strong>最弱项</strong>是付费转化（1.0 / 2.5）。产品自我定位为"让你的 ChatGPT 订阅更值"的省钱桥接层，天然对抗二次收费；同时 local-first 架构把"可托管的服务端"压缩到最小，缺少 SaaS 化的计费载体；MIT 又使任何人为设限都可被 fork 绕过。
+- <strong>最大结构性风险</strong>是完全依附于 OpenAI 的 ChatGPT Developer mode / MCP apps 表面，README 自陈与 OpenAI 无关联，OpenAI 既有动机（Codex 已具备本地能力）也有能力原生吸收该功能或收紧政策，使任何商业化的地基不可控。
+- <strong>可想象的变现解</strong>集中在企业侧：本地 agent 执行的策略管控、审计与合规包 + 托管 Core 中继 + 团队共享技能库（团队版 $100–1K/年/席 或企业 flat fee），但需先跨越"未签名/未公证二进制 + 本地 shell/桌面权限"的企业安全评审门槛，且当前项目（创建仅约 3 周、7 位贡献者）尚无任何定价页、企业版或商业实体信号。</p>
+<p><strong>商业化建议路径（若启动）</strong>：优先从「团队/企业治理层」切入（审计日志 + 目录/命令策略 + 共享技能库 + SSO），而非对个人用户设功能墙；同步把 <code>tunnel-setup</code> 的 Core 中继做成付费托管服务以创造可计量的云端计费维度；在获得明确企业需求前不宜引入限制性协议，以免损伤当前 MIT 带来的生态扩散速度（3 周 2596 stars 的增速正是该协议红利的直接体现）。</p>
+<h3>D5. 竞争格局与差异化壁垒（权重 12%）</h3>
+<p><strong>目的</strong>：评估项目在竞争中的定位、差异化优势和防御能力。</p>
+<h4>细则打分汇总</h4>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位映射</th>
+<th>一句话依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D5.1 竞品对比与市场定位</td>
+<td>3</td>
+<td>2.4</td>
+<td>80%（7–8 档）</td>
+<td>定位清晰（ChatGPT 订阅 + 本地 MCP + Chrome + 多智能体），在已验证同类项目中牵引量领先约 53 倍，但存在直接竞品</td>
+</tr>
+<tr>
+<td>D5.2 技术壁垒与网络效应</td>
+<td>3</td>
+<td>1.2</td>
+<td>40%（3–4 档）</td>
+<td>MIT 开源、本地优先、无专利/数据/中心化网络效应；护城河主要是工程量（已计入 D2.2），商业防御薄弱</td>
+</tr>
+<tr>
+<td>D5.3 切换成本与用户粘性</td>
+<td>2</td>
+<td>1.2</td>
+<td>60%（5–6 档）</td>
+<td>安装/配对/授权链路有摩擦，但用户数据（项目文件、Markdown Skills、会话）不落入本项目，迁移成本中等</td>
+</tr>
+<tr>
+<td>D5.4 护城河可持续性</td>
+<td>2</td>
+<td>0.8</td>
+<td>40%（3–4 档）</td>
+<td>护城河建立在 OpenAI 控制的平台能力（Developer Mode / MCP Apps / 订阅会话）之上，第一方 Codex 即明确颠覆者</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>5.6</strong></td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h4>D5.1 竞品对比与市场定位（3 分）→ 2.4 / 3</h4>
+<p><strong>竞品对比表</strong>（以下竞品均通过 GitHub Search API 实采验证，<code>verified: true</code>）</p>
+<table>
+<thead>
+<tr>
+<th>竞品名称</th>
+<th>类型</th>
+<th>仓库/官网</th>
+<th>验证方式</th>
+<th>Star/用户量</th>
+<th>核心差异</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1129Aliasgar/OpenBrowser</td>
+<td><strong>直接竞品</strong></td>
+<td>github.com/1129Aliasgar/OpenBrowser</td>
+<td>GitHub 搜索确认</td>
+<td>17 stars</td>
+<td>定位几乎重合：「免 API Key、复用 ChatGPT/Claude/Gemini 浏览器订阅」的本地编码 Agent，CLI + Chrome 扩展桥接</td>
+</tr>
+<tr>
+<td>ivangabriele/openai-forge-browser</td>
+<td>间接竞品</td>
+<td>github.com/ivangabriele/openai-forge-browser</td>
+<td>GitHub 搜索确认</td>
+<td>4 stars</td>
+<td>走 VS Code ↔ ChatGPT 自动化通信路径，非 Electron 桌面 + MCP 架构</td>
+</tr>
+<tr>
+<td>holdonyb/chatgpt-pro-autocontinue</td>
+<td>间接竞品（功能子集）</td>
+<td>github.com/holdonyb/chatgpt-pro-autocontinue</td>
+<td>GitHub 搜索确认</td>
+<td>0 stars</td>
+<td>仅覆盖「会话续接」单一能力，对应本项目 Compact &amp; Resume 的一个子特性</td>
+</tr>
+<tr>
+<td>wanglinsaputra/OmniPost-AI</td>
+<td>间接竞品</td>
+<td>github.com/wanglinsaputra/OmniPost-AI</td>
+<td>GitHub 搜索确认</td>
+<td>49 stars</td>
+<td>同为「ChatGPT + Chrome 扩展」，但面向社媒内容生成/发布，而非本地编码 Agent</td>
+</tr>
+<tr>
+<td>myersguo/doc-copilot</td>
+<td>间接竞品</td>
+<td>github.com/myersguo/doc-copilot</td>
+<td>GitHub 搜索确认</td>
+<td>1 star</td>
+<td>浏览器扩展文档助手，无本地终端/文件系统/多智能体能力</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>搜索验证说明</strong>：本轮竞品来自 GitHub 关键词搜索实采，共 5 个，均已确认仓库真实存在且未归档。<strong>必须声明</strong>：该搜索口径偏窄（Chrome 扩展 + ChatGPT），未覆盖更广泛的本地编码 Agent 赛道（如 OpenAI 官方 Codex CLI、Cursor、Cline、OpenHands 等知名产品）。这些产品<strong>未在本轮搜索中逐一验证</strong>，故不写入上表，仅在定性判断中作为背景考量，最终结论可能存在偏差。</p>
+</blockquote>
+<p><strong>定位清晰度</strong>：
+- README 首页标语高度聚焦——"Turn ChatGPT into Codex-style local coding. Your files. Your terminal. Your ChatGPT plan."，一句话说清了三个差异点：本地文件/终端、复用 ChatGPT 订阅（非 API Key）、桌面级集成。
+- 差异化能力栈明确：Chrome 扩展深度集成、Goal / Loop / Compact &amp; Resume（长任务续作）、durable multi-agent workers（Worker 保留上下文）、Markdown Skills 导入（<code>/</code> 触发）、跨三平台安装包（Windows <code>.exe</code> / macOS <code>.dmg</code> / Linux <code>.deb</code>）。
+- 与已验证竞品的差异是<strong>数量级级</strong>的：本项目 2,596 stars，已验证同类最高仅 49 stars（OmniPost-AI，且场景不同）；与最接近的直接竞品 OpenBrowser（17 stars）相比约 <strong>153 倍</strong>，与全部已验证竞品合计（71 stars）相比约 <strong>37 倍</strong>。</p>
+<p><strong>扣分理由</strong>：一是存在定位高度重合的直接竞品（OpenBrowser），并非「无直接竞品」；二是项目仅创建于 2026-08-22、23 天内冲到 2,596 stars，热度含营销放大成分，尚未证明长期留存；三是搜索口径外的一线竞品（Codex CLI / Cursor / Cline 等）体量与生态远超本项目，本项目在广义赛道上属挑战者而非领先者。综合落于 7–8 档，取 80%。</p>
+<hr />
+<h4>D5.2 技术壁垒与网络效应（3 分）→ 1.2 / 3</h4>
+<blockquote>
+<p>按方法论要求，本细则<strong>不复算</strong>「从零复刻的工程难度」（该事实已在 D2.2 计分），仅从商业防御效果评估专利/数据/生态/网络效应。</p>
+</blockquote>
+<p><strong>技术壁垒</strong>：
+- 专利：无。项目为 MIT License，<code>LICENSE</code> 文件本地实测确认为 MIT，代码可自由 fork、修改、商用。
+- 算法壁垒：核心依赖均为公开生态件——<code>@modelcontextprotocol/server|client</code>、<code>tree-sitter</code>、<code>node-pty</code>、<code>quickjs-emscripten-core</code>、<code>sharp</code>、<code>ws</code>。属于<strong>集成型壁垒</strong>而非原创算法壁垒。
+- 数据壁垒：无。定位为 local-first，用户项目文件、终端输出、会话状态均留在用户本机，项目方不沉淀任何独占语料或数据资产。</p>
+<p><strong>网络效应</strong>：
+- 存在<strong>弱生态雏形</strong>：<code>docs/skills.md</code>（Markdown 技能）、<code>docs/plugins.md</code> + <code>docs/plugin-licenses.md</code>（插件体系）显示项目正在培育第三方扩展生态，若技能/插件数量增长，对用户价值有正向外部性。
+- 但结构性限制明显：local-first + 无中心服务端 ⇒ 用户之间不产生直接交互价值；技能为本地 Markdown 文件，无市场分发与结算机制；无数据飞轮（用户使用不会反向提升产品能力）。
+- 社区规模偏小：贡献者仅 <strong>7 人</strong>，watchers 仅 <strong>8</strong>，339 forks 但未见显著的衍生生态。</p>
+<p><strong>规模效应</strong>：无服务器边际成本，也无规模带来的成本/体验优势；反因跨平台原生构建（含 1 个 Swift 文件 1,657 行、1 个 C# 文件）随平台数量增加而线性抬升维护成本。</p>
+<p><strong>结论</strong>：仅有「集成广度 + 弱插件生态」层面的不深厚壁垒，无专利、无数据、无中心化网络效应，开源许可下极易被 fork 复制，落于 3–4 档，取 40%。</p>
+<hr />
+<h4>D5.3 切换成本与用户粘性（2 分）→ 1.2 / 2</h4>
+<p><strong>迁移成本</strong>：
+- 降低粘性的因素：用户的核心资产不在本项目内——项目文件在本地文件系统、Skills 是标准 Markdown、对话历史在 ChatGPT 侧，切换到竞品不会丢失数据主权。
+- 抬高粘性的因素：使用前需完成一串非平凡配置（安装 Electron 应用 → Settings → Workspace 授权项目文件夹 → Settings → Setup 连接 Core → 配置隧道 → ChatGPT Developer Mode 添加 MCP App → 加载 Chrome 未打包扩展并配对），<code>docs/setup.md</code> 单独成篇，README 亦专门列出「更新后需重载扩展并刷新 CoS apps」。这套配置在切换时需完整重做。</p>
+<p><strong>深度集成</strong>：需要渗透到用户的项目目录、终端（<code>node-pty</code> 常驻 shell）、桌面权限（Windows 默认开启 Desktop 权限），集成深度中等偏深；多智能体 Worker 保留上下文、Goal/Loop 续作状态，形成一定的会话级路径依赖。</p>
+<p><strong>习惯锁定</strong>：<code>/</code> 呼出 Skills、模型选择器、Worker 委派等交互构成操作习惯；但这类 UI 习惯在同类工具间迁移门槛不高，也未形成组织级流程依赖（无团队协作/权限体系证据）。</p>
+<p><strong>结论</strong>：迁移成本由「配置与学习」而非「数据与业务逻辑」构成，有部分粘性但可被一次重新配置抹平，落于 5–6 档，取 60%。</p>
+<hr />
+<h4>D5.4 护城河可持续性（2 分）→ 0.8 / 2</h4>
+<p><strong>护城河趋势</strong>：
+- 正向：迭代速度极快——23 天内发布 10 个版本（v2.0.2 → v2.1.12），90 天内 118 个 PR、关闭 76 个 issue，<code>pushed_at</code> 为 2026-09-14，仍在活跃。
+- 负向：项目护城河<strong>尚在形成期而非加深期</strong>，23 天的历史不足以证明任何优势的持续性；2,596 stars 在极短周期内堆叠，热度可持续性存疑。</p>
+<p><strong>颠覆风险（高）</strong>：
+1. <strong>平台依赖是根本性风险</strong>。项目的全部能力建立在 OpenAI 控制的接口之上：ChatGPT Developer Mode + MCP Apps + 用户订阅会话。README 明确写道「Uses your ChatGPT conversation rather than invoking Codex directly」「ChatGPT Work and Codex share usage limits」，并附免责声明「Not affiliated with or endorsed by OpenAI」。平台方一次策略调整（收紧 Developer Mode、限制自动化访问订阅会话、变更 MCP Apps 规范）即可直接削弱甚至终止核心价值主张。
+2. <strong>第一方替代是最明确的颠覆者</strong>。OpenAI 自身的 Codex 与 ChatGPT Work 已覆盖同一用户诉求，README 亦承认二者共享额度——第一方产品无需绕过任何限制即可交付同等体验。这是「明确颠覆者」的典型特征。
+3. <strong>合规/条款风险</strong>。以扩展自动驱动消费者订阅会话，属于对平台条款高度敏感的使用方式（README 亦标注 Windows 未签名、macOS 未公证的 beta 状态），存在被平台侧限制的现实可能。
+4. 赛道本身拥挤：广义本地编码 Agent 赛道中，Codex CLI、Cursor、Cline、OpenHands 等在产品成熟度与生态规模上均具压倒性优势（<strong>注：这些产品未在本轮搜索中验证，此处仅作定性提示</strong>）。</p>
+<p><strong>时间窗口</strong>：短。优势窗口取决于 OpenAI 对 ChatGPT Developer Mode / MCP Apps 的开放态度，而这一变量完全不由项目方掌控。</p>
+<p><strong>结论</strong>：护城河脆弱且建立在不可控平台上，存在明确的既有颠覆者，落于 3–4 档，取 40%。</p>
+<hr />
+<h4>D5 维度结论</h4>
+<p><strong>得分：5.6 / 10（权重 12%）</strong></p>
+<p>项目在其<strong>被搜索验证的细分圈层内</strong>处于明显领先位置——2,596 stars 对最高 49 stars 的已验证竞品群形成约 53 倍牵引优势，且产品定位（ChatGPT 订阅 + 本地 MCP + Chrome 集成 + 持久多智能体）表述清晰、可辨识度高。但这一领先是<strong>圈层性的、且尚未被时间验证的</strong>：</p>
+<ul>
+<li>直接竞品 OpenBrowser 定位几乎重合，说明该切口并不独家；</li>
+<li>项目为 MIT 本地优先应用，无专利、无数据资产、无中心化网络效应，商业防御主要依赖工程量与迭代速度（工程量已计入 D2.2）；</li>
+<li>用户数据不落入本项目，切换成本以「配置摩擦」为主，粘性有限；</li>
+<li>最关键的，护城河架设在 OpenAI 完全掌控的平台接口之上，而 OpenAI 自己的 Codex 就是最直接的颠覆者——护城河并非「在削弱」，而是「尚未建成且地基不属于自己」。</li>
+</ul>
+<p>综合评价：<strong>定位良好、护城河薄弱</strong>。D5 不构成该项目的商业化加分项，反而是其最主要的战略脆弱点。</p>
+<p><strong>置信度提示</strong>：本轮竞品验证依赖的 GitHub 关键词搜索口径偏窄，未覆盖 Codex CLI / Cursor / Cline / OpenHands 等广义赛道主力竞品，D5.1 的「领先」结论仅在已验证竞品集合内成立，全赛道相对定位判断置信度中等。</p>
+<h3>D6. 法律合规与知识产权</h3>
+<p><strong>维度得分：7.7 / 10</strong>（满分 10，权重 7%）</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D6.1 开源协议合规性与商业限制</td>
+<td>3.0</td>
+<td><strong>3.0</strong></td>
+<td>9–10（100%）</td>
+<td>LICENSE 文件为完整 MIT 正文，<code>package.json</code> 中 <code>"license": "MIT"</code> 与 SPDX 标识一致；无 Commons Clause / BUSL / SSPL 等商业附加条款；项目自身协议无 copyleft 传染性；版权行明确为 "Chat On Steroids contributors"。</td>
+</tr>
+<tr>
+<td>D6.2 依赖链法律风险</td>
+<td>2.5</td>
+<td><strong>2.0</strong></td>
+<td>7–8（80%）</td>
+<td>声明的 14 个运行时依赖（zod、ws、marked、fflate、tree-sitter、node-pty、MCP SDK、quickjs-emscripten 等）与 10 个 devDependencies（electron、vite、vitest、typescript 等）均为 MIT/Apache-2.0 类宽松协议，清单中无 GPL/AGPL。但需注意：<code>sharp</code> 底层 libvips 为 LGPL 系协议、<code>node-pty</code> 为 beta 版本、且项目捆绑 ripgrep / tunnel client / OpenAI Codex（Apache-2.0）等外部资产。项目对此已有合规基础设施：<code>docs/licenses/{native,codex,plugins}</code> 目录、<code>docs/plugin-licenses.md</code>、<code>docs/plugin-notice-audit.md</code>，以及 CI 强制的 <code>verify:notices</code>（<code>generate-third-party-notices.mjs --check</code> + <code>package-native-sources.mjs --check</code>），合规可管理性高于行业平均。</td>
+</tr>
+<tr>
+<td>D6.3 商标与专利风险</td>
+<td>2.5</td>
+<td><strong>1.5</strong></td>
+<td>5–6（60%）</td>
+<td><strong>未经人工核查，置信度低。</strong> 无人工商标检索与专利排查数据，按方法论默认档给分，不以模型记忆断言商标/专利状态。需人工复核的显性线索：项目名 "Chat On Steroids" 的可注册性未知；README/描述与 topics 中直接使用 OpenAI 的 "ChatGPT" 商标（同名描述含 "ChatGPT with Chrome integration"），需评估是否构成商标性使用或暗示官方关联；仓库内捆绑 OpenAI Codex（Apache-2.0），Apache-2.0 第 6 条明确不授予商标许可；MIT LICENSE 文本中不含商标使用政策条款。</td>
+</tr>
+<tr>
+<td>D6.4 贡献者协议完备性</td>
+<td>2.0</td>
+<td><strong>1.2</strong></td>
+<td>5–6（60%）</td>
+<td>存在 <code>CONTRIBUTING.md</code> 与 <code>CONTRIBUTORS.md</code>，贡献流程规范（PR 模板、CI 门禁、提交前 <code>npm run verify</code>、隐私脱敏要求、明确的 credit/attribution 政策与 <code>Co-authored-By</code> 规范），并含 inbound 声明 "Contributions are accepted under the MIT licence"。但<strong>无正式 CLA，也无 DCO 签名机制</strong>，无 <code>CODEOWNERS</code>（已实测 <code>has_codeowners: false</code>）；贡献者 7 人，版权分散于各贡献者，采用 inbound=outbound 模式，若未来要做「开源 + 商业双协议」需回溯补齐授权。</td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<ul>
+<li><strong>协议层无硬伤</strong>：MIT 协议清晰规范、SPDX 标识一致、无商业附加条款、项目自身无 copyleft 传染，可自由用于闭源商用、SaaS、双协议售卖等多种变现路径，法律层面的协议障碍接近零。</li>
+<li><strong>依赖与第三方资产合规是主要工作量所在</strong>：直接声明依赖全部为宽松协议，但项目捆绑了大量原生 helper、ripgrep、tunnel client 与 OpenAI Codex 组件，需逐一满足署名/NOTICE/SOURCE 提供义务。该风险已被项目自身的许可清单目录与 CI 强制校验显著缓释，属于「可管理成本」而非「阻断性障碍」；<code>sharp</code>（libvips，LGPL 系）建议在发行前补一次人工法务确认。</li>
+<li><strong>治理短板在贡献侧</strong>：无 CLA/DCO，版权分散，对「重新许可 / 双协议商业化」构成中等程度摩擦，需在商业化启动前补齐贡献者授权回溯。</li>
+<li><strong>商标是唯一未解的不确定性</strong>：项目在描述、topics 中大量使用 OpenAI 的 ChatGPT/Codex 商标命名，且无商标使用政策；这既涉及自有名称的可注册性，也涉及与 OpenAI 的关联性表述风险，必须由人工检索与法务评估，本报告不对此下确定性结论。</li>
+<li><strong>置信度说明</strong>：D6.1、D6.2、D6.4 基于 LICENSE、package.json、CONTRIBUTING.md、docs/licenses 目录与 CI 脚本实测硬事实，置信度高；D6.3 无人工核查数据，按方法论默认档取值，置信度低。</li>
+</ul>
+<h3>D7. 企业就绪度与可运营性</h3>
+<p><strong>结论先述</strong>：本项目是一个<strong>单机、本地优先的 Electron 桌面应用 + Chrome 扩展 + 本地 MCP 服务器</strong>，其工程化程度（发布流水线、自动更新、配置迁移、崩溃一致性）明显高于同类个人向工具，运维与升级路径接近"开箱即用"；但作为面向企业客户的软件，它在<strong>身份体系（SSO/RBAC/审计）与集群级可扩展性/高可用</strong>上存在结构性缺口——这是由其"本地优先、单用户"的产品定位决定的，而非工程疏忽。整体处于"良好但非企业级"区间。</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>折算</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D7.1 运维复杂度与升级路径</td>
+<td>3</td>
+<td>2.4</td>
+<td>80%</td>
+<td>7–8 良好</td>
+</tr>
+<tr>
+<td>D7.2 安全管理与权限控制</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>60%</td>
+<td>5–6 一般</td>
+</tr>
+<tr>
+<td>D7.3 可扩展性与高可用能力</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>60%</td>
+<td>5–6 一般</td>
+</tr>
+<tr>
+<td>D7.4 集成兼容与可观测性</td>
+<td>2</td>
+<td>1.6</td>
+<td>80%</td>
+<td>7–8 良好</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>7.0</strong></td>
+<td>—</td>
+<td><strong>7.0 / 10</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>D7.1 运维复杂度与升级路径 —— 2.4 / 3（80%，良好）</h3>
+<p><strong>配置管理</strong>：配置集中于单个 JSON 文件（<code>src/main/config.ts</code>），经 Zod schema 严格校验、<code>tmp + rename</code> 原子落盘、<code>mutationQueue</code> 串行读改写。含完整迁移管道（<code>migrateCapabilities</code>、<code>recalibrateTokens</code>、<code>adoptAutoCompaction</code>、<code>adoptWiderWindow</code>），且迁移仅在精确匹配旧默认值时生效，不覆盖用户自定义值。损坏文件由 <code>conservativeRecoveryConfig()</code> 回退到"最小能力 + readOnly"，不把损坏文件当作授权同意。<strong>不支持环境变量/配置中心/远程配置</strong>——但桌面单机场景下此项意义有限。</p>
+<p><strong>升级路径与回滚</strong>：具备完整自动更新链路（<code>src/main/update.ts</code>）：分阶段下载 → <code>fileDigest</code> 校验 → <code>stagedArtifact</code> → <code>markInstallOnQuit</code> 退出时安装。<code>publish.yml</code> 强制 tag 与 package.json / package-lock / manifest.json / version.ts / CHANGELOG 版本一致，并要求每个 tag 对应已评审的 <code>docs/release-notes/&lt;tag&gt;.md</code>。<strong>不足</strong>：<code>isNewer()</code> 明确阻止降级安装，<strong>无版本回滚机制</strong>。</p>
+<p><strong>数据迁移</strong>：配置迁移自动执行；会话存储支持 legacy <code>messages.json</code> → 增量分片的惰性迁移并校验分片文件名 SHA-256；durable store 有 v1→v2→v4 版本迁移。迁移均为自动、无需人工干预。</p>
+<p><strong>运维负担</strong>：安装包覆盖 Windows x64/arm64、macOS x64/arm64、Linux x64/arm64 共 6 平台，附 SHA256SUMS，单机零服务端运维。<strong>但版本迭代极快</strong>（实测 90 天内 10 个 release，v2.0.2→v2.1.12 不足三周），高频升级本身构成运维扰动与回归风险。</p>
+<hr />
+<h3>D7.2 安全管理与权限控制 —— 1.5 / 2.5（60%，一般）</h3>
+<p><strong>已有的安全能力（强于"薄弱"）</strong>：
+- <strong>认证</strong>：本地 HTTP bridge 仅绑定 <code>127.0.0.1</code>（拒绝 <code>0.0.0.0</code>），除 <code>/hello</code>、<code>/pair</code> 外全部要求 bearer token，用 <code>timingSafeEqual</code> 常量时间比较；Origin 强制 <code>chrome-extension://</code>；请求体上限 2MB + 900/分钟速率限制；令牌仅供 service worker 与 <code>storage.local</code>，绝不进入 content script 或页面。
+- <strong>权限模型</strong>：14 项用户可见 capability（<code>src/shared/types.ts</code>），按 read/write/desktop/run 分组，工具级 <code>exposedCaps</code> 门控；<code>readOnly</code> 模式基于 <code>WRITE_CAPABILITIES</code> 派生自动禁用写能力；路径沙箱 <code>sandbox.ts</code> 做 <code>realpath</code> + 双向 containment 校验，拒绝 <code>..</code>、保留设备名、ADS 冒号、UNC。粒度实为<strong>能力级/工具级授权</strong>，非"粗粒度"。
+- <strong>数据安全</strong>：API 密钥经 Electron <code>safeStorage</code>（DPAPI/Keychain/keyring）加密存储且单向（渲染进程仅得 <code>hasSecret</code> 布尔）；渲染进程 <code>sandbox:true</code>、<code>contextIsolation:true</code>、<code>nodeIntegration:false</code>、严格 CSP、<code>setPermissionRequestHandler</code> 一律拒绝；<code>redaction.ts</code> 递归脱敏。</p>
+<p><strong>缺口（决定其未达企业级）</strong>：
+- <strong>无 SSO / OAuth（用户向）/ LDAP / SAML</strong> 企业身份集成——仅有插件侧的 MCP OAuth（<code>plugins/oauth.ts</code>）。产品依赖用户自带 ChatGPT 账号，无组织级身份接入路径。
+- <strong>无 RBAC/ABAC</strong>：无用户、角色、多租户概念（单用户桌面模型下属结构性 N/A，但企业集中管理场景即缺失）。
+- <strong>无正式审计日志</strong>：<code>logger.ts</code> 提供结构化日志、级别管理、文件镜像、崩溃快照与脱敏，但<strong>非防篡改的审计追踪</strong>，不含操作者/主体归属审计、无 SIEM 导出。</p>
+<p>综合看，安全工程质量扎实但<strong>企业身份与审计体系缺失</strong>，落在"简单认证 + 权限管理"区间。</p>
+<hr />
+<h3>D7.3 可扩展性与高可用能力 —— 1.5 / 2.5（60%，一般）</h3>
+<p><strong>架构本质</strong>：单机、本地优先的 Electron 应用 + 单 Chrome 扩展 + 单个本地 MCP 端点。<strong>无水平扩展、无集群部署、无故障转移</strong>——这是产品定位，而非缺陷，但对企业"多用户/多实例集中部署"诉求构成根本限制。</p>
+<p><strong>内部并发与韧性（支撑其不止于 3–4 档）</strong>：
+- 多代理 worker swarm（<code>agents.ts</code>）支持并行 worker、消息队列（上限 200）、状态机与 7 天 dormant run 持久化恢复（上限 16）。
+- 全链路有界资源：<code>MAX_BODY_BYTES</code>、<code>MAX_QUEUE</code>、<code>RATE_LIMIT</code>、进程容量上限、输出 token 预算，避免无界增长。
+- <strong>崩溃一致性设计突出</strong>：durable WAL 快照 + "先持久化后发布" WeakSet 屏障、swarm spawn/finish 事务暂存、Compact &amp; Resume 两阶段提交（<code>continuation.ts</code>）、append-only JSONL 的 <code>sealTornTail</code> 撕裂尾行封口、重启时对 committing/committed 的修复与回滚。
+- <strong>单点与会话一致性</strong>：以 conversationId 为身份、request-id 为唯一归属证据（拒绝启发式归属），保证"一条输入单一持久化所有者"。</p>
+<p><strong>性能瓶颈迹象</strong>：<code>continuation.ts</code> 的 <code>sweep</code> 在每次查询时遍历全部条目，规模大时可能成热点；<code>session/input.ts</code> 的 <code>serial</code> 全局串行链可能限制吞吐；多个核心文件超过 2000–7500 行，职责密集，维护与热修成本偏高。</p>
+<hr />
+<h3>D7.4 集成兼容与可观测性 —— 1.6 / 2（80%，良好）</h3>
+<p><strong>API 完备性</strong>：以 <strong>MCP（Model Context Protocol）</strong> 标准协议对外暴露工具面（<code>@modelcontextprotocol/server</code>），Core / Desktop / Plugins 三个 surface，工具声明与 Zod schema 即契约；主-渲染进程通过固定命名、zod 自校验的 IPC 通道通信（<code>ipc.ts</code> 明确"无通用 call/read 通道"，渲染进程无法直接触达文件系统或 spawn）；本地 HTTP bridge 提供回环 REST 式端点。<strong>无 OpenAPI/gRPC，但有 MCP 这一事实标准。</strong></p>
+<p><strong>标准协议与监控</strong>：具备健康/自检端点（<code>/readyz</code>、<code>selfTestHeaders</code>、<code>tunnelProbeHeaders</code>）、隧道健康轮询与中断状态机（<code>UNREACHABLE_CONFIRM_MS</code> 等）；<code>diagnostics.ts</code> 提供 <code>runDiagnostics</code>/<code>checkLocalServer</code> 等内建诊断项。<strong>缺 Prometheus / OpenTelemetry / Webhook 指标与事件导出</strong>，无法接入企业统一可观测栈。</p>
+<p><strong>日志体系</strong>：<code>logger.ts</code> 提供结构化条目、级别管理、文件镜像、崩溃快照、<code>formatLogAsJson</code>，并统一脱敏（密钥/路径）。日志与诊断能力对内足够，对外集成不足。</p>
+<hr />
+<h3>小结</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>运维/升级</td>
+<td><strong>强项</strong>：自动更新 + 校验 + 自动迁移 + 规范发布流水线；缺回滚，版本迭代过快</td>
+</tr>
+<tr>
+<td>安全</td>
+<td><strong>工程强、体系弱</strong>：本地安全与权限门控扎实，但无企业 SSO/RBAC/审计</td>
+</tr>
+<tr>
+<td>扩展/高可用</td>
+<td><strong>结构性受限</strong>：单机本地优先，无集群/HA；内部并发与崩溃一致性设计优秀</td>
+</tr>
+<tr>
+<td>集成/可观测</td>
+<td><strong>API 与日志良好</strong>：MCP + IPC + 诊断 + 结构化日志；缺指标/事件标准协议</td>
+</tr>
+</tbody>
+</table>
+<p><strong>商业化含义</strong>：该项目适合<strong>个人/小团队增值或托管型商业化</strong>（安装即用、运维成本低是其卖点）；若要面向<strong>中大型企业采购</strong>，须补齐三块：组织级身份与审计（SSO/RBAC/审计日志）、集中式多实例部署与策略下发、标准可观测导出（OTel/Prometheus）。这三项均属产品架构方向级投入，而非补丁。</p>
+<h3>D8. 团队治理与可持续性</h3>
+<p><strong>维度得分：5.0 / 10</strong>（满分 10，四项细则全部可评估，无 N/A）</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D8.1 核心维护者能力与背景</td>
+<td>2.5</td>
+<td><strong>1.0</strong></td>
+<td>3–4 档（40%）</td>
+<td>技术产出极强但巴士因子 = 1</td>
+</tr>
+<tr>
+<td>D8.2 治理模型透明度</td>
+<td>2.0</td>
+<td><strong>1.2</strong></td>
+<td>5–6 档（60%）</td>
+<td>有贡献指南与安全政策，无治理文档、无基金会</td>
+</tr>
+<tr>
+<td>D8.3 资金支持与商业赞助</td>
+<td>2.5</td>
+<td><strong>1.0</strong></td>
+<td>3–4 档（40%）</td>
+<td>无任何资金/赞助/商业实体信号</td>
+</tr>
+<tr>
+<td>D8.4 项目可持续性与传承风险</td>
+<td>3.0</td>
+<td><strong>1.8</strong></td>
+<td>5–6 档（60%）</td>
+<td>活跃度强劲上升，但传承机制不健全</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>5.0</strong></td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>D8.1 核心维护者能力与背景（1.0 / 2.5）</h3>
+<p><strong>技术能力：强。</strong> 硬事实层面，仓库在极短时间内产出 178,582 行代码（.ts 157,262 行）、373 个源码文件、183 个测试文件（测试占比 49.5%），并配置了 3 条 CI 工作流（ci.yml / publish.yml / release.yml）、Electron 多平台打包与原生 Windows/macOS helper（含 1,657 行 Swift）。文档体系庞大（45 个文档文件，含多份 bug audit、工具错误率复盘、发布说明、许可证合规文档）。这远超"单人业余项目"的典型工程水准，说明维护者技术能力与工程纪律都很高。</p>
+<p><strong>投入度：高。</strong> 近 3 周内发布 10 个版本（v2.0.2 → v2.1.12），<code>pushed_at</code> 与数据采集同日（2026-09-14），近期单日多版（9-14 当天 v2.1.11 与 v2.1.12），<code>prs_created_90d = 118</code>。节奏接近全职投入。</p>
+<p><strong>巴士因子：1，这是致命项。</strong> 两项官方文件明确自述单人维护：
+- <code>CONTRIBUTING.md</code>：「Chat On Steroids is a Windows/macOS/Linux beta <strong>maintained by one person</strong>.」
+- <code>SECURITY.md</code>：「This is a <strong>solo-maintained beta</strong>. There is no bug bounty or guaranteed response window.」</p>
+<p>API 显示 <code>contributors = 7</code>，但外部贡献者的角色是"报告、聚焦修复、被整合"（CONTRIBUTING 用大段篇幅规定 patch 被整合时的署名与 <code>Co-authored-by</code> 规则），并不构成共同决策层。此外账号名 <code>totec448-spec</code> 的 <code>-spec</code> 后缀与项目仅 23 天历史，增加了身份持久性疑虑。</p>
+<p><strong>商业经验：无任何证据。</strong> 材料中无创业、企业服务或商业化履历信息。</p>
+<p>按评分指引，「高度依赖 1 人」明确落入 3–4 档；因维护者活跃度与技术产出处于该档上沿，取 4/10 → 2.5 × 40% = <strong>1.0</strong>。</p>
+<hr />
+<h3>D8.2 治理模型透明度（1.2 / 2.0）</h3>
+<p><strong>具备的部分：</strong>
+- <code>CONTRIBUTING.md</code>：内容不"简单"——规定了非平凡改动先开 issue、PR 需说明根因/最小改动/验证方式、打包需原生 runner 冒烟验证，并有相当罕见的<strong>贡献者署名保护条款</strong>（改写/整合他人 patch 必须保留原作者、记录于 <code>CONTRIBUTORS.md</code>、以 <code>Co-authored-by</code> 标注、不得以 AI 整合抹去原作者贡献）。
+- <code>SECURITY.md</code>：含安全模型、威胁边界、已知局限的完整披露，并明确安全修复只针对最新发布版本。
+- <code>.github/pull_request_template.md</code>、<code>CONTRIBUTORS.md</code> 齐备。</p>
+<p><strong>缺失的部分（决定档位）：</strong>
+- <strong>无 GOVERNANCE.md</strong>、<strong>无 CODEOWNERS</strong>（本地实测 <code>has_codeowners: false</code>）、无公开的决策流程或路线图文档。45 个文档中全部为 bug audit / 发布说明 / 功能设计类，没有一份描述"谁决策、如何决策、如何晋升维护者"。
+- <strong>不属于任何基金会</strong>（非 CNCF / Apache / Linux Foundation 成员，仓库无相关标识）。
+- 决策实质上由单人主导，外部贡献者可提交代码但无共同治理权。</p>
+<p>落在「有简单的贡献指南（此处质量高于"简单"），决策由核心团队主导」一档，取该档上沿 6/10 → 2.0 × 60% = <strong>1.2</strong>。</p>
+<hr />
+<h3>D8.3 资金支持与商业赞助（1.0 / 2.5）</h3>
+<ul>
+<li><strong>无任何资金信号</strong>：素材中无 GitHub Sponsors 页面、无 Open Collective、无 <code>FUNDING.yml</code>、无 VC 融资信息、无公司实体运营痕迹。</li>
+<li><code>SECURITY.md</code> 明确声明「<strong>There is no bug bounty</strong> or guaranteed response window」——连安全激励都不存在。</li>
+<li>无企业版/商业许可形态，项目为纯 MIT 开源、local-first 桌面工具，仓库无商业实体页面对应。</li>
+<li>发行包自述「Release binaries are <strong>not publisher-signed</strong>；macOS builds are also <strong>unnotarized</strong>」——缺少发行签名意味着没有企业主体在背后背书与付费维护（签名证书与公证本身需要组织成本）。</li>
+</ul>
+<p>这既不是「有少量赞助主要靠志愿者」（5–6 档），也不是「无任何资金且维护者已不活跃」（1–2 档），而是典型的<strong>几乎无资金支持、靠个人热情驱动</strong>，落 3–4 档，取 4/10 → 2.5 × 40% = <strong>1.0</strong>。</p>
+<hr />
+<h3>D8.4 项目可持续性与传承风险（1.8 / 3.0）</h3>
+<p><strong>趋势方向：明确上升（正向）。</strong> 仓库创建于 2026-08-22，23 天内产出 10 个 release，<code>prs_created_90d = 118</code>、<code>issues_closed_90d = 76</code>（关闭量高于当前积压 69，说明问题处理速度快于流入速度），<code>archived = false</code>，<code>pushed_at</code> 为 2026-09-14T23:37:55Z（活跃）。无废弃、无 unmaintained 标记。</p>
+<p><strong>传承机制：不健全（负向）。</strong>
+1. 单人维护 + 无 GOVERNANCE.md + 无 CODEOWNERS，核心退出后无制度化接管路径；
+2. 项目仅 3 周历史，尚未沉淀出能独立运转的次级维护者群体；
+3. <code>watchers = 8</code> 相对 2,596 star 极低，说明"深度关注并愿意接棒"的核心用户群还很薄；
+4. <code>docs/public-history-privacy-incident-2026-08-24.md</code> 记录过一次公开历史泄露隐私事故，属治理与运维风险的历史信号（已处置，但反映单人运维下的风险敞口）；
+5. <code>forks = 339</code>（约 13% star），属正常水平，尚无证据表明存在社区分裂式分叉，分叉风险暂不显著。</p>
+<p><strong>综合判断</strong>：活跃度处于上升而非下降，故不符合 3–4 档（"活跃度下降，传承风险高"）；但也远达不到 7–8 档（"活跃度平稳，<strong>传承机制基本健全</strong>"）——传承机制恰恰是最薄弱环节。落 5–6 档上沿，取 6/10 → 3.0 × 60% = <strong>1.8</strong>。</p>
+<hr />
+<h3>结论</h3>
+<p>D8 得分 <strong>5.0/10，处于"一般"档</strong>。这是一个<strong>工程执行力远超团队治理成熟度</strong>的项目：单人在 3 周内交出 17.8 万行代码、49.5% 测试占比、10 个版本迭代与体系化文档，技术硬实力毋庸置疑；但商业化视角下，人这一要素恰是最脆弱环节——</p>
+<ul>
+<li><strong>巴士因子 = 1</strong>，且维护者以 <code>-spec</code> 后缀账号 + 明示"solo-maintained beta"运作；</li>
+<li><strong>零资金、零赞助、无商业实体、无发行签名</strong>，项目无任何可持续的现金流入；</li>
+<li><strong>无治理文档、无 CODEOWNERS、非基金会项目</strong>，决策与传承完全依赖个人；</li>
+<li>唯一强正向项是<strong>活跃度趋势陡峭上升</strong>，但该优势建立在单点之上，无法对冲传承风险。</li>
+</ul>
+<p><strong>商业化建议</strong>：若拟投资或依赖此项目，需优先确认维护者的长期意愿与身份可持续性，并以"引入第二至第三名有写权限的维护者 + 建立 GOVERNANCE.md / CODEOWNERS + 设立 Open Collective 或商业实体承接签名与公证成本"作为前置条件。当前状态下，D8 是该项目商业化路径上的<strong>明确短板</strong>，而非可用优势。</p>
+<h3>D9 维度详析</h3>
+<h4>细则打分表</h4>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>折算档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D9.1 安装难度</td>
+<td>2.5</td>
+<td><strong>2.0</strong></td>
+<td>7–8 档（80%）</td>
+<td>面向最终用户是「下载安装包 → 双击安装」，Windows/macOS/Linux 三平台均有预编译包，无需自行安装运行时；但 macOS 包未签名未公证、Windows 未签名、Linux 需 Secret Service keyring 且可能需 <code>--no-sandbox</code> 回退，且强依赖外部 ChatGPT 账号（Developer mode + MCP apps）与 Chrome 116+/Edge 浏览器，未达「无外部依赖的一键安装」</td>
+</tr>
+<tr>
+<td>D9.2 部署与配置难度</td>
+<td>2.5</td>
+<td><strong>1.5</strong></td>
+<td>5–6 档（60%）</td>
+<td>无 Dockerfile、无 docker-compose/Helm/K8s 任何标准化编排；配置虽为 GUI（Settings → Workspace / Setup）而非手写配置文件，但需跨 ChatGPT Developer mode、Chrome 扩展 sideload、隧道连接三处完成一次性手工集成，且 README 明确要求「先复核 capabilities、批准文件夹」，非技术人员无法独立完成</td>
+</tr>
+<tr>
+<td>D9.3 易用性与操作门槛</td>
+<td>2.5</td>
+<td><strong>2.0</strong></td>
+<td>7–8 档（80%）</td>
+<td>日常操作以自然语言在 ChatGPT 会话中完成，无复杂 CLI 参数需要记忆；提供模型选择器、<code>+ → Skills</code> 与编辑器内 <code>/</code> 唤出技能列表等提示式交互；默认配置合理（全新安装即启用 Core capabilities 与 2 个 workers）；但 Workspace/权限/capabilities 概念与错误处理友好度缺乏实证支撑，未达 9–10 档</td>
+</tr>
+<tr>
+<td>D9.4 学习曲线与首体验</td>
+<td>2.5</td>
+<td><strong>2.0</strong></td>
+<td>7–8 档（80%）</td>
+<td>README 提供 4 步 Get Started、演示视频（demo.gif/mp4）、workspace/model-picker/settings 截图，并有 <code>docs/setup.md</code>、<code>docs/skills.md</code> 等 45 份文档支撑，30 分钟内可完成首次成功使用；但 <code>examples/</code> 类示例项目数为 <strong>0</strong>，无交互式 onboarding/教程，且需要 ChatGPT Developer mode、MCP 应用、隧道、工作区权限等前置概念，学习曲线非平缓型</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>7.5</strong></td>
+<td>🟡 中等</td>
+<td>上手难度等级：中等（5–7 区间上沿）</td>
+</tr>
+</tbody>
+</table>
+<h4>分析</h4>
+<p><strong>优势（拉高项）</strong></p>
+<ol>
+<li><strong>分发方式对最终用户友好</strong>：三平台预编译安装包直链（<code>.exe</code> / <code>.dmg</code> / <code>.deb</code>），无需 clone 源码或手工装运行时，安装环节的绝对复杂度低——这是该项目上手链路中最强的一环。</li>
+<li><strong>配置以 GUI 承载，无配置文件负担</strong>：<code>Settings → Workspace</code>、<code>Settings → Setup</code>、capabilities 勾选均为图形界面操作，不需要用户编写 YAML/JSON 配置；也没有数据库、缓存、消息队列等外部组件需要初始化，避免了「部署即运维」的坑。</li>
+<li><strong>默认值开箱可用</strong>：README 明确「Fresh installs enable Core capabilities and two workers」，用户无需先调参即可跑通第一条任务。</li>
+<li><strong>日常交互门槛低</strong>：使用界面是 ChatGPT 对话本身，任务以自然语言表达；技能以 Markdown 导入后通过 <code>+ → Skills</code> 或编辑器内 <code>/</code> 选择，属于提示式交互；桌面应用还提供模型/推理强度选择器等可视化控件。</li>
+<li><strong>入门文档密度高</strong>：<code>docs/setup.md</code>、<code>docs/skills.md</code>、<code>docs/plugins.md</code>、<code>CHANGELOG.md</code> 与 13 份 release notes 构成了可检索的资料面，README 顶部还有 demo 视频与三张配置截图。</li>
+</ol>
+<p><strong>短板（拉低项）</strong></p>
+<ol>
+<li><strong>无容器化/一键服务端部署路径</strong>：全库无 Dockerfile，无 docker-compose/Helm Chart，因此企业侧「一条命令起环境」的标准化部署体验缺失，批量分发只能依赖各平台安装包。</li>
+<li><strong>集成步骤分散在三个外部产品上</strong>：ChatGPT Developer mode 中加入 MCP 应用、Chrome 中 <code>Load unpacked</code> 旁加载扩展、隧道连接（<code>docs/setup.md#tunnel-setup</code>），任一步骤出错都会阻断首次使用，且这些步骤不在项目自身可控范围内。</li>
+<li><strong>签名/公证缺失带来真实的安装摩擦</strong>：Windows 未签名、macOS 未签名未公证，macOS 用户会撞上 Gatekeeper 拦截，需手动放行并比对 checksum；Linux 还额外要求 Secret Service keyring。这在面向非技术人群推广时会直接转化为流失。</li>
+<li><strong>外部账号硬门槛</strong>：必须拥有支持 Developer mode 与 custom MCP apps 的 ChatGPT 账号/工作区，且 README 提示 ChatGPT Work 与 Codex 共享用量限制——这既是使用前置条件，也是商业化的外部依赖风险。</li>
+<li><strong>零示例项目</strong>：示例文件数为 0，没有可克隆模仿的模板工程；新用户的「Aha Moment」依赖 demo 视频与自然语言试错，而非可复制的示例代码。</li>
+<li><strong>源码构建路径沉重</strong>：<code>node-pty</code> 为 beta 版本，<code>sharp</code> / <code>tree-sitter</code> / <code>quickjs-emscripten</code> 等原生模块加上 <code>fetch-ripgrep</code>、<code>fetch-tunnel-client</code>、<code>prepare-packaging-native</code> 等打包脚本，意味着从源码构建仅适合开发者，且构建链条长（这也是 README 主推预编译安装包的原因）。</li>
+</ol>
+<p><strong>结论</strong></p>
+<p>D9 得分 <strong>7.5 / 10</strong>，等级 <strong>🟡 中等</strong>。项目在「安装」与「日常使用」两端表现良好——预编译安装包 + GUI 配置 + 自然语言交互 + 合理默认值，使其对具备基础技术素养的用户（会用 ChatGPT Developer mode、能在 Chrome 中旁加载扩展）可以在半小时内跑通。但短板集中在「部署与初始集成」：没有容器化方案、首次配置横跨三个外部产品、且缺少代码签名公证与示例工程，导致其无法被非技术人员独立完成部署。商业化推广建议：补齐安装包签名/公证、提供端到端 onboarding 向导（把 Workspace/Setup/扩展加载串成一步）、并在仓库中提供可复制的示例工作区与技能模板，是提升本维度得分最直接的三个杠杆。</p>
+<h3>D10. 功能价值（使用价值视角，平行维度，权重 0%）</h3>
+<p><strong>项目定位</strong>: Chat On Steroids 是一个 Electron 本地桌面应用 + Chrome 扩展，通过本地 MCP Server 把 ChatGPT 对话变成可读写本地文件、开终端、跑多 Agent 工作流的「类 Codex 本地编码代理」。它不自己调用 Codex API，而是复用用户已有的 ChatGPT 订阅额度。</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>档位</th>
+<th>小分</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10.1</td>
+<td>效用强度</td>
+<td>3</td>
+<td>7–8 档（80%）</td>
+<td><strong>2.4</strong></td>
+<td>对目标用户是项目级依赖：让 ChatGPT 直接读写真实项目文件、跑 shell、并发 worker，并用既有 ChatGPT 订阅替代 API 计费，单用户可省下可观时间与 token 成本。但替代品密集（Codex CLI、Claude Code、Cline、Cursor），效用受 ChatGPT Developer mode / MCP apps 开放状态约束，且项目处于高频 hotfix 的 beta 期，确定性打折</td>
+</tr>
+<tr>
+<td>D10.2</td>
+<td>实际使用规模</td>
+<td>3</td>
+<td>3–4 档（40%）</td>
+<td><strong>1.2</strong></td>
+<td>实采：Star 2596、Fork 339、Contributors 7、90 天 Issue 关闭 76 / PR 118，说明有千级活跃用户与反馈闭环；但项目仅创建于 2026-08-22（约 3 周），无 npm/PyPI 分发渠道（Electron 安装包 + 未签名 beta），Dependents 与 Releases 下载量均取不到，规模判定保守落在「千级及以下」</td>
+</tr>
+<tr>
+<td>D10.3</td>
+<td>免费可得的完整效用</td>
+<td>2</td>
+<td>9–10 档（100%）</td>
+<td><strong>2.0</strong></td>
+<td>MIT 协议，全部 17.8 万行源码在仓，无开源版/企业版分层、无付费墙、无云托管版可对比；本地 native 组件也随仓提供 SOURCE-BUILD.md 构建说明。功能上无任何「不付费不可用」的设计（用户为 ChatGPT 订阅付费，受益方是 OpenAI 而非本项目，不构成本项目的效用阉割）</td>
+</tr>
+<tr>
+<td>D10.4</td>
+<td>效用可持续性</td>
+<td>2</td>
+<td>3–4 档（40%）</td>
+<td><strong>0.8</strong></td>
+<td>本地优先 + MIT + 源码完整，可自由分叉；但<strong>全部核心效用必须经 ChatGPT（闭源在线服务）+ Chrome 扩展这条桥才能兑现</strong>：需 ChatGPT Developer mode / custom MCP apps 与 Setup 隧道，仓库内 <code>docs/chatgpt-turn-signals.md</code>、<code>docs/model-picker-hotfix-2.1.12.md</code> 显示其紧跟 ChatGPT UI 信号做补丁。一旦停维或 OpenAI 调整 MCP apps 接口，桥接层将快速失效</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td></td>
+<td><strong>6.4</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<p><strong>D10 功能价值 = 6.4 / 10（一般偏上，平行维度，不计入综合分）</strong></p>
+<p>价值结构呈「<strong>单点效用高、可得性满分、但规模小且外部依赖致命</strong>」的形态：</p>
+<ol>
+<li>
+<p><strong>效用真实但易替代（D10.1 较强）</strong>。它解决的是「不想再为编程代理单独付费，想把 ChatGPT 订阅用满」的实实在在的痛点，能力面覆盖文件读写、终端、多 Agent 委派、Goal/Loop/Compact &amp; Resume 长任务续跑，对重度用户是准项目级依赖（2.4/3）。但赛道极度拥挤，且自身仍靠一周十次发版（v2.0.2 → v2.1.12）来追赶上游变化，用户效用确定性被打折。</p>
+</li>
+<li>
+<p><strong>使用规模是最大短板（D10.2 弱）</strong>。2596 Star / 339 Fork 对 3 周龄项目是亮眼增速，但换算成「真实装机用户」仅千级量级；项目不走包管理器分发，也无 Releases 下载计数、无 Dependents，规模证据链不完整（已在 JSON 中标 N/A 的指标不做估算）。对应本细则仅 40% 档。</p>
+</li>
+<li>
+<p><strong>免费可得性满分（D10.3 顶格 2.0/2）</strong>。MIT + 全量源码 + 无功能分层，开源版就是全部价值，不存在付费墙。值得注意的是这与 D4 付费转化天然反相关——正因 D10.3 拉满，项目几乎无「交换价值」可捕获，商业侧只能依赖捐赠/声誉/周边，这一点在价值画像中应直接引用解释。</p>
+</li>
+<li>
+<p><strong>可持续性被平台绑死（D10.4 弱，0.8/2）</strong>。本地优先架构、MIT 协议、native 组件源码齐备，理论上完全可分叉；但产品的存在理由就是充当 ChatGPT 与本地环境的桥，100% 效用流经 OpenAI 的闭源在线服务。停维后即便社区接盘代码，也无法阻止上游接口演进导致桥接失效——这属于「强依赖官方服务，停维后大幅失效」档，而非「部分能力依赖在线服务」档。</p>
+</li>
+</ol>
+<p><strong>一句话画像</strong>：这是一个「开源版给足了使用价值、但使用价值本身寄生在别人的平台与别人的订阅上」的工具——用户省到的是真金白银，项目自身却几乎留不下可交换价值，规模也尚未跨过万级门槛。</p>
+<h3>D11 社会价值——正外部性评估</h3>
+<blockquote>
+<p>权重 0% 的平行维度，不计入综合评分与一票否决，仅用于 3.4 价值画像。</p>
+</blockquote>
+<h3>项目定位速览</h3>
+<p><code>chat-on-steroids</code> 是一个 Electron 桌面应用 + Chrome 扩展组合，把本地文件/终端/桌面能力通过 MCP 暴露给 ChatGPT 网页会话，附带 Goal / Compact &amp; Resume / 多 worker 编排。它面向<strong>终端用户</strong>（个人开发者），而非供他人 <code>import</code> 的库或运行时底座。这一点决定了其正外部性的形态：<strong>偏向"降低个体获得能力的成本"，而非"支撑软件供应链"</strong>。</p>
+<h3>D11.1 数字公共基础设施属性（满分 3）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测事实</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>关键依赖地位</td>
+<td>无下游依赖数据；未发布可被依赖的库（npm 周下载 N/A）；本体是应用而非库</td>
+<td>不成立</td>
+</tr>
+<tr>
+<td>停摆影响面</td>
+<td>项目消失仅影响已安装用户，不破坏任何软件供应链</td>
+<td>微小</td>
+</tr>
+<tr>
+<td>数字公共产品属性</td>
+<td>MIT 开源、跨平台、本地优先，但强绑定 ChatGPT 账号体系，非通用公共品</td>
+<td>弱</td>
+</tr>
+</tbody>
+</table>
+<p>项目虽是 MIT 开源且本地优先（local-first），但生态位是<strong>"消费型工具"</strong>：没有任何下游项目把它作为依赖，也没有 curl/OpenSSL 式的供应链位置。假设停摆，波及面仅限于 2.6k star 规模的用户群体。</p>
+<p><strong>小分：1.2 / 3（40%，对应 3–4 档）</strong>——「几乎无下游依赖，停摆影响微小」。</p>
+<h3>D11.2 教育与人才价值（满分 2.5）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测事实</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>教学采用</td>
+<td>无外部教程/课程/awesome 列表证据；外部生态尚在雏形</td>
+<td>未证实</td>
+</tr>
+<tr>
+<td>门槛降低效应</td>
+<td>45 份文档（setup / skills / plugins / tool-surface / AGENTS.md / CLAUDE.md）、<code>CONTRIBUTING.md</code>、13 篇 release notes、多份 bug audit 复盘，显著降低了他人复刻 MCP+多 agent 方案的门槛</td>
+<td>中等正向</td>
+</tr>
+<tr>
+<td>源码学习价值</td>
+<td>TS 157k 行 + 测试 88k 行（测试占比 49.5%）；完整 CI（ci/publish/release）、SECURITY.md，工程规范度高于同类个人项目</td>
+<td>中上</td>
+</tr>
+</tbody>
+</table>
+<p>仓库最突出的教育价值是<strong>工程范本</strong>：近 5 成测试覆盖率、结构化的 bug audit 文档、<code>docs/licenses/*</code> 的许可证审计流程，本身即是一份"如何把一个 Electron+MCP 项目做扎实"的公开教材。但项目仅创建 3 周、无外部课程或教学引用，影响面仍限于小圈子。</p>
+<p><strong>小分：1.5 / 2.5（60%，对应 5–6 档）</strong>——「有一定教学使用，影响限于小圈子」。</p>
+<h3>D11.3 普惠与可及性（满分 2.5）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测事实</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>能力平权化</td>
+<td>核心卖点即"Uses your ChatGPT conversation rather than invoking Codex directly"——让已有的 ChatGPT 订阅额度替代另行购买编码 Agent/API 用量，对个人开发者是真实成本替代</td>
+<td>正向</td>
+</tr>
+<tr>
+<td>替代价格差</td>
+<td>与商业编码 Agent 订阅相比，本项目 0 元；差额即等价于一份编码 Agent 订阅</td>
+<td>正向</td>
+</tr>
+<tr>
+<td>可及性支持</td>
+<td>跨平台覆盖完整（Windows exe / macOS arm64 dmg / Linux deb + AppImage）；<strong>但</strong>：需 ChatGPT 账号且开通 Developer mode + 自定义 MCP apps（账号白名单门槛）、macOS 须 13+、Chrome 116+、Linux 须 Secret Service keyring、Windows/macOS 包均未签名/未公证、文档仅英文、无 i18n 与无障碍支持证据</td>
+<td>明显受限</td>
+</tr>
+</tbody>
+</table>
+<p>它把"本地编码 Agent"的能力从"另付一份订阅"拉低到"用你已有的 ChatGPT 计划"，具有实打实的普惠意义；但另一侧被<strong>账号强绑定 + 手动装载扩展 + 隧道配置 + 未签名 Beta</strong> 抬高，非技术用户难以落地。</p>
+<p><strong>小分：1.5 / 2.5（60%，对应 5–6 档）</strong>——「有普惠效果但受技术门槛/语言/硬件限制」。</p>
+<h3>D11.4 开放标准与行业推动（满分 2）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测事实</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>标准推动</td>
+<td>深度实现 MCP 开放标准（依赖 <code>@modelcontextprotocol/client</code>、<code>/server</code>、<code>/node</code>、<code>@anthropic-ai/mcpb</code>），并演示本地优先的 MCP 落地形态；但只是标准<strong>使用方</strong>，未参与定义或推进</td>
+<td>遵循，无推动</td>
+</tr>
+<tr>
+<td>科研支撑</td>
+<td>无学术引用证据</td>
+<td>N/A 级，不计正向</td>
+</tr>
+<tr>
+<td>行业示范效应</td>
+<td>高测试占比、"Goal/Compact &amp; Resume"长任务恢复语义、多 worker 上下文复用等设计，对同类 Agent 工具有一定参考价值；但尚未见被同行广泛模仿的痕迹</td>
+<td>弱</td>
+</tr>
+</tbody>
+</table>
+<p>其集成路径（借道 ChatGPT 网页会话 + 浏览器扩展配对）属于对既有能力的"再组合"，并非开放标准的定义者；README 亦明确声明与 OpenAI 无关联。</p>
+<p><strong>小分：1.2 / 2（60%，对应 5–6 档）</strong>——「遵循开放标准但无推动作用」。</p>
+<h3>D11 细则得分汇总</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D11.1 数字公共基础设施属性</td>
+<td>3</td>
+<td><strong>1.2</strong></td>
+<td>3–4 档（40%）</td>
+</tr>
+<tr>
+<td>D11.2 教育与人才价值</td>
+<td>2.5</td>
+<td><strong>1.5</strong></td>
+<td>5–6 档（60%）</td>
+</tr>
+<tr>
+<td>D11.3 普惠与可及性</td>
+<td>2.5</td>
+<td><strong>1.5</strong></td>
+<td>5–6 档（60%）</td>
+</tr>
+<tr>
+<td>D11.4 开放标准与行业推动</td>
+<td>2</td>
+<td><strong>1.2</strong></td>
+<td>5–6 档（60%）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>5.4</strong></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<p>项目正外部性呈<strong>"个体普惠型"而非"基础设施型"</strong>：它把本地编码 Agent 能力以 0 元对价提供给已有 ChatGPT 计划的个人开发者，跨三平台分发，工程文档与测试规范度可作同类项目的学习范本；但它不构成任何下游依赖，停摆不触及软件供应链，账号白名单与手动部署流程又实质限制了普惠半径，MCP 层面亦只是标准消费者。</p>
+<p><strong>D11 = 5.4 / 10（权重 0%，不影响综合评分与一票否决，仅作 3.4 价值画像输入）</strong>。置信度：中——<code>npm_weekly_downloads</code>、学术引用、外部教程数量三项关键外部证据缺失（N/A），D11.1/D11.2 的判断主要基于生态位推理而非量化依赖数据。</p>
+<h2>五、商业化价值判断</h2>
+<h3>5.1 总体判断：技术资产优质，商业地基不稳</h3>
+<p>综合评分 68.2 分、等级 A，落在「可投入商业化，需补齐少量短板」区间。但这一分数的结构极不均衡：<strong>D2 技术成熟度 8.9 分（加权贡献 1.25，为九维最高）与 D4 商业模式 6.3 分、D5 竞争壁垒 5.6 分、D8 团队治理 5.0 分之间形成明显落差</strong>。换言之，这是一个「工程质量远超其商业成熟度」的项目——178,582 行代码、49.5% 测试占比、六平台原生打包、顶级安全工程，却同时具备「零定价页、零付费层、零商业实体、零 Sponsor 入口」的完全空白商业化状态。</p>
+<h3>5.2 核心矛盾：卖点与收费逻辑天然相悖</h3>
+<p>D4 的关键发现揭示了本项目最根本的商业悖论：README 明确宣传「Uses your ChatGPT conversation rather than invoking Codex directly」并链接 OpenAI 定价页，其<strong>核心卖点就是「复用你已付费的 ChatGPT 订阅来省钱」</strong>。这意味着目标用户画像本身就是价格敏感型人群，向该人群二次收费在逻辑上自相矛盾。叠加 MIT 协议允许第三方闭源 fork 商业化、全功能免费、无 license key/席位限制、local-first 桌面架构无云端计费载体，D4.3 付费转化逻辑仅得 1.0/2.5 分。</p>
+<h3>5.3 价值画像：纯商业工具，而非公共产品</h3>
+<p>公共价值分 5.9（D10 功能价值 6.4 + D11 社会价值 5.4）。D11 明确指出本项目生态位是「终端用户应用而非库/底座」——无下游依赖、npm 周下载 N/A、未发布可被依赖的包，停摆不波及软件供应链，其正外部性画像为「个体普惠型」而非「数字基础设施型」。因此本项目不适用「影响力变现」路径，应按 D4 最优路径直接变现。</p>
+<blockquote>
+<p><strong>画像临界说明</strong>：公共价值分 5.9 未落入 6.5–7.5 临界区间，综合评分 68.2 亦未落入 60–70 临界区间，画像判定明确，无需二选一。</p>
+</blockquote>
+<h3>5.4 时间窗口判断</h3>
+<p>项目仅 3 周龄即获 2,596 Star（月增约 3,371，远超 &gt;500/月 顶格阈值），Fork 比率 13.1% 显著高于工具类项目常态，需求侧验证强烈。但 D5 指出「历史过短，优势持续性未经时间验证」，且最大战略风险是平台依赖——全部能力建立在 OpenAI 控制的 Developer Mode / MCP Apps / 订阅会话之上，而 OpenAI 自身 Codex 即为明确颠覆者。<strong>商业化窗口与平台政策窗口高度重合，属于「快打快收」型机会，而非可长期慢养的资产。</strong></p>
+<hr />
+<h2>六、商业路径分析</h2>
+<h3>6.1 路径可行性排序</h3>
+<p>基于 D4 的变现路径分析与 D6 的协议约束，可行路径按优先级排序如下：</p>
+<p><strong>路径一：企业版 / 团队版（推荐，天花板最高）</strong></p>
+<p>D4 明确指出「企业变现有真实空间但门槛硬」：本地 agent 执行的策略管控/审计/合规、托管 Core 中继、团队技能库可做团队版（$100–1K/年/席）。可货币化锚点已存在于代码库中——<code>docs/plugins.md</code>、<code>docs/skills.md</code>（技能/插件体系）与 <code>docs/setup.md#tunnel-setup</code>（Core 中继），但均未产品化。MIT 协议对此路径无任何法律约束（D4.1 得 2.0/2.0 满分）。</p>
+<p><strong>路径二：托管 Core 中继服务（SaaS 化）</strong></p>
+<p><code>docs/setup.md#tunnel-setup</code> 描述的隧道配置是当前用户最大的配置摩擦点之一（D9 指出首次可用需跨三个外部产品完成手工集成）。将隧道中继托管化，既降低上手门槛，又天然形成云端计费载体，弥补 local-first 架构「无 per-usage 扩展维度」的缺陷。</p>
+<p><strong>路径三：技能/插件市场抽成</strong></p>
+<p><code>docs/plugins.md</code> 与 <code>docs/skills.md</code> 已定义第一方插件/Skills 框架，但 D3 指出「第三方生态几乎为空白：仅第一方插件/Skills 框架与 MCP 消费端集成，无外部插件、衍生项目」。市场抽成路径需要先有生态，属于长线选项。</p>
+<p><strong>路径四：双协议 / Open Core（不推荐）</strong></p>
+<p>D6 指出项目「无 CLA、无 DCO、无 CODEOWNERS，贡献者 7 人，版权分散」，CONTRIBUTING 采用 inbound=outbound。<strong>双协议或重新许可前需补齐全部历史贡献者授权</strong>，在 7 名贡献者、118 个 PR 的现状下，法律成本与社区反噬风险均高。且 MIT 已允许第三方闭源 fork，改协议无法收回已释放的权利。</p>
+<h3>6.2 路径修正（依据价值画像）</h3>
+<p>价值画像为「💼 纯商业工具」，按方法论 3.4 的修正规则：<strong>按 D4 最优路径直接变现</strong>，无需经营社区声誉型策略。但需注意 D3 的警告——第三方生态空白与无具名企业背书构成「商业化的分发短板」，直接变现前仍需补足分发渠道。</p>
+<h3>6.3 变现前置条件（硬门槛）</h3>
+<p>D4 明确列出企业安全评审的实质障碍：README 自陈 Windows 未签名、macOS 未签名未公证、Shell 以用户权限运行。D8 补充：发行包未做发布者签名与 macOS 公证，SECURITY.md 明确声明无 bug bounty。<strong>在完成代码签名与公证之前，任何面向企业的付费转化都难以通过采购安全评审。</strong></p>
+<hr />
+<h2>七、能力评估：能做什么 &amp; 最适合做什么</h2>
+<h3>7.1 技术能力边界（能做什么）</h3>
+<p>基于 D2（8.9/10）与 D7（7.0/10）的硬事实，本项目已具备的工程能力包括：</p>
+<ul>
+<li><strong>跨平台桌面分发能力</strong>：六平台安装包（win x64/arm64、mac x64/arm64、linux x64/arm64）+ Extension.zip + Native-Sources.tar.gz + SHA256SUMS.txt，三平台 CI 矩阵（Windows x64 / macOS arm64 / Linux x64）</li>
+<li><strong>成熟的自动更新链路</strong>：<code>src/main/update.ts</code> 具备分阶段下载、digest 校验、退出时安装；<code>publish.yml</code> 强制 tag/package/lock/manifest/CHANGELOG 版本一致并要求每个 tag 已评审 release notes</li>
+<li><strong>顶级安全工程</strong>：loopback-only 绑定 127.0.0.1 + bearer token 常量时间比较 + Origin 校验 + 请求体/速率限制 + safeStorage 加密密钥 + 路径沙箱 + 渲染进程 CSP/sandbox/contextIsolation，无硬编码密钥</li>
+<li><strong>崩溃一致性设计</strong>：durable WAL + 两阶段提交 + append-only JSONL <code>sealTornTail</code>；配置层 Zod 严格校验 + tmp/rename 原子写 + 串行 mutationQueue + 自动迁移管道</li>
+<li><strong>多智能体编排</strong>：worker swarm 并发、全链路有界资源、Goal/Loop 第二模型循环、Compact &amp; Resume 两阶段提交事务</li>
+<li><strong>高质量测试与文档</strong>：183 测试文件 / 88,084 测试行（test_ratio 0.495），45 份文档含逐版本 release notes、工具/插件/架构文档，CI 三 workflow 覆盖六平台原生打包 + 冒烟测试 + checksum 校验 + 隐私校验</li>
+</ul>
+<h3>7.2 最适合做什么</h3>
+<p><strong>最适合</strong>：面向<strong>使用 ChatGPT 的开发者个人与小团队</strong>，提供「零额外订阅 + 本地优先」的本地 Agent 执行能力，切入点是<strong>多智能体 Worker 续接 + Skills 可插拔 + Chrome 集成</strong>这三个差异化点（D1 明确 CoS 的差异化仅在此）。</p>
+<p><strong>次适合</strong>：作为<strong>企业团队版的本地执行底座</strong>——D4 指出策略管控/审计/合规、托管 Core 中继、团队技能库存在真实企业空间，但需先解决签名与公证问题。</p>
+<p><strong>不适合</strong>：作为数字公共基础设施或平台型底座（D11 明确其生态位是终端用户应用，无下游依赖）；也不适合作为需要长期稳定 API 契约的库被依赖（D10 指出效用可持续性被平台绑死，停维后桥接层将快速失效）。</p>
+<hr />
+<h2>八、短板识别：还缺少什么</h2>
+<h3>8.1 商业化基础设施（最致命）</h3>
+<ul>
+<li><strong>零商业化信号</strong>：无定价页、无企业版、无云服务、无商业实体、无 Sponsor 入口（D4）</li>
+<li><strong>付费转化无触发点</strong>：全功能免费、无 license key/席位限制、MIT 可 fork 绕过任何未来限制、local-first 架构无云端计费载体（D4）</li>
+<li><strong>两个可货币化锚点未产品化</strong>：<code>docs/plugins.md</code>/<code>docs/skills.md</code>（技能/插件体系）与 <code>docs/setup.md#tunnel-setup</code>（Core 中继）（D4）</li>
+</ul>
+<h3>8.2 团队与治理（一票否决未触发，但风险最高）</h3>
+<ul>
+<li><strong>巴士因子 = 1</strong>：CONTRIBUTING.md 与 SECURITY.md 均自述单人维护（"maintained by one person" / "solo-maintained beta"）（D8）</li>
+<li><strong>零资金信号</strong>：无 GitHub Sponsors / Open Collective / FUNDING.yml / VC 融资 / 商业实体；无 bug bounty（D8）</li>
+<li><strong>治理文档缺失</strong>：无 GOVERNANCE.md、无 CODEOWNERS、不属于任何基金会（D8）</li>
+<li><strong>无商业化经验证据</strong>：D8 指出维护者技术执行力极强，但「缺乏任何商业化经验证据」</li>
+<li><strong>历史事故</strong>：存在一次公开历史泄露隐私事故记录（<code>docs/public-history-privacy-incident-2026-08-24.md</code>），反映单人运维下的风险敞口（D8）</li>
+</ul>
+<h3>8.3 生态与分发</h3>
+<ul>
+<li><strong>第三方生态几乎为空白</strong>：无外部插件、衍生项目、教程或具名企业背书（D3）</li>
+<li><strong>品牌认知局限</strong>：无知名企业采用与媒体覆盖，局限于 ChatGPT 本地化/MCP 垂直圈层，README 明示与 OpenAI 无关联，独立品牌资产弱（D3）</li>
+<li><strong>贡献者结构单一</strong>：7 人承载 118 个 PR（人均 16.9），呈核心小团队单核驱动（D3）</li>
+</ul>
+<h3>8.4 企业就绪度缺口</h3>
+<ul>
+<li><strong>无企业身份体系</strong>：无 SSO/LDAP/SAML、无 RBAC/多租户、无正式防篡改审计日志（D7）</li>
+<li><strong>无回滚机制</strong>：<code>isNewer()</code> 阻止降级（D7）</li>
+<li><strong>可观测性不足</strong>：缺 Prometheus/OpenTelemetry/Webhook 等指标与事件导出（D7）</li>
+<li><strong>配置不支持环境变量/配置中心</strong>：仅单 JSON 文件（D7）</li>
+<li><strong>签名缺失</strong>：Windows 未 publisher-signed、macOS unsigned/unnotarized（D7/D8/D9）</li>
+</ul>
+<h3>8.5 工程可维护性隐忧</h3>
+<ul>
+<li><strong>巨型单体文件</strong>：<code>content.js</code> &gt;10,000 行、<code>bridge.ts</code> &gt;7,500 行、<code>agents.ts</code> &gt;3,400 行（D2/D7）</li>
+<li><strong>性能瓶颈点</strong>：<code>continuation.sweep</code> 每次查询遍历全表、<code>input.serial</code> 全局串行链可能成吞吐瓶颈（D7）</li>
+<li><strong>稳定性风险</strong>：3 周内 10 次发版、69 开放 Issue 与多份 bug-audit 文档反映缺陷密度（D2）</li>
+<li><strong>代码局部问题</strong>：存在局部重复片段与大量静默 try/catch（D2）</li>
+</ul>
+<h3>8.6 上手门槛</h3>
+<ul>
+<li><strong>无容器化路径</strong>：全库无 Dockerfile、无 docker-compose/Helm/K8s（D9）</li>
+<li><strong>首次可用需跨三个外部产品手工集成</strong>：ChatGPT Developer mode 添加 MCP 应用、Chrome Load unpacked 旁加载扩展、隧道连接（D9）</li>
+<li><strong>示例项目数为 0</strong>，无交互式 onboarding（D9）</li>
+<li><strong>纯英文文档</strong>，i18n 证据 N/A（D11）</li>
+</ul>
+<hr />
+<h2>九、风险提示</h2>
+<h3>9.1 平台依赖风险（最高优先级）</h3>
+<p>D5 明确指出「最大战略风险是平台依赖：全部能力建立在 OpenAI 控制的 Developer Mode / MCP Apps / 订阅会话之上，且 OpenAI 自身 Codex 即为明确颠覆者」。D1 进一步指出「平台方（OpenAI Codex）可直接原生覆盖，护城河薄、政策风险高」。D4 补充：ChatGPT Work 与 Codex 共享额度，OpenAI 可原生吸收本地能力或收紧 MCP 政策，<strong>变现地基不可控</strong>。</p>
+<p>D10 从效用可持续性角度给出量化判断：仓库内含 <code>chatgpt-turn-signals</code>、<code>model-picker-hotfix</code> 等紧跟上游 UI 的补丁文档，<strong>停维后桥接层将快速失效</strong>，D10.4 仅得 0.8/2。</p>
+<h3>9.2 竞争替代风险</h3>
+<p>D1 指出替代成本低、替代品密集：Cursor、Claude Code、Codex、Cline、Aider 等已构成强势替代。D5 验证的竞品中，存在定位高度重合的直接竞品 OpenBrowser（免 API Key、复用 ChatGPT 浏览器订阅、Chrome 扩展桥接），<strong>该切口并非独家</strong>。虽然本项目 Star 数领先最接近直接竞品约 153 倍，但 D5 强调「护城河以集成工程量为主：MIT 许可、本地优先、无专利、无数据资产、无中心化网络效应，商业防御不深厚且极易 fork 复制」。</p>
+<h3>9.3 单人维护与传承风险</h3>
+<p>D8 明确巴士因子 = 1，且「传承机制不健全：单人决策、7 名贡献者仅为外部补丁来源、watchers 仅 8、项目历史仅 3 周」。D8.4 项目可持续性仅取 5–6 档（1.8/3），虽未触发一票否决（阈值 ≤1），但已接近风险区间。叠加零资金支持与无 bug bounty，<strong>维护者个人状态直接决定项目存续</strong>。</p>
+<h3>9.4 法律与商标风险</h3>
+<p>D6 指出商标风险未经人工核查（置信度低）：项目名 "Chat On Steroids" 可注册性未知；描述与 topics 直接使用 OpenAI 的 ChatGPT 商标，且捆绑 OpenAI Codex（Apache-2.0 不授予商标许可）；MIT 文本无商标使用政策条款。此外，捆绑的 sharp 底层 libvips 为 LGPL 系，<strong>建议人工法务复核</strong>。D6.4 贡献者协议完备性仅 1.2/2：无 CLA、无 DCO、无 CODEOWNERS，版权分散，双协议或重新许可前需补齐授权。</p>
+<h3>9.5 企业采购合规风险</h3>
+<p>D4 指出「README 自陈 Windows 未签名、macOS 未签名未公证、Shell 以用户权限运行，企业安全评审是实质障碍」。D9 补充 macOS 用户需手动放行并校验 checksum，Linux 需 Secret Service keyring 且可能回退 <code>--no-sandbox</code>。D7 指出无 SSO/LDAP/SAML、无 RBAC/多租户、无正式防篡改审计日志。</p>
+<h3>9.6 稳定性与回归风险</h3>
+<p>D2 指出 3 周内 10 次发版、69 开放 Issue 与多份 bug-audit 文档反映缺陷密度与稳定性风险。D7 补充「高频升级带来回归扰动风险」，且 <code>isNewer()</code> 阻止降级、无回滚机制。D3 指出开放 Issue 69 个（约占累计 47%）且缺平均关闭时长数据。</p>
+<h3>9.7 数据置信度提示</h3>
+<ul>
+<li>D1.1 的市场规模判断无外部数据来源，仅按项目类型/行业类别做量级估算，<strong>置信度低</strong></li>
+<li>D6.3 商标风险未经人工核查，按默认档 5–6 计，<strong>置信度低</strong></li>
+<li>D10.2 实际使用规模：npm 周下载、PyPI 月下载、GitHub Dependents 均为 N/A，<strong>使用规模判断依据不足</strong></li>
+<li>D11 的 i18n 证据与学术引用均为 N/A</li>
+</ul>
+<hr />
+<h2>十、结论与建议</h2>
+<h3>10.1 结论</h3>
+<p>Chat On Steroids 是一个<strong>技术资产显著优于商业成熟度</strong>的早期项目。综合评分 68.2 分、等级 A（高商业化潜力），未触发任何一票否决；价值画像为「💼 纯商业工具」，公共价值分 5.9，不适用影响力变现路径。</p>
+<p>其核心优势在于：D2 技术成熟度 8.9 分（顶级安全工程、49.5% 测试占比、六平台原生打包、崩溃一致性设计）、D1 需求信号极强（3 周 2,596 Star、月增约 3,371）、D6 法律合规 7.7 分（MIT 无变现约束、CI 强制第三方合规校验）、D9 上手难度 7.5 分（三平台预编译安装包）。</p>
+<p>其核心短板在于：D8 团队治理 5.0 分（巴士因子 = 1、零资金、无治理文档）、D5 竞争壁垒 5.6 分（无专利、无数据资产、无网络效应、极易 fork）、D4 商业模式 6.3 分（零商业化信号、卖点与收费逻辑相悖、付费转化无触发点）。</p>
+<p><strong>最关键的判断是：本项目的商业窗口与 OpenAI 的平台政策窗口高度重合。</strong> D5 与 D1 均将平台依赖列为最大战略风险，D10 判断停维后桥接层将快速失效。这意味着商业化必须「快打快收」，而非长期慢养。</p>
+<h3>10.2 建议</h3>
+<p><strong>立即行动（0–3 个月）</strong></p>
+<ol>
+<li><strong>完成代码签名与 macOS 公证</strong>——这是企业变现路径的硬前置条件，D4/D7/D8/D9 四个维度共同指向该缺口</li>
+<li><strong>将 <code>docs/setup.md#tunnel-setup</code> 的 Core 中继产品化为托管服务</strong>——既解决 D9 指出的「首次可用需跨三个外部产品手工集成」这一最大上手摩擦，又为 local-first 架构补上云端计费载体</li>
+<li><strong>建立商业化最小验证</strong>：在 <code>docs/plugins.md</code>/<code>docs/skills.md</code> 定义的技能/插件体系上测试团队版付费假设（$100–1K/年/席），验证 D4 提出的企业空间是否真实</li>
+</ol>
+<p><strong>中期建设（3–12 个月）</strong></p>
+<ol start="4">
+<li><strong>降低巴士因子</strong>：D8 显示 7 名贡献者仅为外部补丁来源，需通过 CODEOWNERS、GOVERNANCE.md 与维护者授权机制将核心决策分布式化</li>
+<li><strong>补齐企业身份与审计能力</strong>：SSO/LDAP/SAML、RBAC/多租户、防篡改审计日志（D7）</li>
+<li><strong>拆分巨型单体文件</strong>：<code>content.js</code>（&gt;10k 行）、<code>bridge.ts</code>（&gt;7.5k 行）、<code>agents.ts</code>（&gt;3.4k 行），并优化 <code>continuation.sweep</code> 全表遍历与 <code>input.serial</code> 全局串行链（D2/D7）</li>
+<li><strong>建立第三方生态</strong>：D3 指出生态空白是商业化的分发短板，需通过插件市场、教程、示例项目（当前为 0）激活外部贡献者</li>
+</ol>
+<p><strong>风险规避</strong></p>
+<ol start="8">
+<li><strong>不要尝试双协议/重新许可</strong>：D6 显示无 CLA、版权分散于 7 名贡献者，法律成本高且 MIT 已释放的权利无法收回；且参照 Elastic 改协议的反噬教训</li>
+<li><strong>不要向价格敏感人群直接收费</strong>：D4 指出核心卖点即「复用已付费的 ChatGPT 订阅省钱」，直接收费与卖点相悖；应转向企业版/托管服务等 B 端路径</li>
+<li><strong>持续监控 OpenAI 的 MCP 政策与 Codex 能力边界</strong>：这是决定项目生死的外部变量，应作为最高优先级的战略监控项</li>
+</ol>
+<p><strong>若资源有限</strong></p>
+<p>若无法同时推进上述路径，建议优先执行第 1、2 项（签名公证 + 托管中继），这两项同时改善 D4（变现载体）、D7（企业就绪）、D9（上手门槛）三个维度，是投入产出比最高的动作。</p>
+<h2>十一、项目地址</h2>
+<p><svg class="ri ri-muted" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.001 2C6.47598 2 2.00098 6.475 2.00098 12C2.00098 16.425 4.86348 20.1625 8.83848 21.4875C9.33848 21.575 9.52598 21.275 9.52598 21.0125C9.52598 20.775 9.51348 19.9875 9.51348 19.15C7.00098 19.6125 6.35098 18.5375 6.15098 17.975C6.03848 17.6875 5.55098 16.8 5.12598 16.5625C4.77598 16.375 4.27598 15.9125 5.11348 15.9C5.90098 15.8875 6.46348 16.625 6.65098 16.925C7.55098 18.4375 8.98848 18.0125 9.56348 17.75C9.65098 17.1 9.91348 16.6625 10.201 16.4125C7.97598 16.1625 5.65098 15.3 5.65098 11.475C5.65098 10.3875 6.03848 9.4875 6.67598 8.7875C6.57598 8.5375 6.22598 7.5125 6.77598 6.1375C6.77598 6.1375 7.61348 5.875 9.52598 7.1625C10.326 6.9375 11.176 6.825 12.026 6.825C12.876 6.825 13.726 6.9375 14.526 7.1625C16.4385 5.8625 17.276 6.1375 17.276 6.1375C17.826 7.5125 17.476 8.5375 17.376 8.7875C18.0135 9.4875 18.401 10.375 18.401 11.475C18.401 15.3125 16.0635 16.1625 13.8385 16.4125C14.201 16.725 14.5135 17.325 14.5135 18.2625C14.5135 19.6 14.501 20.675 14.501 21.0125C14.501 21.275 14.6885 21.5875 15.1885 21.4875C19.259 20.1133 21.9999 16.2963 22.001 12C22.001 6.475 17.526 2 12.001 2Z"/></svg> <a href="https://github.com/totec448-spec/chat-on-steroids">https://github.com/totec448-spec/chat-on-steroids</a></p>
+<hr />
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+</blockquote>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家　<a href="https://www.mova.work">www.mova.work</a></p></body></html>

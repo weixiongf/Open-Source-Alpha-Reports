@@ -1,0 +1,1809 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><title>Colibri 商业价值分析报告</title><style>/* default — 品牌蓝紫主题（从 md2pdf.py 原 CSS 常量迁出，视觉与历史产物一致） */
+@page { size: A4; margin: 18mm 15mm 20mm 15mm; }
+* { box-sizing: border-box; }
+/* 字体规范：一律开源思源黑体 CN（OFL 免费商用）；正文 Regular/标题 Bold/大字数字 Light */
+body { font-family: "Source Han Sans CN","思源黑体 CN","Noto Sans SC",sans-serif; color:#1e293b; font-size:10.5pt; line-height:1.75; margin:0; }
+.cover { page-break-after: always; text-align:center; padding-top:40px; }
+.cover .kicker { color:#2563eb; letter-spacing:6px; font-size:12pt; font-weight:500; }
+.cover h1 { font-size:26pt; margin:14px 0 6px; }
+.cover .sub { color:#64748b; font-size:11pt; margin-bottom:22px; }
+.badge { display:inline-block; background:linear-gradient(135deg,#2563eb,#7c3aed); color:#fff; border-radius:18px; padding:16px 44px; margin:10px 0 18px; }
+.badge .g { font-size:34pt; font-weight:300; line-height:1; }
+.badge .s { font-size:12pt; opacity:.92; margin-top:4px; }
+.meta { color:#475569; font-size:9.5pt; margin-top:14px; }
+.bars { max-width:620px; margin:20px auto 0; text-align:left; }
+.bar-row { display:flex; align-items:center; gap:8px; margin:5px 0; font-size:9pt; }
+.bar-name { width:110px; text-align:right; color:#334155; font-weight:500; }
+.bar-track { flex:1; height:9px; background:#f1f5f9; border-radius:5px; overflow:hidden; }
+.bar-fill { display:block; height:100%; border-radius:5px; }
+.bar-val { width:30px; font-weight:700; color:#0f172a; }
+.bar-w { width:52px; color:#94a3b8; font-size:8pt; }
+h1 { font-size:17pt; color:#0f172a; border-bottom:3px solid #2563eb; padding-bottom:8px; }
+h2 { font-size:13.5pt; color:#1d4ed8; margin-top:26px; page-break-after: avoid; border-left:5px solid #2563eb; padding-left:10px; }
+h3 { font-size:11.5pt; color:#0f172a; margin-top:18px; page-break-after: avoid; }
+table { border-collapse:collapse; width:100%; margin:10px 0; font-size:9pt; page-break-inside:avoid; }
+th { background:#eff6ff; color:#1e3a8a; }
+th,td { border:1px solid #dbe3ef; padding:5px 8px; text-align:left; }
+tr:nth-child(even) td { background:#f8fafc; }
+code { background:#f1f5f9; border-radius:4px; padding:1px 5px; font-family:"JetBrains Mono","Cascadia Mono",monospace; font-size:9pt; color:#be185d; }
+pre { background:#0f172a; color:#e2e8f0; border-radius:8px; padding:12px 14px; overflow-x:auto; page-break-inside:avoid; }
+pre code { background:none; color:inherit; padding:0; }
+blockquote { border-left:4px solid #93c5fd; background:#eff6ff; margin:10px 0; padding:8px 14px; color:#334155; border-radius:0 8px 8px 0; }
+hr { border:none; border-top:1px dashed #cbd5e1; margin:22px 0; }
+strong { color:#0f172a; }
+.cover .disclaimer { max-width:620px; margin:16px auto 0; color:#64748b; font-size:8.5pt; line-height:1.6; text-align:left; border:1px solid #e2e8f0; border-radius:8px; padding:8px 12px; background:#f8fafc; }
+.credit { color:#2563eb; font-size:10.5pt; font-weight:700; letter-spacing:1px; margin-top:12px; }
+.at-acc { background:#dbeafe; color:#1d4ed8; border-radius:4px; padding:0 4px; font-weight:500; white-space:nowrap; }
+.tail { page-break-inside:avoid; margin-top:26px; border-top:2px solid #2563eb; padding-top:14px; }
+.tail p { color:#64748b; font-size:8.5pt; line-height:1.6; margin:0 0 10px; }
+.tail .credit { text-align:center; margin:0; }
+/* Remix Icon 内联 SVG（icon_mode=remix 时由脚本注入，语义色与评分条一致） */
+.ri { width:1.05em; height:1.05em; vertical-align:-0.18em; display:inline-block; }
+.ri-ok { color:#16a34a; } .ri-warn { color:#d97706; } .ri-bad { color:#dc2626; }
+.ri-muted { color:#64748b; } .ri-star { color:#f59e0b; } .ri-brand { color:#2563eb; }
+.ri-gold { color:#d4a017; } .ri-silver { color:#9ca3af; } .ri-bronze { color:#b45309; }
+/* 屏幕预览：@page 边距仅在打印时生效，浏览器中居中限宽并收边（不影响 PDF 输出） */
+@media screen {
+  body { margin: 0 auto; padding: 28px 36px 56px; max-width: 900px; }
+}
+</style></head><body><div class="cover">
+<div class="kicker">开源项目商业化潜力分析 · 第 101 期</div>
+<h1>GitHub 开源项目 Colibri<br>商业价值分析报告</h1>
+<div class="sub">JustVugg/colibri · 纯 C 零依赖的磁盘流式 MoE 推理引擎 · 九维度加权评估 71.3/100（A 级）</div>
+<div class="badge"><div class="g">A 级 · 71.3</div><div class="s">综合评分（满分 100）· 高商业化潜力</div></div>
+<div><svg viewBox="0 0 560 480" width="560" height="480" xmlns="http://www.w3.org/2000/svg"><polygon points="280.0,209.6 299.5,216.7 309.9,234.7 306.3,255.2 290.4,268.6 269.6,268.6 253.7,255.2 250.1,234.7 260.5,216.7" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,179.2 319.1,193.4 339.9,229.4 332.7,270.4 300.8,297.1 259.2,297.1 227.3,270.4 220.1,229.4 240.9,193.4" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,148.8 338.6,170.1 369.8,224.2 359.0,285.6 311.2,325.7 248.8,325.7 201.0,285.6 190.2,224.2 221.4,170.1" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,118.4 358.2,146.8 399.8,218.9 385.3,300.8 321.6,354.3 238.4,354.3 174.7,300.8 160.2,218.9 201.8,146.8" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,88.0 377.7,123.6 429.7,213.6 411.6,316.0 332.0,382.8 228.0,382.8 148.4,316.0 130.3,213.6 182.3,123.6" fill="none" stroke="#e2e8f0" stroke-width="1"/><line x1="280.0" y1="240.0" x2="280.0" y2="88.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="377.7" y2="123.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="429.7" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="411.6" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="332.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="228.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="148.4" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="130.3" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="182.3" y2="123.6" stroke="#d8dee9" stroke-width="1"/><polygon points="280.0,118.4 361.1,143.4 399.8,218.9 357.7,284.8 314.3,334.3 237.4,357.1 195.8,288.6 181.2,222.6 216.5,164.3" fill="rgba(37,99,235,.22)" stroke="#2563eb" stroke-width="2.5"/><circle cx="280.0" cy="118.4" r="3.5" fill="#2563eb"/><circle cx="361.1" cy="143.4" r="3.5" fill="#2563eb"/><circle cx="399.8" cy="218.9" r="3.5" fill="#2563eb"/><circle cx="357.7" cy="284.8" r="3.5" fill="#2563eb"/><circle cx="314.3" cy="334.3" r="3.5" fill="#2563eb"/><circle cx="237.4" cy="357.1" r="3.5" fill="#2563eb"/><circle cx="195.8" cy="288.6" r="3.5" fill="#2563eb"/><circle cx="181.2" cy="222.6" r="3.5" fill="#2563eb"/><circle cx="216.5" cy="164.3" r="3.5" fill="#2563eb"/><text x="280.0" y="44.0" text-anchor="middle" font-size="12.5" fill="#334155" font-weight="600">D1</text><text x="280.0" y="58.0" text-anchor="middle" font-size="11" fill="#64748b">市场需求 8.0</text><text x="406.0" y="89.9" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D2</text><text x="406.0" y="103.9" text-anchor="start" font-size="11" fill="#64748b">技术成熟度 8.3</text><text x="473.0" y="206.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D3</text><text x="473.0" y="220.0" text-anchor="start" font-size="11" fill="#64748b">社区生态 8.0</text><text x="449.7" y="338.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D4</text><text x="449.7" y="352.0" text-anchor="start" font-size="11" fill="#64748b">变现潜力 5.9</text><text x="347.0" y="424.2" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D5</text><text x="347.0" y="438.2" text-anchor="start" font-size="11" fill="#64748b">竞争格局 6.6</text><text x="213.0" y="424.2" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D6</text><text x="213.0" y="438.2" text-anchor="end" font-size="11" fill="#64748b">法律合规 8.2</text><text x="110.3" y="338.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D7</text><text x="110.3" y="352.0" text-anchor="end" font-size="11" fill="#64748b">企业就绪 6.4</text><text x="87.0" y="206.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D8</text><text x="87.0" y="220.0" text-anchor="end" font-size="11" fill="#64748b">团队治理 6.6</text><text x="154.0" y="89.9" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D9</text><text x="154.0" y="103.9" text-anchor="end" font-size="11" fill="#64748b">上手难度 6.5</text></svg></div>
+<div class="bars"><div class="bar-row"><span class="bar-name">D2 技术成熟度</span>
+<span class="bar-track"><span class="bar-fill" style="width:83.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.3</span><span class="bar-w">权重14%</span></div>
+<div class="bar-row"><span class="bar-name">D6 法律合规</span>
+<span class="bar-track"><span class="bar-fill" style="width:82.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.2</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D1 市场需求</span>
+<span class="bar-track"><span class="bar-fill" style="width:80.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.0</span><span class="bar-w">权重13%</span></div>
+<div class="bar-row"><span class="bar-name">D3 社区生态</span>
+<span class="bar-track"><span class="bar-fill" style="width:80.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.0</span><span class="bar-w">权重11%</span></div>
+<div class="bar-row"><span class="bar-name">D5 竞争格局</span>
+<span class="bar-track"><span class="bar-fill" style="width:66.0%;background:#d97706"></span></span>
+<span class="bar-val">6.6</span><span class="bar-w">权重12%</span></div>
+<div class="bar-row"><span class="bar-name">D8 团队治理</span>
+<span class="bar-track"><span class="bar-fill" style="width:66.0%;background:#d97706"></span></span>
+<span class="bar-val">6.6</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D9 上手难度</span>
+<span class="bar-track"><span class="bar-fill" style="width:65.0%;background:#d97706"></span></span>
+<span class="bar-val">6.5</span><span class="bar-w">权重10%</span></div>
+<div class="bar-row"><span class="bar-name">D7 企业就绪</span>
+<span class="bar-track"><span class="bar-fill" style="width:64.0%;background:#d97706"></span></span>
+<span class="bar-val">6.4</span><span class="bar-w">权重8%</span></div>
+<div class="bar-row"><span class="bar-name">D4 变现潜力</span>
+<span class="bar-track"><span class="bar-fill" style="width:59.0%;background:#dc2626"></span></span>
+<span class="bar-val">5.9</span><span class="bar-w">权重18%</span></div></div>
+<div class="meta">分析时点 2026-09-15 ｜ 数据来源：GitHub API + 仓库代码实测 ｜ 方法论 v1.3</div>
+<div class="credit">报告出品：@魔法工厂　@向量之心　@南山科学家</div>
+<div class="disclaimer"><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</div>
+</div><h1>Colibri 商业化潜力分析报告（完整版）</h1>
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家</p>
+<p>方法论版本: v1.3 | 综合评分: <strong>71.3</strong> | 等级: <strong>A（高商业化潜力）</strong> | 价值画像: 明星资产</p>
+</blockquote>
+<h2>一、项目概览</h2>
+<h3>1.1 基本信息</h3>
+<ul>
+<li><strong>项目名称 / 仓库地址</strong>：JustVugg/colibri（Colibrì）</li>
+<li><strong>核心技术栈</strong>：纯 C 引擎（零运行时依赖）+ Python 工具链（转换/调优/自检）+ Rust/Tauri 桌面壳 + TypeScript/React 前端仪表盘；支持 CPU / CUDA / Metal / Vulkan 多后端，支持多机 cluster</li>
+<li><strong>社区规模速览</strong>：Star 31,982；Fork 3,382（Fork 比率 10.6%）；贡献者 138；Watchers 266；近 90 天新建 PR 1,008、关闭 Issue 398、开放 Issue 111</li>
+<li><strong>分析时点 / 数据来源</strong>：项目创建于 2026-07-01，最后推送 2026-09-14，最新版本 v1.11.0（2026-09-13）；数据来源为仓库元数据、README/docs（52 份文档）、CI 工作流（4 个）及各维度评分卡</li>
+</ul>
+<h3>1.2 项目分类标签</h3>
+<table>
+<thead>
+<tr>
+<th>分类维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>数据与AI（LLM推理引擎）/ 基础设施</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>通用 / 跨行业</td>
+</tr>
+<tr>
+<td>目标用户角色</td>
+<td>AI/ML 工程师、后端开发者、架构师、技术管理者/CTO</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>私有化本地 AI 推理、前沿 MoE 模型在消费级/异构硬件上的部署、OpenAI 兼容 API 服务自托管</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>本地部署、混合部署（CPU/CUDA/Metal/Vulkan 多后端，支持多机 cluster）</td>
+</tr>
+</tbody>
+</table>
+<h3>1.3 一句话定位</h3>
+<blockquote>
+<p>Colibrì 是一个纯 C 编写的开源 MoE 大模型推理引擎，适用于通用/跨行业的私有化 AI 推理场景，主要面向 AI/ML 工程师、后端开发者与架构师，用于在消费级与异构硬件上以专家磁盘流式加载与多级内存分层的方式运行 744B–2.8T 参数的前沿 MoE 模型。</p>
+</blockquote>
+<hr />
+<h2>二、安装部署与使用指南</h2>
+<blockquote>
+<p>难度等级：🟡 中等（D9 综合 6.5/10）。程序本体安装极简（预编译包/零运行时依赖），门槛集中在<strong>模型获取（372 GB 级）与硬件调参</strong>。以下只列关键步骤，省略基础操作。</p>
+</blockquote>
+<h3>1. 获取程序（三选一，命令取自 README / Makefile）</h3>
+<p><strong>方式 A：预编译发行包（推荐，无需编译器，覆盖 Linux / macOS / Windows）</strong></p>
+<pre><code class="language-bash">mkdir colibri &amp;&amp; tar xzf colibri-v1.8.0-linux-x86_64.tar.gz -C colibri &amp;&amp; cd colibri
+python3 coli info                         # engine ready ✓
+</code></pre>
+<ul>
+<li>包内含引擎（<code>colibri</code>，Windows 为 <code>colibri.exe</code>）、<code>coli</code> 启动器与其 Python 辅助脚本；<code>coli</code> 自动在自身旁边找到引擎，无需改名或配置。</li>
+<li>唯一外部前提：本机装有 <strong>Python 3</strong>（启动器与 API 网关是 Python 脚本；引擎本体是纯 C、零依赖）。</li>
+</ul>
+<p><strong>方式 B：源码构建（需 gcc/clang + OpenMP）</strong></p>
+<pre><code class="language-bash">git clone https://github.com/JustVugg/colibri &amp;&amp; cd colibri/c
+./setup.sh                                # checks gcc/OpenMP, builds, self-tests
+</code></pre>
+<p>希望 <code>coli</code> 进入 PATH：在仓库检出目录执行 <code>pip install -e .</code>（editable 安装，非 wheel，引擎仍在 <code>c/</code>）。按模型族构建亦可用 <code>make -C c glm</code>（GLM-5.2）、<code>make glm</code> / <code>make check</code> / <code>make clean</code>。</p>
+<p><strong>方式 C：Docker（OpenAI 兼容服务，一条命令）</strong></p>
+<pre><code class="language-bash">MODEL_DIR=/nvme/glm52_i4 docker compose -f docker/docker-compose.yml up
+</code></pre>
+<p>镜像由 <code>docker/Dockerfile</code>（<code>./setup.sh &amp;&amp; ./coli build</code>）或 <code>docker/Dockerfile.slim</code> 构建，默认暴露 5000 端口，<code>COLI_RAM</code> 控制 RAM 预算，模型以只读卷挂载（<strong>必须放在 NVMe/ext4，禁用网络挂载</strong>）。</p>
+<h3>2. 获取模型（真正的门槛）</h3>
+<p>参考模型 GLM-5.2 int4 容器约 <strong>372 GB</strong>，需使用 group-scaled（gs64）+ <strong>int8 MTP head</strong> 版本：</p>
+<pre><code class="language-bash">./coli convert --model /nvme/glm52_i4     # download+convert shard by shard (python, one-time)
+</code></pre>
+<p>或直接从 Hugging Face 下载预转换容器。校验 MTP head 为 int8：<code>ls -l &lt;model&gt;/out-mtp-*</code>。</p>
+<p>各模型族资源需求差异极大（README 明确列出）：</p>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>权重占用</th>
+<th>RAM</th>
+<th>GPU</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OLMoE</td>
+<td>~7 GB (int8)</td>
+<td>8 GB</td>
+<td>不需要</td>
+</tr>
+<tr>
+<td>GLM-5.2/5.3</td>
+<td>~372 GB</td>
+<td>16 GB 起，24 GB 舒适</td>
+<td>不需要</td>
+</tr>
+<tr>
+<td>GLM-5.3-Flash</td>
+<td>~195 GB</td>
+<td>25 GB</td>
+<td>不需要</td>
+</tr>
+<tr>
+<td>Inkling</td>
+<td>~469 GB</td>
+<td>25 GB（int4 dense）/ ~120 GB</td>
+<td>不需要</td>
+</tr>
+<tr>
+<td>Kimi K3</td>
+<td>~1.6 TB</td>
+<td>32 GB+</td>
+<td>不需要</td>
+</tr>
+<tr>
+<td>DeepSeek V4 Flash</td>
+<td>~167 GB（REAP 150B: ~85 GB）</td>
+<td>16–32 GB</td>
+<td>可选</td>
+</tr>
+<tr>
+<td>Qwen3.8-Flash-Next</td>
+<td>~185.5 GB（官方 FP8）</td>
+<td>16–24 GB</td>
+<td>不支持，仅 CPU</td>
+</tr>
+<tr>
+<td>Qwen3.6-35B-A3B</td>
+<td>~20 GB (int4-gs64)</td>
+<td>24 GB（需整机 RAM 常驻）</td>
+<td>可选</td>
+</tr>
+</tbody>
+</table>
+<h3>3. 启动与运行</h3>
+<pre><code class="language-bash">./coli chat                                # 交互式对话
+./coli serve --model /nvme/glm52_i4        # OpenAI 兼容 HTTP 服务
+./coli web                                 # Web 仪表盘（实时指标/专家分层/Atlas）
+</code></pre>
+<p>双 SSD 加速（读带宽叠加）：</p>
+<pre><code class="language-bash">COLI_MODEL=/fast/glm52_i4 COLI_MODEL_MIRROR=/second/glm52_i4 ./coli chat
+COLI_DISK_WEIGHTS=9,3 ...   # optional: primary,mirror bandwidth ratio
+</code></pre>
+<p>部分镜像规划（先跑几轮代表性提示，让 <code>.coli_usage</code> 反映负载）：</p>
+<pre><code class="language-bash">./c/coli mirror plan  --model /fast/glm52_i4 --mirror /second/glm52_i4 --budget-gib 200 --reserve-gib 20
+./c/coli mirror stage --model /fast/glm52_i4 --mirror /second/glm52_i4 --budget-gib 200 --reserve-gib 20
+./c/coli mirror verify --model /fast/glm52_i4 --mirror /second/glm52_i4
+</code></pre>
+<p>多机（本地集群）模式：</p>
+<pre><code class="language-bash">./coli cluster coordinator --host 0.0.0.0 --port 8765
+./coli cluster worker --model /nvme/glm52_i4 --port 9100 --coordinator http://COORDINATOR:8765 --advertise-host WORKER_IP
+</code></pre>
+<h3>4. 关键注意点（部署前必须知道）</h3>
+<ul>
+<li><strong>无 GPU 也能跑</strong>，速度由磁盘决定；慢盘上可能只有零点几个 token/s。</li>
+<li>优化开关是一组环境变量：<code>DIRECT=1</code>（O_DIRECT）、<code>PIPE=1</code>（默认）、<code>PILOT=1</code>、<code>DRAFT=0</code>、<code>CUDA_EXPERT_GB=auto</code>、<code>PIN_GB=all</code>、<code>COLI_NUMA=1</code>、<code>COLI_CUDA_PIPE=2</code> 等，且明确声明"驱动相关，需实测保留有效项"。</li>
+<li>默认配置保证语义不变（不静默改精度/路由），但<strong>不保证速度 SLA</strong>，性能需自行 A/B 调优。</li>
+</ul>
+<h2>三、评分总览</h2>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>权重</th>
+<th>加权得分</th>
+<th>评级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1 市场需求与商业机会</td>
+<td>8.0/10</td>
+<td>13%</td>
+<td>1.04</td>
+<td>优</td>
+</tr>
+<tr>
+<td>D2 技术成熟度与产品质量</td>
+<td>8.3/10</td>
+<td>14%</td>
+<td>1.16</td>
+<td>优</td>
+</tr>
+<tr>
+<td>D3 社区健康度与生态势能</td>
+<td>8.0/10</td>
+<td>11%</td>
+<td>0.88</td>
+<td>优</td>
+</tr>
+<tr>
+<td>D4 商业模式与变现潜力</td>
+<td>5.9/10</td>
+<td>18%</td>
+<td>1.06</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D5 竞争格局与差异化壁垒</td>
+<td>6.6/10</td>
+<td>12%</td>
+<td>0.79</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D6 法律合规与知识产权</td>
+<td>8.2/10</td>
+<td>7%</td>
+<td>0.57</td>
+<td>优</td>
+</tr>
+<tr>
+<td>D7 企业就绪度与可运营性</td>
+<td>6.4/10</td>
+<td>8%</td>
+<td>0.51</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D8 团队治理与可持续性</td>
+<td>6.6/10</td>
+<td>7%</td>
+<td>0.46</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D9 上手难度与易用性</td>
+<td>6.5/10</td>
+<td>10%</td>
+<td>0.65</td>
+<td>良</td>
+</tr>
+<tr>
+<td><strong>综合评分</strong></td>
+<td>—</td>
+<td>100%</td>
+<td><strong>71.3/100</strong></td>
+<td><strong>A（高商业化潜力）</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>平行维度（不计入综合评分）</strong></p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10 功能价值</td>
+<td>8.2/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>D11 社会价值</td>
+<td>6.5/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>公共价值分</td>
+<td>7.3/10</td>
+<td>(D10+D11)/2</td>
+</tr>
+</tbody>
+</table>
+<p><strong>一票否决检查</strong>：未触发。D6 维度总分 8.2（&gt; 3）；D8.4 细则小分 2.4/3（&gt; 1）；D4.1 细则小分 2.0/2（&gt; 0.5）。三项否决检查均完整执行，无 N/A 跳过项。</p>
+<p><strong>价值画像</strong>：⭐ 明星资产（综合评分 71.3 ≥ 65，公共价值分 7.3 ≥ 7）。</p>
+<blockquote>
+<p>各维度细则分值构成详见「四、各维度详细分析」。</p>
+</blockquote>
+<hr />
+<h2>四、各维度详细分析</h2>
+<h3>D1. 市场需求与商业机会</h3>
+<h3>1.6 项目分类标签</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>数据与AI（LLM 推理引擎）· 基础设施（底层运行时）</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>通用/跨行业（重点：金融科技、医疗健康、政府公共服务、教育培训等强数据主权行业）</td>
+</tr>
+<tr>
+<td>目标用户角色</td>
+<td>AI/ML 工程师 · 后端开发者 · 架构师 · 技术管理者/CTO（次要：数据分析师/科学家、测试工程师）</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>基础设施搭建 · API服务 · 学习研究 · 原型验证 · 企业内部工具（私有化推理）</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>本地部署 · 混合部署（CPU / CUDA / Metal / Vulkan / 多机 cluster，亦可承载于自建服务器）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>一句话定位</strong>：Colibrì 是一个纯 C 编写的开源 MoE 大模型推理引擎，适用于通用/跨行业的私有化 AI 推理场景，主要面向 AI/ML 工程师、后端开发者与架构师，用于在消费级与异构硬件上以「专家磁盘流式加载 + VRAM/RAM/NVMe 多级内存分层」的方式运行 744B–2.8T 参数的前沿 MoE 模型（纯 C、零引擎依赖、无 GPU 亦可）。</p>
+<hr />
+<h3>D1.1 目标市场规模与增长性（2.5 分）→ <strong>2.0</strong></h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TAM 估算</td>
+<td>对应「本地/私有化大模型推理引擎」细分。上游是数千亿美元级的 AI 推理基础设施市场，但本项目的可触达范围是其中的开源自托管推理引擎子集——量级处于<strong>十亿美元级</strong>（估算未经外部数据验证，置信度低）</td>
+</tr>
+<tr>
+<td>增长趋势</td>
+<td><strong>扩张</strong>。开源权重前沿模型（GLM、Kimi、DeepSeek、Qwen、OLMoE）持续放出，MoE 成为主流架构，自托管推理需求快速上行；项目 2.5 个月获 31,982 star、1,008 个 90 天 PR，需求端信号强烈</td>
+</tr>
+<tr>
+<td>市场层级</td>
+<td><strong>成长期市场</strong>，非蓝海也非红海：llama.cpp/vLLM/ktransformers 已验证品类，但「万亿参数级 MoE 磁盘流式推理」尚无垄断者</td>
+</tr>
+</tbody>
+</table>
+<p><strong>依据</strong>：无外部市场规模数据可用（topics 为空，未做外部检索），仅按项目类型/行业类别做量级估算并已在报告中标注低置信度。项目支持的模型量级（372 GB–1.6 TB 权重、25 GB RAM 起步）说明其瞄准的是「消费级/自有硬件跑前沿模型」这一正在成形的增量市场。</p>
+<hr />
+<h3>D1.2 痛点真实性与解决程度（2.5 分）→ <strong>2.0</strong></h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>痛点真实性</td>
+<td><strong>真实且尖锐</strong>：前沿模型访问被 hyperscaler 硬件与 API 成本/数据出境约束；README 明确主张「不是租用 API 背后的智能，而是持有它」；Issue #455（量化容器质量导致 think-mode 死循环）、#191（不同模型需求被混淆）等真实用户反馈密度高，111 个开放 Issue + 398 个 90 天关闭 Issue 表明真实使用</td>
+</tr>
+<tr>
+<td>解决完整度</td>
+<td><strong>较完整</strong>：引擎 + 量化容器转换 + OpenAI 兼容网关 + Web 仪表盘 + Tauri 桌面壳 + Docker + 4 条 CI + 27.7% 测试占比 + transformers oracle 逐 token 校验（30-32/32）+ MLA KV 压缩 57× 且可持久化 + 端到端 A/B 基准协议，属于「工程闭环」而非 demo</td>
+</tr>
+<tr>
+<td>替代成本</td>
+<td><strong>中等偏高</strong>：替代品存在（llama.cpp、vLLM、ktransformers、Ollama、云 API），但在「744B–2.8T MoE 从磁盘流式推理且不改变模型语义」这一具体能力上替代品明显更弱或不存在</td>
+</tr>
+</tbody>
+</table>
+<p><strong>依据</strong>：README 主动公示负面结果（MTP 在 ~85% 专家命中率附近曾测得 32% 损失、O_DIRECT 依赖盘型可能为负、路由历史可能过拟合 prompt），这种「可证伪」的工程姿态反而提高了痛点真实性判断的可信度。未达 9-10 档的原因是：其价值主张对「有 API 预算且无合规约束」的用户并非刚需，仍属可选替代路径。</p>
+<hr />
+<h3>D1.3 市场时机判断（2.5 分）→ <strong>2.0</strong></h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术成熟度曲线</td>
+<td>已越过期望膨胀期：MoE 稀疏激活、专家卸载、量化容器、投机解码均为可工程化落地的成熟技术；本项目的差异点是「把权重当数据 staged」的存储层级编排 + 路由 JIT 缓存，属于可度量的工程增量</td>
+</tr>
+<tr>
+<td>竞争密度</td>
+<td><strong>有先行者但格局未定</strong>：llama.cpp（社区最大）、kTransformers（专家卸载）、vLLM（服务端）各自占位，但均未垄断「万亿参数 MoE 消费级流式推理」这一空位；项目已被拿来与三者对照</td>
+</tr>
+<tr>
+<td>监管/标准</td>
+<td>数据主权、私有化部署与国产化/合规要求（金融、医疗、政务）持续推动本地推理需求，为自托管引擎提供结构性顺风；但报告素材中未提供具体法规条文，此项仅作方向性判断</td>
+</tr>
+</tbody>
+</table>
+<p><strong>依据</strong>：项目创建于 2026-07-01，紧贴 GLM-5.2/5.3、Kimi K3、DeepSeek V4、Qwen3.8 等开源前沿权重的发布窗口，2.5 个月内 10 个 release（v1.6.0 → v1.11.0）、138 位贡献者，说明正处于「开源权重爆发 + 本地推理工具补位」的成长期拐点。未给 9-10 档的原因：竞争者的生态与用户惯性已相当稳固，正面竞争不可避免。</p>
+<hr />
+<h3>D1.4 应用场景广度（2.5 分）→ <strong>2.0</strong></h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>行业覆盖</td>
+<td><strong>跨行业</strong>：任何对数据不出域或推理成本敏感的组织——金融、医疗、政务、教育、媒体、制造/工业内网均可部署，属横向基础设施能力</td>
+</tr>
+<tr>
+<td>场景多样性</td>
+<td><strong>横向通用工具</strong>：<code>coli chat</code> / <code>coli serve</code>（OpenAI 兼容 API）/ <code>coli web</code> 仪表盘 / 桌面壳 / 本地集群模式（coordinator + worker 跨 Mac）；从 25 GB 笔记本全流式到 6×RTX 5090 全驻留连续覆盖</td>
+</tr>
+<tr>
+<td>可延展性</td>
+<td>单 .c 一族的兄弟引擎结构，共享 safetensors 读取、容器解码、分词器、专家缓存等头文件，新增模型家族成本低（已支持 9 个家族），并可延展至 dense 层分片、WebGPU/浏览器 worker 等相邻场景</td>
+</tr>
+</tbody>
+</table>
+<p><strong>依据</strong>：README 明确列出 9 个模型家族（7B–2.8T）、4 种后端（CPU/CUDA/Metal/Vulkan）、多种部署形态（单机/集群/容器/桌面）与多种人群（研究、私有化企业、边缘）。未给 9-10 档的原因：能力虽横跨行业，但功能面收敛于「大模型推理」单一场域，且受磁盘容量与 I/O 带宽的物理约束，不是无差别的基础设施级项目。</p>
+<hr />
+<h3>D1 小结</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1.1 目标市场规模与增长性</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8（十亿美元级，成长期）</td>
+</tr>
+<tr>
+<td>D1.2 痛点真实性与解决程度</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8（明确痛点，方案较完整）</td>
+</tr>
+<tr>
+<td>D1.3 市场时机判断</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8（成长期，先行者存在但格局未定）</td>
+</tr>
+<tr>
+<td>D1.4 应用场景广度</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8（多行业可用，场景丰富）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>8.0</strong></td>
+<td><strong>良好</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：Colibrì 面向一个真实存在且处于扩张期的需求——在自有硬件上运行开源前沿 MoE 模型，替代成本来自云 API 与现有开源推理栈，但「万亿参数级磁盘流式推理 + 语义不变」是其差异化空位。市场需求侧无明显短板，四项细则均处 7–8 档。主要的商业化不确定性不在需求端，而在<strong>变现路径</strong>：纯 C 零依赖引擎 + Apache-2.0 + 权重在第三方 HuggingFace 容器上，天然偏向「开源引擎 + 企业支持/托管服务/硬件预装」的远端变现，而非直接软件销售。</p>
+<p><strong>置信度说明</strong>：本次评估无外部市场规模数据与 topics 关键词可用，D1.1 的 TAM 与增长率为按项目类型/行业的量级估算，<strong>未经外部数据验证，置信度低</strong>；D1.2–D1.4 的判断主要基于 README、Issue 引用、release 节奏与本地代码/文档实测数据，置信度中等偏高。</p>
+<h3>D2. 技术成熟度与产品质量</h3>
+<p><strong>项目定位</strong>：colibri 是一个纯 C、零依赖的 MoE 推理引擎，核心产品理念为「把 700B+ 级前沿 MoE 模型跑在用户已有硬件上」——通过把专家权重从磁盘流式加载（O_DIRECT + LRU/LFRU 缓存 + PILOT 预取 + 多 SSD 镜像路由），使模型体积远超 RAM/VRAM 也能推理。支持 GLM-5.2、DeepSeek-V4/V4.1、Kimi K3、Qwen3.6/3.8、OLMoE、Inkling 等多个模型族，覆盖 CPU/Metal/CUDA/Vulkan 多后端。</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D2.1</td>
+<td>产品设计与创新性</td>
+<td>1.5</td>
+<td>1.5</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>D2.2</td>
+<td>架构设计与工程质量</td>
+<td>2.0</td>
+<td>1.6</td>
+<td>80%</td>
+</tr>
+<tr>
+<td>D2.3</td>
+<td>代码整洁性与规范性</td>
+<td>1.0</td>
+<td>0.8</td>
+<td>80%</td>
+</tr>
+<tr>
+<td>D2.4</td>
+<td>安全性</td>
+<td>1.0</td>
+<td>0.8</td>
+<td>80%</td>
+</tr>
+<tr>
+<td>D2.5</td>
+<td>UI/UX/UE 人机交互</td>
+<td>1.0</td>
+<td>0.6</td>
+<td>60%</td>
+</tr>
+<tr>
+<td>D2.6</td>
+<td>功能完备度与稳定性</td>
+<td>1.5</td>
+<td>1.2</td>
+<td>80%</td>
+</tr>
+<tr>
+<td>D2.7</td>
+<td>文档与开发者体验</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>D2.8</td>
+<td>测试与质量保障</td>
+<td>1.0</td>
+<td>0.8</td>
+<td>80%</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td><strong>8.3</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>逐项判断依据</h3>
+<p><strong>D2.1 产品设计与创新性（1.5/1.5）</strong>
+产品理念极其清晰且高度差异化：不是又一个量化推理框架，而是「磁盘即显存」的流式引擎。创新点密集——多 SSD 镜像按带宽探测分配读权重（黄金比哈希均匀化热子集）、O_DIRECT 绕过 page cache、LFRU 淘汰 + EMA 路由动量预测预取、engram n-gram 哈希查表、rANS 4-bit 压缩、E8/IQ3 格点量化等。功能围绕核心场景（超大模型消费级硬件推理）组织，Edge/Segment 适配器 + OpenAI 兼容网关 + Expert Atlas 仪表盘形成完整产品闭环。属于「显著创新、差异化明显」的最高档。</p>
+<p><strong>D2.2 架构设计与工程质量（1.6/2.0）</strong>
+架构分层清晰：<code>c/</code> 各引擎单文件 + 共享头（<code>st.h</code>/<code>quant.h</code>/<code>tok.h</code>/<code>compat.h</code>）+ Python 控制面（<code>family_registry</code>/<code>resource_plan</code>/<code>doctor</code>/<code>autotune</code>）+ 后端抽象 + 前端。模块解耦采用适配器（<code>ColiEdgeAdapter</code> 函数表）、策略（量化格式分发）、工厂（张量命名）、Fallback 链等成熟模式，<code>compat.h</code> 把所有平台差异集中管理，符合良好工程范式。复刻难度极高——MLA/KDA/Gated DeltaNet、MXFP4/FP8 分块、Sinkhorn mHC、bit-exact 多架构 SIMD 内核、双 SSD 路由等构成强技术护城河，185K 行代码量与功能复杂度匹配。扣分点：多个引擎文件超万行（<code>colibri.c</code>/<code>deepseek_v4.c</code>）导致单体臃肿；部分全局可变状态（<code>g_metal_*</code>/<code>g_topp</code>/<code>g_glm53_usage</code>）破坏多实例/测试隔离；<code>#ifdef</code> 嵌套深、存在死代码。</p>
+<p><strong>D2.3 代码整洁性与规范性（0.8/1.0）</strong>
+命名一致且有意义（<code>st_pread_full</code>/<code>rans_record_parse</code>/<code>qt_bytes</code>），注释质量罕见地高——密集记录 PR 编号、历史事故与设计权衡（如 ordinal 重编号、<code>compat_aligned_free</code> 崩溃史），可追溯性极强。但存在明显重复：<code>pretok_chunk_*</code> 三份高度重复、<code>autotune.run_tune</code> 内两段近乎相同采样、<code>extract_metrics</code> 双流枚举；超长文件与函数（&gt;200 行）损害可读性；意/英双语注释混用；<code>-Wno-unused-function</code> 掩盖死代码。整体属「整洁良好、有少量重复」的 80% 档。</p>
+<p><strong>D2.4 安全性（0.8/1.0）</strong>
+安全编码意识强：<code>st.h</code> 有 <code>ST_MAX_HEADER</code>(512MB) 防恶意头、格式戳冲突即退出；<code>tok.h</code> 校验 vocab id 非负、文件上限 1GB；<code>qwen38.c</code> 对 <code>strtol</code> 溢出/<code>SIZE_MAX</code> 逐点防护；<code>openai_server.py</code> 有 <code>#SEC-6</code>（非 loopback 无 api_key 默认拒启动）、<code>MAX_BODY</code> 限制、DNS-rebinding 防护、CORS 白名单；rANS 对截断/畸形逐类拒绝并对非小端 <code>#error</code>。CI 集成 ASan+UBSan 与 fuzz-rans 轮转测试，零第三方依赖天然降低供应链风险。扣分：无 <code>SECURITY.md</code>、未见 Dependabot/Snyk/CodeQL 等自动化依赖或 SAST 扫描配置。</p>
+<p><strong>D2.5 UI/UX/UE（0.6/1.0）</strong>
+项目含用户界面，适用本项：<code>web/</code> 为 React + TypeScript 应用（<code>App.tsx</code> 466 行），使用 Radix/shadcn 组件库（Badge/Button/Input/Textarea），具备流式聊天、健康检查、模型列表、Expert Atlas 与 Brain/Profile 仪表盘标签页；<code>desktop/</code> 为 Tauri 桌面壳；CI 有 <code>npm run build</code> + vitest 门禁。使用现代组件库与合理信息架构，属「基本可用」以上。但素材中无截图/演示，无法确认视觉专业度与无障碍支持，保守给 60% 档。</p>
+<p><strong>D2.6 功能完备度与稳定性（1.2/1.5）</strong>
+功能覆盖极完整：8 个模型族引擎、4 个计算后端、7+ 量化格式、服务端/CLI/Web/桌面全形态。运行环境宽松——纯 C 零依赖，覆盖 Linux/macOS/Windows、x86-64/ARM64、glibc/musl，硬件要求低（磁盘流式）且 GPU 可选。i18n/l10n 有实际投入（README 四语言、多语言 docs、Unicode 15/16 NFC 表、多家族 tokenizer）。性能有 benchmark/autotune 佐证。扣分：<code>pyproject.toml</code> 标注 <code>Development Status :: 4 - Beta</code>；发布节奏极快（约 5 周内 v1.6→v1.11 共 10 个 release），且格式 ordinal 曾两次因上游冲突重编号，暗示版本稳定性与向后兼容仍有波动。</p>
+<p><strong>D2.7 文档与开发者体验（1.0/1.0）</strong>
+文档体系极其完备：52 个文档文件，含四语言 README、quickstart、<code>api.md</code>、<code>api-reference/</code>、benchmarks、tuning、environment、formats、settings、windows/cuda/metal/vulkan 后端指南，以及 <code>docs/experiments/</code> 下大量带日期的真实实验报告（如 GLM52 多卡、continuous batching、decode 失败账本）。另有 CHANGELOG、CONTRIBUTING、GPU_BACKENDS、THIRD_PARTY_NOTICES、各子目录 README。覆盖与质量均达最高档。仅「新用户跑通首个 demo 时长」归 D9.4，不在此重复计分。</p>
+<p><strong>D2.8 测试与质量保障（0.8/1.0）</strong>
+测试规模可观：293 个测试文件 / 51,272 行（占代码总行数 27.7%）。CI 质量门禁多层且工程质量突出——token-exact tiny oracle（K3/V4/GLM53/GLM/Qwen36 逐 token 比对）、ASan+UBSan、rANS fuzz、Vulkan(Lavapipe)、musl、ARM/NEON bit-exact 内核校验、跨平台引擎矩阵、Docker 镜像验证、Python 单测、Web vitest、发布归档解包后可运行性断言。属于「单元测试 + CI 完善」的良好档，但未见覆盖率报告（无 Codecov 等），无法确认是否 &gt;80%，故未上探最高档。</p>
+<h3>结论</h3>
+<p>colibri 在 D2 维度表现优秀，综合 <strong>8.3/10</strong>。其核心竞争力是<strong>极高的技术创新性与架构护城河</strong>（磁盘流式 MoE + 多 SSD 路由 + bit-exact 多架构内核），配合<strong>顶级的文档体系</strong>与<strong>多层 CI/质量门禁（token-exact oracle + sanitizer + fuzz）</strong>，已具备支撑商业化交付的工程技术基础。主要短板集中在<strong>可维护性</strong>（多个万行级单体引擎文件、全局可变状态、部分重复代码）与<strong>版本稳定性</strong>（Beta 标注、极快发布节奏、曾出现量化格式 ordinal 重编号），UI/UX 因素材缺截图而保守评估。若要走向成熟商业产品，建议按子系统拆分单体引擎文件、消除全局可变状态、补充覆盖率报告与 <code>SECURITY.md</code>/依赖扫描。</p>
+<h3>D3. 社区健康度与生态势能（权重 11%）</h3>
+<h3>D3.1 社区活跃度指标（满分 3 分）</h3>
+<p><strong>得分：3.0 / 3（9–10 档 → 100%）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Star 增速</td>
+<td>项目仅存活约 2.5 个月（2026-07-01 → 2026-09-14），Star 32,000+，退化公式得月增 ≈ <strong>12,950/月</strong></td>
+<td>远超 500/月阈值（9–10 档）</td>
+</tr>
+<tr>
+<td>Fork 比率</td>
+<td>3,382 / 31,982 ≈ <strong>10.6%</strong></td>
+<td>衍生意愿强，属高位</td>
+</tr>
+<tr>
+<td>Issue 活跃度</td>
+<td>近 90 天 PR 新建 <strong>1,008</strong> 个、Issue 关闭 <strong>398</strong> 个</td>
+<td>社区参与度极高</td>
+</tr>
+<tr>
+<td>响应速度</td>
+<td>无平均关闭时间数据（补采缺失）</td>
+<td>无法量化，但 90 天关闭 398 个 Issue 侧面印证处理能力</td>
+</tr>
+</tbody>
+</table>
+<p><strong>说明</strong>：本项目创建仅约 2.5 个月，退化公式（Star 数 ÷ 项目年龄）在此不涉及"低估早期红利"问题——其本身就是真实的月均增速，甚至因处于爆发期而更接近峰值。Star 月增、PR/Issue 流量、Fork 比率三项均数倍于 9–10 档阈值，唯一未量化的是 Issue 平均响应时间，但 90 天内关闭 398 个 Issue 的高吞吐量足以支撑"社区极度活跃"的判定。综合打满分。</p>
+<h3>D3.2 贡献者结构多样性（满分 2.5 分）</h3>
+<p><strong>得分：2.0 / 2.5（7–8 档 → 80%）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>贡献者数量</td>
+<td><strong>138</strong> 位贡献者</td>
+<td>已超 50+，属高位</td>
+</tr>
+<tr>
+<td>组织多样性</td>
+<td>补采未提供组织归属数据；项目为个人名义发起（JustVugg），topics 为空</td>
+<td>无法证实"10+ 组织"</td>
+</tr>
+<tr>
+<td>核心团队占比</td>
+<td>无 PR 作者/核心团队拆分数据</td>
+<td>无法量化</td>
+</tr>
+</tbody>
+</table>
+<p><strong>说明</strong>：贡献者数量（138）已进入"50+ 活跃贡献者"的 9–10 档区间，但"来自 10+ 组织、外部贡献占比高"这一关键要件因缺少组织归属与 PR 作者结构数据而无法证实。按"有量但结构未证"的保守原则，落在 7–8 档（20–50 档上沿的升级态），即 80%。</p>
+<h3>D3.3 第三方生态成熟度（满分 3 分）</h3>
+<p><strong>得分：1.8 / 3（5–6 档 → 60%）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>插件/扩展</td>
+<td>topics 为空，无插件市场证据</td>
+<td>弱</td>
+</tr>
+<tr>
+<td>集成生态</td>
+<td>有 CUDA / Metal / Vulkan 后端、Docker 目录、4 个 CI workflow、Web dashboard，但 <code>has_dockerfile=false</code>（无标准 Dockerfile）</td>
+<td>中等偏弱</td>
+</tr>
+<tr>
+<td>衍生项目</td>
+<td>无二次开发/商业衍生品数据</td>
+<td>无证据</td>
+</tr>
+<tr>
+<td>教程/课程</td>
+<td>自建官网 justvugg.github.io/colibri、Discord 社群、多语言 README（英/简/繁/意）、52 个文档文件</td>
+<td>官方文档丰富，但外部教程/课程无证据</td>
+</tr>
+</tbody>
+</table>
+<p><strong>说明</strong>：项目官方侧投入充足（多语言文档、官网、Discord、多套 GPU 后端），但"第三方"生态尚缺硬证据——无 topics、无插件生态、无衍生项目、无外部课程/教程数据。叠加项目仅 2.5 个月的窗口期，生态尚处萌芽。判定 5–6 档（少量第三方扩展），60%。</p>
+<h3>D3.4 品牌认知与行业影响力（满分 1.5 分）</h3>
+<p><strong>得分：1.2 / 1.5（7–8 档 → 80%）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>品牌辨识度</td>
+<td>32k Star、独立官网与品牌形象（colibrì/bird 视觉体系）</td>
+<td>领域内有较高认知度</td>
+</tr>
+<tr>
+<td>行业采用</td>
+<td>无知名企业采用/背书数据</td>
+<td>无证据</td>
+</tr>
+<tr>
+<td>媒体覆盖</td>
+<td>无技术媒体/会议数据</td>
+<td>无证据</td>
+</tr>
+</tbody>
+</table>
+<p><strong>说明</strong>：短期内积累 32k Star 与自建官网/Discord，品牌辨识度在"本地跑前沿 MoE"细分领域已相当突出，符合 7–8 档"领域内有较高认知度"；但缺少企业背书与媒体覆盖证据，无法达到 9–10 档，取 80%。</p>
+<h3>D3 维度小结</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D3.1 社区活跃度指标</td>
+<td>3.0</td>
+<td>3.0</td>
+<td>9–10</td>
+</tr>
+<tr>
+<td>D3.2 贡献者结构多样性</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8</td>
+</tr>
+<tr>
+<td>D3.3 第三方生态成熟度</td>
+<td>3.0</td>
+<td>1.8</td>
+<td>5–6</td>
+</tr>
+<tr>
+<td>D3.4 品牌认知与行业影响力</td>
+<td>1.5</td>
+<td>1.2</td>
+<td>7–8</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>8.0</strong></td>
+<td><strong>≈8.0 / 10</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：Colibrì 在 <strong>社区活跃度上表现卓越</strong>（Star 月增 ~12,950、90 天 1,008 PR、Fork 比率 10.6%），138 位贡献者显示社区规模已成型，品牌在细分领域辨识度高——"社区即潜在客户池"这一商业化前提已初步成立，且项目仅 2.5 个月即达此势能，增长弹性大。<strong>主要短板在第三方生态</strong>：无插件市场、无衍生项目、无组织多样性与外部教程证据，生态仍以官方单点驱动为主。<strong>数据置信度提示</strong>：Issue 平均响应时间、贡献者组织归属、企业背书/媒体覆盖四项数据缺失，D3.1/D3.2/D3.4 的档位判定基于替代性指标（关闭量、贡献者总数、Star 规模）推断，置信度中等。</p>
+<h3>D4. 商业模式与变现潜力</h3>
+<p><strong>维度得分：5.9 / 10</strong>（满分 10，权重 18%）</p>
+<h3>D4.1 协议对变现模式的影响（2 分 → 实得 2.0）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>事实依据</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>协议类型</td>
+<td><code>LICENSE</code> 文件为 Apache License 2.0 全文；<code>pyproject.toml</code> 声明 <code>license = "Apache-2.0"</code>，<code>classifiers</code> 无额外限制条款</td>
+<td>MIT/Apache 档</td>
+</tr>
+<tr>
+<td>约束范围</td>
+<td>Apache-2.0 允许闭源衍生、可再许可（第 2 条 sublicense）、允许对支持/担保/赔偿责任收费（第 9 条）；无 SaaS 触发条款、无云托管限制、无商用规模门槛</td>
+<td>无约束</td>
+</tr>
+<tr>
+<td>专利授权</td>
+<td>第 3 条含明确专利授权与终止条款，降低企业采购的法律不确定性</td>
+<td>对合规采购有利</td>
+</tr>
+<tr>
+<td>例外说明</td>
+<td>README 说明 "GLM-5.2 weights are released by Z.ai under MIT"——第三方权重许可宽松，不构成引擎商业化的额外障碍</td>
+<td>无额外约束</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分：2 / 2（100%）</strong>。Apache-2.0 是变现路径最友好的协议档位：Open Core、SaaS 托管、双协议、专业服务、插件市场全部无障碍，且专利条款对企业客户友好。</p>
+<hr />
+<h3>D4.2 变现路径清晰度（3.5 分 → 实得 2.1）</h3>
+<p>逐一评估七种模式的可行性：</p>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>可行性</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Open Core</td>
+<td>技术上可行，现实中缺失</td>
+<td>仓库内无任何企业版目录、无功能分层开关的许可化设计；所有 backend（CUDA/Metal/Vulkan）、cluster 模式、web/desktop 全部在同一 Apache-2.0 树内</td>
+</tr>
+<tr>
+<td>SaaS 托管</td>
+<td>技术上已具备构件，商业上不成立</td>
+<td><code>c/openai_server.py</code>（OpenAI 兼容网关）+ <code>web/</code> + <code>desktop/</code>（Tauri）已构成可托管产品的技术面；但参考模型 372 GB、实测 744B 在 6×RTX 5090 上 5.8–6.8 tok/s、128GB CPU 桌面 ~1.8 tok/s、25GB 机器 0.05–0.1 tok/s，单位算力成本远高于商业 API，托管模式经济性不成立</td>
+</tr>
+<tr>
+<td>双协议许可</td>
+<td>未采用</td>
+<td>未提供商业授权版本或授权询价入口</td>
+</tr>
+<tr>
+<td>专业服务</td>
+<td><strong>最具现实性</strong></td>
+<td>项目提供 <code>coli plan</code> / <code>coli doctor</code>（<code>c/resource_plan.py</code> RAM/VRAM 规划器）、<code>coli mirror plan/stage/verify</code>（分片镜像规划与校验）、<code>cluster coordinator/worker</code> 分布式部署、NUMA 调优——这些是典型的高门槛部署咨询/调优服务场景</td>
+</tr>
+<tr>
+<td>市场/插件</td>
+<td>不适用</td>
+<td>无插件生态或抽成机制设计</td>
+</tr>
+<tr>
+<td>认证/生态</td>
+<td>弱</td>
+<td>有 138 位贡献者、4 个 CI workflow、规范的 CONTRIBUTING.md 与 benchmark 协议，具备形成"认证硬件配置/参考平台"的社区基础，但无认证体系</td>
+</tr>
+<tr>
+<td>捐赠/赞助</td>
+<td><strong>已在 README 中明确存在</strong></td>
+<td>结尾明确写出 "reach out via GitHub issues to sponsor development or <strong>donate hardware</strong>"；有 Discord 社区入口；无 GitHub Sponsors/OpenCollective 结构化通道</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分：2.1 / 3.5（60%）</strong>。项目具备一条在同类项目中已被验证过的潜在主路径——<strong>硬件厂商赞助 + 部署咨询/调优服务</strong>（参照 llama.cpp/ggml.ai 依赖 NVIDIA、HuggingFace 赞助，vLLM 由基金会承载），以及技术上可随时组装的产品化构件（OpenAI 兼容网关 + Web/Desktop UI）。但仓库内<strong>没有任何商业化脚手架</strong>：无企业版、无定价页、无付费入口、无商业授权通道，且项目自身在 README 反复强调 "no SLA on speed"、"an open research platform"，定位上仍是研究平台而非产品。故落入"有潜在路径但尚不清晰，需验证"档。</p>
+<hr />
+<h3>D4.3 付费转化逻辑（2.5 分 → 实得 1.0）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>事实</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>免费→付费触发点</td>
+<td><strong>不存在</strong>。引擎为单个 C 文件编译产物（数百 KB）+ 零依赖，"Download a prebuilt release… no compiler needed" 即完整可用；无用量限制、无并发限制、无功能门禁、无企业功能预留</td>
+<td>无触发点</td>
+</tr>
+<tr>
+<td>付费意愿强度</td>
+<td>目标用户为拥有消费级/异构硬件的爱好者与研究者（Star 31,982 但 <code>topics: []</code>、无商业化话题标签）。其付费动因主要是<strong>省下买 GPU/租 API 的钱</strong>，这笔预算流向硬件与模型存储，而非引擎软件本身</td>
+<td>偏弱</td>
+</tr>
+<tr>
+<td>用户替代成本</td>
+<td>同类免费替代品成熟且生态更大：llama.cpp、vLLM、kTransformers（README 自述其对比对象），均为免费开源；引擎无锁定效应（无云账户、无专有格式订阅）</td>
+<td>替代成本为零</td>
+</tr>
+<tr>
+<td>转化漏斗</td>
+<td>缺失。无注册、无 telemetry 上报（路由遥测 <code>.coli_usage</code> 完全本地）、无客户触点，无法构建从使用者到付费者的路径</td>
+<td>断裂</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分：1.0 / 2.5（40%）</strong>。项目连"免费版不够用"的功能切口都不存在——所有能力（GPU 后端、集群模式、镜像规划、Web UI、Desktop 壳）均无条件开源。唯一的正向因素是：若某企业要在自有集群私有化部署 744B 级模型，将面临真实的高门槛调优成本与可用性风险，存在"为专业支持付费"的动机，但该项目在 README 中<strong>主动放弃 SLA 承诺</strong>，直接削弱了这一动因。符合"付费逻辑勉强，用户更愿意用免费版"档。</p>
+<hr />
+<h3>D4.4 增值服务空间与定价天花板（2 分 → 实得 0.8）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>事实</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>增值方向</td>
+<td>存在真实可叠加项：硬件规划与容量设计（<code>resource_plan.py</code>）、双 SSD 镜像分层与容量规划（<code>mirror plan/stage/verify</code>）、NUMA/多卡调优、私有化部署集成（OpenAI 兼容网关对接既有应用栈）、集群分片部署</td>
+<td>有方向</td>
+</tr>
+<tr>
+<td>客单价天花板</td>
+<td>受三重压制：① 软件本体免费且可自编译；② 部署需要客户自备 NVMe 与 16–32GB+ 内存（成本已在客户端）；③ 项目状态为 Beta、111 个开放 Issue、无 <code>SECURITY.md</code>、无 <code>CODEOWNERS</code>、无 Dockerfile（有 docker/ 目录但 <code>has_dockerfile: false</code>），企业采购所需的稳定性/安全承诺证据链缺失</td>
+<td>客单价难超 $1K 量级</td>
+</tr>
+<tr>
+<td>收入扩展性</td>
+<td>无法从 per-seat 扩展到 per-usage——引擎不产生可计量的 SaaS 用量；理论上可做 per-node 企业授权或企业支持订阅，但需重建 Open Core 分层，当前零基础</td>
+<td>弱</td>
+</tr>
+<tr>
+<td>参照天花板</td>
+<td>同类开源推理引擎（llama.cpp、vLLM、kTransformers）普遍未形成规模化商业收入；本项目相较之少了基金会/大厂实体承载</td>
+<td>天花板低</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分：0.8 / 2（40%）</strong>。增值空间客观存在（规划、调优、私有化支持），但受"免费可自托管 + 客户自备硬件 + 无企业功能层 + 无 SLA"约束，客单价与收入扩展性均受限，符合"增值空间小、客单价低"档。</p>
+<hr />
+<h3>D4 维度小结</h3>
+<p><strong>5.9 / 10，中等偏下。</strong> 协议层（D4.1）是唯一满分项，Apache-2.0 + 第三方 MIT 权重给出了最大商业自由度，不构成任何路径障碍。但路径、转化、增值三项均落在 40%–60% 档：项目在 README 中自我定位为 "an open research platform"，明确声明 "no SLA on speed"，全功能无差别开源（含集群、GPU 后端、Web/Desktop 前端），且披露的实测性能（744B 在消费级硬件上 0.05–10 tok/s）表明任何托管式变现都缺乏单位经济学支撑。真实可期的商业形态只有<strong>硬件厂商赞助 + 高门槛私有化部署咨询/调优服务</strong>这一条低天花板路径，且仓库内尚无任何对应脚手架。若未来切出企业版（如多租户集群调度、审计与安全合规、SLA 支持）并补足 <code>SECURITY.md</code>/<code>CODEOWNERS</code> 等企业采购证据链，D4.2 与 D4.4 存在上修空间。</p>
+<h3>D5. 竞争格局与差异化壁垒（权重 12%）</h3>
+<blockquote>
+<p><strong>验证说明（重要）</strong>：本次竞品清单受素材约束，<strong>仅可引用被分析项目 README/docs 中明确提及的同类项目</strong>，未进行外部 GitHub Search / Web 搜索独立验证。因此每个竞品的「验证方式」一律为<strong>仓库内引用</strong>，「Star/用户量」列均为 <strong>N/A（未验证，禁止臆造）</strong>。竞品信息可能存在偏差，本维度置信度标注为<strong>中等偏低</strong>。</p>
+</blockquote>
+<h3>D5.1 竞品对比与市场定位（3 分）</h3>
+<p><strong>竞品对比表</strong>（全部来自 README「Acknowledgements」段与架构对比叙述的仓库内引用）：</p>
+<table>
+<thead>
+<tr>
+<th>竞品名称</th>
+<th>类型</th>
+<th>仓库/官网</th>
+<th>验证方式</th>
+<th>Star/用户量</th>
+<th>核心差异</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>llama.cpp</td>
+<td>直接竞品</td>
+<td>github.com/ggml-org/llama.cpp</td>
+<td>仓库内引用（README 致谢段，且 GBNF 语法子集与 Metal <code>newBufferWithBytesNoCopy</code> 驻留技巧被本项目复用）</td>
+<td>N/A（未验证）</td>
+<td>通用本地推理引擎，GGUF 量化 + CPU/GPU 混合卸载，社区规模与生态远大于本项目；colibri 以「int4 safetensors 容器 + 磁盘专家流式 + 每族一个 .c 文件」为差异路线</td>
+</tr>
+<tr>
+<td>kTransformers</td>
+<td>直接竞品</td>
+<td>github.com/kvcache-ai/ktransformers</td>
+<td>仓库内引用（README 致谢段，列为「make comparisons reproducible」的对照实现）</td>
+<td>N/A（未验证）</td>
+<td>与本项目<strong>技术路径最接近</strong>：MoE 专家 CPU/磁盘 offload 跑超大 MoE；colibri 差异在零依赖纯 C、单一 <code>coli</code> 前端覆盖 9 个模型族、以及路由遥测驱动的学习型缓存与专家图谱</td>
+</tr>
+<tr>
+<td>vLLM</td>
+<td>直接竞品（GPU 中心服务路径）</td>
+<td>github.com/vllm-project/vllm</td>
+<td>仓库内引用（README 致谢段，同时被用作输出语义对齐基准）</td>
+<td>N/A（未验证）</td>
+<td>数据中心级高吞吐 GPU 服务栈，前提是稀缺大显存；colibri 明确定位「不依赖 hyperscaler 级硬件」，并反过来以 vLLM 的输出语义为准绳</td>
+</tr>
+<tr>
+<td>Transformers (HuggingFace)</td>
+<td>间接竞品（参考实现路径）</td>
+<td>github.com/huggingface/transformers</td>
+<td>仓库内引用（README 致谢段，CI 中作为 oracle）</td>
+<td>N/A（未验证）</td>
+<td>提供同问题的「参考实现」路径而非部署引擎；本项目用它做逐 token 教师强制校验（30–32/32 命中）</td>
+</tr>
+<tr>
+<td>HybriMoE / ScMoE / OD-MoE（学术 MoE 调度与按需加载）</td>
+<td>间接竞品</td>
+<td>github.com/PKU-SEC-Lab/HybriMoE 等</td>
+<td>仓库内引用（README 致谢段成组列出）</td>
+<td>N/A（未验证）</td>
+<td>解决同类问题（异构专家调度、通信/计算重叠、按需加载），但为论文级原型，无端到端产品化引擎、无多模型族前端</td>
+</tr>
+</tbody>
+</table>
+<p><strong>定位清晰度分析</strong>：</p>
+<ul>
+<li>定位表述高度具体且可检验：「744B–2.8T MoE 在自有硬件上运行，纯 C、零引擎依赖、专家从磁盘流式加载」「把 VRAM/RAM/NVMe 当作单一推理层级（AI memory multitiering）」「no SLA on speed, hard guarantee on semantics」——这是<strong>可证伪的定位</strong>，而非泛泛的「本地 LLM 推理」。</li>
+<li>差异化落点明确：① 模型规模档位（744B→2.8T / 25–32 GB RAM）显著高于主流消费级本地推理的常见档位；② <strong>纯 C、无 BLAS、运行期无 Python</strong>；③ <strong>磁盘为一级公民</strong>（<code>O_DIRECT</code>、dual-SSD 加权条带、<code>PILOT</code> 单层前瞻、batch-union）；④ <strong>路由遥测学习缓存</strong>（<code>.coli_usage</code>、pinned hot-store、expert atlas）+ 可视化（Brain/Atlas 页面）。</li>
+<li>但竞品密度不容忽视：llama.cpp（社区规模压倒性）、kTransformers（同一 MoE offload 赛道）、vLLM（服务侧事实标准）三家均真实存在于本项目自述的对比语境中，且其中 kTransformers 与本项目在「用磁盘/内存扛超大 MoE」这一核心问题上<strong>正面重叠</strong>。</li>
+</ul>
+<p><strong>评分</strong>：<strong>2.4 / 3</strong>（7–8 档 → 80%）。有真实且密集的竞品，但同时具备明确、可检验、且在大模型档位上明显更激进的差异化定位。</p>
+<h3>D5.2 技术壁垒与网络效应（3 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>事实依据（素材内）</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术壁垒</td>
+<td>无专利主张；Apache-2.0；核心机制（多级驻留、LRU + 学习型 pinned hot-store、单层前瞻预取、batch-union、dual-SSD 条带、MTP 投机、MLA 压缩 KV）<strong>全部在 README/docs 中公开描述</strong>；架构为「每族一个 .c 文件 + 共享单头文件」</td>
+<td>算法层<strong>可复刻</strong>，无独占配方；真正的门槛是工程量与调参经验（62 份文档含 41 篇 experiment 日志、oracle 逐 token 校验、int8 MTP 头必须性等具体结论），属「知道原理也难短期做对」的<strong>弱—中壁垒</strong></td>
+</tr>
+<tr>
+<td>网络效应</td>
+<td>138 贡献者、90 天 1008 个 PR / 关闭 398 个 issue、Discord 社区、第三方 HF 容器（<code>mastouri/…</code>、<code>nbeerbower/Inkling-colibri-int4</code> 等社区转换件）</td>
+<td>有<strong>活跃贡献者生态</strong>，但<strong>无协议/插件标准锁定</strong>：模型容器是 safetensors 公共格式，第三方容器托管在 HF 而非项目控制面</td>
+</tr>
+<tr>
+<td>规模效应</td>
+<td>本地推理，算力由用户承担；无云端边际成本结构</td>
+<td>规模效应<strong>几乎不存在</strong></td>
+</tr>
+<tr>
+<td>数据资产</td>
+<td>专家图谱（13,260 个已刻画专家、1,041 个复现专家）、<code>.coli_usage</code> 路由遥测</td>
+<td>数据是<strong>用户本地/项目内部</strong>产出，非平台侧聚合飞轮；「越用越快」是单机粘性，不是跨用户网络效应</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分</strong>：<strong>1.8 / 3</strong>（5–6 档 → 60%）。存在一定的工程经验壁垒与活跃社区生态，但缺少专利、专有数据、协议标准或跨用户网络效应中的任何一项强护城河，理论上可被有资源的团队复刻。</p>
+<h3>D5.3 切换成本与用户粘性（2 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>事实依据</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>迁移成本</td>
+<td>一次性成本高：372 GB int4 容器（或从 FP8 源分片转换 756 GB）、<code>COLI_*</code> 环境变量调优（<code>PIPE/PILOT/DIRECT/COLI_NUMA/CUDA_EXPERT_GB</code>）、dual-SSD 镜像 <code>plan/stage/verify</code> 流程；但容器为 safetensors，理论上可被其他引擎二次转换</td>
+<td>中等偏高的一次性沉没成本</td>
+</tr>
+<tr>
+<td>深度集成</td>
+<td>提供 <strong>OpenAI 兼容 HTTP 网关</strong>（<code>c/openai_server.py</code>、<code>coli serve</code>）+ 浏览器 Web UI + Tauri 桌面壳</td>
+<td><strong>接口层几乎零锁定</strong>：任何 OpenAI 客户端可平滑切到别家后端，反向亦然</td>
+</tr>
+<tr>
+<td>习惯锁定</td>
+<td><code>.coli_kv</code> 持久化热会话（重启零 re-prefill）、<code>.coli_usage</code> 学习缓存「越用越快」、路由可视化工作流</td>
+<td>存在<strong>单机使用习惯粘性</strong>，但属个人工作流层面，无组织级流程依赖证据（无 SLA、无企业部署案例）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分</strong>：<strong>1.2 / 2</strong>（5–6 档 → 60%）。重资产的一次性设置成本带来一定粘性，但 OpenAI 兼容接口与公共容器格式使<strong>逻辑切换成本偏低</strong>，缺乏组织级锁定。</p>
+<h3>D5.4 护城河可持续性（2 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>护城河趋势</td>
+<td><strong>增强中</strong>：6 周内 10 个 release（v1.6.0 → v1.11.0），90 天 1008 PR，文档/实验沉淀厚（52 份文档 + 41 篇实验日志），模型族从 1 扩到 9</td>
+</tr>
+<tr>
+<td>颠覆风险</td>
+<td><strong>中等偏高</strong>：① llama.cpp / vLLM / kTransformers 三家均在推进 MoE 专家卸载与异构放置，核心机制（路由前瞻预取、专家缓存）不具排他性；② 硬件侧趋势（大统一内存 Apple Silicon/GB10、消费卡显存上探）会缩小「必须磁盘流式」的问题空间，README 自身也承认「大主机上磁盘可完全退出解码路径」；③ 上游权重虽为 MIT/开源，但版本迭代节奏受 Z.ai / Moonshot / Qwen 等第三方发布控制，项目处于<strong>下游跟随</strong>位置</td>
+</tr>
+<tr>
+<td>时间窗口</td>
+<td>在「25–32 GB 内存跑 744B–2.8T」这一极端档位仍显著领先，但该领先更多来自工程执行速度而非不可复制资产，预计窗口以<strong>季度</strong>计而非以年计</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分</strong>：<strong>1.2 / 2</strong>（5–6 档 → 60%）。护城河处于自我加深阶段，但无排他性机制，且有明确、资金与社区均更强的同类竞品在相邻赛道上快速演进，中长期存在被性能追平或硬件趋势削弱的风险。</p>
+<h3>D5 结论</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D5.1 竞品对比与市场定位</td>
+<td>3</td>
+<td>2.4</td>
+<td>7–8 档（80%）</td>
+</tr>
+<tr>
+<td>D5.2 技术壁垒与网络效应</td>
+<td>3</td>
+<td>1.8</td>
+<td>5–6 档（60%）</td>
+</tr>
+<tr>
+<td>D5.3 切换成本与用户粘性</td>
+<td>2</td>
+<td>1.2</td>
+<td>5–6 档（60%）</td>
+</tr>
+<tr>
+<td>D5.4 护城河可持续性</td>
+<td>2</td>
+<td>1.2</td>
+<td>5–6 档（60%）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>6.6</strong></td>
+<td><strong>一般偏上</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：colibri 的市场定位清晰且在模型规模档位上具备可验证的领先性（744B–2.8T 在 25–32 GB RAM 上运行、纯 C 零依赖、磁盘为一级公民、路由遥测驱动学习缓存），因此在「定位清晰度」上拿到 7–8 档。但其商业化防御力偏薄：核心技术机制全部公开且无专利（Apache-2.0），模型容器为公共 safetensors 格式，服务接口为 OpenAI 兼容（接口层零锁定），缺少跨用户网络效应与平台侧数据资产；同时直面 llama.cpp、kTransformers、vLLM 三个真实且资源更强的竞品，其中 kTransformers 在技术路径上正面重叠。护城河当前依靠<strong>发布速度与工程沉淀</strong>维持，可复制性强、时间窗口有限。</p>
+<p><strong>主要不确定性 / 置信度</strong>：竞品清单受素材约束未能外部搜索验证（全部为仓库内引用），且本项目支持的上游模型（GLM-5.2/5.3、Kimi K3、DeepSeek V4 等）未做外部核实；本维度置信度：<strong>中等偏低</strong>。</p>
+<h3>D6. 法律合规与知识产权</h3>
+<p><strong>维度得分：8.2 / 10</strong>（协议与依赖链法律风险极低，扣分集中在无 CLA 的版权分散问题与未核查的商标/专利）</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D6.1 开源协议合规性与商业限制</td>
+<td>3.0</td>
+<td><strong>3.0</strong></td>
+<td>9–10（100%）</td>
+<td>Apache-2.0 标准全文落盘于 <code>LICENSE</code>，<code>pyproject.toml</code> 声明 <code>license = "Apache-2.0"</code>，SPDX 标识规范；无 Commons Clause / BUSL / 任何附加商业限制条款；Apache-2.0 §3 附带明确专利授权，§6 明确不授予商标权；仓库自带 <code>THIRD_PARTY_NOTICES.md</code>，有第三方授权归档意识。不存在 copyleft 传染性</td>
+</tr>
+<tr>
+<td>D6.2 依赖链法律风险</td>
+<td>2.5</td>
+<td><strong>2.5</strong></td>
+<td>9–10（100%）</td>
+<td>引擎本体为「pure C, zero deps」，运行时不引入任何第三方库，传染性风险为零；Python 侧（<code>pyproject.toml</code> 可选依赖 + <code>c/tools/requirements.txt</code>）均为开发工具链，清单为 torch / transformers / safetensors / huggingface-hub / numpy / tokenizers / datasets / requests，全部为 BSD-3 / Apache-2.0 / MIT 系宽松协议；Rust 侧仅 tauri 2.11.5 + tauri-build；前端 react / react-dom / vite / vitest / tailwind / clsx / tailwind-merge（MIT）、typescript（Apache-2.0）、lucide-react（ISC）、class-variance-authority（Apache-2.0）。直接依赖清单中未发现任何 GPL / AGPL / SSPL 项，依赖数量适中且来源均为主流可信包</td>
+</tr>
+<tr>
+<td>D6.3 商标与专利风险</td>
+<td>2.5</td>
+<td><strong>1.5</strong></td>
+<td>5–6（60%）</td>
+<td><strong>未经人工核查，置信度低</strong>。自动化流程无法执行商标检索与专利 FTO 排查，按方法论默认取 5–6 档。可记录的客观事实仅为：Apache-2.0 §6 声明不授予商标许可，仓库内<strong>未发现</strong>商标使用政策（trademark policy）文件。"colibri" 为通用词典词（蜂鸟）且多项目重名，同时引擎面向的 MoE 推理领域存在大量活跃专利布局——但以上均为待核查线索，<strong>不作任何商标/专利状态的断言</strong></td>
+</tr>
+<tr>
+<td>D6.4 贡献者协议完备性</td>
+<td>2.0</td>
+<td><strong>1.2</strong></td>
+<td>5–6（60%）</td>
+<td><code>CONTRIBUTING.md</code> 存在且内容规范：明确 main/dev 分支模型、PR 目标分支、必须通过 0 警告构建 + 精度 oracle + 目标验证、性能 PR 须附实验 manifest 并经 <code>experiment_manifest.py</code> 校验。但<strong>无 CLA、无 DCO 签署要求</strong>（仓库无 CLA 配置文件、无 codeowners、PR 模板中未见 sign-off 机制）；仅依赖 Apache-2.0 §5 的 inbound=outbound 条款获得贡献授权。贡献者达 138 人、近 90 天新建 PR 1008 个，版权高度分散且不可集中控制</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>8.2</strong></td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<p><strong>D6 维度得分 8.2/10，法律合规层面整体健康，不构成商业化的硬阻断，但存在两处需要人工补做的动作项。</strong></p>
+<p><strong>主要优势：</strong></p>
+<ol>
+<li><strong>协议层零障碍</strong>。Apache-2.0 是商业化友好度最高的主流协议之一：明确授予版权与专利许可、允许闭源衍生与再许可、允许收费分发（§9），且无任何 Commons Clause / BUSL 式的使用场景限制。这意味着本项目在 D4 维度上的变现模式选择（SaaS 托管、企业版双协议、商业支持、硬件捆绑等）在<strong>协议法律层面</strong>均不被禁止。</li>
+<li><strong>依赖传染风险实际为零</strong>。引擎运行时是纯 C、零第三方链接，最关键的传染通道（静态链接 GPL 传染、Python 运行时依赖传递）在架构上被消除。Python/Rust/TS 依赖全部是构建期与工具期用品，且全部为 MIT/BSD/Apache/ISC 系宽松协议，无 GPL/AGPL。</li>
+<li><strong>合规资产有沉淀</strong>。<code>THIRD_PARTY_NOTICES.md</code> + 多语言 README + 4 条 CI workflow + 详细 CONTRIBUTING，说明维护者具备基本的合规与工程规范意识，降低了后续商业尽调的摩擦成本。</li>
+</ol>
+<p><strong>主要风险与缺口：</strong></p>
+<ol>
+<li><strong>版权不可集中（D6.4，最大实际障碍）</strong>。无 CLA / 无 DCO、138 名贡献者、90 天 1008 个 PR——Apache-2.0 §5 只保证了对外的<strong>使用许可</strong>，并不解决<strong>版权归属</strong>问题。若未来需要双协议授权（open-core / 商用闭源版）、更换协议或接受收购尽调，必须回溯获得全部历史贡献者的重新授权，随着贡献者数量继续增长，该成本只会上升。<strong>建议尽早在 CI 中强制 DCO sign-off 或引入 CLA 机器人。</strong></li>
+<li><strong>模型权重的授权完全在协议之外</strong>。项目描述为「Run frontier MoE models」，仓库只分发引擎、不分发权重，用户需自行下载 GLM-5.2 / DeepSeek-V4 / Qwen3.6 等模型。这些权重的许可证（各自独立，多为自定义开源模型许可或研究许可）<strong>不受 Apache-2.0 覆盖</strong>。若商业化路径涉及「预置模型 + 引擎」一体化交付，必须逐模型核查权重许可的商业使用与再分发条款，这是本项目最容易被忽略、也最可能阻断商业路径的法务雷区。</li>
+<li><strong>商标与专利状态未验证（D6.3）</strong>。项目名 "colibri"（蜂鸟）为通用词，重名与商标冲突概率不能排除；同时 MoE 稀疏推理、专家流式加载、KV Cache 压缩、量化（int4-rans256）等方向专利密集。本项按方法论默认取 5–6 档，<strong>置信度低</strong>，须由人工完成 USPTO/EUIPO/CNIPA 商标检索与核心技术 FTO 排查后方可定论。</li>
+</ol>
+<p><strong>综合判断</strong>：D6 维度不存在「法律硬伤」级别的阻断，Apache-2.0 + 零运行时依赖的组合为商业化提供了较宽的操作空间。真正的减法来自 D6.4 的版权分散——它不影响「卖服务/卖支持」，但会实质限制「卖双协议授权」这类高阶变现路径。扣分后仍处 7–8 档（良好），符合行业平均以上水平。</p>
+<h3>D7. 企业就绪度与可运营性</h3>
+<p><strong>维度得分：6.4 / 10</strong>（权重 8%）</p>
+<blockquote>
+<p>定性判断：colibri 是一个<strong>运维工具链完备、但企业治理能力缺失</strong>的项目。其 Makefile / docker compose / doctor / autotune 构成了一套相当成熟的"单机运维面"，OpenAI 兼容 API 也降低了集成门槛；但在 SSO/RBAC/审计、水平扩展、标准可观测性协议、以及<strong>版本稳定性承诺</strong>四个企业采购的硬门槛上明显缺位——README 甚至主动声明 <em>"there is no SLA on speed"</em>，并将项目定位为 "an open research platform"。这决定了它当前更适合个人开发者与研究者，而非需要采购合规与 SLA 的企业客户。</p>
+</blockquote>
+<hr />
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>折算档位</th>
+<th>判断依据摘要</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D7.1 运维复杂度与升级路径</td>
+<td>3.0</td>
+<td><strong>1.8</strong></td>
+<td>60%（5–6 档）</td>
+<td>配置/部署清晰，但升级存在模型容器重打包成本，无回滚机制</td>
+</tr>
+<tr>
+<td>D7.2 安全管理与权限控制</td>
+<td>2.5</td>
+<td><strong>1.5</strong></td>
+<td>60%（5–6 档）</td>
+<td>单密钥 API Key + 边界加固，无 SSO/RBAC/审计/加密</td>
+</tr>
+<tr>
+<td>D7.3 可扩展性与高可用能力</td>
+<td>2.5</td>
+<td><strong>1.5</strong></td>
+<td>60%（5–6 档）</td>
+<td>单机纵向扩展优秀，无水平扩展与故障转移；存储 I/O 为架构性单点</td>
+</tr>
+<tr>
+<td>D7.4 集成兼容与可观测性</td>
+<td>2.0</td>
+<td><strong>1.6</strong></td>
+<td>80%（7–8 档）</td>
+<td>OpenAI 兼容 API + dashboard + doctor，缺 OTel/Prometheus</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>6.4</strong></td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>D7.1 运维复杂度与升级路径（1.8 / 3.0，60%）</h3>
+<p><strong>配置管理（强）</strong>
+- 配置以环境变量为主且高度文档化：<code>docs/ENVIRONMENT.md</code>、<code>docs/SETTINGS.md</code> 为专门的配置文档；<code>c/resource_plan.py</code> 依据硬件探测<strong>自动生成</strong> <code>OMP_NUM_THREADS</code>、<code>COLI_GPU</code>、<code>RAM_GB</code> 等环境变量，属于超出行业平均的自动化配置能力。
+- <code>docker/docker-compose.yml</code> 提供一行启动：<code>MODEL_DIR=/nvme/glm52_i4 docker compose up</code>，仅需设定 <code>MODEL_DIR</code> 与 <code>COLI_RAM</code>，并带 <code>restart: unless-stopped</code> 与 <code>shm_size: 2gb</code>（针对 744B 模型 page cache 的显式调优）。
+- <code>c/Makefile</code> 跨平台自适应（Linux x86-64 / aarch64 / PPC64 / macOS / Windows MinGW），支持 <code>ARCH=native|portable</code>、<code>CUDA=1</code>、<code>HIP=1</code>、<code>VK=1</code>、<code>METAL=1</code> 等构建开关，且提供 <code>install</code>/<code>uninstall</code>（<code>PREFIX</code>/<code>BINDIR</code>/<code>LIBEXECDIR</code>/<code>DESTDIR</code> 完整支持标准打包约定）。
+- <strong>不支持配置中心</strong>（无 etcd/Consul/ConfigMap 集成），配置全部依赖进程环境变量。</p>
+<p><strong>运维负担（中偏强）</strong>
+- 自带 <code>c/doctor.py</code>（只读安装诊断：模型容器、分片序列、家族解析、内存/磁盘规划、CUDA 链接）与 <code>c/autotune.py</code>（测量驱动的调度调优 + 按机器指纹持久化 profile + 原子写入）。这类"自诊断 + 自调优"工具在开源推理引擎中并不常见，显著降低日常运维门槛。
+- 但 README 明确 <strong>"no SLA on speed"</strong>，性能随硬件/路由热度波动，企业难以做容量规划。</p>
+<p><strong>升级路径与回滚（弱）</strong>
+- 引擎为<strong>无持久状态的单二进制</strong>（模型权重为外部只读容器），升级本质是替换可执行文件，这一点是有利的。
+- 但<strong>未发现任何回滚机制</strong>（无灰度、无版本并存、无 <code>--rollback</code> 说明），仅有 release 产物附带 <code>SHA256SUMS.txt</code> 供校验。
+- 版本节奏对企业极不友好：近 10 个 release（v1.6.0 → v1.11.0）集中在 <strong>2026-08-12 至 2026-09-13（约 32 天）</strong>，10 个版本中有 4 个 patch 版本；<code>pyproject.toml</code> 自述 <code>Development Status :: 4 - Beta</code>。</p>
+<p><strong>数据迁移（弱）</strong>
+- 引擎侧无数据库、无持久状态，<strong>不需要业务数据迁移</strong>。
+- 但<strong>模型容器格式存在破坏性演进</strong>：仓库同时存在 <code>c/tools/convert_fmt4_to_fmt2.py</code>（fmt4→fmt2 转换）、<code>c/tools/repack_fp8_passthrough.py</code>（重打包为原生 FP8 直通容器 fmt=8）、<code>c/tools/repack_rans.py</code>（int4-rans256-g0 重打包），且 <code>colibri.c</code> 注释明确记录了量化格式 ordinal 被上游抢占而<strong>两次重编号</strong>的事故（fmt=6→100，fmt=7→8）。对一个 372 GB 级的模型目录而言，这类重打包意味着小时级的重新转换成本。</p>
+<p><strong>判定</strong>：配置与部署明显高于平均，但升级无回滚承诺 + 模型格式演进导致的重复重打包 + Beta 阶段高频破坏性迭代，使其落在"需一定运维投入"区间，取 60% 档。</p>
+<hr />
+<h3>D7.2 安全管理与权限控制（1.5 / 2.5，60%）</h3>
+<p><strong>认证授权（弱–中）</strong>
+- 仅提供<strong>单一预共享密钥</strong>认证：<code>--api-key</code> / <code>COLI_API_KEY</code>。
+- <strong>无 SSO / OAuth / OIDC / LDAP / SAML 任何形式的企业身份集成</strong>。
+- 有一项值得肯定的安全默认值：<code>openai_server.py</code> 的 <code>#SEC-6</code> —— 绑定非 loopback 且未设 <code>api_key</code> 时<strong>默认拒绝启动</strong>，需显式 <code>COLI_ALLOW_INSECURE_BIND=1</code> 覆盖，属 fail-closed 设计。</p>
+<p><strong>权限模型（弱）</strong>
+- <strong>无 RBAC / ABAC</strong>，无角色、无租户、无 per-model 授权。
+- 存在 <code>GenerationScheduler</code>（有界 FIFO 准入、多 KV slot、超时、取消、按 slot 公平调度），但这是<strong>并发资源调度</strong>，不是权限控制。</p>
+<p><strong>审计日志（缺失）</strong>
+- <strong>无操作审计日志、无安全事件日志</strong>。仓库中 <code>c/telemetry.h</code>、<code>c/route_trace.h</code>、PROF/REPLAY 输出均为<strong>性能遥测</strong>（路由热度、tokens/s、TTFT、命中率），不可作为安全审计依据。
+- <code>has_security_md: false</code> —— 无 <code>SECURITY.md</code>，无漏洞披露流程，无 <code>CODEOWNERS</code>。</p>
+<p><strong>数据安全（中）</strong>
+- <strong>无内置 TLS/传输加密</strong>（依赖用户自行前置反向代理），无静态加密、无 KMS/密钥管理。
+- 但<strong>输入面加固扎实</strong>：请求体上限 <code>MAX_BODY = 4&lt;&lt;20</code>、CORS 白名单 <code>DEFAULT_CORS_ORIGINS</code>、<code>allowed_hosts</code> DNS-rebinding 防护（<code>*</code> 会告警）；<code>st.h</code> 有 <code>ST_MAX_HEADER</code>(512MB) 与 <code>ST_FMT_STAMP_MAX</code>(4096) 防畸形容器攻击；safetensors 解析全程做偏移/尺寸/溢出校验；<code>tok.h</code> 明确以防御不可信 <code>tokenizer.json</code> 的 OOB write 为目标。</p>
+<p><strong>判定</strong>：有简单认证（单密钥）+ 较好的边界防护，但企业最看重的身份联邦、细粒度授权、审计日志三项全缺。落 5–6 档，取 60%。</p>
+<hr />
+<h3>D7.3 可扩展性与高可用能力（1.5 / 2.5，60%）</h3>
+<p><strong>水平扩展（不支持）</strong>
+- 架构为<strong>单机单进程推理引擎</strong>：专家权重以 <code>VRAM / RAM / NVMe</code> 三层驻留的方式流式加载，<code>c/st.h</code>、<code>c/qwen36_tier.c</code>、<code>c/deepseek_v4.c</code> 均围绕单机 I/O 与内存层次做优化。
+- 无多节点分布式推理、无请求级横向副本调度、无 K8s/Helm 编排资产（<code>has_dockerfile: false</code>，仅 <code>docker/</code> 下两个 Dockerfile + compose）。
+- 单机内的"扩展"能力反而很强（见下），但那属于<strong>纵向扩展</strong>。</p>
+<p><strong>高可用（缺失）</strong>
+- 无集群部署模式、无 leader 选举、无故障转移。唯一的可用性手段是容器的 <code>restart: unless-stopped</code>。
+- 存在<strong>进程内优雅降级</strong>：<code>backend_loader.c</code> / <code>backend_loader_dsv4.c</code> 在 DLL 缺失时所有调用返回安全哨兵并回退 CPU；<code>deepseek_v4.c</code> 的 O_DIRECT 失败回退 buffered；<code>colibri.c</code> 的 CUDA 失败按 <code>cuda_fail_s</code> 记录并窄范围重试。这些是"不崩溃"保障，不是"不中断服务"保障。</p>
+<p><strong>性能瓶颈与单点（明显）</strong>
+- README 直言 <em>"no SLA on speed"</em> 且 <em>"Insufficient fast memory may reduce speed"</em>；实测展示为 <strong>744B 模型 4 tok/s、TTFT 1.6s</strong>（6×RTX 5090 全专家驻留场景）。
+- 架构性单点明确：<strong>存储 I/O 是专家流式的必经路径</strong>，compose 注释亦警告 "keep it on NVMe/ext4, never a network mount (expert streaming is latency-bound)"。缓解手段存在（<code>O_DIRECT</code>、双 SSD 加权条带、<code>COLI_MODEL_MIRROR</code> 只读镜像副本、实测 ext4-in-VHDX 0.8→2.3 GB/s），但 README 自己承认 <em>"dual-SSD still needs broader end-to-end community A/Bs"</em>。</p>
+<p><strong>数据一致性（本项不构成风险）</strong>
+- 单机场景无分布式一致性问题；多卡/多镜像仅为只读权重副本，通过确定性哈希路由（<code>(layer*epl+eid)*2654435761u</code>）与镜像 header 字节比对保证副本一致。<strong>多 KV slot 与 continuous batching</strong>（<code>docs/experiments/glm52-continuous-batching-2026-07-31.md</code>）在单机内提供了不错的并发吞吐。</p>
+<p><strong>判定</strong>：单机性能可接受且内部并发工程扎实，但扩展需改造、无高可用能力、存储为架构性单点。落 5–6 档，取 60%。</p>
+<hr />
+<h3>D7.4 集成兼容与可观测性（1.6 / 2.0，80%）</h3>
+<p><strong>API 完备性（强）</strong>
+- 提供 <strong>OpenAI 兼容 HTTP 网关</strong>（<code>c/openai_server.py</code>，<code>/v1/chat/completions</code>），意味着可直接对接现有 OpenAI SDK 生态，这是企业集成的最大加分项。
+- 有专门的 API 与协议文档：<code>docs/api.md</code>、<code>docs/serve_protocol.md</code>、<code>docs/routing-telemetry.md</code>。
+- 支持三种工具调用语法适配（GLM <code>&lt;tool_call&gt;</code> / DeepSeek V4 DSML / Kimi K3 XTML）统一为 OpenAI 格式，并对未闭合标签做恢复解析。
+- 无 gRPC、无 protobuf 定义、无官方多语言 SDK、无 OpenAPI spec 文件。</p>
+<p><strong>标准协议（弱）</strong>
+- <strong>未发现 OpenTelemetry、Prometheus <code>/metrics</code>、Webhook 等标准协议集成</strong>。指标通过引擎 stdout 的结构化行（<code>EMAP</code> / <code>HITS</code> / <code>PROF</code> / <code>TUNE</code> / <code>REPLAY</code>）与 dashboard 暴露，需自行采集转译。
+- 有 <code>docs/experiments/*</code> 与 <code>c/tools/datapoint.py</code> 定义的基准输出规范，属于自研协议。</p>
+<p><strong>监控告警（中）</strong>
+- 内置 <strong>web dashboard</strong>（<code>./coli web</code>）：实时 token 指标、每轮耗时分解、VRAM/RAM/disk 分层条、Brain/Atlas 专家可视化；<code>web/src/App.tsx</code> 调用了 <code>getHealth</code>、<code>listModels</code>、<code>acceptRequests</code> 等健康/状态接口。
+- <code>c/doctor.py</code> 提供只读安装自检；<code>c/autotune.py</code> 带安全门（命中率/p99/TTFT 阈值）与输出漂移检测（<code>OutputDrift</code>）。
+- <strong>无内置告警规则、无阈值告警通道</strong>（无 PagerDuty/Slack/邮件集成）。</p>
+<p><strong>日志体系（中）</strong>
+- 引擎输出为<strong>结构化行</strong>（<code>PROFILE</code> 行区分 prefill/decode，<code>RX</code>/<code>extract_metrics</code> 正则锚定），并有环境变量分级开关：<code>V41_STATS</code> / <code>V41_TRACE</code> 控制 DeepSeek V4 调试输出，<code>Q38_BPE_PAIR_CHECK</code>、<code>OLMOE_TESTING</code> 等测试钩子。
+- 但<strong>未发现标准日志库、结构化 JSON 日志、或明确的 log level 分级体系</strong>；部分输出仍在 stdout/stderr 之间不一致（<code>diag_harness.py</code> 注释明确指出"对多数指标同时搜索两流（引擎输出通道不一致）"）。</p>
+<p><strong>判定</strong>：API 侧达到企业可集成水平并超出平均（OpenAI 兼容 + 完整文档 + 多语法工具调用），监控侧有 dashboard/health/doctor 的非标准实现。因标准协议（OTel/Prometheus）与告警缺位，未达 9–10 档，取 80%。</p>
+<hr />
+<h3>结论</h3>
+<p>colibri 在 <strong>D7 维度呈现"运维工具链强、企业治理弱"的典型开源研究型项目画像</strong>：</p>
+<p><strong>加分项（可支撑商业化叙事）</strong>
+1. 一键 docker compose 交付 + 跨平台 Makefile + 标准 <code>install/uninstall</code>，部署运维面成熟；
+2. <code>doctor.py</code> 自诊断 + <code>autotune.py</code> 自调优 + 机器指纹 profile 持久化，属超平均水平；
+3. OpenAI 兼容 API + 完整文档（<code>docs/api.md</code>、<code>docs/serve_protocol.md</code>）+ 三套工具调用语法适配，集成门槛低；
+4. 安全默认值 fail-closed（非 loopback 无 key 拒绝启动）、请求体/容器/分词器全链路输入校验；
+5. 工程纪律严苛：4 条 CI workflow 覆盖 8 类引擎 × 3 平台 + ASan/UBSan + ARM NEON + musl + Vulkan(Lavapipe)，<code>test_ratio 0.277</code>（51272 测试行）。</p>
+<p><strong>减分项（构成企业采购障碍）</strong>
+1. <strong>无身份联邦</strong>（无 SSO/OAuth/LDAP/SAML）、<strong>无 RBAC</strong>、<strong>无审计日志</strong>、无 <code>SECURITY.md</code>——企业合规三大件全缺；
+2. <strong>无水平扩展与高可用</strong>：单机架构，存储 I/O 为架构性单点，README 自述 "no SLA on speed"；
+3. <strong>无回滚机制</strong>，且模型容器格式频繁破坏性演进（<code>convert_fmt4_to_fmt2.py</code>、<code>repack_rans.py</code>、fmt ordinal 两次重编号），大模型重打包成本高；
+4. <strong>无 OpenTelemetry/Prometheus/Webhook</strong>，指标依赖非标 stdout 采集；
+5. <strong>Beta 阶段高频发布</strong>（32 天 10 个 release），<code>Development Status :: 4 - Beta</code>，企业难以跟随升级。</p>
+<p><strong>商业化建议</strong>：若作为企业产品包装，最短路径是补齐 (a) 反向代理前置的 OIDC/RBAC 网关或原生身份层、(b) Prometheus exporter、(c) 容器格式版本兼容声明与回滚策略、(d) SLA 化的稳定版分支（LTS）；否则应定位为<strong>面向个人研究者与 AI 实验室的本地推理引擎</strong>，以"数据不出本地 + 硬件成本替代"而非"企业级治理"为卖点。</p>
+<h3>D8. 团队治理与可持续性</h3>
+<p><strong>维度得分: 6.6 / 10</strong>(权重 7%)</p>
+<p>Colibri 是一个由个人主导、社区高度活跃的新兴 C 语言推理引擎。技术实力与投入度极为突出,但商业化组织、治理结构与资金可见度均存在结构性短板,是制约其商业化的主要治理风险。</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D8.1 核心维护者能力与背景</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>80%</td>
+<td>技术能力极强(纯 C 86.6k 行 + 36.1k 行头文件,零依赖运行前沿 MoE);投入度高(32 天内发布 10 个版本,90 天创建 1008 个 PR);但商业/创业/企业服务经验<strong>无任何可见证据</strong>,且 CONTRIBUTING 明确由"the maintainer"(单数)负责 fast-forward 合并,方向决策高度集中</td>
+</tr>
+<tr>
+<td>D8.2 治理模型透明度</td>
+<td>2.0</td>
+<td>1.2</td>
+<td>60%</td>
+<td>有完善的 CONTRIBUTING.md(分支模型 main/dev、评审与合规校验流程),但<strong>无 GOVERNANCE.md、无 CODEOWNERS、无路线图文档、无基金会归属</strong>,决策由核心维护者单方主导(BDFL 模式)</td>
+</tr>
+<tr>
+<td>D8.3 资金支持与商业赞助</td>
+<td>2.5</td>
+<td>1.0</td>
+<td>40%</td>
+<td>无公司实体、无 VC/基金会赞助、无 GitHub Sponsors / Open Collective 可见信息;<code>pyproject.toml</code> 作者为个人 "JustVugg",仓库挂在个人账号下,呈现"纯靠热情驱动"形态</td>
+</tr>
+<tr>
+<td>D8.4 项目可持续性与传承风险</td>
+<td>3.0</td>
+<td>2.4</td>
+<td>80%</td>
+<td>活跃度<strong>强上升</strong>(创建 2.5 个月即 31.9k star、90 天 1008 PR / 398 issue 关闭、发布节奏密集),无 archived/deprecated 标记;3382 fork 属流行项目正常水平,无分裂信号;但传承机制依赖单一维护者,治理文档缺失拉低传承确定性</td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<ul>
+<li><strong>优势</strong>:技术领导者能力顶尖、投入度接近全职水平,社区贡献者规模可观(138 人),活跃度趋势明确向上,短期内项目无停滞风险。</li>
+<li><strong>短板</strong>:治理完全集中于个人(无 GOVERNANCE/CODEOWNERS/基金会背书),无可见的组织化资金与商业实体,商业经验未经验证;一旦核心维护者退出,传承机制缺乏制度化保障。</li>
+<li><strong>商业化含义</strong>:技术资产优质、社区动能充足,但"人"这一关键商业化要素高度绑定单一自然人,治理与资金结构尚未成形。若要在其上叠加商业服务,建议先推动治理文档化、明确资金/公司实体、并降低巴士因子风险。</li>
+<li><strong>置信度说明</strong>:D8.3 的资金判断基于"无可见赞助/公司实体"的间接证据(未抓取 GitHub Sponsors 页面),置信度中等偏低。</li>
+</ul>
+<p>下方为 D9 维度详析。</p>
+<hr />
+<h3>D9 上手难度与易用性</h3>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D9.1 安装难度</td>
+<td>2.5</td>
+<td><strong>2.0</strong></td>
+<td>7–8（80%）</td>
+<td>提供 Linux/macOS/Windows 三平台预编译发行包，解包即用、无需编译器；引擎本体纯 C、<strong>零运行时依赖</strong>（无 BLAS、运行时无 Python、无 GPU 要求），<code>pyproject.toml</code> 的依赖全部标注为 "DEVELOPMENT TOOLING ONLY / none of this is a Colibri runtime dependency"。扣分点：没有 pip/npm wheel 一键安装（<code>pip install -e .</code> 仅是检出目录的 editable 安装），启动器仍需本机 Python ≥3.10，源码构建需 gcc/clang + OpenMP（macOS 需 <code>brew install libomp</code>，Windows 走 MinGW-w64）；Makefile 还包含 CUDA/HIP/Vulkan/Metal 等多条编译路径，目标平台探测逻辑复杂。</td>
+</tr>
+<tr>
+<td>D9.2 部署与配置难度</td>
+<td>2.5</td>
+<td><strong>1.5</strong></td>
+<td>5–6（60%）</td>
+<td>有标准化容器部署：<code>docker/Dockerfile</code>、<code>docker/Dockerfile.slim</code>、<code>docker/docker-compose.yml</code>，后者一条命令（<code>MODEL_DIR=... docker compose up</code>）即可起 OpenAI 兼容服务，仅需 <code>COLI_RAM</code>/<code>MODEL_DIR</code> 少量配置，并有 <code>shm_size</code>、restart 策略等默认值。但<strong>外部依赖初始化极重</strong>：模型本体 372 GB（GLM-5.2），需单独下载/转换（<code>./coli convert</code>，一次性 Python 流程，需多 GB 级磁盘与长时间运行），且必须置于 NVMe/ext4；模型不在镜像内，须 bind mount。10 分钟跑通 demo 不现实（模型传输本身以小时计）。非技术人员无法独立完成（需懂磁盘布局、RAM 预算、Direct I/O、双盘镜像规划）。</td>
+</tr>
+<tr>
+<td>D9.3 易用性与操作门槛</td>
+<td>2.5</td>
+<td><strong>1.5</strong></td>
+<td>5–6（60%）</td>
+<td>前端一致性较好：九大模型族共用一个 <code>coli chat</code> / <code>coli serve</code> / <code>coli web</code> 入口，启动器依据模型 <code>config.json</code> 自动挑二进制；提供 <code>coli info</code> / <code>coli plan</code> / <code>coli doctor</code> / <code>coli mirror plan|stage|verify</code> 等辅助命令，且有 Web 仪表盘（实时指标、专家分层、Brain/Atlas 可视化）降低观察门槛。扣分点：环境变量调参面巨大（<code>DIRECT</code>、<code>PIPE</code>、<code>PILOT</code>、<code>DRAFT</code>、<code>SPEC_PIN</code>、<code>GRAMMAR</code>、<code>CUDA_EXPERT_GB</code>、<code>PIN_GB</code>、<code>COLI_NUMA</code>、<code>COLI_ANS</code>、<code>CUDA_ARCH</code>、<code>HIP_ARCH</code> …），项目自述"无速度 SLA"，README 反复要求"measure, and use DRAFT=0 when it doesn't pay"；错误面广（<code>#191</code> 用户把不同模型族的资源需求混为一谈、<code>#455</code> 容器选型导致 think-mode 循环、<code>#8</code> int4 MTP head 归零），说明默认值之外的坑需专业知识辨别。</td>
+</tr>
+<tr>
+<td>D9.4 学习曲线与首体验</td>
+<td>2.5</td>
+<td><strong>1.5</strong></td>
+<td>5–6（60%）</td>
+<td>正面：有专门的 <code>docs/quickstart.md</code>（"Step-by-step for every platform"）、README 四语种（英/简/繁/意）、52 份文档覆盖 tuning、settings、benchmarks、各后端与实验记录；存在低门槛入门路径——OLMoE 仅需 ~7 GB 磁盘 / 8 GB RAM，可先行跑通 <code>coli chat</code> 建立 Aha Moment；示例输出在 README 中直接给出（<code>./coli chat</code> → ready in 32s）。扣分点：仓库内<strong>示例文件数为 0</strong>，可仿照的模板项目缺失；达到真正有意义的使用需理解 MoE 路由、专家分层（VRAM/RAM/NVMe）、int4/gs64 量化、MLA KV 压缩、MTP 投机、O_DIRECT 等概念，属研究者/系统工程师向；372 GB 级模型下载与预填充使"首次成功"从分钟级拉长到小时/天级。</td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<ul>
+<li><strong>D9 综合得分：6.5 / 10（🟡 中等，面向有技术基础者）</strong></li>
+<li><strong>强项</strong>：软件本体的安装与依赖管理接近理想——纯 C、零运行时依赖、三平台预编译包，这在同类推理引擎中相当少见（对比需 CUDA/conda/PyTorch 栈的方案）。</li>
+<li><strong>弱项</strong>：真正的门槛不在装软件，而在<strong>模型资产（372 GB ~ 1.6 TB）+ 硬件调参</strong>。"十分钟跑通"只在 OLMoE 这类小模型上成立；生产级 GLM-5.2/Kimi K3 部署是小时到天级的工程，且性能高度依赖磁盘与缓存策略，需要实测调优。</li>
+<li><strong>商业化含义</strong>：可凭借预编译包 + Docker Compose 快速完成<strong>软件侧试用转化</strong>，但模型分发（Hugging Face 大文件、NVMe 前置要求、gs64/int8-MTP 选型易错）是转化漏斗上的主要流失点，建议以"OLMoE 一键体验"作为入口、以大模型托管/预置镜像降低第二跳门槛。</li>
+<li><strong>报告撰写策略</strong>：按 🟡 中等处理——给出关键步骤与命令（见上），省略 Python/编译基础说明，并强调模型获取与硬件前置条件。</li>
+</ul>
+<h3>D10 功能价值（使用价值视角）</h3>
+<blockquote>
+<p>平行维度，权重 0%，不计入综合评分；仅用于 3.4 价值画像判定。</p>
+</blockquote>
+<h3>D10.1 效用强度（满分 3 分）</h3>
+<p><strong>得分：2.4 / 3（7–8 档，80%）</strong></p>
+<ul>
+<li><strong>单用户效用</strong>：colibri 让使用者用「已有硬件」承载前沿 MoE 模型——744B（GLM-5.2/5.3）、975B（Inkling）、2.8T（Kimi K3）等，通过把 routed experts 放在磁盘并按需流式加载、把稠密部分（~17B，int4 ~9.9 GB）常驻 RAM，将 VRAM/RAM/NVMe 视为统一推理层级。对目标用户而言，这替代的是「数万至数十万美元级 GPU 集群」或「持续 API 租金」，同时解锁<strong>私有、可本地持有</strong>的前沿模型访问（README 原文强调 "Not renting intelligence behind an API — <em>holding</em> it"）。</li>
+<li><strong>效用层级</strong>：属于项目级依赖级——它不是分钟级便利工具，而是「让一类本来不可行的任务（本机跑 744B）变得可行」的基础设施型工具，同时是开放研究平台（format/memory/placement/scheduling/kernel 全栈实验面）。</li>
+<li><strong>效用确定性</strong>：<code>no SLA on speed, and a hard guarantee on semantics</code> —— 正确性/语义稳定可预期（token-exact 对 transformers oracle 校验、57× MLA KV 压缩、状态可持久化重开），但<strong>吞吐强烈依赖硬件与缓存温度</strong>：25 GB 开发机冷启 0.05–0.1 tok/s、128 GB CPU 桌面 ~1.8 tok/s、单张 5070 Ti 笔记本 1.07 tok/s、6×RTX5090 全驻留 5.8–6.8 tok/s。对高吞吐生产场景，实际可用性受限，故未达「业务命脉级、效用稳定可预期」的 9–10 档。</li>
+</ul>
+<h3>D10.2 实际使用规模（满分 3 分）</h3>
+<p><strong>得分：1.8 / 3（5–6 档，60%）</strong></p>
+<ul>
+<li><strong>直接口径数据缺失</strong>：GitHub Dependents（Used by）、npm 周下载、PyPI 月下载、Docker pulls 均实采为 <strong>N/A</strong>（项目为终端引擎/应用而非被依赖库，且无根目录 Dockerfile；<code>colibri-engine</code> 为 editable 安装而非分发型 wheel）。</li>
+<li><strong>可得代理证据（实采）</strong>：Star 31,982、Fork 3,382、Contributors 138、近 90 天新建 PR 1,008、关闭 Issue 398、开放 Issue 111。README 引用了多位真实用户在其自有硬件上的实测反馈（#200 128GB CPU 桌面、#273 RTX 5070 Ti 笔记本、#191 模型需求混淆、#455 gs64 质量回归），说明存在成规模的真实使用。</li>
+<li><strong>判定说明</strong>：Fork 量级（千级）+ 极高的 Issue/PR 流量（90 天约 1,400 次协作动作）指向「万级使用者」区间，且模型容器需下载 ~372 GB，是有实质承诺的采用行为；但缺乏 Dependents/下载量等规范口径，为避免高估，取 5–6 档。若后续补采到 HF 模型下载量或镜像分发计数，本项有上调空间。</li>
+</ul>
+<h3>D10.3 免费可得的完整效用（满分 2 分）</h3>
+<p><strong>得分：2.0 / 2（9–10 档，100%）</strong></p>
+<ul>
+<li>全仓 <strong>Apache-2.0</strong>，引擎为<strong>纯 C、零引擎依赖</strong>（无 BLAS、运行时无 Python、GPU 非必需），核心能力（<code>coli chat</code> / <code>coli serve</code> / <code>coli web</code>、cluster 模式、双 SSD striping、CUDA/Metal/Vulkan 后端、量化与投机解码）全部开源在树内，无企业版/付费墙分层。</li>
+<li>模型侧同样免费：GLM-5.2 权重由 Z.ai 以 MIT 发布，社区已提供预转换 int4-gs64（含 int8 MTP head）容器；无「不付费实际不可用」的设计。README 中的赞助诉求为「donate hardware / sponsor development」，非功能阉割。</li>
+<li>与 D4.3（付费转化）呈典型反相关：本项接近满分意味着商业变现路径稀薄，二者张力在报告中可直接引用。</li>
+</ul>
+<h3>D10.4 效用可持续性（满分 2 分）</h3>
+<p><strong>得分：2.0 / 2（9–10 档，100%）</strong></p>
+<ul>
+<li><strong>形态完全本地化</strong>：引擎、权重、KV 状态（<code>.coli_kv</code>）、路由热力记录（<code>.coli_usage</code>）全部落在本机磁盘/RAM，无任何云端服务或厂商闭源组件参与推理路径；GPU 后端（CUDA/Metal/Vulkan，含 Mesa/RADV 对 RX 580 等停更卡的支持）均为可选加速，不构成依赖。</li>
+<li><strong>停维存续</strong>：纯 C + 头文件的实现形态，现有二进制与源码可在本机长期运行；预编译 release 覆盖 Linux/macOS/Windows，源码构建仅需 gcc/clang + OpenMP，可重现性良好（<code>./setup.sh</code> 自检、4 个 CI workflow、27.7% 测试占比、293 个测试文件）。</li>
+<li><strong>可分叉维护性</strong>：Apache-2.0 授予完整分叉权；「一个模型家族一个 .c + 共享单一头文件」的架构使社区可低成本接管；外部依赖仅限一次性获取/转换模型权重所用的 Python 工具链（numpy/huggingface_hub 为 optional-dependencies，引擎运行时零依赖），不削弱长期效用存续。</li>
+</ul>
+<h3>D10 细则分值汇总</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10.1</td>
+<td>效用强度</td>
+<td>3</td>
+<td>2.4</td>
+<td>7–8（80%）</td>
+</tr>
+<tr>
+<td>D10.2</td>
+<td>实际使用规模</td>
+<td>3</td>
+<td>1.8</td>
+<td>5–6（60%）</td>
+</tr>
+<tr>
+<td>D10.3</td>
+<td>免费可得的完整效用</td>
+<td>2</td>
+<td>2.0</td>
+<td>9–10（100%）</td>
+</tr>
+<tr>
+<td>D10.4</td>
+<td>效用可持续性</td>
+<td>2</td>
+<td>2.0</td>
+<td>9–10（100%）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td><strong>8.2</strong></td>
+<td><strong>—</strong></td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<p><strong>D10 功能价值 = 8.2 / 10（良好偏优，平行维度，不计入综合评分）</strong></p>
+<p>colibri 的使用价值主张清晰且量级罕见：把「744B–2.8T 级 MoE 模型」的可行运行门槛压到 25 GB RAM + 磁盘 + 可选任意 GPU，且以「语义硬保证、速度无 SLA」的研究范式换取正确性稳定。效用强度属项目级依赖（替代方案成本高出数倍），但吞吐受硬件与缓存温度强约束，未触及业务命脉级；免费完整度与可持续性接近满分（Apache-2.0、纯 C 零依赖、全本地、可自由分叉），这同时意味着<strong>使用价值与交换价值高度背离</strong>——使用者几乎零成本获得全部能力，与 D4 系维度的变现空间形成结构性张力，是该项目价值画像的核心特征。</p>
+<p>唯一显著短板在<strong>使用规模的可验证性</strong>：Star/Fork/协作流量显示社区规模可观，但 Dependents 与包下载量两个规范口径均为 N/A，只能以代理证据落在 5–6 档，该项置信度偏弱（若补采到 HF 模型容器下载量或镜像分发计数，本维度总分有望上探 8.5+）。</p>
+<h3>D11 社会价值——正外部性视角（平行维度，权重 0%，不计入综合评分）</h3>
+<blockquote>
+<p>本维度为平行维度：权重 0%，不进入综合评分与一票否决，仅用于 D3.4 价值画像。评价视角为「对行业/社会的外溢贡献」，与 D2.5/D2.6（工程质量）共用 i18n/无障碍素材但视角不同。</p>
+</blockquote>
+<p>colibri 是一个纯 C、零运行时依赖的 MoE 推理引擎，能在消费级/异构硬件上运行 744B–2.8T 参数的前沿 MoE 模型，其官方使命明确指向「私有的前沿模型访问不再受超大规模硬件可得性限制」「激进地移除专有硬件依赖」。这使其天然具备数字公共产品的气质，但作为独立 CLI 应用而非被大量下游集成的库，其供应链底座地位有限。</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>判定档位</th>
+<th>小分</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D11.1 数字公共基础设施属性</td>
+<td>3</td>
+<td>5–6（60%）</td>
+<td><strong>1.8</strong></td>
+<td>具备 DPG 特征：Apache-2.0 开放许可、开放模型容器格式、服务「让前沿模型平权」的公共利益；但无 Dependents 数据，属独立应用而非 curl/OpenSSL 式链路底座，停摆对软件供应链影响有限，且存在 llama.cpp/vLLM/kTransformers 等成熟替代。</td>
+</tr>
+<tr>
+<td>D11.2 教育与人才价值</td>
+<td>2.5</td>
+<td>5–6（60%）</td>
+<td><strong>1.5</strong></td>
+<td>学习材料异常丰富：52 份文档含 quickstart、benchmark 协议、6 篇以上实验日志、假设验证表；每个模型族一个 <code>.c</code> 文件的小体量架构被明确设计为「任何人都能测量的开放研究平台」；CI 以 transformers 为 oracle 做逐 token 复现。但无课程/教材采用证据，项目仅约 2.5 个月历史，教学采用尚未成形。</td>
+</tr>
+<tr>
+<td>D11.3 普惠与可及性</td>
+<td>2.5</td>
+<td>7–8（80%）</td>
+<td><strong>2.0</strong></td>
+<td>平权化效果显著：将「需超大规模 GPU 或付费 API」的能力降到「你已有的硬件」——OLMoE 8GB RAM 可跑、GLM-5.2 可在 16–24GB RAM 机器上运行、可选 GPU 仅加速非必需；README 提供英/简中/繁中/意 4 种语言，覆盖 Linux/macOS/Windows。受限点：前沿模型仍需 372GB–1.6TB 磁盘、25GB 机型冷启动仅 0.05–0.1 tok/s，故未给满分档。</td>
+</tr>
+<tr>
+<td>D11.4 开放标准与行业推动</td>
+<td>2</td>
+<td>5–6（60%）</td>
+<td><strong>1.2</strong></td>
+<td>严格遵循并复用开放标准：safetensors（含 fp8/I64）、精确复刻 tiktoken <code>byte_pair_encode</code>、GBNF 语法子集、OpenAI 兼容 HTTP 网关、Apache-2.0 权重生态，明确以防厂商锁定为目标；附有对 REAP/SERE/ReMoE/DietGPU 等学术工作的系统引用与可复现实验。但属于「遵循/复用」而非「定义/主导」标准，亦无毒理学术引用记录（论文引用检索不可得，未记为 N/A 因为他项可评估）。</td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<p>colibri 的正外部性呈现「普惠强、底座弱、教育/标准待沉淀」的画像：<strong>总分 6.5 / 10</strong>。</p>
+<ul>
+<li><strong>最强项（D11.3 普惠，2.0/2.5）</strong>：把前沿 MoE 推理从「超大规模 GPU 或付费 API」拉低到消费级硬件与多语言文档，具备明确的公共利益取向与跨平台可及性。</li>
+<li><strong>中等项（D11.1 公共基础设施 1.8/3、D11.2 教育 1.5/2.5、D11.4 标准推动 1.2/2）</strong>：开放许可与丰富文档赋予其 DPG 与教育潜力，但项目历史短（2026-07 创建）、无下游依赖数据、无标准主导或学术引用沉淀，尚不足以坐实「数字底座」或「行业教材」地位。</li>
+<li><strong>置信度说明</strong>：Dependents 计数与 npm/PyPI 下载量均为 N/A，标准/论文引用检索不可得，数字公共基础设施与标准推动两项判断部分依赖 README 自述与 31,982 star / 3,382 fork / 138 contributor 的社区热度推断，置信度中等。</li>
+</ul>
+<p>作为权重 0% 的平行维度，该结果不改变综合评分，仅提示：若项目持续以「开放研究平台 + 平权化」为战略锚点，其社会价值维度有望从「普惠工具」向「领域公共基础设施」演进。</p>
+<h2>五、商业化价值判断</h2>
+<h3>5.1 总体判断</h3>
+<p>Colibrì 是一个<strong>技术侧与社区侧表现优异、变现侧结构性薄弱</strong>的高潜力开源项目。综合评分 71.3 分、等级 A，说明项目具备商业化基础；但 18% 权重的 D4（商业模式与变现潜力）仅得 5.9 分，是全部九维中的最低分，也是拉低综合评分的核心因素。项目呈现典型的「高热度 + 高完整度 + 零变现脚手架」形态。</p>
+<h3>5.2 支撑商业化的核心资产</h3>
+<ul>
+<li><strong>需求端信号强烈</strong>：开源前沿 MoE 权重（GLM-5.2/5.3、Kimi K3、DeepSeek V4、Qwen3.8、OLMoE）集中放出，项目 2.5 个月即获 31,982 Star、90 天 1,008 个 PR、10 个 release（D1）。</li>
+<li><strong>差异化空位明确</strong>：llama.cpp / kTransformers / vLLM 均未垄断「744B–2.8T 参数从磁盘流式推理且不改变模型语义」这一位置，VRAM/RAM/NVMe 多级内存分层 + 路由热度权重 JIT 是有辨识度的定位（D1、D5）。</li>
+<li><strong>产品完整度高</strong>：纯 C 引擎 + 量化转换 + OpenAI 兼容网关 + Web 仪表盘 + Tauri 桌面壳 + 本地集群模式，配 27.7% 测试占比、transformers oracle 逐 token 校验（30–32/32）与端到端 A/B 基准协议（D1、D2）。</li>
+<li><strong>法律面干净</strong>：Apache-2.0 全文、SPDX 标识规范、自带专利授权条款（§3）、运行时零第三方依赖、依赖链中零 copyleft 项、存在 THIRD_PARTY_NOTICES.md（D6）。</li>
+<li><strong>运维交付面成熟</strong>：docker-compose 一行启动、跨平台 Makefile、doctor.py 只读自诊断与 autotune.py 测量驱动调优，运维自动化程度超出同类开源推理引擎平均（D7）。</li>
+</ul>
+<h3>5.3 制约商业化的结构性因素</h3>
+<ul>
+<li><strong>协议层零约束但零抓手</strong>：Apache-2.0 对全部变现路径零约束（D4.1 满分 2.0），但仓库内无企业版、无定价页、无付费入口、无商业授权通道；全功能无条件开源（GPU 后端、集群模式、镜像规划、Web/Desktop UI 均在同一 Apache-2.0 树内），不存在免费→付费的功能触发切口，转化漏斗断裂（D4）。</li>
+<li><strong>唯一明示变现线索不可规模化</strong>：README 仅提及赞助与硬件捐赠（"sponsor development or donate hardware"）+ Discord 社区（D4）。</li>
+<li><strong>托管变现受单位经济学否决</strong>：744B 实测 0.05–10 tok/s、模型 372GB，托管服务的单位经济学不成立（D4）。</li>
+<li><strong>无规模化商业先例可循</strong>：同类开源推理引擎（llama.cpp 31 万 star 级、vLLM、kTransformers）均无规模化商业成功先例，项目亦无基金会或大厂实体承载（D4）。</li>
+<li><strong>企业采购证据链缺失</strong>：Beta 状态、111 开放 Issue、无 SECURITY.md、无 CODEOWNERS、has_dockerfile=false，压制客单价上限（D4、D7）。</li>
+</ul>
+<h3>5.4 价值画像解读</h3>
+<p>公共价值分 7.3（D10 功能价值 8.2、D11 社会价值 6.5），综合评分 71.3，判定为 <strong>⭐ 明星资产</strong>。这意味着项目同时具备商业变现潜力与显著的公共价值属性——D10.3「免费可得的完整效用」拿到 2.0/2 满分，核心能力全部开源无付费墙；D11.3「普惠与可及性」拿到 2.0/2.5，OLMoE 8GB RAM 可跑、GLM-5.2 仅需 16–24GB RAM、GPU 非必需、README 提供 4 种语言。</p>
+<p><strong>画像临界提示</strong>：公共价值分 7.3 落在 6.5–7.5 临界区间上沿，综合评分 71.3 亦接近 65–79 区间中段。若后续 D10.2（实际使用规模）因 Dependents/下载量数据补齐而显著上修，画像将更稳固地指向「明星资产」；若社区热度回落导致公共价值分跌破 7，则可能向「纯商业工具」漂移，届时路径建议应转向按 D4 最优路径直接变现。当前建议按「明星资产」处理：正常商业化，同时经营社区声誉，避免竭泽而渔（参照 Elastic 改协议的反噬教训）。</p>
+<hr />
+<h2>六、商业路径分析</h2>
+<h3>6.1 路径可行性排序</h3>
+<p>基于 D4 的变现路径分析与 D7 的企业就绪度评估，可行路径按现实性排序如下：</p>
+<p><strong>路径一：企业支持与咨询服务（最现实，但天花板有限）</strong></p>
+<p>项目 README 已明示「sponsor development or donate hardware」为唯一变现线索，属方法论中「通常不可规模化」档。但考虑到 D7 显示运维复杂度不低（环境变量调参面巨大、模型容器格式存在破坏性演进、无回滚机制、无速度 SLA），围绕「744B–2.8T MoE 本地部署调优」的专业服务存在真实需求。此路径不依赖协议变更，可立即启动，但受限于 D8.3（资金支持与商业赞助仅 1.0/2.5）与无商业实体承载的现状。</p>
+<p><strong>路径二：OEM / 硬件预装合作（差异化最强，需商务能力）</strong></p>
+<p>项目的核心价值主张是「让前沿 MoE 在消费级与异构硬件上运行」，这与硬件厂商（工作站、边缘服务器、消费级 GPU 整机）的卖点高度契合。D1 指出「替代方案需数倍硬件成本」，D10.1 效用强度 2.4/3 亦支撑此定位。此路径可绕开软件直接销售的困难，但需要项目方具备商务拓展能力——而 D8.1 明确指出核心维护者「无任何商业/创业经验证据」。</p>
+<p><strong>路径三：托管服务（技术上可行，经济上不成立）</strong></p>
+<p>D4 明确判定托管变现受单位经济学否决：744B 实测 0.05–10 tok/s、模型 372GB。除非限定在高端硬件全驻留场景（6×RTX 5090 全驻留 5.8–6.8 tok/s），否则不具备商业可行性。不建议作为主路径。</p>
+<p><strong>路径四：Open Core 双许可（当前不可行）</strong></p>
+<p>D6.4 指出项目无 CLA、无 DCO 签署要求，而贡献高度分散（138 名贡献者、近 90 天新建 PR 1,008 个）。缺乏 CLA 将实质性限制双协议授权/换协议/被收购尽调等路径。若要走此路径，须先补齐贡献者协议，且面临社区反噬风险。</p>
+<h3>6.2 路径修正建议（基于价值画像）</h3>
+<p>作为 ⭐ 明星资产，建议采取「<strong>影响力变现优先、直接变现审慎</strong>」的组合策略：</p>
+<ol>
+<li><strong>短期</strong>：维持 Apache-2.0 不变，通过 GitHub Sponsors / 硬件捐赠 / 企业支持合同获取现金流，同时积累企业客户案例。</li>
+<li><strong>中期</strong>：围绕部署调优、模型容器转换、集群规划（coli plan/mirror）建立付费服务能力，这是当前唯一不依赖协议变更且与 D7 短板（运维复杂度）正相关的变现切口。</li>
+<li><strong>长期</strong>：若社区规模与企业采用度持续上升，可考虑成立基金会或商业实体承载 OEM 合作；但<strong>不建议</strong>通过改协议（如转向 BUSL/SSPL）变现——D6 显示当前协议干净是重要资产，Elastic 的反噬教训值得警惕。</li>
+</ol>
+<h3>6.3 关键前提条件</h3>
+<p>任何路径的成立都依赖以下前提：①项目从 Beta 走向稳定版（当前 pyproject 自述 Development Status :: 4 - Beta）；②补齐 SECURITY.md、CODEOWNERS 等企业采购必备文件；③核心维护者从「纯热情驱动」转向可持续的资金与治理结构（D8.3 仅 1.0/2.5）。</p>
+<hr />
+<h2>七、能力评估：能做什么 &amp; 最适合做什么</h2>
+<h3>7.1 技术能力边界</h3>
+<p><strong>能做</strong>：</p>
+<ul>
+<li>在 25GB RAM 消费级硬件上以全流式方式运行 744B 级 MoE 模型（0.05–0.1 tok/s cold），在 128GB CPU 环境达 ~1.8 tok/s，在 6×RTX 5090 全驻留下达 5.8–6.8 tok/s、TTFT ~13s（D1、D10）</li>
+<li>支持 9 个模型族（7B–2.8T），含 GLM-5.2/5.3、Kimi K3、DeepSeek V4、Qwen3.8、OLMoE（D1）</li>
+<li>提供 OpenAI 兼容 /v1/chat/completions 网关，含三套工具调用语法（GLM/DSV4/K3）适配（D7）</li>
+<li>多后端支持：CPU / CUDA / Metal / Vulkan，跨 Linux/macOS/Windows、x86-64/aarch64/PPC64（D2、D9）</li>
+<li>本地集群模式（cluster coordinator/worker）、多 SSD 镜像路由（COLI_MODEL_MIRROR）、确定性哈希路由（D7）</li>
+<li>语义有硬保证：token-exact 对 transformers oracle 校验（30–32/32）、57× MLA KV 压缩（D10）</li>
+</ul>
+<p><strong>不能做 / 受限</strong>：</p>
+<ul>
+<li>无速度 SLA（README 明确声明 "no SLA on speed"），未达业务命脉级确定性（D10）</li>
+<li>无水平扩展、无集群故障转移，唯一可用性手段为容器 restart: unless-stopped；存储 I/O 为架构性单点（D7）</li>
+<li>安全体系仅到单密钥认证层级：无 SSO/OAuth/OIDC/LDAP/SAML、无 RBAC/ABAC、无操作审计日志、无 TLS/静态加密/KMS（D7）</li>
+<li>可观测性未接标准协议：无 OpenTelemetry、无 Prometheus /metrics、无 Webhook、无内置告警通道（D7）</li>
+<li>无回滚机制，模型容器格式存在破坏性演进（fmt ordinal 两次重编号）（D7）</li>
+</ul>
+<h3>7.2 最适合做什么</h3>
+<p><strong>最适合</strong>：</p>
+<ol>
+<li><strong>个人开发者与研究者的本地前沿模型实验平台</strong>——OLMoE（~7GB 磁盘 / 8GB RAM）提供低门槛首次成功路径，52 份文档 + 四语种 README 支撑学习（D9、D11）</li>
+<li><strong>对数据主权有强要求、且能接受非实时吞吐的私有化推理场景</strong>——完全本地化运行、模型权重本地持有、无云服务依赖（D10）</li>
+<li><strong>硬件厂商的差异化演示与预装方案</strong>——「消费级硬件跑 744B+ 模型」是强营销叙事（D1、D5）</li>
+<li><strong>MoE 推理工程的教学与研究参考</strong>——注释质量罕见地高，密集记录 PR 编号、历史事故与设计权衡；含实验日志、假设验证表、transformers oracle CI（D2、D11）</li>
+</ol>
+<p><strong>不适合</strong>：</p>
+<ol>
+<li><strong>对延迟/吞吐有硬性 SLA 的生产业务系统</strong>（D10 明确「未达业务命脉级」）</li>
+<li><strong>需要多租户、细粒度权限与合规审计的企业环境</strong>（D7 安全与可观测性均不达标）</li>
+<li><strong>需要水平扩展与高可用架构的规模化服务</strong>（D7 可扩展性为纯纵向）</li>
+</ol>
+<hr />
+<h2>八、短板识别：还缺少什么</h2>
+<h3>8.1 变现侧短板（最严重）</h3>
+<ul>
+<li><strong>零商业化脚手架</strong>：无企业版、无定价页、无付费入口、无商业授权通道（D4）</li>
+<li><strong>无免费→付费触发切口</strong>：全功能无条件开源，转化漏斗断裂（D4）</li>
+<li><strong>无规模化商业先例</strong>：同类开源推理引擎均无规模化商业成功先例，项目亦无基金会或大厂实体承载（D4）</li>
+<li><strong>付费转化逻辑薄弱</strong>：D4.3 仅 1.0/2.5，D4.4 增值服务空间与定价天花板仅 0.8/2（D4）</li>
+</ul>
+<h3>8.2 治理与可持续性短板</h3>
+<ul>
+<li><strong>无 GOVERNANCE.md / CODEOWNERS / 路线图 / 基金会归属</strong>，治理为 BDFL 模式，合并决策集中于单一维护者（D8）</li>
+<li><strong>无可见资金、商业实体或赞助渠道</strong>，pyproject 作者为个人账号 JustVugg，呈纯热情驱动形态（D8.3 仅 1.0/2.5）</li>
+<li><strong>巴士因子风险</strong>：传承机制缺乏制度化保障（D8）</li>
+<li><strong>无 CLA / DCO</strong>：版权归属不可集中控制，实质性限制双协议授权/换协议/被收购尽调（D6.4 仅 1.2/2）</li>
+</ul>
+<h3>8.3 企业就绪度短板</h3>
+<ul>
+<li><strong>安全体系层级低</strong>：仅单密钥认证，无 SSO/RBAC/审计日志/TLS/KMS；has_security_md 为 false（D7.2 仅 1.5/2.5）</li>
+<li><strong>可观测性未接标准协议</strong>：无 OpenTelemetry / Prometheus / Webhook / 告警通道；stdout/stderr 输出通道不一致（D7）</li>
+<li><strong>升级路径无回滚机制</strong>，模型容器格式破坏性演进，数百 GB 模型重打包成本显著（D7.1 仅 1.8/3）</li>
+<li><strong>版本节奏对企业极不友好</strong>：32 天内 10 个 release，自述 Beta，明确声明无速度 SLA（D7）</li>
+<li><strong>缺企业采购必备文件</strong>：无 SECURITY.md、无 CODEOWNERS、has_dockerfile=false（D4、D7）</li>
+</ul>
+<h3>8.4 生态与壁垒短板</h3>
+<ul>
+<li><strong>第三方生态是短板</strong>：topics 为空、无插件市场/衍生项目/外部教程证据，仅官方多语言文档与 Discord 支撑（D3.3 仅 1.8/3）</li>
+<li><strong>无实质技术壁垒</strong>：核心机制全部在 README/docs 公开，Apache-2.0 无专利；无协议标准锁定、无跨用户数据飞轮（D5.2 仅 1.8/3）</li>
+<li><strong>护城河靠发布速度维持</strong>：优势窗口以季度计，大统一内存/消费卡显存上探可能缩小「必须磁盘流式」的问题空间（D5.4 仅 1.2/2）</li>
+<li><strong>品牌缺企业背书与媒体覆盖证据</strong>（D3.4 仅 1.2/1.5）</li>
+</ul>
+<h3>8.5 上手与使用短板</h3>
+<ul>
+<li><strong>模型资产门槛高</strong>：GLM-5.2 int4 容器约 372GB、Kimi K3 达 ~1.6TB，需单独下载/转换并置于 NVMe/ext4，10 分钟级 demo 验证不成立（D9）</li>
+<li><strong>仓库内示例文件数为 0</strong>，概念门槛高（MoE 路由、专家分层、int4/gs64、MLA、MTP 投机、O_DIRECT）（D9）</li>
+<li><strong>环境变量调参面巨大</strong>，需自行 A/B 调优（D9）</li>
+</ul>
+<h3>8.6 数据与验证短板</h3>
+<ul>
+<li><strong>使用规模规范口径全部缺失</strong>：Dependents/npm/PyPI/Docker 拉取量均 N/A，仅能以 Star/Fork/贡献者作代理（D10.2 仅 1.8/3）</li>
+<li><strong>竞品未经独立验证</strong>：仅能引用仓库内提及项，Star/用户量数据缺失（D5）</li>
+<li><strong>TAM 估算缺乏外部数据支撑</strong>：topics 为空、未做外部检索，市场规模结论为量级估算，置信度低（D1）</li>
+<li><strong>商标与专利未经人工核查</strong>，按方法论默认取 5–6 档（D6.3 仅 1.5/2.5）</li>
+</ul>
+<hr />
+<h2>九、风险提示</h2>
+<h3>9.1 商业化风险（高）</h3>
+<ul>
+<li><strong>变现路径缺失风险</strong>：项目无任何商业化脚手架，且全功能无条件开源，若核心维护者不主动构建变现能力，项目可能长期停留在「高热度、零收入」状态（D4）</li>
+<li><strong>协议变更反噬风险</strong>：若为变现而改协议（如转向 BUSL/SSPL），鉴于 138 名贡献者、90 天 1,008 PR 的社区规模，可能引发类似 Elastic 的社区反噬（D6、D4）</li>
+<li><strong>单位经济学风险</strong>：托管变现受 0.05–10 tok/s 实测速度与 372GB 模型体积否决（D4）</li>
+</ul>
+<h3>9.2 可持续性风险（中高）</h3>
+<ul>
+<li><strong>巴士因子风险</strong>：合并决策集中于单一维护者，无 GOVERNANCE.md / CODEOWNERS / 基金会归属，传承机制缺乏制度化保障（D8）</li>
+<li><strong>资金断裂风险</strong>：无可见资金、商业实体或赞助渠道，纯热情驱动形态难以长期支撑 32 天 10 个版本的投入强度（D8.3）</li>
+<li><strong>版权集中度风险</strong>：无 CLA / DCO，版权归属不可集中控制，限制未来被收购或双协议授权的可能性（D6.4）</li>
+</ul>
+<h3>9.3 竞争风险（中）</h3>
+<ul>
+<li><strong>护城河窗口期风险</strong>：无实质技术壁垒，核心机制全部公开，护城河靠发布速度维持，优势窗口以季度计（D5）</li>
+<li><strong>问题空间收缩风险</strong>：大统一内存/消费卡显存上探可能缩小「必须磁盘流式」的问题空间（D5.4）</li>
+<li><strong>竞品资源不对称风险</strong>：llama.cpp / kTransformers / vLLM 三家资源更强的竞品同赛道演进（D5）</li>
+</ul>
+<h3>9.4 技术与运营风险（中）</h3>
+<ul>
+<li><strong>稳定性风险</strong>：Beta 状态、111 开放 Issue、32 天内 10 个 release、模型容器格式破坏性演进、无回滚机制（D7）</li>
+<li><strong>安全风险</strong>：仅单密钥认证、无 SSO/RBAC/审计日志/TLS/KMS、无 SECURITY.md、无自动化依赖/SAST 扫描（D7、D2）</li>
+<li><strong>存储单点风险</strong>：存储 I/O 为架构性单点，compose 注释明确要求 NVMe/ext4 且警告 network mount 不可用（D7）</li>
+</ul>
+<h3>9.5 法律与合规风险（低）</h3>
+<ul>
+<li><strong>协议风险低</strong>：Apache-2.0 全文、SPDX 规范、自带专利授权条款、运行时零依赖、依赖链零 copyleft（D6）</li>
+<li><strong>需注意</strong>：模型权重（GLM-5.2 / DeepSeek-V4 / Qwen3.6 等）由用户自行下载，不受本项目 Apache-2.0 覆盖，商业化交付前须逐模型核查权重许可（D6）</li>
+<li><strong>商标与专利未经人工核查</strong>，置信度低（D6.3）</li>
+</ul>
+<h3>9.6 数据置信度风险（中）</h3>
+<ul>
+<li>使用规模规范口径全部缺失（D10.2 置信度偏弱）</li>
+<li>竞品清单未经独立验证（D5 置信度中等偏低）</li>
+<li>TAM 估算缺乏外部数据支撑（D1 置信度低）</li>
+<li>商标与专利未经人工核查（D6 置信度低）</li>
+</ul>
+<hr />
+<h2>十、结论与建议</h2>
+<h3>10.1 结论</h3>
+<p>Colibrì 是一个<strong>技术卓越、社区爆发、法律干净，但变现结构缺失</strong>的开源 MoE 推理引擎。综合评分 71.3 分、等级 A（高商业化潜力），价值画像为 ⭐ 明星资产（公共价值分 7.3）。项目在 D1（市场需求 8.0）、D2（技术成熟度 8.3）、D3（社区健康度 8.0）、D6（法律合规 8.2）四个维度均达「优」级，D10 功能价值 8.2 分显示其开源版即完整价值；但 D4（商业模式 5.9）是唯一低于 6 分的维度，且权重最高（18%），构成商业化的核心瓶颈。</p>
+<p>项目当前处于「<strong>技术资产已就绪、商业资产待构建</strong>」的阶段。一票否决机制未触发，法律与可持续性均无根本性障碍，具备商业化探索的基础条件。</p>
+<h3>10.2 建议</h3>
+<p><strong>对潜在商业化主体（企业/投资方）</strong>：</p>
+<ol>
+<li><strong>不建议直接收购或大额投入</strong>：D4 显示变现路径不清晰、无商业实体承载、无 CLA 导致版权不可集中控制，尽调风险较高。</li>
+<li><strong>建议以技术合作或人才引进方式切入</strong>：D8.1 显示核心维护者技术能力顶尖、投入度接近全职，但无商业经验；D2 显示复刻难度极高（MLA/KDA/MXFP4/Sinkhorn/rANS/bit-exact SIMD）。人才与工程经验的获取价值高于代码本身。</li>
+<li><strong>若考虑 OEM 合作</strong>：应优先验证「消费级硬件跑 744B+ 模型」的营销叙事在目标客户群中的接受度，并评估 D7 短板（无 SSO/RBAC/审计日志）是否构成交付障碍。</li>
+</ol>
+<p><strong>对项目维护者</strong>：</p>
+<ol>
+<li><strong>优先补齐企业采购必备文件</strong>：SECURITY.md、CODEOWNERS、Dockerfile（根目录）、CLA/DCO——这些是低成本、高杠杆的动作，直接决定客单价上限。</li>
+<li><strong>建立可持续的资金结构</strong>：当前 D8.3 仅 1.0/2.5，纯热情驱动难以长期支撑。建议优先走 GitHub Sponsors + 企业支持合同，而非急于改协议。</li>
+<li><strong>审慎对待协议变更</strong>：Apache-2.0 的干净性是 D6 得 8.2 分的重要来源，也是「明星资产」画像的支撑。改协议可能同时损害法律评分与社区声誉。</li>
+<li><strong>控制发布节奏</strong>：32 天 10 个 release 对个人项目是活力体现，对企业采用是风险信号。建议在 Beta 转正式版前建立更稳定的发布与回滚机制。</li>
+<li><strong>补齐生态短板</strong>：topics 为空、无插件市场/衍生项目/外部教程证据（D3.3 仅 1.8/3）。建议主动经营第三方生态，这是从「高 Star 项目」走向「行业基础设施」的关键。</li>
+</ol>
+<p><strong>对技术采用者</strong>：</p>
+<ol>
+<li><strong>适合场景</strong>：个人/团队的前沿模型本地实验、数据主权敏感的私有化推理、MoE 推理工程的教学与研究参考。</li>
+<li><strong>不适合场景</strong>：对延迟/吞吐有硬性 SLA 的生产系统、需要多租户与合规审计的企业环境、需要水平扩展的规模化服务。</li>
+<li><strong>采用前须评估</strong>：模型资产门槛（372GB–1.6TB 磁盘 + NVMe/ext4 要求）、无速度 SLA 的现实影响、Beta 状态下的兼容性波动风险。</li>
+</ol>
+<h3>10.3 一句话总结</h3>
+<p>Colibrì 用 2.5 个月证明了「消费级硬件跑前沿 MoE」这一命题的技术可行性并赢得 3.2 万 Star，但它尚未回答「谁来为此付费」——这是一个<strong>值得关注、值得合作、但暂不值得直接收购</strong>的明星资产型开源项目。</p>
+<h2>十一、项目地址</h2>
+<p><svg class="ri ri-muted" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.001 2C6.47598 2 2.00098 6.475 2.00098 12C2.00098 16.425 4.86348 20.1625 8.83848 21.4875C9.33848 21.575 9.52598 21.275 9.52598 21.0125C9.52598 20.775 9.51348 19.9875 9.51348 19.15C7.00098 19.6125 6.35098 18.5375 6.15098 17.975C6.03848 17.6875 5.55098 16.8 5.12598 16.5625C4.77598 16.375 4.27598 15.9125 5.11348 15.9C5.90098 15.8875 6.46348 16.625 6.65098 16.925C7.55098 18.4375 8.98848 18.0125 9.56348 17.75C9.65098 17.1 9.91348 16.6625 10.201 16.4125C7.97598 16.1625 5.65098 15.3 5.65098 11.475C5.65098 10.3875 6.03848 9.4875 6.67598 8.7875C6.57598 8.5375 6.22598 7.5125 6.77598 6.1375C6.77598 6.1375 7.61348 5.875 9.52598 7.1625C10.326 6.9375 11.176 6.825 12.026 6.825C12.876 6.825 13.726 6.9375 14.526 7.1625C16.4385 5.8625 17.276 6.1375 17.276 6.1375C17.826 7.5125 17.476 8.5375 17.376 8.7875C18.0135 9.4875 18.401 10.375 18.401 11.475C18.401 15.3125 16.0635 16.1625 13.8385 16.4125C14.201 16.725 14.5135 17.325 14.5135 18.2625C14.5135 19.6 14.501 20.675 14.501 21.0125C14.501 21.275 14.6885 21.5875 15.1885 21.4875C19.259 20.1133 21.9999 16.2963 22.001 12C22.001 6.475 17.526 2 12.001 2Z"/></svg> <a href="https://github.com/JustVugg/colibri">https://github.com/JustVugg/colibri</a></p>
+<hr />
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+</blockquote>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家　<a href="https://www.mova.work">www.mova.work</a></p></body></html>

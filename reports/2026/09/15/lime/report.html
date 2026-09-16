@@ -1,0 +1,2058 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><title>Lime 商业价值分析报告</title><style>/* default — 品牌蓝紫主题（从 md2pdf.py 原 CSS 常量迁出，视觉与历史产物一致） */
+@page { size: A4; margin: 18mm 15mm 20mm 15mm; }
+* { box-sizing: border-box; }
+/* 字体规范：一律开源思源黑体 CN（OFL 免费商用）；正文 Regular/标题 Bold/大字数字 Light */
+body { font-family: "Source Han Sans CN","思源黑体 CN","Noto Sans SC",sans-serif; color:#1e293b; font-size:10.5pt; line-height:1.75; margin:0; }
+.cover { page-break-after: always; text-align:center; padding-top:40px; }
+.cover .kicker { color:#2563eb; letter-spacing:6px; font-size:12pt; font-weight:500; }
+.cover h1 { font-size:26pt; margin:14px 0 6px; }
+.cover .sub { color:#64748b; font-size:11pt; margin-bottom:22px; }
+.badge { display:inline-block; background:linear-gradient(135deg,#2563eb,#7c3aed); color:#fff; border-radius:18px; padding:16px 44px; margin:10px 0 18px; }
+.badge .g { font-size:34pt; font-weight:300; line-height:1; }
+.badge .s { font-size:12pt; opacity:.92; margin-top:4px; }
+.meta { color:#475569; font-size:9.5pt; margin-top:14px; }
+.bars { max-width:620px; margin:20px auto 0; text-align:left; }
+.bar-row { display:flex; align-items:center; gap:8px; margin:5px 0; font-size:9pt; }
+.bar-name { width:110px; text-align:right; color:#334155; font-weight:500; }
+.bar-track { flex:1; height:9px; background:#f1f5f9; border-radius:5px; overflow:hidden; }
+.bar-fill { display:block; height:100%; border-radius:5px; }
+.bar-val { width:30px; font-weight:700; color:#0f172a; }
+.bar-w { width:52px; color:#94a3b8; font-size:8pt; }
+h1 { font-size:17pt; color:#0f172a; border-bottom:3px solid #2563eb; padding-bottom:8px; }
+h2 { font-size:13.5pt; color:#1d4ed8; margin-top:26px; page-break-after: avoid; border-left:5px solid #2563eb; padding-left:10px; }
+h3 { font-size:11.5pt; color:#0f172a; margin-top:18px; page-break-after: avoid; }
+table { border-collapse:collapse; width:100%; margin:10px 0; font-size:9pt; page-break-inside:avoid; }
+th { background:#eff6ff; color:#1e3a8a; }
+th,td { border:1px solid #dbe3ef; padding:5px 8px; text-align:left; }
+tr:nth-child(even) td { background:#f8fafc; }
+code { background:#f1f5f9; border-radius:4px; padding:1px 5px; font-family:"JetBrains Mono","Cascadia Mono",monospace; font-size:9pt; color:#be185d; }
+pre { background:#0f172a; color:#e2e8f0; border-radius:8px; padding:12px 14px; overflow-x:auto; page-break-inside:avoid; }
+pre code { background:none; color:inherit; padding:0; }
+blockquote { border-left:4px solid #93c5fd; background:#eff6ff; margin:10px 0; padding:8px 14px; color:#334155; border-radius:0 8px 8px 0; }
+hr { border:none; border-top:1px dashed #cbd5e1; margin:22px 0; }
+strong { color:#0f172a; }
+.cover .disclaimer { max-width:620px; margin:16px auto 0; color:#64748b; font-size:8.5pt; line-height:1.6; text-align:left; border:1px solid #e2e8f0; border-radius:8px; padding:8px 12px; background:#f8fafc; }
+.credit { color:#2563eb; font-size:10.5pt; font-weight:700; letter-spacing:1px; margin-top:12px; }
+.at-acc { background:#dbeafe; color:#1d4ed8; border-radius:4px; padding:0 4px; font-weight:500; white-space:nowrap; }
+.tail { page-break-inside:avoid; margin-top:26px; border-top:2px solid #2563eb; padding-top:14px; }
+.tail p { color:#64748b; font-size:8.5pt; line-height:1.6; margin:0 0 10px; }
+.tail .credit { text-align:center; margin:0; }
+/* Remix Icon 内联 SVG（icon_mode=remix 时由脚本注入，语义色与评分条一致） */
+.ri { width:1.05em; height:1.05em; vertical-align:-0.18em; display:inline-block; }
+.ri-ok { color:#16a34a; } .ri-warn { color:#d97706; } .ri-bad { color:#dc2626; }
+.ri-muted { color:#64748b; } .ri-star { color:#f59e0b; } .ri-brand { color:#2563eb; }
+.ri-gold { color:#d4a017; } .ri-silver { color:#9ca3af; } .ri-bronze { color:#b45309; }
+/* 屏幕预览：@page 边距仅在打印时生效，浏览器中居中限宽并收边（不影响 PDF 输出） */
+@media screen {
+  body { margin: 0 auto; padding: 28px 36px 56px; max-width: 900px; }
+}
+</style></head><body><div class="cover">
+<div class="kicker">开源项目商业化潜力分析 · 第 103 期</div>
+<h1>GitHub 开源项目 Lime<br>商业价值分析报告</h1>
+<div class="sub">limecloud/lime · 开源全栈桌面 AI Agent 宿主 · 九维度加权评估</div>
+<div class="badge"><div class="g">B 级 · 63.7</div><div class="s">综合评分（满分 100）· 中等商业化潜力</div></div>
+<div><svg viewBox="0 0 560 480" width="560" height="480" xmlns="http://www.w3.org/2000/svg"><polygon points="280.0,209.6 299.5,216.7 309.9,234.7 306.3,255.2 290.4,268.6 269.6,268.6 253.7,255.2 250.1,234.7 260.5,216.7" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,179.2 319.1,193.4 339.9,229.4 332.7,270.4 300.8,297.1 259.2,297.1 227.3,270.4 220.1,229.4 240.9,193.4" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,148.8 338.6,170.1 369.8,224.2 359.0,285.6 311.2,325.7 248.8,325.7 201.0,285.6 190.2,224.2 221.4,170.1" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,118.4 358.2,146.8 399.8,218.9 385.3,300.8 321.6,354.3 238.4,354.3 174.7,300.8 160.2,218.9 201.8,146.8" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,88.0 377.7,123.6 429.7,213.6 411.6,316.0 332.0,382.8 228.0,382.8 148.4,316.0 130.3,213.6 182.3,123.6" fill="none" stroke="#e2e8f0" stroke-width="1"/><line x1="280.0" y1="240.0" x2="280.0" y2="88.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="377.7" y2="123.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="429.7" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="411.6" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="332.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="228.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="148.4" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="130.3" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="182.3" y2="123.6" stroke="#d8dee9" stroke-width="1"/><polygon points="280.0,133.6 354.3,151.5 365.3,225.0 347.1,278.8 306.0,311.4 246.2,332.8 187.9,293.2 175.2,221.5 206.7,152.7" fill="rgba(37,99,235,.22)" stroke="#2563eb" stroke-width="2.5"/><circle cx="280.0" cy="133.6" r="3.5" fill="#2563eb"/><circle cx="354.3" cy="151.5" r="3.5" fill="#2563eb"/><circle cx="365.3" cy="225.0" r="3.5" fill="#2563eb"/><circle cx="347.1" cy="278.8" r="3.5" fill="#2563eb"/><circle cx="306.0" cy="311.4" r="3.5" fill="#2563eb"/><circle cx="246.2" cy="332.8" r="3.5" fill="#2563eb"/><circle cx="187.9" cy="293.2" r="3.5" fill="#2563eb"/><circle cx="175.2" cy="221.5" r="3.5" fill="#2563eb"/><circle cx="206.7" cy="152.7" r="3.5" fill="#2563eb"/><text x="280.0" y="44.0" text-anchor="middle" font-size="12.5" fill="#334155" font-weight="600">D1</text><text x="280.0" y="58.0" text-anchor="middle" font-size="11" fill="#64748b">市场需求 7.0</text><text x="406.0" y="89.9" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D2</text><text x="406.0" y="103.9" text-anchor="start" font-size="11" fill="#64748b">技术成熟度 7.6</text><text x="473.0" y="206.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D3</text><text x="473.0" y="220.0" text-anchor="start" font-size="11" fill="#64748b">社区生态 5.7</text><text x="449.7" y="338.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D4</text><text x="449.7" y="352.0" text-anchor="start" font-size="11" fill="#64748b">变现潜力 5.1</text><text x="347.0" y="424.2" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D5</text><text x="347.0" y="438.2" text-anchor="start" font-size="11" fill="#64748b">竞争格局 5.0</text><text x="213.0" y="424.2" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D6</text><text x="213.0" y="438.2" text-anchor="end" font-size="11" fill="#64748b">法律合规 6.5</text><text x="110.3" y="338.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D7</text><text x="110.3" y="352.0" text-anchor="end" font-size="11" fill="#64748b">企业就绪 7.0</text><text x="87.0" y="206.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D8</text><text x="87.0" y="220.0" text-anchor="end" font-size="11" fill="#64748b">团队治理 7.0</text><text x="154.0" y="89.9" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D9</text><text x="154.0" y="103.9" text-anchor="end" font-size="11" fill="#64748b">上手难度 7.5</text></svg></div>
+<div class="bars"><div class="bar-row"><span class="bar-name">D2 技术成熟度</span>
+<span class="bar-track"><span class="bar-fill" style="width:76.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.6</span><span class="bar-w">权重14%</span></div>
+<div class="bar-row"><span class="bar-name">D9 上手难度</span>
+<span class="bar-track"><span class="bar-fill" style="width:75.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.5</span><span class="bar-w">权重10%</span></div>
+<div class="bar-row"><span class="bar-name">D1 市场需求</span>
+<span class="bar-track"><span class="bar-fill" style="width:70.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.0</span><span class="bar-w">权重13%</span></div>
+<div class="bar-row"><span class="bar-name">D7 企业就绪</span>
+<span class="bar-track"><span class="bar-fill" style="width:70.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.0</span><span class="bar-w">权重8%</span></div>
+<div class="bar-row"><span class="bar-name">D8 团队治理</span>
+<span class="bar-track"><span class="bar-fill" style="width:70.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.0</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D6 法律合规</span>
+<span class="bar-track"><span class="bar-fill" style="width:65.0%;background:#d97706"></span></span>
+<span class="bar-val">6.5</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D3 社区生态</span>
+<span class="bar-track"><span class="bar-fill" style="width:57.0%;background:#dc2626"></span></span>
+<span class="bar-val">5.7</span><span class="bar-w">权重11%</span></div>
+<div class="bar-row"><span class="bar-name">D4 变现潜力</span>
+<span class="bar-track"><span class="bar-fill" style="width:51.0%;background:#dc2626"></span></span>
+<span class="bar-val">5.1</span><span class="bar-w">权重18%</span></div>
+<div class="bar-row"><span class="bar-name">D5 竞争格局</span>
+<span class="bar-track"><span class="bar-fill" style="width:50.0%;background:#dc2626"></span></span>
+<span class="bar-val">5.0</span><span class="bar-w">权重12%</span></div></div>
+<div class="meta">分析时点 2026-09-15 ｜ 数据来源：GitHub API + 仓库代码实测 ｜ 方法论 v1.3</div>
+<div class="credit">报告出品：@魔法工厂　@向量之心　@南山科学家</div>
+<div class="disclaimer"><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</div>
+</div><h1>Lime 商业化潜力分析报告（完整版）</h1>
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家</p>
+<p>方法论版本: v1.3 | 综合评分: <strong>63.7</strong> | 等级: <strong>B（中等商业化潜力）</strong> | 价值画像: 长尾项目</p>
+</blockquote>
+<h2>一、项目概览</h2>
+<h3>1.1 基本信息</h3>
+<ul>
+<li><strong>项目名称 / 仓库地址</strong>：Lime（limecloud/lime）</li>
+<li><strong>核心技术栈</strong>：TypeScript（710,086 行）+ Rust（674,703 行）+ TSX（373,054 行）为主的多语言分层架构；Rust crate workspace（protocol→runtime→app-server→server/gateway/tui/cli）+ React/Electron 前端；自研 app-server JSON-RPC 协议并对齐 Codex wire format</li>
+<li><strong>社区规模速览</strong>：Star 1,471 / Fork 207（Fork 比 14.07%）/ Watchers 13 / 贡献者 11 / Open Issues 12</li>
+<li><strong>分析时点 / 数据来源</strong>：项目创建于 2025-12-13，最近推送 2026-09-15（项目年龄约 9.07 个月）；数据来源为 GitHub API 采集、本地仓库实测与维度评分卡；外部市场数据不可用（D1.1 为类别量级估算，置信度低）</li>
+</ul>
+<h3>1.2 项目分类标签</h3>
+<table>
+<thead>
+<tr>
+<th>分类维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>应用软件（桌面端 AI Agent 宿主）/ 数据与AI</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>通用/跨行业</td>
+</tr>
+<tr>
+<td>目标用户角色</td>
+<td>全栈开发者、后端开发者、AI/ML 工程师、内容创作者/研究者</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>编码/文件/终端/工具调用/研究/内容生产/多模态/多智能体协作</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>本地部署（Electron 桌面应用 + Agent 运行时，BYO Provider；macOS/Windows，Linux 已暂停）</td>
+</tr>
+</tbody>
+</table>
+<h3>1.3 一句话定位</h3>
+<blockquote>
+<p>Lime 是一个开源全栈桌面 AI Agent 应用，适用于通用跨行业的软件开发、研究与内容生产场景，主要面向全栈/后端开发者、AI 工程师与知识工作者，用于在一条可追溯的任务链中完成代码读写、终端命令执行、MCP/Skills 工具调用、多模态内容产出与多智能体协作。</p>
+</blockquote>
+<h2>二、安装部署与使用指南</h2>
+<blockquote>
+<p>本节仅引用仓库素材（README.md / package.json / Makefile / lime-rs/Cargo.toml）中实际出现的命令与配置，未出现的步骤一律标注为「仓库未提供」。</p>
+</blockquote>
+<h3>一、面向最终用户：安装包 / Homebrew（README 官方路径）</h3>
+<p>Lime 以 <strong>Electron 桌面应用</strong>形式分发，README 的 Quick Start 只给出「下载安装包」这一条主路径：</p>
+<ul>
+<li><strong>macOS</strong>：从 <a href="https://github.com/limecloud/lime/releases">Releases</a> 下载 <code>.dmg</code> 包，或使用 Homebrew：</li>
+</ul>
+<pre><code class="language-bash">brew tap aiclientproxy/tap
+brew install --cask lime
+</code></pre>
+<ul>
+<li><strong>Windows</strong>：下载 <code>Lime_*_x64-setup.exe</code>。README 明确说明：若出现 SmartScreen 提示，通常意味着安装包未签名或签名信誉不足，<strong>并不必然意味着安装包损坏</strong>。</li>
+<li><strong>Linux</strong>：README 明确写「Lime currently publishes macOS and Windows builds only. Linux desktop builds are paused.」——即 Linux 桌面版当前暂停发布。</li>
+<li><strong>其他平台覆盖</strong>：本仓库 <strong>无 Dockerfile、无 docker-compose.yml、无 Helm Chart</strong>（P0 docker 采集仅返回 <code>Makefile</code>，且其内容全部为测试分层目标，不含任何安装/部署目标）。</li>
+</ul>
+<h3>二、首次运行（README「First run」原文五步）</h3>
+<ol>
+<li>Open Lime, configure a Provider, and test a model connection.</li>
+<li>Choose a workspace or project directory and confirm file and terminal permissions.</li>
+<li>Create an Agent Thread with a goal, constraints, and acceptance criteria.</li>
+<li>Ask for a plan first, then approve file changes, commands, or external tool calls as needed.</li>
+<li>Inspect the diff, test results, and artifacts; continue the task or close it.</li>
+</ol>
+<p><strong>配置门槛的关键事实</strong>（README FAQ 原文）：Lime 不提供 AI 模型——「No. Lime is an Agent host and workspace, not a model vendor. Configure an available Provider, model, and credential.」因此首次可用前，用户必须自备第三方模型服务的 Provider / 模型 / 凭据。</p>
+<h3>三、面向开发者：源码构建（README 未提供官方步骤）</h3>
+<p>README <strong>没有任何源码构建、部署或容器化章节</strong>。以下信息只能从仓库文件中提取，属于「仓库存在但未文档化」：</p>
+<ul>
+<li><strong>Node 环境要求</strong>（<code>package.json</code>）：<code>"engines": { "node": "&gt;=22.0.0" }</code>，包管理器为 <code>"packageManager": "pnpm@9.15.9"</code>，并以 <code>"workspaces": ["packages/*"]</code> 组织多包仓库。</li>
+<li><strong>Rust 侧</strong>（<code>lime-rs/Cargo.toml</code>）：<code>members = ["crates/*"]</code> 的 Cargo workspace，包含 app-server / agent / agent-runtime / code-mode-runtime / tool-runtime / model-provider / thread-store / tui / voice-core 等 40+ 个 path crate；依赖树含 <code>v8 = "=150.4.0"</code>（V8 sandbox）、<code>deno_core_icudata</code>、<code>protoc-bin-vendored</code>、<code>sherpa-onnx</code> / <code>whisper-rs</code>（可选本地语音）、<code>ssh2 vendored-openssl</code>、<code>portable-pty</code> 等重型原生依赖，且对 <code>crossterm</code> 打了一个 git 源的 <code>[patch.crates-io]</code>。</li>
+<li><strong>仓库内可用的构建/运行脚本</strong>（<code>package.json</code> scripts，非 README 文档）：<code>npm run electron:dev</code>、<code>npm run electron:build</code>、<code>npm run electron:dist</code>、<code>npm run typecheck</code>、<code>npm run lint</code>、<code>npm run test:unit</code>、<code>npm run test:rust:unit</code>。</li>
+<li><strong>测试编排入口</strong>（<code>Makefile</code>，仅测试相关）：<code>make tdd</code>、<code>make tdd-rust</code>、<code>make test-unit</code>、<code>make test-rust-unit</code>、<code>make test-all-layers</code>。</li>
+<li><strong>CLI 分发</strong>：<code>packages/cli/package.json</code> 定义 <code>"name": "@limecloud/lime"</code>、<code>"bin": { "lime": "bin/lime.js" }</code>、<code>"engines": { "node": "&gt;=18" }</code>，即存在一个 npm 包形态的终端 CLI。</li>
+</ul>
+<p><strong>结论</strong>：最终用户路径（安装包 + 图形界面配置 Provider）是可用且清晰的；自建/源码路径在 README 中完全没有引导，需要 Node ≥22 + pnpm + 完整 Rust 原生工具链（V8、protoc、OpenSSL、PTY 等），且无容器化方案，属于仅资深开发者可完成的操作。</p>
+<h2>三、评分总览</h2>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>权重</th>
+<th>加权得分</th>
+<th>评级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1 市场需求与商业机会</td>
+<td>7.0/10</td>
+<td>13%</td>
+<td>0.91</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D2 技术成熟度与产品质量</td>
+<td>7.6/10</td>
+<td>14%</td>
+<td>1.06</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D3 社区健康度与生态势能</td>
+<td>5.7/10</td>
+<td>11%</td>
+<td>0.63</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D4 商业模式与变现潜力</td>
+<td>5.1/10</td>
+<td>18%</td>
+<td>0.92</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D5 竞争格局与差异化壁垒</td>
+<td>5.0/10</td>
+<td>12%</td>
+<td>0.60</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D6 法律合规与知识产权</td>
+<td>6.5/10</td>
+<td>7%</td>
+<td>0.46</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D7 企业就绪度与可运营性</td>
+<td>7.0/10</td>
+<td>8%</td>
+<td>0.56</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D8 团队治理与可持续性</td>
+<td>7.0/10</td>
+<td>7%</td>
+<td>0.49</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D9 上手难度与易用性</td>
+<td>7.5/10</td>
+<td>10%</td>
+<td>0.75</td>
+<td>良</td>
+</tr>
+<tr>
+<td><strong>综合评分</strong></td>
+<td>—</td>
+<td>100%</td>
+<td><strong>63.7/100</strong></td>
+<td><strong>B（中等商业化潜力）</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>平行维度（不计入综合评分）</strong></p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10 功能价值</td>
+<td>6.6/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>D11 社会价值</td>
+<td>5.4/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>公共价值分</td>
+<td>6.0/10</td>
+<td>(D10+D11)/2</td>
+</tr>
+</tbody>
+</table>
+<p><strong>一票否决检查</strong>：未触发（veto = null，无检查项缺失）。D6 维度总分 6.5 &gt; 3；D8.4 细则小分 1.8 &gt; 1；D4.1 细则小分 0.8 &gt; 0.5（对应 3–4 档，不触发否决）。</p>
+<blockquote>
+<p>各维度细则分值构成详见「二、维度评分细则」。</p>
+</blockquote>
+<h2>四、各维度详细分析</h2>
+<h3>D1. 市场需求与商业机会</h3>
+<h3>D1.0 项目分类标签与定位</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>应用软件（桌面端 AI Agent 宿主）、数据与AI</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>通用/跨行业</td>
+</tr>
+<tr>
+<td>目标用户角色</td>
+<td>全栈开发者、后端开发者、AI/ML工程师、内容创作者/研究者</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>研发流程优化、数据处理与分析、内容管理、自动化测试、API服务、原型验证</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>本地部署（Electron 桌面端，macOS/Windows，Linux 已暂停）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>一句话定位</strong>：Lime 是一个开源全栈桌面 AI Agent 应用，适用于通用跨行业的软件开发、研究与内容生产场景，主要面向全栈/后端开发者、AI 工程师与知识工作者，用于在一条可追溯的任务链中完成代码读写、终端命令执行、MCP/Skills 工具调用、多模态内容产出与多智能体协作。</p>
+<hr />
+<h3>D1.1 目标市场规模与增长性（2.5 分 → 2.0）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TAM 估算</td>
+<td>对应「AI 编程智能体 / 通用 Agent 宿主」赛道，属软件行业中当前增速最快的大类之一。<strong>本报告无外部市场规模数据可采，以下为按行业类别的量级估算，未经外部数据验证，置信度低</strong>：按项目类型（桌面端通用 Agent 宿主，可覆盖开发、研究、内容、自动化多场景）判断，其可触达市场位于「十亿美元级以上、高速增长」区间，而非小众工具市场。</td>
+</tr>
+<tr>
+<td>增长趋势</td>
+<td>扩张。项目 topics 覆盖 agent / agentic-ai / mcp / agent-harness / multi-agent，均属 2025–2026 年资本与产品投入最密集的方向；README 明确对标 Claude Code、Codex、WorkBuddy 这一已被验证有付费意愿的品类。</td>
+</tr>
+<tr>
+<td>市场层级</td>
+<td>成长期偏竞争化。品类本身仍在扩张，但终端 Agent 客户端一层已出现强势先行者。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>打分依据</strong>：赛道量级与增速均支持 9–10 档，但 Lime 定位为「终端宿主/客户端」而非平台或基础设施，其可实际捕获的付费份额受上游模型厂商与 IDE 厂商挤压，因此下调至 7–8 档（十亿美元级市场、处于增长期）。→ <strong>80% = 2.0 分</strong></p>
+<hr />
+<h3>D1.2 痛点真实性与解决程度（2.5 分 → 1.5）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>痛点真实性</td>
+<td>真实但非「非用不可」。开发者「让 Agent 真正把活干完（改代码、跑命令、可审查、可回滚）」是明确痛点；README 主打 Thread/Turn/Item 投影、权限审批、断点续跑，切中 Agent 可控性这一真实焦虑。但该痛点的满足责任主体高度分散，用户不必依赖 Lime。</td>
+</tr>
+<tr>
+<td>解决完整度</td>
+<td>功能面铺得极宽（编码、终端、文件、MCP、Skills、多模态、多 Agent、Provider 路由），但<strong>可验证性不足</strong>：仓库无 LICENSE 文件（README 声称 GPLv3）、免责声明写明「仅用于学习与研究」，90 天内仅 1 个 PR 创建、1 个 Issue 关闭，1471 Star 却只有 11 位贡献者——外部对「方案是否真能完整跑通」缺乏公开证据链。</td>
+</tr>
+<tr>
+<td>替代成本</td>
+<td>高。Claude Code、Codex、Cursor、Cline、OpenHands、Aider 等已成规模，桌面 GUI 形态亦有多种选择；不用 Lime 的迁移成本几乎为零。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>打分依据</strong>：痛点方向真实、方案覆盖广，但独特性弱、替代品众多且更成熟，符合 5–6 档「解决锦上添花型需求，方案基本可用」。→ <strong>60% = 1.5 分</strong></p>
+<hr />
+<h3>D1.3 市场时机判断（2.5 分 → 1.5）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术成熟度曲线</td>
+<td>Agent 运行时（工具调用、MCP、Skills、多 Agent）已越过概念期，正进入实质生产期，时机对品类有利。</td>
+</tr>
+<tr>
+<td>竞争密度</td>
+<td>不利。品类内已有 Claude Code / Codex 等厂商级产品与 IDE 内建 Agent 形成事实标准，终端宿主层格局快速固化；Lime 于 2025-12-13 建仓，属明显后发跟随者，未展示排他性技术差异（自有运行时 + Electron GUI + BYO Provider 均非壁垒）。</td>
+</tr>
+<tr>
+<td>监管/标准</td>
+<td>MCP 等开放协议降低了接入门槛，同时<strong>也降低了差异化门槛</strong>——协议标准化利好生态、不利好单一客户端，未形成推动本项目需求爆发的政策/标准红利。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>打分依据</strong>：品类时机好，但项目自身时机（后发、无差异点、需正面竞争已成型对手）落在 5–6 档「市场成熟期，需正面竞争」。→ <strong>60% = 1.5 分</strong></p>
+<blockquote>
+<p>补充观察：15 天内连发 v1.137→v1.145 共 9 个版本，节奏呈自动化发布特征，更接近工程流水线活跃度而非市场需求拉动信号。</p>
+</blockquote>
+<hr />
+<h3>D1.4 应用场景广度（2.5 分 → 2.0）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>行业覆盖</td>
+<td>通用/跨行业。17 个 topics 覆盖 agent、content-creation、creators、knowledge-base、research-tool、writing-tool，横跨研发、内容、研究、知识管理。</td>
+</tr>
+<tr>
+<td>场景多样性</td>
+<td>横向通用工具。README 列举 5 类主场景（修 Bug、发全栈特性、素材转交付物、流程沉淀为 Skill、多 Agent 协同），并明确「代码任务 + 研究 + 写作 + 素材组织 + 自动化 + 多模态交付」。</td>
+</tr>
+<tr>
+<td>可延展性</td>
+<td>强。Provider 可配置 + MCP + Skills 三层扩展机制，且已发布 Chrome 扩展（extensions/lime-chrome）、插件体系与 open-platform 文档，核心能力可迁移至浏览器、Webhook、Connect 等相邻场景。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>打分依据</strong>：场景广度显著高于平均，但形态是终端应用而非基础设施，无法进入「跨行业通用基础设施级」最高档。→ <strong>80% = 2.0 分</strong></p>
+<hr />
+<h3>D1 结论</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1.1 目标市场规模与增长性</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8（良好）</td>
+</tr>
+<tr>
+<td>D1.2 痛点真实性与解决程度</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6（一般）</td>
+</tr>
+<tr>
+<td>D1.3 市场时机判断</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6（一般）</td>
+</tr>
+<tr>
+<td>D1.4 应用场景广度</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8（良好）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>7.0</strong></td>
+<td><strong>良好（下限）</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>核心判断</strong>：Lime 站在一个真实且在高速扩张的赛道上（Agentic AI / 通用 Agent 宿主），场景广度出色、扩展机制（MCP / Skills / Provider / 插件）齐备，因此 D1.1 与 D1.4 达到「良好」。但其商业机会的三个结构性短板同样清晰：</p>
+<ol>
+<li><strong>需求非刚需、替代品密集</strong>——用户不使用 Lime 的成本几乎为零，痛点更偏「更好用」而非「非用不可」。</li>
+<li><strong>时机后发、无差异护城河</strong>——与 Claude Code / Codex / Cursor 正面竞争，自有 Agent 运行时与 GUI 均不构成排他优势；MCP 标准化反而压低客户端差异化。</li>
+<li><strong>变现距离远</strong>——README 声明「仅用于学习与研究」，仓库无 LICENSE 文件（README 称 GPLv3），无企业版、托管服务或 Open Core 分层迹象；GPLv3 若属实将进一步抬高商业化（尤其闭源集成）的摩擦。</li>
+</ol>
+<p><strong>风险与置信度说明</strong>：本维度<strong>未获取到任何外部市场规模数据</strong>，D1.1 的量级判断系基于项目类型与行业的类别估算，已标注「未经外部数据验证，置信度低」；D1.2/D1.3 的判断基于仓库内可核实的硬事实（Star/Fork/贡献者/90 天 PR 与 Issue 活跃度/发布节奏/LICENSE 缺失/免责声明），置信度中等偏高。此外，177.6 万行代码（TS 71 万 + Rust 67.5 万 + TSX 37.3 万）在 9 个月内产出、测试占比 28.3%，规模异常庞大而社区协作信号极弱（11 位贡献者、90 天 1 个 PR），提示代码量与产品成熟度之间存在落差，需在后续维度（尤其 D3 产品能力与 D4 社区/商业化路径）中重点交叉验证。</p>
+<h1>D2. 技术成熟度与产品质量（权重 14%）</h1>
+<p><strong>项目</strong>: limecloud/lime — Full-stack AI agent（TypeScript + Rust 全栈桌面智能体）
+<strong>版本</strong>: v1.145.0（2026-09-15）｜<strong>规模</strong>: 1,776,956 行代码 / 5,508 源码文件 / 7 CI workflows</p>
+<hr />
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>得分</th>
+<th>折算</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D2.1</td>
+<td>产品设计与创新性</td>
+<td>1.5</td>
+<td>1.2</td>
+<td>80%</td>
+</tr>
+<tr>
+<td>D2.2</td>
+<td>架构设计与工程质量</td>
+<td>2.0</td>
+<td>1.6</td>
+<td>80%</td>
+</tr>
+<tr>
+<td>D2.3</td>
+<td>代码整洁性与规范性</td>
+<td>1.0</td>
+<td>0.6</td>
+<td>60%</td>
+</tr>
+<tr>
+<td>D2.4</td>
+<td>安全性</td>
+<td>1.0</td>
+<td>0.7</td>
+<td>70%</td>
+</tr>
+<tr>
+<td>D2.5</td>
+<td>UI/UX/UE 人机交互</td>
+<td>1.0</td>
+<td>0.7</td>
+<td>70%</td>
+</tr>
+<tr>
+<td>D2.6</td>
+<td>功能完备度与稳定性</td>
+<td>1.5</td>
+<td>1.2</td>
+<td>80%</td>
+</tr>
+<tr>
+<td>D2.7</td>
+<td>文档与开发者体验</td>
+<td>1.0</td>
+<td>0.8</td>
+<td>80%</td>
+</tr>
+<tr>
+<td>D2.8</td>
+<td>测试与质量保障</td>
+<td>1.0</td>
+<td>0.8</td>
+<td>80%</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td><strong>7.6</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>D2.5 适用（Electron 桌面 GUI + React Web 界面 + 交互式 TUI），不触发 N/A 缩放。</p>
+</blockquote>
+<hr />
+<h3>D2.1 产品设计与创新性 — 1.2 / 1.5（80%）</h3>
+<p><strong>产品理念</strong>：定位为"全栈 AI agent"，覆盖编码、文件、终端、工具、研究、内容创作、多模态与多智能体协作。这不是单一功能工具，而是一个完整的 agent harness + 桌面工作台，设计思路清晰且攻击面广。</p>
+<p><strong>功能设计与差异化</strong>：
+- 自研 <strong>app-server JSON-RPC 协议</strong>并对齐 Codex wire format（v2 协议含大量 <code>*_match_codex_wire_shape</code> 契约测试），说明产品有意与 Codex 生态保持线级兼容，是可迁移/可互操作的差异化设计。
+- 多 Provider 适配层（OpenAI Chat/Responses、Anthropic、Gemini、Ollama、Fal、智谱、MiniMax）通过 <code>CurrentProviderClient</code> + 熔断器 + 协议分派统一归一化。
+- 独有横向能力：Knowledge Pack 知识包编译（含内置 Builder Skills）、多 Agent 协作（<code>MultiAgentMode</code>）、插件市场、Channels 渠道集成（Telegram/Discord/飞书/微信）、图片/视频生成工作台、分层设计画布。
+- 从 <code>internals/</code> 下 prd/roadmap/refactor/exec-plans 目录可见有体系化的产品规划。</p>
+<p><strong>扣分点</strong>：功能极度庞杂，"全都要"的产品取舍使核心场景聚焦度下降；部分能力（如视频、画布、音色）与"编码 agent"主定位关联较弱，存在堆砌感。</p>
+<hr />
+<h3>D2.2 架构设计与工程质量 — 1.6 / 2.0（80%）</h3>
+<p><strong>架构合理性（优秀）</strong>：
+- Rust 侧为清晰的 crate workspace 分层：<code>app-server-protocol</code>（纯 schema）→ <code>agent-runtime</code> → <code>app-server</code>（门面）→ <code>server</code>/<code>gateway</code>/<code>tui</code>/<code>cli</code>；<code>model-provider</code> 作为唯一网络边界，<code>runtime-core</code> 承载模型路由。
+- 前端为 React + Electron，<code>packages/</code> 下抽出多个独立可发布包（<code>agent-runtime-client</code>、<code>agent-runtime-ui</code>、<code>agent-ui-contracts</code>、<code>app-server-client</code>、<code>cli</code>）。
+- 采用<strong>代码生成</strong>保证契约单一来源：<code>protocol-types.ts</code> 由 Rust JSON Schema 生成，<code>request-client-methods.ts</code>/<code>site_adapter_runners.generated.js</code> 亦为生成物。</p>
+<p><strong>模块解耦与抽象（良好）</strong>：门面模式（<code>AppServer</code>）、工厂（<code>RuntimeFactory</code>）、策略（协议分派）、RAII 守卫（<code>IdempotencyGuard</code>/<code>RequestCacheGuard</code>）、快照源抽象（<code>RuntimeToolStepSnapshotSource</code>）等设计模式使用得体；<code>dependency-cruiser</code> + <code>knip</code> + layer-budget 脚本说明对依赖方向有工程化约束。</p>
+<p><strong>复刻难度（极高，护城河强）</strong>：Rust + TypeScript + Electron 三语言、1.77M 行、多 Provider agent 运行时、Codex 线协议对齐、多平台打包签名链路——从零重写门槛极高。</p>
+<p><strong>扣分点（技术债可见）</strong>：
+- 大量"上帝文件"：<code>model_registry_service.rs</code>（&gt;5000 行）、<code>config/types.rs</code>（&gt;4000 行）、<code>knowledge/src/lib.rs</code>（&gt;4000 行）、<code>useAgentSession.ts</code>（~2900 行）、<code>useWorkspaceSendActions.ts</code>（~2500 行）。<code>Config</code> 聚合数十个子配置，是典型上帝对象。
+- 部分模块字段命名 camelCase/snake_case 混用，<code>unknown</code> 类型削弱类型安全；<code>#![allow(dead_code)]</code> 掩盖死代码。</p>
+<hr />
+<h3>D2.3 代码整洁性与规范性 — 0.6 / 1.0（60%）</h3>
+<p><strong>加分</strong>：
+- 工具链完备：ESLint（<code>@eslint/js</code>、<code>typescript-eslint</code>、<code>react-hooks</code>）、Prettier、TypeScript strict、husky、<code>dependency-cruiser</code>、<code>knip</code>；Rust 侧应有 cargo fmt/clippy（CI 含 layer-budget 脚本）。
+- 大量纯函数控制器抽取（<code>build*Plan</code>）、DTO/请求-响应模式、命名总体规范。
+- 复杂解析逻辑（多 Provider JSON 归一化、内容 part 解析）处理健壮。</p>
+<p><strong>扣分</strong>：
+- 单文件体量普遍过大（抽查 30+ 核心文件中，超 800 行者占多数，多者 2000–5000 行），职责过载，可读性显著下降。
+- 存在明显重复：<code>parse_reasoning_effort_*</code>、<code>provider_connection</code> 校验、<code>FieldLabel</code>/<code>ActionButton</code> 调用、<code>normalizeChannelsConfig</code> 与多处归一化逻辑高度对称。
+- 中文注释/日志与英文标识符混用，风格不统一（如 server handlers 中文日志 + 英文错误码）。
+- 部分"占位实现"（<code>void item</code>）与历史遗留参数（<code>_webSearch</code>/<code>_sessionId</code> 等）。</p>
+<p>综合：规范工具到位但巨型文件与重复代码拉低整洁度，处于"基本可读、有一定重复"与"整洁良好"之间，落 60% 档。</p>
+<hr />
+<h3>D2.4 安全性 — 0.7 / 1.0（70%）</h3>
+<p><strong>做得好的</strong>：
+- 鉴权使用 <code>subtle::ConstantTimeEq</code> 常量时间比较防时序攻击；插件 token 按 scope 校验；显式 provider 无凭证时拒绝切换（防越权）。
+- 沙箱与权限体系完善：<code>WorkspaceSandboxConfig</code>、Windows 沙箱、<code>PermissionProfile/FileSystem/Network</code>、<code>remote_fs_sandbox</code>（未知策略 fail-closed）。
+- 输入校验与注入防护：<code>normalize_pack_name</code> 拒绝 <code>../secret</code> 路径穿越、<code>&lt;ok&gt;</code> HTML 转义、SQL 全参数化绑定（<code>params!</code>）、方法名白名单、畸形通知 fail-closed。
+- 敏感信息最小暴露：路由证据载荷显式移除 <code>baseUrl</code>/<code>credentialRef</code>；错误体截断；诊断文本 redact。</p>
+<p><strong>风险点</strong>：
+- <strong>凭证以明文存储于配置</strong>（<code>api_key</code>/<code>app_secret</code>/<code>bot_token</code> 等，<code>config/types.rs</code> 明确无加密）；API Key 加密采用<strong>自研 SHA-256 派生密钥 + XOR 流加密</strong>，非标准 AEAD，安全性存疑。
+- 未发现 Dependabot/Snyk/Trivy 等依赖漏洞扫描集成（CI 中无对应步骤）。
+- 存在 <code>unwrap_or_else(|_| Client::new())</code> 静默降级、<code>Mutex</code> 锁中毒 <code>expect</code> panic 等可用性/健壮性隐患。</p>
+<p>整体安全实践明显高于平均水平且在沙箱/鉴权上颇具系统性，但明文凭证与自研弱加密属实质短板，落 70% 档。</p>
+<hr />
+<h3>D2.5 UI/UX/UE 人机交互 — 0.7 / 1.0（70%）</h3>
+<p><strong>界面与组件（良好）</strong>：基于 Radix UI + styled-components + Tailwind + lucide-react 构建专业组件体系；富文本用 Tiptap、终端用 xterm、画布用 fabric、图表用 observablehq/plot；桌面端为 Electron（原生托盘、Squirrel/DMG 打包、原生 host）。TUI 亦有完整侧栏/编辑器/弹窗。</p>
+<p><strong>交互体验</strong>：命令体系（斜杠命令、@提及、技能启动、场景命令）设计完善，含推荐、重放、历史搜索、分页选择器；<code>busyAction</code> 状态机、二维码轮询、乐观更新等交互处理细致；<code>DecisionPanel</code> 对工具确认/风险/影响摘要做了结构化呈现。</p>
+<p><strong>信息架构</strong>：设置分 v2 系统页（Channels/Web Search/API-Key Provider 等），工作台按 agent/workspace/video/knowledge/resources 分区，导航清晰。</p>
+<p><strong>扣分</strong>：多处中文硬编码文案未走 i18n；<code>/* eslint-disable react-refresh */</code> 表明组件与工具混导出；无障碍（键盘导航/对比度/屏幕阅读器）未见系统性考虑；部分交互（轮询固定延迟、无退避）体验一般。落 70% 档。</p>
+<hr />
+<h3>D2.6 功能完备度与稳定性 — 1.2 / 1.5（80%）</h3>
+<ul>
+<li><strong>版本成熟度</strong>：v1.145.0，版本号三位数且<strong>近乎每日/双日发版</strong>（近 10 个 release 集中在 2026-08-31 ~ 09-15），产品处于高度活跃的成熟期，非 alpha/beta。</li>
+<li><strong>功能覆盖</strong>：极其完整——多 Provider、工具调用、MCP、插件、技能、知识包、多 Agent、记忆、渠道、图片/视频生成、TUI + GUI + CLI 三形态。</li>
+<li><strong>国际化</strong>：TUI 支持 5 语（zh-CN/zh-TW/en-US/ja-JP/ko-KR），Web 侧 i18next 覆盖中英；BCP-47 解析完善。国际化程度高。</li>
+<li><strong>向后兼容</strong>：显著关注 backward compatibility（配置 <code>#[serde(default)]</code> + 退役字段 <code>skip_serializing</code> 保留 + legacy 加密密文自动重加密 + 迁移逻辑），并有 Windows Squirrel N-1 安装/升级 smoke，兼容性保障扎实。</li>
+<li><strong>运行环境</strong>：需 Rust 1.95 工具链、Node 22、Electron、pnpm；对终端用户以打包安装包分发（DMG/Squirrel/Homebrew/npm），环境门槛对终端用户友好。<strong>硬件</strong>：未见 GPU/专用加速卡强制依赖（本地模型走 Ollama/sherpa-onnx），硬件要求宽松。Dockerfile 未采集到（桌面应用，N/A 合理）。</li>
+<li><strong>性能/稳定性</strong>：<code>busy_timeout</code>、熔断器、超时、去重缓存、幂等重试等工程手段齐备；开放 Issue 仅 12，问题密度低。</li>
+<li><strong>扣分</strong>：高频发版可能引入较频繁的行为变更；1.77M 行 + 极高功能密度使边缘 case 覆盖难以穷尽。</li>
+</ul>
+<hr />
+<h3>D2.7 文档与开发者体验 — 0.8 / 1.0（80%）</h3>
+<ul>
+<li>文档规模 729 个文件，<code>docs/content/</code> 下结构化分区：用户指南（MCP/gateway/runtime-agent）、Provider 概览、API 参考（OpenAI/Claude 兼容）、开放平台（插件开发/连接/webhook）、法律免责声明。</li>
+<li>README 提供英文 + 简体中文双语；<code>RELEASE_NOTES.md/en</code>、<code>FEATURE-MAP.md</code>、<code>AGENTS.md</code>、<code>CLAUDE.md</code>、<code>.github/pull_request_template.md</code>、<code>repository-metadata.md</code> 等一应俱全。</li>
+<li>文档站点通过 <code>deploy-docs.yml</code> 自动部署到 GitHub Pages，<code>docs/specification.md</code>、<code>docs/ops.md</code> 提供规格与运维说明。</li>
+<li>扣分：面向复杂全栈 agent 的<strong>架构图/端到端开发教程</strong>未见明显呈现；API 参考的完整性（是否覆盖全部数百个 JSON-RPC 方法）存疑；未见交互式教程。落 80% 档。</li>
+</ul>
+<hr />
+<h3>D2.8 测试与质量保障 — 0.8 / 1.0（80%）</h3>
+<ul>
+<li><strong>测试规模</strong>：1,880 个测试文件 / 503,079 行，测试/代码比 28.3%，Rust 侧含 proptest 属性测试、契约测试（协议 wire shape 精确往返）、集成测试（canonical store 崩溃恢复、rollout 幂等）、快照/夹具测试。</li>
+<li><strong>CI/CD（多层门禁，极成熟）</strong>：7 个 workflow，其中 <code>quality.yml</code> 含 <code>changed</code> 变更检测 + <code>architecture_confirmation</code>（PR 必过）+ <code>integrity</code>（版本一致性）+ <code>frontend</code>/<code>frontend_full</code> + <code>bridge_contracts</code> + <code>gui_smoke</code>（macOS headless）+ <code>rust</code>/<code>rust_full</code> + <code>windows_shell_runtime</code>（Windows 受限执行安全矩阵）+ 聚合结果门禁；另有 Rust/前端 <strong>layer budget</strong> 脚本强制分层约束。</li>
+<li><code>release.yml</code> 含签名/公证、打包资源校验、N-1 升级 smoke、多平台 Gate B 证据链、npm Homebrew 发布；<code>harness-nightly.yml</code> 做 nightly 评测趋势跟踪。</li>
+<li>扣分：未采集到明确覆盖率数值（覆盖率 &gt;80% 无法证实），故不落 100% 档；测试注释依赖具体字符串、SQL 直接注入触发器耦内部表结构，存在重构维护成本。落 80% 档。</li>
+</ul>
+<hr />
+<h3>结论</h3>
+<p>limecloud/lime 在 D2 维度表现<strong>良好（7.6/10）</strong>，高于行业平均。其优势集中在：<strong>成熟的工程体系</strong>（crate 分层 + 契约代码生成 + 极完善的多层 CI 门禁）、<strong>极高的复刻门槛</strong>（Rust+TS+Electron 三语言、1.77M 行、Codex 协议对齐、多 Provider agent 运行时）、<strong>功能完备与快速迭代</strong>（v1.145.0、近每日发版、多平台分发）、<strong>扎实的国际化与向后兼容</strong>。</p>
+<p>主要短板为：<strong>巨型文件与上帝对象带来的可维护性下降</strong>（代码整洁性仅 60%）、<strong>明文凭证与自研弱加密的安全风险</strong>（无依赖漏洞扫描）、<strong>UI 无障碍与 i18n 硬编码</strong>，以及 <strong>License 缺失（NONE）</strong>（属 D6 范畴，但影响商用交付整体判断）。</p>
+<p>总体而言，该项目已具备支撑商业化交付的技术成熟度与产品质量基础，核心风险在长期可维护性（代码整洁）与安全合规细节，而非功能或架构本身。</p>
+<h3>D3. 社区健康度与生态势能（权重 11%）</h3>
+<p><strong>数据基础说明</strong>：本维度主体数据来自 GitHub API 实采（stars / forks / contributors / 近 90 天 PR 与 Issue 关闭数）+ 本地仓库实测（插件目录、CI 工作流、文档结构、扩展目录）。<strong>Star 增速因无法获取近 90 天增量，采用退化公式（Star 数 ÷ 项目年龄月数）</strong>，该公式为历史平均值，对 9 个月龄的新项目偏差相对可控，但仍会受上线初期流量脉冲影响而偏高，下文已标注。</p>
+<h3>D3.1 社区活跃度指标（3 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>档位判定</th>
+<th>小分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Star 增速</td>
+<td>补采缺失 → 退化公式：1471 ÷ 9.07 月 ≈ <strong>162 Star/月</strong></td>
+<td>100–500 区间 → 7–8 档（注：退化值，含初期脉冲）</td>
+<td>0.8 / 1.0</td>
+</tr>
+<tr>
+<td>Fork 比率</td>
+<td>207 ÷ 1471 = <strong>14.07%</strong></td>
+<td>处于健康区间（常见 5%–15%），衍生意愿中等偏上 → 5–6/7–8 档之间</td>
+<td>0.6 / 1.0</td>
+</tr>
+<tr>
+<td>Issue / PR 活跃度</td>
+<td>近 90 天：PR 新建 <strong>1</strong>，Issue 关闭 <strong>1</strong>，开放 Issue <strong>12</strong></td>
+<td>近乎无社区侧协作活动 → 1–2 档</td>
+<td>0.2 / 1.0</td>
+</tr>
+<tr>
+<td>响应速度</td>
+<td><strong>无法计算</strong>：90 天内仅 1 个 Issue 关闭，无平均关闭时间样本</td>
+<td>N/A（剔除，不补零）</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分</strong>：剔除 N/A 的响应速度后，三项均分 = (0.8 + 0.6 + 0.2) / 3 = 0.533 → 归入 60% 档 → <strong>3 × 60% = 1.8 分</strong></p>
+<p><strong>判断依据</strong>：项目呈现典型的「高关注、低共建」形态。1,471 Star / 207 Fork 说明存在真实的关注与衍生意愿；但近 90 天仅 1 个 PR、1 个 Issue 关闭，说明社区几乎不通过 GitHub 协作通道参与，Star 增长更可能来自产品分发（桌面 App、Homebrew、Chrome 扩展）带来的「用户型」增长而非「贡献者型」增长。需注意同一时期项目发出了约 10 个 release（v1.137–v1.145，平均 2–3 天一个版本），<strong>维护侧开发强度极高</strong>，但这属于维护者产能，不计入社区活跃度。</p>
+<h3>D3.2 贡献者结构多样性（2.5 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>档位判定</th>
+<th>小分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>贡献者数量</td>
+<td><strong>11 人</strong>（GitHub API contributors）</td>
+<td>5–20 人区间 → 5–6 档</td>
+<td>0.6 / 1.0</td>
+</tr>
+<tr>
+<td>组织多样性</td>
+<td>归属 <code>limecloud</code> 组织，仓库内 <code>.codex/skills/lime-governance</code>、<code>lime-quality-workflow</code>、<code>lime-release-workflow</code> 等内部治理 Skill 表明为<strong>公司化研发流程</strong>；无外部组织贡献证据</td>
+<td>主要来自 1–2 个组织 → 5–6 档</td>
+<td>0.6 / 1.0</td>
+</tr>
+<tr>
+<td>核心团队占比</td>
+<td>近 90 天 PR 仅 1 个，外部 PR 通道基本未被使用，开发以主干直推为主</td>
+<td>外部贡献占比极低 → 3–4 档</td>
+<td>0.4 / 1.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分</strong>：均值 = (0.6 + 0.6 + 0.4) / 3 = 0.533 → 60% 档 → <strong>2.5 × 60% = 1.5 分</strong></p>
+<p><strong>判断依据</strong>：11 名贡献者、单一母组织（limecloud）、外部 PR 近乎为零，属于「单一厂商主导型」社区。规模上够得着「5–20 贡献者」档，但从独立性看，项目实质是公司产品开源，社区尚未形成独立贡献者层。作为对照，该项目 1.7M 行代码 / 5,508 源码文件的体量对应仅 11 名贡献者，人均负载极高，也从侧面印证外部参与度不足。（核心人员离开后的传承风险归 D8.1，不在本细则重复计分。）</p>
+<h3>D3.3 第三方生态成熟度（3 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>档位判定</th>
+<th>小分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>插件 / 扩展</td>
+<td>仓库内含 <code>docs/content/08.open-platform/3.plugin-development.md</code>（插件开发文档）、<code>assets/plugins/openai-bundled/plugins/browser</code>（内置插件示例）、<code>.codex/skills/</code> 技能体系；CI 含 <code>plugin-standalone-release-gate.yml</code></td>
+<td>已有<strong>官方插件框架与开发文档</strong>，但可见插件多为官方/内置，第三方插件市场未见证据 → 5–6 档</td>
+<td>0.6 / 1.0</td>
+</tr>
+<tr>
+<td>集成生态</td>
+<td>支持 MCP（<code>docs/content/02.user-guide/9.mcp.md</code>）、<code>update-homebrew.yml</code>（Homebrew 分发）、<code>extensions/lime-chrome</code> + <code>CHROME_WEB_STORE_SUBMISSION.md</code>（浏览器扩展上架流程）、多 Provider 路由（OpenAI / Claude API 文档）</td>
+<td>具备分发与接入通道，但「被主流平台反向集成」的证据缺失 → 5–6 档</td>
+<td>0.6 / 1.0</td>
+</tr>
+<tr>
+<td>衍生项目</td>
+<td>未见社区二次开发项目或商业衍生品证据</td>
+<td>3–4 档</td>
+<td>0.4 / 1.0</td>
+</tr>
+<tr>
+<td>教程 / 课程</td>
+<td>仓库内文档充足（729 个文档文件，含用户指南、API 参考、开放平台），但均为<strong>官方自产</strong>；外部教程、课程、播客未见证据</td>
+<td>3–4 档</td>
+<td>0.4 / 1.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分</strong>：均值 = (0.6 + 0.6 + 0.4 + 0.4) / 4 = 0.5 → 归入 60% 档下限 → <strong>3 × 60% = 1.8 分</strong></p>
+<p><strong>判断依据</strong>：该项目在「官方预留生态位」上做得相当好——插件平台、Skills、MCP、Homebrew、Chrome 扩展分发一应俱全，说明架构层面为生态预留了空间。但生态评分衡量的是<strong>已发生的第三方繁荣度</strong>，而非潜力：目前所有插件、文档、扩展均可追溯到官方，没有第三方插件市场、没有社区衍生项目、没有被其他主流工具集成的记录，因此仍落在「少量第三方扩展」档。</p>
+<h3>D3.4 品牌认知与行业影响力（1.5 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>档位判定</th>
+<th>小分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>品牌辨识度</td>
+<td>「Lime」在拥挤的 AI Agent 赛道（同类含 Claude Code / Codex / WorkBuddy 等被 README 自述对标）中缺乏差异化品牌联想；1,471 Star、9 个月历史</td>
+<td>3–4 档</td>
+<td>0.4 / 1.0</td>
+</tr>
+<tr>
+<td>行业采用</td>
+<td>README 与素材中<strong>未见任何具名企业用户、客户 Logo 或案例背书</strong></td>
+<td>1–2 档</td>
+<td>0.2 / 1.0</td>
+</tr>
+<tr>
+<td>媒体覆盖</td>
+<td>未见技术媒体、会议演讲等外部报道证据</td>
+<td>1–2 档</td>
+<td>0.2 / 1.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分</strong>：均值 = (0.4 + 0.2 + 0.2) / 3 = 0.267 → 归入 40% 档 → <strong>1.5 × 40% = 0.6 分</strong></p>
+<p><strong>判断依据</strong>：项目具备一定的自然关注度（1.5k Star / 207 Fork），但尚无品牌资产：没有具名企业采用、没有外部媒体或会议曝光、在垂直领域内也未形成「说到 X 就想到它」的认知。在 AI Agent 这一极度拥挤且噪音极高的赛道，当前认知度限于小范围技术圈层。</p>
+<h3>维度小结</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>折合档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D3.1 社区活跃度指标</td>
+<td>3.0</td>
+<td>1.8</td>
+<td>5–6 档（一般）</td>
+</tr>
+<tr>
+<td>D3.2 贡献者结构多样性</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6 档（一般）</td>
+</tr>
+<tr>
+<td>D3.3 第三方生态成熟度</td>
+<td>3.0</td>
+<td>1.8</td>
+<td>5–6 档（一般）</td>
+</tr>
+<tr>
+<td>D3.4 品牌认知与行业影响力</td>
+<td>1.5</td>
+<td>0.6</td>
+<td>3–4 档（较弱）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>5.7</strong></td>
+<td><strong>5.7 / 10</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论（5.7 / 10，一般）</strong>：limecloud/lime 的社区指标呈现「<strong>高关注度 + 高维护投入 + 低社区共建</strong>」的错配结构。有利面：Star/Fork 基数（1,471 / 207，Fork 比 14.07%）与 2–3 天一个版本的发布节奏，说明产品有真实的需求验证与强维护承诺，这对商业化早期获客是加分项；架构上预留了插件、Skills、MCP、多 Provider 等生态位，具备生态放大潜力。</p>
+<p>不利面同样明确且影响商业化：其一，社区是<strong>消费型而非共建型</strong>——近 90 天仅 1 个 PR / 1 个 Issue 关闭，潜在客户池的转化线索极薄；其二，11 名贡献者高度集中于单一母组织，外部贡献几乎为零，意味着社区无法分担研发成本，也无法形成「生态护城河」；其三，第三方生态目前全部是官方自产，零第三方衍生品；其四，品牌层面无具名企业背书与媒体曝光，在 Agent 赛道难以形成获客溢价。</p>
+<p><strong>对商业化的含义</strong>：本项目应被定位为「<strong>厂商自营型产品开源</strong>」而非「社区驱动型项目」。其商业化路径不宜依赖社区自下而上的口碑扩散，而需自建分发与销售通道（桌面 App 已是如此）；同时，插件市场与 Skills 生态是被明确低估的杠杆点——把已具备的插件框架真正转化为第三方开发者生态，是当前投入产出比最高的社区动作。<strong>置信度提示</strong>：Star 增速为退化公式估算（未取到近 90 天增量），且响应速度因样本不足剔除，D3.1 的实际活跃度存在被高估的风险，社区真实活跃度可能低于 5.7 分所反映的水平。</p>
+<h3>D4. 商业模式与变现潜力</h3>
+<blockquote>
+<p>本维度权重 18%（九大维度中最高），核心判断：Lime 作为一个 GPL 系协议、BYO-Model 的桌面端 Agent，能否形成清晰、可行、可持续的收入闭环。</p>
+</blockquote>
+<h3>D4.1 协议对变现模式的影响（满分 2 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测情况</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>README 声明</td>
+<td>显著标注 <code>license-GPLv3</code> 徽章，License 章节链接 GNU GPL v3</td>
+</tr>
+<tr>
+<td>GitHub API 声明</td>
+<td><code>license: null</code>（GitHub Licensee 未识别到许可文件）</td>
+</tr>
+<tr>
+<td>仓库 LICENSE 文件</td>
+<td>本地实测 <code>license.file = null</code>、<code>license.license = "NONE"</code>；<code>doc_files</code> 中仅见 <code>docs/content/07.legal/1.disclaimer.md</code>，未见 LICENSE/COPYING</td>
+</tr>
+<tr>
+<td>贡献者结构</td>
+<td>11 位贡献者，仓库内未见 CLA / DCO 相关约定文档</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断</strong>：项目在 README 层面明确以 GPLv3 对外声明，因此不属于「无协议」的 0 分档；但仓库根目录缺少实际 LICENSE 文件，形成「声明 GPLv3 / 实际权利状态不明」的合规落差。就地缘看，GPLv3 属强传染性协议，直接约束三类路径：① Open Core 模式中企业版闭源模块若与 GPL 主体同进程链接将被迫开源；② 任何分发的桌面二进制（Electron 打包产物，含 macOS/Windows 安装包）均触发完整对应源码提供义务；③ 双协议（GPL + 商业授权）路线需先完成版权归集（CLA/版权转让），而当前 11 位贡献者的版权分散且无 CLA，重许可（relicense）在操作上极为困难。桌面形态使 GPL 的「网络服务豁免」（GPL 无 AGPL 式网络条款）无法成为变现出口，而唯一不受 GPL 约束的 SaaS 路径又与「本地优先、BYO-Key」的产品定位相冲突。</p>
+<p><strong>小分：0.8 / 2（40%，3–4 档）</strong>
+理由：GPL 系协议本身对应 5–6 档（约束显著）；叠加「声明 GPLv3 但无 LICENSE 文件」的权利瑕疵与无 CLA 导致的版权归集障碍，实际可用的变现路径较纯净 GPL 项目更窄，下调一档。
+（说明：若后续补齐 LICENSE 文件并确认为标准 GPLv3，本项可上修至 1.2 分。）</p>
+<hr />
+<h3>D4.2 变现路径清晰度（满分 3.5 分）</h3>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>可行性评估</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Open Core</strong></td>
+<td>受限但可设计</td>
+<td>GPLv3 使同进程闭源模块不可行；仅能通过独立进程插件 / 服务端能力隔离企业功能（仓库已有 <code>plugin-standalone-release-gate.yml</code>）；且需先解决版权归集，短期不可执行</td>
+</tr>
+<tr>
+<td><strong>SaaS 托管</strong></td>
+<td>技术可行、定位冲突</td>
+<td>GPL 无网络条款，理论上可托管；但产品是本地优先桌面 App（macOS/Windows），FAQ 明确「材料默认本地保存」，托管形态与核心卖点相悖</td>
+</tr>
+<tr>
+<td><strong>双协议许可</strong></td>
+<td>短期不可行</td>
+<td>无 CLA、11 位贡献者版权分散，无法单方商业授权</td>
+</tr>
+<tr>
+<td><strong>专业服务</strong></td>
+<td>可行但不可规模化</td>
+<td>文档体系完整（729 个文档文件、MCP/Skills/Plugin 开发指南、<code>docs/ops.md</code>），具备培训/集成服务的交付基础</td>
+</tr>
+<tr>
+<td><strong>市场 / 插件</strong></td>
+<td>有一定迹象</td>
+<td><code>docs/content/08.open-platform/</code>（overview / plugin-development / connect / connect-webhook）、<code>extensions/lime-chrome/CHROME_WEB_STORE_SUBMISSION.md</code>、独立插件发布门禁 CI——存在插件生态雏形，但未见商店、抽成规则或审核机制</td>
+</tr>
+<tr>
+<td><strong>网关 / 连接器增值</strong></td>
+<td>有潜在设计</td>
+<td><code>16.gateway-tunnel-webhook.md</code>、<code>17.runtime-agents.md</code>、<code>connect</code> 系列文档，指向「托管网关 / 企业连接器」这一潜在付费边界</td>
+</tr>
+<tr>
+<td><strong>认证 / 生态</strong></td>
+<td>未见动作</td>
+<td>无认证计划、无合作伙伴体系文档</td>
+</tr>
+<tr>
+<td><strong>捐赠 / 赞助</strong></td>
+<td>未见动作</td>
+<td>README 无 Sponsors / OpenCollective / 捐赠入口</td>
+</tr>
+</tbody>
+</table>
+<p><strong>硬性缺口</strong>：README 全文无定价页、无 Enterprise/Pro 版本对比、无商业模式或商业主体表述；相反，Disclaimer 明确写「provided for <strong>learning and research purposes only</strong>」，直接削弱商业化意图；FAQ「Does Lime provide AI models? No」排除了最直接的推理转售收入；发布渠道页 <code>brew tap aiclientproxy/tap</code> 为第三方 tap 而非官方商业化渠道。项目在 9 个月内产出 178 万行代码（TS 71 万 + Rust 67.5 万 + TSX 37.3 万），发布节奏极高（v1.137.0 → v1.145.0 仅 16 天、10 个版本），说明背后有组织化工程投入，但<strong>对外未披露任何变现设计</strong>。</p>
+<p><strong>小分：2.1 / 3.5（60%，5–6 档）</strong>
+理由：可识别的潜在路径有 3 条（Open Core、插件生态、托管连接器/网关），且每条都能在仓库中找到技术铺垫（open-platform 文档、插件发布门禁、gateway/tunnel 设计、Chrome 扩展提交材料），但仍处于「有潜在路径但尚不清晰、需验证」阶段：无定价、无企业版、无 CLA、无商业主体声明，且受限协议与 BYO-Key 定位进一步收窄了执行空间。</p>
+<hr />
+<h3>D4.3 付费转化逻辑（满分 2.5 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>免费→付费触发点</td>
+<td><strong>薄弱</strong>。GPLv3 + 本地运行 + 用户自备 Provider/Key，意味着免费版本在功能上无硬性闸门：文件、终端、MCP、Skills、多 Agent、多模态、跨平台安装包全部可获得。用户不存在「不得不付费」的场景</td>
+</tr>
+<tr>
+<td>付费意愿强度</td>
+<td><strong>中等偏下</strong>。目标客户为开发者、全栈团队、研究者与创作者；该群体已承担模型 API 成本（BYO-Key 模型下，推理费用直接流向第三方 Provider，Lime 无法分润），对工具本身的额外付费敏感</td>
+</tr>
+<tr>
+<td>转化漏斗</td>
+<td><strong>不自然</strong>。产品无账号体系依赖（本地优先）、无云侧存储绑定、无用量计费锚点，从「使用者」到「付费者」缺少自然过渡环节；理论上可行的付费点（团队协作、SSO/RBAC、审计日志、共享 Skills 库、SLA、私有部署）在仓库中<strong>均未见对应功能或文档</strong>，属纯假设</td>
+</tr>
+</tbody>
+</table>
+<p><strong>小分：1.0 / 2.5（40%，3–4 档）</strong>
+理由：付费逻辑勉强成立，用户完全可以在 GPL 授权下长期使用免费版并获得完整核心能力；可设想的付费点均属「锦上添花」型需求（治理、合规、协作），而非「不给钱就跑不通」的刚需。项目当前也无任何付费分层、许可密钥或订阅机制的技术痕迹。</p>
+<hr />
+<h3>D4.4 增值服务空间与定价天花板（满分 2 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>增值空间</td>
+<td><strong>中等</strong>。可叠加方向包括：企业治理（SSO/RBAC/审计）、合规与私有化部署、团队共享 Skills/知识库（仓库含 knowledge-base 主题）、托管网关与 Webhook 中继（<code>gateway-tunnel-webhook</code>）、MCP 连接器市场、SLA 支持。但均为「企业周边」而非核心能力增值，且需先构建企业版产品才有交付物</td>
+</tr>
+<tr>
+<td>定价天花板</td>
+<td><strong>受类别上限约束</strong>。同类桌面/编码 Agent 的公开定价带为 $19–40/席/月（≈$230–480/席/年），可支撑 7–8 档的下限；$10K+/年 的客单价需强合规/私有化能力支撑，当前产品形态（本地桌面 App、无企业管控台、macOS/Windows 双平台）不具备该议价基础</td>
+</tr>
+<tr>
+<td>收入扩展性</td>
+<td><strong>有限</strong>。无云侧计量点（BYO-Key、本地执行），无法从 per-seat 平滑扩展到 per-usage；只能走 per-seat 订阅或 enterprise flat fee，且 flat fee 需以企业版功能为前提。此外，GPLv3 下企业客户难以将 Lime 嵌入自身闭源产品线，这既削弱了 OEM/嵌入式授权收入，也降低了企业采购的紧迫性</td>
+</tr>
+</tbody>
+</table>
+<p><strong>小分：1.2 / 2（60%，5–6 档）</strong>
+理由：存在明确且可列举的增值方向，桌面 Agent 品类的 per-seat 定价带可支撑 $1K/席/年量级的客单价，故不落入 3–4 档；但缺少企业版实体、缺少云侧用量计量点、且 BYO-Key 定位使模型侧收入全部外流，增值空间与天花板均受限，不上探至 7–8 档。</p>
+<hr />
+<h3>本维度得分汇总</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>档位</th>
+<th>小分</th>
+<th>核心依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D4.1 协议对变现模式的影响</td>
+<td>2.0</td>
+<td>3–4 档（40%）</td>
+<td><strong>0.80</strong></td>
+<td>README 声明 GPLv3 但仓库无 LICENSE 文件；GPL 强传染 + 无 CLA 导致双协议/Open Core 受限</td>
+</tr>
+<tr>
+<td>D4.2 变现路径清晰度</td>
+<td>3.5</td>
+<td>5–6 档（60%）</td>
+<td><strong>2.10</strong></td>
+<td>有 3 条潜在路径（Open Core / 插件生态 / 托管网关）及技术铺垫，但无定价、无企业版、Disclaimer 明示「仅供学习研究」</td>
+</tr>
+<tr>
+<td>D4.3 付费转化逻辑</td>
+<td>2.5</td>
+<td>3–4 档（40%）</td>
+<td><strong>1.00</strong></td>
+<td>免费版功能无硬闸门，BYO-Key 使推理收入外流，付费点（治理/合规/协作）无实现证据</td>
+</tr>
+<tr>
+<td>D4.4 增值服务空间与定价天花板</td>
+<td>2.0</td>
+<td>5–6 档（60%）</td>
+<td><strong>1.20</strong></td>
+<td>增值方向明确但需企业版载体；定价受 per-seat 品类带上限约束，无 per-usage 扩展点</td>
+</tr>
+<tr>
+<td><strong>D4 维度总分</strong></td>
+<td><strong>10.0</strong></td>
+<td>—</td>
+<td><strong>5.10</strong></td>
+<td>无 N/A 项，按满分直接折算</td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<p>Lime 的商业模式处于<strong>「工程已就绪、商业未开口」</strong>的状态，D4 得分 5.10/10（一般档），在权重最高的维度上表现为行业平均偏下。</p>
+<p><strong>正面因素</strong>：① 产品功能面极宽（编码 / 终端 / 文件 / 研究 / 内容 / 多模态 / 多 Agent），具备向企业治理、私有化部署、团队协作打包增值的天然素材；② 已具备平台化雏形——open-platform 文档体系、插件独立发布门禁 CI、Chrome 扩展商店提交材料、MCP/Skills 机制，为「插件市场抽成」与「企业连接器」提供了真实的结构性铺垫；③ 9 个月产出 178 万行代码、16 天发布 10 个版本的高节奏工程投入，说明背后有组织化资源支撑，具备执行商业化的能力储备。</p>
+<p><strong>核心制约</strong>：① <strong>协议是最大结构性障碍</strong>——GPLv3 声明 + 无 LICENSE 文件 + 无 CLA/版权归集，使 Open Core 同进程闭源、双协议商业授权两条主流路径在操作上不可行或需先完成法律重构；② <strong>产品定位与变现天然对立</strong>——本地优先、BYO-Model、BYO-Key 的组合，把最有价值的推理侧收入完全让渡给第三方 Provider，同时消除了云侧用量计量这一最自然的付费锚点；③ <strong>零商业信号</strong>——README 无定价、无 Enterprise 版功能对比、无订阅/许可机制痕迹，且 Disclaimer 反而声明「仅供学习与研究用途」，与商业化目标直接冲突，暗示项目当前的战略重心仍在产品与生态，而非收入。</p>
+<p><strong>可验证的改进杠杆</strong>（若需提升本维度得分）：补齐 LICENSE 文件并引入 CLA/DCO 以恢复重许可能力；发布企业版功能矩阵（SSO/RBAC/审计/共享 Skills 库）形成免费→付费触发点；落地托管网关/连接器（<code>gateway-tunnel-webhook</code> 已有设计基础）以补回云侧计量点；修订 Disclaimer 中与商业授权相冲突的措辞。</p>
+<h1>D5. 竞争格局与差异化壁垒（权重 12%）</h1>
+<h3>D5.1 竞品对比与市场定位（3 分）——得分 1.8 / 3</h3>
+<h3>竞品对比表</h3>
+<table>
+<thead>
+<tr>
+<th>竞品名称</th>
+<th>类型</th>
+<th>仓库/官网</th>
+<th>验证方式</th>
+<th>Star/用户量</th>
+<th>核心差异</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>langgenius/dify</td>
+<td>间接竞品</td>
+<td>github.com/langgenius/dify</td>
+<td>GitHub Search API 实测确认（pushed 2026-09-15，未归档）</td>
+<td>155,810★</td>
+<td>Web/云端 Agentic workflow + RAG 平台，面向团队构建与托管编排，非本地桌面 Agent</td>
+</tr>
+<tr>
+<td>ruvnet/ruflo</td>
+<td>直接竞品（多智能体编排）</td>
+<td>github.com/ruvnet/ruflo</td>
+<td>GitHub Search API 实测确认（pushed 2026-09-15）</td>
+<td>72,510★</td>
+<td>自称 "the original agent harness"，多智能体 swarm 编排，偏框架/运行时层</td>
+</tr>
+<tr>
+<td>FlowiseAI/Flowise</td>
+<td>间接竞品</td>
+<td>github.com/FlowiseAI/Flowise</td>
+<td>GitHub Search API 实测确认（archived=true，已归档）</td>
+<td>55,460★</td>
+<td>可视化拖拽搭建 Agent 流程；项目已归档，活跃迭代终止</td>
+</tr>
+<tr>
+<td>siyuan-note/siyuan</td>
+<td>间接竞品</td>
+<td>github.com/siyuan-note/siyuan</td>
+<td>GitHub Search API 实测确认（pushed 2026-09-15）</td>
+<td>46,373★</td>
+<td>隐私优先、自托管的知识工作空间，人机协作笔记，重知识管理、轻代码/终端执行</td>
+</tr>
+<tr>
+<td>CopilotKit/CopilotKit</td>
+<td>间接竞品</td>
+<td>github.com/CopilotKit/CopilotKit</td>
+<td>GitHub Search API 实测确认（pushed 2026-09-15）</td>
+<td>37,373★</td>
+<td>Agent 前端 SDK / AG-UI 协议，"给应用嵌 Agent"，非面向终端用户的桌面 Agent</td>
+</tr>
+<tr>
+<td>Claude Code / Codex（含 README 并列的 WorkBuddy）</td>
+<td>直接竞品</td>
+<td>Anthropic / OpenAI 官方产品页</td>
+<td>仓库内引用（README "Product positioning" 明确自认同类）</td>
+<td>商业产品，用户量级领先</td>
+<td>由模型原厂直接交付的终端/桌面 coding agent，与自家模型深度绑定、分销成本为零</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>验证与数据缺口说明</strong>：上表 5 个开源竞品均来自本次 GitHub Search API 实测返回（<code>verified: true</code>），真实存在性可确认。但需如实指出：本次检索返回的已验证集合<strong>明显偏向间接竞品</strong>（工作流平台、前端 SDK、知识库），<strong>未能覆盖与 Lime 形态最接近的桌面/终端 coding agent 直接竞品</strong>。该类竞品中，Claude Code、Codex、WorkBuddy 由本项目 README 主动并列引用，按「仓库内引用」规则视为已验证对标；除此之外的同形态项目未经本次搜索验证，不予列举，以免虚构。因此本细则的竞品覆盖置信度中等。</p>
+</blockquote>
+<h3>定位分析</h3>
+<p>Lime 的自我定位清晰且可复述：<strong>"开源全栈桌面 AI Agent"——以 Electron 桌面 GUI 承载 Thread/Turn/Item 可追溯任务链，把编码、文件、终端、MCP/Skills、多模态输入输出与多智能体协作收进同一工作区</strong>，并强调「不绑定单一模型服务」。这与 CopilotKit（前端 SDK）、Dify（云端工作流平台）、siyuan（知识库）形成了形态上的区隔，差异化点真实存在。</p>
+<p>但定位的<strong>独占性不足</strong>：README 自己就把项目归入 "Claude Code、WorkBuddy、Codex 的同类"，即承认所处赛道已有强对标者；同时它又是"编码 Agent + 内容创作 + 研究 + 知识管理"的多面手——品类越宽，越难在任一细分中形成记忆点。规模上，1,471★ 相较已验证竞品最小者（CopilotKit 37,373★）差约 25 倍，相较最大者（Dify 155,810★）差约 106 倍，且竞品多在 2026-09-15 当天仍有推送，属于典型的<strong>追随者位置</strong>。</p>
+<p><strong>判定：有多个竞品且本项目具备可辨识的差异化表述（桌面 GUI + 多模态 + 端侧 Agent），但差异化尚不构成选择理由级优势，处于跟随地位。</strong> 对应 5–6 档（60%），得 <strong>1.8 分</strong>。</p>
+<hr />
+<h3>D5.2 技术壁垒与网络效应（3 分）——得分 1.2 / 3</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测证据</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术壁垒</td>
+<td>无专利声明；核心为 Thread/Turn/Item 投影、工具生命周期、MCP/Skills、多 Agent 协作（README/docs），属<strong>工程整合密集</strong>而非不可复制算法；1.78M 行代码的复刻难度已在 D2.2 计分，此处不重复</td>
+<td>弱（无专利/数据/算法独占）</td>
+</tr>
+<tr>
+<td>网络效应</td>
+<td>存在插件与 Skills 雏形（<code>assets/plugins/</code>、CI <code>plugin-standalone-release-gate.yml</code>、<code>.codex/skills/</code>），但<strong>无插件市场/分发平台的证据</strong>；贡献者仅 11 人，90 天内 PR 1 个、关闭 issue 1 个 → 外部生态贡献近乎停滞</td>
+<td>极弱</td>
+</tr>
+<tr>
+<td>规模效应</td>
+<td>开源、本地优先部署（README：「材料、会话历史、配置默认保存在本地」），服务成本由用户承担，项目方无边际成本优势</td>
+<td>无</td>
+</tr>
+<tr>
+<td>数据飞轮</td>
+<td>README 明确模型与凭证由用户自配、数据不出本地 → <strong>项目方不沉淀任何用户数据</strong>，无法形成数据壁垒</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：Lime 的"壁垒"主要来自工程量与功能广度，而这属于可被资源投入追平的壁垒，且已在 D2.2 计分。从商业防御视角看，既无专利/数据独占，也无成规模的生态锁定，唯一可称道的防御性因素是 README 声明的 <strong>GPLv3</strong>（可阻止闭源商业分叉），但 GitHub API <code>license</code> 字段为 <code>null</code>、本地扫描未发现 LICENSE 文件，权利边界本身尚不确定；且 copyleft 对"功能被重新实现"毫无阻挡力。</p>
+<p><strong>判定：壁垒薄弱、容易被复制。</strong> 对应 3–4 档（40%），得 <strong>1.2 分</strong>。</p>
+<hr />
+<h3>D5.3 切换成本与用户粘性（2 分）——得分 1.2 / 2</h3>
+<p><strong>推高迁移成本的因素</strong>：
+- 需重新配置 Provider、模型目录、凭证与路由/重试策略；
+- 需重建工作区与文件/终端权限边界；
+- 会丢失 Thread/Turn/Item 历史与「可暂停、可回溯、可继续」的执行轨迹（README 核心卖点之一）；
+- 已编码的 Skills（如 <code>.codex/skills/lime-release-workflow</code>）需重新迁移或改写。</p>
+<p><strong>压低迁移成本的因素</strong>：
+- 对接协议以开放标准为主：MCP、OpenAI/Claude 兼容 API（<code>docs/content/04.api-reference/2.openai-api.md</code>、<code>3.claude-api.md</code>），非私有协议；
+- 本地优先存储 → 用户数据以文件形态存在，天然可携带，不存在封闭数据格式锁定；
+- 同形态产品（终端/桌面 coding agent）功能高度同质，"边用边换/多工具并用"是常态，用户习惯锁定弱；
+- 桌面 Electron 应用为即装即用型，无组织级部署依赖（无服务端改造、无库表迁移）。</p>
+<p><strong>判定：迁移成本中等（重配 + 历史与 Skill 重建），具备一部分粘性，但不存在"需重写业务逻辑"的高切换代价。</strong> 对应 5–6 档（60%），得 <strong>1.2 分</strong>。</p>
+<hr />
+<h3>D5.4 护城河可持续性（2 分）——得分 0.8 / 2</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测证据</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>护城河趋势</td>
+<td>版本迭代极快：v1.137→v1.145 在约 15 天内发布 10 个版本；但同期外部贡献仅 1 个 PR、关闭 1 个 issue、开放 issue 仅 12 个 → <strong>优势靠单一团队内部高频输出维持，而非生态自增强</strong></td>
+<td>内部增强、外部停滞，护城河未随规模加深</td>
+</tr>
+<tr>
+<td>颠覆风险</td>
+<td>直接对标者 Claude Code（Anthropic）、Codex（OpenAI）由模型原厂交付，具备零分销成本与捆绑能力；桌面 Agent 形态正在被模型平台化收编</td>
+<td>高</td>
+</tr>
+<tr>
+<td>时间窗口</td>
+<td>已验证竞品 Star 领先 25–106 倍，且 dify/ruflo/siyuan/CopilotKit 均于 2026-09-15 当日活跃推送，Lime 无卡位优势；Flowise 已归档，说明该赛道存在出清</td>
+<td>窗口有限</td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：Lime 的"护城河"本质是<strong>迭代速度</strong>，而非结构性资产。它可以在功能广度上持续追赶快照，但每一个新能力（多模态、多 Agent、MCP）都是竞品同样在做且模型原厂可以免费内置的能力；面对"模型原厂把 agent harness 作为模型分发渠道"的结构性挤压，Lime 缺乏可据守的差异点位。</p>
+<p><strong>判定：护城河在削弱，存在明确的潜在颠覆者。</strong> 对应 3–4 档（40%），得 <strong>0.8 分</strong>。</p>
+<hr />
+<h3>D5 维度小结</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+<th>核心依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D5.1 竞品对比与市场定位</td>
+<td>3</td>
+<td>1.8</td>
+<td>5–6（60%）</td>
+<td>5 个已验证竞品 + README 引用的原厂直接对标；定位可辨识但非独占，规模落后 1–2 个数量级</td>
+</tr>
+<tr>
+<td>D5.2 技术壁垒与网络效应</td>
+<td>3</td>
+<td>1.2</td>
+<td>3–4（40%）</td>
+<td>无专利/数据/算法壁垒；插件 Skills 生态雏形但无市场与外部贡献；无数据飞轮</td>
+</tr>
+<tr>
+<td>D5.3 切换成本与用户粘性</td>
+<td>2</td>
+<td>1.2</td>
+<td>5–6（60%）</td>
+<td>重配 Provider + 历史与 Skill 重建构成中等迁移成本，但协议开放、本地存储、无格式锁定</td>
+</tr>
+<tr>
+<td>D5.4 护城河可持续性</td>
+<td>2</td>
+<td>0.8</td>
+<td>3–4（40%）</td>
+<td>护城河 = 迭代速度而非结构资产；模型原厂捆绑分发构成明确颠覆风险</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>5.0</strong></td>
+<td>—</td>
+<td><strong>竞争格局中等偏弱：形态有差异化，但壁垒与卡位均不牢固</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>总体判断</strong>：Lime 在一个高度拥挤、且正被模型原厂平台化的赛道中处于<strong>差异化但不领先</strong>的位置。它的真实优势来自工程广度与迭代速度（约 15 天 10 个版本），而非专利、数据飞轮或生态网络效应；GPLv3 虽可阻闭源分叉，但对功能复制无防御力。商业化上，D5 不构成加分项，反而提示需在<strong>开放生态（插件市场/Skill 分发的规模化）</strong> 或<strong>垂直场景深度</strong>上尽快建立非对称壁垒。</p>
+<p><strong>局限与置信度</strong>：本次竞品检索集合偏向间接竞品，未能覆盖最同形态的桌面/终端 coding agent 开源竞品，D5.1 的竞品覆盖完整度有限；该缺口通过 README 内引用的原厂对标部分弥补，总体置信度<strong>中等</strong>。数据口径：GitHub API 实采 + GitHub Search API 竞品实测 + 本地仓库扫描，未见编造数据。</p>
+<h3>D6. 法律合规与知识产权（权重 7%）</h3>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D6.1 开源协议合规性与商业限制</td>
+<td>3.0</td>
+<td>1.8</td>
+<td>5–6（60%）</td>
+<td>根 <code>package.json</code> 声明 <code>"license": "GPL-3.0-only"</code>，SPDX 标识规范；属强 copyleft，商业化需法律审查但可管理。无 Commons Clause/BUSL 等附加条款。<strong>但 GitHub API <code>license=null</code>、本地采集 <code>license.file=null</code> 双源均未检出根 LICENSE 文件</strong>，协议文本载体缺失构成明确性缺陷</td>
+</tr>
+<tr>
+<td>D6.2 依赖链法律风险</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8（80%）</td>
+<td>npm 运行时依赖 80 个 + devDependencies 41 个，Rust workspace 依赖约 110+，均以 MIT/Apache-2.0/BSD 系为主；清单中未发现 GPL/AGPL 传染性依赖。存在 1 个 git 补丁依赖（<code>crossterm</code> 指向 <code>openai-oss-forks</code> 的固定 rev）与 <code>protoc-bin-vendored</code> 内置二进制，需登记但可控。<strong>未提供 lockfile，传递依赖未逐一核验</strong></td>
+</tr>
+<tr>
+<td>D6.3 商标与专利风险</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6（60%，默认档）</td>
+<td><strong>未经人工核查，置信度低</strong>。项目名 "Lime" 为通用英文词且同名商业主体众多，商标可用性必须由人工检索确认；<code>docs/content/07.legal/1.disclaimer.md</code> 仅有免责声明，未检出商标使用政策</td>
+</tr>
+<tr>
+<td>D6.4 贡献者协议完备性</td>
+<td>2.0</td>
+<td>1.2</td>
+<td>5–6（60%）</td>
+<td>11 位贡献者；检出 <code>.github/pull_request_template.md</code>、<code>AGENTS.md</code>、<code>.codex/skills/lime-governance/SKILL.md</code> 等治理文件，说明贡献流程有一定规范；<strong>但未检出 CONTRIBUTING.md、CLA 或 DCO 配置</strong>。GPL-3.0-only 下无版权集中机制，无法实施「开源 + 商业双许可」策略</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>6.5</strong></td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h3>分析正文</h3>
+<p><strong>D6.1 协议合规性。</strong> 项目在根 <code>package.json</code> 中以规范 SPDX 形式声明 <code>GPL-3.0-only</code>，<code>packages/*</code> 下的发布型 SDK（<code>@limecloud/app-server-client</code>、<code>agent-*</code> 等）则声明 <code>MIT</code>，<code>lime-rs/crates/voice-core</code> 亦声明 <code>MIT</code>。这种「核心 GPL + SDK 宽松」的分层策略对插件与第三方集成生态是友好信号，说明作者对协议边界有过设计。但两项缺陷拉低了得分：其一，<strong>根目录 LICENSE 文件在 GitHub API 与本地采集两处数据源中均为空</strong>，SPDX 只存在于清单字段中，缺少法律文本载体，下游使用者与被收购方尽调时会出现明确性争议；其二，<code>lime-rs/Cargo.toml</code> 的 <code>[workspace.package]</code> 段<strong>未声明 <code>license</code> 字段</strong>（仅 <code>voice-core</code> 单点声明 MIT），按默认规则 Rust 侧数十个 crate 的授权状态法律上处于「未明确授予」状态。此外 <code>[patch.crates-io]</code> 覆盖了 <code>crossterm</code> 源码，patch 后的产物分发需保留上游许可声明。协议本身为强 copyleft 且<strong>无任何商业使用附加条款</strong>，不构成「部分商业模式法律上不可行」的硬阻断，故落 5–6 档；若核实 LICENSE 文件确不存在，应下调至 3–4 档。</p>
+<p><strong>D6.2 依赖链风险。</strong> 逐一扫描给出的依赖清单，前端侧以 React 生态（MIT）、Radix（MIT）、Tiptap（MIT）、Mermaid（MIT）、fabric（MIT）为主，Rust 侧以 tokio/axum/serde/rusqlite（MIT 或 Apache-2.0 双许可）、rmcp（MIT）、deno_core/v8 crate（MIT）为主，<strong>未发现 GPL/AGPL/SSPL 等传染性依赖</strong>，也未发现来源不明的野包。风险点在于规模与来源可追溯性：npm 121 个包 + Rust 110+ 项依赖意味着合规审查成本不低；<code>crossterm</code> 使用 <code>openai-oss-forks</code> 的 git 补丁（rev 已固定，可复现但非官方源）；<code>protoc-bin-vendored</code>、<code>sherpa-onnx</code>（Apache-2.0，可选特性）、<code>whisper-rs</code>（可选特性）会引入原生二进制与额外许可声明义务。整体可控，落 7–8 档。</p>
+<p><strong>D6.3 商标与专利。</strong> 该项依赖人工检索（商标数据库、专利检索、同名主体排查），现有素材<strong>无法支撑任何结论性判断</strong>，按方法论默认给出 5–6 档（1.5/2.5）并标注低置信度。需提示：项目名 "Lime" 属于高度通用词汇，存在同名商业主体的可能性较高；产品线覆盖 Electron 桌面端、CLI、Chrome 扩展、MCP 插件等多形态分发，若采用品牌化商业发行，应在上线前完成 Class 9/42 类商标检索。项目侧仅有 <code>docs/content/07.legal/1.disclaimer.md</code> 免责声明，<strong>未检出商标使用政策</strong>（如 "Lime" 名称/Logo 的使用限制条款）。</p>
+<p><strong>D6.4 贡献者协议。</strong> 仓库存在 <code>.github/pull_request_template.md</code>、<code>AGENTS.md</code>、<code>CLAUDE.md</code>、<code>.codex/skills/lime-governance/SKILL.md</code> 及 <code>.github/repository-metadata.md</code>，治理与 PR 流程规范度高于同类个人项目；但<strong>未检出 CONTRIBUTING.md、CLA 模板或 DCO 签名要求</strong>。在 GPL-3.0-only 且无 CLA 的结构下，11 位贡献者各自保留著作权，项目方无权单方面重许可（relicense）或发行闭源商业版，直接封堵了「开源核心 + 商业双许可」这条变现路径。另一处版权主体风险：根 <code>package.json</code> 的 repository 指向 <code>github.com/limecloud/lime</code>，而 <code>lime-rs/Cargo.toml</code> 的 <code>repository</code>/<code>homepage</code> 仍指向 <code>github.com/aiclientproxy/lime</code>，同一代码库内出现两个归属主体，进一步增加版权链核查成本。落 5–6 档。</p>
+<h3>结论</h3>
+<p>D6 得分 <strong>6.5/10</strong>，属「一般」档，未出现阻断性法律硬伤，但存在两处必须人工处理的合规前置项：<strong>根 LICENSE 文件缺失 / Rust crate 未声明授权</strong>（可通过补文件 + 统一 SPDX 快速修复，但未修复前构成实质法律不确定性），以及<strong>无 CLA/DCO 导致版权不可集中</strong>（影响长期双许可与资本化路径）。GPL-3.0-only 的强 copyleft 与 MIT 子包的分层设计是可控且经过考量的结构，SaaS/开源发行路径法律上可行，闭源专有发行路径则不可行。商标与专利评为默认档、置信度低，<strong>上市或商业发行前必须完成人工商标检索</strong>。</p>
+<h3>D7. 企业就绪度与可运营性</h3>
+<p><strong>结论概览</strong>：Lime 是一个 Electron 桌面优先的全栈 Agent 应用（TS 前端 + Rust 后端 runtime），在<strong>升级路径</strong>（Electron 自动更新 / Homebrew / Windows Squirrel 含 N-1 升级冒烟）和<strong>集成接口</strong>（JSON-RPC 协议 + OpenAI/Anthropic 兼容 REST + MCP + CLI/npm 包）上表现出色；但在<strong>企业认证体系</strong>（无 SSO/LDAP/SAML/RBAC）、<strong>分布式高可用</strong>（SQLite 单机存储）上明显偏弱。整体属于"桌面单机产品运营能力优秀、多租户企业级运营能力不足"的形态。</p>
+<h3>D7.1 运维复杂度与升级路径（3 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>小分</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>配置管理</td>
+<td>0.9/1</td>
+<td><code>config/types.rs</code> 定义完整 <code>Config</code>（server/providers/routing/retry/logging/permissions/sandbox…），支持 YAML/JSON 序列化与 <code>schema_version</code>；有 <code>lime-rs/.env.example</code> 与构建期 env（<code>LIME_ELECTRON_UPDATES_URL</code>、<code>LIME_TENANT_HEADER</code>、<code>LIME_LOCALE</code>、<code>LIME_GATE_RUN_ID</code> 等）；但配置对象臃肿（God Object 倾向），且大量凭证以明文写入 config</td>
+</tr>
+<tr>
+<td>运维负担</td>
+<td>0.6/1</td>
+<td>桌面单用户形态，无多实例集群运维需求，安装即用（DMG/EXE/Homebrew）；但代码库 1.78M 行、双栈（TS+Rust）+ sidecar（app-server/code-mode-host）架构，自托管/自行编译运维复杂度高；<code>Makefile</code> 仅覆盖测试分层，无发布/回滚目标</td>
+</tr>
+<tr>
+<td>升级路径</td>
+<td>1/1</td>
+<td>升级路径非常成熟：Electron 自动更新源（<code>updates.limecloud.com</code>）、<code>release.yml</code> 产出 DMG/ZIP/Squirrel + Homebrew tap 自动更新（<code>update-homebrew.yml</code>）、<code>windows-squirrel-rc-smoke.mjs</code> 显式做 <strong>N-1 → 候选版本安装/升级/卸载冒烟</strong>，并有 Gate B 证据校验</td>
+</tr>
+<tr>
+<td>数据迁移</td>
+<td>0.6/1</td>
+<td>配置层有版本化 schema 与向后兼容（<code>CredentialPoolConfig</code> 退役字段保留 <code>skip_serializing</code>、legacy proxycast 密文自动重加密、SenseNova host 迁移）；存储层有 SQLite 三库分离（state/history/projection）+ rollout JSONL 幂等追加 + <code>busy_timeout</code>。但未见自动化 schema 迁移框架，升级迁移依赖手工/隐式兼容</td>
+</tr>
+</tbody>
+</table>
+<p><strong>小结</strong>：<strong>2.4/3.0</strong>（7–8 档）。升级与回滚能力（含 N-1 冒烟）是显著优点，配置清晰但过于庞大、凭证明文是短板。</p>
+<h3>D7.2 安全管理与权限控制（2.5 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>小分</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>认证授权</td>
+<td>0.4/0.75</td>
+<td>有 API Key / Provider 凭证体系（<code>api_key_provider_service</code>，含机器 ID 派生密钥 + XOR 流加密 + Base64，非标准 AEAD）；有 <code>OemCloud</code> 客户端密码登录与 access token 作用域校验（<code>verify_plugin_runtime_token_for_scope</code>、<code>subtle::ConstantTimeEq</code> 常量时间比较）；<strong>无 SSO/OAuth/LDAP/SAML 等企业身份联邦证据</strong></td>
+</tr>
+<tr>
+<td>权限模型</td>
+<td>0.6/0.6</td>
+<td>权限模型细粒度较强：Codex 兼容的 <code>PermissionProfileConfig</code>/<code>PermissionFilesystemConfig</code>/<code>PermissionNetworkConfig</code>、<code>WorkspaceSandboxConfig</code>/<code>WindowsSandboxMode</code>、逐工具审批（<code>DynamicToolCallApproval</code> 含 <code>approvalToken</code>/<code>riskClass</code>/<code>snapshotId</code>）、<code>HookTrustStatus</code>（trusted/untrusted/managed/modified）；但为单机工作区维度，<strong>非多用户 RBAC/ABAC</strong></td>
+</tr>
+<tr>
+<td>审计日志</td>
+<td>0.3/0.4</td>
+<td>有 <code>lime_core::logger::LogStore</code>、<code>tracing</code> 结构化日志、多语言 TUI 日志；有 workflow-resume 审计事件、<code>thread_goal_update_outbox</code> 记账、路由证据载荷（<code>RouteResolutionEvidencePayloads</code>，且 <code>safe_route_evidence_value</code> 显式剥离 <code>endpoint.baseUrl</code>/<code>auth.credentialRef</code>）；但未见独立的操作审计报表/合规导出</td>
+</tr>
+<tr>
+<td>数据安全</td>
+<td>0.2/0.75</td>
+<td>传输侧支持 <code>wss://</code>（<code>validate_remote_url</code> 仅允许 ws/wss）、租户头隔离（<code>LIME_TENANT_HEADER</code>）、错误体截断防泄露；<strong>但 config 中大量明文凭证（api_key/api_secret/secret_key/bot_token 等），加密为自研 XOR 流而非标准 AEAD，密钥依赖机器 ID 保密性——企业合规层面薄弱</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>小结</strong>：<strong>1.5/2.5</strong>（5–6 档）。安全机制存在且权限/沙箱控制较扎实（Codex 兼容），但缺企业身份联邦、缺多用户 RBAC、加密实现非标准，无法满足企业安全合规要求。</p>
+<h3>D7.3 可扩展性与高可用能力（2.5 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>小分</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>水平扩展</td>
+<td>0.4/0.75</td>
+<td>主体为单机桌面应用；附带 OpenAI/Anthropic 兼容 API Server（<code>axum</code>，含幂等守卫 <code>IdempotencyGuard</code>、请求去重 <code>RequestDedupGuard</code>、响应缓存 <code>ResponseCacheGuard</code>、指数退避重试）具备一定无状态化潜力；但<strong>无分布式部署/多副本编排证据</strong></td>
+</tr>
+<tr>
+<td>高可用</td>
+<td>0.3/0.75</td>
+<td>有进程内韧性组件：<code>CircuitBreaker</code>（model-provider）、health registry、连接重连（gateway 2s 重连、环境注册表 monitor）；但<strong>无集群部署/故障转移（failover）证据</strong>，侧车崩溃靠 Electron 宿主重启</td>
+</tr>
+<tr>
+<td>性能瓶颈</td>
+<td>0.4/0.5</td>
+<td>无明显架构级单点（但 SQLite 为单写者）；代码中大量超时防挂起（240s 图像、300s provider step、60s first-visible-output）、大批量解析/大文件裁剪（SQL <code>json_remove</code> 投影下推）表明有性能意识；超大文件（单文件 4000–5000 行）与自研 XOR 逐字节加密是潜在热点</td>
+</tr>
+<tr>
+<td>数据一致性</td>
+<td>0.4/0.5</td>
+<td>本地一致性设计良好：SQLite 三库分离 + WAL + <code>PRAGMA foreign_keys</code> + 延迟外键约束、rollout <strong>幂等追加</strong>（<code>history_sequence</code> 水位线）、<code>rollout metadata state conflict</code> 冲突检测、canonical store 瞬时锁等待测试；<strong>仅在单机范围成立，无分布式一致性方案</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>小结</strong>：<strong>1.5/2.5</strong>（5–6 档）。作为单机/桌面产品一致性设计优秀、韧性组件齐备；但水平扩展与高可用能力缺失（SQLite 单写者，无集群/故障转移），符合"单机可接受、扩展需改造"。</p>
+<h3>D7.4 集成兼容与可观测性（2 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>小分</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>API 完备性</td>
+<td>0.6/0.6</td>
+<td>接口体系非常完备：Rust JSON-RPC app-server 协议（v0/v2，<code>catalog.rs</code> 250+ 方法，schema 自动生成 TS 类型 <code>protocol-types.ts</code>）、OpenAI/Anthropic 兼容 REST（<code>/v1/chat/completions</code>、<code>/v1/images/generations</code>）、MCP 集成、插件 API、CLI 多命令、发布 npm 包（<code>@limecloud/*</code>）</td>
+</tr>
+<tr>
+<td>标准协议</td>
+<td>0.5/0.6</td>
+<td>支持 MCP、OpenTelemetry（<code>otel_trace</code> 模块）、Webhook（<code>gateway-tunnel-webhook</code>、<code>connect-webhook</code>）、Cloudflare/ngrok 隧道；<strong>未见 Prometheus <code>/metrics</code> 端点证据</strong></td>
+</tr>
+<tr>
+<td>监控告警</td>
+<td>0.3/0.4</td>
+<td>有健康检查（<code>configured_provider_readiness</code>）、<code>CircuitBreaker</code>、Sentry（<code>@sentry/browser</code>）、连接测试与错误分类、Gate B / GUI smoke 证据链；但<strong>无面向运维的内置指标/告警规则体系</strong></td>
+</tr>
+<tr>
+<td>日志体系</td>
+<td>0.2/0.4</td>
+<td>有 <code>tracing</code> 结构化日志 + 日志级别管理、<code>LogStore</code>、<code>logAgentDebug</code>、网关 <code>LogTailPanel</code>；但中文/英文日志风格混用、错误类型部分退化为 <code>String</code>（丢失结构化），缺乏统一日志规范</td>
+</tr>
+</tbody>
+</table>
+<p><strong>小结</strong>：<strong>1.6/2.0</strong>（7–8 档）。API 与集成能力是全维度最强项，OpenTelemetry/MCP/隧道集成到位；短板在运维向指标与统一日志规范。</p>
+<hr />
+<h3>维度汇总</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D7.1 运维复杂度与升级路径</td>
+<td>3.0</td>
+<td>2.4</td>
+<td>7–8（良好）</td>
+</tr>
+<tr>
+<td>D7.2 安全管理与权限控制</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6（一般）</td>
+</tr>
+<tr>
+<td>D7.3 可扩展性与高可用能力</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6（一般）</td>
+</tr>
+<tr>
+<td>D7.4 集成兼容与可观测性</td>
+<td>2.0</td>
+<td>1.6</td>
+<td>7–8（良好）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>7.0</strong></td>
+<td><strong>7–8（良好下沿）</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>维度得分：7.0 / 10</strong>。Lime 在企业运营特性上呈现明显的"两头强、中间弱"格局：<strong>升级路径与接口集成</strong>达到良好水平（桌面产品分发、N-1 升级冒烟、OpenAI/Anthropic 兼容、MCP、OTel 是真实加分项）；但<strong>企业安全合规</strong>（无 SSO/LDAP/RBAC、凭证明文与自研加密）与<strong>分布式高可用</strong>（SQLite 单机、无集群/故障转移）构成企业客户采购的实质障碍。若面向"个人开发者/小团队"商业化，D7 不构成主要瓶颈；若面向"中大型企业客户"，D7.2 与 D7.3 是必须先补的短板。</p>
+<h3>D8. 团队治理与可持续性</h3>
+<p><strong>维度得分：7.0 / 10</strong>（细则加权：2.0 + 1.2 + 2.0 + 1.8）</p>
+<h3>D8.1 核心维护者能力与背景（2.5 分）→ <strong>2.0（80%）</strong></h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术能力</td>
+<td>强。仓库 9 个月内积累 177.7 万行代码（TypeScript 71.0 万行 + Rust 67.5 万行 + TSX 37.3 万行），跨 Electron 桌面宿主、CLI/TUI、App Server JSON-RPC、RuntimeCore、provider 多协议 stream 等复杂架构，测试占比 28.3%（50.3 万行），工程复杂度远超个人业余项目</td>
+</tr>
+<tr>
+<td>商业经验</td>
+<td>有间接信号：组织名为 <code>limecloud</code>，依赖中引用了私有包 <code>@limecloud/agent-runtime-client / -projection / -ui / -ui-contracts</code>，并具备 Electron Forge（DMG/Squirrel）、Homebrew、Chrome Web Store 等发行渠道，符合企业化产品特征；但无公开的创始人/商业化履历可核</td>
+</tr>
+<tr>
+<td>投入度</td>
+<td>高。近 14 天内发布 10 个版本（v1.137.0 → v1.145.0，约 1–2 天一个 release），<code>pushed_at</code> 为 2026-09-15，持续高频，符合全职团队节奏</td>
+</tr>
+<tr>
+<td>巴士因子</td>
+<td>不确定。贡献者共 11 人，但 90 天内仅 1 个 PR、1 个 issue 关闭，说明开发以核心成员直接提交为主；治理文档中出现单一开发者本机路径（<code>/Users/coso/...</code>）作为架构对齐基准，提示关键知识集中于极少数人</td>
+</tr>
+</tbody>
+</table>
+<p><strong>依据</strong>：投入度与技术能力证据充分（高频发版 + 百万行级代码），组织与私有包结构暗示企业化运营，但缺乏可核实的核心成员履历与巴士因子 ≥3 的证据，故未达 9–10 档。判定为 7–8 档（80%）。</p>
+<h3>D8.2 治理模型透明度（2 分）→ <strong>1.2（60%）</strong></h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>治理文档</td>
+<td>无根级 <code>GOVERNANCE.md</code>、无 <code>CONTRIBUTING.md</code>、无 <code>CODE_OF_CONDUCT.md</code>。存在的 <code>internal/aiprompts/governance.md</code> 与 <code>.codex/skills/lime-governance/SKILL.md</code> 是<strong>内部工程所有权规则</strong>（current/compat/deprecated/dead 分类、唯一事实源、回流守卫），并非面向社区的决策流程文档。有 <code>.github/pull_request_template.md</code>、<code>docs/specification.md</code>、<code>docs/ops.md</code>、<code>FEATURE-MAP.md</code> 等工程文档</td>
+</tr>
+<tr>
+<td>开放程度</td>
+<td>低。90 天 1 个 PR、1 个 issue 关闭、12 个开放 issue，表明决策与开发高度内部化，外部贡献者几乎无参与通道</td>
+</tr>
+<tr>
+<td>基金会/组织</td>
+<td>不属于 CNCF / Apache / Linux Foundation 等中立基金会；归属商业组织 <code>limecloud</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>依据</strong>：有工程层面的严格纪律与文档，但缺少社区治理结构与开放决策流程，决策由核心团队主导，符合 5–6 档（60%）。内部治理文档的存在使其不至落入 3–4 档（治理随意）。</p>
+<h3>D8.3 资金支持与商业赞助（2.5 分）→ <strong>2.0（80%）</strong></h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>现有资金</td>
+<td>无 GitHub Sponsors / Open Collective / 融资信息可采（数据缺失）。但组织账号 <code>limecloud</code> + 私有作用域包 <code>@limecloud/*</code> + 桌面应用与浏览器扩展商业化分发（DMG/Squirrel/Homebrew/Chrome Web Store）指向明确的企业实体在运营</td>
+</tr>
+<tr>
+<td>赞助收入</td>
+<td>无公开赞助数据</td>
+</tr>
+<tr>
+<td>商业实体</td>
+<td>有。组织化仓库、私有 npm 包依赖、多平台发行链路，均为典型公司产品形态</td>
+</tr>
+<tr>
+<td>资金可持续性</td>
+<td>无法量化。但 9 个月百万行级投入 + 每日发版的人力密度，基本排除纯志愿者模式，可持续性偏正向</td>
+</tr>
+</tbody>
+</table>
+<p><strong>依据</strong>：企业实体与商业化发行渠道证据较强，判定为 7–8 档（80%）；因缺乏可核实的融资/赞助金额，不给 9–10 档。</p>
+<h3>D8.4 项目可持续性与传承风险（3 分）→ <strong>1.8（60%）</strong></h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>活跃趋势</td>
+<td>上升/高位平稳。<code>pushed_at</code> 2026-09-15，近两周 10 个 release，夜间 harness CI（<code>harness-nightly.yml</code>）持续运行，无衰减迹象</td>
+</tr>
+<tr>
+<td>维护延续性</td>
+<td><strong>偏弱</strong>。仓库 <code>license = null</code>，本地实测 <code>license: NONE</code>，法律上默认保留全部权利，社区<strong>无法合法 fork 续作</strong>；叠加 90 天仅 1 个 PR / 1 个 issue 关闭，外部社区事实上不存在接管能力</td>
+</tr>
+<tr>
+<td>历史信号</td>
+<td>无 <code>archived</code> 标记，无 deprecated/unmaintained 声明，项目处于活跃态</td>
+</tr>
+<tr>
+<td>分叉风险</td>
+<td>forks 207 / stars 1471（约 14%），无证据表明存在社区分裂式分叉；fork 更多来自使用与镜像</td>
+</tr>
+</tbody>
+</table>
+<p><strong>依据</strong>：活跃度趋势正向且工程连续性机制完善（发版流水线、nightly 守卫、多平台构建），但「若核心团队退出能否被社区接管」这一关键问题上，无许可证 + 近封闭贡献模式构成实质性传承风险，故未达 7–8 档，落于 5–6 档（60%）。</p>
+<h3>结论</h3>
+<ul>
+<li><strong>强项</strong>：核心团队投入度与技术能力突出，资金/组织形态指向企业化运营，短期无停滞风险。</li>
+<li><strong>短板</strong>：社区治理缺位（无 GOVERNANCE/CONTRIBUTING/基金会）、贡献高度封闭（90 天 1 PR、1 issue 关闭）、治理文档属内部工程规范而非开放决策机制。</li>
+<li><strong>最大风险</strong>：无 LICENSE（全权利保留）使项目在核心团队退出时无法被社区合法接管，构成对「可持续性与传承」的结构性威胁；此外关键知识集中于极少数维护者，巴士因子难以核实。</li>
+<li><strong>商业化含义</strong>：作为「公司自研自营的闭源式开源产品」，D8 表现高于平均（6.5→7.0 区间），但若潜在的收购方/集成方希望长期依赖或共治，缺乏许可证与开放治理将构成前置障碍。</li>
+</ul>
+<h3>D9. 上手难度与易用性</h3>
+<h3>D9.1 安装难度（2.5 分）—— <strong>2.0 / 2.5（80%，良好）</strong></h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测情况</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>安装方式</td>
+<td>桌面端支持一键安装：macOS 支持 <code>brew install --cask lime</code> 单条命令，或下载 <code>.dmg</code>；Windows 下载 <code>Lime_*_x64-setup.exe</code>。另有 npm 包形态的 CLI（<code>@limecloud/lime</code>，bin <code>lime</code>）。<strong>无 docker run / docker-compose</strong></td>
+</tr>
+<tr>
+<td>依赖管理</td>
+<td>最终用户路径自包含（Electron 打包）；源码路径则需 Node ≥22、pnpm 9.15.9、完整 Rust 工具链及 V8 / protoc / OpenSSL / portable-pty 等原生依赖</td>
+</tr>
+<tr>
+<td>环境要求</td>
+<td>桌面端无特殊版本要求；源码端 <code>engines.node &gt;= 22.0.0</code>，Rust crate 锁定 <code>v8 = "=150.4.0"</code></td>
+</tr>
+<tr>
+<td>平台覆盖</td>
+<td><strong>仅 macOS 与 Windows</strong>；README 明确「Linux desktop builds are paused」，未覆盖 Linux 桌面对应的大量开发人群</td>
+</tr>
+</tbody>
+</table>
+<p>判定：符合 7–8 档（80%）——「有一键/包管理器安装，需少量配置」。未达 9–10 档的原因是平台未全覆盖（缺 Linux）、Windows 安装包未签名（README 主动提示 SmartScreen），且源码安装属于重型多工具链场景。</p>
+<h3>D9.2 部署与配置难度（2.5 分）—— <strong>1.5 / 2.5（60%，一般）</strong></h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测情况</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>部署方式</td>
+<td><strong>仓库内不存在 Dockerfile / docker-compose / Helm / K8s 清单</strong>；P0 docker 采集仅命中 <code>Makefile</code>，其全部目标为测试分层（tdd/test-unit/test-rust-*），无任何 build/deploy/install 目标。交付形态是桌面安装包</td>
+</tr>
+<tr>
+<td>配置复杂度</td>
+<td>首次运行必须完成：Provider + 模型 + 凭据配置、工作区目录选择、文件与终端权限授予（README 五步）</td>
+</tr>
+<tr>
+<td>外部依赖初始化</td>
+<td>无需外部数据库/缓存/消息队列——数据层使用 <code>rusqlite</code>（<code>bundled</code> 特性）本地嵌入式存储</td>
+</tr>
+<tr>
+<td>快速验证</td>
+<td><strong>README 未提供 quickstart 脚本、demo 脚本或 10 分钟跑通指引</strong>；仓库 439 个脚本几乎全部是测试/治理/冒烟脚本（<code>smoke:*</code>、<code>governance:*</code>、<code>agent-qc:*</code>），面向内部 CI 而非新用户验证</td>
+</tr>
+<tr>
+<td>面向人群</td>
+<td>非开发人员可独立完成桌面端安装与 GUI 内 Provider 配置；但「自部署/服务化」场景无任何文档支撑</td>
+</tr>
+</tbody>
+</table>
+<p>判定：介于 5–6 档与 7–8 档之间，取 60%。理由是——无容器化/服务化部署方案（与 7–8 档「有容器化部署」不符），无 demo 脚本、且必须自备第三方模型凭据才能进入可用态；但另一方面确实无需初始化任何外部组件，配置项数量有限。</p>
+<h3>D9.3 易用性与操作门槛（2.5 分）—— <strong>2.0 / 2.5（80%，良好）</strong></h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测情况</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>操作便捷度</td>
+<td>主交互是 Electron + React 的图形工作台，「Conversation, plans, file changes, command output, tool results, and artifacts stay around the same Thread」，无需记忆复杂命令即可完成主流程</td>
+</tr>
+<tr>
+<td>交互设计</td>
+<td>依赖清单显示大量交互友好型组件：<code>cmdk</code>（命令面板）、Radix UI 全套（Dialog/Dropdown/Tooltip/Toast/Select/Tabs）、<code>sonner</code>（Toast 通知）、<code>react-resizable-panels</code>（可拖拽面板）、<code>@xterm/xterm</code>（内嵌终端）；同时提供 Rust <code>tui</code>（ratatui + crossterm）与 npm CLI 两种进阶入口</td>
+</tr>
+<tr>
+<td>错误处理</td>
+<td>素材中未见错误提示文本或用户反馈证据，但依赖含 <code>@sentry/browser</code>，说明具备前端错误采集能力；此项<strong>证据不足</strong>，从宽处理</td>
+</tr>
+<tr>
+<td>默认合理性</td>
+<td>数据本地存储、无需外部组件；但<strong>并非开箱即用</strong>——README FAQ 明确「Lime does not provide AI models」，必须先配置 Provider 与凭据</td>
+</tr>
+<tr>
+<td>非专家可用性</td>
+<td>README FAQ 明确回答「Do I need advanced prompt-writing skills? No.」；内建 i18n（<code>i18next</code> / <code>react-i18next</code>）并提供中英双语文档（README.md / README.en.md / README.zh-CN.md），降低非英语用户门槛</td>
+</tr>
+</tbody>
+</table>
+<p>判定：符合 7–8 档（80%）——图形化主导、门槛低、有权限审批与计划先行的交互范式，且多语言支持良好。未达 9–10 档是因为「默认配置即用」不成立（必须接入第三方模型凭据）且错误提示友好度无证据。</p>
+<h3>D9.4 学习曲线与首体验（2.5 分）—— <strong>2.0 / 2.5（80%，良好）</strong></h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测情况</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>上手时间</td>
+<td>桌面包下载安装 + Provider 配置 + 建 Thread，预计在 30 分钟量级；但实际耗时强依赖用户获取第三方 API Key 的速度</td>
+</tr>
+<tr>
+<td>学习曲线</td>
+<td>存在概念门槛：Thread / Turn / Item 任务投影模型、Skills、MCP、权限边界、Provider 路由等，README 用整节「How a task moves forward」与「What the full-stack agent can do」做了解释</td>
+</tr>
+<tr>
+<td>入门引导</td>
+<td>README 提供 Quick Start（下载安装 + 首次运行五步）与 5 个典型场景（修 bug、交付全栈特性、素材转交付物、把流程固化为 Skill、多 Agent 协同）；<strong>未见交互式 onboarding / 教程代码</strong></td>
+</tr>
+<tr>
+<td>概念门槛</td>
+<td>无需框架原理前置知识；但需要理解「Agent 会读写文件与执行命令，需授予并审批权限」这一心智模型</td>
+</tr>
+<tr>
+<td>示例丰富度</td>
+<td><strong>示例文件仅 1 个</strong>，无模板项目/示例仓库；不过文档总量达 729 个文件，含 <code>docs/content/02.user-guide</code>（MCP、gateway-tunnel-webhook、runtime-agents）、<code>03.providers</code>、<code>04.api-reference</code>、<code>08.open-platform</code>（插件开发）等成体系内容</td>
+</tr>
+</tbody>
+</table>
+<p>判定：符合 7–8 档（80%）——「30 分钟内首次成功，有 quickstart 和示例」。示例工程数量（1 个）与缺少交互式引导是主要扣分项，但文档体系（用户指南 / Provider / API 参考 / 插件开发）弥补了大部分学习成本。</p>
+<h3>D9 维度结论</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D9.1 安装难度</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>良好（80%）</td>
+</tr>
+<tr>
+<td>D9.2 部署与配置难度</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>一般（60%）</td>
+</tr>
+<tr>
+<td>D9.3 易用性与操作门槛</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>良好（80%）</td>
+</tr>
+<tr>
+<td>D9.4 学习曲线与首体验</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>良好（80%）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>7.5</strong></td>
+<td><strong>🟡 中等</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>总体判定：🟡 中等（7.5 / 10）——面向有技术基础者。</strong></p>
+<p>Lime 的上手体验呈明显的「双速结构」：
+- <strong>正向</strong>：作为桌面 GUI 应用，最终用户路径短——macOS 一条 <code>brew install --cask lime</code> 或下载 <code>.dmg</code> / <code>.exe</code>，图形界面内完成 Provider 配置与工作区选择，无外部数据库/缓存/消息队列需要初始化，内建 i18n 与中英双语文档，README 明确「无需高级提示词技巧」。
+- <strong>负向</strong>：<strong>没有容器化/服务化部署方案</strong>（Dockerfile / docker-compose / Helm 全缺，<code>Makefile</code> 仅含测试目标），<strong>不支持 Linux 桌面对应人群</strong>，Windows 安装包未签名，<strong>无 demo/quickstart 脚本</strong>可供 10 分钟验证，且首次可用强依赖用户自备第三方模型凭据。源码构建路径在 README 中完全未文档化，需 Node ≥22 + pnpm + 完整 Rust/V8 原生工具链，属资深开发者专属。</p>
+<p><strong>商业化含义</strong>：对个人开发者与设计师类用户，Lime 的转化门槛较低，试用转化阻力主要来自「必须先拿到一个模型 API Key」这一前置动作；对团队/企业客户，由于缺失容器化部署、Linux 支持与自托管文档，D9.2 会成为采购评估阶段的显著摩擦点——这是商业化推广中最值得优先补齐的一环（补一份 docker-compose / 服务端部署文档 + 一个 10 分钟 demo 脚本，即可把 D9.2 从 60% 提升至 80% 档，总分升至 8.0，进入 🟢 简单区间）。</p>
+<h3>D10 功能价值（使用价值视角）</h3>
+<blockquote>
+<p>平行维度，权重 0%，不计入综合评分；仅用于价值画像判定。</p>
+</blockquote>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>档位判定</th>
+<th>小分</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10.1</td>
+<td>效用强度</td>
+<td>3</td>
+<td>5–6 档（60%）</td>
+<td>1.8</td>
+<td>单用户可获得的效用属实（agentic 编码/终端/文件/研究/内容一体化工作台），但属「个人生产力工具」层，非项目级依赖或业务命脉；同类替代品（Claude Code、Codex、Cursor 等）密集且成熟，替代成本低；效用高度依赖用户自备的第三方模型 Provider，宿主本身只是执行壳；README 自述「learning and research purposes only」；9 个月内发布 145+ 个版本，效用稳定性受高频变更影响</td>
+</tr>
+<tr>
+<td>D10.2</td>
+<td>实际使用规模</td>
+<td>3</td>
+<td>3–4 档（40%）</td>
+<td>1.2</td>
+<td>硬指标仅到「千级」：Star 1471 / Fork 207 / Contributor 11 / Watcher 13；npm 周下载量实采 5（既非主分发渠道，也无规模信号）；GitHub Dependents 未采集到，标 N/A；无公开生产采用案例、无 Homebrew/DMG 安装量披露；属小范围使用</td>
+</tr>
+<tr>
+<td>D10.3</td>
+<td>免费可得的完整效用</td>
+<td>2</td>
+<td>9–10 档（100%）</td>
+<td>2.0</td>
+<td>完整桌面应用免费下载（GitHub Releases + Homebrew cask），README 未展示任何付费版/企业版分层或功能阉割；多 Provider 路由、MCP、Skills、多 Agent、本地工作区等能力全量开放；唯一「成本」是用户自备模型 API Key，属外部服务支出而非项目侧付费墙</td>
+</tr>
+<tr>
+<td>D10.4</td>
+<td>效用可持续性</td>
+<td>2</td>
+<td>7–8 档（80%）</td>
+<td>1.6</td>
+<td>主体为本地运行的 Electron 桌面应用，文件/终端/状态/工件均在本地，模型服务虽在线但由用户自行配置、可替换、非厂商锁定；扣分风险：仓库内<strong>无 LICENSE 文件</strong>（GitHub API license 为 null，与 README 声称的 GPLv3 不一致），法定分叉维护权属不清；依赖固定版本的 <code>@limecloud/agent-runtime-*</code> 等 scoped 包（0.1.1），构建可重现性存疑；版本迭代极快，停维后 API/Provider 漂移会逐步侵蚀效用</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td></td>
+<td><strong>6.6</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<p><strong>D10 得分 6.6 / 10（一般偏上），置信度中（依赖方数、安装量等关键规模指标缺失）。</strong></p>
+<ul>
+<li><strong>效用真实但不可替代性弱</strong>：Lime 把 Agent Loop、文件系统、终端进程、MCP/Skills、多模态、多 Agent 协作收进一个可追溯的桌面工作台，单用户效用属于「明显但有限」——价值主要来自用户自己接入的模型，项目本身解决的是「交互与编排」，而这一层正是红海竞争最激烈、最易被替换的地方。故 D10.1 只能落在 5–6 档。</li>
+<li><strong>规模是最大短板</strong>：1471 Star / 207 Fork / 11 Contributor 的组合，配合 npm 周下载 5 的实采数据，指向「小范围使用」；这类桌面应用的真实渗透依赖 Releases 下载量，该项取不到，规模评估只能保守处理。</li>
+<li><strong>免费完整性极高，但这不是商业优势而是商业张力</strong>：D10.3 满分（免费即全部价值）与付费转化类指标（D4.3）天然反相关——项目当前完全无付费墙，说明其使用价值可被用户零成本获取，但也意味着从「免费效用」到「可交换价值」缺少结构化的转换器件。</li>
+<li><strong>可持续性的隐忧是法律与工程双重的</strong>：本地化架构本身给了高分基础，但<strong>仓库缺失 LICENSE 文件</strong>（README 徽章声明 GPLv3 却无实际许可文本）直接削弱了「社区可分叉维护」这一兜底能力；叠加 <code>@limecloud/*</code> 固定版本依赖与月均十余次的版本节奏，一旦停维，效用衰减速度会快于典型本地库。</li>
+</ul>
+<p><strong>价值画像提示</strong>：高免费可得性 + 中等效用强度 + 小规模实际采用 = 典型的「作者自用型开源生产力工具」。使用价值扎实且无门槛，但尚未证明其在他人工作流中达到项目级依赖深度。</p>
+<h3>D11 社会价值——正外部性视角（平行维度，权重 0%，不计入综合评分与一票否决）</h3>
+<blockquote>
+<p>本维度仅用于 3.4 价值画像。评价对象是「项目对行业/社会的外溢贡献本身」，与 D2.5/D2.6（工程质量视角）、D3.4（品牌对商业势能的助力）区分。</p>
+</blockquote>
+<h3>事实基础</h3>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>实测值</th>
+<th>来源</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Star / Fork</td>
+<td>1,471 / 207</td>
+<td>GitHub API</td>
+</tr>
+<tr>
+<td>Contributors</td>
+<td>11</td>
+<td>GitHub API</td>
+</tr>
+<tr>
+<td>npm 周下载量</td>
+<td>5</td>
+<td>补采实采</td>
+</tr>
+<tr>
+<td>代码规模</td>
+<td>1,776,956 行（.ts 71万 / .rs 67万 / .tsx 37万）</td>
+<td>本地实测</td>
+</tr>
+<tr>
+<td>文档文件数</td>
+<td>729</td>
+<td>本地实测</td>
+</tr>
+<tr>
+<td>许可证</td>
+<td>README 徽章标 GPLv3；GitHub API 与本地 LICENSE 文件均为 null/未检出</td>
+<td>双向核对</td>
+</tr>
+<tr>
+<td>平台</td>
+<td>macOS / Windows（Linux 桌面版暂停）</td>
+<td>README</td>
+</tr>
+<tr>
+<td>i18n</td>
+<td>i18next / react-i18next 依赖；README 提供 en / zh-CN 双语</td>
+<td>依赖清单 + 文件列表</td>
+</tr>
+<tr>
+<td>开放标准</td>
+<td>实现 MCP、OpenAI API 兼容、Claude API 兼容；提供开放平台（plugin / connect / webhook）</td>
+<td>文档目录</td>
+</tr>
+<tr>
+<td>Dependents / 供应链依赖</td>
+<td>无任何下游依赖证据（npm 周下载 5）</td>
+<td>实采</td>
+</tr>
+</tbody>
+</table>
+<h3>D11.1 数字公共基础设施属性（满分 3）</h3>
+<ul>
+<li><strong>关键依赖地位</strong>：无。Lime 是一个 Electron 桌面<strong>终端应用</strong>，而非可被下游引用的库/协议实现；其自发布的客户端包（<code>@limecloud/agent-runtime-*</code>）npm 周下载量仅 <strong>5</strong>，无生态依赖迹象。</li>
+<li><strong>停摆影响面</strong>：假设项目消失，波及范围限于其自身用户，不触及软件供应链。</li>
+<li><strong>DPG 属性</strong>：宣称 GPLv3、本地优先、可自托管，具备「开放、可复用」的形式特征；但许可证文件在 GitHub API 与本地均<strong>未检出</strong>（README 徽章与仓库元数据不一致），公开复用与合规使用的确定性打折。</li>
+<li>判定：几乎无下游依赖、停摆影响微小（3–4 档）。</li>
+</ul>
+<p><strong>小分：1.2 / 3（40%）</strong></p>
+<h3>D11.2 教育与人才价值（满分 2.5）</h3>
+<ul>
+<li><strong>门槛降低/文档资产</strong>：文档体量突出——729 个文档文件，含 <code>docs/specification.md</code>、开放平台与插件开发指南、API Reference（OpenAI/Claude）、Skills 说明、<code>FEATURE-MAP.md</code>、<code>AGENTS.md</code>/<code>CLAUDE.md</code>，对「如何构建一个 Agent 宿主」有一定示范与学习价值。</li>
+<li><strong>源码学习价值</strong>：177 万行、测试 50 万行（测试占比 28.3%），工程规范完整（ESLint / vitest / playwright / dependency-cruiser），具备可研读性；但体量庞大且强耦合私有 runtime 包，作为「入门范本」的可读性有限。</li>
+<li><strong>教学采用</strong>：项目创建于 2025-12-13，仅约 9 个月，未见课程、教程、awesome 列表等第三方教学素材；无「事实教材」迹象。</li>
+<li>判定：有一定学习/文档价值，影响限于小圈子（5–6 档）。</li>
+</ul>
+<p><strong>小分：1.5 / 2.5（60%）</strong></p>
+<h3>D11.3 普惠与可及性（满分 2.5）</h3>
+<ul>
+<li><strong>能力平权化</strong>：以 GPLv3 开源、免费提供与 Claude Code / Codex / WorkBuddy 同类的 hands-on agent 能力，且<strong>不锁定模型厂商</strong>（可自带 Provider、模型与凭据），对中小团队/个人有明确降本意义，替代的是订阅制商业编码代理（约 $20/月量级）。</li>
+<li><strong>限制条件</strong>：模型调用成本仍需用户自付（仅提供宿主，不提供模型）；分发仅为 macOS/Windows 桌面，<strong>Linux 桌面暂停</strong>；Electron 宿主对硬件有一定门槛；因此「零成本能力」并不成立。</li>
+<li><strong>可及性支持</strong>：具备 i18n 基础设施（i18next/react-i18next）与中英双语 README，但未见无障碍（a11y）专项支持或低配硬件适配说明。</li>
+<li>判定：有普惠效果，但受硬件/平台/配置门槛与许可证不确定性限制（5–6 档）。</li>
+</ul>
+<p><strong>小分：1.5 / 2.5（60%）</strong></p>
+<h3>D11.4 开放标准与行业推动（满分 2）</h3>
+<ul>
+<li><strong>标准推动</strong>：实现了 MCP、OpenAI API、Claude API 兼容等<strong>已被他人定义</strong>的开放标准，属标准的<strong>消费/兼容方</strong>而非制定或主导方，无防止厂商锁定的进一步外溢（如新协议提案）。</li>
+<li><strong>科研支撑</strong>：无学术引用/经论文使用的证据（外部检索不可得，该项标 N/A，不单独扣分）。</li>
+<li><strong>行业示范效应</strong>：Thread/Turn/Item 任务投影、Skills 复用、多 Agent 协作等设计有理念价值，但项目新、体量小（1.5k star），无同行模仿或抬高行业水位的可验证痕迹。</li>
+<li>判定：遵循开放标准但无推动作用（5–6 档）。</li>
+</ul>
+<p><strong>小分：1.2 / 2（60%）</strong></p>
+<h3>细则打分汇总</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D11.1 数字公共基础设施属性</td>
+<td>3</td>
+<td>1.2</td>
+<td>3–4 档（40%）</td>
+</tr>
+<tr>
+<td>D11.2 教育与人才价值</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6 档（60%）</td>
+</tr>
+<tr>
+<td>D11.3 普惠与可及性</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6 档（60%）</td>
+</tr>
+<tr>
+<td>D11.4 开放标准与行业推动</td>
+<td>2</td>
+<td>1.2</td>
+<td>5–6 档（60%）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>5.4</strong></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<p>Lime 的正外部性呈「<strong>应用层开源普惠 &gt; 基础设施与标准贡献</strong>」的形态：作为免费、开源、不锁定模型厂商的桌面 Agent，它在降低中小团队/个人的能力获取成本上有实际价值，并配有体量可观的文档与开放平台（MCP / 插件 / webhook）；i18n 与中英双语也提供了基础可及性。</p>
+<p>但其公共属性存在三重天花板：（1）它是<strong>终端应用而非数字底座</strong>，npm 周下载仅 5，无下游依赖，停摆不波及供应链；（2）<strong>许可证不一致</strong>（README 标 GPLv3，仓内未检出 LICENSE），削弱了「开放、可复用」的确定性；（3）<strong>教育与标准层面仅为遵循者</strong>——9 个月历史、无教学生态、MCP/OpenAI/Claude 均为实现他人标准，且有 Linux 桌面与硬件门槛的普惠缺口。</p>
+<p><strong>D11 合计 5.4 / 10（一般）</strong>。因本维度权重为 0%，不进入综合评分与一票否决，仅作为 3.4 价值画像的「社会外溢」坐标；科研引用项数据不可得，该维度置信度中等。</p>
+<h2>五、商业化价值判断</h2>
+<p><strong>综合评分 63.7/100，等级 B（中等商业化潜力）；公共价值分 6.0/10，价值画像为「📦 长尾项目」。</strong></p>
+<p>Lime 呈现出一个鲜明的「工程强、商业弱」的错配结构。技术侧得分普遍在 7 分以上（D2 7.6、D9 7.5、D1 7.0、D7 7.0、D8 7.0），9 个月积累 1,776,956 行代码、1,880 个测试文件（测试占比 28.3%）、729 个文档文件、7 个 CI workflow，并在 15 天内连发 9–10 个版本（v1.137.0→v1.145.0），产品成熟度与迭代产能均属上乘。但商业侧三个关键维度全部落在 5 分档：D4 商业模式 5.1、D5 竞争壁垒 5.0、D3 社区生态 5.7。</p>
+<p>价值画像判定为「长尾项目」（综合评分 63.7 &lt; 65 且公共价值分 6.0 &lt; 7）。需注意<strong>画像临界</strong>：综合评分 63.7 落在 60–70 临界区间，公共价值分 6.0 亦接近 6.5 下沿。若后续补齐许可证与生态共建，公共价值分上行至 7 以上，画像将转为「公共产品型」，路径应从直接变现转向影响力变现；若维持现状，则应按长尾项目处理——技术借鉴或人才引进优先于商业化投入。</p>
+<p>核心矛盾在于：<strong>项目当前的一切设计选择都在削弱而非强化变现能力</strong>。BYO-Model/BYO-Key 定位明确排除推理转售收入（FAQ: "Does Lime provide AI models? No"）；本地优先架构消除了云侧用量计量这一最自然的付费锚点；README 免责声明限定 "provided for learning and research purposes only"，与商业化目标直接冲突；GPLv3 声明（且无 LICENSE 文件）叠加 11 位贡献者无 CLA，封堵了 Open Core 同进程闭源与双协议商业授权两条主流路径。工程投入与商业披露严重不对称——9 个月 177.7 万行代码、16 天 10 个版本，但对外零商业信号，暗示当前战略重心在产品与生态而非收入。</p>
+<h2>六、商业路径分析</h2>
+<p>基于 D4 的变现路径评估与价值画像修正，Lime 的商业路径应按优先级排序如下：</p>
+<p><strong>路径一：插件生态与开放平台（最可行，但需先建生态）</strong>
+仓库已预置插件开发文档（docs/content/08.open-platform/{1.overview,3.plugin-development,4.connect,6.connect-webhook}.md）、plugin-standalone-release-gate.yml CI 门禁、Chrome 扩展商店提交材料（extensions/lime-chrome/CHROME_WEB_STORE_SUBMISSION.md）与 Homebrew 分发通道（brew tap aiclientproxy/tap）。这是唯一有技术铺垫且不与 GPLv3 冲突的路径。但 D3 显示第三方插件、衍生项目、外部教程均无证据，生态位处于「有潜力未兑现」状态——需先解决社区共建问题，否则插件市场无供给方。</p>
+<p><strong>路径二：托管网关 / 连接器服务（技术可行，需产品化）</strong>
+docs/content/02.user-guide/16.gateway-tunnel-webhook.md 与 17.runtime-agents.md 提供了 gateway 变现钩子的技术基础。该路径的合理性在于：BYO-Key 定位下用户仍需自建 Provider 连接与凭据管理，托管网关可作为「便利性」付费点。但仓库中无定价与交付实体，且需注意 GPLv3 对服务端代码的约束边界。</p>
+<p><strong>路径三：企业版 per-seat 订阅（天花板受限）</strong>
+桌面 Agent 品类定价带约 $19–40/席/月，且无 per-usage 扩展点，收入扩展性局限于 per-seat 订阅或 enterprise flat fee。可设想的付费点（SSO/RBAC/审计/共享 Skills/SLA）在仓库中均无对应功能或文档——D7 明确指出无 SSO/OAuth/LDAP/SAML/多用户 RBAC 证据，权限模型仅为单机工作区维度。此路径需先补齐企业功能，投入大、周期长。</p>
+<p><strong>路径四（不推荐）：Open Core 同进程闭源 / 双协议商业授权</strong>
+GPLv3 强传染性叠加 11 位贡献者各自持有版权且无 CLA/DCO，使这两条路径在操作上不可行，或需先重构版权归属（逐一取得贡献者授权）。D6 明确：GPL-3.0-only 下无法重许可，直接封堵该路径。</p>
+<p><strong>路径修正说明</strong>：因价值画像为「长尾项目」，方法论建议为「技术借鉴或人才引进，不投入商业化」。但考虑到画像处于临界区间且技术资产（D2 7.6）显著优于商业资产，若决策方仍希望推进，应优先选择<strong>路径一</strong>——以生态建设替代直接变现，先修复社区共建与许可证问题，再评估是否升级为「公共产品型」画像下的影响力变现（赞助/基金会托管/大厂雇佣维护者/围绕生态做服务与培训）。</p>
+<h2>七、能力评估：能做什么 &amp; 最适合做什么</h2>
+<p><strong>技术能力（强）</strong>
+- 具备构建复杂多语言桌面应用系统的完整工程能力：Rust crate workspace（40+ path crate）+ React/Electron 前端，采用代码生成（schema→TS 类型）、门面/工厂/策略/RAII 等模式，复刻门槛极高（D2.2）
+- 质量保障体系突出：1,880 个测试文件 / 503,079 行测试代码（占比 28.3%），7 个 workflow 含架构确认、契约测试、GUI smoke、Windows 安全矩阵、layer budget 等多层门禁（D2.8）
+- 升级与分发链路成熟：Electron 自动更新 + Homebrew tap 自动 bump + Windows Squirrel N-1→候选升级/卸载冒烟测试与 Gate B 证据链（D7.1）
+- 接口集成能力最强项：Rust JSON-RPC 协议（v0/v2 250+ 方法）、OpenAI/Anthropic 兼容 REST、MCP、CLI/npm 包、OpenTelemetry 追踪齐备（D7.3）
+- 安全实践高于平均：常量时间比较、沙箱与 fail-closed 权限、路径穿越/注入防护、路由证据脱敏（D2.4）</p>
+<p><strong>最适合做什么</strong>
+1. <strong>作为技术资产被借鉴或引进</strong>：1,776,956 行代码、28.3% 测试占比、多语言分层架构与自研 JSON-RPC 协议，对任何要构建 Agent 运行时的团队都是高价值参考；核心团队 9 个月交付 177.7 万行代码的产能本身即为稀缺资产（D8.1）
+2. <strong>作为桌面端 AI Agent 的完整功能参照实现</strong>：功能极完备（编码/文件/终端/工具/研究/内容/多模态/多 Agent），国际化完善（TUI 5 语 + Web i18n），向后兼容机制扎实（serde default/退役字段保留/legacy 加密迁移/N-1 升级 smoke）（D2.6）
+3. <strong>作为开放平台/插件体系的底座</strong>：已预置插件开发文档、Skills 体系、MCP 与 Chrome 扩展/Homebrew 分发通道，具备生态延展的技术骨架（D3.3、D4.2）</p>
+<p><strong>不适合做什么</strong>
+- 不适合作为独立商业产品直接变现：D4 5.1 分，无定价页、无版本分层、无付费触发点，且免责声明与商业化直接冲突
+- 不适合作为企业级基础设施采购：无 SSO/RBAC、无高可用与水平扩展（单机 SQLite）、凭证明文存储（D7.2、D7.4）
+- 不适合作为数字公共基础设施依赖：npm 周下载仅 5，无下游依赖，停摆不波及软件供应链（D11.1）</p>
+<h2>八、短板识别：还缺少什么</h2>
+<p><strong>短板一：许可证状态根本性不明（最高优先级）</strong>
+README 明确声明 GPLv3（含徽章与 License 章节），但 GitHub API license=null、本地实测无 LICENSE 文件（license=NONE），lime-rs workspace 亦未声明 license 字段。根 package.json 声明 SPDX "GPL-3.0-only"，但协议载体缺失。仓库归属信息亦不一致：package.json 指向 github.com/limecloud/lime，lime-rs/Cargo.toml 指向 github.com/aiclientproxy/lime。这不仅是合规问题，更直接导致 D8.4 传承风险——社区无法合法 fork 续作。</p>
+<p><strong>短板二：社区共建通道几近关闭</strong>
+1,471 Star / 207 Fork 但仅 11 位贡献者，近 90 天仅 1 个 PR 新建、1 个 Issue 关闭，贡献高度集中于单一母组织 limecloud。无 GOVERNANCE.md / CONTRIBUTING.md / CODE_OF_CONDUCT，唯一治理文档 internal/aiprompts/governance.md 属内部代码所有权规则而非开放决策流程。可信度信号异常：1471 Star 与 11 贡献者、90 天 1 PR 的公开协作信号极不匹配。</p>
+<p><strong>短板三：变现基础设施完全空白</strong>
+无定价页、无 Enterprise/Pro 版本对比、无订阅或许可机制痕迹；无 CLA/DCO；无付费触发点对应的功能（SSO/RBAC/审计/共享 Skills/SLA 均无实现或文档）。BYO-Model 定位排除推理收入，本地优先架构消除用量计量锚点。</p>
+<p><strong>短板四：企业就绪度缺口</strong>
+无 SSO/OAuth/LDAP/SAML/多用户 RBAC；api_key/api_secret/bot_token 等大量明文存储，API Key 加密为自研 XOR 流 + SHA-256 派生密钥（非标准 AEAD）；核心存储为单机 SQLite，无集群部署/故障转移证据；未集成依赖漏洞扫描。</p>
+<p><strong>短板五：竞争壁垒缺失</strong>
+无专利、无数据飞轮（本地优先、模型自配导致项目方不沉淀数据）、无插件市场证据；90 天外部贡献仅 1 PR，生态网络效应近乎为零；1,471★ 相较已验证竞品（37,373–155,810★）落后 25–106 倍。护城河仅为迭代速度，而竞品同期均活跃推送，且模型原厂（Anthropic/OpenAI）捆绑分发构成明确颠覆风险。</p>
+<p><strong>短板六：代码整洁性与部署形态局限</strong>
+存在大量 2000–5000+ 行「上帝文件」（model_registry_service.rs、config/types.rs、useAgentSession.ts 等），Config 为典型上帝对象，重复逻辑与中英混用（D2.3 仅 60%）；仓库完全没有容器化/服务化部署方案（0 个 Dockerfile/docker-compose/Helm/K8s 清单）；仅覆盖 macOS/Windows，Linux desktop builds are paused。</p>
+<h2>九、风险提示</h2>
+<p><strong>风险一：许可证合规风险（高）</strong>
+协议载体缺失 + 仓库地址不一致 + 无 CLA/DCO + 11 位贡献者各自持有版权，构成实质法律不确定性。商业发行前须人工厘清版权主体链条并补齐 LICENSE 文件。商标/专利无法自动核查，项目名 "Lime" 为通用词且仅存在 disclaimer 文档、未检出商标使用政策，商业发行前须人工检索（该项置信度低）。</p>
+<p><strong>风险二：项目可持续性与传承风险（高）</strong>
+license=null（NONE，全权利保留）使社区无法合法 fork 续作；贡献者仅 11 人且关键知识集中于少数人，巴士因子不可核实。虽当前 archived=false 且迭代活跃（近 14 天 10 个版本），但一旦核心团队停止投入，项目将无法被社区接管。</p>
+<p><strong>风险三：竞争颠覆风险（高）</strong>
+赛道拥挤且后发（2025-12-13 建仓，晚于已成型的厂商级与 IDE 内建 Agent）。替代品众多（Claude Code/Codex/Cursor/Cline/OpenHands/Aider），迁移成本近零。MCP 标准化反而稀释客户端差异化。模型原厂捆绑分发构成明确颠覆风险。</p>
+<p><strong>风险四：数据安全风险（中高）</strong>
+凭证明文存储、API Key 采用自研 XOR 流加密（非标准 AEAD）、密钥依赖机器 ID 保密、未集成依赖漏洞扫描。依赖链含 git 补丁依赖（crossterm↔openai-oss-forks/crossterm@45fecb9）与内置二进制（protoc-bin-vendored），审查成本偏高。</p>
+<p><strong>风险五：可信度信号异常（中）</strong>
+1471 Star / 207 Fork 与 11 位贡献者、90 天 1 PR / 1 Issue 关闭、177.6 万行代码、28.3% 测试占比的规模严重不匹配；15 天连发 9 个版本呈自动化发布特征。Star 增速因补采缺失采用退化公式（1471 ÷ 9.07 月 ≈ 162/月），存在高估风险；Issue 平均响应时间因样本仅 1 条而无法计算，D3.1 置信度下降。</p>
+<p><strong>风险六：依赖与构建可重现性风险（中）</strong>
+依赖固定版本 @limecloud/agent-runtime-* scoped 包，构建可重现性存疑；npm lockfile 未提供；依赖总量约 121(npm)+110+(Rust)，含 git 补丁依赖与内置二进制。源码构建路径在 README 中零文档化，成本极高（Node &gt;=22 + pnpm 9.15.9 + 40+ crate，含 v8=150.4.0、deno_core_icudata、sherpa-onnx、ssh2 vendored-openssl 等重型原生依赖）。</p>
+<p><strong>风险七：版本节奏压力（低中）</strong>
+9 个月内发布 145+ 个版本，近两周 v1.137.0→v1.145.0，对使用稳定性与长期维护预期构成压力。</p>
+<h2>十、结论与建议</h2>
+<p><strong>结论</strong></p>
+<p>Lime 是一个工程质量优秀、技术资产厚重，但商业化基础严重缺失的开源桌面 AI Agent 项目。综合评分 63.7/100，等级 B（中等商业化潜力），价值画像为「📦 长尾项目」（画像临界，综合评分落在 60–70 区间）。项目在技术成熟度（D2 7.6）、易用性（D9 7.5）、市场需求（D1 7.0）、企业就绪度（D7 7.0）与团队可持续性（D8 7.0）上表现良好，但在商业模式（D4 5.1）、竞争壁垒（D5 5.0）与社区生态（D3 5.7）三个决定商业化成败的维度上均处于中游。</p>
+<p>核心判断：<strong>当前状态下不建议直接投入商业化</strong>。项目的一切设计选择（BYO-Key、本地优先、免责声明、GPLv3 声明、无 CLA）都在系统性削弱变现能力，且工程投入与商业披露严重不对称，暗示团队自身战略重心亦不在收入。但技术资产的价值不应被低估——1,776,956 行代码、28.3% 测试占比、多语言分层架构与 9 个月交付产能，对任何构建 Agent 运行时的团队都是高价值参考。</p>
+<p><strong>建议</strong></p>
+<ol>
+<li>
+<p><strong>若决策方为技术团队/大厂</strong>：优先考虑技术借鉴或人才引进。核心团队 9 个月交付 177.7 万行代码的产能与多语言架构能力是稀缺资产，引进价值高于收购产品价值。</p>
+</li>
+<li>
+<p><strong>若决策方坚持商业化推进</strong>：按以下顺序补齐短板——
+   - <strong>第一步（合规先行）</strong>：补齐 LICENSE 文件、统一仓库归属信息、建立 CLA/DCO 机制、人工检索商标。这是所有后续路径的前提，未解决前任何商业化动作都带法律不确定性。
+   - <strong>第二步（社区激活）</strong>：建立 GOVERNANCE.md / CONTRIBUTING.md / CODE_OF_CONDUCT，开放外部 PR 通道，将 11 人贡献者结构扩展为多元结构。这是插件生态路径的供给方基础。
+   - <strong>第三步（路径选择）</strong>：优先走插件生态与开放平台路径（已有技术铺垫），其次评估托管网关/连接器服务；企业版 per-seat 订阅需先补齐 SSO/RBAC/审计等企业功能，投入大、周期长；Open Core 同进程闭源与双协议商业授权在当前版权结构下不可行。
+   - <strong>第四步（安全加固）</strong>：将自研 XOR 流加密替换为标准 AEAD，凭据改为加密存储，集成依赖漏洞扫描。</p>
+</li>
+<li>
+<p><strong>若维持开源现状</strong>：可考虑向「公共产品型」画像演进——通过基金会托管、赞助、大厂雇佣维护者、围绕生态做服务与培训实现影响力变现。但需先解决许可证问题（当前 license=null 使社区无法合法 fork 续作，与公共产品定位根本冲突），并提升实际使用规模（npm 周下载仅 5，无下游依赖，数字公共基础设施属性弱）。</p>
+</li>
+<li>
+<p><strong>风险监控要点</strong>：持续跟踪许可证状态变化、贡献者结构变化、竞品动态（尤其模型原厂捆绑分发策略）与核心团队投入持续性。若出现 archived 或迭代停滞信号，应立即下调评估。</p>
+</li>
+</ol>
+<h2>十一、项目地址</h2>
+<p><svg class="ri ri-muted" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.001 2C6.47598 2 2.00098 6.475 2.00098 12C2.00098 16.425 4.86348 20.1625 8.83848 21.4875C9.33848 21.575 9.52598 21.275 9.52598 21.0125C9.52598 20.775 9.51348 19.9875 9.51348 19.15C7.00098 19.6125 6.35098 18.5375 6.15098 17.975C6.03848 17.6875 5.55098 16.8 5.12598 16.5625C4.77598 16.375 4.27598 15.9125 5.11348 15.9C5.90098 15.8875 6.46348 16.625 6.65098 16.925C7.55098 18.4375 8.98848 18.0125 9.56348 17.75C9.65098 17.1 9.91348 16.6625 10.201 16.4125C7.97598 16.1625 5.65098 15.3 5.65098 11.475C5.65098 10.3875 6.03848 9.4875 6.67598 8.7875C6.57598 8.5375 6.22598 7.5125 6.77598 6.1375C6.77598 6.1375 7.61348 5.875 9.52598 7.1625C10.326 6.9375 11.176 6.825 12.026 6.825C12.876 6.825 13.726 6.9375 14.526 7.1625C16.4385 5.8625 17.276 6.1375 17.276 6.1375C17.826 7.5125 17.476 8.5375 17.376 8.7875C18.0135 9.4875 18.401 10.375 18.401 11.475C18.401 15.3125 16.0635 16.1625 13.8385 16.4125C14.201 16.725 14.5135 17.325 14.5135 18.2625C14.5135 19.6 14.501 20.675 14.501 21.0125C14.501 21.275 14.6885 21.5875 15.1885 21.4875C19.259 20.1133 21.9999 16.2963 22.001 12C22.001 6.475 17.526 2 12.001 2Z"/></svg> <a href="https://github.com/limecloud/lime">https://github.com/limecloud/lime</a></p>
+<hr />
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+</blockquote>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家　<a href="https://www.mova.work">www.mova.work</a></p></body></html>

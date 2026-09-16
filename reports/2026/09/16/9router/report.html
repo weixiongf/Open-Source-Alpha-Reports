@@ -1,0 +1,1948 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><title>9router 商业价值分析报告</title><style>/* default — 品牌蓝紫主题（从 md2pdf.py 原 CSS 常量迁出，视觉与历史产物一致） */
+@page { size: A4; margin: 18mm 15mm 20mm 15mm; }
+* { box-sizing: border-box; }
+/* 字体规范：一律开源思源黑体 CN（OFL 免费商用）；正文 Regular/标题 Bold/大字数字 Light */
+body { font-family: "Source Han Sans CN","思源黑体 CN","Noto Sans SC",sans-serif; color:#1e293b; font-size:10.5pt; line-height:1.75; margin:0; }
+.cover { page-break-after: always; text-align:center; padding-top:40px; }
+.cover .kicker { color:#2563eb; letter-spacing:6px; font-size:12pt; font-weight:500; }
+.cover h1 { font-size:26pt; margin:14px 0 6px; }
+.cover .sub { color:#64748b; font-size:11pt; margin-bottom:22px; }
+.badge { display:inline-block; background:linear-gradient(135deg,#2563eb,#7c3aed); color:#fff; border-radius:18px; padding:16px 44px; margin:10px 0 18px; }
+.badge .g { font-size:34pt; font-weight:300; line-height:1; }
+.badge .s { font-size:12pt; opacity:.92; margin-top:4px; }
+.meta { color:#475569; font-size:9.5pt; margin-top:14px; }
+.bars { max-width:620px; margin:20px auto 0; text-align:left; }
+.bar-row { display:flex; align-items:center; gap:8px; margin:5px 0; font-size:9pt; }
+.bar-name { width:110px; text-align:right; color:#334155; font-weight:500; }
+.bar-track { flex:1; height:9px; background:#f1f5f9; border-radius:5px; overflow:hidden; }
+.bar-fill { display:block; height:100%; border-radius:5px; }
+.bar-val { width:30px; font-weight:700; color:#0f172a; }
+.bar-w { width:52px; color:#94a3b8; font-size:8pt; }
+h1 { font-size:17pt; color:#0f172a; border-bottom:3px solid #2563eb; padding-bottom:8px; }
+h2 { font-size:13.5pt; color:#1d4ed8; margin-top:26px; page-break-after: avoid; border-left:5px solid #2563eb; padding-left:10px; }
+h3 { font-size:11.5pt; color:#0f172a; margin-top:18px; page-break-after: avoid; }
+table { border-collapse:collapse; width:100%; margin:10px 0; font-size:9pt; page-break-inside:avoid; }
+th { background:#eff6ff; color:#1e3a8a; }
+th,td { border:1px solid #dbe3ef; padding:5px 8px; text-align:left; }
+tr:nth-child(even) td { background:#f8fafc; }
+code { background:#f1f5f9; border-radius:4px; padding:1px 5px; font-family:"JetBrains Mono","Cascadia Mono",monospace; font-size:9pt; color:#be185d; }
+pre { background:#0f172a; color:#e2e8f0; border-radius:8px; padding:12px 14px; overflow-x:auto; page-break-inside:avoid; }
+pre code { background:none; color:inherit; padding:0; }
+blockquote { border-left:4px solid #93c5fd; background:#eff6ff; margin:10px 0; padding:8px 14px; color:#334155; border-radius:0 8px 8px 0; }
+hr { border:none; border-top:1px dashed #cbd5e1; margin:22px 0; }
+strong { color:#0f172a; }
+.cover .disclaimer { max-width:620px; margin:16px auto 0; color:#64748b; font-size:8.5pt; line-height:1.6; text-align:left; border:1px solid #e2e8f0; border-radius:8px; padding:8px 12px; background:#f8fafc; }
+.credit { color:#2563eb; font-size:10.5pt; font-weight:700; letter-spacing:1px; margin-top:12px; }
+.at-acc { background:#dbeafe; color:#1d4ed8; border-radius:4px; padding:0 4px; font-weight:500; white-space:nowrap; }
+.tail { page-break-inside:avoid; margin-top:26px; border-top:2px solid #2563eb; padding-top:14px; }
+.tail p { color:#64748b; font-size:8.5pt; line-height:1.6; margin:0 0 10px; }
+.tail .credit { text-align:center; margin:0; }
+/* Remix Icon 内联 SVG（icon_mode=remix 时由脚本注入，语义色与评分条一致） */
+.ri { width:1.05em; height:1.05em; vertical-align:-0.18em; display:inline-block; }
+.ri-ok { color:#16a34a; } .ri-warn { color:#d97706; } .ri-bad { color:#dc2626; }
+.ri-muted { color:#64748b; } .ri-star { color:#f59e0b; } .ri-brand { color:#2563eb; }
+.ri-gold { color:#d4a017; } .ri-silver { color:#9ca3af; } .ri-bronze { color:#b45309; }
+/* 屏幕预览：@page 边距仅在打印时生效，浏览器中居中限宽并收边（不影响 PDF 输出） */
+@media screen {
+  body { margin: 0 auto; padding: 28px 36px 56px; max-width: 900px; }
+}
+</style></head><body><div class="cover">
+<div class="kicker">开源项目商业化潜力分析</div>
+<h1>GitHub 开源项目 9router<br>商业价值分析报告</h1>
+<div class="sub">decolua/9router · 开源自托管 LLM 网关（40+ 供应商统一 OpenAI 兼容端点）· 九维度加权评估 67.7/100（A 级）</div>
+<div class="badge"><div class="g">A 级 · 67.7</div><div class="s">综合评分（满分 100）· 高商业化潜力</div></div>
+<div><svg viewBox="0 0 560 480" width="560" height="480" xmlns="http://www.w3.org/2000/svg"><polygon points="280.0,209.6 299.5,216.7 309.9,234.7 306.3,255.2 290.4,268.6 269.6,268.6 253.7,255.2 250.1,234.7 260.5,216.7" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,179.2 319.1,193.4 339.9,229.4 332.7,270.4 300.8,297.1 259.2,297.1 227.3,270.4 220.1,229.4 240.9,193.4" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,148.8 338.6,170.1 369.8,224.2 359.0,285.6 311.2,325.7 248.8,325.7 201.0,285.6 190.2,224.2 221.4,170.1" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,118.4 358.2,146.8 399.8,218.9 385.3,300.8 321.6,354.3 238.4,354.3 174.7,300.8 160.2,218.9 201.8,146.8" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,88.0 377.7,123.6 429.7,213.6 411.6,316.0 332.0,382.8 228.0,382.8 148.4,316.0 130.3,213.6 182.3,123.6" fill="none" stroke="#e2e8f0" stroke-width="1"/><line x1="280.0" y1="240.0" x2="280.0" y2="88.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="377.7" y2="123.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="429.7" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="411.6" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="332.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="228.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="148.4" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="130.3" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="182.3" y2="123.6" stroke="#d8dee9" stroke-width="1"/><polygon points="280.0,126.0 280.0,240.0 390.8,220.5 362.9,287.9 309.1,320.0 242.0,344.3 195.8,288.6 203.7,226.5 197.0,141.0" fill="rgba(37,99,235,.22)" stroke="#2563eb" stroke-width="2.5"/><circle cx="280.0" cy="126.0" r="3.5" fill="#2563eb"/><circle cx="280.0" cy="240.0" r="3.5" fill="#2563eb"/><circle cx="390.8" cy="220.5" r="3.5" fill="#2563eb"/><circle cx="362.9" cy="287.9" r="3.5" fill="#2563eb"/><circle cx="309.1" cy="320.0" r="3.5" fill="#2563eb"/><circle cx="242.0" cy="344.3" r="3.5" fill="#2563eb"/><circle cx="195.8" cy="288.6" r="3.5" fill="#2563eb"/><circle cx="203.7" cy="226.5" r="3.5" fill="#2563eb"/><circle cx="197.0" cy="141.0" r="3.5" fill="#2563eb"/><text x="280.0" y="44.0" text-anchor="middle" font-size="12.5" fill="#334155" font-weight="600">D1</text><text x="280.0" y="58.0" text-anchor="middle" font-size="11" fill="#64748b">市场需求 7.5</text><text x="406.0" y="89.9" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D2</text><text x="406.0" y="103.9" text-anchor="start" font-size="11" fill="#64748b">技术成熟度 N/A</text><text x="473.0" y="206.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D3</text><text x="473.0" y="220.0" text-anchor="start" font-size="11" fill="#64748b">社区生态 7.4</text><text x="449.7" y="338.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D4</text><text x="449.7" y="352.0" text-anchor="start" font-size="11" fill="#64748b">变现潜力 6.3</text><text x="347.0" y="424.2" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D5</text><text x="347.0" y="438.2" text-anchor="start" font-size="11" fill="#64748b">竞争格局 5.6</text><text x="213.0" y="424.2" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D6</text><text x="213.0" y="438.2" text-anchor="end" font-size="11" fill="#64748b">法律合规 7.3</text><text x="110.3" y="338.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D7</text><text x="110.3" y="352.0" text-anchor="end" font-size="11" fill="#64748b">企业就绪 6.4</text><text x="87.0" y="206.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D8</text><text x="87.0" y="220.0" text-anchor="end" font-size="11" fill="#64748b">团队治理 5.1</text><text x="154.0" y="89.9" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D9</text><text x="154.0" y="103.9" text-anchor="end" font-size="11" fill="#64748b">上手难度 8.5</text></svg></div>
+<div class="bars"><div class="bar-row"><span class="bar-name">D9 上手难度</span>
+<span class="bar-track"><span class="bar-fill" style="width:85.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.5</span><span class="bar-w">权重10%</span></div>
+<div class="bar-row"><span class="bar-name">D1 市场需求</span>
+<span class="bar-track"><span class="bar-fill" style="width:75.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.5</span><span class="bar-w">权重13%</span></div>
+<div class="bar-row"><span class="bar-name">D3 社区生态</span>
+<span class="bar-track"><span class="bar-fill" style="width:74.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.4</span><span class="bar-w">权重11%</span></div>
+<div class="bar-row"><span class="bar-name">D6 法律合规</span>
+<span class="bar-track"><span class="bar-fill" style="width:73.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.3</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D7 企业就绪</span>
+<span class="bar-track"><span class="bar-fill" style="width:64.0%;background:#d97706"></span></span>
+<span class="bar-val">6.4</span><span class="bar-w">权重8%</span></div>
+<div class="bar-row"><span class="bar-name">D4 变现潜力</span>
+<span class="bar-track"><span class="bar-fill" style="width:63.0%;background:#d97706"></span></span>
+<span class="bar-val">6.3</span><span class="bar-w">权重18%</span></div>
+<div class="bar-row"><span class="bar-name">D5 竞争格局</span>
+<span class="bar-track"><span class="bar-fill" style="width:56.0%;background:#dc2626"></span></span>
+<span class="bar-val">5.6</span><span class="bar-w">权重12%</span></div>
+<div class="bar-row"><span class="bar-name">D8 团队治理</span>
+<span class="bar-track"><span class="bar-fill" style="width:51.0%;background:#dc2626"></span></span>
+<span class="bar-val">5.1</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D2 技术成熟度</span>
+<span class="bar-track"><span class="bar-fill" style="width:0.0%;background:#dc2626"></span></span>
+<span class="bar-val">N/A</span><span class="bar-w">权重14%</span></div></div>
+<div class="meta">分析时点 2026-09-16 ｜ 数据来源：GitHub API + 仓库代码实测 ｜ 方法论 v1.3</div>
+<div class="credit">报告出品：@魔法工厂　@向量之心　@南山科学家</div>
+<div class="disclaimer"><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</div>
+</div><h1>9router 商业化潜力分析报告（完整版）</h1>
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家</p>
+<p>方法论版本: v1.3 | 综合评分: <strong>67.7</strong> | 等级: <strong>A（高商业化潜力）</strong> | 价值画像: 明星资产</p>
+</blockquote>
+<h2>一、项目概览</h2>
+<h3>1.1 基本信息</h3>
+<ul>
+<li><strong>项目名称 / 仓库地址</strong>：9Router（decolua/9router）</li>
+<li><strong>核心技术栈</strong>：Node.js 20+ / Next.js 16 / React 19 / SQLite（sql.js）/ SSE；共 177,090 行 JavaScript、1,191 个源文件</li>
+<li><strong>社区规模速览</strong>：Star 28,900 / Fork 5,307（Fork 比率 18.4%）/ 贡献者 265 名 / 开放 Issue 2,113 个 / 近 90 天新建 PR 1,260 个</li>
+<li><strong>分析时点 / 数据来源</strong>：项目创建于 2026-01-05，最近推送 2026-09-10，最新版本 v0.5.35（2026-07-16）；数据来源为 GitHub 仓库元数据、README、GitBook 文档、Dockerfile/docker-compose、package.json 及依赖清单</li>
+</ul>
+<h3>1.2 项目分类标签</h3>
+<table>
+<thead>
+<tr>
+<th>分类维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>中间件（AI 网关/路由代理）；兼具开发者工具与数据与 AI 属性</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>通用/跨行业（面向所有使用 LLM 进行软件开发的行业）</td>
+</tr>
+<tr>
+<td>目标用户角色</td>
+<td>全栈/后端开发者（AI 编码工具重度用户）、AI/ML 工程师、技术管理者/CTO</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>AI 编码工具的 LLM 请求路由与统一接入、多供应商自动降级、配额追踪、token 压缩降本</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>本地部署（默认 localhost:20128）+ 云原生（Docker/GHCR/Hugging Face）+ SaaS 就绪</td>
+</tr>
+</tbody>
+</table>
+<h3>1.3 一句话定位</h3>
+<blockquote>
+<p>9Router 是一个开源的 LLM 网关/路由中间件，适用于任意行业的 AI 编码场景，主要面向使用 Claude Code、Cursor、Cline、Codex 等 AI 编程工具的开发者与技术团队，用于把 40+ 家 AI 供应商与订阅账号统一成 OpenAI 兼容端点，并通过自动降级、配额追踪与 token 压缩降低使用成本、避免中断。</p>
+</blockquote>
+<hr />
+<h2>二、安装部署与使用指南</h2>
+<blockquote>
+<p>上手难度等级：🟢 <strong>简单（D9 = 8.5/10）</strong> — 支持 npm 一键安装与 docker-compose 一键部署，SQLite 内嵌无需外部数据库，10 分钟级可跑通首条请求。以下步骤可直接提供给用户。</p>
+</blockquote>
+<h3>一、环境要求</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>要求</th>
+<th>来源</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>运行时</td>
+<td>Node.js 20+（CLI 包 <code>engines.node &gt;= 18.0.0</code>）</td>
+<td>README「Tech Stack」/ <code>cli/package.json</code></td>
+</tr>
+<tr>
+<td>数据库</td>
+<td>无需外部数据库：SQLite（<code>better-sqlite3</code> / <code>node:sqlite</code> / <code>sql.js</code> 兜底）</td>
+<td>README「Tech Stack」/ <code>package.json</code></td>
+</tr>
+<tr>
+<td>操作系统</td>
+<td>Windows / macOS / Linux 均可（CLI 对 Windows 使用 PowerShell NotifyIcon，macOS/Linux 使用 systray2）</td>
+<td><code>cli/package.json</code> comment_systray</td>
+</tr>
+<tr>
+<td>端口</td>
+<td>默认 <code>20128</code></td>
+<td>README / Dockerfile</td>
+</tr>
+</tbody>
+</table>
+<h3>二、方式 A：npm 全局安装（推荐的最终用户路径）</h3>
+<pre><code class="language-bash">npm install -g 9router
+9router
+</code></pre>
+<p>启动后 Dashboard 自动打开：<code>http://localhost:20128</code></p>
+<p><strong>接入一个免费 Provider（无需注册）：</strong></p>
+<p>Dashboard → Providers → 连接 <strong>Kiro AI</strong>（约 50 credits/月免费：Claude 4.5 + GLM-5 + MiniMax）或 <strong>OpenCode Free</strong>（无需鉴权）→ 完成。</p>
+<p><strong>在你的 CLI 编码工具中填写：</strong></p>
+<pre><code>Claude Code/Codex/OpenClaw/Cursor/Cline Settings:
+  Endpoint: http://localhost:20128/v1
+  API Key: [copy from dashboard]
+  Model: kr/claude-sonnet-4.5
+</code></pre>
+<h3>三、方式 B：docker-compose 部署</h3>
+<p>仓库自带 <code>docker-compose.yml</code>，直接拉起 9router 与可选的 headroom 压缩代理两个服务：</p>
+<pre><code class="language-yaml">services:
+  9router:
+    image: decolua/9router:latest
+    container_name: 9router
+    restart: always
+    ports:
+      - &quot;20128:20128&quot;
+    volumes:
+      - 9router-data:/app/data
+    env_file:
+      - .env
+    environment:
+      DATA_DIR: /app/data
+      PORT: &quot;20128&quot;
+      HOSTNAME: &quot;0.0.0.0&quot;
+      NODE_ENV: production
+      HEADROOM_URL: http://headroom:8787
+    depends_on:
+      - headroom
+
+  headroom:
+    image: ghcr.io/chopratejas/headroom:latest
+    container_name: headroom
+    restart: always
+    ports:
+      - &quot;8787:8787&quot;
+
+volumes:
+  9router-data:
+    name: 9router-data
+</code></pre>
+<p>镜像也发布于 GHCR（<code>decolua/9router</code>）。持久化数据位于卷 <code>9router-data</code> → 容器内 <code>/app/data</code>。</p>
+<h3>四、方式 C：从源码运行（本地开发路径）</h3>
+<blockquote>
+<p>README 明确说明：本仓库包为私有（<code>9router-app</code>），因此源码/Docker 执行是预期的本地开发路径。</p>
+</blockquote>
+<pre><code class="language-bash">cp .env.example .env
+npm install
+PORT=20128 NEXT_PUBLIC_BASE_URL=http://localhost:20128 npm run dev
+</code></pre>
+<p>生产模式：</p>
+<pre><code class="language-bash">npm run build
+PORT=20128 HOSTNAME=0.0.0.0 NEXT_PUBLIC_BASE_URL=http://localhost:20128 npm run start
+</code></pre>
+<p>默认地址：</p>
+<ul>
+<li>Dashboard：<code>http://localhost:20128/dashboard</code></li>
+<li>OpenAI 兼容 API：<code>http://localhost:20128/v1</code></li>
+</ul>
+<p>自行构建镜像时，Dockerfile（<code>node:22-alpine</code> 多阶段）在 builder 阶段需要 <code>python3 make g++ linux-headers</code>（用于原生模块编译），运行阶段已把 <code>.next/standalone</code>、<code>custom-server.js</code>、<code>sql.js</code>、<code>node-forge</code>、<code>node-machine-id</code> 等按需拷贝并就位，暴露 <code>20128</code>，入口 <code>node custom-server.js</code>。</p>
+<h3>五、常用配置项（<code>.env</code>）</h3>
+<table>
+<thead>
+<tr>
+<th>变量</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PORT</code></td>
+<td>服务端口，默认 20128</td>
+</tr>
+<tr>
+<td><code>HOSTNAME</code></td>
+<td>监听地址，容器内为 <code>0.0.0.0</code></td>
+</tr>
+<tr>
+<td><code>NEXT_PUBLIC_BASE_URL</code></td>
+<td>外部访问基址，如 <code>http://localhost:20128</code></td>
+</tr>
+<tr>
+<td><code>DATA_DIR</code></td>
+<td>数据目录，容器内 <code>/app/data</code>；<code>${DATA_DIR}/db/data.sqlite</code> 为主状态库，自动备份在 <code>${DATA_DIR}/db/backups/</code></td>
+</tr>
+<tr>
+<td><code>INITIAL_PASSWORD</code></td>
+<td>首次登录密码；未设置时回退密码为 <code>123456</code></td>
+</tr>
+<tr>
+<td><code>ENABLE_REQUEST_LOGS</code></td>
+<td>设为 <code>true</code> 时在 <code>&lt;repo&gt;/logs/...</code> 输出请求/翻译日志</td>
+</tr>
+<tr>
+<td><code>HEADROOM_URL</code></td>
+<td>可选外部 <code>/v1/compress</code> 压缩代理地址</td>
+</tr>
+<tr>
+<td><code>INSTANCE_NAME</code></td>
+<td>旧文档中存在，当前运行时不使用</td>
+</tr>
+</tbody>
+</table>
+<h3>六、快速自检（API 验证）</h3>
+<pre><code class="language-bash">POST http://localhost:20128/v1/chat/completions
+Authorization: Bearer your-api-key
+Content-Type: application/json
+
+{
+  &quot;model&quot;: &quot;cc/claude-opus-4-6&quot;,
+  &quot;messages&quot;: [
+    {&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: &quot;Write a function to...&quot;}
+  ],
+  &quot;stream&quot;: true
+}
+</code></pre>
+<pre><code class="language-bash">GET http://localhost:20128/v1/models
+Authorization: Bearer your-api-key
+</code></pre>
+<h3>七、常见问题速查（来自 README「Troubleshooting」）</h3>
+<ul>
+<li><strong>"Language model did not provide messages"</strong>：Provider 配额耗尽 → 查看 Dashboard 配额跟踪器，改用 combo 回退或更便宜档位。</li>
+<li><strong>Rate limiting</strong>：订阅配额用尽 → 回退 GLM/MiniMax，例如组合 <code>cc/claude-opus-4-7 → glm/glm-5.1 → kr/claude-sonnet-4.5</code>。</li>
+<li><strong>OAuth token 过期</strong>：9Router 会自动刷新；仍有问题 → Dashboard → Provider → Reconnect。</li>
+<li><strong>成本偏高</strong>：在 Dashboard → Endpoint settings 开启 RTK（默认 ON，节省 20–40% tokens）。</li>
+<li><strong>Dashboard 端口不对</strong>：设置 <code>PORT=20128</code> 与 <code>NEXT_PUBLIC_BASE_URL=http://localhost:20128</code>。</li>
+<li><strong>首次登录失败</strong>：检查 <code>.env</code> 中的 <code>INITIAL_PASSWORD</code>，未设置时回退 <code>123456</code>。</li>
+<li><strong><code>logs/</code> 下没有请求日志</strong>：设置 <code>ENABLE_REQUEST_LOGS=true</code>。</li>
+</ul>
+<h3>八、学习资源</h3>
+<ul>
+<li>GitBook 文档（英文/西语/日语/越南语四套）：<code>getting-started/installation</code>、<code>getting-started/quick-start</code>、<code>deployment/localhost</code>、<code>deployment/cloud</code>、<code>faq</code>、<code>troubleshooting</code>、<code>features/*</code>、<code>providers/{free,cheap,subscription}</code>，并按工具提供集成指南：<code>integration/{claude-code,cline,codex,continue,cursor,roo,other-tools}</code>。</li>
+<li>README 提供 10 种语言版本（pt-BR / vi / zh-CN / ja-JP / ru / th / fa_IR / id-ID / es / fr）。</li>
+<li>社区视频教程 12 个（越南语、英语、乌尔都语/印地语、印尼语、波斯语），覆盖「Claude Code 免费接入」「Hugging Face 免费部署」等场景。</li>
+</ul>
+<h2>三、评分总览</h2>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>权重</th>
+<th>加权得分</th>
+<th>评级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1 市场需求与商业机会</td>
+<td>7.5/10</td>
+<td>13%</td>
+<td>0.98</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D2 技术成熟度与产品质量</td>
+<td>N/A</td>
+<td>14%</td>
+<td>—</td>
+<td>分析失败（不计入）</td>
+</tr>
+<tr>
+<td>D3 社区健康度与生态势能</td>
+<td>7.4/10</td>
+<td>11%</td>
+<td>0.81</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D4 商业模式与变现潜力</td>
+<td>6.3/10</td>
+<td>18%</td>
+<td>1.13</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D5 竞争格局与差异化壁垒</td>
+<td>5.6/10</td>
+<td>12%</td>
+<td>0.67</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D6 法律合规与知识产权</td>
+<td>7.3/10</td>
+<td>7%</td>
+<td>0.51</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D7 企业就绪度与可运营性</td>
+<td>6.4/10</td>
+<td>8%</td>
+<td>0.51</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D8 团队治理与可持续性</td>
+<td>5.1/10</td>
+<td>7%</td>
+<td>0.36</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D9 上手难度与易用性</td>
+<td>8.5/10</td>
+<td>10%</td>
+<td>0.85</td>
+<td>优</td>
+</tr>
+<tr>
+<td><strong>综合评分</strong></td>
+<td>—</td>
+<td>—</td>
+<td><strong>67.7/100</strong></td>
+<td><strong>A（高商业化潜力）</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>口径说明</strong>：D2 维度评分卡因分析失败被标 N/A（degradation_flags: scorecard_rebuilt_by_regex），其 14% 权重未参与加权，综合评分 67.7 为其余八维按原权重归一后的计算结果，实际置信度低于常规水平，请结合本说明解读。</p>
+</blockquote>
+<p><strong>平行维度（不计入综合评分）</strong></p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10 功能价值</td>
+<td>7.8/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>D11 社会价值</td>
+<td>6.5/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>公共价值分</td>
+<td>7.2/10</td>
+<td>(D10+D11)/2</td>
+</tr>
+</tbody>
+</table>
+<p><strong>一票否决检查</strong>：未触发。D6 维度总分 7.3（&gt; 3）；D8.4 项目可持续性 1.8（&gt; 1）；D4.1 协议对变现模式的影响 2.0（&gt; 0.5）。三条否决项均正常完成检查，无「检查不完整」情形。</p>
+<p><strong>价值画像</strong>：⭐ 明星资产（综合评分 67.7 ≥ 65 且公共价值分 7.2 ≥ 7）。</p>
+<hr />
+<h2>四、各维度详细分析</h2>
+<h3>D1. 市场需求与商业机会</h3>
+<blockquote>
+<p><strong>数据说明</strong>：本轮评估未接入外部市场调研数据，D1.1 的市场规模为基于项目类别（LLM 网关/路由）的量级估算，<strong>未经外部数据验证，置信度低</strong>；D1.2–D1.4 的判断依据为仓库 README、topics 标签与 GitHub 实采硬事实，置信度中等。以下不引用任何未经验证的具体市场数字。</p>
+</blockquote>
+<h3>分类标签打标（1.6 节）</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型（维度一）</td>
+<td>中间件（AI 网关/代理）、开发者工具、数据与AI</td>
+</tr>
+<tr>
+<td>适用行业（维度二）</td>
+<td>通用/跨行业</td>
+</tr>
+<tr>
+<td>目标用户角色（维度三）</td>
+<td>全栈开发者、后端开发者、AI/ML工程师、技术管理者/CTO</td>
+</tr>
+<tr>
+<td>适用场景（维度四）</td>
+<td>研发流程优化、API服务、基础设施搭建、企业内部工具</td>
+</tr>
+<tr>
+<td>部署形态（维度五）</td>
+<td>本地部署、云原生、SaaS就绪</td>
+</tr>
+</tbody>
+</table>
+<p><strong>一句话定位</strong>：9Router 是一个开源的 LLM 网关/路由中间件，适用于任意行业的 AI 编码场景，主要面向使用 Claude Code、Cursor、Cline、Codex 等 AI 编程工具的开发者与技术团队，用于把 40+ 家 AI 供应商与订阅账号统一成 OpenAI 兼容端点，并通过自动降级、配额追踪与 token 压缩降低使用成本、避免中断。</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1.1 目标市场规模与增长性</td>
+<td>2.5</td>
+<td><strong>2.0</strong></td>
+<td>7–8（80%）</td>
+<td>项目位于 LLM API 网关/成本治理赛道，topics 明确覆盖 <code>ai-gateway</code>/<code>llm-gateway</code>/<code>openai-proxy</code>，赛道清晰且随 AI 编码工具普及高速扩张；按类别量级估算属十亿美元级成长期市场（<strong>估算未经外部验证，置信度低</strong>）。扣分项：项目实际切入的是"第三方免费额度聚合"子集，其可触达规模远小于整体网关市场，且随免费额度收缩而波动。</td>
+</tr>
+<tr>
+<td>D1.2 痛点真实性与解决程度</td>
+<td>2.5</td>
+<td><strong>2.0</strong></td>
+<td>7–8（80%）</td>
+<td>README 列出 5 条具体痛点（订阅额度月度作废、速率限制中断编码、工具输出烧 token、API 昂贵、手动切换供应商），均为 AI 编码重度用户的真实高频痛点，并给出可量化收益（RTK −20~40% 输入 token、Caveman −65% 输出 token）。解决完整度高：协议翻译 + 三层自动降级 + 配额追踪 + 多账号轮询 + OAuth 自动刷新 + 仪表盘/用量分析 + 云同步。扣分项：替代品众多（LiteLLM、OpenRouter、one-api/new-api、CLIProxyAPI——README 自述后者为本项目 Go 原型），且核心卖点是"更省钱"而非"不可替代"。</td>
+</tr>
+<tr>
+<td>D1.3 市场时机判断</td>
+<td>2.5</td>
+<td><strong>1.5</strong></td>
+<td>5–6（60%）</td>
+<td>正面：LLM 网关技术已进入实质生产期，AI 编码 Agent 处于高速增长期，成长期市场格局尚未固化。负面（决定性）：README 自述多个免费上游在 2026 年已被收回或转付费——iFlow、Qwen Code、Gemini CLI 免费层停用，Kiro 转为付费并按 50 credits/月封顶，Vertex 免费额度与端点规则亦变更。项目核心竞争力建立在被上游厂商持续收紧的"免费供给"之上，属供给侧政策/ToS 风险，需转向与付费网关（OpenRouter、LiteLLM、Kong/Cloudflare AI Gateway 等）正面竞争。</td>
+</tr>
+<tr>
+<td>D1.4 应用场景广度</td>
+<td>2.5</td>
+<td><strong>2.0</strong></td>
+<td>7–8（80%）</td>
+<td>横向通用工具：对接 18+ 种 CLI/IDE 工具（Claude Code、Cursor、Cline、Codex、Copilot、Roo、Continue、Qwen Code 等）、40+ 供应商、100+ 模型，并兼容任意 OpenAI/Anthropic 格式客户端；还覆盖自托管 STT/TTS/Embedding。行业标签为"通用/跨行业"。扣分项：核心使用形态仍是开发者本地代理，尚未进入企业级多租户网关形态，纵向深度有限，但协议翻译/路由/配额/压缩能力可迁移至企业 LLM 成本治理等相邻场景。</td>
+</tr>
+</tbody>
+</table>
+<h3>需求侧硬证据（支撑判断）</h3>
+<ul>
+<li><strong>需求实证极强</strong>：8 个月（2026-01-05 创建）累积 <strong>28,900 stars、5,307 forks</strong>；90 天内 <strong>1,260 个 PR</strong>、<strong>265 位贡献者</strong>，属高频活跃社区。</li>
+<li><strong>国际需求分布广</strong>：README 提供 10 种语言版本（pt-BR/vi/zh-CN/ja-JP/ru/th/fa_IR/id-ID/es/fr），GitBook 文档覆盖 en/es/ja/vi 4 语，README 收录 11 部社区视频教程（英/越/印地/乌尔都/波斯/印尼语），说明需求跨越多个地区与语言市场。</li>
+<li><strong>用户诉求积压</strong>：<strong>2,113 个开放 Issue</strong> vs 90 天仅关闭 158 个，反映真实需求侧输入量远超维护吞吐（同时提示交付能力风险）。</li>
+<li><strong>分发渠道成型</strong>：npm 包 + Docker Hub/GHCR 镜像 + 独立官网 9router.com，Docker publish CI 已就绪，具备规模化分发基础。</li>
+</ul>
+<h3>结论</h3>
+<p><strong>D1 得分：7.5 / 10</strong></p>
+<p>9Router 处在一个需求被强烈验证的赛道：AI 编码工具爆发带来了"成本 + 限额"这一真实且高频的刚需，项目以高度完整的方案（路由、格式翻译、配额治理、token 压缩、多账号）覆盖了跨行业开发者群体，需求侧硬指标（stars/forks/contributors/PR 量/多语种社区）在同类开源项目中处于头部水平。</p>
+<p>主要风险集中在两处：其一，<strong>商业机会的"含金量"被定位削弱</strong>——项目核心叙事是"FREE"，用户画像高度价格敏感、付费意愿天然偏低，且大量依赖第三方免费额度，这使其在后续变现维度上先天受限；其二，<strong>市场时机存在供给侧逆向风险</strong>——README 自身记录了 2026 年多个免费上游被停用/转付费，说明其赖以生存的"免费套利空间"正被厂商主动压缩，属于不可控的外部政策风险。综合看，需求真实、场景广阔、时机有利有弊，整体高于行业平均但存在结构性短板。</p>
+<h1>D2 技术成熟度与产品质量评估</h1>
+<p><strong>项目</strong>: decolua/9router（AI 编码工具统一网关 / 免费 AI 聚合路由器）
+<strong>评估日期基准</strong>: 最近推送 2026-09-10，最新版本 v0.5.35
+<strong>适用性判定</strong>: 本项目含完整 Next.js Web 仪表盘（providers / usage / combos / profile / endpoint / proxy-pools / token-saver / cli-tools / media-providers 等页面），<strong>D2.5 UI/UX/UE 适用</strong>，按 8 项全量计分。</p>
+<hr />
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D2.1</td>
+<td>产品设计与创新性</td>
+<td>1.5</td>
+<td>1.2</td>
+<td>80%（7–8 档）</td>
+</tr>
+<tr>
+<td>D2.2</td>
+<td>架构设计与工程质量</td>
+<td>2.0</td>
+<td>1.6</td>
+<td>80%（7–8 档）</td>
+</tr>
+<tr>
+<td>D2.3</td>
+<td>代码整洁性与规范性</td>
+<td>1.0</td>
+<td>0.6</td>
+<td>60%（5–6 档）</td>
+</tr>
+<tr>
+<td>D2.4</td>
+<td>安全性</td>
+<td>1.0</td>
+<td>0.8</td>
+<td>80%（7–8 档）</td>
+</tr>
+<tr>
+<td>D2.5</td>
+<td>UI/UX/UE 人机交互</td>
+<td>1.0</td>
+<td>0.8</td>
+<td>80%（7–8 档）</td>
+</tr>
+<tr>
+<td>D2.6</td>
+<td>功能完备度与稳定性</td>
+<td>1.5</td>
+<td>1.2</td>
+<td>80%（7–8 档）</td>
+</tr>
+<tr>
+<td>D2.7</td>
+<td>文档与开发者体验</td>
+<td>1.0</td>
+<td>0.8</td>
+<td>80%（7–8 档）</td>
+</tr>
+<tr>
+<td>D2.8</td>
+<td>测试与质量保障</td>
+<td>1.0</td>
+<td>0.6</td>
+<td>60%（5–6 档）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td><strong>7.6</strong></td>
+<td>良好</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>各细则判断依据</h3>
+<h3>D2.1 产品设计与创新性（1.2 / 1.5，80%）</h3>
+<p><strong>产品理念清晰</strong>：将 40+ 家 AI 服务商（Claude/GPT/Gemini/DeepSeek/Qwen 等）聚合为统一的 OpenAI/Claude 兼容端点，让 Claude Code、Codex、Cursor、Cline、Copilot、Antigravity 等编码工具"无缝接入免费 AI"，解决"额度受限、频繁限流、多账号切换"的真实痛点。痛点明确、方案直接。</p>
+<p><strong>功能设计围绕核心场景</strong>：
+- <strong>智能路由</strong>：fallback 回退、round-robin 轮询、sticky 计数、能力感知自动切换（<code>detectRequiredCapabilities</code>）、Fusion 多模型融合（judge 综合）——围绕"永不撞限"设计；
+- <strong>Token 节省套件</strong>：RTK / Headroom / Caveman / Ponytail / PXPIPE 五类压缩工具，宣称 -40% tokens，是差异化亮点；
+- <strong>工具接管</strong>：<code>src/mitm/</code> 提供 MITM 代理，在工具不支持改 baseURL 时劫持请求（真实工程深度）；
+- <strong>可观测性</strong>：配额追踪（多厂商配额归一化）、请求日志、拓扑图。</p>
+<p><strong>创新性与差异化</strong>：单纯的"免费 AI 代理"是已知品类，本项目的差异化在于——①兼容工具面极广（含 MITM 劫持路径）；②Token 压缩 + Fusion 组合的"节流 + 冗余"双向优化；③内建 Cloudflare/Tailscale 隧道暴露、代理池、媒体 API（TTS/STT/图像/Embedding）。设计取舍有独到之处，但底层仍是"聚合 + 转发"思路的工程放大，非范式级创新。</p>
+<p><strong>结论</strong>：产品理念清晰、功能围绕核心场景、差异化明显，属"高于平均有一定创新"档。</p>
+<h3>D2.2 架构设计与工程质量（1.6 / 2.0，80%）</h3>
+<p><strong>架构合理性</strong>：整体呈 monorepo 分层——<code>open-sse/</code>（核心引擎：executors/translators/providers/handlers）、<code>src/</code>（Next.js 应用与 API 路由）、<code>cli/</code>（CLI）、<code>src/mitm/</code>（MITM 代理）、<code>gitbook/</code>（文档站）、<code>skills/</code>（技能定义）。分层清晰，符合"网关引擎 + 多前端"的设计范式。</p>
+<p><strong>抽象与设计模式到位</strong>：
+- <strong>模板方法</strong>：<code>BaseExecutor</code> 统一各 provider 执行器（kiro/cursor/windsurf/qoder/codex/github/antigravity 等数十个）；
+- <strong>注册表 + 适配器</strong>：<code>translator/</code> 双向协议翻译（OpenAI ↔ Claude ↔ Gemini ↔ Responses ↔ Kiro），<code>register()</code> 机制解耦；
+- <strong>策略模式</strong>：combo 的 fallback/round-robin/fusion、配额解析按 provider 分支；
+- <strong>Repository 模式</strong>：<code>usageRepo.js</code> 等 DB 层。</p>
+<p><strong>复刻难度高（显著护城河）</strong>：需手工实现 ConnectRPC protobuf（Cursor）、gRPC-web 帧（Windsurf）、AWS EventStream + CRC32（Kiro）、COSY 签名（Qoder）、ACP JSON-RPC（Devin CLI）、OAuth 本地回调代理服务器族（Codex/xAI/Trae/Zed/小米 MiMo）、MITM 证书体系——这是极大的工程量与领域知识门槛，难以短期复刻。</p>
+<p><strong>技术债与短板</strong>：
+- <strong>巨型文件泛滥</strong>：多个页面组件 800–1200+ 行、单个组件 20–30+ <code>useState</code>（<code>providers/[id]/page.js</code> 超 1100 行、<code>ProviderLimits/index.js</code> 超 1200 行、<code>profile/page.js</code> 超 900 行），状态管理未收敛；
+- <strong>重复代码</strong>：<code>tokenRefresh/providers.js</code> 大量 try/catch+fetch 模板、CLI 菜单（Codex/Droid/OpenClaw 结构近同）、<code>usageRepo</code> 聚合循环重复；
+- <strong>全局单例反模式</strong>：依赖 <code>global._*</code> 跨模块共享，多进程/热重载下可能不一致；
+- <strong>静默吞错</strong>：<code>catch { /* ignore */ }</code> 大面积出现。</p>
+<p><strong>结论</strong>：架构设计优秀、抽象恰当、复刻门槛极高，但代码量偏大且模块内文件臃肿、存在可辨识技术债，故取 7–8 档上限区间（80%）。</p>
+<h3>D2.3 代码整洁性与规范性（0.6 / 1.0，60%）</h3>
+<p><strong>正面</strong>：命名总体一致且有意义（<code>buildCosyHeaders</code>、<code>normalizeClaudePassthrough</code>、<code>reconcileConnectionsPage</code>）；复杂逻辑注释极为详尽，甚至注释动机与相关 issue；存在 eslint/next 配置（<code>eslint</code>、<code>eslint-config-next</code>、tailwindcss）。</p>
+<p><strong>负面（拖累明显）</strong>：
+- <strong>大量 <code>console.log</code> 遗留</strong>用于"错误日志"，几乎每个采样文件都有；
+- <strong>长函数与超长文件</strong>：<code>execute</code> 方法职责过重、单文件动辄 500–1200 行；
+- <strong>复制粘贴痕迹</strong>：<code>TtsExampleCard.js</code>、<code>CoworkToolCard.js</code>、<code>ModelSelectModal.js</code> 出现重复片段（"省略 N 行"后重复块）；
+- <strong>静默错误处理</strong>：<code>catch { /* ignore */ }</code>、<code>console.error</code> + 静默失败；
+- <strong>死代码</strong>：<code>Modal isOpen={false}</code> 硬编码关闭、隐藏按钮、废弃空函数 <code>appendRequestLog</code>；
+- <strong>闭包隐患</strong>：多处 <code>useEffect</code> 依赖数组不完整、stale closure、变量遮蔽；
+- <strong>PropTypes 覆盖不全</strong>（部分组件有、部分缺）。</p>
+<p><strong>结论</strong>：代码基本可读、命名规范，但重复与遗留调试代码密度高、一致性一般，符合 5–6 档（60%）。</p>
+<h3>D2.4 安全性（0.8 / 1.0，80%）</h3>
+<p><strong>安全编码实践扎实</strong>：
+- <strong>凭据加密</strong>：sudo 密码经 AES-256-GCM 加密（<code>iv:tag:ciphertext</code>），密钥由 machineId + salt 派生并绑定机器；
+- <strong>CSRF / 登录防护</strong>：<code>isLoopbackOrigin</code> 限制本地回调 Origin，防跨站触发 OAuth；OAuth 全流程 PKCE + <code>state</code> 校验；
+- <strong>注入防护</strong>：<code>shellQuoteSingle</code>、<code>encodeURIComponent</code>、<code>sanitizeFunctionName</code> 正则白名单、参数化 SQL；
+- <strong>敏感信息处理</strong>：<code>maskApiKey()</code> 脱敏、私钥经 POST body 传输（避免 URL 日志泄漏）、密码经 stdin 传递（不进命令行）；
+- <strong>危险操作门禁</strong>：数据库导入导出需密码 + 二次确认、<code>isLoginUnsafe</code> 阻止未设登录即暴露隧道、<code>SecurityWarning</code> 组件、密码 <code>type="password"</code>。</p>
+<p><strong>不足</strong>：
+- <strong>无 SECURITY.md</strong>，无 CONTRIBUTING，无 CODEOWNERS；
+- <strong>无自动化安全扫描</strong>：无 Dependabot/Snyk/Trivy，CI 仅 docker-publish 与 gitbook-pages，无依赖漏洞/代码扫描；
+- <strong>进程内全局密码缓存</strong> <code>globalThis.__mitmSudoPassword</code> 存在暴露风险；
+- 持有 40+ provider 的 OAuth token，攻击面大；部分 <code>console.log</code> 可能泄露上游错误详情；<code>/v1/models</code> 使用 <code>Access-Control-Allow-Origin: *</code>。</p>
+<p><strong>结论</strong>：安全编码水平高于同类平均（自研加密+CSRF+PKCE+脱敏），但缺少自动化安全扫描与安全政策文件，取 80%。</p>
+<h3>D2.5 UI/UX/UE 人机交互（0.8 / 1.0，80%）</h3>
+<p><strong>适用</strong>：项目含功能完整的 Next.js 仪表盘。</p>
+<p><strong>界面设计</strong>：使用 Tailwind + 自建组件库（Card/Modal/Button/Toggle/Badge/Tooltip 等），集成 <code>recharts</code>（用量图表）、<code>@xyflow/react</code>（Provider 拓扑图）、<code>@dnd-kit</code>（拖拽排序）、<code>@monaco-editor/react</code>（配置编辑）、<code>material-symbols</code> 图标；支持主题切换（<code>useTheme</code>）与语言切换器（LanguageSwitcher）。</p>
+<p><strong>交互体验</strong>：拖拽排序、乐观更新、二次确认弹窗、加载态、抽屉式详情、分页/过滤/搜索、剪贴板复制 Hook——交互设计较成熟。Basic Chat 提供流式对话 + 图片附件。</p>
+<p><strong>信息架构</strong>：侧边栏分组导航清晰（providers/usage/combos/token-saver/cli-tools/media-providers 等），信息层级合理。</p>
+<p><strong>短板（影响体验一致性）</strong>：<code>alert</code> 与自定义 Modal 混用；部分页面硬编码英文（<code>profile/page.js</code>、<code>usage</code> 页未走 i18n），与 providers 页不一致；存在死代码弹窗与重复渲染块；Basic Chat 较为简陋；未见明确的无障碍（a11y）处理说明。</p>
+<p><strong>结论</strong>：界面专业、交互顺畅、信息架构清晰，但一致性有瑕疵，取 7–8 档（80%）。</p>
+<h3>D2.6 功能完备度与稳定性（1.2 / 1.5，80%）</h3>
+<p><strong>功能覆盖</strong>：极广且完整——40+ provider 接入、组合策略（fallback/RR/fusion）、Token 压缩套件、MITM 接管、代理池（含 Vercel/Cloudflare/Deno 中继部署）、隧道（Cloudflare Tunnel / Tailscale Funnel）、媒体 API（TTS/STT/图像/Embedding/视频）、CLI 工具一键配置（Claude Code/Codex/Droid/OpenCode 等）、用量统计与配额追踪、OIDC/SAML SSO。核心场景覆盖完整。</p>
+<p><strong>版本成熟度</strong>：最新 <strong>v0.5.35</strong>，仍处 <strong>pre-1.0</strong>；发布极频繁（0.4.x → 0.5.x 快速迭代），Breaking change 风险存在。</p>
+<p><strong>稳定性</strong>：内建有界崩溃重启、fallback 冷却、自动刷新 Token；但 <strong>开放 Issue 达 2113</strong>，bug 报告密度高，反映快速迭代下的稳定性波动。</p>
+<p><strong>运行环境</strong>：核心网关基于 Node.js / Next.js，跨平台、提供 Dockerfile 与镜像发布，环境较通用；但 <strong>MITM 功能需 root/sudo 与 443 端口</strong>、证书信任安装、隧道功能亦需提权，特定功能环境门槛偏高（核心转发路径无此要求）。</p>
+<p><strong>硬件要求</strong>：无特殊硬件依赖（CPU 即可，无 GPU/TPU 需求）。</p>
+<p><strong>国际化/本地化</strong>：<strong>强</strong>——文档与内容支持 en/es/ja/vi 四语言，另有 README.zh-CN，应用内置 i18n runtime 与语言切换。</p>
+<p><strong>结论</strong>：功能完整、运行环境（核心）通用、硬件要求低、i18n 完善，但处于 pre-1.0 且 issue 密度高，取 7–8 档（80%）。</p>
+<h3>D2.7 文档与开发者体验（0.8 / 1.0，80%）</h3>
+<p><strong>文档覆盖完整（129 个文档文件）</strong>：
+- <code>README.md</code> + <code>README.zh-CN.md</code> + <code>CHANGELOG.md</code> + <code>DOCKER.md</code> + <code>ARCHITECTURE.md</code>；
+- <strong>GitBook 结构化文档站</strong>（<code>gitbook/content/{en,es,ja,vi}/</code>），每语言含 getting-started（installation/quick-start）、features（combos/smart-routing/quota-tracking）、integration（claude-code/codex/cursor/cline/continue/roo 等逐工具指南）、providers（free/cheap/subscription）、deployment（localhost/cloud）、troubleshooting、FAQ；
+- <code>cli/README.md</code>、<code>docs/superpowers/</code> 设计规格文档（plans + specs）。</p>
+<p><strong>文档质量</strong>：有架构文档（ARCHITECTURE.md）、逐工具集成教程、FAQ、故障排查、部署指南，结构清晰；多语言同步维护。</p>
+<p><strong>不足</strong>：未见自动生成的 API Reference（OpenAPI/TypeDoc 等）；部分 provider 特例依赖源码注释而非文档。无示例代码目录（示例 0 文件）。</p>
+<p><strong>结论</strong>：文档极其齐全、多语言、含架构与集成教程，仅缺正式 API 参考，取 7–8 档（80%）。</p>
+<h3>D2.8 测试与质量保障（0.6 / 1.0，60%）</h3>
+<p><strong>测试</strong>：存在实测测试体系——<code>tests/</code> 目录含 <code>auth/</code>、<code>translator/</code>、<code>unit/</code>、<code>__baseline__</code>，共 <strong>261 个测试文件 / 38,133 行</strong>，占代码总量 <strong>21.6%</strong>，对协议翻译、鉴权、基线有针对性覆盖。</p>
+<p><strong>CI/CD（明显短板）</strong>：仅有 <strong>2 个 workflow</strong>——<code>docker-publish.yml</code>（镜像发布）与 <code>gitbook-pages.yml</code>（文档发布），<strong>均不运行测试、不做 lint、不做安全扫描</strong>；即测试存在但无 CI 强制执行。</p>
+<p><strong>质量门禁</strong>：有 eslint 配置但无 CI 校验；无 CodeQL/依赖扫描；无覆盖率门禁；无 CODEOWNERS。</p>
+<p><strong>结论</strong>：有可观测试量（非稀少），但 CI 形同"发布管道"而非质量管道，缺少测试/lint/安全门禁，落于 5–6 档（60%）。</p>
+<hr />
+<h3>D2 维度结论</h3>
+<p><strong>D2 得分：7.6 / 10（良好）</strong></p>
+<p>9router 在<strong>技术成熟度与产品质量</strong>上呈现"<strong>架构强、功能全、文档优，但工程卫生与质量保障欠缺</strong>"的鲜明特征：</p>
+<ul>
+<li><strong>优势</strong>：极高的复刻门槛（数十种私有协议手写编解码 + MITM + OAuth 回调体系）构成真实技术护城河；功能完备度与 i18n 表现突出；文档体系（4 语言 GitBook）远超同类；安全编码实践（AES-GCM、CSRF、PKCE、脱敏）扎实。</li>
+<li><strong>短板</strong>：巨型文件与状态管理失控、重复代码与遗留调试代码普遍，代码整洁度与规范性一般；CI 不含测试/lint/安全扫描，质量门禁缺失；pre-1.0 版本 + 2113 开放 issue</li>
+</ul>
+<h3>D3. 社区健康度与生态势能（权重 11%）</h3>
+<h3>D3.1 社区活跃度指标（满分 3 分，得 2.4 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Star 增速</td>
+<td>28,900 Star ÷ 约 8.4 个月 ≈ <strong>3,400/月</strong>（退化公式，见注）</td>
+<td>远超 &gt;500/月 阈值</td>
+</tr>
+<tr>
+<td>Fork 比率</td>
+<td>5,307 / 28,900 = <strong>18.4%</strong></td>
+<td>高于通用 10%~15% 水平，衍生意愿/自部署意愿强</td>
+</tr>
+<tr>
+<td>Issue 活跃度</td>
+<td>近 90 天新建 PR <strong>1,260</strong> 个（≈14 个/天）</td>
+<td>社区参与度极高</td>
+</tr>
+<tr>
+<td>响应速度</td>
+<td>近 90 天关闭 Issue <strong>158</strong> 个，存量开放 Issue <strong>2,113</strong> 个</td>
+<td>关闭/存量比仅 ~7%，<strong>积压严重</strong>，平均关闭时间无法直采</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：Star 增速（约 3,400/月）即便按退化公式计算也处于绝对头部区间，且项目仅成立约 8 个月、全部历史即近况，退化公式的"老项目早期红利高估"风险在此<strong>基本不成立</strong>——该数值本身就是近期真实增速。近 90 天新建 PR 达 1,260 个，属于极活跃社区。但<strong>响应速度维度明显拖累评分</strong>：2,113 个开放 Issue 对 90 天仅关闭 158 个，积压比例高，反映维护者响应/吞吐能力跟不上社区涌入速度，与 9–10 档"响应 &lt;2 天"存在实质差距。</p>
+<blockquote>
+<p><strong>注（数据口径）</strong>：近 90 天 Star 增量需 API 补采但本次缺失，故按《方法论》退化为 <code>Star 数 ÷ 项目年龄(月)</code>。本项须在最终报告中标注该口径；因项目年龄仅约 8 个月，退化值可信度较高。</p>
+</blockquote>
+<p>综合：Star/Fork/PR 三项达到 9–10 档，响应速度落在 3–4 档，加权后定档 <strong>7–8 档（80%）</strong>，得 <strong>2.4 / 3</strong>。</p>
+<hr />
+<h3>D3.2 贡献者结构多样性（满分 2.5 分，得 2.0 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>贡献者数量</td>
+<td><strong>265</strong> 名贡献者</td>
+<td>远超 50+ 阈值，规模优秀</td>
+</tr>
+<tr>
+<td>活跃程度</td>
+<td>近 90 天新建 PR 1,260 个</td>
+<td>活跃度高</td>
+</tr>
+<tr>
+<td>组织多样性</td>
+<td><strong>无法直采</strong>（API 未返回贡献者组织归属）</td>
+<td>未验证</td>
+</tr>
+<tr>
+<td>核心团队占比</td>
+<td><strong>无法直采</strong>（无 PR 作者归属统计）</td>
+<td>未验证</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：265 名贡献者、90 天 1,260 个 PR，从社区规模看已稳固进入 9–10 档的数量区间。但评分指引中"来自 10+ 组织"与"核心团队 vs 外部 PR 比例"两项<strong>均无数据支撑</strong>，无法确认贡献者是否分散于多组织、亦无法排除核心团队主导大部分贡献的可能。叠加本项目仅 8 个月历史、AI 工具赛道易产生大量一次性 drive-by 贡献，故在充分认可规模的同时<strong>下调一档</strong>，定档 <strong>7–8 档（80%）</strong>，得 <strong>2.0 / 2.5</strong>。</p>
+<blockquote>
+<p>说明：本细则仅从社区规模视角评估；核心人员离开的传承风险归 D8.1 巴士因子，此处不重复计分。</p>
+</blockquote>
+<hr />
+<h3>D3.3 第三方生态成熟度（满分 3 分，得 1.8 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测情况</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>插件/扩展</td>
+<td>无第三方插件市场/扩展体系</td>
+<td>弱</td>
+</tr>
+<tr>
+<td>集成生态</td>
+<td>项目自身为"集成枢纽"，对接 40+ 供应商与 Claude Code/Cursor/Cline/Codex/Copilot 等主流工具；通过 npm、Docker Hub、GHCR 分发</td>
+<td>中强（但为"被依赖"式集成，非被平台内置）</td>
+</tr>
+<tr>
+<td>衍生项目</td>
+<td>未见明确二次开发/商业衍生项目证据</td>
+<td>弱</td>
+</tr>
+<tr>
+<td>教程/课程</td>
+<td>README 收录多个<strong>社区独立创作者</strong>的 YouTube 教程（越南语 Mì AI、乌尔都/印地语及英语 Build AI With Hamid）；README/文档社区多语言本地化（10+ 语言 README、4 语言 GitBook）</td>
+<td>中</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：教程与本地化生态有实质第三方参与（多个独立创作者视频、社区多语言翻译），分发渠道（npm/Docker/GHCR）齐全；但<strong>缺乏插件/扩展机制与可验证的衍生项目</strong>，生态更偏"消费型集成"而非"平台型扩展"。四项考察点中两项有正面证据、两项偏弱，与 5–6 档"少量第三方扩展"最匹配，定档 <strong>5–6 档（60%）</strong>，得 <strong>1.8 / 3</strong>。</p>
+<hr />
+<h3>D3.4 品牌认知与行业影响力（满分 1.5 分，得 1.2 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测情况</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>品牌辨识度</td>
+<td>8 个月内 28,900 Star，获 Trendshift trending 徽章，独立官网 9router.com，10+ 语言 README</td>
+<td>高</td>
+</tr>
+<tr>
+<td>行业采用/背书</td>
+<td>README 未列示知名企业客户/背书案例</td>
+<td>未验证</td>
+</tr>
+<tr>
+<td>媒体覆盖</td>
+<td>有多个社区 YouTube 教程、Trendshift 收录；无主流技术媒体/会议背书证据</td>
+<td>中</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：Star 体量与 Trendshift 收录表明其在 AI 编码工具/LLM 网关细分领域已具备较高辨识度，品牌热度显著；但<strong>未见头部企业采用或权威背书证据</strong>，媒体覆盖以社区 UGC 视频为主。故不达 9–10 档"行业知名品牌 + 头部企业采用"，落在 7–8 档"领域内有较高认知度"，定档 <strong>7–8 档（80%）</strong>，得 <strong>1.2 / 1.5</strong>。</p>
+<hr />
+<h3>本维度小结</h3>
+<p><strong>D3 得分 = 2.4 + 2.0 + 1.8 + 1.2 = 7.4 / 10（良好）</strong></p>
+<ul>
+<li><strong>最大优势</strong>：极高速的 Star 增长（约 3,400/月，8 个月累积 28.9k）、18.4% 的高 Fork 比率、265 名贡献者、90 天 1,260 个 PR——社区规模与热度在同类开源项目中处于头部，构成可观且活跃的潜在客户池。</li>
+<li><strong>主要短板</strong>：① 响应能力承压——2,113 个开放 Issue 对 90 天仅关闭 158 个，积压严重，是 D3.1 未能进入顶档的直接原因；② 生态仍偏"消费型"，缺插件体系与可验证衍生项目；③ 组织多样性、核心团队占比、企业背书等关键项因数据缺失未能验证。</li>
+<li><strong>对商业化的含义</strong>：社区势能足以支撑早期获客与产品验证，且用户以"自部署 + 免费额度聚合"为核心动机，<strong>对付费转化路径（托管/配额/团队协作）既有机遇也存在天然抵触</strong>，需在后续 D 维度中进一步评估变现摩擦。</li>
+<li><strong>置信度说明</strong>：Star 增速采用退化口径（已标注）、Issue 平均关闭时间/组织多样性/企业背书缺失，整体置信度<strong>中等</strong>。</li>
+</ul>
+<h3>D4. 商业模式与变现潜力</h3>
+<p><strong>维度得分：6.3 / 10</strong>（权重 18%）</p>
+<blockquote>
+<p>核心判断：MIT 协议为所有变现路径扫清了法律障碍，但项目"Unlimited FREE AI coding / never hit limits"的定位本身构成强反付费选择效应——用户因"不想付费"而来，付费转化逻辑存在结构性矛盾。变现路径存在（自托管 + 潜在云托管 + 企业版功能），但均处于"未验证"状态，仓库内无任何企业版、定价页或商业授权痕迹。</p>
+</blockquote>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D4.1 协议对变现模式的影响</td>
+<td>2.0</td>
+<td><strong>2.0</strong></td>
+<td>100%（9–10）</td>
+<td>根目录 <code>LICENSE</code> 与 <code>cli/LICENSE</code> 均为标准 MIT，无任何附加条款、无 SSPL/BUSL 类限制。Open Core、SaaS 托管、双协议、专业服务、市场抽成等全部路径在法律上均无障碍。协议不构成任何变现约束。</td>
+</tr>
+<tr>
+<td>D4.2 变现路径清晰度</td>
+<td>3.5</td>
+<td><strong>2.1</strong></td>
+<td>60%（5–6）</td>
+<td>存在 2 条结构上可行的路径（Open Core / SaaS 托管），但均无落地证据</td>
+</tr>
+<tr>
+<td>D4.3 付费转化逻辑</td>
+<td>2.5</td>
+<td><strong>1.0</strong></td>
+<td>40%（3–4）</td>
+<td>免费版功能完整且可完全自托管，对个体开发者无自然升级触发点</td>
+</tr>
+<tr>
+<td>D4.4 增值服务空间与定价天花板</td>
+<td>2.0</td>
+<td><strong>1.2</strong></td>
+<td>60%（5–6）</td>
+<td>存在明确企业级增值方向（SSO/审计/配额治理），但客单价天花板受受众定位压制</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>6.3</strong></td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h3>细则分析</h3>
+<h4>D4.1 协议对变现模式的影响 —— 2.0 / 2.0</h4>
+<p><code>LICENSE</code> 文件为教科书式 MIT（Permission is hereby granted, free of charge... without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell），<code>cli/LICENSE</code> 同为 MIT。仓库声明（README 徽章 <code>License: MIT</code>）与实测文件一致。</p>
+<p>MIT 意味着：核心代码可闭源衍生、可作为 SaaS 托管出售、可双协议授权、可打包进商业产品——<strong>所有变现路径均无法律障碍</strong>，对应评分指引最高档（9–10 → 100%）。</p>
+<p>需要说明的是（不扣分，属 D5 竞争维度范畴）：MIT 同一枚硬币的另一面是<strong>排他性为零</strong>——任何人可合法地 fork 本项目并以完全相同的方式提供商业托管服务，无需向原作者支付任何费用。README 中已列出实际存在的 TS 分支 <a href="https://github.com/diegosouzapw/OmniRoute">OmniRoute</a>（自称"full-featured fork，36+ providers、368+ 单测"），这直接印证了该风险。协议本身给了变现自由，但不给变现保护。</p>
+<h4>D4.2 变现路径清晰度 —— 2.1 / 3.5</h4>
+<p>逐一评估七种模式的可行性：</p>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>可行性</th>
+<th>证据与判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Open Core</td>
+<td>结构可行，<strong>无落地证据</strong></td>
+<td>仓库内无 <code>ee/</code>、<code>enterprise/</code>、<code>pro/</code> 目录，无 license-key 校验模块（<code>node-machine-id</code> 仅为设备标识，非授权校验），无"企业版 vs 社区版"功能对照文档</td>
+</tr>
+<tr>
+<td>SaaS 托管</td>
+<td>结构可行，<strong>弱证据</strong></td>
+<td>官网 <code>9router.com</code> 存在；<code>gitbook/content/*/deployment/cloud.md</code>（5 语种）说明云部署是被官方支持的场景；<code>Cloud Sync</code>（跨设备同步配置）是典型的托管服务前置功能。但无公开定价页、无托管服务的付费层说明</td>
+</tr>
+<tr>
+<td>双协议许可</td>
+<td>不适用</td>
+<td>MIT 下无需双协议，也无商业授权必要</td>
+</tr>
+<tr>
+<td>专业服务</td>
+<td>弱</td>
+<td>无 <code>CONTRIBUTING.md</code>、无 <code>SECURITY.md</code>、无咨询服务入口，未见商业化服务组织痕迹</td>
+</tr>
+<tr>
+<td>市场/插件</td>
+<td>弱</td>
+<td>provider 是内置适配器（40+ 硬编码），无第三方插件市场、无抽成机制</td>
+</tr>
+<tr>
+<td>认证/生态</td>
+<td>无</td>
+<td>无认证体系、无合作伙伴计划</td>
+</tr>
+<tr>
+<td>捐赠/赞助</td>
+<td>无证据</td>
+<td>无 <code>FUNDING.yml</code>、无赞助商区块（README 仅有 contributors 致谢）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>潜在企业版功能信号</strong>（这是 D4.2 给到 60% 而非更低的主要理由）：<code>package.json</code> 依赖中包含 <code>@node-saml/node-saml ^5.1.0</code>（SAML SSO —— 这是几乎专属于企业版的特性）、<code>bcryptjs</code> + <code>jose</code>（多用户认证与 JWT）、<code>sql.js</code>（本地多租户状态库）；README 功能表列出 <code>Real-Time Quota Tracking</code>、<code>Usage Analytics</code>、<code>Multi-Account Support</code>、<code>Request Logging</code>、<code>Cloud Sync</code>。这套组合（SSO + 多账号 + 配额 + 用量分析 + 审计日志）是标准的"企业治理层"功能骨架，说明作者至少在设计上为大团队/企业场景预留了空间。</p>
+<p>但<strong>骨架不等于商业模式</strong>：没有任何一版发布说明、文档或 README 段落声称某项功能需要付费，也没有 pricing 页面可验证。结论落在指引的 5–6 档："有潜在路径但尚不清晰，需验证"。</p>
+<p>另一个压低该项的结构性障碍是<strong>变现标的模糊</strong>：项目的核心承诺是"让用户用上免费/已订阅的额度"（Tier 1 订阅 → Tier 2 便宜 → Tier 3 免费）。这个价值主张本身是"帮用户省钱"，而非"替用户创造新价值"，因此很难找到一个不与其定位自相矛盾的收费对象——收订阅费即与"Free"矛盾，按 token 抽成即与其"绕过计量计费"的机制矛盾。</p>
+<h4>D4.3 付费转化逻辑 —— 1.0 / 2.5</h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>免费→付费触发点</td>
+<td><strong>对个体开发者几乎不存在</strong>。核心功能（路由、自动降级、RTK 省 token、配额追踪、多账号）在 MIT 下全部免费且可完全自托管，本地 <code>npm install -g 9router</code> 一条命令即得完整体验。免费版不是"阉割版"，而是"完整版"</td>
+</tr>
+<tr>
+<td>付费意愿强度</td>
+<td><strong>负面选择效应</strong>。README 首屏即承诺 "Unlimited FREE AI coding"、"Stop wasting money"、"never hit limits"，Topics 含 <code>free-ai</code>。这套话语筛选出的用户群体，其核心诉求恰恰是"不付钱"。同类参照（Supabase/Strapi）的用户是"想自建替代商业 SaaS 的团队"，存在预算；本项目的用户是"想免费白嫖模型额度的个人"，预算天然稀薄</td>
+</tr>
+<tr>
+<td>转化漏斗</td>
+<td><strong>路径不通畅</strong>。唯一相对自然的付费触发点是团队/企业场景：SAML SSO、跨账号配额池、审计日志、SLA。但 28.9K star 的社区画像与 5 语种 README + 大量 YouTube 教程（越南语/印尼语/印地语/波斯语等新兴市场为主）显示用户以个人开发者为主，企业决策者渗透率低</td>
+</tr>
+<tr>
+<td>合规顾虑</td>
+<td>通过 OAuth 复用 Claude Code / Codex / Copilot / Cursor 的订阅凭证进行路由分发，存在与上游服务商 ToS 冲突的潜在风险（该项细读详见 D6）。这会显著压制<strong>付费客户</strong>（尤其是企业客户）的采购意愿——企业不会为一项可能违反供应商条款的中转服务签订商业合同</td>
+</tr>
+</tbody>
+</table>
+<p>综合落在 3–4 档："付费逻辑勉强，用户更愿意用免费版"。给 40%。</p>
+<h4>D4.4 增值服务空间与定价天花板 —— 1.2 / 2.0</h4>
+<p><strong>增值空间（正向）</strong>：技术栈显示项目已具备若干可打包为付费增值的能力：
+- <strong>治理类</strong>：配额追踪、用量分析（<code>recharts</code>）、请求日志（<code>ENABLE_REQUEST_LOGS</code>）、多账号轮询
+- <strong>安全合规类</strong>：SAML SSO、bcryptjs 密码体系、JWT（<code>jose</code>）、自签证书（<code>node-forge</code>/<code>selfsigned</code>）、代理支持（<code>socks-proxy-agent</code>）
+- <strong>运维类</strong>：Docker 镜像发布（<code>docker-publish.yml</code>、GHCR）、云同步、多语言文档站点（GitBook 5 语种）
+- <strong>成本类</strong>：RTK 省 token 20–40%、Caveman 省输出 token 65% —— <strong>这是唯一有硬性 ROI 叙事的增值点</strong>，可直接换算为省下的 API 美元</p>
+<p><strong>定价天花板（负向约束）</strong>：
+- 客单价锚点参照同赛道：自托管 LLM 网关/代理类产品（LiteLLM、Portkey、One-API 等）的企业版普遍在 <strong>$1K–10K/年</strong> 量级，而非 $10K+ 的通用基础设施定价
+- 本项目受众高度个人化，<code>per-seat</code> 扩展空间受限于"个人开发者席位单价 $5–20/月"的常识天花板
+- 收入扩展性：<code>per-usage</code> 抽成模式与其"免费额度"定位直接冲突；<code>enterprise flat fee</code> 需要企业销售能力，而仓库无 <code>CONTRIBUTING.md</code>/<code>SECURITY.md</code>/<code>CODEOWNERS</code>，组织化程度更像个人主导的高星项目而非企业级产品团队</p>
+<p>落在 5–6 档："增值有限，客单价 $100–1K/年"偏向上沿。给 60%。</p>
+<h3>结论</h3>
+<p><strong>D4 维度得分：6.3 / 10</strong></p>
+<p>9router 在<strong>法律层面完全自由</strong>（MIT），在<strong>技术层面已铺好企业功能的砖</strong>（SAML SSO、配额治理、用量分析、审计日志），却在<strong>商业层面完全没有落地</strong>：无企业版目录、无授权校验、无定价页、无赞助/捐赠入口、无商业服务组织。其"Unlimited FREE / never hit limits"的品牌定位对用户增长是极强杠杆（28.9K star、5307 fork、265 贡献者、90 天 1260 个 PR），但对付费转化是等量的反向杠杆——付费与"免费"的承诺在同一句话里互相抵消。</p>
+<p>可参照的迁移路径是 OpenRouter/LiteLLM 式的"网关治理 + 企业合规"模式：把 MIT 社区版保留为完整功能，向企业售卖 SSO、审计、配额池、SLA 与托管可靠性。但这条路径需要（a）与上游模型供应商的 ToS 关系合规化，（b）从个人开发者社区向企业采购者的客群迁移，二者目前均无证据支撑。因此本维度判定为"一般偏上"：路径存在，但全部待验证。</p>
+<p><strong>置信度说明</strong>：本维度基于仓库文件（LICENSE、package.json、README、docs/gitbook 目录结构）与 GitHub 元数据评估，<strong>未能获取官网 9router.com 的定价/托管服务页面内容</strong>。若该站点已提供付费托管层，D4.2 与 D4.3 评分可能被低估 1–2 个档位。</p>
+<h3>D5. 竞争格局与差异化壁垒（权重 12%）</h3>
+<h3>D5.1 竞品对比与市场定位（3 分）</h3>
+<p><strong>竞品验证说明</strong>：本节竞品信息来自两个渠道——(1) 主项目 README 内的直接引用（仓库内引用验证）；(2) GitHub Search API 实测返回结果。所有列出竞品均通过至少一种方式确认真实存在。</p>
+<h4>竞品对比表</h4>
+<table>
+<thead>
+<tr>
+<th>竞品名称</th>
+<th>类型</th>
+<th>仓库/官网</th>
+<th>验证方式</th>
+<th>Star/用户量</th>
+<th>核心差异</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CLIProxyAPI</td>
+<td>直接竞品（同源前身）</td>
+<td>github.com/router-for-me/CLIProxyAPI</td>
+<td>仓库内引用（README Acknowledgments 明确标注"original Go implementation that inspired this JavaScript port"）</td>
+<td>N/A（素材未给出数值，未搜索确认 star 数）</td>
+<td>Go 实现，为 9Router 的灵感来源；9Router 是其在 JS 生态的移植与扩展</td>
+</tr>
+<tr>
+<td>OmniRoute</td>
+<td>直接竞品（分叉衍生）</td>
+<td>github.com/diegosouzapw/OmniRoute</td>
+<td>仓库内引用（README "Forks" 章节明确列出）</td>
+<td>N/A（素材未给出数值）</td>
+<td>TypeScript 分叉，宣称 36+ providers、4 级 fallback、多模态 API、熔断、语义缓存、LLM 评测、368+ 单测</td>
+</tr>
+<tr>
+<td>RTK</td>
+<td>间接竞品（能力组件）</td>
+<td>github.com/rtk-ai/rtk</td>
+<td>仓库内引用 + README 标注 ⭐40K</td>
+<td>~40K（README 自述，未独立验证）</td>
+<td>Rust 实现的 token 压缩器，解决"省 token"问题但技术路径不同（独立工具，非路由网关）</td>
+</tr>
+<tr>
+<td>Caveman</td>
+<td>间接竞品（能力组件）</td>
+<td>github.com/JuliusBrussee/caveman</td>
+<td>仓库内引用 + README 标注 ⭐52K</td>
+<td>~52K（README 自述，未独立验证）</td>
+<td>Prompt 注入型输出压缩方案，解决同样"省 token"问题，路径完全不同</td>
+</tr>
+<tr>
+<td>Ponytail</td>
+<td>间接竞品（能力组件）</td>
+<td>github.com/DietrichGebert/ponytail</td>
+<td>仓库内引用（README Acknowledgments）</td>
+<td>N/A（素材未给出数值）</td>
+<td>"lazy senior dev" prompt 注入，减少输出 token</td>
+</tr>
+</tbody>
+</table>
+<p><strong>关于 GitHub Search API 结果的说明</strong>：补采的"竞品清单"返回 5 个仓库（zcuss/9router、neuronori/9router、vutranHS/9router、bianmbut58-netizen/9router-mipn、zcus0/zcus-router），其 description 与被分析项目<strong>逐字相同</strong>，star 数均为 0–2。这实际是<strong>同仓库的克隆/镜像/复刻</strong>，而非独立竞品——GitHub Search API 依据 description 关键词匹配返回，无法区分原创与克隆。因此这些结果仅能证明"存在大量低星复刻物"，<strong>不能作为独立竞品计入对比表</strong>。经搜索验证，真正的同类竞品主要为上表所列的 CLIProxyAPI 与 OmniRoute（均通过主项目 README 引用确认），加上已确认的跨类别 token 节省工具 RTK/Caveman/Ponytail。</p>
+<h4>定位清晰度分析</h4>
+<p>主项目定位极其鲜明且高度差异化：
+- <strong>一句话定位</strong>："Unlimited FREE AI coding + RTK 省 20-40% token"，将"免费额度聚合"与"token 压缩"两个卖点捆绑，形成组合定位。
+- <strong>三层 fallback 架构</strong>（Subscription → Cheap → Free）是明确的产品叙事，区别于纯免费聚合器（无付费层衔接）和纯 token 压缩器（无路由能力）。
+- <strong>集成面广</strong>：README 列出 19+ CLI 工具与 40+ provider，覆盖广度是定位的组成部分。
+- <strong>弱项</strong>：核心能力（格式翻译、OAuth 代理、fallback）与 CLIProxyAPI 高度重叠；OmniRoute 作为分叉已在功能上宣称超越（36+ providers、多模态、熔断）。9Router 的差异化更多体现在"用户体验整合 + token 压缩捆绑 + 多语言文档/视频生态"，而非不可替代的独特技术。</p>
+<p><strong>评分依据</strong>：属"有竞品但本项目有明确差异化定位"档（7–8），但差异化主要靠整合与叙事而非独有能力，且已有分叉在功能上宣称领先，取该档下沿。</p>
+<p><strong>D5.1 得分：2.1 / 3</strong>（满分 × 80% → 档位 7–8 下沿，2.4→取 2.1，反映差异化受分叉追赶侵蚀）</p>
+<blockquote>
+<p>说明：按六档粒度，7–8 档对应 80%（3 × 0.8 = 2.4）。鉴于 OmniRoute 分叉已宣称功能超越、CLIProxyAPI 为同源前身，差异化被稀释，故在 80% 档内取偏保守值 <strong>2.1</strong>（略低于 2.4 的档位标称值，体现"差异化不够鲜明"的担忧，但未跌破至 60% 档）。</p>
+</blockquote>
+<hr />
+<h3>D5.2 技术壁垒与网络效应（3 分）</h3>
+<blockquote>
+<p>归属说明：从零复刻的工程难度已在 D2.2 计分，本项仅从<strong>商业防御效果</strong>评估壁垒。</p>
+</blockquote>
+<p><strong>技术壁垒评估</strong>：
+- <strong>专利/算法壁垒</strong>：无。MIT 许可，核心为"格式翻译 + OAuth 代理 + fallback 路由"的组合工程，属公开技术整合，无专利保护。
+- <strong>数据壁垒</strong>：弱。本地 SQLite 存储用户配置与用量，数据留在用户侧，不构成平台级数据资产；无跨用户数据飞轮。
+- <strong>生态壁垒</strong>：弱。依赖第三方 provider 的免费额度（Kiro、OpenCode Free、Vertex），而 README 明确承认"iFlow/Qwen Code/Gemini CLI free tiers were discontinued in 2026"——<strong>上游免费额度的存续由第三方控制，非本项目可控</strong>，这是被动而非主动壁垒。
+- <strong>token 压缩能力</strong>：非自研，移植自 RTK/Caveman/Ponytail，可被任何竞品同样移植。</p>
+<p><strong>网络效应评估</strong>：
+- 无插件市场、无社区贡献的数据闭环。
+- 265 名贡献者 + 90 天 1260 个 PR，反映社区活跃，但属于"人气"而非"网络效应"——新用户加入不会直接提升老用户的体验价值。
+- 存在 OmniRoute 分叉生态，属<strong>分叉扩散</strong>而非正向网络效应（分叉分流用户）。</p>
+<p><strong>规模效应评估</strong>：
+- 无显著规模成本优势；每个用户自托管本地实例，无集中化基础设施带来的边际成本递减。</p>
+<p><strong>综合判断</strong>：技术为公开工程整合，无专利/数据/算法壁垒；无网络效应；规模效应不适用。唯一防御来自"功能覆盖广度 + 集成数量 + 文档/视频生态"的先行者人气，属"有一定壁垒但不深厚"。</p>
+<p><strong>D5.2 得分：1.5 / 3</strong>（满分 × 60% 上沿 → 5–6 档，取 1.5）</p>
+<blockquote>
+<p>说明：5–6 档对应 60%（3 × 0.6 = 1.8）。本项目无任何专利/数据/网络效应，仅有先行者热度与集成广度，故取 60% 档内偏低值 <strong>1.5</strong>（1.8 的偏下位置），贴近"壁垒薄弱"的 3–4 档边界但未跌破。</p>
+</blockquote>
+<hr />
+<h3>D5.3 切换成本与用户粘性（2 分）</h3>
+<p><strong>迁移成本</strong>：
+- <strong>配置迁移</strong>：用户配置存于本地 SQLite（<code>data.sqlite</code>），含 providers、combos、aliases、keys、settings、usage history。切换竞品需重新配置全部 40+ provider 连接与 OAuth token，成本<strong>中等偏高</strong>。
+- <strong>集成迁移</strong>：CLI 工具仅需改 endpoint（<code>http://localhost:20128/v1</code>）与 API key，<strong>改动极小</strong>——这降低了粘性。
+- <strong>数据迁移</strong>：无用户业务数据锁定，用量历史可弃，<strong>迁移成本低</strong>。</p>
+<p><strong>深度集成</strong>：作为本地代理网关，用户需修改各 CLI 工具的 endpoint 设置并配置 provider 凭证，属中等深度集成；但集成方式标准化（OpenAI 兼容 API），任何竞品都能被同等方式接入，集成本身不构成锁定。</p>
+<p><strong>习惯锁定</strong>：Dashboard 的 quota 追踪、combo 配置、日志调试可能形成使用习惯，但属轻量习惯，非组织流程依赖。</p>
+<p><strong>综合判断</strong>：配置迁移有中等成本（40+ provider 凭证与 OAuth 需重配），但集成与数据层面几乎无锁定，用户切换只需改一个 endpoint。整体属"迁移成本中等，有部分粘性"。</p>
+<p><strong>D5.3 得分：1.2 / 2</strong>（60% 档 = 1.2）</p>
+<hr />
+<h3>D5.4 护城河可持续性（2 分）</h3>
+<p><strong>护城河趋势</strong>：<strong>在削弱</strong>。
+- README 自述 "iFlow, Qwen Code and Gemini CLI free tiers were discontinued in 2026"——核心卖点（免费额度）的上游正在收缩。
+- "Kiro AI moved to a paid model in Sep 2025 — the free tier is now capped at 50 credits/month"——免费额度被上游削减并货币化。
+- "OpenCode Free model list fluctuates... subject to change without notice"——免费能力不稳定。
+- "$300 free credit... since Mar 2026 the Gemini API endpoint no longer consumes these credits"——免费通道进一步受限。</p>
+<p><strong>颠覆风险</strong>：
+- <strong>上游依赖风险（高）</strong>：项目价值高度依赖第三方免费/低价额度，而 provider（Anthropic/OpenAI/Google/Kiro）有强烈动机封堵代理与限制免费额度。上游一旦收紧政策，项目核心卖点即被削弱。
+- <strong>同源竞品风险（中）</strong>：CLIProxyAPI 为同源 Go 实现，OmniRoute 分叉已宣称功能超越，说明该赛道<strong>技术门槛低、易被分叉/复刻</strong>（GitHub 上已有多个 description 逐字相同的复刻仓库即为佐证）。
+- <strong>技术变革风险（中）</strong>：若主流 provider 提供官方多模型路由或统一的订阅制，第三方网关价值下降。</p>
+<p><strong>时间窗口</strong>：现有优势高度依赖上游免费额度政策的持续性，属<strong>外部赋予而非自身构建</strong>，窗口期可能仅数月（README 中多次出现"discontinued"、"capped"、"subject to change"的措辞即为例证）。</p>
+<p><strong>综合判断</strong>：护城河在削弱，有明确的外部颠覆者（上游 provider 政策）与同源/分叉竞品。属"护城河在削弱，有明确颠覆者"档（3–4）。</p>
+<p><strong>D5.4 得分：0.8 / 2</strong>（40% 档 = 0.8）</p>
+<hr />
+<h3>D5 维度汇总</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D5.1 竞品对比与市场定位</td>
+<td>3</td>
+<td>2.1</td>
+<td>7–8 档偏下</td>
+</tr>
+<tr>
+<td>D5.2 技术壁垒与网络效应</td>
+<td>3</td>
+<td>1.5</td>
+<td>5–6 档偏下</td>
+</tr>
+<tr>
+<td>D5.3 切换成本与用户粘性</td>
+<td>2</td>
+<td>1.2</td>
+<td>5–6 档</td>
+</tr>
+<tr>
+<td>D5.4 护城河可持续性</td>
+<td>2</td>
+<td>0.8</td>
+<td>3–4 档</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>5.6</strong></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>D5 维度得分：5.6 / 10</strong>（5.6 ÷ 10 × 10 = 5.6）</p>
+<h3>结论</h3>
+<p>9Router 在<strong>市场定位上确有差异化</strong>——"免费额度聚合 + RTK token 压缩 + 三层 fallback"的捆绑叙事清晰，且通过 19+ CLI 工具、40+ provider、多语言文档与大量视频教程建立了显著的<strong>知名度势能</strong>（28.9K star、5.3K fork、265 贡献者）。但这份优势主要来自<strong>整合与传播</strong>，而非不可复制的技术。</p>
+<p><strong>核心风险在于其商业根基的外生性</strong>：项目价值直接系于第三方 provider 的免费/低价额度，而 README 已自陈多个免费通道在 2026 年被关停、削减或货币化。护城河由上游授予，也可被上游收回。同时，CLIProxyAPI（同源前身）与 OmniRoute（功能宣称超越的分叉）证明该赛道<strong>技术门槛低、易被复刻</strong>——GitHub Search 返回的多个 description 逐字相同、star 0–2 的镜像仓库即是直接证据。切换成本亦仅体现在配置迁移，集成与数据层面几乎无锁定。</p>
+<p>因此 D5 定位为"<strong>有明确差异化叙事、但壁垒不深、护城河受上游政策侵蚀而趋于削弱</strong>"，得分 5.6/10，构成中等程度的商业化障碍：若无法将重心从"上游免费的套利"转向"自有的路由智能/压缩算法/企业级可靠性"，其竞争地位将持续承压。</p>
+<h3>D6. 法律合规与知识产权</h3>
+<h3>D6.1 开源协议合规性与商业限制（3.0 / 3.0）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测结论</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>协议明确性</td>
+<td>根目录 <code>LICENSE</code> 为标准 MIT 全文（Copyright (c) 2024-2026 decolua and contributors）；<code>cli/LICENSE</code> 亦为 MIT（Copyright (c) 2026 9Router Contributors）；<code>package.json</code>（app / cli）均声明 <code>"license": "MIT"</code>，<code>gitbook</code>、<code>tests</code> 为工程内部包</td>
+<td>✅ 规范</td>
+</tr>
+<tr>
+<td>copyleft 传染性</td>
+<td>仓库本体与子包均为 MIT，无 GPL/AGPL/LGPL 声明；MIT 无传染性</td>
+<td>✅ 无风险</td>
+</tr>
+<tr>
+<td>商业附加条款</td>
+<td>未发现 Commons Clause、BUSL、SSPL、Elastic License 或任何商用限制条款；无 NOTICE 附加约束</td>
+<td>✅ 无</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：LICENSE 文件 + 三个 <code>package.json</code> 的 license 字段一致，SPDX 层面明确（MIT），无商业附加条款，无 copyleft 传染。仅有一处轻微不一致——根 LICENSE 的版权主体为「decolua and contributors」，cli/LICENSE 为「9Router Contributors」，但两者均为 MIT、权利授予等值，不构成法律障碍。</p>
+<p><strong>得分：3.0 / 3.0（100%，9–10 档）</strong></p>
+<blockquote>
+<p>说明：D6.1 仅评估法律合规层面；协议对变现模式（SaaS / 双协议 / 私有化）的选择空间已在 D4.1 评估，此处不重复计分。</p>
+</blockquote>
+<hr />
+<h3>D6.2 依赖链法律风险（2.0 / 2.5）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测结论</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>依赖协议审查</td>
+<td>直接依赖（app 33 个 + optional 1 个 <code>better-sqlite3</code>、cli 5 个、docs 7 个）全部来自 MIT/Apache-2.0 主流生态：<code>next</code>/<code>react</code>/<code>express</code>/<code>zustand</code>/<code>undici</code>/<code>jose</code>/<code>monaco-editor</code>/<code>@xyflow/react</code> 等均为 MIT，<code>material-symbols</code> 为 Apache-2.0。<strong>未发现 GPL/AGPL 直接依赖</strong>。<code>node-forge</code> 为 <code>BSD-3-Clause OR GPL-2.0</code> 双许可，可择 BSD 分支规避传染</td>
+<td>✅ 正向</td>
+</tr>
+<tr>
+<td>依赖数量</td>
+<td>主应用 33 个直接生产依赖 + 1 个可选原生依赖，另有 cli（5）/gitbook（7）/tests 子工程，整体属中高量级，license 清单维护成本中等</td>
+<td>⚠️ 轻微</td>
+</tr>
+<tr>
+<td>依赖来源</td>
+<td>全部为 npm registry 上的知名维护方（Vercel、Meta、LangChain-adjacent 生态等），无来源不明私有源；cli 的 <code>systray2</code> 由 <code>postinstall.js</code> 懒安装，属 fork 包（替代 2017 年旧 <code>systray@1.0.5</code>），来源可追溯但<strong>不在主依赖清单中，易被许可证扫描遗漏</strong></td>
+<td>⚠️ 需注意</td>
+</tr>
+<tr>
+<td>传递依赖</td>
+<td>未执行 <code>npm ls</code> / license-checker 全量扫描，传递依赖树未逐项验证</td>
+<td>⚠️ 未验证</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：<code>package.json</code> × 4 份依赖清单。直接依赖层面无可识别的传染性协议，风险集中在传递依赖未扫描与懒安装的 <code>systray2</code>（非 npm 主清单管理）。整体可控，但尚未达到「依赖少且已完整核验」的 9–10 档。</p>
+<p><strong>得分：2.0 / 2.5（80%，7–8 档）</strong></p>
+<hr />
+<h3>D6.3 商标与专利风险（1.5 / 2.5）</h3>
+<blockquote>
+<p><strong>未经人工核查，置信度低。</strong> 本次评估未执行任何商标数据库检索（USPTO/EUIPO/CNIPA）与专利检索（FTO），以下仅为基于仓库可见素材的风险提示，不构成商标/专利状态结论。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>可见素材</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>商标可用性</td>
+<td>名称「9Router」未见检索数据；仓库未提供任何商标注册声明或 <code>TRADEMARKS.md</code></td>
+<td>无法核实</td>
+</tr>
+<tr>
+<td>专利风险</td>
+<td>核心技术为 LLM 请求路由 / 协议转换 / token 优化，未见专利声明、专利许可条款或已知争议信息</td>
+<td>无法核实</td>
+</tr>
+<tr>
+<td>商标政策</td>
+<td>无独立商标使用政策文件；README 未见免责声明（<code>README.md</code> 未提供正文）。<strong>但仓库 description 与 topics 高频使用第三方商标</strong>：Claude、Claude Code、Codex、Cursor、Cline、Copilot、Antigravity、ChatGPT、GPT、Gemini、OpenAI 等</td>
+<td>⚠️ 存疑</td>
+</tr>
+</tbody>
+</table>
+<p><strong>风险提示（不改变档位，供人工复核参考）</strong>：
+1. <strong>指示性使用 vs. 营销性使用</strong>：topics 与描述中使用第三方商标若仅为兼容性说明（nominative use）通常可主张合理使用；但「Connect … to FREE Claude/GPT/Gemini」式营销文案可能在部分法域被认定为暗示官方授权或造成来源混淆，尤其在缺少免责声明与商标政策时。
+2. <strong>无免责声明与商标政策</strong>：仓库缺少 <code>TRADEMARKS.md</code>、<code>NOTICE</code> 及 README 免责段，商标合规基础设施为零，人工复核时若确认存在品牌混淆风险，本项应下调至 3–4 档（1.0–1.2 分）。</p>
+<p><strong>得分：1.5 / 2.5（60%，5–6 档，按无人工核查默认档位；置信度低）</strong></p>
+<hr />
+<h3>D6.4 贡献者协议完备性（0.8 / 2.0）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测结论</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CLA / DCO</td>
+<td><strong>无 CLA 配置、无 DCO（Signed-off-by）要求</strong>，仓库无 <code>.github/CLA</code> 或相关 workflow</td>
+<td>❌ 缺失</td>
+</tr>
+<tr>
+<td>版权归属</td>
+<td>根 LICENSE 标注「decolua and contributors」，且 265 位贡献者、90 天 1260 个 PR——版权高度分散于众贡献者，<strong>无法集中控制</strong>，任何「专有化 / 双协议 / 换许可」动作原则上需取得全体贡献者授权</td>
+<td>❌ 分散</td>
+</tr>
+<tr>
+<td>贡献流程</td>
+<td><code>has_contributing: false</code>——无 <code>CONTRIBUTING.md</code>；无 <code>CODEOWNERS</code>；无 <code>SECURITY.md</code>。仓库存在 <code>CLAUDE.md</code>（AI 编码代理指令）与 <code>docs/superpowers/plans|specs</code> 设计文档，属内部工程规范，<strong>不是面向外部贡献者的贡献协议</strong></td>
+<td>❌ 不规范</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：GitHub API <code>contributors=265</code>、<code>prs_created_90d=1260</code>，本地探测 <code>has_contributing=false</code>、<code>has_codeowners=false</code>，且无 CLA/DCO 痕迹。入站=出站（MIT）虽保证社区协作无法律瑕疵，但对商业化的<strong>版权集中诉求</strong>（双协议、私有化例外授权、被收购时的 IP 尽调）构成实质障碍。</p>
+<p><strong>得分：0.8 / 2.0（40%，3–4 档）</strong></p>
+<hr />
+<h3>结论与商业化影响</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D6.1 开源协议合规性与商业限制</td>
+<td>3.0</td>
+<td><strong>3.0</strong></td>
+<td>9–10（100%）</td>
+</tr>
+<tr>
+<td>D6.2 依赖链法律风险</td>
+<td>2.5</td>
+<td><strong>2.0</strong></td>
+<td>7–8（80%）</td>
+</tr>
+<tr>
+<td>D6.3 商标与专利风险</td>
+<td>2.5</td>
+<td><strong>1.5</strong></td>
+<td>5–6（60%，未经人工核查，置信度低）</td>
+</tr>
+<tr>
+<td>D6.4 贡献者协议完备性</td>
+<td>2.0</td>
+<td><strong>0.8</strong></td>
+<td>3–4（40%）</td>
+</tr>
+<tr>
+<td><strong>D6 合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>7.3</strong></td>
+<td><strong>7–8 档</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>核心结论</strong>：
+- <strong>协议层零硬伤</strong>：MIT 全线一致、无 copyleft、无商业附加条款，法律上完全支持闭源二次开发、SaaS 托管与商业化分发。协议不是本项目的法律瓶颈。
+- <strong>依赖链基本干净但未闭环</strong>：直接依赖未见传染性协议，短板在传递依赖未执行全量扫描、以及 <code>postinstall</code> 懒安装的 <code>systray2</code> 游离于主依赖清单之外，需补一次 license 扫描作为流程化合规基线。
+- <strong>最大法律短板是贡献者协议缺失</strong>：265 位贡献者 + 极高 PR 吞吐 + 无 CLA/DCO/CODEOWNERS，版权分散且不可集中。若商业化路径涉及<strong>双协议（Open Core 企业版）、专有再许可或融资/并购尽调</strong>，必须先补 CLA 或对历史贡献做版权清理——这是本项目唯一具备「阻断级」性质的 IP 障碍。
+- <strong>商标与专利未经核查</strong>：本项按规则取默认档（1.5/2.5），置信度低，需人工完成商标检索（重点核查「9Router」在软件/云端服务类别的可注册性）与第三方商标指示性使用的合规边界；仓库缺少免责声明与商标政策属可低成本补齐的短板。
+- <strong>跨维度法律提示（不计入本维度得分）</strong>：项目描述的核心卖点「Unlimited FREE AI coding，经 40+ provider 免费额度聚合/自动回退」在商业运营中可能触及上游服务商（Anthropic/OpenAI/Google 等）的服务条款与账号共享限制，属于<strong>非开源协议层面的重大法律与经营风险</strong>，建议在 D4/D7 及整体风险清单中单独列示并做人工法律意见。</p>
+<h3>D7. 企业就绪度与可运营性（权重 8%）</h3>
+<p><strong>目的</strong>：评估项目是否具备企业级客户所要求的运营特性——企业客户是商业化的主要付费方。安装部署与易用性（D9）不在此维度重复评估。</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>档位</th>
+<th>小分</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D7.1 运维复杂度与升级路径</td>
+<td>3</td>
+<td>5–6（60%）</td>
+<td>1.8</td>
+<td>配置清晰、Docker/CI 完备，但升级与数据迁移需手动</td>
+</tr>
+<tr>
+<td>D7.2 安全管理与权限控制</td>
+<td>2.5</td>
+<td>7–8（80%）</td>
+<td>2.0</td>
+<td>有 OIDC+SAML SSO、JWT/bcrypt、凭据加密，但无多租户 RBAC</td>
+</tr>
+<tr>
+<td>D7.3 可扩展性与高可用能力</td>
+<td>2.5</td>
+<td>3–4（40%）</td>
+<td>1.0</td>
+<td>单机架构，SQLite 本地文件 + 内存态单例，无分布式/HA 设计</td>
+</tr>
+<tr>
+<td>D7.4 集成兼容与可观测性</td>
+<td>2</td>
+<td>7–8（80%）</td>
+<td>1.6</td>
+<td>API 极其完善，有健康检查与用量监控，但缺标准协议与结构化日志</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td>—</td>
+<td><strong>6.4</strong></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>D7.1 运维复杂度与升级路径（1.8 / 3，5–6 档）</h3>
+<p><strong>配置管理（加分）</strong>：<code>.env.example</code> 对运维契约有完整、面向运行时的注释说明——必需项（<code>JWT_SECRET</code>、<code>INITIAL_PASSWORD</code>、<code>DATA_DIR</code>）、运行时（<code>PORT</code>、<code>NODE_ENV</code>）、安全项（<code>API_KEY_SECRET</code>、<code>AUTH_COOKIE_SECURE</code>、<code>REQUIRE_API_KEY</code>）、出站代理（大小写两套变量）逐一列明，且标注哪些变量"当前未被运行时使用"，罕见地诚实。这是清晰的环境变量式配置管理，未见配置中心/动态配置支持，但对自托管网关而言足够。</p>
+<p><strong>运维负担（中性偏正）</strong>：提供多阶段 <code>Dockerfile</code>（node:22-alpine，非 root 用户 <code>node</code> + <code>su-exec</code> 入口修复挂载卷权限）、<code>docker-compose.yml</code>（<code>restart: always</code>、具名卷 <code>9router-data</code>、<code>depends_on: headroom</code> 伴生容器）。CLI 具备崩溃有界重启（<code>MAX_RESTARTS</code> + 重置窗口）、崩溃 3 次自动禁用 MITM、PID/LOCK 双文件锁与陈旧锁检测、MITM 指数退避重启。运维自动化程度较好。但 CI 仅 2 个 workflow（Docker 发布 + GitBook），缺 Kubernetes/Helm、缺备份/恢复自动化、无 <code>CODEOWNERS</code>/<code>SECURITY.md</code>/<code>CONTRIBUTING</code>。</p>
+<p><strong>升级路径与数据迁移（扣分，主要短板）</strong>：
+- 版本仍处 <strong>0.x</strong>（最新 <code>v0.5.35</code>），且 0.5 系列即有 35 个 patch 版本、90 天内约 10 次 release，发布极其高频，18 个月未收敛到 1.0，语义化版本稳定性存疑，企业难以对版本升级做长期规划。
+- 数据存于 SQLite（<code>sql.js</code>，<code>DATA_DIR</code> 卷）。<strong>未见任何迁移框架/迁移脚本</strong>，数据库导入导出为手动、需密码二次确认的 <code>/api/settings/database</code> 操作；升级数据迁移依赖人工。
+- 无显式回滚机制文档。CI 仅在 tag 时推送 Docker 镜像，无蓝绿/灰度。</p>
+<p><strong>判定</strong>：配置管理优秀、Docker/CI 运维自动化到位，但版本处于高频 0.x churn、升级与数据迁移仍需人工、无回滚机制，符合"需一定运维投入，升级需手动操作"（5–6 档）。打 60%。</p>
+<hr />
+<h3>D7.2 安全管理与权限控制（2.0 / 2.5，7–8 档）</h3>
+<p><strong>认证授权（强项）</strong>：
+- <strong>企业 SSO 齐备</strong>：<code>profile</code> 页实现 <strong>OIDC</strong> 与 <strong>SAML</strong> 配置（含 IdP metadata XML 解析、X509 证书上传、连通性测试接口 <code>/api/auth/oidc/test</code>、<code>/api/auth/saml/test</code>），依赖 <code>@node-saml/node-saml</code>。这在同类自托管 LLM 网关中属超平均配置。
+- 本地认证：<code>jose</code>（JWT）、<code>bcryptjs</code> 密码哈希、<code>INITIAL_PASSWORD</code>、改密需 <code>currentPassword</code>。
+- 端点侧安全门禁：<code>isLoginUnsafe</code> 在未启用登录或仍用默认密码时<strong>阻止 Cloudflare/Tailscale 隧道对外暴露</strong>，具备明确的失败安全设计。
+- OAuth 流程有 CSRF/loopback origin 校验（<code>isLoopbackOrigin</code>）、<code>state</code> 一致性校验、PKCE。</p>
+<p><strong>权限模型（短板）</strong>：无多用户/多租户、无 RBAC/ABAC。本质上为单管理员实例的密码 + API Key 模型，权限为粗粒度。企业若需按团队/项目隔离与授权则不足。</p>
+<p><strong>审计日志（部分）</strong>：<code>ENABLE_REQUEST_LOGS</code>、<code>OBSERVABILITY_ENABLED</code> 开关，用量/请求历史持久化（<code>usageRepo</code>）、配额追踪，API Key 脱敏（<code>maskApiKey</code>）。但审计日志默认关闭、无独立合规审计通道。</p>
+<p><strong>数据安全（较好）</strong>：sudo 密码采用 <strong>AES-256-GCM</strong> 加密，密钥由 <code>machineIdSync()</code> + salt 经 SHA-256 派生并绑定机器；密码经 stdin 传递不落命令行；证书过期检测与自动重生成；OAuth token 集中刷新与去重。传输依赖 HTTPS/TLS（<code>selfsigned</code>）。</p>
+<p><strong>判定</strong>：SSO（OIDC+SAML）+ 加密 + 部分审计已明显高于"基本认证授权"，但缺 RBAC/多租户，未达"完整企业安全体系（SSO + RBAC + 审计 + 加密）"的 9–10 档。打 80%。</p>
+<hr />
+<h3>D7.3 可扩展性与高可用能力（1.0 / 2.5，3–4 档）</h3>
+<p><strong>水平扩展（不支持）</strong>：应用为单进程 Node.js（<code>custom-server.js</code>，<code>PORT=20128</code>），Docker 单容器。关键状态均非分布式：
+- <strong>数据层</strong>：SQLite（<code>sql.js</code> / better-sqlite3）<strong>本地单文件</strong>，经 <code>DATA_DIR</code> 卷持久化，无主从/共享存储方案。
+- <strong>运行时状态</strong>：多处使用 <code>global._*</code> 进程内单例（<code>usageRepo</code>、连接名缓存、环形缓冲）；combo 轮询状态存于内存 <code>Map</code>（<code>comboRotationState</code>），sticky 计数进程内维护。多实例部署下轮询与用量统计会不一致。
+- MITM 代理绑定本机 443 端口、DNS 劫持、本机证书信任，本质是<strong>单机本地组件</strong>。</p>
+<p><strong>高可用（缺失）</strong>：无集群/主备/故障转移设计，无健康探针用于 LB 摘除（仅有 <code>/api/health</code> 供隧道可达性探测）。<code>restart: always</code> 只是容器级重启，非 HA。</p>
+<p><strong>性能瓶颈/单点</strong>：Node 单线程 + 本地 SQLite 写入（<code>saveRequestUsage</code> 事务）在高并发下易成为瓶颈；MITM 443 端口为明确单点；<code>docker-compose</code> 中 <code>headroom</code> 伴生服务亦为额外依赖点。</p>
+<p><strong>数据一致性</strong>：单机场景下用 better-sqlite3 同步事务保证一致性，但<strong>分布式场景不成立</strong>（无共识/复制机制）。</p>
+<p><strong>判定</strong>：单机性能对个人/小团队可接受，但扩展需根本性改造，SQLite 与内存态构成结构性单点，符合"扩展困难，有单点故障"（3–4 档）。打 40%。</p>
+<hr />
+<h3>D7.4 集成兼容与可观测性（1.6 / 2，7–8 档）</h3>
+<p><strong>API 完备性（显著强项）</strong>：提供 OpenAI 兼容的 <code>/v1</code>、<code>/v1/models</code>，以及 Gemini 原生 <code>/v1beta/models/[...path]</code>、<code>/v1/audio/speech</code> 等媒体端点；内部实现 OpenAI ↔ Claude ↔ Gemini ↔ Responses 多格式双向翻译；对 Cursor 用 ConnectRPC/protobuf、Windsurf 用 gRPC-web、Kiro 用 AWS EventStream，协议覆盖面远超同类。<code>buildModelsList</code> 被多路由复用，工程化程度高。未见 OpenAPI/Protobuf 定义文件与官方 SDK。</p>
+<p><strong>标准协议（短板）</strong>：未见 Prometheus/OpenTelemetry/Webhook 等标准可观测协议支持，指标无法直接接入企业监控栈。</p>
+<p><strong>监控告警（部分具备）</strong>：<code>/api/health</code> 健康检查；<code>OBSERVABILITY_ENABLED</code> 开关；用量/配额/请求历史仪表盘（<code>usageRepo</code>、<code>ProviderLimits</code>、<code>UsageStats</code>）、成本计算（<code>pricing.js</code>）、配额追踪。无指标导出与阈值告警。</p>
+<p><strong>日志体系（短板）</strong>：大量代码摘要一致显示错误路径使用 <code>console.log</code>（非结构化），存在 <code>catch { /* ignore */ }</code> 静默吞异常；虽有 <code>debugLog</code>/<code>requestLogger</code> 辅助，但整体缺结构化日志与统一日志级别管理。</p>
+<p><strong>判定</strong>：API/协议兼容层极为完善、具备健康检查与内置用量监控，但缺标准可观测协议与结构化日志，符合"有 API 和基本监控"（7–8 档）。打 80%。</p>
+<hr />
+<h3>结论</h3>
+<p>9router 的 D7 得分为 <strong>6.4 / 10（一般偏上）</strong>。其<strong>集成兼容（OpenAI 兼容 + 多协议适配）与安全认证（OIDC/SAML SSO、凭据加密）两项亮点突出</strong>，明显高于同类自托管网关的平均水平，构成一定的企业可用基础。但<strong>结构性短板集中在可扩展性与高可用</strong>：单进程 + 本地 SQLite + 内存态单例，使其无法满足企业级水平扩展、集群与故障转移要求，是商业化的主要障碍。同时<strong>版本处于高频 0.x churn</strong>（最新 v0.5.35，2113 个开放 issue）、<strong>缺自动化数据迁移/回滚</strong>、<strong>无 Prometheus/OTel 与结构化日志</strong>，均需在企业采购前补齐。</p>
+<p><strong>定位判断</strong>：该产品当前更适合<strong>个人开发者/小团队自托管</strong>，若要进入企业市场，需补足无状态化/外部化状态存储（支持多实例）、企业级 RBAC/多租户、标准可观测协议与迁移框架。置信度：中（素材充分，架构性结论有代码与配置硬证据支撑）。</p>
+<h3>D8. 团队治理与可持续性</h3>
+<p><strong>维度权重</strong>: 7% | <strong>维度得分</strong>: 5.1 / 10</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D8.1 核心维护者能力与背景</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6（60%）</td>
+<td>项目 8 个月达成 28.9k Star、17.7 万行 JS 代码、265 名贡献者、多语言文档全套（en/zh-CN/es/ja/vi）+ Docker + GitBook CI，说明维护者技术执行力强且投入度高；但维护者主体为个人账号 <code>decolua</code>、无组织/公司实体可考，无任何商业化/企业服务经验证据，且 2113 个开放 Issue 仅 90 天关闭 158 个，反映核心人力严重受限，巴士因子大概率≤2</td>
+</tr>
+<tr>
+<td>D8.2 治理模型透明度</td>
+<td>2.0</td>
+<td>0.8</td>
+<td>3–4（40%）</td>
+<td>仓库无 GOVERNANCE.md、无 CONTRIBUTING.md、无 CODEOWNERS、无 SECURITY.md；不属于 CNCF/Apache/Linux Foundation 等任何基金会；仅存在 CHANGELOG/ARCHITECTURE 类技术文档与 GitBook 用户手册，决策流程、角色划分、外部贡献者参与机制完全缺失，治理处于不透明状态</td>
+</tr>
+<tr>
+<td>D8.3 资金支持与商业赞助</td>
+<td>2.5</td>
+<td>1.0</td>
+<td>3–4（40%）</td>
+<td>无任何 VC/大公司/基金会资金证据；维护者为个人账号而非公司组织，仓库无 FUNDING 配置与 Open Collective/Sponsors 迹象；项目定位「Unlimited FREE AI」缺乏清晰商业实体承载，当前更接近纯热情驱动</td>
+</tr>
+<tr>
+<td>D8.4 项目可持续性与传承风险</td>
+<td>3.0</td>
+<td>1.8</td>
+<td>5–6（60%）</td>
+<td>活跃趋势强劲上升（2026-01 创建、2026-09 仍在推送、90 天新建 PR 1260、10 个版本发布），无 archived/deprecated 标记；但传承机制不健全——无治理文档、无贡献者晋升路径、无 CODEOWNERS 指定继任者，2113 个开放 Issue 相对 158/90 天的关闭速度形成严重积压，一旦单一核心维护者退出，社区接管路径不清晰；5307 Fork 更可能是个人自部署而非社区分裂</td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<p>9router 展现出<strong>「高活跃度 + 弱治理结构」</strong>的典型个人主导型明星项目特征。技术侧与社区侧数据亮眼（28.9k Star、265 贡献者、4 语言文档、21.6% 测试占比、双 CI 流水线），说明核心维护者具备过硬的技术执行力并处于高投入状态；但治理与资金两条支柱几乎是空白：无 GOVERNANCE/CONTRIBUTING/CODEOWNERS/SECURITY 任何一份治理文件，未加入任何开源基金会，亦无任何公司实体、VC 或赞助渠道支撑。最突出的风险信号是 <strong>2113 个开放 Issue 仅对应 90 天关闭 158 个</strong> 与 <strong>1260 个新建 PR</strong> 的极端不对称——这既是需求爆发的证明，也是核心人力瓶颈的直接体现，指向较低的巴士因子和不明晰的传承路径。</p>
+<p>对商业化而言，D8 维度的主要障碍在于：<strong>缺少可承担商业责任与长期承诺的法人实体</strong>。若要将项目从「免费 AI 路由工具」推向可持续商业体，首要动作是建立公司或基金会载体、引入明确的治理文档与维护者梯队、并设立资金通道；否则该项目高度绑定单一维护者的意愿与精力，构成中长期的可持续性折价。</p>
+<h3>D9 维度详析：上手难度与易用性</h3>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D9.1 安装难度</td>
+<td>2.5</td>
+<td><strong>2.5</strong></td>
+<td>100%（9–10）</td>
+<td>单条命令 <code>npm install -g 9router</code> 即可安装并启动；同时提供官方 Docker 镜像 <code>decolua/9router:latest</code>（Docker Hub + GHCR）。依赖自包含：数据库为内嵌 SQLite，<code>better-sqlite3</code> 被刻意放入 <code>optionalDependencies</code> 并在注释中说明「避免在无构建工具的系统上安装失败，运行时回退 sql.js」，无需用户安装数据库/缓存/消息队列。跨平台覆盖完善：CLI 对 Windows 使用 PowerShell NotifyIcon、macOS/Linux 使用 systray2，并主动规避 Windows 更新时的 EBUSY 与杀软误报问题</td>
+</tr>
+<tr>
+<td>D9.2 部署与配置难度</td>
+<td>2.5</td>
+<td><strong>2.0</strong></td>
+<td>80%（7–8）</td>
+<td>提供规范化容器部署：仓库自带 <code>docker-compose.yml</code>（<code>decolua/9router:latest</code> + 可选 headroom 压缩代理），端口/卷/环境变量均已写好；<code>Dockerfile</code> 为 node:22-alpine 多阶段构建，ENV 预设 PORT/HOSTNAME/DATA_DIR。无需初始化任何外部数据库（SQLite 文件 + 自动备份）。配置项集中在 <code>.env</code>（PORT、HOSTNAME、NEXT_PUBLIC_BASE_URL、DATA_DIR、INITIAL_PASSWORD、ENABLE_REQUEST_LOGS、HEADROOM_URL 等），数量少且有 <code>.env.example</code> 模板。README 三步 quickstart（装 → 连免费 Provider → 填 CLI 端点）可在 10 分钟内跑通。未达满分原因：无 Helm/K8s 编排清单（CI 仅有 docker-publish 与 gitbook-pages），源码路径需自行 <code>npm install</code>/<code>npm run build</code> 且构建阶段需要 <code>python3 make g++ linux-headers</code>，且最终要在 Claude Code/Cursor/Cline 等第三方工具中手工填写 Endpoint/API Key/Model，<strong>非技术人员无法独立完成全链路</strong>，实际可独立交付的是具备运维/开发背景的人员</td>
+</tr>
+<tr>
+<td>D9.3 易用性与操作门槛</td>
+<td>2.5</td>
+<td><strong>2.0</strong></td>
+<td>80%（7–8）</td>
+<td>提供 Web Dashboard 作为主操作界面（Provider 连接、配额跟踪、请求日志、RTK 开关、组合编排），把绝大多数配置从命令行搬到了可视化界面，<code>9router</code> 单命令即可拉起，CLI 使用 enquirer 交互式提示。默认值合理：RTK 默认开启（省 20–40% tokens）、内置 Subscription→Cheap→Free 三级自动回退、OAuth token 自动刷新，开箱即用程度高。错误处理有体系：README 设置专门的 Troubleshooting 章节（6 类高频问题给出定位与处置）并有独立 <code>troubleshooting.md</code> / <code>faq.md</code> 文档。扣分点：模型命名采用 <code>cc/</code>、<code>cx/</code>、<code>gh/</code>、<code>kr/</code>、<code>glm/</code> 等 provider 前缀，用户需记住/查表前缀与模型 ID；错误信息本身多为上游 provider 透传（如 "Language model did not provide messages"），排查仍依赖用户对「配额/回退」概念的理解；2113 个开放 Issue 侧面反映实际使用中仍有较多困惑与故障待解</td>
+</tr>
+<tr>
+<td>D9.4 学习曲线与首体验</td>
+<td>2.5</td>
+<td><strong>2.0</strong></td>
+<td>80%（7–8）</td>
+<td>首体验路径短：<code>npm install -g 9router</code> → <code>9router</code> → Dashboard 自动打开 <code>http://localhost:20128</code> → 连接免注册的 Kiro AI / OpenCode Free（无需鉴权）→ 复制 Endpoint/Key/Model 到编码工具，属分钟级到 30 分钟级首次成功。入门引导资源非常丰富：GitBook 四语种（en/es/ja/vi）完整章节（installation、quick-start、localhost/cloud 部署、faq、troubleshooting、按工具的 7 篇集成指南），README 提供 10 种语言版本与 12 个社区视频教程，显著降低语言门槛与概念门槛。扣分点：仓库内 <code>示例: 0 文件</code>，缺少可直接运行的示例工程/模板项目，示例主要以文档代码片段形式存在；「API 端点 / API Key / OpenAI 兼容协议 / 三级回退」等概念对纯业务用户仍有前置要求；无证据显示存在交互式 onboarding/向导流程</td>
+</tr>
+</tbody>
+</table>
+<p><strong>D9 维度总分：2.5 + 2.0 + 2.0 + 2.0 = 8.5 / 10 → 🟢 简单（8–10，面向上手门槛低，可提供详细操作步骤和命令）</strong></p>
+<h3>结论</h3>
+<p>9Router 在「上手难度与易用性」上处于行业领先区间：分发通道完整（npm 全局包 + Docker Hub/GHCR 镜像 + docker-compose），运行时零外部依赖（内嵌 SQLite 并做了 sql.js 兜底设计），Web Dashboard 承担了绝大部分交互，默认配置（RTK 开启、三级自动回退、密码回退 <code>123456</code>）即开即用。这些设计直接支撑了「试用转化率」这一商业化第一道门槛。</p>
+<p>主要短板集中在<strong>链路的最后一公里</strong>：部署完成后，用户仍需在 Claude Code / Cursor / Cline 等第三方工具中手工配置 Endpoint、API Key、模型 ID，并理解 <code>cc/</code>、<code>kr/</code> 这类 provider 前缀语义——这一步对非开发者不友好；同时仓库缺少可运行的示例工程，且 2113 个开放 Issue 提示真实环境中的配置类问题仍有相当的存量。总体判断：<strong>开发/运维背景的用户可在 10–30 分钟内完成从零到首次成功调用，属于「简单」档；但它不是一台「非技术用户可独立完成全链路」的产品。</strong></p>
+<h3>D10. 功能价值（使用价值视角）</h3>
+<blockquote>
+<p>平行维度，权重 0%，不计入综合评分，不参与一票否决；仅用于价值画像判定。</p>
+</blockquote>
+<h3>D10.1 效用强度（3 分）</h3>
+<p><strong>得分：2.4 / 3（7–8 档，80%）</strong></p>
+<p>9Router 是一个本地 AI 网关：把 Claude Code / Codex / Cursor / Cline / Copilot / Antigravity 等 CLI 工具统一指向 <code>http://localhost:20128/v1</code>，由它完成 <strong>OpenAI ↔ Claude ↔ Gemini ↔ Cursor ↔ Kiro ↔ Vertex 的协议翻译</strong>、<strong>订阅→便宜→免费的 3 级自动降级</strong>、<strong>配额实时追踪</strong>，并在转发前用 RTK 压缩 <code>tool_result</code>（<code>git diff</code> / <code>grep</code> / <code>ls</code> / <code>tree</code>）内容。</p>
+<p>按使用者的实际收益计量：</p>
+<table>
+<thead>
+<tr>
+<th>效用来源</th>
+<th>量级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RTK Token Saver</td>
+<td>每请求省 <strong>20–40% 输入 token</strong></td>
+</tr>
+<tr>
+<td>Caveman / Ponytail 模式</td>
+<td>输出 token 最多省 <strong>65%</strong>、代码 diff 更短</td>
+</tr>
+<tr>
+<td>3 级自动降级</td>
+<td>订阅配额耗尽/限流时不再中断编码，零停机</td>
+</tr>
+<tr>
+<td>多账号轮询 + 配额追踪</td>
+<td>把已付费订阅的额度用满，直接对冲 README 点名的 <code>$20–50/月/供应商</code> 支出</td>
+</tr>
+</tbody>
+</table>
+<p>这属于「<strong>项目级依赖</strong>」层级：对每天用 CLI 编码的重度用户，它同时削减<strong>现金成本</strong>（token 费用/多订阅）、<strong>时间成本</strong>（限流中断、手工切供应商）和<strong>流程风险</strong>（OAuth 过期自动刷新、统一端点）。但它不是业务命脉级基础设施——脱离它仍可直连各厂商 API，只是更贵更烦。</p>
+<p><strong>确定性打折</strong>：效用中有相当一块绑定在「免费额度」上，而这是<strong>时效性极强</strong>的外部条件。README 自己记录：iFlow、Qwen Code、Gemini CLI 免费层已于 2026 年停供；Kiro 2025 年 9 月转收费后免费层仅剩 50 credits/月（新号 500 试用 credits，30 天）；OpenCode Free 的模型清单「随时变动，不另行通知」；Vertex 的 $300 credits 自 2026 年 3 月起 Gemini API 端点不再消耗、必须改走 Vertex AI Studio。<strong>「FREE」这一层效用会随时间衰减</strong>，而网关转发、协议翻译、token 压缩、配额追踪这一层效用是稳定的。故整体落在 7–8 档而非 9–10 档。</p>
+<h3>D10.2 实际使用规模（3 分）</h3>
+<p><strong>得分：1.8 / 3（5–6 档，60%）</strong></p>
+<p><strong>npm 周下载量、PyPI 月下载量均为 N/A（未采集到）。</strong> 本项目是<strong>应用/CLI 工具</strong>而非库，GitHub Dependents（Used by）概念本身不适用，不构成有效证据。</p>
+<p>可用的硬事实（全部来自实采）：</p>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>实测值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stars</td>
+<td>28,900</td>
+</tr>
+<tr>
+<td>Forks</td>
+<td>5,307</td>
+</tr>
+<tr>
+<td>Contributors</td>
+<td>265</td>
+</tr>
+<tr>
+<td>近 90 天新建 PR</td>
+<td>1,260</td>
+</tr>
+<tr>
+<td>近 90 天关闭 Issue</td>
+<td>158</td>
+</tr>
+<tr>
+<td>开放 Issue</td>
+<td>2,113</td>
+</tr>
+<tr>
+<td>首次发布 → 最近推送</td>
+<td>2026-01-05 → 2026-09-10（约 8 个月）</td>
+</tr>
+<tr>
+<td>发布节奏</td>
+<td>90 天内 ≥10 个 release（v0.5.35 / v0.5.2 / v0.4.80…）</td>
+</tr>
+</tbody>
+</table>
+<p>旁证层面：README 收录了 <strong>10 个不同语言的第三方视频教程</strong>（英/越/印尼/波斯/乌尔都-印地等）、Trendshift 榜单徽章、以及一个功能更全的独立分叉 <strong>OmniRoute</strong>。5,307 个 fork 对一个自托管工具而言是较强的<strong>实际部署信号</strong>（fork 常用于自建/Docker 部署，而非仅收藏）。</p>
+<p><strong>为何不进 7–8 档</strong>：该档要求「十万级依赖方或月下载百万级」。npm/Docker 官方计数缺失，仅凭 stars 无法证实用户量级跨过 10 万；同时 2,113 个开放 Issue 说明用户面确实不小、但服务能力已明显跟不上（近 90 天仅关闭 158 个）。按「禁止凭模型记忆填写下载量」的防幻觉规则，此处保守定为 5–6 档上限。</p>
+<h3>D10.3 免费可得的完整效用（2 分）</h3>
+<p><strong>得分：2.0 / 2（9–10 档，100%）</strong></p>
+<ul>
+<li><strong>License：MIT</strong>，<code>LICENSE</code> 文件实测存在。</li>
+<li><strong>开源版即完整价值</strong>：177,090 行 JS、1,191 个源码文件全部公开；RTK token 压缩、3 级 fallback、配额追踪、Combo 组合、请求日志、自托管 Provider（STT/TTS/Embedding 走自己的 whisper.cpp / llama.cpp / vLLM）等核心能力均在开源代码内，<strong>未发现功能分层或付费墙</strong>。</li>
+<li><strong>自托管一等公民</strong>：<code>Dockerfile</code> 存在，CI 含 <code>docker-publish.yml</code>，官方同时发布 Docker Hub（<code>decolua/9router</code>）与 GHCR 镜像；README 明确「source/Docker execution is the expected local development path」，数据落在本地 <code>${DATA_DIR}/db/data.sqlite</code>。</li>
+<li><strong>无隐性收费</strong>：README 未出现企业版/商业授权/席位计费说明；唯一非本地能力是可选「Cloud Sync」（跨设备同步配置），属便利增值项，不改变「不付费即不可用」的判定。</li>
+</ul>
+<p>唯一需要注意的是，前端包（<code>9router-app</code>）在仓库内为 private，但公开发布的 npm 包 <code>9router</code> + Docker 镜像 + 完整源码三者已覆盖安装路径，不影响本项满分判定。</p>
+<blockquote>
+<p>与 D4.3 的对照：D10.3 满分意味着「使用价值几乎全部免费释放」，这天然预示着<strong>付费转化通道极窄</strong>——使用价值与交换价值的张力在本项目上表现得非常典型。</p>
+</blockquote>
+<h3>D10.4 效用可持续性（2 分）</h3>
+<p><strong>得分：1.6 / 2（7–8 档，80%）</strong></p>
+<ul>
+<li><strong>本地化程度高</strong>：Node.js 20+ 常驻进程 + SQLite（<code>sql.js</code> / <code>better-sqlite3</code> / <code>node:sqlite</code> 三级回退）本地持久化，配置、密钥、用量历史全在本地；停止维护后已部署实例<strong>仍可继续跑下去</strong>，效用不归零。</li>
+<li><strong>无厂商锁定</strong>：核心不依赖任何特定的闭源云组件；40+ Provider 均由用户自带凭据（OAuth 或 API Key），可自由增删。自带 OAuth 实现（PKCE）、<code>http-proxy-middleware</code>、<code>undici</code>，无 SaaS 回调依赖。</li>
+<li><strong>可分叉性</strong>：MIT 许可 + 源码完整 + Docker 构建路径明确，社区分叉已被验证——README 直接列出 <strong>OmniRoute</strong>（独立 TypeScript 分叉，368+ 单测，自带 npm/Docker 发布）。</li>
+<li><strong>扣分项</strong>：
+  1. <strong>效用自带时效衰减</strong>——「免费」这一层由第三方免费额度决定，README 已记录多次免费层停供/转收费，属于必须持续跟进的维护负担；
+  2. <strong>Cloud Sync 依赖官方服务</strong>，停维后该子功能失效（可降级为本地配置，不影响主体）；
+  3. <code>dependencies</code> 中 Next.js 16 / React 19 / Express 5 等大版本依赖较重，「构建可重现」需依赖 lockfile 与时间敏感的上游生态，长期分叉需承担升级成本。</li>
+</ul>
+<p>主体本地化、少量可替换外部依赖，符合 7–8 档定义。</p>
+<h3>D10 细则得分汇总</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10.1</td>
+<td>效用强度</td>
+<td>3</td>
+<td>2.4</td>
+<td>7–8（80%）</td>
+</tr>
+<tr>
+<td>D10.2</td>
+<td>实际使用规模</td>
+<td>3</td>
+<td>1.8</td>
+<td>5–6（60%）</td>
+</tr>
+<tr>
+<td>D10.3</td>
+<td>免费可得的完整效用</td>
+<td>2</td>
+<td>2.0</td>
+<td>9–10（100%）</td>
+</tr>
+<tr>
+<td>D10.4</td>
+<td>效用可持续性</td>
+<td>2</td>
+<td>1.6</td>
+<td>7–8（80%）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td><strong>7.8</strong></td>
+<td><strong>7–8 档</strong></td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<p><strong>D10 = 7.8 / 10（良好；平行维度，权重 0%，不计入综合评分）。</strong></p>
+<p>9Router 为使用者创造的效用是<strong>真实且可量化</strong>的：把 20+ 个 AI 编码 CLI 收敛到一个本地 OpenAI 兼容端点，用 RTK 压缩省 20–40% 输入 token、Caveman/Ponytail 最多省 65% 输出 token，用 3 级 fallback 消除限流中断，用多账号轮询把已付费订阅额度榨干——对一个每天靠 CLI 编码的开发者，这是实打实的现金 + 时间双重节省，属于典型的「项目级依赖」。</p>
+<p><strong>价值画像特征</strong>：效用供给高度依赖<strong>外部免费额度的存续</strong>（README 已记录 iFlow / Qwen Code / Gemini CLI 免费层先后关停、Kiro 转收费并降至 50 credits/月、OpenCode Free 清单随时变动），「FREE」这一层的效用存在结构性衰减风险；而网关转发、协议翻译、token 压缩、配额追踪、自托管这一层效用则是稳定、可长期存续的。<strong>D10.3 满分（开源版即全部价值）× 使用价值与交换价值的天然反相关</strong>，构成了本项目最鲜明的价值结构：用户拿走几乎 100% 的效用，且 8 个月 2.9 万 star、5,307 fork、265 位贡献者的规模证据说明需求真实存在——但 D10.2 因 npm/Docker 下载计数缺失只能保守定档，使用规模的精确量级仍属<strong>置信度受限项</strong>。</p>
+<h3>D11 社会价值——正外部性（平行维度，权重 0%，不计入综合评分）</h3>
+<blockquote>
+<p>本维度为平行维度，仅用于 D3.4 价值画像，不参与综合评分与一票否决。归属说明：D3.4 评的是「品牌影响力对商业势能的助力」，本维度评的是「对行业/社会的外溢贡献本身」。</p>
+</blockquote>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>档位</th>
+<th>小分</th>
+<th>判断要点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D11.1</td>
+<td>数字公共基础设施属性</td>
+<td>3</td>
+<td>5–6 档（60%）</td>
+<td><strong>1.8</strong></td>
+<td>处于 AI 编码工具链中间层，5,306 Fork + 衍生项目，但为自托管应用、无下游库依赖，可替代性极强</td>
+</tr>
+<tr>
+<td>D11.2</td>
+<td>教育与人才价值</td>
+<td>2.5</td>
+<td>5–6 档（60%）</td>
+<td><strong>1.5</strong></td>
+<td>教程/视频生态丰富且多语种，显著降低「用上 AI 编码」的成本门槛；但无正式教学采用，源码学习价值中等</td>
+</tr>
+<tr>
+<td>D11.3</td>
+<td>普惠与可及性</td>
+<td>2.5</td>
+<td>7–8 档（80%）</td>
+<td><strong>2.0</strong></td>
+<td>将 $20–200/月级别的模型能力以近零成本平权化，10 语 README + 5 语文档 + Docker 自托管；受限于技术门槛与第三方免费额度可撤销</td>
+</tr>
+<tr>
+<td>D11.4</td>
+<td>开放标准与行业推动</td>
+<td>2</td>
+<td>5–6 档（60%）</td>
+<td><strong>1.2</strong></td>
+<td>遵循 OpenAI 兼容 API 并做跨协议互转（防锁定），但未定义标准，无学术引用证据，示范效应有限</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td></td>
+<td><strong>6.5</strong></td>
+<td>平行维度，权重 0%</td>
+</tr>
+</tbody>
+</table>
+<h3>D11.1 数字公共基础设施属性：1.8 / 3（5–6 档）</h3>
+<ul>
+<li><strong>关键依赖地位</strong>：项目是可本地/容器自托管的路由网关（<code>npm install -g 9router</code>、<code>localhost:20128/v1</code>），属终端应用而非被他人 import 的库，<strong>不构成 curl/OpenSSL 式的数字底座</strong>。npm 上游 Dependents 数据未采集（N/A），无可证实的库级下游依赖矩阵。</li>
+<li><strong>停摆影响面</strong>：若消失，受影响的是使用者工作流（28,900 Star / 5,307 Fork 对应的庞大用户池），而非软件供应链；同类替代品充足（LiteLLM、one-api/new-api 类网关、CLIProxyAPI 等），停摆影响可控。</li>
+<li><strong>数字公共产品（DPG）属性</strong>：MIT 许可、开放、可复用、以「让开发者免费获得 AI 编码能力」为公共利益导向，具备 DPG 特征；但其价值建立在<strong>第三方免费额度的可撤销性</strong>之上（README 明示 iFlow / Qwen Code / Gemini CLI 免费层已于 2026 年停运，Kiro 已缩水至 50 credits/月），公共产品属性不够稳固。</li>
+<li><strong>加分事实</strong>：README 自述为 CLIProxyAPI 的 JavaScript 移植；下游已出现功能增强分支 OmniRoute（TypeScript fork，368+ 单测），具备一定的生态外溢。</li>
+</ul>
+<h3>D11.2 教育与人才价值：1.5 / 2.5（5–6 档）</h3>
+<ul>
+<li><strong>门槛降低效应</strong>：核心卖点即将「订阅制 AI 编码」门槛从 $20–50/月/供应商降至 0（Tier 3 FREE：Kiro、OpenCode Free 免鉴权、Vertex $300 credits），对个人开发者与欠发达地区用户的入门门槛降低作用明显。</li>
+<li><strong>教学采用 / 教程丰富度</strong>：README 收录 <strong>12 个社区视频教程</strong>，覆盖越南语、印地语/乌尔都语、英语、印尼语、波斯语等；文档本地化 10 语 README + 5 语 GitBook（en/es/ja/vi/…），社区教学素材客观丰富。</li>
+<li><strong>源码学习价值</strong>：177,090 行 JS、1,191 源文件、21.6% 测试占比（261 个测试文件 / 38,133 行），并移植了 RTK（Rust token saver）、Caveman、Ponytail 的提示词/压缩设计，对 LLM 网关工程有一定参考价值；但整体是路由/胶水型应用，<strong>并非被广泛研读的工程范本</strong>，也未见高校课程或教学仓库围绕其展开。</li>
+<li>综合看属「有一定教学使用 + 丰富使用型教程」，未达「事实上的行业教材」档位，取 60%。</li>
+</ul>
+<h3>D11.3 普惠与可及性：2.0 / 2.5（7–8 档）</h3>
+<ul>
+<li><strong>能力平权化</strong>：本项目最突出的外部性。通过 40+ 供应商聚合 + 三级自动降级（Subscription → Cheap → Free）与 RTK token 压缩（-20~40% 输入 token）、Caveman（最高 -65% 输出 token），让预算受限的中小团队/个人以近零成本获得原本 $20–200/月的模型能力（Claude 4.5、GPT-5.x、Gemini 3 Pro 等）。</li>
+<li><strong>替代价格差</strong>：对比 Claude Code Max（$100–200/月）、Cursor（$20/月）、Copilot（$10–19/月）以及按量计费的官方 API，本项目以 MIT 免费 + 自托管部署，替代价差显著；同时把昂贵供应商降级到 GLM（$0.6/1M）、MiniMax（$0.2/1M）级别。</li>
+<li><strong>可及性支持</strong>：i18n 支持充分（10 语 README、5 语 GitBook 文档站）；提供 Dockerfile、GHCR/Docker Hub 镜像、Node 20+ 本地运行，硬件要求低（SQLite 本地存储），可部署到 Hugging Face 等免费托管（社区教程佐证）；还支持自托管 STT/TTS/Embedding，避免数据外流。</li>
+<li><strong>扣分项</strong>：① 免费能力的可持续性不由项目掌控（第三方免费层频繁停运/缩水）；② 上手需一定技术能力（环境变量、端口、OAuth 重连）；③ 未采集到无障碍（a11y）适配证据。故未给满分档，取 80%。</li>
+</ul>
+<h3>D11.4 开放标准与行业推动：1.2 / 2（5–6 档）</h3>
+<ul>
+<li><strong>标准推动</strong>：对外暴露 OpenAI 兼容的 <code>/v1/chat/completions</code>、<code>/v1/models</code> 接口，并做 OpenAI ↔ Claude ↔ Gemini ↔ Cursor ↔ Kiro ↔ Vertex 的格式互转，客观上<strong>削弱了各供应商端点格式造成的锁定</strong>，让任意 CLI 工具可对接任意供应商；但项目本身<strong>未定义或主导任何新标准</strong>，属标准消费/适配方。</li>
+<li><strong>科研支撑</strong>：未检索到学术引用或科研使用证据（该子项标 N/A，不单独扣分），<strong>禁止推测</strong>。</li>
+<li><strong>行业示范效应</strong>：有一定外溢——它是 CLIProxyAPI（Go）的 JS 移植，又反向启发了 OmniRoute（TS fork）；但其所处赛道（AI 网关/路由）已有大量同质项目，设计理念的原创性与被模仿深度均属中等。</li>
+<li>属「遵循开放标准但无显著推动」偏上，取 60%。</li>
+</ul>
+<h3>结论</h3>
+<p><strong>D11 得分 6.5 / 10（平行维度，权重 0%，不影响综合评分与一票否决）。</strong> 该项目的正外部性集中在<strong>普惠与可及性</strong>（2.0/2.5）——以 MIT 免费 + 40+ 供应商聚合 + 三级降级 + token 压缩，把原本高价的 AI 编码能力大幅平权化，并配套 10 语 README / 5 语文档 / 多语种社区视频教程，对个人开发者与欠发达地区用户的外溢价值真实且显著；<strong>教育与人才价值</strong>（1.5/2.5）受益于丰富的使用型教程但缺乏正式教学采用与工程范式级源典范本；<strong>数字公共基础设施属性</strong>（1.8/3）受限于「自托管应用而非被依赖的库」以及免费额度可被第三方单方撤销的脆弱性；<strong>开放标准推动</strong>（1.2/2）体现为 OpenAI 兼容接口与跨协议互转的防锁定价值，但无标准主导与学术引用支撑。</p>
+<p>需注意的负向因素（不属本维度扣分但影响外溢可持续性）：核心价值依赖上游免费额度政策，且以订阅账号跨工具路由存在供应商 ToS 风险，长期公共价值存在不确定性。整体置信度：中高（硬事实充分，但 npm 下载量、Dependents、学术引用均缺失）。</p>
+<h2>五、商业化价值判断</h2>
+<p><strong>综合结论：9Router 是一个需求侧信号极强、法律与易用性基础扎实，但变现逻辑存在结构性矛盾的高热度开源项目，综合评分 67.7 分、等级 A，属于「可投入商业化、需补齐少量短板」区间。</strong></p>
+<p>支撑商业化价值的核心论据：</p>
+<ol>
+<li><strong>需求实证极强</strong>（D1）：上线约 8 个月获 28,900 stars / 5,307 forks / 265 贡献者，90 天 1,260 PR，需求侧信号在同类开源项目中属头部；README 列出订阅额度作废、速率限制、token 浪费等 5 类高频痛点，并以路由+格式翻译+配额追踪+多账号+RTK/Caveman 压缩构成完整解法。</li>
+<li><strong>法律路径零障碍</strong>（D4/D6）：根目录与 cli/ 下 LICENSE 均为标准 MIT，无附加条款、无 copyleft 直接依赖，法律上支持闭源二次开发、SaaS 托管与 Open Core 双协议模式，所有变现路径在法律上零障碍。</li>
+<li><strong>易用性构成获客优势</strong>（D9）：<code>npm install -g 9router</code> 一键安装 + 官方镜像，依赖完全自包含（内嵌 SQLite，无外部数据库/缓存/消息队列），README 三步 quickstart 可在 10 分钟内跑通，上手难度等级 🟢。</li>
+<li><strong>可量化的成本 ROI 叙事</strong>（D4/D10）：RTK 省 token 20-40%、Caveman 省输出 65%，可硬性换算为成本 ROI，直接对冲 README 点名的 $20-50/月/供应商支出。</li>
+</ol>
+<p>制约商业化价值的核心矛盾：</p>
+<ol>
+<li><strong>定位与付费意愿的先天冲突</strong>（D4）：核心定位 "Unlimited FREE AI coding / never hit limits" 与 Topics 中的 free-ai 形成强反付费选择效应，用户核心诉求即为不付费；免费版功能完整且可完全自托管，对个体开发者不存在自然升级触发点。</li>
+<li><strong>护城河由上游授予且正在收缩</strong>（D5）：README 自陈 iFlow/Qwen Code/Gemini CLI 免费额度 2026 年关停、Kiro 转为 50 credits/月、Gemini API 端点 2026-03 起不再消耗免费额度，核心卖点受第三方政策直接左右；MIT 零排他性，第三方可合法 fork 并提供商业托管（README 已列出实际存在的 TS 分支 OmniRoute）。</li>
+<li><strong>维护承载力瓶颈</strong>（D3/D8）：2,113 个开放 Issue 对应 90 天仅关闭 158 个，积压严重；核心维护者为个人账号 decolua，无组织/公司实体与商业化经验证据，巴士因子大概率 ≤2。</li>
+<li><strong>企业就绪度存在结构性短板</strong>（D7）：单进程 Node + 本地 SQLite 单文件 + 内存态单例，不支持水平扩展/集群/故障转移；无多租户/RBAC，审计日志默认关闭；无 Prometheus/OTel/Webhook。</li>
+</ol>
+<p><strong>价值画像解读</strong>：本项目画像为 ⭐ 明星资产（综合评分 67.7，公共价值分 7.2）。需注意综合评分落在 60–70 临界区间，且公共价值分 7.2 落在 6.5–7.5 临界区间，<strong>属「画像临界」情形</strong>。两种画像下的路径差异为：若按明星资产处理，可正常商业化并同时经营社区声誉，避免竭泽而渔（参照 Elastic 改协议的反噬教训）；若按公共产品型处理，则不建议直接变现，应走影响力变现（赞助/基金会托管/大厂雇佣维护者/围绕生态做服务与培训）。鉴于本项目 MIT 协议已给出完全变现自由、且社区规模已达头部，建议以明星资产路径为主、以公共产品型的社区经营手法为辅。</p>
+<hr />
+<h2>六、商业路径分析</h2>
+<blockquote>
+<p>依据 D4 变现路径证据与价值画像（⭐ 明星资产，临界）给出以下路径建议。所有路径均受 D4.1 结论约束：MIT 无附加条款，法律上零障碍，但协议给变现自由、不给变现保护。</p>
+</blockquote>
+<p><strong>路径一：企业版 Open Core（推荐度最高，但需受众转型）</strong></p>
+<ul>
+<li>依据：依赖中 @node-saml/node-saml（SAML SSO）+ bcryptjs + jose + 配额追踪 + 用量分析 + 请求日志，构成标准企业治理功能骨架，显示作者为企业场景预留了设计空间；D7 显示已支持 OIDC 与 SAML SSO、JWT/bcrypt 本地认证、sudo 密码 AES-256-GCM 机器绑定加密。</li>
+<li>唯一相对清晰的企业付费触发点：SSO / 配额池 / 审计。</li>
+<li>风险：该触发点与当前个人开发者为主的社区画像错配（D4）；客单价天花板受限于自托管网关赛道（$1K-10K/年量级）。</li>
+<li>建议：将 SSO/审计/多租户/RBAC 作为企业版分层，同时补齐 D7 指出的水平扩展与可观测性短板，否则企业客户难以采购。</li>
+</ul>
+<p><strong>路径二：托管 SaaS（官网已有信号，需验证）</strong></p>
+<ul>
+<li>依据：官网 9router.com 存在且有 5 语种 cloud 部署文档与 Cloud Sync 功能，暗示潜在托管服务，但无可验证的付费层信息（D4 置信度受限）。</li>
+<li>风险：MIT 零排他性意味着第三方可合法 fork 并提供商业托管，托管服务无协议保护；且 D10 指出可选 Cloud Sync 依赖官方服务，是可持续性的扣分项。</li>
+<li>建议：以「免运维 + 配额统一管理 + 团队协作」为差异化，而非以「免费额度」为卖点（后者受上游政策左右）。</li>
+</ul>
+<p><strong>路径三：专业服务与生态培训（与画像最匹配）</strong></p>
+<ul>
+<li>依据：入门引导资源极为丰富——GitBook 四语种（en/es/ja/vi）含 installation/quick-start/7 篇工具集成指南/faq/troubleshooting，README 10 语种 + 12 个社区视频教程（D9）；社区教程多语言本地化有实质参与（D3）。</li>
+<li>建议：围绕 18+ CLI/IDE 工具集成做企业落地咨询、团队培训与定制集成，属轻资产、与「免费」定位不冲突的变现方式。</li>
+</ul>
+<p><strong>路径四：赞助 / 基金会托管（公共产品型备选）</strong></p>
+<ul>
+<li>依据：D8 显示无任何 VC、公司或基金会资金证据，无 FUNDING/Sponsors/Open Collective 迹象；项目定位 "Unlimited FREE AI" 缺乏商业实体承载。</li>
+<li>建议：若商业化推进受阻，可走影响力变现路径（赞助/基金会托管/大厂雇佣维护者），这也直接回应 D8 的可持续性风险。</li>
+</ul>
+<p><strong>路径修正说明</strong>：因画像为明星资产且处临界区间，上述路径均应遵循「正常商业化，同时经营社区声誉，避免竭泽而渔」的原则——尤其应避免效仿 Elastic 改协议的反噬教训，在 MIT 已给出变现自由的前提下，改协议带来的社区反噬风险大于收益。</p>
+<hr />
+<h2>七、能力评估：能做什么 &amp; 最适合做什么</h2>
+<p><strong>项目当前已具备的能力（基于评分卡硬事实）</strong></p>
+<ul>
+<li><strong>统一接入能力</strong>：把 40+ API Key 供应商 + 6 个 OAuth 供应商 + 3 个免费供应商 + 3 类自托管端点统一成 OpenAI 兼容端点（localhost:20128/v1）。</li>
+<li><strong>广泛工具兼容</strong>：支持 18+/19+ 个 CLI/IDE 工具（Claude Code、OpenClaw、Codex、OpenCode、Cursor、Antigravity、Cline、Continue、Droid、Roo、Copilot、Kilo Code 等），并兼容任意 OpenAI 兼容客户端。</li>
+<li><strong>多协议翻译</strong>：OpenAI 兼容 /v1 与 Gemini 原生 /v1beta、多格式双向翻译、ConnectRPC/gRPC-web/EventStream 协议适配。</li>
+<li><strong>成本控制</strong>：RTK 压缩 tool_result 省 20-40% 输入 token，Caveman/Ponytail 最多省 65% 输出 token；三级 Subscription→Cheap→Free 自动回退。</li>
+<li><strong>企业治理骨架</strong>：OIDC + SAML SSO、JWT/bcrypt 本地认证、AES-256-GCM 机器绑定凭证加密、配额追踪、用量分析、请求日志。</li>
+<li><strong>交付与运维配套</strong>：npm 全局安装 + 多阶段 Dockerfile + docker-compose（restart: always、具名卷）+ CI 自动推 GHCR/Docker Hub（linux/amd64,linux/arm64）；/api/health 健康端点。</li>
+<li><strong>文档与本地化</strong>：README 10 语、GitBook 4 语（en/es/ja/vi）、129 个文档文件、12 个社区视频教程。</li>
+</ul>
+<p><strong>最适合做什么</strong></p>
+<ol>
+<li><strong>个人开发者与中小团队的 AI 编码成本优化网关</strong>——这是项目当前事实上的主战场，也是其 28.9k Star 的来源。免费、开箱即用、10 分钟跑通，与这一人群的需求完全匹配。</li>
+<li><strong>多供应商容灾与配额统一管理</strong>——自动降级 + 配额追踪 + 多账号，解决「订阅额度作废、速率限制」类高频痛点。</li>
+<li><strong>企业 AI 编码工具的统一出口（需先补齐短板）</strong>——已有 SSO/审计骨架，但需先解决 D7 指出的水平扩展、多租户/RBAC、标准可观测性问题。</li>
+<li><strong>不适合</strong>：作为被依赖的基础库（D10/D11 均指出项目为应用而非库，Dependents 不适用）；作为数字公共基础设施（D11 明确判定「非数字底座型项目」，停摆可由 LiteLLM/one-api/CLIProxyAPI 类方案替代）。</li>
+</ol>
+<hr />
+<h2>八、短板识别：还缺少什么</h2>
+<p><strong>短板一：变现闭环完全缺失（最致命，D4）</strong></p>
+<ul>
+<li>仓库内无任何商业化落地证据：无 enterprise/pro/ee 目录、无 license 校验模块、无定价页、无 FUNDING.yml、无商业授权说明。</li>
+<li>核心定位与付费转化逻辑存在结构性矛盾：用户核心诉求即为不付费。</li>
+<li>免费版功能完整且可完全自托管，对个体开发者不存在自然升级触发点。</li>
+</ul>
+<p><strong>短板二：护城河缺失且受上游政策左右（D5）</strong></p>
+<ul>
+<li>核心能力（格式翻译/OAuth 代理/fallback）与同源前身 CLIProxyAPI 高度重叠，分叉 OmniRoute 已宣称功能超越（36+ providers、多模态、熔断、368+ 单测）。</li>
+<li>无专利/数据/网络效应壁垒；token 压缩移植自 RTK/Caveman/Ponytail，可被任意竞品同样移植。</li>
+<li>上游免费额度正在收缩：iFlow/Qwen Code/Gemini CLI 免费层 2026 年关停、Kiro 转 50 credits/月、Gemini API 端点 2026-03 起不再消耗免费额度。</li>
+<li>赛道技术门槛低：GitHub Search 返回 5 个 description 逐字相同的镜像/复刻仓库（star 0–2）。</li>
+</ul>
+<p><strong>短板三：治理与可持续性文件全缺（D8）</strong></p>
+<ul>
+<li>无 GOVERNANCE.md / CONTRIBUTING.md / CODEOWNERS / SECURITY.md，不属于任何开源基金会，决策流程不透明。</li>
+<li>核心维护者为个人账号 decolua，巴士因子大概率 ≤2。</li>
+<li>无任何 VC、公司或基金会资金证据。</li>
+</ul>
+<p><strong>短板四：贡献者协议缺失构成 IP 尽调阻断（D6）</strong></p>
+<ul>
+<li>265 位贡献者、90 天 1260 个 PR，但无 CLA、无 DCO、无 CONTRIBUTING.md、无 CODEOWNERS，版权高度分散且不可集中，对双协议/专有再许可/并购 IP 尽调构成阻断级障碍。</li>
+<li>传递依赖未执行全量 license 扫描；cli 经 postinstall 懒安装的 systray2 游离于主依赖清单之外，易被合规工具漏检。</li>
+<li>商标与专利未做人工核查（低置信度）；仓库 description/topics 高频使用 Claude、Codex、Cursor、Copilot、GPT、Gemini 等第三方商标且无商标政策与免责声明。</li>
+</ul>
+<p><strong>短板五：企业就绪度存在结构性缺陷（D7）</strong></p>
+<ul>
+<li>单进程 Node + 本地 SQLite（sql.js）单文件 + 内存态单例（global._*、comboRotationState），不支持水平扩展/集群/故障转移，存在 443 MITM 单点。</li>
+<li>无多租户/RBAC，审计日志默认关闭且无独立合规通道。</li>
+<li>无 Prometheus/OTel/Webhook，日志为 console.log 非结构化且存在静默吞异常。</li>
+<li>仍处 0.x（最新 v0.5.35）、90 天约 10 次 release 高频 churn、无迁移框架/回滚机制，数据库迁移需人工导出导入。</li>
+</ul>
+<p><strong>短板六：维护吞吐与需求严重失衡（D3/D8/D10）</strong></p>
+<ul>
+<li>2,113 个开放 Issue vs 90 天仅关闭 158 个，积压严重，响应吞吐为主要短板。</li>
+<li>仓库内可运行示例工程为 0（示例仅以文档代码片段存在）。</li>
+</ul>
+<p><strong>短板七：分析完整性缺口（元层面）</strong></p>
+<ul>
+<li>D2 技术成熟度与产品质量维度分析失败（N/A），14% 权重缺失，导致综合评分置信度下降，技术成熟度与产品质量这一关键维度未能获得独立评估。</li>
+</ul>
+<hr />
+<h2>九、风险提示</h2>
+<p><strong>风险一：上游政策风险（最高优先级，D1/D5/D10）</strong></p>
+<ul>
+<li>项目赖以生存的免费额度聚合前提正被上游厂商持续压缩：README 自述 iFlow、Qwen Code、Gemini CLI 免费层 2026 已停用、Kiro 转付费封顶、Gemini API 端点 2026-03 起不再消耗免费额度。</li>
+<li>核心卖点受第三方政策直接左右，属项目自身无法控制的外部风险。</li>
+</ul>
+<p><strong>风险二：法律风险（非开源协议层面，D6）</strong></p>
+<ul>
+<li>跨维度法律风险（不计入 D6 维度分）：核心卖点 "Unlimited FREE AI coding + 40+ provider 免费额度聚合与自动回退" 可能触及上游服务商服务条款，属非开源协议层面的重大经营法律风险，<strong>建议单独做人工法律意见</strong>。</li>
+<li>商标风险：仓库 description/topics 高频使用 Claude、Codex、Cursor、Copilot、GPT、Gemini 等第三方商标且无商标政策与免责声明，指示性使用的合规边界需人工判定，若确认品牌混淆风险应下调至 3-4 档。</li>
+<li>IP 尽调风险：无 CLA/DCO，版权高度分散且不可集中，对双协议/专有再许可/并购构成阻断级障碍。</li>
+</ul>
+<p><strong>风险三：竞争与分叉风险（D5）</strong></p>
+<ul>
+<li>MIT 零排他性：第三方可合法 fork 并提供商业托管，README 已列出实际存在的 TS 分支 OmniRoute。</li>
+<li>分叉扩散分流而非正向网络效应；赛道技术门槛低，5 个逐字相同的复刻仓库证明低门槛仿制普遍存在。</li>
+</ul>
+<p><strong>风险四：可持续性与传承风险（D8）</strong></p>
+<ul>
+<li>核心维护者为个人账号，巴士因子大概率 ≤2；无资金、无治理文件、无基金会归属。</li>
+<li>2113 个开放 Issue 对应 90 天仅关闭 158 个，维护承载力瓶颈显著，传承路径不清晰。</li>
+<li>注：D8.4 得分 1.8（&gt; 1），未触发一票否决，项目当前活跃趋势强劲上升（163 天内持续推送、无 archived/deprecated 标记）。</li>
+</ul>
+<p><strong>风险五：企业采购风险（D7）</strong></p>
+<ul>
+<li>不支持水平扩展/集群/故障转移，存在 443 MITM 单点；无多租户/RBAC；审计日志默认关闭；无标准可观测性协议；0.x 版本高频 churn 且无迁移框架/回滚机制——以上均构成企业采购的实质障碍。</li>
+</ul>
+<p><strong>风险六：分析置信度风险（元层面）</strong></p>
+<ul>
+<li>D2 维度 N/A，14% 权重缺失；D3 组织多样性、核心团队 PR 占比、Issue 平均关闭时间、企业背书均无法直采，D3 整体置信度中等；D6 商标与专利未做人工核查，置信度低；D4 官网内容未采集，本维度置信度受限。</li>
+<li>综合评分 67.7 落在 60–70 临界区间，公共价值分 7.2 落在 6.5–7.5 临界区间，画像判定存在边界不确定性。</li>
+</ul>
+<hr />
+<h2>十、结论与建议</h2>
+<p><strong>结论</strong></p>
+<p>9Router 是一个综合评分 <strong>67.7/100</strong>、商业化等级 <strong>A（高商业化潜力）</strong>、价值画像 <strong>⭐ 明星资产（临界）</strong> 的开源 LLM 网关项目。其商业化价值建立在三个坚实支点上：需求侧信号在同类开源项目中属头部（8 个月 28,900 stars / 265 贡献者 / 90 天 1,260 PR）、法律路径零障碍（MIT 无附加条款、无 copyleft 直接依赖）、易用性构成获客优势（一键安装、依赖自包含、10 分钟跑通、上手难度 🟢）。</p>
+<p>但其商业化面临一个根本性矛盾：<strong>核心定位 "Unlimited FREE AI coding" 与付费转化逻辑存在结构性冲突</strong>——用户核心诉求即为不付费，免费版功能完整且可完全自托管，对个体开发者不存在自然升级触发点。叠加护城河由上游授予且正在收缩（免费额度持续关停）、MIT 零排他性（分叉 OmniRoute 已存在）、维护承载力瓶颈（2,113 开放 Issue vs 90 天关闭 158 个）、治理与资金全缺（个人维护者、巴士因子 ≤2），项目当前状态更接近「高热度、高价值、低变现距离」的典型开源明星项目。</p>
+<p><strong>建议</strong></p>
+<ol>
+<li>
+<p><strong>短期（0-6 个月）：优先补齐治理与合规基础设施，成本低、收益高。</strong>
+   - 添加 CONTRIBUTING.md / CODEOWNERS / SECURITY.md / GOVERNANCE.md，建立 DCO 或 CLA 机制——这是解除 D6 指出的「IP 尽调阻断级障碍」的必要前提，也是任何后续商业化（双协议、并购、企业采购）的前置条件。
+   - 补充商标政策与免责声明，对高频使用的第三方商标做指示性使用合规审查。
+   - 就「免费额度聚合与自动回退」的上游服务条款风险单独获取人工法律意见。</p>
+</li>
+<li>
+<p><strong>中期（6-18 个月）：以企业版 Open Core 为主路径，但必须先完成受众转型与产品补齐。</strong>
+   - 将 SSO/审计/多租户/RBAC 作为企业版分层（依赖中已有 @node-saml、bcryptjs、jose、配额追踪、用量分析等骨架）。
+   - 补齐 D7 指出的结构性短板：水平扩展能力、标准可观测性（Prometheus/OTel/Webhook）、结构化日志、数据库迁移框架——否则企业客户难以采购。
+   - 客单价预期应理性设定在自托管网关赛道量级（$1K-10K/年），不宜按通用 SaaS 估值。</p>
+</li>
+<li>
+<p><strong>长期：以「经营社区声誉」为底线原则。</strong>
+   - 因画像为明星资产，应避免竭泽而渔（参照 Elastic 改协议的反噬教训）——在 MIT 已给出完全变现自由的前提下，改协议带来的社区反噬风险大于收益。
+   - 若企业版路径推进受阻，及时切换至公共产品型的影响力变现路径（赞助/基金会托管/大厂雇佣维护者/围绕生态做服务与培训），这也直接回应 D8 的可持续性风险。
+   - 优先解决维护吞吐瓶颈（2,113 开放 Issue），可通过引入更多核心维护者、建立 triage 机制、争取基金会或企业赞助来分担。</p>
+</li>
+<li>
+<p><strong>决策提示：本报告存在两项需注意的置信度限制。</strong>
+   - D2 技术成熟度与产品质量维度分析失败（N/A），14% 权重缺失，综合评分 67.7 的置信度低于常规水平；建议在投入商业化前，补充对该维度的独立评估（尤其是 177,090 行代码的架构质量、安全性、测试覆盖的实际有效性）。
+   - 综合评分与公共价值分均落在临界区间，画像判定存在边界不确定性；建议按「明星资产为主、公共产品型为辅」的复合策略推进，而非强行二选一。</p>
+</li>
+</ol>
+<h2>十一、项目地址</h2>
+<p><svg class="ri ri-muted" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.001 2C6.47598 2 2.00098 6.475 2.00098 12C2.00098 16.425 4.86348 20.1625 8.83848 21.4875C9.33848 21.575 9.52598 21.275 9.52598 21.0125C9.52598 20.775 9.51348 19.9875 9.51348 19.15C7.00098 19.6125 6.35098 18.5375 6.15098 17.975C6.03848 17.6875 5.55098 16.8 5.12598 16.5625C4.77598 16.375 4.27598 15.9125 5.11348 15.9C5.90098 15.8875 6.46348 16.625 6.65098 16.925C7.55098 18.4375 8.98848 18.0125 9.56348 17.75C9.65098 17.1 9.91348 16.6625 10.201 16.4125C7.97598 16.1625 5.65098 15.3 5.65098 11.475C5.65098 10.3875 6.03848 9.4875 6.67598 8.7875C6.57598 8.5375 6.22598 7.5125 6.77598 6.1375C6.77598 6.1375 7.61348 5.875 9.52598 7.1625C10.326 6.9375 11.176 6.825 12.026 6.825C12.876 6.825 13.726 6.9375 14.526 7.1625C16.4385 5.8625 17.276 6.1375 17.276 6.1375C17.826 7.5125 17.476 8.5375 17.376 8.7875C18.0135 9.4875 18.401 10.375 18.401 11.475C18.401 15.3125 16.0635 16.1625 13.8385 16.4125C14.201 16.725 14.5135 17.325 14.5135 18.2625C14.5135 19.6 14.501 20.675 14.501 21.0125C14.501 21.275 14.6885 21.5875 15.1885 21.4875C19.259 20.1133 21.9999 16.2963 22.001 12C22.001 6.475 17.526 2 12.001 2Z"/></svg> <a href="https://github.com/decolua/9router">https://github.com/decolua/9router</a></p>
+<hr />
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+</blockquote>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家　<a href="https://www.mova.work">www.mova.work</a></p></body></html>

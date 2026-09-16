@@ -80,6 +80,11 @@ var sel=document.getElementById('month-select');
 sel.add(new Option('全部月份（'+TOTAL+' 份）','all'));
 MONTHS.forEach(function(m){sel.add(new Option(m[0]+'（'+m[1]+' 份）',m[0]));});
 var btnsBox=document.getElementById('month-btns');
+var bAll=document.createElement('button');
+bAll.className='month-btn';bAll.dataset.m='all';
+bAll.innerHTML='全部 <i>'+TOTAL+'</i>';
+bAll.onclick=function(){pickMonth('all');};
+btnsBox.appendChild(bAll);
 MONTHS.slice(0,12).forEach(function(m){
   var b=document.createElement('button');
   b.className='month-btn';b.dataset.m=m[0];

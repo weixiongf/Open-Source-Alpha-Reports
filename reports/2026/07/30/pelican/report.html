@@ -1,0 +1,1924 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><title>Pelican 商业价值分析报告</title><style>/* default — 品牌蓝紫主题（从 md2pdf.py 原 CSS 常量迁出，视觉与历史产物一致） */
+@page { size: A4; margin: 18mm 15mm 20mm 15mm; }
+* { box-sizing: border-box; }
+/* 字体规范：一律开源思源黑体 CN（OFL 免费商用）；正文 Regular/标题 Bold/大字数字 Light */
+body { font-family: "Source Han Sans CN","思源黑体 CN","Noto Sans SC",sans-serif; color:#1e293b; font-size:10.5pt; line-height:1.75; margin:0; }
+.cover { page-break-after: always; text-align:center; padding-top:40px; }
+.cover .kicker { color:#2563eb; letter-spacing:6px; font-size:12pt; font-weight:500; }
+.cover h1 { font-size:26pt; margin:14px 0 6px; }
+.cover .sub { color:#64748b; font-size:11pt; margin-bottom:22px; }
+.badge { display:inline-block; background:linear-gradient(135deg,#2563eb,#7c3aed); color:#fff; border-radius:18px; padding:16px 44px; margin:10px 0 18px; }
+.badge .g { font-size:34pt; font-weight:300; line-height:1; }
+.badge .s { font-size:12pt; opacity:.92; margin-top:4px; }
+.meta { color:#475569; font-size:9.5pt; margin-top:14px; }
+.bars { max-width:620px; margin:20px auto 0; text-align:left; }
+.bar-row { display:flex; align-items:center; gap:8px; margin:5px 0; font-size:9pt; }
+.bar-name { width:110px; text-align:right; color:#334155; font-weight:500; }
+.bar-track { flex:1; height:9px; background:#f1f5f9; border-radius:5px; overflow:hidden; }
+.bar-fill { display:block; height:100%; border-radius:5px; }
+.bar-val { width:30px; font-weight:700; color:#0f172a; }
+.bar-w { width:52px; color:#94a3b8; font-size:8pt; }
+h1 { font-size:17pt; color:#0f172a; border-bottom:3px solid #2563eb; padding-bottom:8px; }
+h2 { font-size:13.5pt; color:#1d4ed8; margin-top:26px; page-break-after: avoid; border-left:5px solid #2563eb; padding-left:10px; }
+h3 { font-size:11.5pt; color:#0f172a; margin-top:18px; page-break-after: avoid; }
+table { border-collapse:collapse; width:100%; margin:10px 0; font-size:9pt; page-break-inside:avoid; }
+th { background:#eff6ff; color:#1e3a8a; }
+th,td { border:1px solid #dbe3ef; padding:5px 8px; text-align:left; }
+tr:nth-child(even) td { background:#f8fafc; }
+code { background:#f1f5f9; border-radius:4px; padding:1px 5px; font-family:"JetBrains Mono","Cascadia Mono",monospace; font-size:9pt; color:#be185d; }
+pre { background:#0f172a; color:#e2e8f0; border-radius:8px; padding:12px 14px; overflow-x:auto; page-break-inside:avoid; }
+pre code { background:none; color:inherit; padding:0; }
+blockquote { border-left:4px solid #93c5fd; background:#eff6ff; margin:10px 0; padding:8px 14px; color:#334155; border-radius:0 8px 8px 0; }
+hr { border:none; border-top:1px dashed #cbd5e1; margin:22px 0; }
+strong { color:#0f172a; }
+.cover .disclaimer { max-width:620px; margin:16px auto 0; color:#64748b; font-size:8.5pt; line-height:1.6; text-align:left; border:1px solid #e2e8f0; border-radius:8px; padding:8px 12px; background:#f8fafc; }
+.credit { color:#2563eb; font-size:10.5pt; font-weight:700; letter-spacing:1px; margin-top:12px; }
+.at-acc { background:#dbeafe; color:#1d4ed8; border-radius:4px; padding:0 4px; font-weight:500; white-space:nowrap; }
+.tail { page-break-inside:avoid; margin-top:26px; border-top:2px solid #2563eb; padding-top:14px; }
+.tail p { color:#64748b; font-size:8.5pt; line-height:1.6; margin:0 0 10px; }
+.tail .credit { text-align:center; margin:0; }
+/* Remix Icon 内联 SVG（icon_mode=remix 时由脚本注入，语义色与评分条一致） */
+.ri { width:1.05em; height:1.05em; vertical-align:-0.18em; display:inline-block; }
+.ri-ok { color:#16a34a; } .ri-warn { color:#d97706; } .ri-bad { color:#dc2626; }
+.ri-muted { color:#64748b; } .ri-star { color:#f59e0b; } .ri-brand { color:#2563eb; }
+.ri-gold { color:#d4a017; } .ri-silver { color:#9ca3af; } .ri-bronze { color:#b45309; }
+/* 屏幕预览：@page 边距仅在打印时生效，浏览器中居中限宽并收边（不影响 PDF 输出） */
+@media screen {
+  body { margin: 0 auto; padding: 28px 36px 56px; max-width: 900px; }
+}
+</style></head><body><div class="cover">
+<div class="kicker">开源项目商业化潜力分析 · 第 110 期</div>
+<h1>GitHub 开源项目 Pelican<br>商业价值分析报告</h1>
+<div class="sub">getpelican/pelican · Python静态站点生成器 · 九维度加权评估</div>
+<div class="badge"><div class="g">B 级 · 62.6</div><div class="s">综合评分（满分 100）· 中等商业化潜力</div></div>
+<div><svg viewBox="0 0 560 480" width="560" height="480" xmlns="http://www.w3.org/2000/svg"><polygon points="280.0,209.6 299.5,216.7 309.9,234.7 306.3,255.2 290.4,268.6 269.6,268.6 253.7,255.2 250.1,234.7 260.5,216.7" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,179.2 319.1,193.4 339.9,229.4 332.7,270.4 300.8,297.1 259.2,297.1 227.3,270.4 220.1,229.4 240.9,193.4" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,148.8 338.6,170.1 369.8,224.2 359.0,285.6 311.2,325.7 248.8,325.7 201.0,285.6 190.2,224.2 221.4,170.1" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,118.4 358.2,146.8 399.8,218.9 385.3,300.8 321.6,354.3 238.4,354.3 174.7,300.8 160.2,218.9 201.8,146.8" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,88.0 377.7,123.6 429.7,213.6 411.6,316.0 332.0,382.8 228.0,382.8 148.4,316.0 130.3,213.6 182.3,123.6" fill="none" stroke="#e2e8f0" stroke-width="1"/><line x1="280.0" y1="240.0" x2="280.0" y2="88.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="377.7" y2="123.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="429.7" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="411.6" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="332.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="228.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="148.4" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="130.3" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="182.3" y2="123.6" stroke="#d8dee9" stroke-width="1"/><polygon points="280.0,148.8 358.2,146.8 390.8,220.5 332.7,270.4 306.0,311.4 248.8,325.7 280.0,240.0 182.7,222.8 197.0,141.0" fill="rgba(37,99,235,.22)" stroke="#2563eb" stroke-width="2.5"/><circle cx="280.0" cy="148.8" r="3.5" fill="#2563eb"/><circle cx="358.2" cy="146.8" r="3.5" fill="#2563eb"/><circle cx="390.8" cy="220.5" r="3.5" fill="#2563eb"/><circle cx="332.7" cy="270.4" r="3.5" fill="#2563eb"/><circle cx="306.0" cy="311.4" r="3.5" fill="#2563eb"/><circle cx="248.8" cy="325.7" r="3.5" fill="#2563eb"/><circle cx="280.0" cy="240.0" r="3.5" fill="#2563eb"/><circle cx="182.7" cy="222.8" r="3.5" fill="#2563eb"/><circle cx="197.0" cy="141.0" r="3.5" fill="#2563eb"/><text x="280.0" y="44.0" text-anchor="middle" font-size="12.5" fill="#334155" font-weight="600">D1</text><text x="280.0" y="58.0" text-anchor="middle" font-size="11" fill="#64748b">市场需求 6.0</text><text x="406.0" y="89.9" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D2</text><text x="406.0" y="103.9" text-anchor="start" font-size="11" fill="#64748b">技术成熟度 8.0</text><text x="473.0" y="206.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D3</text><text x="473.0" y="220.0" text-anchor="start" font-size="11" fill="#64748b">社区生态 7.4</text><text x="449.7" y="338.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D4</text><text x="449.7" y="352.0" text-anchor="start" font-size="11" fill="#64748b">变现潜力 4.0</text><text x="347.0" y="424.2" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D5</text><text x="347.0" y="438.2" text-anchor="start" font-size="11" fill="#64748b">竞争格局 5.0</text><text x="213.0" y="424.2" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D6</text><text x="213.0" y="438.2" text-anchor="end" font-size="11" fill="#64748b">法律合规 6.0</text><text x="110.3" y="338.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D7</text><text x="110.3" y="352.0" text-anchor="end" font-size="11" fill="#64748b">企业就绪 N/A</text><text x="87.0" y="206.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D8</text><text x="87.0" y="220.0" text-anchor="end" font-size="11" fill="#64748b">团队治理 6.5</text><text x="154.0" y="89.9" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D9</text><text x="154.0" y="103.9" text-anchor="end" font-size="11" fill="#64748b">上手难度 8.5</text></svg></div>
+<div class="bars"><div class="bar-row"><span class="bar-name">D9 上手难度</span>
+<span class="bar-track"><span class="bar-fill" style="width:85.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.5</span><span class="bar-w">权重10%</span></div>
+<div class="bar-row"><span class="bar-name">D2 技术成熟度</span>
+<span class="bar-track"><span class="bar-fill" style="width:80.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.0</span><span class="bar-w">权重14%</span></div>
+<div class="bar-row"><span class="bar-name">D3 社区生态</span>
+<span class="bar-track"><span class="bar-fill" style="width:74.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.4</span><span class="bar-w">权重11%</span></div>
+<div class="bar-row"><span class="bar-name">D8 团队治理</span>
+<span class="bar-track"><span class="bar-fill" style="width:65.0%;background:#d97706"></span></span>
+<span class="bar-val">6.5</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D1 市场需求</span>
+<span class="bar-track"><span class="bar-fill" style="width:60.0%;background:#d97706"></span></span>
+<span class="bar-val">6.0</span><span class="bar-w">权重13%</span></div>
+<div class="bar-row"><span class="bar-name">D6 法律合规</span>
+<span class="bar-track"><span class="bar-fill" style="width:60.0%;background:#d97706"></span></span>
+<span class="bar-val">6.0</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D5 竞争格局</span>
+<span class="bar-track"><span class="bar-fill" style="width:50.0%;background:#dc2626"></span></span>
+<span class="bar-val">5.0</span><span class="bar-w">权重12%</span></div>
+<div class="bar-row"><span class="bar-name">D4 变现潜力</span>
+<span class="bar-track"><span class="bar-fill" style="width:40.0%;background:#dc2626"></span></span>
+<span class="bar-val">4.0</span><span class="bar-w">权重18%</span></div>
+<div class="bar-row"><span class="bar-name">D7 企业就绪</span>
+<span class="bar-track"><span class="bar-fill" style="width:0.0%;background:#dc2626"></span></span>
+<span class="bar-val">N/A</span><span class="bar-w">权重8%</span></div></div>
+<div class="meta">分析时点 2026-09-16 ｜ 数据来源：GitHub API + 仓库代码实测 ｜ 方法论 v1.3</div>
+<div class="credit">报告出品：@魔法工厂　@向量之心　@南山科学家　@冯伟雄</div>
+<div class="disclaimer"><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</div>
+</div><h1>Pelican 商业化潜力分析报告（完整版）</h1>
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家</p>
+<p>方法论版本: v1.3 | 综合评分: <strong>62.6</strong> | 等级: <strong>B（中等商业化潜力）</strong> | 价值画像: 公共产品型</p>
+</blockquote>
+<h2>一、项目概览</h2>
+<h3>1.1 基本信息</h3>
+<ul>
+<li><strong>项目名称 / 仓库地址</strong>：Pelican（getpelican/pelican）</li>
+<li><strong>核心技术栈</strong>：Python（requires-python &gt;= 3.11）；Jinja2 模板引擎、docutils、blinker、feedgenerator、pygments、rich、watchfiles 等 11 项运行时依赖；构建体系为 tox + ruff + pre-commit</li>
+<li><strong>社区规模速览</strong>：Star 13,341 / Fork 1,823（Fork 比率 13.7%）/ 历史贡献者 414 人 / Watchers 326 / Open Issues 106</li>
+<li><strong>分析时点 / 数据来源</strong>：项目创建于 2010-10-16，最新版本 4.12.0（2026-04-20），pushed_at 2026-04-20；数据来源为仓库元数据、LICENSE、pyproject.toml 及各维度评分卡</li>
+</ul>
+<h3>1.2 项目分类标签</h3>
+<table>
+<thead>
+<tr>
+<th>分类维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>文档与知识管理（静态站点生成器）；开源本地 CLI 工具</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>通用/跨行业</td>
+</tr>
+<tr>
+<td>目标用户角色</td>
+<td>全栈开发者、后端开发者、技术型内容创作者</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>博客、文档、个人/项目站点发布；零数据库、零服务端编程的静态建站</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>本地部署（编译为静态产物，可托管任意平台）</td>
+</tr>
+</tbody>
+</table>
+<h3>1.3 一句话定位</h3>
+<blockquote>
+<p>Pelican 是一个基于 Python 的静态站点生成器（CLI 工具），适用于任何需要发布博客、文档或个人/项目站点且希望零数据库、零服务端编程的场景，主要面向开发者与技术型内容创作者，用于将 Markdown/reST 文本内容编译为可托管于任意平台的全静态网站。</p>
+</blockquote>
+<hr />
+<h2>二、安装部署与使用指南</h2>
+<p><strong>上手难度等级：🟢 简单（D9 得分 8.5/10）——可提供详细操作步骤与命令</strong></p>
+<h3>1. 环境要求</h3>
+<ul>
+<li><strong>Python ≥ 3.11</strong>：<code>pyproject.toml</code> 中 <code>requires-python = "&gt;=3.11"</code>，支持 3.11 / 3.12 / 3.13 / 3.14（CPython）。</li>
+<li><strong>操作系统</strong>：<code>Operating System :: OS Independent</code>，覆盖 Windows / macOS / Linux；Windows 平台自动安装 <code>tzdata</code>。</li>
+<li><strong>无外部服务依赖</strong>：不需要数据库、缓存或消息队列，纯静态生成。</li>
+</ul>
+<h3>2. 安装</h3>
+<p>Pelican 发布于 PyPI（<code>pyproject.toml</code> 中 <code>name = "pelican"</code>，当前版本 <code>4.12.0</code>；README 含 PyPI 徽章指向 <code>https://pypi.org/project/pelican/</code>），使用 pip 安装：</p>
+<pre><code class="language-bash">pip install pelican
+</code></pre>
+<p>Markdown 支持为可选依赖（<code>[project.optional-dependencies]</code> 中 <code>markdown = ["markdown&gt;=3.1"]</code>），可按需安装：</p>
+<pre><code class="language-bash">pip install &quot;pelican[markdown]&quot;
+</code></pre>
+<p>核心运行时依赖共 11 项，全部为纯 Python 包，由 pip 自动解析：<code>blinker</code>、<code>docutils</code>、<code>feedgenerator</code>、<code>jinja2</code>、<code>ordered-set</code>、<code>pygments</code>、<code>python-dateutil</code>、<code>rich</code>、<code>unidecode</code>、<code>watchfiles</code>，以及 Windows 专属的 <code>tzdata</code>。</p>
+<h3>3. 初始化项目与首次生成</h3>
+<p>Pelican 提供交互式脚手架命令（来自 <code>pyproject.toml [project.scripts]</code>）：</p>
+<pre><code class="language-bash">pelican-quickstart
+</code></pre>
+<p>随后使用主命令 <code>pelican</code>（入口 <code>pelican = "pelican.__main__:main"</code>）生成静态站点，具体参数见 <code>docs/quickstart.rst</code> 与 <code>docs/settings.rst</code>。</p>
+<p>命令行工具集（均定义于 <code>[project.scripts]</code>）：</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>入口</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>pelican</code></td>
+<td><code>pelican.__main__:main</code></td>
+<td>生成静态站点</td>
+</tr>
+<tr>
+<td><code>pelican-quickstart</code></td>
+<td><code>pelican.tools.pelican_quickstart:main</code></td>
+<td>交互式初始化新站点</td>
+</tr>
+<tr>
+<td><code>pelican-themes</code></td>
+<td><code>pelican.tools.pelican_themes:main</code></td>
+<td>管理主题</td>
+</tr>
+<tr>
+<td><code>pelican-plugins</code></td>
+<td><code>pelican.plugins._utils:list_plugins</code></td>
+<td>列出插件</td>
+</tr>
+<tr>
+<td><code>pelican-import</code></td>
+<td><code>pelican.tools.pelican_import:main</code></td>
+<td>从 WordPress/Dotclear/RSS 导入内容</td>
+</tr>
+</tbody>
+</table>
+<h3>4. 官方文档导航</h3>
+<p>仓库 <code>docs/</code> 下提供 36 份文档，覆盖全流程：</p>
+<ul>
+<li><code>docs/install.rst</code> —— 安装</li>
+<li><code>docs/quickstart.rst</code> —— 快速开始</li>
+<li><code>docs/settings.rst</code> —— 配置项</li>
+<li><code>docs/content.rst</code> —— 内容撰写</li>
+<li><code>docs/themes.rst</code> / <code>docs/pelican-themes.rst</code> —— 主题</li>
+<li><code>docs/plugins.rst</code> —— 插件</li>
+<li><code>docs/publish.rst</code> —— 发布</li>
+<li><code>docs/importer.rst</code> —— 内容导入</li>
+<li><code>docs/faq.rst</code> / <code>docs/tips.rst</code> —— 常见问题与技巧</li>
+</ul>
+<blockquote>
+<p><strong>部署说明</strong>：本仓库未提供 Dockerfile / docker-compose / Helm Chart（素材「docker」目录下仅有 Sphinx 文档构建用的 <code>docs/Makefile</code>，非部署脚本）。部署方式为「pip 安装 + CLI 生成」，产出纯静态文件，可直接托管到任意 Web 服务器或静态托管服务。</p>
+</blockquote>
+<h2>三、评分总览</h2>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>权重</th>
+<th>加权得分</th>
+<th>评级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1 市场需求与商业机会</td>
+<td>6.0/10</td>
+<td>13%</td>
+<td>0.78</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D2 技术成熟度与产品质量</td>
+<td>8.0/10</td>
+<td>14%</td>
+<td>1.12</td>
+<td>优</td>
+</tr>
+<tr>
+<td>D3 社区健康度与生态势能</td>
+<td>7.4/10</td>
+<td>11%</td>
+<td>0.81</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D4 商业模式与变现潜力</td>
+<td>4.0/10</td>
+<td>18%</td>
+<td>0.72</td>
+<td>差</td>
+</tr>
+<tr>
+<td>D5 竞争格局与差异化壁垒</td>
+<td>5.0/10</td>
+<td>12%</td>
+<td>0.60</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D6 法律合规与知识产权</td>
+<td>6.0/10</td>
+<td>7%</td>
+<td>0.42</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D7 企业就绪度与可运营性</td>
+<td>N/A</td>
+<td>8%</td>
+<td>—</td>
+<td>N/A（维度分析失败）</td>
+</tr>
+<tr>
+<td>D8 团队治理与可持续性</td>
+<td>6.5/10</td>
+<td>7%</td>
+<td>0.46</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D9 上手难度与易用性</td>
+<td>8.5/10</td>
+<td>10%</td>
+<td>0.85</td>
+<td>优</td>
+</tr>
+<tr>
+<td><strong>综合评分</strong></td>
+<td>—</td>
+<td>100%</td>
+<td><strong>62.6/100</strong></td>
+<td><strong>B（中等商业化潜力）</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>说明：D7 因维度分析失败标记为 N/A，未参与加权计算；综合评分 62.6 由代码按既定权重公式计算得出，此处直接引用，未重算。</p>
+</blockquote>
+<p><strong>平行维度（不计入综合评分）</strong></p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10 功能价值</td>
+<td>8.3/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>D11 社会价值</td>
+<td>7.0/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>公共价值分</td>
+<td>7.7/10</td>
+<td>(D10+D11)/2</td>
+</tr>
+</tbody>
+</table>
+<p><strong>一票否决检查</strong>：未触发（veto = null）。D6 维度总分 6.0 &gt; 3；D8.4 小分 1.8 &gt; 1；D4.1 小分 0.8 &gt; 0.5。三条否决线均未触及，等级维持 B。</p>
+<p><strong>价值画像</strong>：公共产品型（综合评分 62.6 &lt; 65，公共价值分 7.7 ≥ 7）。综合评分落在 60–70 临界区间，标注「画像临界」，详见第五章。</p>
+<hr />
+<h2>四、各维度详细分析</h2>
+<h3>D1. 市场需求与商业机会</h3>
+<h3>1.6 项目分类标签</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>文档与知识管理（静态站点生成器）</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>通用/跨行业</td>
+</tr>
+<tr>
+<td>目标用户角色</td>
+<td>全栈开发者、后端开发者、技术型内容创作者</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>内容管理、内容创作与发布、学习研究</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>本地部署（编译为静态产物，可托管于任意 Web 服务器/平台）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>一句话定位</strong>：Pelican 是一个基于 Python 的静态站点生成器（CLI 工具），适用于任何需要发布博客、文档或个人/项目站点且希望零数据库、零服务端编程的场景，主要面向开发者与技术型内容创作者，用于将 Markdown/reST 文本内容编译为可托管于任意平台的全静态网站。</p>
+<hr />
+<h3>D1.1 目标市场规模与增长性（满分 2.5）</h3>
+<p><strong>小分：1.5 / 2.5（60%）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TAM 估算</td>
+<td>静态站点生成器（SSG）属于开发工具/Web 内容发布细分赛道，整体采购型市场量级约为<strong>亿美元级</strong>；因核心价值高度依赖开源免费实现，实际可付费市场规模远小于使用者规模</td>
+</tr>
+<tr>
+<td>增长趋势</td>
+<td>类别随 JAMstack/静态优先理念保持稳定需求，但属于"平稳发展"而非高速扩张；Pelican 作为 2010 年诞生的老牌工具，相对新增量正被 Hugo/Astro/Eleventy/Next.js 等分流</td>
+</tr>
+<tr>
+<td>市场层级</td>
+<td>成熟赛道，非蓝海</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ 外部市场规模数据不可用，以上为按项目类型/行业类别的<strong>量级估算，未经外部数据验证，置信度低</strong>。</p>
+</blockquote>
+<p><strong>依据</strong>：项目创建于 2010 年，13k+ stars、1.8k forks，属成熟工具而非高速增长期产品；SSG 生态被更强的通用构建/框架类工具挤占新增量，整体为"亿美元级、平稳发展"档位。</p>
+<hr />
+<h3>D1.2 痛点真实性与解决程度（满分 2.5）</h3>
+<p><strong>小分：1.5 / 2.5（60%）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>痛点真实性</td>
+<td>真实但非"非用不可"。对需要低成本、可版本控制、无运维发布站点的开发者/写作者是明确需求，但属"锦上添花"性质，非行业级刚需</td>
+</tr>
+<tr>
+<td>解决完整度</td>
+<td>方案完整：支持 Markdown/reST、Jinja2 主题、Atom/RSS、语法高亮、WordPress/RSS 导入、增量缓存重建、插件生态（README 明确列出）</td>
+</tr>
+<tr>
+<td>替代成本</td>
+<td><strong>高</strong>。同类免费替代品众多（Jekyll、Hugo、Astro、Eleventy、Gatsby、以及各类框架静态导出），用户切换成本低</td>
+</tr>
+</tbody>
+</table>
+<p><strong>依据</strong>：README 将核心价值定义为"无需数据库或服务端编程即可建站"，痛点成立但可替代性强；功能完备（含导入器、主题、插件体系），方案成熟完整。综合为"解决锦上添花型需求、方案基本可用"档。</p>
+<hr />
+<h3>D1.3 市场时机判断（满分 2.5）</h3>
+<p><strong>小分：1.0 / 2.5（40%）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术成熟度曲线</td>
+<td>SSG 技术已越过期望膨胀期、进入实质生产期，但红利已被先行者收割</td>
+</tr>
+<tr>
+<td>竞争密度</td>
+<td>赛道密集且存在强垄断倾向（Jekyll/Hugo/Astro/框架自带静态导出），Pelican 无格局优势</td>
+</tr>
+<tr>
+<td>监管/标准</td>
+<td>无明显政策或标准驱动需求爆发的信号</td>
+</tr>
+<tr>
+<td>项目活跃度信号</td>
+<td>90 天内新建 PR 仅 3、关闭 Issue 为 0；v4.11.0（2025-01）到 v4.12.0（2026-04）间隔约 15 个月——<strong>开发节奏明显放缓，呈维护态</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>依据</strong>：SSG 是成熟且拥挤的市场，需与更强对手正面竞争，且项目自身迭代显著放缓。属"市场成熟/接近饱和，教育成本与竞争成本高"档，时机为弱点。</p>
+<hr />
+<h3>D1.4 应用场景广度（满分 2.5）</h3>
+<p><strong>小分：2.0 / 2.5（80%）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>行业覆盖</td>
+<td>跨行业通用——任何行业/个人均可用其发布博客、文档、项目页、公司站</td>
+</tr>
+<tr>
+<td>场景多样性</td>
+<td>横向通用工具，非纵向专用</td>
+</tr>
+<tr>
+<td>可延展性</td>
+<td>核心能力（Markdown/reST → 静态 HTML）可迁移到博客、文档站、知识库、书籍、项目展示等相邻场景</td>
+</tr>
+</tbody>
+</table>
+<p><strong>依据</strong>：静态站点生成本质是通用能力，配合 plugins/themes 生态可覆盖博客、文档、知识库等多场景；但受"静态站点"形态约束，无法覆盖需动态交互的 Web 应用，故未达基础设施级满分档。</p>
+<hr />
+<h3>维度小结</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1.1 市场规模与增长性</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>60%（亿美元级、平稳）</td>
+</tr>
+<tr>
+<td>D1.2 痛点真实性与解决程度</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>60%（真实但非刚需、替代多）</td>
+</tr>
+<tr>
+<td>D1.3 市场时机判断</td>
+<td>2.5</td>
+<td>1.0</td>
+<td>40%（成熟拥挤、项目放缓）</td>
+</tr>
+<tr>
+<td>D1.4 应用场景广度</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>80%（跨行业通用）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>6.0</strong></td>
+<td><strong>6.0 / 10</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：Pelican 对应的是一个<strong>真实但成熟、竞争密集、且高度依赖免费开源实现</strong>的通用细分市场。其痛点为"锦上添花"型、替代品丰富，市场时机上已无先行优势且项目自身迭代明显放缓，商业化（付费）牵引力弱；亮点在于应用场景足够通用。整体 D1 表现处于"一般"区间（6.0/10），作为独立商业赛道吸引力有限，更适合作为内容/文档工具链中的开源组件定位。<strong>注：本维度所有市场规模判断均为类别量级估算，外部数据不可用，置信度低。</strong></p>
+<h1>D2 技术成熟度与产品质量</h1>
+<h3>评估概览</h3>
+<p>Pelican 是一款自 2010 年持续维护至今的 Python 静态站点生成器，PyPI 版本 4.12.0，分类器标注为 <code>Development Status :: 5 - Production/Stable</code>。项目代码库规模约 1.7 万行 Python（54 个源文件），测试代码 8,283 行（测试/源码比约 0.48，305 个测试文件），文档 36 个文件，拥有 2 条 CI 工作流（测试/构建/发布 + GitHub Pages 部署参考工作流）。整体呈现出典型的成熟开源项目特征。</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>得分档位</th>
+<th>小分</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D2.1</td>
+<td>产品设计与创新性</td>
+<td>1.5</td>
+<td>80%</td>
+<td>1.2</td>
+<td>产品理念清晰（"内容 → 静态站点"），围绕 Content/Reader/Generator/Writer 四层组织；插件信号机制（blinker）与多源导入器（WP/Blogger/Medium/Tumblr/Feed）体现一定设计巧思；但作为 2010 年诞生的经典 SSG，理念已属行业常规，非突破性创新</td>
+</tr>
+<tr>
+<td>D2.2</td>
+<td>架构设计与工程质量</td>
+<td>2</td>
+<td>80%</td>
+<td>1.6</td>
+<td>架构分层清晰：<code>contents/readers/generators/writers/settings/cache/plugins</code> 职责分明，依赖方向合理；缓存层（<code>cache.py</code>）与插件命名空间加载（<code>plugins/_utils.py</code>）复用性强；目录规范。扣分点：<code>pelican_import.py</code>(1270 行)、<code>generators.py</code>(1177 行) 偏大，存在 legacy 插件加载、<code>handle_deprecated_settings</code> 等历史包袱</td>
+</tr>
+<tr>
+<td>D2.3</td>
+<td>代码整洁性与规范性</td>
+<td>1</td>
+<td>80%</td>
+<td>0.8</td>
+<td>命名一致、模块化良好；集成 ruff（<code>ruff==0.12.7</code> 版本锁定 + pre-commit）与 CI lint，风格约束明确并实际执行；核心模块抽象（BaseReader/PelicanHTMLWriter 等）规范</td>
+</tr>
+<tr>
+<td>D2.4</td>
+<td>安全性</td>
+<td>1</td>
+<td>60%</td>
+<td>0.6</td>
+<td>本地 CLI 工具攻击面较小，依赖版本有上下界约束；但 <code>pelican_import.py</code> 使用 <code>subprocess</code> 调用 pandoc，未见显式安全扫描工具（Snyk/Trivy/Dependabot）配置，存在少量中低风险面</td>
+</tr>
+<tr>
+<td>D2.5</td>
+<td>UI/UX/UE 人机交互</td>
+<td>1</td>
+<td>N/A</td>
+<td>N/A</td>
+<td>纯 CLI 工具，无图形/Web 用户界面（开发服务器仅托管用户生成内容），不参与计分</td>
+</tr>
+<tr>
+<td>D2.6</td>
+<td>功能完备度与稳定性</td>
+<td>1.5</td>
+<td>80%</td>
+<td>1.2</td>
+<td>15 年迭代，4.x 系列自 2021 年保持稳定；支持 Markdown/reST/HTML 多格式、主题、插件、导入器、i18n（<code>docs/locale/</code>）；运行环境 Python ≥3.11（含 3.11–3.14 支持），合理但有一定下限门槛；发布节奏偏慢（4.11→4.12 间隔约 15 个月）</td>
+</tr>
+<tr>
+<td>D2.7</td>
+<td>文档与开发者体验</td>
+<td>1</td>
+<td>100%</td>
+<td>1.0</td>
+<td>Sphinx 文档体系（<code>docs/conf.py</code>）覆盖 quickstart/install/settings/themes/plugins/importer/internals/faq/changelog 等，托管于 docs.getpelican.com，另有 offical 主页与 ISSUE/PR 模板，文档质量与覆盖度优秀</td>
+</tr>
+<tr>
+<td>D2.8</td>
+<td>测试与质量保障</td>
+<td>1</td>
+<td>80%</td>
+<td>0.8</td>
+<td>测试/源码比 0.48（305 文件、8283 行）；CI 通过 tox 覆盖 3 系统 × 4 Python 版本矩阵，并含 lint（ruff + pre-commit）、build test、docs build 多层门禁；但未见覆盖率阈值门禁，覆盖率无法确认 &gt;80%</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>D2.5 标记 N/A，D2 总分 = (1.2+1.6+0.8+0.6+1.2+1.0+0.8) / 9 × 10 = <strong>8.0</strong></p>
+</blockquote>
+<h3>结论</h3>
+<p>Pelican 在 D2 维度得分 <strong>8.0 / 10（良好）</strong>，是一条技术成熟度相当高的项目：</p>
+<ul>
+<li><strong>优势</strong>：架构分层清晰、职责单一，模块解耦良好，插件信号机制带来高可扩展性与可复用性；测试与 CI 体系完善（跨 OS/多 Python 版本矩阵 + 多层质量门禁）；文档极为齐全，是同类中开发者体验的标杆；15 年持续维护 + Production/Stable 版本保证了功能完备度与稳定性。</li>
+<li><strong>短板</strong>：作为经典静态站点生成器，产品理念创新性一般、差异化有限；个别核心文件（导入器、生成器）体量偏大，存在历史技术债；未见明确的安全扫描工具集成；测试覆盖率缺乏量化门禁。</li>
+</ul>
+<p>综合判断，Pelican 具备稳定可靠的产品交付能力，技术风险低，但其技术护城河主要来自长期生态积累（主题/插件/社区）而非原创性技术突破，商业化视角下属于"成熟稳健但缺乏技术差异化壁垒"的项目。</p>
+<h1>D3. 社区健康度与生态势能（权重 11%）</h1>
+<p>Pelican 是 2010 年创立的 Python 静态站点生成器元老级项目，拥有 13.3k Star、1823 Fork、414 名历史贡献者，并维护着独立的 <code>pelican-plugins</code> / <code>pelican-themes</code> 生态组织。但本次采集的近 90 天活跃数据（仅 3 个 PR、0 个 Issue 关闭）显示其<strong>当前社区活跃度显著回落</strong>，社区资产呈现"存量大、增量弱"的成熟期特征。</p>
+<h3>D3.1 社区活跃度指标（3 分）—— 得分 1.8 / 3（60%）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Star 增速</td>
+<td>退化公式：13341 ÷ 186 个月 ≈ <strong>71.7 Star/月</strong>（90 天增量数据缺失）</td>
+<td>落入 5–6 档（20–100/月），但该值为 15.5 年平均，<strong>高估早期红利，实际当前增速大概率更低</strong></td>
+</tr>
+<tr>
+<td>Fork 比率</td>
+<td>1823 / 13341 = <strong>13.7%</strong></td>
+<td>衍生意愿健康，属中上水平</td>
+</tr>
+<tr>
+<td>Issue 活跃度</td>
+<td>近 90 天 PR 仅 <strong>3</strong> 个，Issue 关闭 <strong>0</strong> 个</td>
+<td>极低——社区参与度已近休眠</td>
+</tr>
+<tr>
+<td>响应速度</td>
+<td>Issue 平均关闭时间 <strong>N/A</strong>（数据缺失）</td>
+<td>0 个关闭 + 106 个开放 Issue，间接指向响应迟缓</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判定</strong>：Fork 比率良好、Star 存量可观，但 Issue/PR 吞吐量几乎停摆（90 天 0 关闭），社区参与度与响应能力构成明显短板。综合取 5–6 档偏下 → <strong>60% = 1.8 分</strong>。</p>
+<blockquote>
+<p>注：Star 增速采用退化公式（历史平均），须视为上界；结合近 90 天资讯，真实当前活跃度更低，故未给到该档上限。</p>
+</blockquote>
+<h3>D3.2 贡献者结构多样性（2.5 分）—— 得分 2.0 / 2.5（80%）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>贡献者数量</td>
+<td><strong>414</strong> 名历史贡献者</td>
+<td>远超"20–50 贡献者"档，属 7–8 乃至更高区间的规模信号</td>
+</tr>
+<tr>
+<td>组织多样性</td>
+<td>由 <code>getpelican</code> 社区组织主导，贡献者来源广泛（414 人级别）</td>
+<td>具备多来源特征，非单人/单企业项目</td>
+</tr>
+<tr>
+<td>核心团队占比</td>
+<td>近 90 天仅 3 PR，核心团队 vs 外部 PR 比例 <strong>N/A</strong></td>
+<td>数据不足以量化</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判定</strong>：414 名历史贡献者、独立维护的社区组织架构，表明其"社区规模"远高于 7–8 档门槛，组织多样性亦成立；唯一扣分项是近期活跃贡献者明显萎缩。综合取 7–8 档 → <strong>80% = 2.0 分</strong>。</p>
+<blockquote>
+<p>说明：本细则从社区规模视角评估，不重复计入"核心人员离开的传承风险"（归 D8.1 巴士因子）。</p>
+</blockquote>
+<h3>D3.3 第三方生态成熟度（3 分）—— 得分 2.4 / 3（80%）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>证据</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>插件/扩展</td>
+<td>README 明确指出 "Extensible via a rich plugin ecosystem: Pelican Plugins"，并设有独立 <code>pelican-plugins</code> 组织</td>
+<td>插件生态成型</td>
+</tr>
+<tr>
+<td>主题生态</td>
+<td>提供 <code>pelican-themes</code> CLI 工具与 <code>docs/themes.rst</code>、<code>pelican-themes.rst</code> 文档</td>
+<td>主题第三方扩展活跃</td>
+</tr>
+<tr>
+<td>集成生态</td>
+<td>PyPI 分发（含下载量徽章）、Repology 多发行版打包、GitHub Actions 集成、Jinja2/Pygments/Docutils 等主流组件</td>
+<td>被主流平台/工具链集成</td>
+</tr>
+<tr>
+<td>衍生项目</td>
+<td>大量博客站点与主题/插件二次开发，但<strong>无明确成功商业衍生品</strong></td>
+<td>有衍生开发，缺商业变现案例</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判定</strong>：插件 + 主题 + 多平台集成的生态基本成型，接近"丰富插件市场"档，但缺少标志性商业衍生品。取 7–8 档 → <strong>80% = 2.4 分</strong>。</p>
+<h3>D3.4 品牌认知与行业影响力（1.5 分）—— 得分 1.2 / 1.5（80%）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>证据</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>品牌辨识度</td>
+<td>2010 年创立的 Python SSG 元老，长期与 Jekyll/Hugo 并列为代表工具</td>
+<td>领域内高认知</td>
+</tr>
+<tr>
+<td>行业采用</td>
+<td>拥有 13.3k Star、被大量个人/技术博客采用，Repology 显示被多 Linux 发行版收录</td>
+<td>广泛采用，但头部企业背书证据不足</td>
+</tr>
+<tr>
+<td>媒体覆盖</td>
+<td>README 无客户/案例墙；未采集到明确会议/媒体报道</td>
+<td>证据薄弱</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判定</strong>：在静态站点/ Python 生态内认知度高，属"领域内有较高认知度"档，但企业背书与媒体曝光证据有限。取 7–8 档 → <strong>80% = 1.2 分</strong>。</p>
+<h3>结论</h3>
+<ul>
+<li><strong>本维度合计：1.8 + 2.0 + 2.4 + 1.2 = 7.4 / 10，折算 7.4 分。</strong></li>
+<li><strong>优势</strong>：成熟的第三方生态（插件 + 主题组织）、庞大的历史社区存量（414 贡献者、13.3k Star、13.7% Fork 比率）与稳固的品牌认知，构成可观的被动潜在客户池。</li>
+<li><strong>风险</strong>：近 90 天仅 3 个 PR、0 个 Issue 关闭，当前社区活跃度与维护响应已明显回落；Star 增速采用退化公式存在高估。社区资产的"存量变现"能力强于"增量增长"能力，商业化评估时应关注其从活跃开源项目向低活跃维护型项目的滑移趋势。</li>
+<li><strong>置信度</strong>：中等。响应速度、组织多样性、商业衍生品等关键数据缺失，对活跃度类判断构成一定不确定性。</li>
+</ul>
+<h3>D4. 商业模式与变现潜力</h3>
+<blockquote>
+<p>本维度评估 Pelican 能否形成清晰、可行、可持续的商业模式。核心事实：项目为社区驱动的纯志愿项目（getpelican 组织），唯一显性变现入口是 <code>pyproject.toml</code> 中的 <code>Funding = "https://donate.getpelican.com/"</code>（捐赠），无企业版、无托管服务、无双协议、无商业实体。</p>
+</blockquote>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D4.1 协议对变现模式的影响</td>
+<td>2</td>
+<td>0.8</td>
+<td>3–4（40%）</td>
+<td>LICENSE 与 pyproject.toml 双确认 AGPL-3.0，强传染性；SaaS/闭源衍生路径受限，需双协议方可解锁，而双协议需版权集中</td>
+</tr>
+<tr>
+<td>D4.2 变现路径清晰度</td>
+<td>3.5</td>
+<td>1.4</td>
+<td>3–4（40%）</td>
+<td>仅捐赠一条已落地路径且不可规模化；Open Core/SaaS/专业服务等路径无任何实践，SSG 品类变现先例普遍失败</td>
+</tr>
+<tr>
+<td>D4.3 付费转化逻辑</td>
+<td>2.5</td>
+<td>1.0</td>
+<td>3–4（40%）</td>
+<td>功能全免费、无功能分层、无版本阉割，找不到"免费不够用"的自然触发点；用户群为高价格敏感的博主/开发者</td>
+</tr>
+<tr>
+<td>D4.4 增值服务空间与定价天花板</td>
+<td>2</td>
+<td>0.8</td>
+<td>3–4（40%）</td>
+<td>增值项（托管/主题插件/支持）均被免费或低价竞品覆盖，定价天花板低，per-seat 模型天然不成立</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>4.0</strong></td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>D4.1 协议对变现模式的影响（0.8 / 2）</h3>
+<p><strong>硬事实</strong>：
+- <code>LICENSE</code> 文件首行为 "GNU AFFERO GENERAL PUBLIC LICENSE Version 3, 19 November 2007"；
+- <code>pyproject.toml</code> 中 <code>license = { text = "AGPLv3" }</code>，classifier 为 <code>GNU Affero General Public License v3 or later (AGPLv3+)</code>；
+- 贡献者数 414（GitHub API 实采），仓库未见 CLA（贡献者协议）文件。</p>
+<p><strong>评估</strong>：AGPL-3.0 属方法论表中的"显著约束"档（GPL/AGPL）。其第 13 条要求通过网络向用户提供修改版服务时开放对应源码，直接压制"基于改进版 Pelican 提供闭源托管服务"这一最主流的 SSG 变现路径。对纯本地 CLI 使用场景而言，AGPL 的实际影响弱于对服务端软件的影响（生成出的静态站点不属于 covered work），因此不至于落到 SSPL/BUSL 一级的 1–2 档；但<strong>任何以 Pelican 为核心的商业服务或闭源衍生品均须开源</strong>，这在结构上封死了 Open Core 的闭源企业版路线。</p>
+<p>更关键的是<strong>双协议（dual licensing）路线的可行性</strong>：将 AGPL 代码同时以商业许可授权，前提是版权方（或通过 CLA 归集的版权）能够二次授权。本项目 414 名贡献者、无 CLA、由 <code>botpub</code> 自动化发布，版权高度分散，实际上<strong>无法在不追溯全部历史贡献者授权的情况下完成双协议转换</strong>——这正是 Redis、Elastic 等先例中提前布局 CLA 的原因，而 Pelican 并未布局。因此协议不仅本身受限，连"改协议"这一补救路径也被堵住。</p>
+<p>按评分指引，AGPL 对应 3–4 档（40%），得 <strong>0.8 分</strong>。</p>
+<hr />
+<h3>D4.2 变现路径清晰度（1.4 / 3.5）</h3>
+<p>逐模式评估：</p>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>可行性</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Open Core</td>
+<td>✗ 不可行（现状）</td>
+<td>全部功能（Markdown/reST、主题、插件、多语言、导入器）均在 AGPL 单体包内，无企业功能分层；<code>pyproject.toml</code> 仅定义一个可选的 <code>[markdown]</code> 依赖，无 premium 模块</td>
+</tr>
+<tr>
+<td>SaaS 托管</td>
+<td>△ 理论可行但被扼制</td>
+<td>AGPL + 无商业实体；且静态站点托管已被 Netlify/Vercel/Cloudflare Pages/GitHub Pages 商品化，Pelican 产物可在任意静态主机部署，无需专有服务</td>
+</tr>
+<tr>
+<td>双协议许可</td>
+<td>✗ 不可行</td>
+<td>见 D4.1，414 贡献者无 CLA，版权无法归集</td>
+</tr>
+<tr>
+<td>专业服务</td>
+<td>△ 空间极小</td>
+<td>CLI 工具安装即用，咨询/培训需求薄；无 Saas 或企业部署形态支撑服务收入</td>
+</tr>
+<tr>
+<td>市场/插件</td>
+<td>△ 生态存在但无抽成</td>
+<td><code>pelican-plugins</code> 组织与主题仓库为社区独立维护，无官方市场、无结算、无抽成机制</td>
+</tr>
+<tr>
+<td>认证/生态</td>
+<td>✗</td>
+<td>无认证体系、无合作伙伴计划</td>
+</tr>
+<tr>
+<td>捐赠/赞助</td>
+<td>✓ 唯一落地路径</td>
+<td><code>pyproject.toml</code> 声明 <code>Funding = https://donate.getpelican.com/</code>，项目已持续 15 年获得捐赠</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评估</strong>：项目<strong>仅有一条已落地的变现路径（捐赠）</strong>，而方法论附录 C 明确指出捐赠/赞助模式"通常不可规模化"，Vue.js 作为量级远大于 Pelican 的项目其天花板亦仅 ~$1M+/年，Pelican 实际量级更低。其余六种模式或不可行、或理论存在但零实践：仓库无 <code>enterprise</code>/<code>pro</code>/<code>pricing</code> 相关文件，无商业实体（getpelican 为社区组织），README 与 <code>pyproject.toml</code> 均无任何商业化入口。</p>
+<p>行业对照亦不利：静态站点生成器赛道中，Jekyll、Hugo、Eleventy 均未成功商业化；Gatsby 曾以 Open Core + 云服务融资，最终被 Netlify 收购并于 2023 年停止维护——这恰恰说明该品类"框架免费 + 托管变现"路径被平台方截胡。Pelican 作为 Markdown/reST 双语法、Python 生态的老牌工具（13.3K star / 414 贡献者 / 15 年历史），其商业路径属于"需大量探索且先例不利"，而非"有潜在路径待验证"的更优档位。</p>
+<p>按指引对应 3–4 档（40%），得 <strong>1.4 分</strong>。</p>
+<hr />
+<h3>D4.3 付费转化逻辑（1.0 / 2.5）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>结论</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>免费到付费的触发点</td>
+<td><strong>不存在</strong>。v4.12.0 完整版通过 PyPI 免费分发（<code>pip install pelican</code>），无功能门禁、无并发/规模限制、无许可证校验；工具输出为纯静态 HTML/CSS/JS，用户一旦生成即无供应商依赖（零锁定）</td>
+</tr>
+<tr>
+<td>付费意愿强度</td>
+<td><strong>弱</strong>。目标用户为个人博主、技术写作者、小型团队；竞品 Hugo/Jekyll/Eleventy/Astro 完全免费且性能更强，付费替代品不存在</td>
+</tr>
+<tr>
+<td>转化漏斗</td>
+<td><strong>无漏斗</strong>。从使用者到付费者之间没有任何商品化环节（无试用→升级路径、无额度限制、无企业授权条款），仅存在与付费无因果关系的自愿捐赠</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评估</strong>：SSG 是典型的"无锁定、零边际成本、竞品全免费"工具品类，免费版已完全满足全部用户场景，"免费不够用"的前提不成立。唯一可想象的触发点是"托管构建 + CDN + 表单/搜索等增强能力"，但这属于第三方平台（Vercel/Netlify）的地盘，Pelican 自身不具备承载条件，且 AGPL 进一步限制了官方提供闭源增强服务的空间。方法论 1–2 档（"完全找不到付费触发点"）与 3–4 档（"付费逻辑勉强，用户更愿意用免费版"）之间，本项目更贴近后者但偏弱：捐赠通道的存在证明有极少量自愿付费，故取 3–4 档（40%），得 <strong>1.0 分</strong>。</p>
+<hr />
+<h3>D4.4 增值服务空间与定价天花板（0.8 / 2）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>增值空间</td>
+<td>有限。可叠加方向仅有：托管构建/CDN（已被平台商品化）、主题与插件市场（社区已免费提供，<code>pelican-plugins</code> 独立运营）、企业级支持/合规/安全审计（CLI 工具无部署形态，需求薄）。<strong>不存在</strong>方法论列举的高价值增值项（SSO/RBAC/审计日志/SLA）的附着点</td>
+</tr>
+<tr>
+<td>定价天花板</td>
+<td>低。用户价格敏感度极高，替代品全免费；即便推出增强服务，客单价预期落在 $0–100/年区间，难以触及 $1K/年门槛</td>
+</tr>
+<tr>
+<td>收入扩展性</td>
+<td>差。项目为单机 CLI，无席位（seat）概念、无用量（usage）计费载体、无企业内部署形态，无法从 per-seat 扩展到 per-usage 或 enterprise flat fee；唯一潜在计费载体（托管构建分钟数）需先自建云服务，成本结构与获客均不占优</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评估</strong>：功能集（13.3K star、17,116 行 Python、48.4% 测试覆盖率）证明工程质量，但工程完备度不转化为定价能力。对照附录 C，Strapi（Headless CMS，可切入内容运营预算）客单 $10M+ 量级，而 SSG 属开发者个人工具预算范畴，二者定价天花板相差一个数量级。按指引取 3–4 档（40%），得 <strong>0.8 分</strong>。</p>
+<hr />
+<h3>结论</h3>
+<p><strong>D4 维度得分：4.0 / 10（较弱）</strong></p>
+<p>Pelican 是一个工程成熟、社区活跃（13.3K star、414 贡献者、15 年持续维护、48.4% 测试覆盖率）的老牌开源项目，但<strong>其商业化能力与其技术声誉严重不匹配</strong>，四项细则一致落在 3–4 档（40%），具体表现为：</p>
+<ol>
+<li><strong>协议层面锁死主流路径</strong>：AGPL-3.0 抑制 SaaS 与闭源衍生；且 414 名贡献者、无 CLA 的历史包袱使双协议转换在工程上不可行，项目自我修复能力缺失。</li>
+<li><strong>仅有一条不可规模化的变现路径</strong>：官方唯一的商业化声明是 <code>donate.getpelican.com</code> 捐赠入口，Open Core / SaaS / 双协议 / 市场抽成 / 认证体系六条路径全部为零实践。</li>
+<li><strong>无付费触发点</strong>：功能全量免费、输出零锁定、竞品全免费，免费到付费之间不存在任何结构性缺口。</li>
+<li><strong>定价天花板受品类压制</strong>：SSG 赛道商业化先例（Jekyll/Hugo 未变现、Gatsby 被收购后停维）表明变现困难源于品类而非执行。</li>
+</ol>
+<p><strong>商业化建议视角</strong>：若需商业化，最现实的组合是"AGS 之外的旁路"——即由独立实体提供 Pelican 的托管构建/部署托管（避开 AGPL 对修改版服务的源码义务，仅在未修改版本上提供服务）＋企业级插件商业授权（需从零建立独立版权的插件模块，而非复用 AGPL 核心），配合与 <code>pelican-plugins</code> 生态的收益分成。但该路线需新建商业实体、重建 CLA 机制，且须与 Netlify/Vercel/Cloudflare 的免费静态托管正面竞争，投入产出比不佳。<strong>本维度置信度：高</strong>（协议、贡献者数、Funding 声明、无企业版等均为硬事实；仅捐赠实际金额与潜在付费意愿为推断）。</p>
+<h3>D5. 竞争格局与差异化壁垒</h3>
+<h3>D5.1 竞品对比与市场定位（满分 3 分，得分 1.8）</h3>
+<h4>竞品对比表</h4>
+<table>
+<thead>
+<tr>
+<th>竞品名称</th>
+<th>类型</th>
+<th>仓库/官网</th>
+<th>验证方式</th>
+<th>Star/用户量</th>
+<th>核心差异</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Quartz</td>
+<td>间接竞品</td>
+<td>github.com/jackyzha0/quartz</td>
+<td>GitHub 搜索确认</td>
+<td>13,235 ★</td>
+<td>面向 Obsidian/数字花园发布场景，TypeScript+Node 技术栈，近实时同步生态强</td>
+</tr>
+<tr>
+<td>Retype</td>
+<td>直接竞品</td>
+<td>github.com/retypeapp/retype</td>
+<td>GitHub 搜索确认</td>
+<td>1,337 ★</td>
+<td>高性能文档型 SSG，.NET 运行时，提供商业托管与支持</td>
+</tr>
+<tr>
+<td>Cuttlebelle</td>
+<td>直接竞品</td>
+<td>github.com/cuttlebelle/cuttlebelle</td>
+<td>GitHub 搜索确认</td>
+<td>553 ★</td>
+<td>React 驱动，强调「编辑与代码关注点分离」</td>
+</tr>
+<tr>
+<td>Sorg</td>
+<td>间接竞品</td>
+<td>github.com/brandur/sorg</td>
+<td>GitHub 搜索确认</td>
+<td>526 ★</td>
+<td>Go 编写，定位于单作者自用（编译 brandur.org），非通用工具</td>
+</tr>
+<tr>
+<td>notion-to-md</td>
+<td>间接竞品</td>
+<td>github.com/souvikinator/notion-to-md</td>
+<td>GitHub 搜索确认</td>
+<td>1,736 ★</td>
+<td>专注 Notion→Markdown/MDX/HTML 转换引擎，非完整 SSG</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>说明：以上 5 个竞品均通过 GitHub Search API 实测确认存在（<code>verified: true</code>，未归档）。
+就 SSG 通用市场而言，Jekyll（Ruby）、Hugo（Go）、Eleventy（Node）等更为直接的头部竞品本次未单独通过 API 验证，仅作背景参考，不计入对比表。</p>
+</blockquote>
+<h4>定位分析</h4>
+<ul>
+<li><strong>定位清晰度</strong>：Pelican 的定位明确且有其独特性——<strong>Python 生态中少有的、原生同时支持 Markdown 与 reStructuredText 的成熟 SSG</strong>，主打「无数据库、纯静态、CLI 驱动、易于版本控制/Webhook 集成」（见 README）。reST 原生支持是相对稀缺的差异点（多数 SSG 仅 Markdown）。</li>
+<li><strong>竞争态势</strong>：SSG 是一个极度拥挤且头部集中的市场。Pelican 13,341 ★ 属于「第二梯队」——落后于 Hugo/Jekyll 等头部，与 Quartz 等同量级但赛道不同。整体处于<strong>跟随者</strong>而非领先者位置。</li>
+<li><strong>差异化是否鲜明</strong>：面向 Python 开发者与 reST 用户有明确价值，但对更广大的 JS/文档站用户吸引力有限，差异化「清晰但不强势」。</li>
+</ul>
+<p><strong>判断依据</strong>：竞品众多（直接+间接并存），Pelican 有明确但非颠覆性的差异化定位，处于跟随者地位 → 对应 5–6 档。</p>
+<hr />
+<h3>D5.2 技术壁垒与网络效应（满分 3 分，得分 1.2）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术壁垒</td>
+<td>无。SSG 核心（解析→模板渲染→写文件）是公有领域范式，无专利、无独占算法、无数据池。技术栈为标准 Python（Jinja2/Pygments/docutils/Markdown），全部为开源通用依赖，从零复刻门槛低（工程难度已在 D2.2 评估，此处不重复计分）</td>
+</tr>
+<tr>
+<td>网络效应</td>
+<td>弱。存在 <code>pelican-plugins</code> 插件组织与主题生态，具备一定的「生态正反馈」，但插件为松耦合、无强制依赖，用户增加不显著提升单个用户价值，缺乏数据飞轮</td>
+</tr>
+<tr>
+<td>规模效应</td>
+<td>几乎无。静态生成器为本地单机工具，规模扩大不带来成本或体验优势</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：技术壁垒薄弱、网络效应与规模效应均很弱，易被复制，属于典型「工具型开源项目」而非「平台型/数据型」项目 → 对应 3–4 档。</p>
+<hr />
+<h3>D5.3 切换成本与用户粘性（满分 2 分，得分 1.2）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>迁移成本</td>
+<td>中等。内容源（Markdown/reST 纯文本）本身高度可移植，但<strong>模板（Jinja2）、<code>pelicanconf.py</code> 配置、插件调用、URL/feed 结构</strong>需针对竞品重写，非一键迁移</td>
+</tr>
+<tr>
+<td>深度集成</td>
+<td>中等偏强。老用户常通过 CI/CD、Webhook、Git 工作流、自定义主题与插件深度集成；<code>pelican-import</code>、<code>pelican-quickstart</code> 等 CLI 形成使用路径依赖</td>
+</tr>
+<tr>
+<td>习惯锁定</td>
+<td>中等。长期博客/文档站用户存在内容与工作流惯性，但 SSG 本质上「随时可走」，无组织级强制约束</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：迁移需重写模板/配置/插件，具备中等粘性，但内容可移植、无数据锁定 → 对应 5–6 档。</p>
+<hr />
+<h3>D5.4 护城河可持续性（满分 2 分，得分 0.8）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>护城河趋势</td>
+<td>走弱。近 90 天仅 3 个 PR、0 个 issue 关闭，开发节奏明显偏慢（虽有 4.12.0 于 2026-04-20 发布，但迭代稀疏）；对比 Quartz 等竞品推送至 2026-09，活跃度差距明显</td>
+</tr>
+<tr>
+<td>颠覆风险</td>
+<td>中高。SSG 市场正被 Astro、Quartz 等新一代框架（组件化/文档花园/即时预览）重塑；Go/Rust 系工具在性能上持续施压</td>
+</tr>
+<tr>
+<td>时间窗口</td>
+<td>Python + reST 垂直利基在中期内仍能维持忠诚用户，但相对份额呈缓慢收缩趋势，优势窗口在收窄而非扩大</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：护城河在削弱，存在明确的新进入者/技术变革压力，同时维护活跃度下滑 → 对应 3–4 档。</p>
+<hr />
+<h3>结论</h3>
+<p>Pelican 是 SSG 领域资历最老的开源项目之一（2010 年创建，414 位贡献者，13.3k ★），拥有清晰的「Python + reST + 成熟稳定」差异化定位，但整体处于竞争第二梯队与跟随者位置。其护城河以「老牌信誉 + 中等迁移成本」为主，<strong>缺乏技术壁垒、数据壁垒与网络效应</strong>，且近期维护活跃度偏低、面临新一代 SSG（Astro/Quartz/Zola 等）的持续冲击，护城河呈削弱趋势。</p>
+<blockquote>
+<p><strong>D5 维度得分：1.8 + 1.2 + 1.2 + 0.8 = 5.0 / 10</strong></p>
+<p><strong>置信度说明</strong>：竞品经 GitHub Search API 实测验证（5 个），定位分析基于 README 与仓库事实；但 Jekyll/Hugo 等头部直接竞品未单列验证，切换成本为用户行为推断，非行为数据实测，该维度置信度为<strong>中等</strong>。</p>
+</blockquote>
+<hr />
+<h3>D6. 法律合规与知识产权（权重 7%）</h3>
+<p>Pelican 是一个由 AGPL-3.0 授权的静态站点生成器，拥有 13,341 stars、414 位贡献者、17,116 行 Python 代码、测试占比 48.4%。本维度识别其商业化过程中的法律硬伤与知识产权障碍。</p>
+<h3>D6.1 开源协议合规性与商业限制（1.8 / 3）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测情况</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>协议明确性</td>
+<td>根目录 <code>LICENSE</code> 为完整 AGPL-3.0 全文；<code>pyproject.toml</code> 声明 <code>license = { text = "AGPLv3" }</code>，classifier 标注 <code>AGPLv3+</code></td>
+<td>极清晰，无歧义</td>
+</tr>
+<tr>
+<td>copyleft 传染性</td>
+<td>项目自身采用 AGPL-3.0（含网络服务条款 §13），是 copyleft 强度最高的协议之一</td>
+<td>需法律审查；对"改版后以网络服务提供"的场景有源码回馈义务</td>
+</tr>
+<tr>
+<td>商业附加条款</td>
+<td>无 Commons Clause、BUSL、SSPL 等限制</td>
+<td></td>
+</tr>
+<tr>
+<td>商业附加条款</td>
+<td>无任何附加限制条款</td>
+<td>无附加障碍</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：协议文件规范、SPDX 表述清晰，且<strong>无任何商业附加条款</strong>，这是明确加分项。但项目主协议为 AGPL-3.0——最强的 copyleft，且带网络分发（SaaS/托管）触发条款，任何将 Pelican 改造后作为网络服务提供的商业模式，都必须回馈修改源码，法律上属"需审查但可管理"。</p>
+<p><strong>关于双重放大</strong>：协议类型本身对变现模式选择的影响已在 D4.1 评估，本细则不计协议类型扣分，仅评估传染范围与合规可管理性。AGPL 对<strong>静态站点生成产物</strong>的传染性有限（依据 §2，运行程序产出的内容仅在"其本身构成 covered work"时才受约束，纯静态 HTML 输出通常不构成衍生作品），实际传染局限于 Pelican 程序本体及其修改版。综合落在 5–6 档（copyleft 协议，需法律审查但可管理）。</p>
+<h3>D6.2 依赖链法律风险（1.5 / 2.5）</h3>
+<p><strong>实测依赖清单</strong>（<code>pyproject.toml</code> 运行时依赖，共 11 项 + 1 项条件依赖）：</p>
+<table>
+<thead>
+<tr>
+<th>依赖</th>
+<th>版本约束</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>blinker</td>
+<td>≥1.7.0</td>
+</tr>
+<tr>
+<td>docutils</td>
+<td>≥0.22.0</td>
+</tr>
+<tr>
+<td>feedgenerator</td>
+<td>≥2.1.0</td>
+</tr>
+<tr>
+<td>jinja2</td>
+<td>≥3.1.2</td>
+</tr>
+<tr>
+<td>ordered-set</td>
+<td>≥4.1.0</td>
+</tr>
+<tr>
+<td>pygments</td>
+<td>≥2.16.1,&lt;2.20.0</td>
+</tr>
+<tr>
+<td>python-dateutil</td>
+<td>≥2.8.2</td>
+</tr>
+<tr>
+<td>rich</td>
+<td>≥13.6.0</td>
+</tr>
+<tr>
+<td>unidecode</td>
+<td>≥1.3.7</td>
+</tr>
+<tr>
+<td>watchfiles</td>
+<td>≥0.21.0</td>
+</tr>
+<tr>
+<td>tzdata（仅 win32）</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：
+- <strong>依赖数量适中</strong>：11 项运行时依赖，属于中等偏少水平，合规审查工作量可控（加分）。
+- <strong>来源可靠</strong>：全部为 PyPI 上的主流成熟包（jinja2、rich、pygments、dateutil 等），无来源不明或私有源依赖（加分）。
+- <strong>传染性风险</strong>：<code>unidecode</code> 为已知采用 GPL 系许可的包，是本依赖链中需要重点核查的传染性来源；此外该项目自身为 AGPL-3.0，若某 GPL 依赖为"仅 GPL-2"版本，将存在与 AGPL-3.0 的兼容性问题，需法务逐项核实。
+- <strong>数据局限</strong>：本次素材未提供每个依赖的逐项许可扫描结果，上述传染性判断基于依赖清单，<strong>逐包许可未经自动化工具核验</strong>，置信度中等。</p>
+<p>综合落在 5–6 档（有部分传染性依赖，需逐个审查）。</p>
+<h3>D6.3 商标与专利风险（1.5 / 2.5，未经人工核查，置信度低）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>情况</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>商标可用性</td>
+<td>素材未提供商标检索结果</td>
+</tr>
+<tr>
+<td>专利风险</td>
+<td>素材未提供专利排查数据</td>
+</tr>
+<tr>
+<td>商标政策</td>
+<td>仓库未发现独立商标使用政策文件</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：<strong>商标检索与专利排查无法由 AI 自动完成</strong>，本次采集中亦无人工核查数据。依据评估规范，本细则默认按 5–6 档给出 1.5/2.5，并标注<strong>「未经人工核查，置信度低」</strong>。不做任何关于"Pelican"名称商标状态或核心技术专利状态的断言。需人工补充：USPTO/EUIPO/CNIPA 商标检索、静态站点生成技术领域专利 FTO 分析。</p>
+<h3>D6.4 贡献者协议完备性（1.2 / 2）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测情况</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CLA/DCO</td>
+<td>未在 doc_files 中发现 <code>CLA</code>、<code>DCO</code> 文件，<code>CONTRIBUTING.rst</code> 未提及签署 CLA 或 DCO 流程</td>
+</tr>
+<tr>
+<td>版权归属</td>
+<td><code>pyproject.toml</code> 作者为 Justin Mayer，414 位贡献者版权分散，无集中式版权转让机制</td>
+</tr>
+<tr>
+<td>贡献流程</td>
+<td><code>CONTRIBUTING.rst</code> 内容详尽（议题提交、分支策略、commit 规范、squash 要求、质量门槛）；含 <code>.github/pull_request_template.md</code> 与多个 ISSUE 模板</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：贡献流程规范度高，有完整 CONTRIBUTING 指南与 PR/Issue 模板（加分项）。但<strong>无正式 CLA，也无 DCO 签署要求</strong>，版权分散于 414 位贡献者，缺乏集中可控的版权结构——这对未来若考虑双协议（AGPL + 商业授权）模式构成障碍，因为无法单方面对全部历史贡献重新授权。综合落在 5–6 档（有贡献指南但无正式 CLA）。</p>
+<h3>D6 维度小结</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D6.1 开源协议合规性与商业限制</td>
+<td>3</td>
+<td>1.8</td>
+<td>5–6 档</td>
+</tr>
+<tr>
+<td>D6.2 依赖链法律风险</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6 档</td>
+</tr>
+<tr>
+<td>D6.3 商标与专利风险</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6 档（未核查）</td>
+</tr>
+<tr>
+<td>D6.4 贡献者协议完备性</td>
+<td>2</td>
+<td>1.2</td>
+<td>5–6 档</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>6.0</strong></td>
+<td><strong>6.0 / 10</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：Pelican 的法律合规状况属"需审查但整体可管理"。核心法律特征是 <strong>AGPL-3.0 强 copyleft</strong>——对纯静态站点生成的使用场景传染性有限，但"修改后作为网络服务提供"的商业模式将触发源码回馈义务，构成明确的合规约束。协议文件规范、无商业附加条款、依赖数量适中且来源可靠，是主要有利因素；不利因素集中在依赖链中疑似 GPL 包（unidecode）需逐项核查、无 CLA/DCO 导致版权分散（阻碍双协议/商业授权变现）、以及商标专利状态未经人工核查。</p>
+<p><strong>主要风险点</strong>：
+1. AGPL-3.0 网络分发条款约束 SaaS 型商业化（法律上可行但需回馈源码）。
+2. 依赖链疑似含 GPL 包，需法务逐项核验并确认与 AGPL-3.0 的兼容性。
+3. 无 CLA/DCO，414 位贡献者版权分散，双协议授权路径存在结构性障碍。
+4. 商标/专利状态为空白区，需人工补采。</p>
+<h3>D7 企业就绪度与可运营性</h3>
+<p>分析失败（DeepSeek 调用重试仍失败: 模型返回空内容），本维度标 N/A。</p>
+<h3>D8. 团队治理与可持续性</h3>
+<p><strong>维度权重</strong>: 7% | <strong>维度得分</strong>: 6.5 / 10（一般）</p>
+<p>Pelican 是一个自 2010 年持续运营超过 15 年的老牌静态站点生成器，拥有 414 名贡献者、1.3 万 Star，属于典型的「成熟社区型」开源项目。但其治理文档化程度、资金支持的明确性以及近期维护活跃度均体现出「志愿者驱动、核心团队主导、活跃度趋缓」的特征，构成一定的商业化协同短板。</p>
+<h3>D8.1 核心维护者能力与背景（满分 2.5 | 得分 2.0）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术能力</td>
+<td>项目 15 年持续演进，<code>pyproject.toml</code> 已支持 Python 3.11–3.14，工程质量受 <code>Development Status :: 5 - Production/Stable</code> 认证，测试占比 48.4%（8283/17116 行），技术基线扎实</td>
+</tr>
+<tr>
+<td>商业经验</td>
+<td><code>authors@getpelican.com</code> 显示由 Justin Mayer 领衔；项目设有独立官网 getpelican.com、独立捐赠站点 donate.getpelican.com，具备社区运营组织化经验，但无公开的 VC/企业服务背景证据</td>
+</tr>
+<tr>
+<td>投入度</td>
+<td>无法从素材确认核心维护者为全职投入；采用 <code>autopub</code>（botpub 账号）自动化发版，说明流程已产品化，但维护者投入度证据不足</td>
+</tr>
+<tr>
+<td>巴士因子</td>
+<td><strong>414 名贡献者</strong>，远超阈值，巴士因子 ≥5，单点离开风险低</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分理由</strong>: 核心技术团队能力与项目长期存活证明其可靠，巴士因子极高（414 贡献者），但商业化/创业经验缺乏硬证据、全职投入度无法确认，符合「投入度高、有一定商业经验、巴士因子 ≥3」的 7–8 档。按 80% 档位折算：2.5 × 80% = <strong>2.0</strong>。</p>
+<h3>D8.2 治理模型透明度（满分 2.0 | 得分 1.2）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>治理文档</td>
+<td>有详尽的 <code>CONTRIBUTING.rst</code>（含 Issue 提交、代码贡献、质量规范）与 <code>docs/contribute.rst</code>，但<strong>未发现 GOVERNANCE.md</strong> 或正式决策流程文档</td>
+</tr>
+<tr>
+<td>开放程度</td>
+<td>使用 GitHub Discussions 作为社区沟通渠道；贡献标准、commit 规范、测试门禁清晰公开；决策仍明显由核心团队主导</td>
+</tr>
+<tr>
+<td>基金会/组织</td>
+<td><strong>不属于</strong> CNCF / Apache / Linux Foundation 等任何知名基金会</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分理由</strong>: 具备完善的贡献指南但缺乏正式治理章程与路线图文档，无基金会背书，决策透明度停留在「贡献指南 + 核心团队主导」层级，符合 5–6 档。按 60% 档位折算：2.0 × 60% = <strong>1.2</strong>。</p>
+<h3>D8.3 资金支持与商业赞助（满分 2.5 | 得分 1.5）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>现有资金</td>
+<td><code>pyproject.toml</code> 中 <code>Funding = "https://donate.getpelican.com/"</code>，存在官方捐赠入口，但无公司/基金会/VC 支持的公开证据</td>
+</tr>
+<tr>
+<td>赞助收入</td>
+<td>有捐赠页面，具体金额与赞助方不可见</td>
+</tr>
+<tr>
+<td>商业实体</td>
+<td>未发现运营该项目的商业公司实体（仅有 getpelican 社区品牌）</td>
+</tr>
+<tr>
+<td>资金可持续性</td>
+<td>项目长期依赖志愿者维护，资金可持续性无法证实</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分理由</strong>: 存在官方捐赠渠道但无可验证的稳定赞助或企业支持，项目实质为志愿者驱动，符合「有少量赞助、主要靠志愿者」的 5–6 档。按 60% 档位折算：2.5 × 60% = <strong>1.5</strong>。</p>
+<h3>D8.4 项目可持续性与传承风险（满分 3.0 | 得分 1.8）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>活跃趋势</td>
+<td>发版节奏明显放缓：2024 年 3 次（4.10.0/4.10.1/4.10.2）→ 2025 年仅 1 次（4.11.0）→ 2026 年至今 1 次（4.12.0，2026-04-20）。近 90 天仅创建 <strong>3 个 PR</strong>、关闭 <strong>0 个 Issue</strong>，维护活动趋弱</td>
+</tr>
+<tr>
+<td>维护延续性</td>
+<td>414 贡献者 + 完备 CI（2 个 workflow），社区接管机制基本存在</td>
+</tr>
+<tr>
+<td>历史信号</td>
+<td><code>archived = false</code>，<code>pushed_at = 2026-04-20</code>，项目活跃、未废弃</td>
+</tr>
+<tr>
+<td>分叉风险</td>
+<td>1823 fork，Star/fork 比约 7.3，属正常生态分叉，无社区分裂迹象</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分理由</strong>: 项目未废弃且仍有新版本发布，传承机制因庞大贡献者基数而基本健全；但发版频率下降、近 90 天 Issue 关闭数为 0、PR 创建仅 3 个，活跃度呈现波动/走弱态势，符合「活跃度有波动、传承风险中等」的 5–6 档。按 60% 档位折算：3.0 × 60% = <strong>1.8</strong>。</p>
+<h3>结论</h3>
+<p>Pelican 在 D8 维度得 <strong>6.5/10（一般）</strong>。其最大优势是<strong>极高的巴士因子（414 名贡献者、15 年历史、未归档仍在发版）</strong>，单点故障风险低；主要短板集中在<strong>治理正式化缺失（无 GOVERNANCE.md、非基金会项目）</strong>、<strong>资金支持不透明（仅官方捐赠页，无企业/VC 背书）</strong> 以及<strong>近期维护活跃度趋缓（90 天 0 Issue 关闭、仅 3 个 PR）</strong>。对商业化而言，该项目具备稳定社群基础，但缺乏明确的组织化、资金化与治理化支撑，若作为商业产品底座，需外部团队接手运营与治理结构补强。</p>
+<h3>D9. 上手难度与易用性</h3>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D9.1 安装难度</td>
+<td>2.5</td>
+<td>2.5</td>
+<td>100%（9–10）</td>
+<td>单命令 <code>pip install pelican</code>；11 项依赖全部为 PyPI 纯 Python 包，无系统级依赖（无数据库/编译器/外部运行时）；<code>OS Independent</code> 全平台覆盖，Windows 专属 <code>tzdata</code> 自动条件安装</td>
+</tr>
+<tr>
+<td>D9.2 部署与配置难度</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>80%（7–8）</td>
+<td>纯静态生成、无 DB/缓存/MQ 等外部组件需初始化；<code>pelican-quickstart</code> 交互式生成配置；但<strong>未提供 Docker/docker-compose/Helm 容器化一键部署</strong>（素材 docker 目录仅含 Sphinx 文档 Makefile）</td>
+</tr>
+<tr>
+<td>D9.3 易用性与操作门槛</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>80%（7–8）</td>
+<td>5 个 CLI 入口职责清晰，<code>rich</code> 提供友好终端输出、<code>watchfiles</code> 支持监听重建；但日常使用需编辑 Python 配置文件（<code>docs/settings.rst</code> 配置项繁多），模板/插件异常仍可能暴露 Python 堆栈</td>
+</tr>
+<tr>
+<td>D9.4 学习曲线与首体验</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>80%（7–8）</td>
+<td>有 <code>pelican-quickstart</code> 交互式引导 + <code>docs/quickstart.rst</code>，36 份文档覆盖全流程，首次成功约 30 分钟级；概念门槛为 Markdown/reST 与 Pelican 元数据约定；<code>samples/</code> 虽在 <code>pyproject</code> 中声明但本地统计未见示例文件，示例丰富度证据不足</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>8.5</strong></td>
+<td><strong>🟢 简单</strong></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h3>分析</h3>
+<p><strong>优势（支撑高分的硬事实）</strong>
+1. <strong>安装极简</strong>：PyPI 标准包，<code>pip</code> 一条命令完成；核心依赖 11 项全部由 pip 托管，不需要手动安装数据库、编译器或系统运行时。<code>pyproject.toml</code> 的 <code>Operating System :: OS Independent</code> 与 <code>python-dateutil / tzdata(win32)</code> 条件依赖表明其覆盖 Windows/macOS/Linux 三平台。
+2. <strong>有交互式入门路径</strong>：<code>pelican-quickstart</code> 是官方脚手架入口，把"从空目录到可生成站点"的初始化流程向导化，显著压低首体验门槛。
+3. <strong>文档体系完整</strong>：<code>docs/</code> 下 36 份文档，且明确包含 <code>install.rst</code>、<code>quickstart.rst</code>、<code>settings.rst</code>、<code>themes.rst</code>、<code>plugins.rst</code>、<code>publish.rst</code>、<code>importer.rst</code>、<code>faq.rst</code>、<code>tips.rst</code>，形成"安装→快速开始→配置→主题/插件→发布"的闭环。
+4. <strong>产物托管零门槛</strong>：生成结果为纯静态 HTML/CSS/JS，可放置于任意 Web 服务器或静态托管，无需运行时运维。</p>
+<p><strong>短板（导致未达满分的因素）</strong>
+1. <strong>无容器化部署资产</strong>：素材中不存在 Dockerfile / docker-compose.yml / Helm Chart，无法通过 <code>docker run</code> 一键拉起，部署需依赖本机 Python 环境。
+2. <strong>硬性环境门槛</strong>：<code>requires-python = "&gt;=3.11"</code>，AIU 环境若停留在旧版 Python 需先升级，这一点排除了一部分用户。
+3. <strong>配置以 Python 文件为中心</strong>：<code>docs/settings.rst</code> 表明配置项规模较大，非开发者对"改配置文件 + 记命令行参数"的组合仍有学习成本。
+4. <strong>示例资源证据不足</strong>：<code>pyproject</code> 的 <code>source-includes</code> 声明了 <code>samples/</code>，但本地统计"示例：0 文件"，示例丰富度无法确证，故 D9.4 未给满分。</p>
+<h3>结论</h3>
+<p>D9 维度总分 <strong>8.5 / 10</strong>，判定为 <strong>🟢 简单</strong> 等级：对具备基础命令行能力的用户（含运维/产品等非专业开发者）而言，从安装到首次生成站点可在 30 分钟内完成，可放心提供详细操作步骤与命令。</p>
+<p>唯一需提示用户的两点是：(1) 需自备 <strong>Python ≥ 3.11</strong> 环境；(2) 官方<strong>未提供容器化部署方案</strong>，CI/CD 或服务器场景需自行封装镜像。</p>
+<h3>D10 功能价值（使用价值视角）</h3>
+<blockquote>
+<p>平行维度，权重 0%，不计入综合评分；结果仅用于 3.4 价值画像判定。</p>
+</blockquote>
+<p>Pelican 是一个面向 Markdown / reStructuredText 的静态站点生成器（SSG），以 Python CLI 形式本地运行，将文本源文件编译为纯静态 HTML/CSS/JS，可托管于任意 Web 服务器。以下从「使用者获得的效用量级」而非「是否有人付费」的角度评估。</p>
+<h3>D10.1 效用强度（满分 3）→ 1.8</h3>
+<table>
+<thead>
+<tr>
+<th>判定维度</th>
+<th>情况</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>单用户节省量</td>
+<td>免去搭建动态 CMS（数据库 + 服务端编程 + 运维），以纯文本 + 版本控制管理站点；附带主题、插件、Feed 生成、多语言、WordPress/RSS 导入等既有能力（README Features）</td>
+</tr>
+<tr>
+<td>效用层级</td>
+<td>项目级工具：用户的整个站点构建流程依托它，属「项目级依赖」</td>
+</tr>
+<tr>
+<td>效用确定性</td>
+<td>高——确定性构建、可缓存、可复现，无运气成分</td>
+</tr>
+</tbody>
+</table>
+<p>Pelican 对其采用者是<strong>真实的项目级工具</strong>，能显著节省建站与运维成本（无需数据库/服务端）。但 SSG 赛道极度拥挤（Hugo/Jekyll/Eleventy 等），替代成本极低，单用户不会为其形成不可替代的依赖。处于「明确效率提升、但易被替代」与「项目级依赖」两档之间，取 <strong>6（60%）→ 1.8</strong>。</p>
+<h3>D10.2 实际使用规模（满分 3）→ N/A</h3>
+<ul>
+<li>补采指标 <code>pypi_monthly_downloads</code> = <strong>N/A</strong>、<code>npm_weekly_downloads</code> = <strong>N/A</strong>；GitHub Dependents（Used by）计数未实采。</li>
+<li>虽已知 Star 13341、Fork 1823、贡献者 414，但按本维度口径（依赖方数量 / 包下载量），上述数据不可替代，且<strong>防幻觉规则禁止以模型记忆补填下载量/依赖数</strong>。</li>
+<li>故本细则标记 <strong>N/A</strong>，从所属维度满分中剔除后等比缩放。</li>
+</ul>
+<p>（旁证：Star 1.3 万、414 位贡献者、Repology 多发行版打包徽章，表明项目在 Python 生态中有相当认知度，但无实采规模数据支撑打分。）</p>
+<h3>D10.3 免费可得的完整效用（满分 2）→ 2.0</h3>
+<ul>
+<li>许可证 AGPL-3.0，全量源码开源（54 个 .py 文件 / 17116 行），CLI 工具形态，无官方托管增值层。</li>
+<li>无企业版 / 付费墙 / 功能阉割：主题、插件、多语言、导入、Feed、语法高亮等全部能力均在开源版内。</li>
+<li>与 D4.3（付费转化）天然反相关——本项满分意味着该项目<strong>几乎不具备付费转化空间</strong>，是「使用价值高、交换价值低」的典型形态。</li>
+</ul>
+<p>判定 <strong>10（100%）→ 2.0</strong>。</p>
+<h3>D10.4 效用可持续性（满分 2）→ 2.0</h3>
+<ul>
+<li><strong>形态</strong>：本地 CLI，生成纯静态文件，无在线服务依赖；停维后现有用户的可生成结果长期存续。</li>
+<li><strong>依赖</strong>：全部为开源 Python 包（jinja2 / docutils / pygments / feedgenerator / blinker 等），无闭源厂商组件或云服务锁定。</li>
+<li><strong>可分叉性</strong>：AGPL-3.0 允许自由分叉，414 位贡献者 + 36 份文档 + 48.4% 测试比（8283 测试行）表明代码完整、构建可复现，社区具备接管维护能力。</li>
+</ul>
+<p>判定 <strong>10（100%）→ 2.0</strong>。（唯一轻微约束：AGPL 为强 copyleft，对闭源商用集成有限制，但不影响自有站点用户的效用存续。）</p>
+<h3>D10 细则分值汇总</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10.1</td>
+<td>效用强度</td>
+<td>3</td>
+<td>1.8</td>
+<td>6（60%）</td>
+</tr>
+<tr>
+<td>D10.2</td>
+<td>实际使用规模</td>
+<td>3</td>
+<td>N/A</td>
+<td>数据缺失</td>
+</tr>
+<tr>
+<td>D10.3</td>
+<td>免费可得的完整效用</td>
+<td>2</td>
+<td>2.0</td>
+<td>10（100%）</td>
+</tr>
+<tr>
+<td>D10.4</td>
+<td>效用可持续性</td>
+<td>2</td>
+<td>2.0</td>
+<td>10（100%）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td><strong>5.8 / 7（剔除 N/A）</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>D10 维度得分 = 5.8 ÷ 7 × 10 ≈ 8.3 / 10</strong>（D10.2 因规模数据缺失记 N/A，维度满分按 7 等比缩放，置信度因规模维度缺位而下降）。</p>
+<h3>结论</h3>
+<p>Pelican 呈现典型的「<strong>高使用价值、低交换价值</strong>」画像：</p>
+<ul>
+<li><strong>强项在免费完整性与可持续性</strong>：全功能开源、无付费墙、本地运行、可自由分叉，使用者获得的效用一分未减（D10.3 / D10.4 双满分）。</li>
+<li><strong>中等的效用强度</strong>：作为 SSG 能省去动态 CMS 的建站与运维成本，属项目级工具，但赛道拥挤、替代成本低，难以形成不可替代依赖（D10.1 中等）。</li>
+<li><strong>规模维度缺位</strong>：无 PyPI 下载量 / Dependents 实采数据，无法量化实际使用规模，是本维度主要不确定性来源。</li>
+</ul>
+<p>该结构与 D4.3（付费转化）互为镜像——极致免费与完整，正是其商业变现场景狭窄的另一面；这一张力需在 3.4 价值画像中一并呈现。</p>
+<h3>D11 社会价值（正外部性视角）</h3>
+<blockquote>
+<p>平行维度，权重 0%，不计入综合评分与一票否决，仅用于 3.4 价值画像。评价视角为「对行业/社会的外溢贡献本身」。</p>
+</blockquote>
+<p>Pelican 是一个诞生于 2010 年的老牌 Python 静态站点生成器，以「用 Markdown / reStructuredText 写作，产出纯静态 HTML」为核心，15 年来积累 13.3k Star、1823 Fork、414 位贡献者，并在 AGPLv3 下完全开源。其社会价值主要体现在「降低建站门槛」与「教学中被广泛引用」，但在「数字底座」这一维度上，它是一款终端应用型工具而非被下游软件深度依赖的基础库。</p>
+<h3>D11.1 数字公共基础设施属性（满分 3）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>事实</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>关键依赖地位</td>
+<td>属 CLI 应用型工具（<code>pelican</code> 命令），非被广泛 <code>import</code> 的基础库；下游主要是 <code>pelican-plugins</code> 插件与主题生态</td>
+<td>有一定生态依赖，但非关键底座</td>
+</tr>
+<tr>
+<td>停摆影响面</td>
+<td>若停摆，用户可迁移至 Hugo/Jekyll/Quartz 等同类工具，不波及软件供应链</td>
+<td>影响面有限</td>
+</tr>
+<tr>
+<td>DPG 属性</td>
+<td>AGPLv3 开源、可复用、服务公共写作与知识发布利益</td>
+<td>符合开放公共产品特征</td>
+</tr>
+</tbody>
+</table>
+<p>Pelican 的依赖关系是「应用 → 插件/主题」而非「基础库 → 海量下游」。它不像 curl/OpenSSL 那样位于供应链底层，插件与主题生态（<code>pelican-plugins</code> 组织）构建于其接口之上，形成一定下游耦合，但整体可替代性强、停摆影响小。综合判定为「有一定下游依赖，但可替代性强」。</p>
+<p><strong>小分：1.8 / 3（60%，5–6 档）</strong></p>
+<h3>D11.2 教育与人才价值（满分 2.5）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>事实</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>教学采用</td>
+<td>官方文档体系完整（36 个文档文件），含 <code>quickstart</code>、<code>themes</code>、<code>plugins</code>、<code>internals</code>、<code>importer</code> 等；quickstart 引导型 CLI 降低入门门槛</td>
+<td>常见于入门路径</td>
+</tr>
+<tr>
+<td>门槛降低效应</td>
+<td>让「用文本文件写博客/网站」成为 Python 初学者的经典练手项目，降低 Web 发布与静态站点技能的入门门槛</td>
+<td>显著降低门槛</td>
+</tr>
+<tr>
+<td>源码学习价值</td>
+<td>17,116 行 Python、测试比 0.484（8283 行测试），工程规范（pytest/ruff/tox/pre-commit、模块化 internals 文档），源码可读性强</td>
+<td>优秀工程范本</td>
+</tr>
+</tbody>
+</table>
+<p>Pelican 拥有清晰的分层文档与 issue 模板体系，长期被作为「Python 静态站点生成」的示范项目，教程与课程资源丰富，源码结构与测试规范对学习者友好。</p>
+<p><strong>小分：2.0 / 2.5（80%，7–8 档）</strong></p>
+<h3>D11.3 普惠与可及性（满分 2.5）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>事实</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>能力平权化</td>
+<td>免费开源（AGPLv3）＋ 纯静态输出，可托管于任意 Web 服务器或 GitHub Pages 等免费托管，替代付费 CMS/建站 SaaS</td>
+<td>显著降低获得门槛</td>
+</tr>
+<tr>
+<td>替代价格差</td>
+<td>对标 Squarespace / 付费 WordPress 托管等月费型建站方案，Pelican 以近零成本提供同等「发布到 Web」能力</td>
+<td>差距显著</td>
+</tr>
+<tr>
+<td>可及性支持</td>
+<td>依赖为标准 PyPI 包（纯 Python），硬件要求低；支持多语言文章发布（i18n）；但需掌握命令行与 Python 环境，存在一定技术门槛</td>
+<td>覆盖主要人群，受技术门槛限制</td>
+</tr>
+</tbody>
+</table>
+<p>Pelican 将「建站与发布」这一原本可能需付费订阅的能力平权给个人、学生与中小团队，尤其在教育资源与个人博客场景普惠性突出。但命令行/Python 环境要求使其无法触达完全无技术背景的人群，故未到「完善可及性」的顶档。</p>
+<p><strong>小分：2.0 / 2.5（80%，7–8 档）</strong></p>
+<h3>D11.4 开放标准与行业推动（满分 2）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>事实</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>标准推动</td>
+<td>实现并遵循开放格式与协议：Markdown、reStructuredText、HTML，以及生成 Atom/RSS 订阅源；但为标准的「实现者/遵循者」，非定义者或主导者</td>
+<td>遵循开放标准，无主导作用</td>
+</tr>
+<tr>
+<td>科研支撑</td>
+<td>无公开论文引用数据可采</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>行业示范效应</td>
+<td>作为 2010 年即出现的早期静态站点生成器之一，示范了「内容即文本 + 静态托管」范式，但该范式并非 Pelican 首创，示范效应有限</td>
+<td>有一定示范，非引领</td>
+</tr>
+</tbody>
+</table>
+<p>Pelican 积极拥抱 Markdown/reST/Atom/RSS 等开放标准，避免厂商锁定，对防止内容格式封闭有正面价值；但它并未定义或主导任何行业标准，科研引用数据缺失。综合判定为「遵循开放标准但无推动作用」。</p>
+<p><strong>小分：1.2 / 2（60%，5–6 档）</strong></p>
+<h3>细则打分汇总</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D11.1</td>
+<td>数字公共基础设施属性</td>
+<td>3</td>
+<td>1.8</td>
+<td>60%</td>
+</tr>
+<tr>
+<td>D11.2</td>
+<td>教育与人才价值</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>80%</td>
+</tr>
+<tr>
+<td>D11.3</td>
+<td>普惠与可及性</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>80%</td>
+</tr>
+<tr>
+<td>D11.4</td>
+<td>开放标准与行业推动</td>
+<td>2</td>
+<td>1.2</td>
+<td>60%</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td><strong>7.0</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<p>Pelican 的<strong>社会正外部性综合得分为 7.0 / 10（良好，平行维度不计权重）</strong>。其价值画像为：<strong>「普惠型教育工具」而非「数字底座」</strong>——它把「建站发布」能力以免开源方式平权给个人与教育场景，并在 Python 社区长期充当最佳实践范本与入门项目（教育、普惠两项均达 7–8 档）；但它本质是终端应用型工具，位于软件供应链末端而非底层，下游依赖以插件/主题生态为主、可替代性强，故公共基础设施属性仅「一般」；在标准维度上它遵循而非主导开放标准，缺少标准定义与科研引用的硬证据。作为一个存活 15 年、仍保持活跃发布（最新 4.12.0，2026-04）的开源项目，其社会外溢贡献稳定但非颠覆性。</p>
+<blockquote>
+<p>置信度说明：D11.4「科研支撑」因无公开论文引用数据缺采，该考察点未单独计分（并入整体 5–6 档判断）；<code>pypi_monthly_downloads</code> 实测为 N/A，无法量化实际使用规模，D11.1 的「下游依赖广度」依赖生态定性判断，置信度中等。</p>
+</blockquote>
+<h2>五、商业化价值判断</h2>
+<h3>5.1 总体判断</h3>
+<p>Pelican 是一个<strong>技术成熟度与易用性突出、但商业化基础薄弱</strong>的老牌开源项目。综合评分 62.6/100，等级 B（中等商业化潜力），处于「有商业化基础、需较多投入补齐短板」区间。其核心矛盾在于：<strong>使用价值高（D10 = 8.3）、社会价值高（D11 = 7.0），但交换价值极低（D4 = 4.0）</strong>——项目本身是一个免费、完整、无功能分层的本地 CLI 工具，免费版即完整价值，不存在从免费到付费的结构性触发点。</p>
+<h3>5.2 支撑商业化的正向因素</h3>
+<ul>
+<li><strong>产品质量过硬</strong>：D2 = 8.0，自 2010 年维护至今，PyPI 标注 Production/Stable，4.x 系列自 2021 年起稳定；tox 覆盖 3 系统 × 4 Python 版本，含 ruff lint + pre-commit + build test + docs build 多层门禁；测试源码比 0.484（测试行数 8,283 / 代码总行数 17,116）。</li>
+<li><strong>上手体验优秀</strong>：D9 = 8.5，单命令 pip 安装，11 项依赖全为 PyPI 纯 Python 包，无数据库/缓存/编译器类系统级依赖，OS Independent 覆盖 Win/macOS/Linux；pelican-quickstart 交互式脚手架 + 36 份官方文档形成完整入门闭环。</li>
+<li><strong>社区资产存量厚</strong>：13,341 Star、1,823 Fork、414 名历史贡献者，第三方生态成熟（pelican-plugins / pelican-themes 独立组织，被 PyPI/Repology/GitHub Actions 等主流平台集成）。</li>
+<li><strong>可持续性底线尚存</strong>：D8.4 = 1.8，巴士因子 ≥ 5，未归档，pushed_at 与最新 release 同为 2026-04-20，仍处存活发版状态。</li>
+</ul>
+<h3>5.3 制约商业化的核心因素</h3>
+<ul>
+<li><strong>变现路径几乎为零</strong>：D4 = 4.0，唯一已落地的变现路径是捐赠（pyproject.toml 声明 Funding=https://donate.getpelican.com/），Open Core/SaaS/双协议/市场抽成/认证五类模式均为零实践；无企业版、无功能分层、无许可证校验，输出为纯静态文件零锁定。</li>
+<li><strong>协议构成结构性障碍</strong>：AGPL-3.0 强传染性限制 SaaS 与闭源衍生；414 名贡献者且无 CLA/DCO，版权分散，双协议转换在版权归集上实际不可行。</li>
+<li><strong>市场拥挤且护城河趋弱</strong>：D5 = 5.0，SSG 市场极度拥挤且头部集中，竞品 Hugo/Jekyll/Eleventy/Astro 全免费；近 90 天仅 3 个 PR、0 个 Issue 关闭，面临 Astro/Quartz 等新一代工具的颠覆压力。</li>
+<li><strong>迭代节奏显著放缓</strong>：v4.11.0（2025-01）→ v4.12.0（2026-04）间隔约 15 个月，发版节奏 2024 年 3 次 → 2025 年 1 次。</li>
+<li><strong>目标用户价格敏感</strong>：目标用户为个人博主/开发者，SSG 品类商业化先例普遍不利（Jekyll/Hugo 未变现，Gatsby 被 Netlify 收购后 2023 年停维），客单价天花板预计低于 $1K/年。</li>
+</ul>
+<h3>5.4 价值画像判定</h3>
+<p><strong>画像：🏛️ 公共产品型</strong>（综合评分 62.6 &lt; 65 且 公共价值分 7.7 ≥ 7）。</p>
+<blockquote>
+<p><strong>画像临界提示</strong>：综合评分 62.6 落在 60–70 临界区间，公共价值分 7.7 亦处于 6.5–7.5 上沿附近。两种画像的路径差异如下：
+- 若按<strong>公共产品型</strong>处理：不建议直接变现，走「影响力变现」——赞助/基金会托管/大厂雇佣维护者/围绕生态做服务与培训。
+- 若按<strong>纯商业工具型</strong>处理（假设公共价值分被高估）：按 D4 最优路径直接变现——但 D4 = 4.0 表明该路径缺乏现实支撑。</p>
+<p>综合 D4 的极低得分与 D10/D11 的高分，<strong>公共产品型画像更符合项目实际</strong>，第六章路径建议据此展开。</p>
+</blockquote>
+<hr />
+<h2>六、商业路径分析</h2>
+<h3>6.1 路径选择总原则</h3>
+<p>依据价值画像（公共产品型）与 D4 得分（4.0），本项目<strong>不建议走直接变现路径</strong>（Open Core / SaaS / 双协议 / 市场抽成 / 认证五类模式均为零实践，且受 AGPL-3.0 与无 CLA 版权结构双重制约）。应转向<strong>影响力变现</strong>：以项目的社会价值与教育价值为杠杆，通过赞助、托管、服务与培训获取可持续资源，而非向用户收取软件许可费。</p>
+<h3>6.2 可行路径排序</h3>
+<p><strong>路径一：捐赠与赞助升级（现实可行，天花板低）</strong>
+- 现状：已有官方捐赠入口 donate.getpelican.com，但无公司/VC/基金会资金支持的公开证据，实质为志愿者驱动。
+- 可做：将捐赠入口升级为分级赞助（个人/企业），对接 GitHub Sponsors、Open Collective 等平台，向使用 Pelican 的企业用户定向募资。
+- 约束：方法论明示捐赠模式不可规模化；D4.4 增值空间与定价天花板仅 0.8/2，客单价天花板预计低于 $1K/年。</p>
+<p><strong>路径二：基金会托管 / 大厂雇佣维护者（契合公共产品型画像）</strong>
+- 依据：项目无 GOVERNANCE.md、非 CNCF/Apache/Linux 基金会项目，治理停留在贡献指南 + 核心团队主导层级；414 名贡献者、巴士因子 ≥ 5，具备托管基础。
+- 可做：寻求 Python 软件基金会（PSF）等中立基金会托管，或争取依赖 Pelican 生态的大厂雇佣核心维护者，解决发版节奏放缓（2024 年 3 次 → 2025 年 1 次）与近 90 天活跃度走弱的问题。</p>
+<p><strong>路径三：围绕生态做服务与培训（与 D11 教育价值强相关）</strong>
+- 依据：D11.2 教育与人才价值突出（2.0/2.5），36 个官方文档文件 + quickstart 引导 + 17,116 行 Python 源码与 0.484 测试比，是 Python 社区长期的最佳实践范本与入门项目。
+- 可做：面向企业提供 Pelican 建站咨询、主题/插件定制、迁移服务（从动态 CMS 迁移至静态站点）、Python 静态建站培训课程。
+- 约束：托管/主题/支持等方向已被商品化或社区免费提供，需在服务深度与行业垂直度上建立差异。</p>
+<p><strong>路径四：企业内训与技术支持订阅（谨慎尝试）</strong>
+- 依据：D7 企业就绪度维度分析失败（N/A），企业级运维复杂度、安全管理与权限控制等关键信息缺失，企业就绪度无法评估。
+- 约束：在 D7 信息补齐前，不建议将企业订阅作为主路径；且项目无 Dockerfile/docker-compose/Helm，部署依赖本机 Python 环境，企业落地门槛未经验证。</p>
+<h3>6.3 不建议的路径</h3>
+<ul>
+<li><strong>Open Core / 功能分层</strong>：无企业版、无功能分层、无许可证校验，输出为纯静态文件零锁定，免费到付费之间不存在结构性触发点（D4.3 = 1.0/2.5）。</li>
+<li><strong>SaaS 化</strong>：AGPL-3.0 含网络分发 §13 条款，对「修改后作为网络服务提供」构成源码回馈义务。</li>
+<li><strong>双协议 / 商业授权</strong>：414 名贡献者且无 CLA/DCO，版权分散，双协议转换在版权归集上实际不可行（D6.4 = 1.2/2）。</li>
+</ul>
+<hr />
+<h2>七、能力评估：能做什么 &amp; 最适合做什么</h2>
+<h3>7.1 项目当前能做什么</h3>
+<ul>
+<li><strong>零服务端静态建站</strong>：将 Markdown/reST 文本内容编译为可托管于任意平台的全静态网站，无需数据库、无需服务端编程。</li>
+<li><strong>多场景内容发布</strong>：配合主题与插件生态可延展至博客/文档/知识库等多场景，支持多语言 i18n 发布。</li>
+<li><strong>开放格式输出</strong>：实现 Markdown/reST/Atom/RSS 开放格式，避免厂商锁定。</li>
+<li><strong>低门槛安装与入门</strong>：单命令 pip 安装，pelican-quickstart 交互式脚手架，36 份官方文档覆盖 install/quickstart/settings/themes/plugins/publish/importer/faq/tips。</li>
+<li><strong>稳定生产使用</strong>：PyPI 标注 Production/Stable，4.x 系列自 2021 年起稳定，tox 多层质量门禁保障。</li>
+</ul>
+<h3>7.2 最适合做什么</h3>
+<table>
+<thead>
+<tr>
+<th>适配方向</th>
+<th>依据</th>
+<th>适配度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Python 生态内的静态站点生成</td>
+<td>差异化定位为 Python 生态 + 原生 reST 支持 + 成熟稳定（D5.1）</td>
+<td>高</td>
+</tr>
+<tr>
+<td>技术型内容创作者的博客/文档站</td>
+<td>目标用户为全栈开发者、后端开发者、技术型内容创作者（D1）</td>
+<td>高</td>
+</tr>
+<tr>
+<td>Python 教学与最佳实践范本</td>
+<td>17,116 行源码 + 0.484 测试比 + 36 份文档，D11.2 教育价值 2.0/2.5</td>
+<td>高</td>
+</tr>
+<tr>
+<td>零成本替代付费 CMS/SaaS 建站</td>
+<td>AGPLv3 免费开源 + 纯静态输出可零成本托管（D11.3 = 2.0/2.5）</td>
+<td>高</td>
+</tr>
+<tr>
+<td>企业级内容平台底座</td>
+<td>D7 维度分析失败，企业就绪度无法评估；无 Docker/Helm</td>
+<td>待验证</td>
+</tr>
+<tr>
+<td>直接商业化变现</td>
+<td>D4 = 4.0，五类变现模式零实践，协议与版权结构受限</td>
+<td>低</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>八、短板识别：还缺少什么</h2>
+<h3>8.1 商业化短板（最致命）</h3>
+<ul>
+<li><strong>缺变现载体</strong>：无企业版、无功能分层、无许可证校验、无 seat/usage 计费载体，唯一变现路径为捐赠。</li>
+<li><strong>缺商业实体</strong>：getpelican 为社区组织，无公司/VC/基金会资金支持的公开证据。</li>
+<li><strong>缺付费触发点</strong>：输出为纯静态文件零锁定，免费版即完整价值，D4.3 付费转化逻辑仅 1.0/2.5。</li>
+</ul>
+<h3>8.2 法律与治理短板</h3>
+<ul>
+<li><strong>缺 CLA/DCO</strong>：414 名贡献者版权分散，双协议/商业授权路径存在结构性障碍（D6.4 = 1.2/2）。</li>
+<li><strong>缺传染性依赖核验</strong>：unidecode 为已知 GPL 系包（未验证），逐包许可未经自动化核验。</li>
+<li><strong>缺治理文件</strong>：无 GOVERNANCE.md，非基金会项目，治理停留在贡献指南 + 核心团队主导层级（D8.2 = 1.2/2）。</li>
+<li><strong>缺商标与专利核查数据</strong>：D6.3 按规范默认给 1.5/2.5 并标注未核查。</li>
+</ul>
+<h3>8.3 运营与迭代短板</h3>
+<ul>
+<li><strong>缺活跃度</strong>：近 90 天仅 3 个 PR、0 个 Issue 关闭；发版节奏 2024 年 3 次 → 2025 年 1 次；v4.11.0→v4.12.0 间隔约 15 个月。</li>
+<li><strong>缺容器化交付</strong>：仓库未提供 Dockerfile/docker-compose/Helm（docker 目录下仅 Sphinx 文档 Makefile），部署依赖本机 Python 环境。</li>
+<li><strong>缺企业就绪度评估</strong>：D7 维度分析失败（N/A），运维复杂度、升级路径、安全管理与权限控制等关键信息缺失。</li>
+</ul>
+<h3>8.4 技术与生态短板</h3>
+<ul>
+<li><strong>缺技术壁垒</strong>：无专利/数据壁垒，依赖标准开源组件，插件/主题生态网络效应弱，易被复制（D5.2 = 1.2/3）。</li>
+<li><strong>缺原创技术突破</strong>：产品理念清晰但创新性属行业常规，技术护城河主要来自长期生态积累（D2.1 = 1.2/1.5）。</li>
+<li><strong>缺安全扫描集成</strong>：未见显式安全扫描工具集成（D2.4 = 0.6/1）。</li>
+<li><strong>存在技术债</strong>：pelican_import.py（1,270 行）、generators.py（1,177 行）偏大。</li>
+<li><strong>缺规模数据</strong>：PyPI 月下载量、GitHub Dependents 均未实采，D10.2 记 N/A，规模维度置信度下降。</li>
+</ul>
+<hr />
+<h2>九、风险提示</h2>
+<h3>9.1 商业化风险（高）</h3>
+<ul>
+<li><strong>变现路径缺失风险</strong>：D4 = 4.0，五类主流变现模式零实践，捐赠模式方法论明示不可规模化，直接商业化投入大概率无法回收。</li>
+<li><strong>品类商业化先例不利风险</strong>：SSG 品类中 Jekyll/Hugo 未变现，Gatsby 被 Netlify 收购后 2023 年停维，行业级先例构成系统性风险。</li>
+<li><strong>协议约束风险</strong>：AGPL-3.0 强传染性限制 SaaS 与闭源衍生，SaaS 化路径受 §13 网络分发条款约束。</li>
+</ul>
+<h3>9.2 可持续性风险（中高）</h3>
+<ul>
+<li><strong>维护活跃度下滑风险</strong>：近 90 天仅 3 个 PR、0 个 Issue 关闭，发版间隔拉长至约 15 个月，若核心维护者流失，项目可能进入事实停维状态。</li>
+<li><strong>资金支持缺失风险</strong>：仅存在官方捐赠入口，无公司/VC/基金会资金支持的公开证据，实质为志愿者驱动。</li>
+<li><strong>治理结构风险</strong>：无 GOVERNANCE.md、无基金会托管，缺乏制度化的传承机制。</li>
+</ul>
+<h3>9.3 竞争风险（中高）</h3>
+<ul>
+<li><strong>市场拥挤风险</strong>：SSG 市场极度拥挤且头部集中，Pelican 处于第二梯队跟随者地位而非领先者。</li>
+<li><strong>新一代工具颠覆风险</strong>：面临 Astro/Quartz 等新一代工具的颠覆压力，护城河趋弱。</li>
+<li><strong>切换成本有限风险</strong>：内容（Markdown/reST）可移植，仅 Jinja2 模板、配置与插件需重写，用户迁移壁垒不高。</li>
+</ul>
+<h3>9.4 法律合规风险（中）</h3>
+<ul>
+<li><strong>传染性依赖风险</strong>：unidecode 为已知 GPL 系包（未验证），逐包许可未经自动化核验。</li>
+<li><strong>商标与专利状态未知风险</strong>：无人工核查数据，不做任何商标/专利状态断言。</li>
+<li><strong>版权归集风险</strong>：无 CLA/DCO，414 名贡献者版权分散，任何双协议/商业授权尝试均存在结构性障碍。</li>
+</ul>
+<h3>9.5 分析置信度风险</h3>
+<ul>
+<li><strong>D7 维度分析失败（N/A）</strong>：企业就绪度与可运营性关键信息缺失，综合评分未纳入该维度，实际企业落地能力存在评估盲区。</li>
+<li><strong>D10.2 规模数据缺失（N/A）</strong>：PyPI 月下载量与 GitHub Dependents 未实采，功能价值维度满分按 7 等比缩放，置信度下降。</li>
+<li><strong>D1.1 市场规模估算未经外部数据验证</strong>：置信度低。</li>
+<li><strong>Star 增速采用退化公式</strong>：71.7 Star/月系 15.5 年历史平均，高估早期红利，实际当前增速应更低。</li>
+</ul>
+<hr />
+<h2>十、结论与建议</h2>
+<h3>10.1 结论</h3>
+<p>Pelican 是一个<strong>技术成熟、易用性优秀、社会价值突出，但商业化基础极为薄弱</strong>的老牌开源静态站点生成器。综合评分 <strong>62.6/100，等级 B（中等商业化潜力）</strong>，价值画像为 <strong>🏛️ 公共产品型</strong>（公共价值分 7.7）。项目未触发任何一票否决条件，但 D4 商业模式与变现潜力仅 4.0/10，是拉低综合评分的最大短板；D2（8.0）与 D9（8.5）则构成项目的核心优势。</p>
+<p><strong>核心判断</strong>：Pelican 属于典型的「使用价值高、交换价值低」形态——开源版即完整价值，无功能分层、无付费触发点、无商业实体，且受 AGPL-3.0 协议与无 CLA 版权结构双重制约。<strong>不建议对其进行直接商业化投入</strong>，应转向影响力变现路径。</p>
+<h3>10.2 建议</h3>
+<p><strong>对潜在商业化方</strong>：</p>
+<ol>
+<li><strong>不建议直接投入商业化</strong>。D4 = 4.0 且五类变现模式零实践，直接变现风险高、回报预期低。</li>
+<li><strong>若仍有意投入，优先选择影响力变现路径</strong>：赞助/基金会托管/大厂雇佣维护者/围绕生态做服务与培训，而非软件许可收费。</li>
+<li><strong>优先补齐 D7 信息盲区</strong>：企业就绪度维度分析失败，在评估企业级服务可行性前，需先补齐运维复杂度、升级路径、安全管理与权限控制等关键信息。</li>
+<li><strong>谨慎对待协议与版权</strong>：AGPL-3.0 与无 CLA/DCO 的版权分散结构，使双协议/商业授权路径实际不可行，任何商业化设计须绕开该路径。</li>
+</ol>
+<p><strong>对项目维护方</strong>：</p>
+<ol>
+<li><strong>优先解决活跃度下滑</strong>：近 90 天仅 3 个 PR、0 个 Issue 关闭，发版间隔拉长至约 15 个月，需通过引入新维护者或寻求基金会托管恢复迭代节奏。</li>
+<li><strong>补齐治理与合规基础设施</strong>：引入 GOVERNANCE.md、CLA/DCO，核验 unidecode 等传染性依赖许可，为长期可持续性奠定制度基础。</li>
+<li><strong>考虑容器化交付</strong>：仓库无 Dockerfile/docker-compose/Helm，补齐容器化交付可降低企业落地门槛。</li>
+<li><strong>经营社区声誉，避免竭泽而渔</strong>：作为公共产品型项目，应参照 Elastic 改协议的反噬教训，维持 AGPL-3.0 开源承诺，通过赞助与生态服务获取资源。</li>
+</ol>
+<p><strong>对技术借鉴方</strong>：</p>
+<ul>
+<li>项目在<strong>测试体系建设</strong>（tox 覆盖 3 系统 × 4 Python 版本、测试源码比 0.484）、<strong>文档工程</strong>（36 份 Sphinx 文档）、<strong>插件信号机制与缓存层设计</strong>方面具备较高借鉴价值，可作为 Python 项目工程化实践的参考范本。</li>
+<li>项目在<strong>长期维护与社区运营</strong>（15 年、414 名贡献者、巴士因子 ≥ 5）方面积累了丰富经验，值得学习。</li>
+</ul>
+<h2>十一、项目地址</h2>
+<p><svg class="ri ri-muted" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.001 2C6.47598 2 2.00098 6.475 2.00098 12C2.00098 16.425 4.86348 20.1625 8.83848 21.4875C9.33848 21.575 9.52598 21.275 9.52598 21.0125C9.52598 20.775 9.51348 19.9875 9.51348 19.15C7.00098 19.6125 6.35098 18.5375 6.15098 17.975C6.03848 17.6875 5.55098 16.8 5.12598 16.5625C4.77598 16.375 4.27598 15.9125 5.11348 15.9C5.90098 15.8875 6.46348 16.625 6.65098 16.925C7.55098 18.4375 8.98848 18.0125 9.56348 17.75C9.65098 17.1 9.91348 16.6625 10.201 16.4125C7.97598 16.1625 5.65098 15.3 5.65098 11.475C5.65098 10.3875 6.03848 9.4875 6.67598 8.7875C6.57598 8.5375 6.22598 7.5125 6.77598 6.1375C6.77598 6.1375 7.61348 5.875 9.52598 7.1625C10.326 6.9375 11.176 6.825 12.026 6.825C12.876 6.825 13.726 6.9375 14.526 7.1625C16.4385 5.8625 17.276 6.1375 17.276 6.1375C17.826 7.5125 17.476 8.5375 17.376 8.7875C18.0135 9.4875 18.401 10.375 18.401 11.475C18.401 15.3125 16.0635 16.1625 13.8385 16.4125C14.201 16.725 14.5135 17.325 14.5135 18.2625C14.5135 19.6 14.501 20.675 14.501 21.0125C14.501 21.275 14.6885 21.5875 15.1885 21.4875C19.259 20.1133 21.9999 16.2963 22.001 12C22.001 6.475 17.526 2 12.001 2Z"/></svg> <a href="https://github.com/getpelican/pelican">https://github.com/getpelican/pelican</a></p>
+<hr />
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+</blockquote>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家　<a href="https://www.mova.work">www.mova.work</a></p></body></html>

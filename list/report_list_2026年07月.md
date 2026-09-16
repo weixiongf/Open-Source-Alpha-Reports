@@ -5,8 +5,8 @@
 
 | 序号 | 项目 | 综合得分 | 等级 | 一句话结论 |
 |------|------|----------|------|-----------|
-| 1 | [gin](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/07/30/gin/) | ? | ? |  |
-| 2 | [pelican](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/07/30/pelican/) | ? | ? |  |
+| 1 | [gin-gonic/gin](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/07/30/gin/report.html) | 72.2 | A | Gin 资产质量顶尖但变现设计近乎空白，D4 仅 4.3 分，只宜走赞助与生态服务路线，切勿对框架本体收费。 |
+| 2 | [getpelican/pelican](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/07/30/pelican/report.html) | 62.6 | B | 工程质量与易用性双优的15年老牌SSG，但D4=4.0变现基础叠加AGPL与无CLA版权结构，直接商业化此路不通。 |
 
 ---
 

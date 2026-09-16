@@ -5,8 +5,8 @@
 
 | 序号 | 项目 | 综合得分 | 等级 | 一句话结论 |
 |------|------|----------|------|-----------|
-| 1 | [gin](../reports/2026/07/30/gin/github%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AEGin%E7%9A%84%E5%95%86%E4%B8%9A%E4%BB%B7%E5%80%BC%E5%88%86%E6%9E%90%E6%8A%A5%E5%91%8A_%E5%AE%8C%E6%95%B4%E7%89%88.pdf) | ? | ? |  |
-| 2 | [pelican](../reports/2026/07/30/pelican/github%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AEPelican%E7%9A%84%E5%95%86%E4%B8%9A%E4%BB%B7%E5%80%BC%E5%88%86%E6%9E%90%E6%8A%A5%E5%91%8A_%E5%AE%8C%E6%95%B4%E7%89%88.pdf) | ? | ? |  |
+| 1 | [gin](../reports/2026/07/30/gin/) | ? | ? |  |
+| 2 | [pelican](../reports/2026/07/30/pelican/) | ? | ? |  |
 
 ---
 

@@ -8,13 +8,18 @@ body{font-family:"Source Han Sans CN","思源黑体 CN","Noto Sans SC",sans-seri
 .topbar{display:flex;align-items:center;justify-content:space-between;
   gap:12px;flex-wrap:wrap;border-bottom:3px solid var(--blue);padding-bottom:10px}
 h1{font-size:26px;display:flex;align-items:center;flex-wrap:wrap;gap:10px}
+.topbar-links{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .gh-link{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);
   border-radius:8px;padding:7px 14px;font-size:13px;color:var(--ink);
   text-decoration:none;background:#fff;transition:all .15s;white-space:nowrap}
 .gh-link:hover{border-color:var(--blue);color:var(--blue)}
+.gh-link.wish{border-color:#fcd34d;background:#fffbeb;color:#92400e;font-weight:600}
+.gh-link.wish:hover{border-color:#f59e0b;color:#b45309;background:#fef3c7}
 .sub{color:var(--dim);margin:10px 0 20px;font-size:14px}
 .badge{display:inline-block;background:linear-gradient(135deg,#2563eb,#7c3aed);
   color:#fff;border-radius:14px;padding:5px 14px;font-size:13px}
+/* 视图切换：全部报告 / 80分以上 */
+.view-tabs{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 16px}
 /* 月份筛选工具栏 */
 .toolbar{display:flex;align-items:center;justify-content:space-between;
   gap:12px;margin:0 0 20px;flex-wrap:wrap}
@@ -86,12 +91,14 @@ th .arrow{font-size:10px;margin-left:3px}
   th,td{padding:8px 8px}
   h1{font-size:22px}
 }
-</style></head><body><div class="wrap"><div class="topbar"><h1>开源项目商业价值分析报告库<span class="badge">117 份</span></h1><a class="gh-link" href="https://github.com/weixiongf/Open-Source-Alpha-Reports" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>GitHub 仓库 ↗</a></div><div class="sub">以商业价值为第一视角的 GitHub 开源项目深度分析档案 · 每日自动更新 · 分析仅反映数据快照时点，项目后续变化与报告不一致属正常现象</div><div class="toolbar"><label>月份筛选：<select id="month-select" onchange="pickMonth(this.value)"></select></label><input id="search-box" class="search-box" type="search" placeholder="搜索项目名 / 日期 / 结论" oninput="onSearch(this.value)"><span class="hint">共 3 个月 · 点项目名直达报告页 · 点表头可排序</span></div><div class="month-btns" id="month-btns"></div><div id="list"></div><div class="loading" id="loader"></div><div class="foot">本页面由 @向量之心 打造的 github_anyliasis 系统自动维护。报告为 AI 辅助生成的第三方独立分析，仅供研究参考，不构成投资建议。</div><div class="credit">@魔法工厂 @向量之心 @南山科学家 @冯伟雄 · <a href="https://www.mova.work">www.mova.work</a></div></div><script>
+</style></head><body><div class="wrap"><div class="topbar"><h1>开源项目商业价值分析报告库<span class="badge">117 份</span></h1><div class="topbar-links"><a class="gh-link" href="https://github.com/weixiongf/Open-Source-Alpha-Reports" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>GitHub 仓库 ↗</a><a class="gh-link wish" href="https://github.com/weixiongf/Open-Source-Alpha-Reports/issues" target="_blank" rel="noopener">🙏 求分析 ↗</a></div></div><div class="sub">以商业价值为第一视角的 GitHub 开源项目深度分析档案 · 每日自动更新 · 分析仅反映数据快照时点，项目后续变化与报告不一致属正常现象</div><div class="view-tabs"><button id="view-months" class="month-btn active">📅 全部报告</button><button id="view-high" class="month-btn">⭐ 80分以上 <i>12</i></button></div><div class="toolbar" id="toolbar"><label>月份筛选：<select id="month-select" onchange="pickMonth(this.value)"></select></label><input id="search-box" class="search-box" type="search" placeholder="搜索项目名 / 日期 / 结论" oninput="onSearch(this.value)"><span class="hint">共 3 个月 · 点项目名直达报告页 · 点表头可排序</span></div><div class="month-btns" id="month-btns"></div><div id="list"></div><div class="loading" id="loader"></div><div class="foot">本页面由 @向量之心 打造的 github_anyliasis 系统自动维护。报告为 AI 辅助生成的第三方独立分析，仅供研究参考，不构成投资建议。</div><div class="credit">@魔法工厂 @向量之心 @南山科学家 @冯伟雄 · <a href="https://www.mova.work">www.mova.work</a></div></div><script>
 var MONTHS=[["2026-09", 74], ["2026-08", 41], ["2026-07", 2]];
 var TOTAL=117;
 var cur='all';
 var sortKey='date',sortAsc=false;
 var cache={};
+var highCache=null;
+var mode='months';
 var loadN=3;
 var searchMode=false,lastQuery='',searchTimer=null;
 var sel=document.getElementById('month-select');
@@ -123,6 +130,55 @@ function pickMonth(m){
   visibleMonths().forEach(function(x){if(!cache[x]){fetchMonth(x);}});
   redraw();
   updateLoader();
+}
+/* --- 视图切换：全部报告（月份） / 80分以上（独立数据） --- */
+var toolbar=document.getElementById('toolbar');
+var vMonths=document.getElementById('view-months');
+var vHigh=document.getElementById('view-high');
+vMonths.onclick=function(){if(mode==='high'){exitHigh();}};
+vHigh.onclick=function(){if(mode==='months'){enterHigh();}};
+function enterHigh(){
+  mode='high';
+  vHigh.classList.add('active');vMonths.classList.remove('active');
+  searchMode=false;lastQuery='';
+  var sb=document.getElementById('search-box');
+  if(sb){sb.value='';}
+  toolbar.style.display='none';
+  btnsBox.style.display='none';
+  list.innerHTML='';
+  if(highCache===null){
+    loader.style.display='block';
+    loader.textContent='正在加载 80 分以上项目…';
+    fetch('data/high_score.json').then(function(r){return r.json();})
+      .then(function(rows){highCache=rows;renderHigh();})
+      .catch(function(){highCache=[];renderHigh();});
+  }else{renderHigh();}
+}
+function exitHigh(){
+  mode='months';
+  vHigh.classList.remove('active');vMonths.classList.add('active');
+  toolbar.style.display='';btnsBox.style.display='';
+  pickMonth(cur);
+}
+function renderHigh(){
+  loader.style.display='none';
+  var rows=(highCache||[]).slice().sort(sortFn(sortKey));
+  list.innerHTML='';
+  if(!rows.length){
+    list.innerHTML='<div class="no-result">暂无 80 分以上的项目（S 级）。</div>';
+    return;
+  }
+  var sec=document.createElement('section');
+  sec.className='month-sec';
+  var h='<div class="month-title">⭐ 80 分以上项目'+
+    '<span class="cnt">'+rows.length+' 个 · 按历史最高分（S 级）</span></div>'+
+    '<table><thead><tr>'+th('date','分析日期')+th('proj','项目')+th('score','评分')+
+    th('','一句话结论')+'</tr></thead><tbody>';
+  rows.forEach(function(r){h+=rowHtml(r);});
+  h+='</tbody></table>';
+  sec.innerHTML=h;
+  list.appendChild(sec);
+  window.scrollTo(0,0);
 }
 function visibleMonths(){
   if(cur==='all'){return MONTHS.slice(0,loadN).map(function(x){return x[0];});}
@@ -184,6 +240,7 @@ function renderMonth(m){
 }
 function redraw(){
   var sy=window.scrollY;
+  if(mode==='high'){renderHigh();return;}
   if(searchMode&&lastQuery){renderSearch(lastQuery,true);window.scrollTo(0,sy);return;}
   list.innerHTML='';
   visibleMonths().forEach(function(m){if(cache[m]){renderMonth(m);}});
@@ -195,6 +252,7 @@ function esc(s){
 function onSearch(v){
   v=v.trim();
   clearTimeout(searchTimer);
+  if(mode==='high'){exitHigh();}
   if(!v){
     searchMode=false;lastQuery='';
     pickMonth(cur);
@@ -271,7 +329,7 @@ list.addEventListener('click',function(ev){
 });
 var io=new IntersectionObserver(function(es){
   es.forEach(function(en){
-    if(en.isIntersecting&&!searchMode&&cur==='all'&&loadN<MONTHS.length){
+    if(en.isIntersecting&&mode==='months'&&!searchMode&&cur==='all'&&loadN<MONTHS.length){
       var add=Math.min(3,MONTHS.length-loadN);
       for(var i=0;i<add;i++){
         var m=MONTHS[loadN+i][0];
@@ -283,7 +341,7 @@ var io=new IntersectionObserver(function(es){
 },{rootMargin:'300px'});
 io.observe(loader);
 function updateLoader(){
-  if(searchMode){loader.style.display='none';return;}
+  if(mode==='high'||searchMode){loader.style.display='none';return;}
   if(cur==='all'&&loadN<MONTHS.length){
     loader.style.display='block';
     loader.textContent='已加载 '+Math.min(loadN,MONTHS.length)+'/'+MONTHS.length+' 个月 · 继续滚动加载更多…';

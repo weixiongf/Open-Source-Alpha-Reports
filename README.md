@@ -23,6 +23,9 @@
   <img src="assets/cover.png" alt="开源掘金报告 — 以商业价值为第一视角的 GitHub 开源项目深度分析" width="100%">
 </div>
 
+ [在线预览](https://weixiongf.github.io/Open-Source-Alpha-Reports/)
+
+
 ## 目录
 
 [这个仓库是什么](#what) · [为什么说它「含金量」十足](#why-gold) · [每份报告包含什么](#inside) · [我们怎么分析：方法论要点](#methodology) · [报告长什么样](#sample) · [报告清单](#list-index) · [适合谁看](#audience) · [如何使用](#usage) · [常见问题](#faq)

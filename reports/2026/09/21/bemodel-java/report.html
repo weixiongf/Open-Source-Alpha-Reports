@@ -1,0 +1,2441 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><title>Bemodel-java 商业价值分析报告</title><style>/* default — 品牌蓝紫主题（从 md2pdf.py 原 CSS 常量迁出，视觉与历史产物一致） */
+@page { size: A4; margin: 18mm 15mm 20mm 15mm; }
+* { box-sizing: border-box; }
+/* 字体规范：一律开源思源黑体 CN（OFL 免费商用）；正文 Regular/标题 Bold/大字数字 Light */
+body { font-family: "Source Han Sans CN","思源黑体 CN","Noto Sans SC",sans-serif; color:#1e293b; font-size:10.5pt; line-height:1.75; margin:0; }
+.cover { page-break-after: always; text-align:center; padding-top:40px; }
+.cover .kicker { color:#2563eb; letter-spacing:6px; font-size:12pt; font-weight:500; }
+.cover h1 { font-size:26pt; margin:14px 0 6px; }
+.cover .sub { color:#64748b; font-size:11pt; margin-bottom:22px; }
+.badge { display:inline-block; background:linear-gradient(135deg,#2563eb,#7c3aed); color:#fff; border-radius:18px; padding:16px 44px; margin:10px 0 18px; }
+.badge .g { font-size:34pt; font-weight:300; line-height:1; }
+.badge .s { font-size:12pt; opacity:.92; margin-top:4px; }
+.meta { color:#475569; font-size:9.5pt; margin-top:14px; }
+.bars { max-width:620px; margin:20px auto 0; text-align:left; }
+.bar-row { display:flex; align-items:center; gap:8px; margin:5px 0; font-size:9pt; }
+.bar-name { width:110px; text-align:right; color:#334155; font-weight:500; }
+.bar-track { flex:1; height:9px; background:#f1f5f9; border-radius:5px; overflow:hidden; }
+.bar-fill { display:block; height:100%; border-radius:5px; }
+.bar-val { width:30px; font-weight:700; color:#0f172a; }
+.bar-w { width:52px; color:#94a3b8; font-size:8pt; }
+h1 { font-size:17pt; color:#0f172a; border-bottom:3px solid #2563eb; padding-bottom:8px; }
+h2 { font-size:13.5pt; color:#1d4ed8; margin-top:26px; page-break-after: avoid; border-left:5px solid #2563eb; padding-left:10px; }
+h3 { font-size:11.5pt; color:#0f172a; margin-top:18px; page-break-after: avoid; }
+table { border-collapse:collapse; width:100%; margin:10px 0; font-size:9pt; page-break-inside:avoid; }
+th { background:#eff6ff; color:#1e3a8a; }
+th,td { border:1px solid #dbe3ef; padding:5px 8px; text-align:left; }
+tr:nth-child(even) td { background:#f8fafc; }
+code { background:#f1f5f9; border-radius:4px; padding:1px 5px; font-family:"JetBrains Mono","Cascadia Mono",monospace; font-size:9pt; color:#be185d; }
+pre { background:#0f172a; color:#e2e8f0; border-radius:8px; padding:12px 14px; overflow-x:auto; page-break-inside:avoid; }
+pre code { background:none; color:inherit; padding:0; }
+blockquote { border-left:4px solid #93c5fd; background:#eff6ff; margin:10px 0; padding:8px 14px; color:#334155; border-radius:0 8px 8px 0; }
+hr { border:none; border-top:1px dashed #cbd5e1; margin:22px 0; }
+strong { color:#0f172a; }
+.cover .disclaimer { max-width:620px; margin:16px auto 0; color:#64748b; font-size:8.5pt; line-height:1.6; text-align:left; border:1px solid #e2e8f0; border-radius:8px; padding:8px 12px; background:#f8fafc; }
+.credit { color:#2563eb; font-size:10.5pt; font-weight:700; letter-spacing:1px; margin-top:12px; }
+.at-acc { background:#dbeafe; color:#1d4ed8; border-radius:4px; padding:0 4px; font-weight:500; white-space:nowrap; }
+.tail { page-break-inside:avoid; margin-top:26px; border-top:2px solid #2563eb; padding-top:14px; }
+.tail p { color:#64748b; font-size:8.5pt; line-height:1.6; margin:0 0 10px; }
+.tail .credit { text-align:center; margin:0; }
+.page-footer { text-align:center; color:#94a3b8; font-size:8.5pt; line-height:1.6; margin-top:28px; padding-top:12px; border-top:1px solid #e2e8f0; }
+/* Remix Icon 内联 SVG（icon_mode=remix 时由脚本注入，语义色与评分条一致） */
+.ri { width:1.05em; height:1.05em; vertical-align:-0.18em; display:inline-block; }
+.ri-ok { color:#16a34a; } .ri-warn { color:#d97706; } .ri-bad { color:#dc2626; }
+.ri-muted { color:#64748b; } .ri-star { color:#f59e0b; } .ri-brand { color:#2563eb; }
+.ri-gold { color:#d4a017; } .ri-silver { color:#9ca3af; } .ri-bronze { color:#b45309; }
+/* 屏幕预览：@page 边距仅在打印时生效，浏览器中居中限宽并收边（不影响 PDF 输出） */
+@media screen {
+  body { margin: 0 auto; padding: 28px 36px 56px; max-width: 980px; }
+}
+</style></head><body><div class="cover">
+<div class="kicker">开源项目商业化潜力分析 · 第 116 期</div>
+<h1>GitHub 开源项目 Bemodel-java<br>商业价值分析报告</h1>
+<div class="sub">yueyezhufeng/bemodel-java · 医疗本体语义层平台 · 九维度加权评估</div>
+<div class="badge"><div class="g">B 级 · 58.6</div><div class="s">综合评分（满分 100）· 中等商业化潜力</div></div>
+<div><svg viewBox="0 0 560 480" width="560" height="480" xmlns="http://www.w3.org/2000/svg"><polygon points="280.0,209.6 299.5,216.7 309.9,234.7 306.3,255.2 290.4,268.6 269.6,268.6 253.7,255.2 250.1,234.7 260.5,216.7" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,179.2 319.1,193.4 339.9,229.4 332.7,270.4 300.8,297.1 259.2,297.1 227.3,270.4 220.1,229.4 240.9,193.4" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,148.8 338.6,170.1 369.8,224.2 359.0,285.6 311.2,325.7 248.8,325.7 201.0,285.6 190.2,224.2 221.4,170.1" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,118.4 358.2,146.8 399.8,218.9 385.3,300.8 321.6,354.3 238.4,354.3 174.7,300.8 160.2,218.9 201.8,146.8" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,88.0 377.7,123.6 429.7,213.6 411.6,316.0 332.0,382.8 228.0,382.8 148.4,316.0 130.3,213.6 182.3,123.6" fill="none" stroke="#e2e8f0" stroke-width="1"/><line x1="280.0" y1="240.0" x2="280.0" y2="88.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="377.7" y2="123.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="429.7" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="411.6" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="332.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="228.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="148.4" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="130.3" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="182.3" y2="123.6" stroke="#d8dee9" stroke-width="1"/><polygon points="280.0,141.2 343.5,164.3 341.4,229.2 369.5,291.7 306.0,311.4 240.0,350.0 207.6,281.8 226.1,230.5 221.4,170.1" fill="rgba(37,99,235,.22)" stroke="#2563eb" stroke-width="2.5"/><circle cx="280.0" cy="141.2" r="3.5" fill="#2563eb"/><circle cx="343.5" cy="164.3" r="3.5" fill="#2563eb"/><circle cx="341.4" cy="229.2" r="3.5" fill="#2563eb"/><circle cx="369.5" cy="291.7" r="3.5" fill="#2563eb"/><circle cx="306.0" cy="311.4" r="3.5" fill="#2563eb"/><circle cx="240.0" cy="350.0" r="3.5" fill="#2563eb"/><circle cx="207.6" cy="281.8" r="3.5" fill="#2563eb"/><circle cx="226.1" cy="230.5" r="3.5" fill="#2563eb"/><circle cx="221.4" cy="170.1" r="3.5" fill="#2563eb"/><text x="280.0" y="44.0" text-anchor="middle" font-size="12.5" fill="#334155" font-weight="600">D1</text><text x="280.0" y="58.0" text-anchor="middle" font-size="11" fill="#64748b">市场需求 6.5</text><text x="406.0" y="89.9" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D2</text><text x="406.0" y="103.9" text-anchor="start" font-size="11" fill="#64748b">技术成熟度 6.5</text><text x="473.0" y="206.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D3</text><text x="473.0" y="220.0" text-anchor="start" font-size="11" fill="#64748b">社区生态 4.1</text><text x="449.7" y="338.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D4</text><text x="449.7" y="352.0" text-anchor="start" font-size="11" fill="#64748b">变现潜力 6.8</text><text x="347.0" y="424.2" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D5</text><text x="347.0" y="438.2" text-anchor="start" font-size="11" fill="#64748b">竞争格局 5.0</text><text x="213.0" y="424.2" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D6</text><text x="213.0" y="438.2" text-anchor="end" font-size="11" fill="#64748b">法律合规 7.7</text><text x="110.3" y="338.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D7</text><text x="110.3" y="352.0" text-anchor="end" font-size="11" fill="#64748b">企业就绪 5.5</text><text x="87.0" y="206.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D8</text><text x="87.0" y="220.0" text-anchor="end" font-size="11" fill="#64748b">团队治理 3.6</text><text x="154.0" y="89.9" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D9</text><text x="154.0" y="103.9" text-anchor="end" font-size="11" fill="#64748b">上手难度 6.0</text></svg></div>
+<div class="bars"><div class="bar-row"><span class="bar-name">D6 法律合规</span>
+<span class="bar-track"><span class="bar-fill" style="width:77.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.7</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D4 变现潜力</span>
+<span class="bar-track"><span class="bar-fill" style="width:68.0%;background:#d97706"></span></span>
+<span class="bar-val">6.8</span><span class="bar-w">权重18%</span></div>
+<div class="bar-row"><span class="bar-name">D1 市场需求</span>
+<span class="bar-track"><span class="bar-fill" style="width:65.0%;background:#d97706"></span></span>
+<span class="bar-val">6.5</span><span class="bar-w">权重13%</span></div>
+<div class="bar-row"><span class="bar-name">D2 技术成熟度</span>
+<span class="bar-track"><span class="bar-fill" style="width:65.0%;background:#d97706"></span></span>
+<span class="bar-val">6.5</span><span class="bar-w">权重14%</span></div>
+<div class="bar-row"><span class="bar-name">D9 上手难度</span>
+<span class="bar-track"><span class="bar-fill" style="width:60.0%;background:#d97706"></span></span>
+<span class="bar-val">6.0</span><span class="bar-w">权重10%</span></div>
+<div class="bar-row"><span class="bar-name">D7 企业就绪</span>
+<span class="bar-track"><span class="bar-fill" style="width:55.0%;background:#dc2626"></span></span>
+<span class="bar-val">5.5</span><span class="bar-w">权重8%</span></div>
+<div class="bar-row"><span class="bar-name">D5 竞争格局</span>
+<span class="bar-track"><span class="bar-fill" style="width:50.0%;background:#dc2626"></span></span>
+<span class="bar-val">5.0</span><span class="bar-w">权重12%</span></div>
+<div class="bar-row"><span class="bar-name">D3 社区生态</span>
+<span class="bar-track"><span class="bar-fill" style="width:41.0%;background:#dc2626"></span></span>
+<span class="bar-val">4.1</span><span class="bar-w">权重11%</span></div>
+<div class="bar-row"><span class="bar-name">D8 团队治理</span>
+<span class="bar-track"><span class="bar-fill" style="width:36.0%;background:#dc2626"></span></span>
+<span class="bar-val">3.6</span><span class="bar-w">权重7%</span></div></div>
+<div class="meta">分析时点 2026-09-21 ｜ 数据来源：GitHub API + 仓库代码实测 ｜ 方法论 v1.3</div>
+<div class="credit">报告出品：@魔法工厂　@向量之心　@南山科学家　@冯伟雄</div>
+<div class="disclaimer"><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</div>
+</div><h1>第 116 期 · Bemodel-java 商业化潜力分析报告（完整版）</h1>
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家　@冯伟雄</p>
+<p>方法论版本: v1.3 | 综合评分: <strong>58.6</strong> | 等级: <strong>B（中等商业化潜力）</strong> | 价值画像: 长尾项目</p>
+</blockquote>
+<h2>一、项目概览</h2>
+<h3>1.1 基本信息</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目名称</td>
+<td>yueyezhufeng/bemodel-java（BeModel）</td>
+</tr>
+<tr>
+<td>仓库地址</td>
+<td>github.com/yueyezhufeng/bemodel-java</td>
+</tr>
+<tr>
+<td>项目描述</td>
+<td>一个 Java 版本的轻量级医疗领域的本体平台</td>
+</tr>
+<tr>
+<td>核心技术栈</td>
+<td>Spring Boot 3.3 + Apache Jena（OWL/SHACL）+ MyBatis-Plus + Vue 3 + Element Plus + ECharts + DeepSeek</td>
+</tr>
+<tr>
+<td>开源协议</td>
+<td>Apache License 2.0</td>
+</tr>
+<tr>
+<td>主语言</td>
+<td>Java（22,678 行）+ Vue（15,754 行）+ JS（768 行），合计约 39,200 行</td>
+</tr>
+<tr>
+<td>社区规模速览</td>
+<td>Star 87 / Fork 25 / Watchers 5 / 贡献者 1 / Open Issues 0 / Releases 0 / CI Workflows 0</td>
+</tr>
+<tr>
+<td>项目年龄</td>
+<td>约 8 天（2026-09-13 创建 至 2026-09-21 最近推送）</td>
+</tr>
+<tr>
+<td>版本状态</td>
+<td>v0.1.3（演示阶段，无 Release/Tag）</td>
+</tr>
+<tr>
+<td>分析时点</td>
+<td>2026-09（数据来源：GitHub 仓库公开数据 + 各维度评分卡）</td>
+</tr>
+</tbody>
+</table>
+<h3>1.2 项目分类标签</h3>
+<table>
+<thead>
+<tr>
+<th>分类维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>数据与 AI — 医疗本体语义层平台（基础设施/中间件属性）</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>医疗健康（强绑定单一行业，跨行业延展无证据）</td>
+</tr>
+<tr>
+<td>目标用户角色</td>
+<td>医疗信息化架构师 / 数据工程师 / 技术管理者</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>医院多业务系统数据整合、统一语义层构建、规则引擎、病案质控、AI 问答支撑</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>本地部署（自托管，需自建 MySQL 与运行时环境）</td>
+</tr>
+<tr>
+<td>技术领域</td>
+<td>医疗本体语义层（Spring Boot 3.3 + Apache Jena + Vue 3）</td>
+</tr>
+<tr>
+<td>商业化距离</td>
+<td>远（demo 阶段，无商业封装，需自托管）</td>
+</tr>
+</tbody>
+</table>
+<h3>1.3 一句话定位</h3>
+<blockquote>
+<p>BeModel 是一个医疗领域的本体语义层平台，适用于医院多业务系统数据整合场景，主要面向医疗信息化架构师与数据工程师，用于在不搬迁数据的前提下构建统一语义层支撑规则引擎、质控与 AI 问答。</p>
+</blockquote>
+<h2>二、安装部署与使用指南</h2>
+<blockquote>
+<p>上手难度等级：🟡 <strong>中等</strong>（D9 得分 6.0/10）——面向有技术基础者（具备 Java/Node/MySQL 环境搭建能力的开发或运维人员）。以下提供关键步骤，省略通用环境安装操作。</p>
+</blockquote>
+<h3>一、环境要求</h3>
+<table>
+<thead>
+<tr>
+<th>组件</th>
+<th>版本要求</th>
+<th>来源</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>JDK</td>
+<td>21+</td>
+<td>README「快速开始」</td>
+</tr>
+<tr>
+<td>Maven</td>
+<td>3.9+</td>
+<td>README「快速开始」</td>
+</tr>
+<tr>
+<td>MySQL</td>
+<td>8</td>
+<td>README「快速开始」</td>
+</tr>
+<tr>
+<td>Node</td>
+<td>18+（推荐 pnpm）</td>
+<td>README「快速开始」</td>
+</tr>
+<tr>
+<td>DeepSeek API Key</td>
+<td>可选（不配置则自动降级）</td>
+<td>README「快速开始」</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>需自行准备上述运行时；项目<strong>未提供 Dockerfile / docker-compose / Helm Chart</strong>，无容器化或一键安装脚本，须以源码方式启动前后端两个进程。</p>
+</blockquote>
+<h3>二、启动步骤（命令取自 README 原文）</h3>
+<pre><code class="language-bash"># 1. 配置环境变量（数据库账号密码必填；账号需有建库权限，首次启动会自动建库建表）
+export MYSQL_USERNAME=your_mysql_user
+export MYSQL_PASSWORD=your_mysql_password
+export JWT_SECRET=your_jwt_secret          # 可选；不配置使用内置开发密钥（仅限演示）
+export APP_SECRET_KEY=your_encrypt_key     # 可选；同上，用于数据源密码加密
+export DEEPSEEK_API_KEY=sk-xxxx            # 可选；不配置则 LLM 能力自动降级为规则/模板
+
+# 2. 启动后端（Flyway 自动建表 + DataSeeder 自动生成演示数据与演示账号）
+cd bemodel-server
+mvn spring-boot:run                    # http://127.0.0.1:18080
+
+# 3. 启动前端
+cd bemodel-web
+pnpm install
+pnpm dev                               # http://127.0.0.1:5173（打开后进入登录页）
+</code></pre>
+<p>前端 dev 代理配置为 <code>/api → 127.0.0.1:18080</code>（见 <code>bemodel-web/vite.config.js</code>）。</p>
+<h3>三、初始配置项</h3>
+<p>必填仅 2 项（<code>MYSQL_USERNAME</code>、<code>MYSQL_PASSWORD</code>）；其余均有默认值或自动降级：</p>
+<table>
+<thead>
+<tr>
+<th>变量</th>
+<th>必填</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>MYSQL_USERNAME</code></td>
+<td>是</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>MYSQL_PASSWORD</code></td>
+<td>是</td>
+<td>—</td>
+</tr>
+<tr>
+<td><code>MYSQL_HOST</code> / <code>MYSQL_PORT</code> / <code>MYSQL_DATABASE</code></td>
+<td>否</td>
+<td><code>127.0.0.1</code> / <code>3306</code> / <code>bemodel_platform</code></td>
+</tr>
+<tr>
+<td><code>JWT_SECRET</code> / <code>APP_SECRET_KEY</code></td>
+<td>生产必填</td>
+<td>内置开发密钥（启动告警）</td>
+</tr>
+<tr>
+<td><code>DEEPSEEK_API_KEY</code> 及备路三项</td>
+<td>否</td>
+<td>—（未配置则自动降级）</td>
+</tr>
+</tbody>
+</table>
+<h3>四、首次启动自动化能力</h3>
+<ul>
+<li>Flyway 自动执行 V1~V38 迁移，创建平台元数据库表结构、本体种子数据与演示账号</li>
+<li><code>DataSeeder</code> 自动生成九个演示业务库（demo_charge / demo_emr / demo_his / demo_lis / demo_material / demo_nurse / demo_opd / demo_pacs / demo_pharmacy），含 40 名虚构患者闭环数据，确定性可重复、幂等跳过</li>
+<li>未配置 <code>DEEPSEEK_API_KEY</code> 时 AI 能力自动降级，平台功能不中断</li>
+</ul>
+<h3>五、内置演示账号（来自 V26__auth_and_security.sql）</h3>
+<table>
+<thead>
+<tr>
+<th>账号</th>
+<th>密码</th>
+<th>角色</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>admin</code></td>
+<td><code>admin123</code></td>
+<td>ADMIN</td>
+</tr>
+<tr>
+<td><code>modeler</code></td>
+<td><code>model123</code></td>
+<td>EDITOR</td>
+</tr>
+<tr>
+<td><code>viewer</code></td>
+<td><code>viewer123</code></td>
+<td>VIEWER</td>
+</tr>
+</tbody>
+</table>
+<p>登录后经 Web 界面（Vue 3 + Element Plus）使用，覆盖架构全貌 / 本体管理 / 数据源绑定 / 链路追溯 / 病案质控 / 智能问数 / AI 对比实验室等模块。</p>
+<h3>六、部署要点提示</h3>
+<ul>
+<li>无容器化产物，生产环境需自行解决进程托管、反向代理与 HTTPS（当前边界中明示：HTTPS 传输、口令策略、审计完善待补）</li>
+<li>公网部署前必须替换 <code>JWT_SECRET</code> / <code>APP_SECRET_KEY</code> 并启用传输加密</li>
+<li>MCP 只读端点（<code>POST /mcp</code>）演示期未启用鉴权，上线前需接入认证</li>
+</ul>
+<h2>三、评分总览</h2>
+<h3>3.1 九维评分表</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>权重</th>
+<th>加权得分</th>
+<th>评级</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1 市场需求与商业机会</td>
+<td>6.5/10</td>
+<td>13%</td>
+<td>0.845</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D2 技术成熟度与产品质量</td>
+<td>6.5/10</td>
+<td>14%</td>
+<td>0.910</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D3 社区健康度与生态势能</td>
+<td>4.1/10</td>
+<td>11%</td>
+<td>0.451</td>
+<td>差</td>
+</tr>
+<tr>
+<td>D4 商业模式与变现潜力</td>
+<td>6.8/10</td>
+<td>18%</td>
+<td>1.224</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D5 竞争格局与差异化壁垒</td>
+<td>5.0/10</td>
+<td>12%</td>
+<td>0.600</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D6 法律合规与知识产权</td>
+<td>7.7/10</td>
+<td>7%</td>
+<td>0.539</td>
+<td>良</td>
+</tr>
+<tr>
+<td>D7 企业就绪度与可运营性</td>
+<td>5.5/10</td>
+<td>8%</td>
+<td>0.440</td>
+<td>中</td>
+</tr>
+<tr>
+<td>D8 团队治理与可持续性</td>
+<td>3.6/10</td>
+<td>7%</td>
+<td>0.252</td>
+<td>差</td>
+</tr>
+<tr>
+<td>D9 上手难度与易用性</td>
+<td>6.0/10</td>
+<td>10%</td>
+<td>0.600</td>
+<td>中</td>
+</tr>
+<tr>
+<td><strong>综合评分</strong></td>
+<td>—</td>
+<td>100%</td>
+<td><strong>58.6/100</strong></td>
+<td><strong>B（中等商业化潜力）</strong></td>
+</tr>
+</tbody>
+</table>
+<h3>3.2 平行维度表（不计入综合评分）</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>得分</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10 功能价值</td>
+<td>6.0/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td>D11 社会价值</td>
+<td>4.9/10</td>
+<td>价值画像（方法论 3.4）</td>
+</tr>
+<tr>
+<td><strong>公共价值分</strong></td>
+<td><strong>5.5/10</strong></td>
+<td>(D10+D11)/2</td>
+</tr>
+</tbody>
+</table>
+<h3>3.3 一票否决检查</h3>
+<table>
+<thead>
+<tr>
+<th>检查项</th>
+<th>阈值</th>
+<th>实际值</th>
+<th>是否触发</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D6 法律合规（维度总分）</td>
+<td>≤ 3 分</td>
+<td>7.7 分</td>
+<td>否</td>
+</tr>
+<tr>
+<td>D8.4 项目可持续性（细则小分）</td>
+<td>≤ 1 分</td>
+<td>1.2 分</td>
+<td>否</td>
+</tr>
+<tr>
+<td>D4.1 协议对变现模式的影响（细则小分）</td>
+<td>≤ 0.5 分</td>
+<td>2.0 分</td>
+<td>否</td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：未触发一票否决，等级维持 B。否决检查完整（无 N/A 维度）。</p>
+<h3>3.4 价值画像</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>综合评分</td>
+<td>58.6/100</td>
+</tr>
+<tr>
+<td>公共价值分</td>
+<td>5.5/10</td>
+</tr>
+<tr>
+<td><strong>价值画像</strong></td>
+<td><strong>📦 长尾项目</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>画像判定说明</strong>：综合评分 58.6 &lt; 65 且公共价值分 5.5 &lt; 7，落入「长尾项目」象限。综合评分落在 60–70 临界区间之外（58.6 低于 60），公共价值分 5.5 亦低于 6.5 临界下限，画像判定明确，无需标注「画像临界」。</p>
+</blockquote>
+<h2>四、各维度详细分析</h2>
+<h3>D1. 市场需求与商业机会</h3>
+<h3>项目分类标签</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>数据与AI（语义层/本体工程平台，兼具备后端服务与中间件桥接属性）</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>医疗健康（医院信息化，九套业务系统集成）</td>
+</tr>
+<tr>
+<td>目标用户角色</td>
+<td>架构师、数据工程师、技术管理者/CTO、医疗信息化从业者</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>数据处理与分析、基础设施搭建、企业内部工具、AI 语义问答/智能问数</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>本地部署（Spring Boot + MySQL 自托管，非云原生 SaaS）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>一句话定位</strong>：BeModel 是一个医疗领域的本体语义层平台，适用于医院多业务系统数据整合场景，主要面向医疗信息化架构师与数据工程师，用于在不搬迁数据的前提下构建统一语义层，支撑规则引擎、质控与 AI 问答。</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1.1 目标市场规模与增长性</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>80%</td>
+<td>对应"医疗数据集成 / 语义层"赛道。医信集成与互操作、AI+医疗均处于增长期，属十亿美元级且扩张中的市场；但"本体语义层"这一细分品类本身仍为新兴蓝海。<strong>估算未经外部数据验证，置信度中低</strong></td>
+</tr>
+<tr>
+<td>D1.2 痛点真实性与解决程度</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>60%</td>
+<td>"医院九套系统数据孤岛、ETL/图数据库搬迁成本高"是真实且昂贵的行业痛点，方案功能面完整（建模/映射/版本门禁/质控/RCA/问答）。但替代品众多（传统集成平台 ESB、数据中台、知识图谱、商用语义层），且 README 自述尚未接入真实产品线，属"更优方案"而非"非用不可"，真实付费验证缺失</td>
+</tr>
+<tr>
+<td>D1.3 市场时机判断</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>80%</td>
+<td>时机良好：LLM 落地推动"可信/有约束的 AI"需求，本体+语义层正从概念走向工程化；国内电子病历评级、互联互通成熟度测评、DRG/DIP 支付改革持续推动医疗数据标准化。竞争者以传统集成平台厂商为主，本体语义层细分格局未定，但项目自身极新（创建距今约 8 天）</td>
+</tr>
+<tr>
+<td>D1.4 应用场景广度</td>
+<td>2.5</td>
+<td>1.0</td>
+<td>40%</td>
+<td>产品强绑定医疗单一行业，全部功能、预设场景、演示库（HIS/LIS/PACS/EMR 等）均为医院场景。平台内核（本体+映射+版本化）理论可迁移至金融/制造等垂直领域，但无任何跨行业证据，按"单一行业专用"计</td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<p>D1 维度得分 <strong>6.5 / 10</strong>。项目锚定"医疗数据集成 / 语义层"这一真实且处于成长期的市场，痛点真实、时机受益于 AI 与医疗标准化双重东风，功能完整度在同规模早期项目中相当突出。主要短板在于：① 市场切分过窄，产品强绑定医疗单一行业，跨行业延展未验证；② 替代品成熟且众多，痛点属"体验更优"而非"刚需不可替代"，付费意愿缺乏真实证据；③ 项目处于极早期（单贡献者、无 releases、无 CI、演示数据为自建），尚未接入真实医院库，商业化距离较远。综合看，这是一条<strong>方向成立、但场景窄且尚未被市场验证</strong>的赛道。</p>
+<h3>D2. 技术成熟度与产品质量（权重 14%）</h3>
+<blockquote>
+<p><strong>适用性说明</strong>：本项目含完整 Vue 3 + Element Plus Web 前端（31 个 .vue 文件、15,754 行），D2.5 UI/UX 适用，不做 N/A 缩放，D2 按 8 项满分 10 分计。</p>
+</blockquote>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>档位</th>
+<th>小分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D2.1</td>
+<td>产品设计与创新性</td>
+<td>1.5</td>
+<td>7–8（80%）</td>
+<td>1.2</td>
+</tr>
+<tr>
+<td>D2.2</td>
+<td>架构设计与工程质量</td>
+<td>2.0</td>
+<td>7–8（80%）</td>
+<td>1.6</td>
+</tr>
+<tr>
+<td>D2.3</td>
+<td>代码整洁性与规范性</td>
+<td>1.0</td>
+<td>5–6（60%）</td>
+<td>0.6</td>
+</tr>
+<tr>
+<td>D2.4</td>
+<td>安全性</td>
+<td>1.0</td>
+<td>5–6（60%）</td>
+<td>0.6</td>
+</tr>
+<tr>
+<td>D2.5</td>
+<td>UI/UX/UE 人机交互</td>
+<td>1.0</td>
+<td>7–8（80%）</td>
+<td>0.8</td>
+</tr>
+<tr>
+<td>D2.6</td>
+<td>功能完备度与稳定性</td>
+<td>1.5</td>
+<td>5–6（60%）</td>
+<td>0.9</td>
+</tr>
+<tr>
+<td>D2.7</td>
+<td>文档与开发者体验</td>
+<td>1.0</td>
+<td>3–4（40%）</td>
+<td>0.4</td>
+</tr>
+<tr>
+<td>D2.8</td>
+<td>测试与质量保障</td>
+<td>1.0</td>
+<td>3–4（40%）</td>
+<td>0.4</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td></td>
+<td><strong>6.5</strong></td>
+</tr>
+</tbody>
+</table>
+<h3>分项判断依据</h3>
+<p><strong>D2.1 产品设计与创新性（1.2 / 1.5）</strong>
+产品理念清晰且具备独立主张：以「本体驱动 AI」为核心，用本体概念/关系/公理作为语义约束层，构建「AI+本体」与「AI 直连数据库」「人工固定页面」的三臂对比实验（<code>lab/</code>、<code>LabRunService</code>），试图量化本体带来的确定性增益，而非盲目包装 LLM。功能设计围绕核心场景收敛：本体建模→映射→语义问答（Ontology2SQL）→客服/RCA 根因分析→数据治理→增长回路（miss→AI 提案→人工裁决）。差异化点明确：证据链「五段式」（结论→路径→锚点→动作→参考，<code>TraceService</code> 硬约束「无锚点不输出」）、发布前确定性自检（<code>OntologyCheckService</code> 三色 DFS 找继承环）、术语分叉/口径漂移扫描（<code>DriftService</code>）、推演仿真（<code>SimulationService</code>+<code>PropagationEngine</code>）。创新性属真实设计创新而非简单复制。不足在于产品偏「演示/样板」导向（<code>DataSeeder</code> 造数、沙箱库、三臂剧本），离成型商业产品的取舍尚需收敛。综合落在 7–8 档。</p>
+<p><strong>D2.2 架构设计与工程质量（1.6 / 2.0）</strong>
+架构按领域清晰分层：<code>ontology / datasource / clinical / cs / rca / lab / simulation / flow / governance / link / impact / value / trace / mcp / rdf / search / auth</code>，Server（Spring Boot + MyBatis-Plus <code>ServiceImpl</code>）与 Web（Vue 3 组合式 + Pinia）分离。模式运用一致且恰当：状态机（概念/规则/映射生命周期 <code>TRANSITIONS</code>/<code>LIFECYCLE</code>）、模板方法（<code>run</code>/<code>buildPayload</code> 唯一出口）、策略/分发（8 个 QC 规则解释器、探针分派）、注册表（<code>LabExperimentRegistry</code>、<code>SimulationScenarioRegistry</code>）、事件驱动缓存失效（<code>MappingChangedEvent</code>）。存在真实工程深度：Jena 解析 OWL/RDF 投影本体（<code>OwlImportService</code>）、传递闭包物化与有界 BFS（<code>ReleaseService.closureBfs</code>，深度 12 截断）、SHACL 验证、传播引擎、BFS 追溯（<code>walkChain</code>/<code>traverseStep</code>）。<strong>复刻难度高</strong>（本体推理 + 医疗领域 + AI 编排 + 图算法），构成一定技术护城河，代码量与功能复杂度大致匹配（39.2K 行 / 307 文件）。但技术债明显：<code>DataSeeder</code> 单文件 1000+ 行、<code>FlowService.loop</code> 单方法 &gt;200 行、<code>QcRuleEngine</code> 单类承载 8 种解释器、多处 <code>@SuppressWarnings("unchecked")</code> 强转反映类型不安全、<code>ConceptService.ancestorsOf</code> / <code>GovService.tables</code> 存在 N+1、部分 <code>LIMIT/OFFSET</code>/<code>IN</code> 用字符串拼接。综合 7–8 档偏下沿。</p>
+<p><strong>D2.3 代码整洁性与规范性（0.6 / 1.0）</strong>
+注释质量是亮点：大量注释解释设计意图与取舍（如「不做反向推断」「对抗评审」「drugmodel 前车之鉴」），命名一致且语义清晰（<code>isViewer</code>、<code>closureLayers</code>、<code>blockers/warns</code>），目录规范。但清洁度受两点拖累：一是<strong>超大文件/长方法</strong>（<code>ontology/index.vue</code> &gt;1100 行、<code>flow/index.vue</code> ~1000+ 行、<code>DataSeeder</code> &gt;1000 行、<code>loop()</code> &gt;200 行），模板与逻辑高度耦合；二是<strong>重复代码</strong>（<code>saveAccepted</code>/<code>saveEdit</code>、两处加载属性逻辑、INP/OPD 双套结构、<code>relTypeMap</code>/<code>relTypeShort</code> 双字典）。另有若干脆弱实现（<code>snake</code> 正则链、<code>==</code> 比较 <code>Integer</code>、<code>indexOf</code> 只处理首次命中）与冗余注释块。整体可读但整洁度不突出，落 5–6 档。</p>
+<p><strong>D2.4 安全性（0.6 / 1.0）</strong>
+正向实践具体：<code>SemanticQaService.validateSql</code> 强制 SELECT、表/列白名单、<code>FORBIDDEN</code> 关键字黑名单、<code>LIMIT≤100</code>、<code>setQueryTimeout(15)</code>；<code>Masking.maskPatientRows/maskName</code> 患者脱敏；<code>SecurityConfig</code>（Spring Security）+ <code>CurrentUser.hasAnyRole("REVIEWER","ADMIN")</code> 评审门禁 + 防自审；<code>RulePanel</code> 先 <code>escapeHtml</code> 再 <code>v-html</code> 防 XSS；<code>@Transactional</code> 保证退费/发布一致性。但<strong>仍有明确注入隐患点</strong>：<code>FlowService</code> 分页 <code>LIMIT/OFFSET</code> 字符串拼接、<code>QcRuleEngine.hasExecutedItem</code> 拼 <code>IN (...)</code>、<code>GovService</code> 由 JSON 表达式拼 SQL、<code>OntologyProposalService.page</code> 的 <code>.last()</code> 拼接；前端权限仅 UI 层门控需后端兜底；无 Dependabot/Snyk 等依赖安全扫描、无 <code>SECURITY.md</code>。综合「基本措施到位、存在少量中低风险」→ 5–6 档。</p>
+<p><strong>D2.5 UI/UX/UE 人机交互（0.8 / 1.0）</strong>
+基于 Element Plus 组件库，具备专业基线。交互设计有意识：角色门控（viewer 全量禁用写按钮并配 tooltip）、二次确认（<code>ElMessageBox.confirm</code>）、加载遮罩、空态/错误态完备（如问数页诚实空态文案「不夸大」）、深链承接（<code>tab/domain/concept/q/recon/ticketId</code>）。可视化丰富：<code>GraphCanvas</code>(ECharts)、<code>PanoramaGraph</code>(SVG 四层架构图)、时间线泳道（HIS/LIS/FEE/PHARM…）、状态标签统一映射。信息架构清晰（工作台式布局 + 侧边导航 + 面包屑）。瑕疵：部分页面单文件过大、<code>ElLoading</code> 硬编码 30s、<code>router.push</code> 直用后端返回 route 存开放重定向面、未见无障碍（键盘导航/对比度）专门处理。落 7–8 档。</p>
+<p><strong>D2.6 功能完备度与稳定性（0.9 / 1.5）</strong>
+功能覆盖极广且核心链路完整：本体建模/公理/互斥/术语、OWL 导入导出、数据源映射（AI 推荐+规则降级）、语义问答、智能客服+RCA+一键退费、链路追溯+影响评估、数据治理探针、增长回路、三臂实验、推演仿真、SHACL 校验、MCP 工具。<strong>但版本成熟度是硬伤</strong>：无 Release/Tag（<code>recent_releases</code> 为空）、创建仅 8 天、单贡献者、偏演示样板（种子患者数据、沙箱），无 v1.0，无法评估向后兼容。性能层面存在隐患（N+1、每次全量 <code>buildSemanticContext</code>）。运行环境为 Spring Boot + 多数据源 MySQL + Node 前端，要求适中但<strong>无 Dockerfile</strong>，部署门槛偏高；无 GPU/特殊硬件依赖（N/A）；未见 i18n/本地化框架，界面以中文为主。功能广度与版本成熟度严重不匹配，落 5–6 档。</p>
+<p><strong>D2.7 文档与开发者体验（0.4 / 1.0）</strong>
+<code>doc_files</code> 仅 <code>./README.md</code>，<code>docs/</code> 下只有 <code>screenshots/</code>，无 API 文档、无教程、无架构图（除内置架构页）、示例文件 0 个、无 CONTRIBUTING。对一个 39.2K 行、含本体/OWL/SHACL/AI 编排的复杂平台而言，仅靠一份 README 远不足以支撑外部开发者上手（首个 demo 跑通成本高，另行归属 D9.4）。虽有高质量行内注释部分弥补，但对外文档覆盖明显不足，落 3–4 档。</p>
+<p><strong>D2.8 测试与质量保障（0.4 / 1.0）</strong>
+有实质测试：45 个测试文件、5,719 行、test_ratio 14.6%，部分逻辑为便于测试做了纯函数抽取（<code>closureBfs</code>、<code>partition/topKConcepts/splitSnake</code>），体现测试意识。但<strong>CI 完全缺失</strong>（<code>ci_workflows: 0</code>），无自动化构建/测试/发布流水线；无 CODEOWNERS、无静态分析/lint 配置证据、无安全扫描门禁；单贡献者、无 PR 流程（近 90 天 PR/关闭 issue 均为 0）。测试存在但缺乏质量门禁与持续集成支撑，落 3–4 档。</p>
+<h3>结论</h3>
+<p>D2 综合得分 <strong>6.5 / 10（一般，偏上）</strong>。项目在产品构思与架构深度上明显高于平均水平——本体驱动的语义约束、证据链硬约束、三臂对比实验、OWL/SHACL/BFS 闭包等构成真实技术护城河与设计差异化；UI 依托 Element Plus + 自研可视化达到良好水准。但其商业化交付成熟度受多重短板制约：<strong>创建仅 8 天、单贡献者、无正式版本、无 CI、无 Dockerfile、文档仅 README</strong>，且存在超大 god 类、若干 SQL 拼接注入点、N+1 性能隐患。当前更接近「理念先进、功能极广的技术样板/演示工程」，具备良好技术底盘，但要在生产环境支撑商业化交付，需优先补齐测试/CI、依赖安全、部署容器化、文档体系与巨型类的重构。</p>
+<h3>D3. 社区健康度与生态势能</h3>
+<blockquote>
+<p>项目 <code>yueyezhufeng/bemodel-java</code> 创建于 2026-09-13、最近推送 2026-09-21，实际存续仅约 <strong>8 天</strong>，是一个刚发布的单作者项目。以下评估须结合这一"新生儿"背景理解——大量社区指标处于"尚未开始积累"状态，而非"活跃度差"，但按方法论仍以实测硬事实为准打分。</p>
+</blockquote>
+<h3>D3.1 社区活跃度指标（满分 3 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Star 增速</td>
+<td>87 Star ÷ 约 0.26 月 ≈ <strong>331/月</strong>（退化公式）</td>
+<td>落入 100–500 区间（7–8 档），但属新项目发布首周脉冲，非持续动能</td>
+</tr>
+<tr>
+<td>Fork 比率</td>
+<td>25 / 87 = <strong>28.7%</strong></td>
+<td>显著高于常见 10–20%，既有衍生意愿信号，也含大量"收藏式 fork"</td>
+</tr>
+<tr>
+<td>Issue 活跃度</td>
+<td>近 90 天 Issue/PR = <strong>0</strong></td>
+<td>无任何社区参与</td>
+</tr>
+<tr>
+<td>响应速度</td>
+<td>无 Issue，<strong>N/A</strong></td>
+<td>无法评估</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分</strong>：Star 增速虽按退化公式落入 7–8 档，但需注意两点修正——(1) 退化公式本质是"历史平均"，对 8 天新项目会把发布脉冲误读为长期月增，置信度低；(2) 本项目属<strong>医疗本体/语义层垂直领域</strong>，按指引可整体下调一档。叠加 Issue/PR 参与度为 0（新项目尚无时间窗口积累），综合判为 <strong>5–6 档</strong>。</p>
+<p>小分：<strong>1.8 / 3</strong></p>
+<h3>D3.2 贡献者结构多样性（满分 2.5 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>贡献者数量</td>
+<td><strong>1 人</strong></td>
+<td>单作者</td>
+</tr>
+<tr>
+<td>组织多样性</td>
+<td>1 个组织</td>
+<td>无外部组织</td>
+</tr>
+<tr>
+<td>核心团队占比</td>
+<td>100% 单人</td>
+<td>无外部贡献者</td>
+</tr>
+</tbody>
+</table>
+<p>API 与本地数据一致指向单人项目，贡献者页仅 1 人，无任何外部 PR（近 90 天 PR 数 = 0）。</p>
+<p><strong>评分</strong>：明确落入 <strong>1–2 档（单人项目）</strong>。</p>
+<p>小分：<strong>0.5 / 2.5</strong></p>
+<h3>D3.3 第三方生态成熟度（满分 3 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>插件/扩展</td>
+<td>无（无插件约定、无扩展点文档）</td>
+<td>无</td>
+</tr>
+<tr>
+<td>集成生态</td>
+<td>自建 OWL 导入 / Turtle 导出（Jena）、MCP 只读端点，属"对接标准"而非"被主流平台集成"</td>
+<td>极弱</td>
+</tr>
+<tr>
+<td>衍生项目</td>
+<td>无证据</td>
+<td>无</td>
+</tr>
+<tr>
+<td>教程/课程</td>
+<td>无（docs 仅 README）</td>
+<td>无</td>
+</tr>
+<tr>
+<td>Topics</td>
+<td><strong>[]</strong></td>
+<td>无生态标签</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分</strong>：第三方生态基本为零，仅有 OWL/SHACL/MCP 等标准接口作为潜在对接点，未观察到任何外部插件、集成或衍生品。判为 <strong>3–4 档（几乎无第三方生态）</strong>。</p>
+<p>小分：<strong>1.2 / 3</strong></p>
+<h3>D3.4 品牌认知与行业影响力（满分 1.5 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>品牌辨识度</td>
+<td>新项目，领域内尚无名气</td>
+<td>极低</td>
+</tr>
+<tr>
+<td>行业采用</td>
+<td>README <strong>无用户/案例展示</strong>，仅有演示场景</td>
+<td>无背书</td>
+</tr>
+<tr>
+<td>媒体覆盖</td>
+<td>无证据</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分</strong>：发布 8 天、87 Star 说明有初步曝光，但无任何企业采用、案例背书或媒体/会议覆盖，仅在极小范围（Star 者）内已知。判为 <strong>3–4 档</strong>。</p>
+<p>小分：<strong>0.6 / 1.5</strong></p>
+<h3>结论</h3>
+<p>本维度得分 <strong>4.1 / 10</strong>，处于"较弱"区间，构成商业化障碍。核心原因是项目刚发布约 8 天、<strong>单作者、零 Issue/零 PR、无 Topics、无第三方生态、无企业背书</strong>——社区与生态势能几乎尚未启动，属于"潜力待观察"而非"生态已成"阶段。唯一正向信号是 87 Star 与 28.7% 的较高 Fork 比率，暗示发布初期存在一定关注度，但需警惕新项目脉冲效应。若后续 3–6 个月能沉淀出外部贡献者、Issue 讨论与集成案例，本维度有较大上修空间。</p>
+<blockquote>
+<p>置信度说明：项目存续时间过短，Star 增速依赖退化公式、响应速度 N/A，社区活跃度判定的置信度偏低。</p>
+</blockquote>
+<h3>D4. 商业模式与变现潜力</h3>
+<p>BeModel 定位为「医疗领域轻量级本体平台 / 语义层」，技术形态是一套可私有化部署的 Spring Boot + Vue 全栈系统，覆盖本体建模、语义映射、Ontology2SQL、AI 客服、病案质控、链路追溯等能力。以下从协议约束、变现路径、付费转化、增值空间四个细项逐一评估。</p>
+<h3>D4.1 协议对变现模式的影响（2 分）</h3>
+<p><strong>得分：2.0 / 2（10 档 → 100%）</strong></p>
+<ul>
+<li>LICENSE 文件为标准的 <strong>Apache License 2.0</strong>（本地实测与 GitHub API 双重确认，无附加条款、无 NOTICE 限制性说明）。</li>
+<li>Apache 2.0 属宽松许可：允许闭源衍生、允许商用、允许 SaaS 托管、允许双协议组合、允许在开源核心之上叠加闭源企业模块。</li>
+<li>对本项目而言，<strong>Open Core、SaaS 托管、专业服务、双协议授权等所有主流变现路径均无法律障碍</strong>，且自带专利授权条款（§3），对医疗行业采购方的合规审查是加分项。</li>
+<li>唯一需注意的是：Apache 2.0 下无法通过「协议切换」强制竞品不得托管（不同于 Elastic/Redis 转 SSPL 的手段），但这对早期项目并非约束。</li>
+</ul>
+<p><strong>判断依据</strong>：LICENSE 文件全文 + 仓库 <code>license: Apache-2.0</code> 声明。</p>
+<h3>D4.2 变现路径清晰度（3.5 分）</h3>
+<p><strong>得分：2.1 / 3.5（5–6 档 → 60%）</strong></p>
+<table>
+<thead>
+<tr>
+<th>变现模式</th>
+<th>可行性</th>
+<th>判断说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Open Core</td>
+<td>中</td>
+<td>可实现——本体引擎/映射内核开源，审批流、多租户、SSO、审计合规、SHACL 高级校验作为企业版；但当前<strong>尚无任何功能分层设计</strong>，README 未提及企业版或付费墙</td>
+</tr>
+<tr>
+<td>SaaS 托管</td>
+<td>低-中</td>
+<td>医疗数据高度敏感、院方普遍要求私有化部署，纯 SaaS 阻力大；但「多院区集团/医联体托管」有一定空间</td>
+</tr>
+<tr>
+<td>双协议许可</td>
+<td>低</td>
+<td>Apache 2.0 已授予全部权利，无法回退做传统双协议（除非新版本另授权）</td>
+</tr>
+<tr>
+<td>专业服务</td>
+<td><strong>高</strong></td>
+<td>医院信息化项目高度依赖实施/咨询/本体建模定制/系统对接，是最自然的变现起点，且与项目「私有化 + 语义层定制」形态高度匹配</td>
+</tr>
+<tr>
+<td>市场/插件</td>
+<td>低-中</td>
+<td>已有 MCP 只读端点（<code>POST /mcp</code>），具备被外部 Agent 生态调用的雏形，但尚无插件市场机制</td>
+</tr>
+<tr>
+<td>认证/生态</td>
+<td>低</td>
+<td>无认证体系、无合作伙伴计划</td>
+</tr>
+<tr>
+<td>捐赠/赞助</td>
+<td>低</td>
+<td>无赞助入口，医疗垂直领域社区规模有限</td>
+</tr>
+</tbody>
+</table>
+<p><strong>核心判断</strong>：医疗语义层（Semantic Layer / Ontology）是有真实企业级需求的赛道，可参照 <strong>Palantir Foundry 本体层、Stardog、Ontotext</strong> 等商业先例；本项目的「语义层 + Ontology2SQL + 医疗质控」组合具备 <strong>专业服务 + Open Core</strong> 两条潜在主路径。但项目处于 <strong>v0.1.3、单贡献者、零 Release、零 CI</strong> 的纯演示阶段，README「当前边界」明确自述「尚未接入真实产品线」「生产化仍需补齐」，<strong>没有任何商业化包装、定价或企业版本痕迹</strong>，路径尚待验证。</p>
+<h3>D4.3 付费转化逻辑（2.5 分）</h3>
+<p><strong>得分：1.5 / 2.5（5–6 档 → 60%）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>免费到付费的触发点</td>
+<td><strong>弱</strong>。项目全部能力（本体建模、AI 客服、问数、质控、MCP、发布审批）均无功能门禁，开源版即完整版，缺少「免费不够用」的天然断点</td>
+</tr>
+<tr>
+<td>付费意愿强度</td>
+<td><strong>中-强</strong>。医疗机构的付费能力与意愿在信息化预算中属较高水平，且对合规、安全、SLA、数据治理有刚性付费诉求</td>
+</tr>
+<tr>
+<td>转化漏斗</td>
+<td><strong>不自然</strong>。当前无「使用者 → 试用院区 → 付费客户」的路径设计；最可能的转化逻辑是「先做实施项目（服务收费）→ 沉淀产品 → 反哺 Open Core」，属咨询驱动而非产品自驱</td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：付费转化的真实抓手在<strong>医疗行业特有的合规/安全/实施/集成</strong>（README 已自述需补齐 HTTPS、口令策略、审计完善、敏感字段脱敏、MCP 鉴权），这些恰是院方愿为「生产可用性」付费的部分。但项目本身没有把这些设计成升级触发点，触发逻辑需从零构建，因此判为「有升级逻辑但触发点不够自然」。</p>
+<h3>D4.4 增值服务空间与定价天花板（2 分）</h3>
+<p><strong>得分：1.2 / 2（5–6 档 → 60%）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>增值空间</td>
+<td><strong>中等偏大</strong>。可叠加：等保/合规加固、数据出口脱敏收口、SSO/多租户、HIS/LIS/PACS 深度适配、本体建模咨询、SHACL/OWL 高级治理、SLA 运维、私有化部署与升级服务</td>
+</tr>
+<tr>
+<td>定价天花板</td>
+<td>医院级纵深系统通常可达 <strong>数万至数十万元/年</strong>（≈ $10K+/年），但需以「已生产化 + 有落地案例」为前提；当前项目无实例、无案例，天花板无法兑现</td>
+</tr>
+<tr>
+<td>收入扩展性</td>
+<td>具备从「按院区 license」向「按集成模块/按数据源/按咨询人天」扩展的潜力，但同样停留在设想层面</td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：医疗垂直领域的客单价天花板客观上较高，增值方向（合规、安全、集成、SLA）也较明确；但项目自身<strong>零企业版、零定价、零落地案例、零真实库接入</strong>，增值能力尚未被任何硬证据支撑，故取行业中位偏保守的 60%。</p>
+<h3>D4 维度小结</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D4.1 协议对变现模式的影响</td>
+<td>2.0</td>
+<td>2.0</td>
+<td>100%（9–10）</td>
+</tr>
+<tr>
+<td>D4.2 变现路径清晰度</td>
+<td>3.5</td>
+<td>2.1</td>
+<td>60%（5–6）</td>
+</tr>
+<tr>
+<td>D4.3 付费转化逻辑</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>60%（5–6）</td>
+</tr>
+<tr>
+<td>D4.4 增值服务空间与定价天花板</td>
+<td>2.0</td>
+<td>1.2</td>
+<td>60%（5–6）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>6.8</strong></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>D4 维度得分：6.8 / 10（一般，略高于行业中位）</strong></p>
+<p><strong>核心结论</strong>：Apache 2.0 许可为变现扫清了全部法律障碍（该项目单项接近满分）；医疗语义层赛道本身存在真实的企业级需求与商业先例，专业服务 + Open Core 是两条可预见的主路径。但项目当前是<strong>单贡献者、无 Release、无 CI、无企业版、无定价、未接入真实系统</strong>的纯技术演示（v0.1.3），所有变现设计均需从零构建，付费触发点与转化漏斗尚不自然。因此商业潜力「可期但未验证」，判为一般水平。<strong>置信度提示</strong>：由于项目无任何商业化素材（无定价页、无企业版、无案例），D4.2–D4.4 的判断主要基于赛道横向参照而非项目自身硬事实，置信度偏低。</p>
+<h3>D5. 竞争格局与差异化壁垒（权重 12%）</h3>
+<h3>D5.1 竞品对比与市场定位（3 分 → 1.8）</h3>
+<p><strong>（1）竞品检索过程与防幻觉声明</strong></p>
+<p>本次评估随附的「竞品清单（GitHub Search API 实测验证）」返回了 5 个仓库，全部 <code>verified: true</code>：</p>
+<table>
+<thead>
+<tr>
+<th>返回仓库</th>
+<th>Star</th>
+<th>是否本项目的竞品</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>krahets/hello-algo</td>
+<td>130,324</td>
+<td>否，算法教程</td>
+</tr>
+<tr>
+<td>iluwatar/java-design-patterns</td>
+<td>94,709</td>
+<td>否，设计模式示例</td>
+</tr>
+<tr>
+<td>Stirling-Tools/Stirling-PDF</td>
+<td>92,687</td>
+<td>否，PDF 工具</td>
+</tr>
+<tr>
+<td>macrozheng/mall</td>
+<td>84,806</td>
+<td>否，电商系统</td>
+</tr>
+<tr>
+<td>spring-projects/spring-boot</td>
+<td>81,477</td>
+<td>否，基础框架</td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论：本次 GitHub 搜索返回结果全部是通用高星 Java 项目，与本项目（医疗本体 / 语义层）领域完全无关，属于搜索噪声，竞品验证实质失败。</strong> 因此下表中的非「仓库内引用」竞品均标注为<strong>未经搜索验证</strong>，本细则评分置信度相应下降，可能与被分析项目真实竞争环境存在偏差。严格禁止凭记忆断言「无竞品」——那只是搜索失败的结果，不能作为定位独特的证据。</p>
+<p><strong>（2）竞品对比表</strong></p>
+<table>
+<thead>
+<tr>
+<th>竞品名称</th>
+<th>类型</th>
+<th>仓库/官网</th>
+<th>验证方式</th>
+<th>Star/用户量</th>
+<th>核心差异</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Apache Jena（ARQ + SHACL）</td>
+<td>间接竞品 / 基础组件</td>
+<td>github.com/apache/jena</td>
+<td><strong>仓库内引用</strong>（README 技术栈明确声明为依赖，<code>rdf/</code> 模块使用其做 OWL 导入与 Turtle 导出）</td>
+<td>~1k+（Apache 顶级项目）</td>
+<td>通用 RDF/OWL 推理与 SHACL 校验框架；<strong>无医疗业务语义层、无「概念→物理表列」映射、无指标/质控/RCA</strong>；本项目是它的上层应用而非竞争者</td>
+</tr>
+<tr>
+<td>Protégé</td>
+<td>直接竞品（本体建模侧）</td>
+<td>protege.stanford.edu（Stanford）</td>
+<td>未经搜索验证（基于公开常识，可能存在偏差）</td>
+<td>桌面工具，学术界事实标准</td>
+<td>只做本体<strong>建模与编辑</strong>，不落地业务库映射、不做发布门禁/规则执法/问数；本项目在其能力之外多出 9 套业务库映射与治理闭环</td>
+</tr>
+<tr>
+<td>Ontop / Virtual Knowledge Graph</td>
+<td>直接竞品（技术路径几乎相同）</td>
+<td>github.com/ontop/ontop</td>
+<td>未经搜索验证（基于公开常识，可能存在偏差）</td>
+<td>开源学术项目</td>
+<td>同样主打「<strong>数据不搬家的虚拟知识图谱</strong>」（OBDA），用 SPARQL 重写为 SQL；通用领域，无医疗场景封装、无指标口径/质控/客服闭环</td>
+</tr>
+<tr>
+<td>dbt Semantic Layer / Cube</td>
+<td>间接竞品（通用语义层）</td>
+<td>cube.dev / getdbt.com</td>
+<td>未经搜索验证（基于公开常识，可能存在偏差）</td>
+<td>商业 + 开源，生态成熟</td>
+<td>面向 BI 的<strong>指标语义层</strong>，非本体驱动、非医疗、无跨 HIS/LIS/PACS 的医疗业务语义</td>
+</tr>
+<tr>
+<td>Palantir Foundry Ontology</td>
+<td>间接竞品（商业，同理念）</td>
+<td>palantir.com</td>
+<td>未经搜索验证（基于公开常识，可能存在偏差）</td>
+<td>商业头部（医疗/政府大单）</td>
+<td>「本体驱动决策」的工业级实现，能力维度高度重合；<strong>价格与实施门槛极高</strong>，本项目以「轻量级 + Java + 国产化」错位</td>
+</tr>
+</tbody>
+</table>
+<p><strong>（3）市场定位清晰度</strong></p>
+<ul>
+<li><strong>定位明确且有差异点</strong>：README 一句话定位写得相当清楚——「医院九套业务系统数据<strong>不搬家、不复制</strong>，通过『本体 + 映射』建统一语义层」。这与 Palantir Foundry / Ontop 的「虚拟化」路线同源，但叠加了明确的医疗场景封装（病案质控、链路追溯、RCA、指标口径卡）与国产 Java 技术栈，属于<strong>有取舍的差异化定位</strong>。</li>
+<li><strong>但差异化不够「尖」</strong>：项目同时承载本体建模、发布门禁、数据源绑定、AI 客服、智能问数、指标巡检、语义漂移、链路追溯、RCA、病案质控、MCP 开放、AI 对比实验室等十余条能力线（<code>bemodel</code> 下 24 个包），更像「医疗数据智能平台合集」而非单一锋利产品。对采购方而言，<strong>「轻量级」的自我定位与功能广度之间存在张力</strong>，反而削弱了可记忆的定位点。</li>
+<li><strong>成熟度落差巨大</strong>：87 star / 1 contributor / 0 release / 8 天项目龄（2026-09-13 创建，2026-09-21 最后推送），在任何一个上述竞品面前都处于<strong>绝对的跟随/早期地位</strong>，尚无任何外部采用证据。</li>
+</ul>
+<p><strong>评分判定</strong>：存在多个（直接 + 间接）竞品，本项目有差异化定位（医疗 + 不搬数据 + 轻量 Java），但定位不够聚焦、成熟度与竞品差距极大 → 落入 <strong>5–6 档</strong>，取 60% → <strong>1.8 / 3</strong>。</p>
+<hr />
+<h3>D5.2 技术壁垒与网络效应（3 分 → 1.2）</h3>
+<blockquote>
+<p>按细则归属说明，工程复刻难度已在 D2.2 计分，此处只评估<strong>商业防御效果</strong>（专利/数据/生态/网络效应）。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测事实</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术壁垒（专利/算法/数据）</td>
+<td>核心组件全部为成熟开源：Spring Boot 3.3、Apache Jena（ARQ+SHACL）、MyBatis-Plus、Flyway、Vue 3、DeepSeek API。README 未提及任何专利、专有算法或独占数据源；本体自检 7 类缺陷、Ontology2SQL 白名单、SHACL 双引擎互证均为<strong>公开技术路线的工程组合</strong></td>
+<td>无专利、无独占算法、无专有数据，<strong>壁垒薄弱</strong></td>
+</tr>
+<tr>
+<td>网络效应</td>
+<td>contributors = 1，watchers = 5，open issues = 0，PR 90 天 = 0，无插件市场、无第三方扩展、无社区</td>
+<td><strong>网络效应为零</strong></td>
+</tr>
+<tr>
+<td>规模效应</td>
+<td>无 SaaS 化、无多租户痕迹、无云化成本结构；数据全部留在客户院内库，平台侧不沉淀跨客户数据</td>
+<td><strong>无规模效应</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>唯一具备「飞轮」雏形的设计</strong>：README 描述的「本体增长回路」——搜索未命中/映射失败/客服答不了的说法自动汇入「概念缺口」，按热度排序并由 AI 归类建议，人工采纳后进入草稿→发布。这在<strong>单一客户内部</strong>确实会随使用时长提升本体覆盖率（数据飞轮），但它：</p>
+<ol>
+<li>是<strong>单实例内</strong>的积累，不跨客户共享，无法形成「用的人越多越好用」的跨租户网络效应；</li>
+<li>其积累物（本体 + 映射）可被 <strong>OWL 导入 / Turtle ABox 导出</strong> 明文带走（README 明确支持），反而降低了数据锁定价值。</li>
+</ol>
+<p><strong>评分判定</strong>：无专利/无独占数据/无生态/无跨租户网络效应，全部能力建立在公开技术栈之上，商业防御效果弱 → 落入 <strong>3–4 档</strong>，取 40% → <strong>1.2 / 3</strong>。</p>
+<hr />
+<h3>D5.3 切换成本与用户粘性（2 分 → 1.2）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测事实</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>潜在迁移成本（假设已落地）</strong></td>
+<td>若在真实医院上线，客户将积累：9 套业务库连接（密码 AES-GCM 加密落库）、全量物理快照、概念属性↔物理列逐列绑定、值字典、7 类公理、规则库、指标口径与探针 SQL、发布版本快照。<strong>重建这些资产成本很高</strong></td>
+<td>潜在粘性强</td>
+</tr>
+<tr>
+<td><strong>实际迁移成本（当前状态）</strong></td>
+<td>README「当前边界」明确写道：<strong>「演示数据为平台自建的九套 demo 库，尚未接入真实产品线」</strong>。当前部署为 <code>mvn spring-boot:run</code> + <code>pnpm dev</code> 一键起，演示数据一键重置</td>
+<td>现状粘性≈0</td>
+</tr>
+<tr>
+<td>深度集成</td>
+<td>需要配置 MySQL、导入 V1~V38 Flyway 迁移、注册数据源、逐列确认映射，<strong>集成深度确实较深</strong>（比即插即用工具重）</td>
+<td>中等偏强</td>
+</tr>
+<tr>
+<td>出口/反锁定</td>
+<td>支持 OWL 导入、Turtle ABox 导出（含脱敏），本体资产<strong>可携带迁移</strong>；数据本体留在客户自己的业务库中，平台不持数据</td>
+<td>显著削弱锁定</td>
+</tr>
+<tr>
+<td>习惯锁定</td>
+<td>无任何生产用户，无组织流程依赖证据（open issues = 0，说明连外部试用反馈都没有）</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分判定</strong>：设计上具备中等偏高的潜在迁移成本（映射/规则/口径资产 + 深度集成），但<strong>无任何实际落地证据</strong>，且本体可导出、数据不落平台侧，反锁定设计削弱了粘性 → 落入 <strong>5–6 档</strong>，取 60% → <strong>1.2 / 2</strong>。</p>
+<hr />
+<h3>D5.4 护城河可持续性（2 分 → 0.8）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测事实</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>护城河趋势</td>
+<td>项目创建 8 天、1 名贡献者、0 release、0 CI、0 迁移脚本外的治理文档（无 CONTRIBUTING / SECURITY / CODEOWNERS）。<strong>护城河尚未形成，谈不上增强或削弱</strong></td>
+<td>未起势</td>
+</tr>
+<tr>
+<td>颠覆风险</td>
+<td>双重威胁明确：① <strong>技术路线颠覆</strong>——LLM 与 Agent 驱动的自动语义解析、Text2SQL、知识图谱自动构建正是本项目「人工本体建模 + 人工映射确认」核心工作量的直接替代者；项目自身也依赖 DeepSeek，其「AI 对比实验室」的立论（裸 SQL 不可靠、需要本体约束）依赖 LLM 能力长期不进化，这是<strong>脆弱的前提</strong>。② <strong>巨头挤压</strong>——Palantir Foundry Ontology、通用数据虚拟化（Denodo/Ontop）与国内医疗数据中台厂商在预算与合规资质上全面占优</td>
+<td><strong>颠覆风险高</strong></td>
+</tr>
+<tr>
+<td>时间窗口</td>
+<td>唯一可能守住的窗口是「医疗行业国产权威合规 + 轻量部署 + 本体语义层」的窄缝，但本项目尚无专利、无认证（无等保/信创资质痕迹）、无标杆客户、无社区，<strong>该窗口当前无人看守，也无人证明能守住</strong></td>
+<td>窗口不确定</td>
+</tr>
+</tbody>
+</table>
+<p><strong>评分判定</strong>：护城河尚不存在，且面临 LLM 自动化与商业巨头的双重明确颠覆风险，项目自身成熟度不足以支撑任何「可持续优势」论断 → 落入 <strong>3–4 档</strong>，取 40% → <strong>0.8 / 2</strong>。</p>
+<hr />
+<h3>细则打分汇总</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+<th>核心依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D5.1 竞品对比与市场定位</td>
+<td>3</td>
+<td>1.8</td>
+<td>5–6 档（60%）</td>
+<td>定位清晰且有医疗差异化，但功能铺陈过宽削弱焦点；竞品林立、成熟度绝对落后；<strong>本次竞品搜索验证失败，置信度下降</strong></td>
+</tr>
+<tr>
+<td>D5.2 技术壁垒与网络效应</td>
+<td>3</td>
+<td>1.2</td>
+<td>3–4 档（40%）</td>
+<td>全部建立在开源栈（Jena/SHACL/Spring Boot/DeepSeek）之上，无专利/无独占数据/无跨租户网络效应</td>
+</tr>
+<tr>
+<td>D5.3 切换成本与用户粘性</td>
+<td>2</td>
+<td>1.2</td>
+<td>5–6 档（60%）</td>
+<td>设计上映射/规则/口径资产重建成本高，但未接入真实产品线，且 OWL/Turtle 可导出削弱锁定</td>
+</tr>
+<tr>
+<td>D5.4 护城河可持续性</td>
+<td>2</td>
+<td>0.8</td>
+<td>3–4 档（40%）</td>
+<td>护城河尚未形成，LLM 自动语义化与 Foundry/Denodo 类玩家构成明确颠覆风险</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>5.0</strong></td>
+<td>—</td>
+<td><strong>D5 = 5.0 / 10（一般偏弱）</strong>，加权贡献 5.0 × 12% = 0.60</td>
+</tr>
+</tbody>
+</table>
+<h3>D5 结论</h3>
+<p>BeModel 处在一个<strong>理念清晰、但护城河极度稀薄</strong>的位置上。</p>
+<p><strong>可取之处</strong>：「医疗九套系统数据不搬家、不复制，用本体 + 映射建语义层」这一句话定位是<strong>有辨识度的真差异化</strong>——它同时回避了数据搬迁成本与图数据库建设成本，并且把本体推理真正接到了质控、链路追溯、指标口径与 Ontology2SQL 的落地场景上，而非停在建模玩具层面。在没有直接开源竞品被检索到的情况下，其「医疗 + 轻量 + Java 国产栈」的卡位客观上存在空白。</p>
+<p><strong>致命短板</strong>：其一，<strong>竞品验证实质失败</strong>——搜索返回的 5 个高星仓库与本领域毫无关系，无法据此证明「定位独特」，本维度结论对真实竞争环境存在偏差，置信度已下调；其二，项目仅 87 star / 1 名贡献者 / 0 release / 8 天龄，且 README 自陈「尚未接入真实产品线」，任何护城河论断都缺乏落地基础；其三，技术栈全部为公开组件（Jena、SHACL、Spring Boot、DeepSeek），本体资产又支持 OWL/Turtle 导出，<strong>无专利、无独占数据、无跨租户网络效应、无迁移锁定</strong>，四道防线全部缺失；其四，面临「LLM 自动语义解析替代人工本体映射」这一路线级颠覆与 Palantir Foundry / Denodo 级巨头的双重挤压，且项目自身对 DeepSeek 的依赖使「必须有本体约束」的立论前提相当脆弱。</p>
+<p><strong>商业化含义</strong>：D5 得分 5.0（一般偏弱），是本项目的<strong>结构性短板而非可快速补足的缺口</strong>。若要改善，优先级应为：① 把「什么都做」收窄到一条可被记住的主线（建议聚焦「病案质控 / 异常链路追溯」这一类高频刚需场景），形成可对标的单点优势；② 用真实医院只读接入与标杆案例替换 demo 数据，将潜在迁移成本转化为真实粘性；③ 积累跨客户的行业本体模板（而非单实例本体），把「本体增长回路」从单机飞轮升级为跨租户数据资产，这是唯一可能建立网络效应的方向。</p>
+<blockquote>
+<p><strong>本维度置信度声明</strong>：D5.1 的竞品验证因搜索结果全部为无关仓库而失败，表中除 Apache Jena（仓库内引用确认）外的竞品均未经搜索验证，仅作竞争格局参照，D5 维度整体置信度下调。</p>
+</blockquote>
+<h3>D6. 法律合规与知识产权</h3>
+<p><strong>维度得分：7.7 / 10</strong>（权重 7%）</p>
+<p>项目采用 Apache License 2.0，协议明确、无 copyleft 传染、无商业附加条款，法律硬伤风险低；主要扣分项集中在依赖链中的 MySQL Connector/J（GPL-2.0 + FOSS Exception）、贡献者协议治理缺失，以及商标/专利未经人工核查。</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D6.1 开源协议合规性与商业限制</td>
+<td>3.0</td>
+<td><strong>3.0</strong></td>
+<td>9–10（100%）</td>
+<td>仓库根目录存在完整、标准的 Apache-2.0 LICENSE 全文（条款 1–9 + APPENDIX 齐全），GitHub API <code>license</code> 字段为 <code>Apache-2.0</code>，SPDX 标识规范；README 与 pom.xml <code>description</code> 均声明为 BeModel 医疗本体平台，未见附加条款；Apache-2.0 为非 copyleft 宽松协议，且第 3 条含明确专利授权、第 6 条明确不授予商标权，对 SaaS/私有化交付/双协议等变现路径无法律障碍。无可传染范围，无 Commons Clause/BUSL 类限制。</td>
+</tr>
+<tr>
+<td>D6.2 依赖链法律风险</td>
+<td>2.5</td>
+<td><strong>2.0</strong></td>
+<td>7–8（80%）</td>
+<td>Java 侧依赖约 20 项直依赖：Spring Boot 3.3.4 系（Apache-2.0）、MyBatis-Plus 3.5.7（Apache-2.0）、Apache Jena 5.2.0 arq/shacl（Apache-2.0）、Flyway core/mysql（Apache-2.0）、JJWT 0.12.6（Apache-2.0）、Lombok（MIT）、MCP Java SDK 2.0.1（MIT）；前端 9 项依赖 Element Plus/Vue/Router/Pinia/axios/Vite 为 MIT，ECharts 为 Apache-2.0。<strong>唯一需注意事项</strong>：<code>com.mysql:mysql-connector-j</code>（runtime scope）为 GPL-2.0 + Universal FOSS Exception，闭源商业分发场景需法律复核或以 MariaDB Connector/J（LGPL）替代。无 AGPL、无来源不明包，依赖总量中等，整体可控。</td>
+</tr>
+<tr>
+<td>D6.3 商标与专利风险</td>
+<td>2.5</td>
+<td><strong>1.5</strong></td>
+<td>5–6（60%）</td>
+<td><strong>未经人工核查，置信度低</strong>。项目名「bemodel / BeModel」未做商标检索，无法判断是否与既有医疗信息化/本体建模类商标冲突；医疗本体平台若内置 ICD-10/SNOMED CT/LOINC 等标准术语体系（本地素材未含本体数据文件，无法确认），其术语内容另有 UMLS/SNOMED 联盟许可约束，需单独核查。README 未声明商标使用政策。按方法论默认档位给分，实际结论需人工补采。</td>
+</tr>
+<tr>
+<td>D6.4 贡献者协议完备性</td>
+<td>2.0</td>
+<td><strong>1.2</strong></td>
+<td>5–6（60%）</td>
+<td><code>has_contributing: false</code>、<code>has_codeowners: false</code>、无 <code>.github/</code> PR/Issue 模板、无 DCO/CLA 配置。正面因素：GitHub API <code>contributors: 1</code>，版权高度集中、可控制，利于未来双协议/闭源许可切换；Apache-2.0 第 5 条（Submission of Contributions）提供默认的 inbound=outbound 贡献许可，构成最低限度的版权归集基础。负面因素：一旦引入外部贡献者，缺乏 CLA/DCO 将导致版权分散、无法整体再许可（relicense）。</td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<p><strong>法律合规总体风险低，不构成商业化阻断项，但存在两处需补强的治理缺口。</strong></p>
+<ol>
+<li><strong>协议层无硬伤</strong>：Apache-2.0 是商业化最友好的主流协议之一，允许闭源衍生、SaaS 托管、私有化交付与再许可，并含显式专利授权，无需担心 copyleft 传染。项目对变现模式的法律选择空间几乎不受限。</li>
+<li><strong>依赖链合规成本可控但有一处例外</strong>：MySQL Connector/J 的 GPL-2.0 + FOSS Exception 对「以开源方式分发」与「作为独立运行的数据库驱动使用」通常无害，但对<strong>闭源打包分发</strong>存在解释空间，建议在商业化前替换为 LGPL 的 MariaDB Connector/J，或在法务侧留档 FOSS Exception 适用性意见。</li>
+<li><strong>贡献者治理是最大短板</strong>：项目由单一作者掌控（1 位贡献者），当前版权清晰，但既无 CONTRIBUTING.md、无 CLA/DCO、无代码所有者机制。若计划走「开源核心 + 商业授权」双协议路线，<strong>必须在外部贡献规模化前补上 CLA</strong>，否则后期无法整体再许可。</li>
+<li><strong>商标/专利与医疗术语许可属于盲区</strong>：本次无人工核查数据，商标可用性、专利侵权、以及平台内本体/术语集（如 SNOMED CT、ICD、LOINC）的再分发许可均未验证。医疗领域术语授权是该类产品最常见的法律陷阱，建议在商业立项前完成专项法务尽调。</li>
+</ol>
+<blockquote>
+<p><strong>置信度说明</strong>：D6.1、D6.2 基于 LICENSE 全文与 pom.xml/package.json 实采清单，置信度高；D6.3 未经人工核查、置信度低；D6.4 基于仓库文件结构事实（无 CONTRIBUTING/CLA/CODEOWNERS），置信度中高。</p>
+</blockquote>
+<h3>D7. 企业就绪度与可运营性</h3>
+<blockquote>
+<p><strong>维度定位说明</strong>：本项目当前形态为「单实例演示级平台」（README 自述演示场景，代码中多处显式声明单实例假设）。因此本维度评估以「企业级运营能力是否具备」为标尺，而非以「演示是否跑通」为准。</p>
+</blockquote>
+<h3>D7.1 运维复杂度与升级路径（1.8 / 3）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断依据</th>
+<th>评价</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>配置管理</td>
+<td><code>application.yml</code> 中「账号密码与密钥全部走环境变量」；LLM API Key 走环境变量；无配置中心（Nacos/Apollo）支持</td>
+<td>基本达标</td>
+</tr>
+<tr>
+<td>运维负担</td>
+<td>需维护平台 MySQL + 9 类业务库（HIS/LIS/PACS/EMR/药房/收费/门诊/护士站/物资）多数据源连接；启动自动播种（幂等，<code>DataSeeder</code>）；无 Dockerfile、无 CI、无 Makefile/脚本（脚本文件 0 个）</td>
+<td>负担中等偏重</td>
+</tr>
+<tr>
+<td>升级路径</td>
+<td>无 GitHub Release（<code>recent_releases: []</code>），版本以 <code>release-V0.1.2</code> 分支形式存在；无 CHANGELOG 文件；主备 LLM 路由提供运行期容错，但应用版本无灰度/回滚机制</td>
+<td>有分支回退但无自动化</td>
+</tr>
+<tr>
+<td>数据迁移</td>
+<td><strong>Flyway <code>db/migration</code> V1~V38 自动迁移</strong>（含本体种子数据），是显著加分项；但无「迁移失败回滚/降级」策略文档</td>
+<td>自动迁移，缺回滚保障</td>
+</tr>
+</tbody>
+</table>
+<p><strong>小结</strong>：Flyway 版本化迁移 + 环境变量配置构成升级路径的主要支撑，基本实现「升级不需手工建表」。但缺少 Docker/CI 交付物、无发布产物（Release）、无升级回滚机制，且 9 库异构数据源的接入与维护对企业运维是实打实的负担。按标尺落在「需一定运维投入，升级需手动操作」档（5–6），取 60%。</p>
+<h3>D7.2 安全管理与权限控制（1.5 / 2.5）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断依据</th>
+<th>评价</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>认证授权</td>
+<td>Spring Security + JJWT；四角色 ADMIN/EDITOR/VIEWER/REVIEWER；路由守卫 + 拦截器。<strong>无 SSO / OAuth2 / LDAP / SAML 等企业身份对接</strong></td>
+<td>有认证，缺企业联邦</td>
+</tr>
+<tr>
+<td>权限模型</td>
+<td>角色级 RBAC（方法级 <code>CurrentUser.hasAnyRole(...)</code> 校验）；发布/废弃已发布概念需 REVIEWER/ADMIN 且<strong>禁止本人评审自己负责的概念</strong>（防自审）；<code>updateContent</code> 字段白名单防绕过状态机。属角色粗粒度，无资源级/属性级细粒度授权</td>
+<td>中等，粒度粗</td>
+</tr>
+<tr>
+<td>审计日志</td>
+<td>多类留痕齐备：LLM 调用逐次落审计表并绑定本体版本号、映射变更前后快照（<code>MappingLog</code>）、发布 <code>releasedBy/approvedBy/approvedAt</code> 分离、QA 证据链落库、MCP 调用审计复用</td>
+<td>较完善</td>
+</tr>
+<tr>
+<td>数据安全</td>
+<td>数据源连接密码 <strong>AES-GCM 加密存储</strong>；患者姓名统一脱敏（<code>Masking</code>）；RDF/OWL 导出脱敏；Ontology2SQL 走表/列白名单 + 只读校验 + 禁关键字；导出无身份证/电话/住址。传输加密（HTTPS）无明确配置说明</td>
+<td>存储加密强，传输加密未述</td>
+</tr>
+</tbody>
+</table>
+<p><strong>小结</strong>：审计与数据安全（加密 + 脱敏 + SQL 白名单）明显高于行业平均，是本维度的强项。但企业客户核心诉求的 <strong>SSO/LDAP/SAML 完全缺失</strong>，权限模型停留角色级、无资源细粒度授权，<code>has_security_md: false</code>。介于「有基本认证授权和审计」与「只有简单认证」之间，取 60%（1.5）。</p>
+<h3>D7.3 可扩展性与高可用能力（1.0 / 2.5）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断依据</th>
+<th>评价</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>水平扩展</td>
+<td>大部分 Spring Boot API 无状态；但 <code>LabRunService</code>/<code>SimulationService</code> 使用<strong>单线程执行器</strong>，注释明言「单用户演示期不做并发互斥，同时跑两边会互踩」；<code>OntologyProposalService.run()</code> 用<strong>方法级 synchronized</strong>，注释自承「仅单实例有效，多实例部署需分布式锁」</td>
+<td>明确单实例定位</td>
+</tr>
+<tr>
+<td>高可用</td>
+<td>无集群部署/故障转移配置。LLM 层有主备双端点路由 + 连败熔断 + 健康端点 <code>/api/llm/routes</code>，但这是上游依赖容错，非平台自身 HA</td>
+<td>缺平台级 HA</td>
+</tr>
+<tr>
+<td>性能瓶颈</td>
+<td><code>OntologyCheckService.check()</code> 全表 <code>selectList(null)</code>；<code>ConceptService.ancestorsOf</code> 逐层查询 N+1；<code>GovService.tables()</code> 对每表 COUNT；<code>ReleaseService.rebuildRelationClosures</code> 逐行 insert 未批量；<code>FlowService.decode</code> 缓存无容量上限</td>
+<td>存在多处隐患</td>
+</tr>
+<tr>
+<td>数据一致性</td>
+<td>平台单库（MySQL），事务覆盖关键写路径（<code>@Transactional</code> 用于发布/退费/采纳）；跨库仅只读查询，无分布式一致性问题</td>
+<td>单库场景自洽</td>
+</tr>
+</tbody>
+</table>
+<p><strong>小结</strong>：项目从设计上即定位为单实例演示平台（<code>synchronized</code> 单机锁、单线程执行器、显式声明不处理并发），无集群/HA 方案，多处全表扫描与 N+1 查询构成扩展障碍。落在「扩展困难」档，取 40%（1.0）。</p>
+<h3>D7.4 集成兼容与可观测性（1.2 / 2）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断依据</th>
+<th>评价</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>API 完备性</td>
+<td>后端 REST Controller（Concept/Ontology 等）；前端 axios 层覆盖全模块；<strong>MCP 只读端点 <code>POST /mcp</code></strong> 对外开放语义问答/搜索/指标三工具；未见 OpenAPI/Swagger 定义文件</td>
+<td>API 较全，缺契约文档</td>
+</tr>
+<tr>
+<td>标准协议</td>
+<td><strong>W3C 标准支持突出</strong>：OWL 导入、Turtle ABox 导出、SHACL 校验（Apache Jena）；MCP（Model Context Protocol）以标准协议对外暴露能力。<strong>无 Prometheus/OpenTelemetry/Webhook 支持</strong></td>
+<td>语义标准强，运维协议缺</td>
+</tr>
+<tr>
+<td>监控告警</td>
+<td>内置平台内告警中心（指标巡检异常通知）+ LLM 路由健康可视化 + 轮询刷新；<strong>无 Prometheus 指标暴露、无 Spring Boot Actuator/health 健康检查端点</strong></td>
+<td>有业务监控，缺基建监控</td>
+</tr>
+<tr>
+<td>日志体系</td>
+<td>统一使用 SLF4J（<code>@Slf4j</code>）；审计落库充分；但《代码质量观察》多处指出 <strong><code>catch</code> 空块无日志</strong>（<code>QcRuleEngine</code>、<code>FlowService.decode</code>）导致排障困难；无结构化日志/日志级别管理说明</td>
+<td>有日志但质量不均</td>
+</tr>
+</tbody>
+</table>
+<p><strong>小结</strong>：在<strong>语义层标准协议</strong>（OWL/RDF/SHACL/W3C）与 <strong>MCP 开放端点</strong>上具备差异化优势，这对医疗数据/AI 集成场景是加分项。但面向企业运维的标准可观测性（Prometheus/OTel/health check）完全缺失，日志存在静默吞异常。取 60%（1.2）。</p>
+<h3>维度结论</h3>
+<p><strong>D7 得分 = (1.8 + 1.5 + 1.0 + 1.2) / (3 + 2.5 + 2.5 + 2) × 10 = 5.5 / 10</strong></p>
+<p>本维度呈现鲜明的「两极分化」：<strong>安全合规与语义集成</strong>一侧表现优于行业平均——审计留痕体系（LLM/映射/发布/QA 四类）、AES-GCM 密钥加密、患者脱敏、SQL 白名单、W3C 语义标准、MCP 开放端点，均是医疗行业落地时的实质优势；但<strong>企业运营支撑</strong>一侧（SSO/身份联邦、细粒度权限、集群/HA、标准可观测性、交付物与升级回滚链路）几乎全部缺位，且代码中反复出现的单实例假设（<code>synchronized</code> 方法锁、单线程执行器）表明项目当前定位仍是<strong>演示/试点验证形态</strong>，而非企业可运营形态。</p>
+<p>对商业化的含义：该平台适合作为「语义层方法论 + AI 对比实验」的能力验证与 POC 载体向客户展示价值，但若作为企业客户的生产系统交付，运维、身份对接与高可用三项均需在商业化前补齐，构成明确的商业化前置工作量。</p>
+<hr />
+<h3>D8. 团队治理与可持续性</h3>
+<blockquote>
+<p><strong>重要前置说明（置信度警示）</strong>：本项目创建于 2026-09-13，最近推送为 2026-09-21，可观测历史仅约 <strong>8 天</strong>。团队治理与可持续性本质上是「时间序列」属性，需长期观测才能可靠判断，因此本维度整体置信度<strong>偏低</strong>。以下评分严格基于当前可获取的硬事实，无法观测项按规则标注，不做乐观外推。</p>
+</blockquote>
+<h3>硬事实基线</h3>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>实测值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>贡献者数</td>
+<td><strong>1</strong></td>
+<td>单人项目，巴士因子 = 1</td>
+</tr>
+<tr>
+<td>组织归属</td>
+<td>个人账号（yueyezhufeng）</td>
+<td>非公司/基金会/组织仓库</td>
+</tr>
+<tr>
+<td>创建→最近推送跨度</td>
+<td>8 天</td>
+<td>无长期活跃曲线可判断趋势</td>
+</tr>
+<tr>
+<td>90 天 PR / 关闭 Issue</td>
+<td>0 / 0</td>
+<td>无协作活动记录</td>
+</tr>
+<tr>
+<td>Releases</td>
+<td>0</td>
+<td>无版本发布</td>
+</tr>
+<tr>
+<td>GOVERNANCE.md / CONTRIBUTING.md / CODEOWNERS</td>
+<td>均无</td>
+<td>仅 README.md</td>
+</tr>
+<tr>
+<td>文档文件</td>
+<td>仅 ./README.md</td>
+<td>无路线图文档</td>
+</tr>
+<tr>
+<td>Sponsor / Open Collective / 融资信息</td>
+<td>无任何可见证据</td>
+<td>个人账号，无组织赞助入口</td>
+</tr>
+<tr>
+<td>Fork / Star</td>
+<td>25 / 87</td>
+<td>Fork/Star ≈ 28.7%</td>
+</tr>
+<tr>
+<td>archived</td>
+<td>false</td>
+<td>未见废弃标记</td>
+</tr>
+<tr>
+<td>CI workflows</td>
+<td>0</td>
+<td>无自动化治理基础设施</td>
+</tr>
+<tr>
+<td>代码规模</td>
+<td>39,200 行（Java 22,678 / Vue 15,754 / JS 768）</td>
+<td>单人体量偏大</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>细则打分</h3>
+<h4>D8.1 核心维护者能力与背景（满分 2.5）→ <strong>1.0</strong></h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术能力</td>
+<td>可间接验证：单人交付 39,200 行、249 个 Java 文件 + 完整 Vue 前端，测试占比 14.6%，具备中上工程交付能力。但无外部可核验的行业履历</td>
+</tr>
+<tr>
+<td>商业经验</td>
+<td><strong>无任何数据</strong>——无公司背景、无创业/企业服务记录可查</td>
+</tr>
+<tr>
+<td>投入度</td>
+<td>8 天内从创建到推送，短期投入强度高，但<strong>无法判断是否全职</strong></td>
+</tr>
+<tr>
+<td>巴士因子</td>
+<td><strong>= 1</strong>（contributors=1），核心人员离开则项目直接停摆</td>
+</tr>
+</tbody>
+</table>
+<p>对照评分指引：「3–4：高度依赖 1 人，业余投入」。技术交付能力尚可，但巴士因子为最低档 1、商业经验缺失、投入性质不明，落入 3–4 档。
+<strong>得分 = 2.5 × 40% = 1.0</strong></p>
+<h4>D8.2 治理模型透明度（满分 2）→ <strong>0.4</strong></h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>治理文档</td>
+<td>无 GOVERNANCE.md、无 CONTRIBUTING.md、无 CODEOWNERS、无路线图，仅 README.md</td>
+</tr>
+<tr>
+<td>开放程度</td>
+<td>90 天 PR 数 0、外部协作记录 0，无任何公开决策流程</td>
+</tr>
+<tr>
+<td>基金会/组织</td>
+<td>个人账号托管，非 CNCF/Apache/LF 等任何基金会成员</td>
+</tr>
+</tbody>
+</table>
+<p>对照评分指引：「1–2：无任何治理结构」。Apache-2.0 LICENSE 提供了基础法律框架，但它不构成治理机制，故仅取该档上沿。
+<strong>得分 = 2 × 20% = 0.4</strong></p>
+<h4>D8.3 资金支持与商业赞助（满分 2.5）→ <strong>1.0</strong></h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>现有资金</td>
+<td>无任何公司/基金会/VC 支持的可查证据；仓库归属个人账号</td>
+</tr>
+<tr>
+<td>赞助收入</td>
+<td>无 GitHub Sponsors / Open Collective / FUNDING.yml 等任何赞助入口信息</td>
+</tr>
+<tr>
+<td>商业实体</td>
+<td>无公司实体运营迹象</td>
+</tr>
+<tr>
+<td>资金可持续性</td>
+<td>无资金来源可评估</td>
+</tr>
+</tbody>
+</table>
+<p>对照评分指引：「3–4：几乎无资金支持，纯靠热情」。因维护者仍活跃（8 天前有推送），不落入「1–2：维护者已不活跃」档。
+<strong>得分 = 2.5 × 40% = 1.0</strong></p>
+<blockquote>
+<p>说明：GitHub API 未返回 sponsor/funding 字段，此处为「<strong>未观测到任何赞助证据</strong>」而非「确证无资金」，故取 3–4 档而非 0 分。</p>
+</blockquote>
+<h4>D8.4 项目可持续性与传承风险（满分 3）→ <strong>1.2</strong></h4>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>活跃趋势</td>
+<td><strong>无法判断趋势方向</strong>——可观测历史仅 8 天，无上升/平稳/下降曲线可言（当前活跃水平归 D3.1，此处不重复计分）</td>
+</tr>
+<tr>
+<td>维护延续性</td>
+<td>单人维护 + 无治理文件 + 无 CODEOWNERS，团队退出后<strong>几无社区接管机制</strong></td>
+</tr>
+<tr>
+<td>历史信号</td>
+<td>archived = false，尚无废弃标记</td>
+</tr>
+<tr>
+<td>分叉风险</td>
+<td>Fork 25 / Star 87（≈28.7%）比例偏高，绝对量小，暂无社区分裂证据</td>
+</tr>
+</tbody>
+</table>
+<p>对照评分指引：「3–4：活跃度下降，传承风险高」。本项目并非活跃度下降，而是<strong>传承机制根本缺失、巴士因子为 1</strong>，传承风险同样落在高区间。
+<strong>得分 = 3 × 40% = 1.2</strong></p>
+<hr />
+<h3>结论</h3>
+<p><strong>D8 维度加权前总分 = 1.0 + 0.4 + 1.0 + 1.2 = 3.6 / 10（较弱）</strong></p>
+<p>核心结论：本项目在团队治理与可持续性维度构成<strong>明确的商业化障碍</strong>。表现为三个叠加的硬缺陷：</p>
+<ol>
+<li><strong>单人项目、巴士因子 = 1</strong>：核心维护者一旦离开，项目无接管机制，商业合作方无法获得连续性保障；</li>
+<li><strong>治理真空</strong>：无任何治理文档、无协作记录、无 CI、无版本发布，决策与演进完全依赖单人，企业客户尽调无法通过；</li>
+<li><strong>无资金与商业实体</strong>：纯个人账号托管，未见任何赞助、公司或基金会的资金背书。</li>
+</ol>
+<p>需特别标注的两点方法论限制：
+- <strong>时间窗口极短（8 天）</strong>，D8.4 的「活跃趋势」与 D8.1 的「投入度持续性」均<strong>不具备判断条件</strong>，本维度结论应在后续 3–6 个月复评；
+- 技术交付体量（39,200 行、14.6% 测试占比）显示维护者工程能力不弱，<strong>这是本维度唯一的正向信号</strong>，但不足以改变治理与传承层面的结构性缺陷。</p>
+<p>综合而言，若该项目意欲商业化，<strong>首要任务是打破单人瓶颈</strong>：引入 ≥2 名常驻维护者、补齐 GOVERNANCE/CONTRIBUTING/CODEOWNERS、建立 CI 与发布节奏，方能将本维度提升至及格线。</p>
+<h3>D9 上手难度与易用性 详析</h3>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D9.1 安装难度</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6（60%）</td>
+<td>无 Docker / 一键脚本；须自备 JDK 21 + Maven 3.9 + MySQL 8 + Node 18 四类运行时，前后端分步手动启动</td>
+</tr>
+<tr>
+<td>D9.2 部署与配置难度</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6（60%）</td>
+<td>无 docker-compose / Helm / K8s 产物；需手动 export 环境变量并起两个进程；但配置项少（必填仅 2 项），Flyway 自动建表 + DataSeeder 自动播种显著降低依赖初始化成本</td>
+</tr>
+<tr>
+<td>D9.3 易用性与操作门槛</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6（60%）</td>
+<td>提供完整 Web 管理界面（非纯 CLI），操作以点击为主，默认配置合理（内置开发密钥 + LLM 自动降级 + 一键重置演示数据）；但领域概念门槛高（本体 / 公理 / OWL / SHACL / 语义映射），非专家难以独立使用，且无错误提示质量与智能补全的实证</td>
+</tr>
+<tr>
+<td>D9.4 学习曲线与首体验</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6（60%）</td>
+<td>README 提供清晰 quickstart 与 12+ 张界面截图，演示账号与演示数据自动就绪；但前置环境搭建耗时较长，示例代码文件数为 0，概念门槛高，无交互式 onboarding 教程</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>6.0</strong></td>
+<td>🟡 中等</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h3>分析</h3>
+<p><strong>D9.1 安装难度（1.5/2.5）</strong>：项目未提供 Dockerfile（<code>has_dockerfile: false</code>）、docker-compose、安装脚本或 CI 产物（<code>ci_workflows: 0</code>）。<code>pom.xml</code> 表明后端为 Spring Boot 3.3.4 单体（依赖 MyBatis-Plus、Flyway、Apache Jena、Spring Security + JJWT、MCP SDK），前端 <code>package.json</code> 为 Vue 3 + Vite 标准工程。安装链路为「装 JDK 21 → 装 Maven → 装 MySQL 8 → 装 Node 18 → 两端分别启动」，四类运行时均需手动准备，属于典型「需手动安装若干依赖 + 配置」的 5–6 档。Java 21 属较新版本、MySQL 8 为外部系统级依赖，抬高了门槛；好在 Java/Node 生态跨 Windows/macOS/Linux，平台覆盖无阻碍。</p>
+<p><strong>D9.2 部署与配置难度（1.5/2.5）</strong>：缺乏任何标准化部署产物（无容器化、无编排文件），生产化所需的 HTTPS、进程托管、审计收口在 README「当前边界」中被明示为待补。但项目在<strong>依赖初始化</strong>环节做了较强自动化：Flyway 自动执行 V1~V38 迁移建表，<code>DataSeeder</code> 自动生成九个演示库与演示账号，配置项少且必填仅 2 项（MYSQL 账号密码），未配 Key 时 LLM 自动降级——这些使其在 5–6 档内偏上，但无容器化仍不足以进入 7–8 档。</p>
+<p><strong>D9.3 易用性与操作门槛（1.5/2.5）</strong>：这是本项目的相对亮点——提供完整的 Vue 3 + Element Plus Web 界面，本体建模、数据源绑定、链路追溯、智能问数、AI 对比实验室等能力均为图形化操作，无需记忆复杂命令；内置演示账号、演示数据一键重置、默认开发密钥零配置可跑，默认合理性较好。但短板同样明显：功能域高度专业化（本体、公理、OWL/Turtle、SHACL、语义映射、Ontology2SQL），非该领域专家难以理解并正确使用；素材中亦未见错误提示友好度或命令自动补全的实证。</p>
+<p><strong>D9.4 学习曲线与首体验（1.5/2.5）</strong>：README 的 quickstart 结构清晰（三步走 + 环境变量表 + 演示账号表），配合 12+ 张功能截图形成较好的「所见即所得」引导，Aha Moment 相对明确（登录后即可看到已播种的演示数据与完整业务闭环）。但首次成功的前置成本取决于用户能否快速备好 JDK 21 + MySQL 8 + Node 18，属分钟级到小时级区间；示例代码文件为 0、无交互式教程、概念门槛高，整体落在「需半天到一天上手，有基本文档但需自行摸索」的 5–6 档。</p>
+<h3>结论</h3>
+<p><strong>D9 上手难度等级：🟡 中等（6.0/10）</strong>。项目在<strong>应用内部自动化</strong>（Flyway 建表、DataSeeder 播种、内置演示账号、LLM 降级、演示数据重置）与<strong>图形化操作</strong>上表现良好，显著优于纯 CLI 工具；但<strong>应用外部环境搭建</strong>（四个运行时 + MySQL 8，无 Docker / 一键脚本）和<strong>领域概念门槛</strong>（本体 / 公理 / OWL / SHACL）构成两道主要门槛。面向人群为有 Java + Node + MySQL 环境能力的技术开发者与医疗信息化人员，非技术人员无法独立完成部署。商业化建议：补齐 Dockerfile / docker-compose 一键部署产物，并提供带演示数据的容器镜像，可将 D9 从 6.0 提升至 7–8 区间。</p>
+<h3>D10 功能价值（使用价值视角）</h3>
+<blockquote>
+<p>本维度为平行维度，权重 0%，不计入百分制综合评分、不参与一票否决；仅回答「用它的人省了/赚了多少」，与 D1–D9 的商业交换价值视角正交。</p>
+</blockquote>
+<h3>D10.1 效用强度 — 1.8 / 3（5–6 档，60%）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>单用户节省量</td>
+<td>若按 README 设想落地，可替医院省去「九套业务系统数据搬迁 + 图数据库 + ETL 语义层」的重建成本，潜在节省量级大；但当前无任何用户证言、无生产案例，节省量级是「设计意图」而非「已兑现事实」</td>
+</tr>
+<tr>
+<td>效用层级</td>
+<td>定位上属<strong>业务命脉级</strong>（医院数据语义层、病案质控、医嘱闭环追溯）；实现上仍是 V0.1.3 演示形态——README「当前边界」自陈「演示数据为平台自建的九套 demo 库，<strong>尚未接入真实产品线</strong>」</td>
+</tr>
+<tr>
+<td>效用确定性</td>
+<td>偏低。要发挥价值需同时具备：JDK 21 + Maven + MySQL 8 + Node 18 环境、自行配置 <code>MYSQL_USERNAME/PASSWORD</code>、可选 <code>DEEPSEEK_API_KEY</code>（无 Key 时 AI 能力降级为关键词路由/模板），且 MCP 端点演示期无鉴权。效用高度依赖采用者自身场景与二次生产化投入</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：功能覆盖面确实宽（本体建模 + OWL 导入/SHACL 校验 + 映射 + Ontology2SQL + 病案质控 + RCA + 链路追溯 + MCP 只读端点，后端 22,678 行 Java、38 个 Flyway 迁移），对「正在自建医院语义层」的团队具备真实脚手架价值，可省数月从零搭建成本。但它不是被任何人依赖的现成组件，而是「一份高质量参考实现」：采用者需要理解并接管整套技术栈。按标尺落在「明确但有限的效率提升，易被替代（自研或另找方案）」区间，未达「项目级依赖」。</p>
+<h3>D10.2 实际使用规模 — 0.6 / 3（1–2 档，20%）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>依赖方数量</td>
+<td>N/A（应用型仓库，非库；素材未提供且该类项目无 Dependents 口径）</td>
+</tr>
+<tr>
+<td>下载/拉取量</td>
+<td>N/A（npm 周下载 / PyPI 月下载均为 N/A，Java 应用无对应包管理分发口径）</td>
+</tr>
+<tr>
+<td>生产采用证据</td>
+<td><strong>无</strong>。README 用户案例：0 条；README 明确「尚未接入真实产品线」</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>（仅引用素材硬事实，不估算）：
+- Star 87 / Fork 25 / Watcher 5 / <strong>Contributor 1</strong>（单人项目）；
+- 仓库公开仅约 8 天（2026-09-13 创建，2026-09-21 最近推送），无任何 release；
+- <code>open_issues = 0</code>、<code>issues_closed_90d = 0</code>、<code>prs_created_90d = 0</code>——没有任何外部用户提交问题或补丁的痕迹；
+- 无 <code>CONTRIBUTING</code>、无 <code>SECURITY.md</code>、无 <code>CODEOWNERS</code>、无 CI workflow、无 Dockerfile，无社区协作迹象。</p>
+<p>数量级指标（依赖方/下载量）在本项目形态下不适用，已在表内标 N/A；但「生产采用证据」这一考察点有实采结论且为负，故本细则整体按「几乎无人实际使用」档打分。Star/Fork 反映的是围观兴趣，不构成使用规模证据。</p>
+<h3>D10.3 免费可得的完整效用 — 2.0 / 2（9–10 档，100%）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>开源版完整性</td>
+<td>完整。仓库即全部能力：本体建模、发布门禁、映射绑定、AI 客服、智能问数、AI 对比实验室、MCP 端点、证据链、传导推演全部在 <code>bemodel-server</code> / <code>bemodel-web</code> 内，无企业版/社区版分层，无付费墙</td>
+</tr>
+<tr>
+<td>自托管完整性</td>
+<td>完整。<code>mvn spring-boot:run</code> + <code>pnpm dev</code> 即可本地拉起全套；Flyway 自动建表、<code>DataSeeder</code> 自动播种九套演示库，零配置可跑</td>
+</tr>
+<tr>
+<td>无隐性收费</td>
+<td>无。项目中不存在计费点；唯一外部付费项是使用者自备的 DeepSeek API Key，且「不配置则 LLM 能力自动降级（关键词路由 / 模板作答），平台功能不中断」——是可选增强而非付费门槛</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：Apache-2.0，无任何功能阉割或授权解锁设计。
+<strong>与 D4.3 的张力说明</strong>：本项满分意味着「使用价值 100% 免费可得」，这正是 D4.3（付费转化逻辑）在本项目上天然偏弱的镜像原因——开源赠与越彻底，可售卖的交换价值空间越窄，两者不矛盾，恰是同一价值结构的两个侧面。</p>
+<h3>D10.4 效用可持续性 — 1.6 / 2（7–8 档，80%）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>停维后效用存续</td>
+<td>中等偏优。平台为本地自托管形态（Spring Boot + MySQL），静态代码与服务均落在使用者自己机器上，停维不等于归零；但依赖 LLM 的问答/推理类能力在官方停维后需自行维护 prompt 与网关逻辑</td>
+</tr>
+<tr>
+<td>供应商锁定</td>
+<td>很低。核心依赖均为开源可控组件（Spring Boot、MyBatis-Plus、Flyway、Apache Jena、Vue 3、Element Plus）；唯一外部服务是 DeepSeek，且实现为可替换的「主备双端点路由」，无 Key 时可降级为规则/模板</td>
+</tr>
+<tr>
+<td>可分叉维护性</td>
+<td>良好。Apache-2.0 允许自由分叉；源码完整（22,678 行 Java + 15,754 行 Vue 全在仓库）；测试 5,719 行（测试占比 14.6%）为分叉后回归提供基础。扣分项：<strong>无 CI workflow、无 Dockerfile、无构建产物与依赖锁定说明（<code>dependencies</code> 实采为空）</strong>，构建可重现性依赖使用者手工复现 Maven/pnpm 环境；且 <strong>Contributor = 1</strong>，单点维护风险高，社区自建维护梯队尚未形成</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：主体本地化、依赖可替换，符合「7–8 档」；未达「完全本地化运行、无任何外部依赖」的 9–10 档，原因是 AI 能力链路的 DeepSeek 依赖 + 无 CI/容器化带来的分叉重建摩擦。</p>
+<h3>细则打分汇总</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>档位</th>
+<th>小分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10.1</td>
+<td>效用强度</td>
+<td>3</td>
+<td>5–6 档（60%）</td>
+<td>1.8</td>
+</tr>
+<tr>
+<td>D10.2</td>
+<td>实际使用规模</td>
+<td>3</td>
+<td>1–2 档（20%）</td>
+<td>0.6</td>
+</tr>
+<tr>
+<td>D10.3</td>
+<td>免费可得的完整效用</td>
+<td>2</td>
+<td>9–10 档（100%）</td>
+<td>2.0</td>
+</tr>
+<tr>
+<td>D10.4</td>
+<td>效用可持续性</td>
+<td>2</td>
+<td>7–8 档（80%）</td>
+<td>1.6</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td></td>
+<td><strong>6.0</strong></td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<p><strong>D10 功能价值（使用价值）= 6.0 / 10（一般档）</strong>，权重 0%，不计入综合评分。</p>
+<p>价值画像呈明显的「<strong>能力充沛、兑现为零</strong>」倒挂结构：</p>
+<ul>
+<li><strong>赠与侧拉满</strong>（D10.3 = 2.0/2）：Apache-2.0 下开源版即全部价值，零功能阉割、零隐性收费、零配置即可自托管跑通，使用者获取效用的边际成本近乎为零；</li>
+<li><strong>存续侧良好</strong>（D10.4 = 1.6/2）：本地化架构 + 可替换的 DeepSeek 依赖 + 完整源码 + 14.6% 测试覆盖，意味着「一旦被采用，价值不会因停维而立即蒸发」；</li>
+<li><strong>兑现侧塌陷</strong>（D10.1 = 1.8/3、D10.2 = 0.6/3）：潜在效用量级（医院语义层 / 病案质控 / 医嘱闭环追溯）属业务命脉级，但 README 自陈「尚未接入真实产品线」，Contributor 仅 1 人、仓库公开约 8 天、0 Issue、0 PR、0 Release、0 生产案例——<strong>没有任何一位使用者实际确认过它省下了什么</strong>。</li>
+</ul>
+<p>因此本项目的功能价值是<strong>期权型而非存量型</strong>：它对「正准备自建医疗语义层的团队」具备可观的省时价值（省数月脚手架成本），是高质量参考实现；但对当前使用者总量而言，已兑现的效用量级仍接近空白。这一结论<strong>不构成商业化硬伤</strong>（本维度权重为 0，低分不参与一票否决），但如实说明：D4.3 付费转化在结构上缺位，既有「开源即全部」的赠与策略因素，也有「尚无人跑通真实场景、价值未被验证」的阶段因素。若项目能接入哪怕一个真实医院库并公开案例，D10.1 与 D10.2 是唯二具备大幅上修空间的细则。</p>
+<h3>D11. 社会价值——正外部性视角（权重 0%，平行维度，不计入综合评分）</h3>
+<blockquote>
+<p>本维度评估项目对使用者之外的行业与社会产生的正外部性。归属上，D3.4 评「品牌影响力对商业势能的助力」，本维度评「对行业/社会的外溢贡献本身」。D11 为平行维度，权重 0%，不参与综合评分与一票否决。</p>
+</blockquote>
+<h3>D11.1 数字公共基础设施属性（满分 3）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测事实</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>关键依赖地位</td>
+<td>无包发布（npm/pypi 均为 N/A），无 dependents 数据；项目形态为独立端到端应用（后端 22,678 行 Java + 前端 15,754 行 Vue）</td>
+<td>非「数字底座」型依赖</td>
+</tr>
+<tr>
+<td>停摆影响面</td>
+<td>单贡献者、无 releases、无 CI；无任何下游项目引用</td>
+<td>停摆影响局限于自身使用者</td>
+</tr>
+<tr>
+<td>数字公共产品属性</td>
+<td>Apache-2.0 开放许可，服务医疗信息化公共利益；提供 MCP 只读开放端点</td>
+<td>具备开放许可与部分公共属性，但缺乏采用规模与治理结构</td>
+</tr>
+</tbody>
+</table>
+<p>项目是一个自包含的医疗本体建模平台，而非被大量下游复用的库/协议实现，未进入任何软件供应链的关键路径，也不存在 curl/OpenSSL 式的停摆波及面。尽管 Apache-2.0 与医疗公益定位赋予其一定公共产品特征，但 87 stars、1 名贡献者、0 次 release 的现状不支持「数字基础设施」定性。</p>
+<p><strong>小分：1.2 / 3（3–4 档 → 40%）</strong></p>
+<h3>D11.2 教育与人才价值（满分 2.5）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测事实</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>教学采用</td>
+<td>未检索到围绕本项目的教程/课程/awesome 列表</td>
+<td>无教学采用证据</td>
+</tr>
+<tr>
+<td>门槛降低效应</td>
+<td>提供了医疗本体/语义层从建模、映射、发布门禁到 AI 问数的完整可运行参考实现（Flyway V1~V38 + 自动播种演示数据）</td>
+<td>对医疗信息化开发者有工程参考价值</td>
+</tr>
+<tr>
+<td>源码学习价值</td>
+<td>测试 5,719 行、测试比 14.6%；技术栈较新（Java 21 / Spring Boot 3.3 / Apache Jena）</td>
+<td>代码结构具一定示范性，但无被广泛研读/借鉴的证据</td>
+</tr>
+</tbody>
+</table>
+<p>项目是一个可零配置演示的完整系统，对本领域开发者理解「本体 + 映射 + 语义层」的工程落地有一定参考意义；但文档仅 README 一份，无专门教学材料，无第三方围绕其展开教学，源码被阅读与借鉴的广度也缺乏证据支撑。</p>
+<p><strong>小分：1.0 / 2.5（3–4 档 → 40%）</strong></p>
+<h3>D11.3 普惠与可及性（满分 2.5）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测事实</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>能力平权化</td>
+<td>将医疗数据语义层/本体建模（原属商业数据中台、医院集成平台厂商的高价能力）以开源形式免费开放，支持私有化自建</td>
+<td>显著降低领域能力获取成本</td>
+</tr>
+<tr>
+<td>替代价格差</td>
+<td>商业医疗集成平台/语义层方案通常为高额项目制采购；本项目 Apache-2.0 免费</td>
+<td>价格差显著</td>
+</tr>
+<tr>
+<td>可及性支持</td>
+<td>README 为中文单语，无 i18n 证据；无无障碍专项证据；运行门槛为 JDK 21 + Maven 3.9 + MySQL 8 + Node 18，需自建九个 demo 库并配置多个环境变量；无 Dockerfile</td>
+<td>技术门槛与部署复杂度偏高，语言覆盖单一</td>
+</tr>
+</tbody>
+</table>
+<p>项目确实把原本昂贵的医疗语义层能力免费开放并可离线私有化部署，且「无 DeepSeek Key 时全链路可降级演示」进一步降低了试用门槛，普惠取向明确。但可及性受限于单语言文档、缺少容器化交付、且部署链路较长，覆盖面仍集中于具备 Java/MySQL 运维能力的技术团队。</p>
+<p><strong>小分：1.5 / 2.5（5–6 档 → 60%）</strong></p>
+<h3>D11.4 开放标准与行业推动（满分 2）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测事实</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>标准推动</td>
+<td>实现 OWL 导入、Turtle ABox 导出（Apache Jena ARQ）、SHACL 约束真跑校验、MCP 只读工具端点；遵循 W3C 语义网标准族</td>
+<td>实现并使用多项重要开放标准，防锁定价值成立</td>
+</tr>
+<tr>
+<td>科研支撑</td>
+<td>无学术引用/使用数据可采（外部检索不可得） → 该子项数据缺失</td>
+<td>无法评估</td>
+</tr>
+<tr>
+<td>行业示范效应</td>
+<td>87 stars、1 贡献者，无同行借鉴/模仿痕迹证据</td>
+<td>示范效应尚未形成</td>
+</tr>
+</tbody>
+</table>
+<p>项目在工程层面认真落实了 OWL / RDF / Turtle / SHACL 等 W3C 开放标准，并对外暴露 MCP 只读端点，具备防止厂商锁定的正向价值，属于「实现并使用了重要开放标准」的水平。但「主导标准」「被学术引用」「被同行广泛模仿」三类推动性证据均缺失，尚未外溢为行业标准推动力。</p>
+<p><strong>小分：1.2 / 2（5–6 档 → 60%）</strong></p>
+<h3>D11 细则分值汇总</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D11.1</td>
+<td>数字公共基础设施属性</td>
+<td>3</td>
+<td>1.2</td>
+<td>3–4 档（40%）</td>
+</tr>
+<tr>
+<td>D11.2</td>
+<td>教育与人才价值</td>
+<td>2.5</td>
+<td>1.0</td>
+<td>3–4 档（40%）</td>
+</tr>
+<tr>
+<td>D11.3</td>
+<td>普惠与可及性</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6 档（60%）</td>
+</tr>
+<tr>
+<td>D11.4</td>
+<td>开放标准与行业推动</td>
+<td>2</td>
+<td>1.2</td>
+<td>5–6 档（60%）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td><strong>4.9</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<p>D11 得分 <strong>4.9 / 10</strong>（权重 0%，平行维度，不计入综合评分）。项目的社会正外部性目前处于「弱于平均」区间：其最大亮点在 D11.3 普惠性（将昂贵的医疗语义层能力开源免费化、可私有化部署、无 Key 可降级）与 D11.4 开放标准落实（OWL / RDF / SHACL / MCP，防厂商锁定），而最薄弱的是 D11.1 数字基础设施属性与 D11.2 教育价值——项目为零下游依赖的独立应用，无 releases、无 CI、无教学采用与同行借鉴证据。</p>
+<p>需明确置信度限制：D11.4 的「科研支撑」子项无引用数据可采，D11.1 无 dependents/包下载量数据，D11.2 无教程与课程检索结果，均以「无证据 = 不成立」的保守口径处理，可能低估项目在中文医疗信息化小圈子内的实际影响。作为对比参照，竞品中 spring-boot（81k stars）、hello-algo（130k stars）等属基础设施/教材级项目，本项目与之量级差距达三个数量级，尚不具备可比的社会外溢规模。</p>
+<blockquote>
+<p><strong>平行维度声明</strong>：本维度权重 0%，不参与综合评分、商业价值画像权重与一票否决，仅用于 3.4 价值画像中的社会价值补充描述。</p>
+</blockquote>
+<h2>五、商业化价值判断</h2>
+<h3>5.1 综合判断</h3>
+<p>BeModel 综合评分 <strong>58.6/100</strong>，等级 <strong>B（中等商业化潜力）</strong>，价值画像为 <strong>📦 长尾项目</strong>。项目具备一定的商业化基础——赛道真实、痛点明确、协议宽松、架构有技术深度——但当前处于极早期演示阶段，距离可商业化产品存在显著差距。</p>
+<h3>5.2 核心价值亮点</h3>
+<ol>
+<li><strong>赛道真实且痛点明确</strong>：锚定医疗数据集成/语义层赛道，属成长期十亿美元级市场（估算置信度中低）；医院多系统数据孤岛、搬迁成本高的痛点真实存在（D1）。</li>
+<li><strong>产品设计有独立主张</strong>：本体驱动 AI + 三臂对比实验（AI+本体 vs AI直连DB vs 人工），证据链五段式硬约束（无锚点不输出），差异化明显（D2）。</li>
+<li><strong>协议环境最优</strong>：Apache-2.0 宽松许可，无 copyleft、无商业附加条款，专利条款显式授权，对 SaaS/私有化/双协议变现无法律障碍（D6 得分 7.7，为九维最高）。</li>
+<li><strong>技术架构有真实深度</strong>：含 OWL 导入、传递闭包物化 BFS、SHACL、传播引擎等真实算法，运用状态机/模板方法/策略/注册表/事件驱动等一致模式，复刻难度高（D2）。</li>
+<li><strong>变现路径无法律障碍</strong>：Open Core / SaaS / 专业服务 / 双协议等所有变现路径均可行，医疗垂直客单价天花板较高（$10K+/年级）（D4）。</li>
+</ol>
+<h3>5.3 核心价值制约</h3>
+<ol>
+<li><strong>项目极早期</strong>：创建仅 8 天、单贡献者、零 Release、零 CI、零 Dockerfile、未接入真实医院库，商业化距离远（D1/D3/D8）。</li>
+<li><strong>社区势能几乎为零</strong>：贡献者 1 人、无外部 PR、无 Topics、无第三方生态、无企业背书，品牌影响力仅在极小范围（D3 得分 4.1，为九维最低）。</li>
+<li><strong>护城河尚未形成</strong>：技术栈 100% 建立在公开组件上，无专利、无独占数据、无网络效应；本体资产支持 OWL 导入与 Turtle 导出（反锁定设计），削弱迁移粘性（D5）。</li>
+<li><strong>企业就绪度不足</strong>：无 SSO/OAuth2/LDAP/SAML 身份联邦，权限为角色级粗粒度，单实例演示定位，无集群/HA 方案，缺 Prometheus/OpenTelemetry/health check（D7）。</li>
+<li><strong>治理真空</strong>：无 GOVERNANCE.md / CONTRIBUTING.md / CODEOWNERS / 路线图，无资金来源或赞助入口，巴士因子为最低档 1（D8）。</li>
+<li><strong>变现漏斗需从零构建</strong>：全部功能无门禁，开源版即完整版，缺少「免费不够用→付费」的天然升级触发点（D4）。</li>
+</ol>
+<h3>5.4 价值画像解读</h3>
+<p>作为 <strong>📦 长尾项目</strong>（综合评分 58.6 &lt; 65，公共价值分 5.5 &lt; 7），BeModel 的商业价值与公共价值均未达到独立变现的门槛。但需注意：</p>
+<ul>
+<li>项目仅存续 8 天，D3/D8/D10/D11 等维度因观测窗口过短而置信度偏低，当前评分可能低估其长期潜力；</li>
+<li>D10 功能价值 6.0 分中，D10.3（免费可得的完整效用）满分 2.0，说明其「赠送侧」价值充分，但 D10.2（实际使用规模）仅 0.6 分，兑现侧塌陷；</li>
+<li>若项目后续接入真实医院产品线、积累用户案例并补齐工程基建，评分有上行空间。</li>
+</ul>
+<h2>六、商业路径分析</h2>
+<h3>6.1 路径总览</h3>
+<p>基于 D4 分析，BeModel 在 Apache-2.0 协议下所有变现路径均无法律障碍，但项目处于 v0.1.3 演示阶段，未有任何商业化包装。结合价值画像「长尾项目」的定位，建议采取 <strong>「先建能力、再谈变现」</strong> 的分阶段策略。</p>
+<h3>6.2 推荐路径（按优先级排序）</h3>
+<h4>路径一：专业服务 + 私有化交付（近期最可行）</h4>
+<ul>
+<li><strong>逻辑</strong>：医疗垂直客单价天花板较高（$10K+/年级），院方对合规安全增值点（HTTPS/审计/脱敏/MCP 鉴权）有明确付费意愿（D4）。</li>
+<li><strong>前提</strong>：需先完成至少一个真实医院 POC 落地，积累案例背书。</li>
+<li><strong>当前障碍</strong>：README 自陈尚未接入真实产品线，无落地案例，天花板无法兑现（D4）。</li>
+</ul>
+<h4>路径二：Open Core 模式（中期）</h4>
+<ul>
+<li><strong>逻辑</strong>：将企业级功能（SSO/审计增强/集群 HA/性能优化）作为付费层，开源版保留核心语义层能力。</li>
+<li><strong>当前障碍</strong>：全部功能无门禁，开源版即完整版，缺少天然升级触发点，转化漏斗需从零构建（D4）。</li>
+<li><strong>建议</strong>：在补齐企业就绪度（D7）的同时，有意识地划分社区版/企业版功能边界。</li>
+</ul>
+<h4>路径三：生态影响力变现（长期备选）</h4>
+<ul>
+<li><strong>逻辑</strong>：若商业化推进困难，可转向赞助/基金会托管/大厂雇佣维护者/围绕生态做服务与培训。</li>
+<li><strong>当前障碍</strong>：公共价值分仅 5.5，数字基础设施属性不足（无包发布、无 dependents、无 releases），教育价值缺乏硬证据（D11）。</li>
+</ul>
+<h3>6.3 路径修正说明</h3>
+<blockquote>
+<p>价值画像为「长尾项目」，按方法论 3.4 建议「技术借鉴或人才引进，不投入商业化」。但考虑到：
+1. 项目仅存续 8 天，多项指标处于「尚未积累」而非「已证伪」状态；
+2. D4 商业模式得分 6.8、D6 法律合规得分 7.7，具备商业化基础条件；
+3. 医疗语义层赛道真实存在企业级需求（可参照 Palantir Foundry/Stardog/Ontotext）；</p>
+<p><strong>建议采取「观察 + 轻投入」策略</strong>：不立即投入重资源商业化，但持续跟踪项目是否接入真实产品线、是否引入第二贡献者、是否发布首个 Release。若上述信号出现，可重新评估并升级为「纯商业工具」路径。</p>
+</blockquote>
+<h2>七、能力评估：能做什么 &amp; 最适合做什么</h2>
+<h3>7.1 当前已具备的能力</h3>
+<table>
+<thead>
+<tr>
+<th>能力域</th>
+<th>具体能力</th>
+<th>成熟度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>本体建模</td>
+<td>OWL 导入、Turtle ABox 导出（含脱敏）、SHACL 校验</td>
+<td>功能完整，演示级</td>
+</tr>
+<tr>
+<td>语义映射</td>
+<td>九套医院系统（HIS/LIS/PACS/EMR/OPD/药房/耗材/收费/护理）demo 库映射</td>
+<td>演示数据，未接真实库</td>
+</tr>
+<tr>
+<td>规则引擎</td>
+<td>QcRuleEngine（含 8 解释器）、传播引擎</td>
+<td>功能覆盖广，存在技术债</td>
+</tr>
+<tr>
+<td>AI 问答</td>
+<td>本体驱动 AI + 三臂对比实验 + 证据链五段式硬约束</td>
+<td>差异化设计，依赖 DeepSeek</td>
+</tr>
+<tr>
+<td>数据治理</td>
+<td>患者脱敏、SQL 白名单/只读校验、RBAC 评审门禁、防 XSS</td>
+<td>部分到位</td>
+</tr>
+<tr>
+<td>前端交互</td>
+<td>Vue3 + Element Plus SPA，含 ECharts 图/四层架构全景/时间线泳道/深链承接/角色门控</td>
+<td>完整可用</td>
+</tr>
+<tr>
+<td>标准接口</td>
+<td>MCP 只读开放端点、W3C OWL/Turtle/SHACL</td>
+<td>具防厂商锁定价值</td>
+</tr>
+<tr>
+<td>数据库迁移</td>
+<td>Flyway V1~V38 自动迁移</td>
+<td>自动化程度高</td>
+</tr>
+</tbody>
+</table>
+<h3>7.2 最适合的应用场景</h3>
+<ol>
+<li><strong>医院多系统数据整合 POC</strong>：在不搬迁数据的前提下构建统一语义层，适合作为院方数据中台建设的验证原型。</li>
+<li><strong>医疗本体工程教学/研究</strong>：39,200 行代码 + 14.6% 测试比 + OWL/SHACL 标准实现，具备医疗本体工程参考价值（D11）。</li>
+<li><strong>AI + 本体可信推理实验平台</strong>：三臂对比实验设计与证据链硬约束机制，适合作为「LLM 可信 AI 落地」的研究基座。</li>
+<li><strong>中小型医疗信息化厂商的技术借鉴</strong>：架构分层、状态机/策略/注册表等模式运用、OWL 导入与传递闭包物化 BFS 等算法实现，可供同类产品参考。</li>
+</ol>
+<h3>7.3 当前不适合的场景</h3>
+<ul>
+<li><strong>直接生产部署</strong>：无 Dockerfile/CI、单实例演示定位、无集群/HA、无 SSO，不具备生产级可靠性（D7）。</li>
+<li><strong>大规模数据量场景</strong>：存在全表 selectList(null)、N+1 逐层查询、闭包逐行 insert、无界缓存等性能隐患（D7）。</li>
+<li><strong>非本体专家的直接使用</strong>：领域概念门槛高（本体/公理/OWL/Turtle/SHACL/语义映射），示例文件为 0、无交互式教程（D9）。</li>
+<li><strong>跨行业快速复制</strong>：产品强绑定医疗单一行业，跨行业延展无证据（D1）。</li>
+</ul>
+<h2>八、短板识别：还缺少什么</h2>
+<h3>8.1 工程基建短板（最紧迫）</h3>
+<table>
+<thead>
+<tr>
+<th>缺失项</th>
+<th>当前状态</th>
+<th>影响</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dockerfile / docker-compose / Helm</td>
+<td>全部缺失</td>
+<td>无法一键部署，商业化推广第一道门槛未打通（D9）</td>
+</tr>
+<tr>
+<td>CI/CD Workflow</td>
+<td>ci_workflows = 0</td>
+<td>无持续集成门禁，代码质量无自动保障（D2/D7）</td>
+</tr>
+<tr>
+<td>Release / Tag</td>
+<td>recent_releases = 0</td>
+<td>无版本发布产物，用户无法获取稳定版本（D2/D4）</td>
+</tr>
+<tr>
+<td>回滚与灰度机制</td>
+<td>无</td>
+<td>升级路径仅有 Flyway 自动迁移，无回滚保障（D7）</td>
+</tr>
+<tr>
+<td>可观测性</td>
+<td>无 Prometheus/OpenTelemetry/health check</td>
+<td>生产运维盲区，日志存在 catch 空块静默吞异常（D7）</td>
+</tr>
+</tbody>
+</table>
+<h3>8.2 企业就绪度短板</h3>
+<ul>
+<li><strong>身份联邦完全缺失</strong>：无 SSO/OAuth2/LDAP/SAML，权限为角色级粗粒度（ADMIN/EDITOR/VIEWER/REVIEWER 4 个角色）（D7）。</li>
+<li><strong>无集群/HA 方案</strong>：LabRunService/SimulationService 单线程执行器且注释自承不做并发互斥，OntologyProposalService.run() 方法级 synchronized 自承多实例需分布式锁（D7）。</li>
+<li><strong>性能隐患</strong>：全表 selectList(null)、N+1 逐层查询、闭包逐行 insert、无界缓存（D7）。</li>
+</ul>
+<h3>8.3 安全短板</h3>
+<ul>
+<li><strong>SQL 注入隐患</strong>：FlowService/QcRuleEngine/GovService/OntologyProposalService 存在 SQL 字符串拼接注入隐患（D2）。</li>
+<li><strong>无依赖安全扫描</strong>：无 Dependabot/Snyk 等自动化安全扫描（D2）。</li>
+<li><strong>无 SECURITY.md</strong>：安全披露流程缺失（D6/D7）。</li>
+</ul>
+<h3>8.4 社区与治理短板</h3>
+<ul>
+<li><strong>巴士因子 = 1</strong>：单人项目，核心维护者离开即项目停摆（D8）。</li>
+<li><strong>治理真空</strong>：无 GOVERNANCE.md / CONTRIBUTING.md / CODEOWNERS / 路线图（D8）。</li>
+<li><strong>无资金来源</strong>：无任何可查的资金来源、赞助入口或商业实体，纯个人账号托管（D8）。</li>
+<li><strong>无第三方生态</strong>：无 Topics、无插件/集成/衍生项目/教程（D3）。</li>
+<li><strong>无贡献者协议</strong>：无 CLA/DCO，靠 Apache-2.0 第 5 条隐式贡献许可兜底，外部贡献规模化后将无法整体再许可（D6）。</li>
+</ul>
+<h3>8.5 文档与体验短板</h3>
+<ul>
+<li><strong>文档仅 README 一份</strong>：无 API 文档、无示例文件（example_files = 0）、无交互式教程（D2/D9）。</li>
+<li><strong>领域门槛高</strong>：本体/公理/OWL/Turtle/SHACL/语义映射等概念对非专家不友好（D9）。</li>
+<li><strong>中文单语</strong>：无 i18n/无障碍证据（D11）。</li>
+</ul>
+<h3>8.6 商业化短板</h3>
+<ul>
+<li><strong>无企业版/无定价页</strong>：enterprise_edition = 无，pricing_page = 无（D4）。</li>
+<li><strong>无付费触发点</strong>：全部功能无门禁，开源版即完整版（D4）。</li>
+<li><strong>无落地案例</strong>：README 自陈尚未接入真实产品线，0 条用户案例（D10）。</li>
+</ul>
+<h3>8.7 技术债</h3>
+<ul>
+<li>DataSeeder/部分 vue 单文件超 1000 行、FlowService.loop &gt;200 行、QcRuleEngine 单类 8 解释器、多处 @SuppressWarnings 强转与 N+1（D2）。</li>
+<li>测试比率仅 14.6%，且无持续集成门禁（D2）。</li>
+</ul>
+<h2>九、风险提示</h2>
+<h3>9.1 高风险项</h3>
+<table>
+<thead>
+<tr>
+<th>风险</th>
+<th>等级</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>巴士因子 = 1</strong></td>
+<td>🔴 高</td>
+<td>单人项目，核心维护者离开即项目停摆；无可查资金来源与商业实体（D8）</td>
+</tr>
+<tr>
+<td><strong>项目极早期，商业化距离远</strong></td>
+<td>🔴 高</td>
+<td>创建仅 8 天、零 Release、零 CI、未接入真实医院库，从演示到产品存在巨大鸿沟（D1/D4）</td>
+</tr>
+<tr>
+<td><strong>护城河尚未形成</strong></td>
+<td>🔴 高</td>
+<td>技术栈 100% 建立在公开组件上，无专利、无独占数据、无网络效应；本体资产支持 OWL 导入与 Turtle 导出（反锁定设计），削弱迁移粘性（D5）</td>
+</tr>
+<tr>
+<td><strong>路线级颠覆风险</strong></td>
+<td>🔴 高</td>
+<td>面临 LLM 自动语义解析/知识图谱自动构建的路线级颠覆，且其「必须有本体约束」的立论前提依赖 DeepSeek 长期不进化，较为脆弱（D5）</td>
+</tr>
+</tbody>
+</table>
+<h3>9.2 中风险项</h3>
+<table>
+<thead>
+<tr>
+<th>风险</th>
+<th>等级</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SQL 注入隐患</strong></td>
+<td>🟡 中</td>
+<td>FlowService/QcRuleEngine/GovService/OntologyProposalService 存在 SQL 字符串拼接注入隐患（D2）</td>
+</tr>
+<tr>
+<td><strong>性能扩展障碍</strong></td>
+<td>🟡 中</td>
+<td>全表 selectList(null)、N+1 逐层查询、闭包逐行 insert、无界缓存（D7）</td>
+</tr>
+<tr>
+<td><strong>企业身份联邦缺失</strong></td>
+<td>🟡 中</td>
+<td>无 SSO/OAuth2/LDAP/SAML，权限为角色级粗粒度，难以进入大型医院 IT 体系（D7）</td>
+</tr>
+<tr>
+<td><strong>无集群/HA 方案</strong></td>
+<td>🟡 中</td>
+<td>单实例演示定位，多实例需分布式锁但未实现（D7）</td>
+</tr>
+<tr>
+<td><strong>依赖链法律风险</strong></td>
+<td>🟡 中</td>
+<td>mysql-connector-j 为 GPL-2.0 + FOSS Exception，闭源分发前建议替换或法务留档（D6）</td>
+</tr>
+<tr>
+<td><strong>贡献者协议缺失</strong></td>
+<td>🟡 中</td>
+<td>无 CLA/DCO，外部贡献规模化后将无法整体再许可（D6）</td>
+</tr>
+<tr>
+<td><strong>商标与专利风险</strong></td>
+<td>🟡 中</td>
+<td>商标可用性与专利风险未经人工核查；若内置 SNOMED CT/ICD/LOINC 等术语集另有独立许可约束（D6）</td>
+</tr>
+<tr>
+<td><strong>竞品验证失败</strong></td>
+<td>🟡 中</td>
+<td>GitHub 搜索返回的 5 个 verified 仓库全部与本项目领域无关，竞品验证实质失败，D5.1 结论存在偏差，置信度下调（D5）</td>
+</tr>
+</tbody>
+</table>
+<h3>9.3 低风险项</h3>
+<table>
+<thead>
+<tr>
+<th>风险</th>
+<th>等级</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>协议合规风险</strong></td>
+<td>🟢 低</td>
+<td>Apache-2.0 协议明确规范，LICENSE 全文完整、SPDX 标识正确，无商业附加条款（D6）</td>
+</tr>
+<tr>
+<td><strong>项目停滞风险</strong></td>
+<td>🟢 低</td>
+<td>archived=false、无 deprecated 标记，项目尚未停滞（D8）</td>
+</tr>
+<tr>
+<td><strong>数据可信度风险</strong></td>
+<td>🟢 低</td>
+<td>多项指标因观测窗口过短（8 天）而置信度偏低，但属「尚未积累」而非「已证伪」</td>
+</tr>
+</tbody>
+</table>
+<h3>9.4 风险总结</h3>
+<p>BeModel 的核心风险集中在 <strong>「人」</strong> 和 <strong>「时」</strong> 两个维度：单人维护的可持续性风险（D8 得分 3.6，九维最低之一）与项目极早期带来的商业化不确定性（D3 得分 4.1，九维最低）。技术层面的风险（SQL 注入、性能隐患、企业就绪度不足）属于可通过工程投入解决的「已知问题」，而非根本性障碍。法律合规风险最低（D6 得分 7.7），为商业化提供了良好的协议基础。</p>
+<h2>十、结论与建议</h2>
+<h3>10.1 结论</h3>
+<p>BeModel 是一个 <strong>技术有深度、赛道有需求、但处于极早期</strong> 的医疗本体语义层平台。综合评分 <strong>58.6/100</strong>，等级 <strong>B（中等商业化潜力）</strong>，价值画像 <strong>📦 长尾项目</strong>。</p>
+<p>项目在 D4（商业模式，6.8）、D6（法律合规，7.7）、D1（市场需求，6.5）、D2（技术成熟度，6.5）四个维度表现良好，具备商业化基础条件；但在 D3（社区健康度，4.1）、D8（团队治理，3.6）两个维度严重不足，构成商业化的核心制约。</p>
+<p><strong>当前不建议立即投入重资源商业化</strong>，但项目具备观察价值与轻投入价值。若项目后续接入真实医院产品线、引入第二贡献者、发布首个 Release 并补齐工程基建，评分有显著上行空间。</p>
+<h3>10.2 分阶段建议</h3>
+<h4>阶段一：观察期（0–3 个月）</h4>
+<table>
+<thead>
+<tr>
+<th>行动项</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>跟踪关键信号</td>
+<td>是否接入真实产品线、是否引入第二贡献者、是否发布首个 Release、是否出现用户案例</td>
+</tr>
+<tr>
+<td>技术评估</td>
+<td>深入评估本体建模 + SHACL 发布门禁 + Ontology2SQL + 病案质控 + 链路追溯 + MCP 只读端点的技术深度与可复用性</td>
+</tr>
+<tr>
+<td>竞品调研</td>
+<td>针对 Protégé / Ontop / Cube / Palantir Foundry Ontology 等参照物做正式竞品分析（当前 D5 竞品验证失败）</td>
+</tr>
+<tr>
+<td>人才识别</td>
+<td>若核心维护者能力突出，可考虑人才引进或技术合作</td>
+</tr>
+</tbody>
+</table>
+<h4>阶段二：轻投入期（3–6 个月，若阶段一信号积极）</h4>
+<table>
+<thead>
+<tr>
+<th>行动项</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>补齐工程基建</td>
+<td>Dockerfile / CI / Release / 可观测性，打通商业化推广第一道门槛</td>
+</tr>
+<tr>
+<td>修复安全短板</td>
+<td>SQL 注入隐患、依赖安全扫描、SECURITY.md</td>
+</tr>
+<tr>
+<td>完成 POC 落地</td>
+<td>至少一个真实医院 POC，积累案例背书</td>
+</tr>
+<tr>
+<td>划分版本边界</td>
+<td>有意识地划分社区版/企业版功能边界，构建付费触发点</td>
+</tr>
+</tbody>
+</table>
+<h4>阶段三：商业化期（6–12 个月，若阶段二验证成功）</h4>
+<table>
+<thead>
+<tr>
+<th>行动项</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>专业服务 + 私有化交付</td>
+<td>利用医疗垂直高客单价（$10K+/年级）变现</td>
+</tr>
+<tr>
+<td>Open Core 模式</td>
+<td>企业级功能（SSO/审计增强/集群 HA/性能优化）作为付费层</td>
+</tr>
+<tr>
+<td>生态建设</td>
+<td>引入第二贡献者、建立治理文档、申请基金会托管或商业赞助</td>
+</tr>
+</tbody>
+</table>
+<h3>10.3 一句话建议</h3>
+<blockquote>
+<p><strong>BeModel 是一个值得跟踪的早期项目——赛道真实、协议宽松、技术有深度，但单人维护 + 8 天龄 + 零 Release 的现实决定了当前不宜重投入。建议以「观察 + 轻投入」策略跟进，待其接入真实产品线并补齐工程基建后，再评估是否升级为商业化投入。</strong></p>
+</blockquote>
+<h2>十一、项目地址</h2>
+<p><svg class="ri ri-muted" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.001 2C6.47598 2 2.00098 6.475 2.00098 12C2.00098 16.425 4.86348 20.1625 8.83848 21.4875C9.33848 21.575 9.52598 21.275 9.52598 21.0125C9.52598 20.775 9.51348 19.9875 9.51348 19.15C7.00098 19.6125 6.35098 18.5375 6.15098 17.975C6.03848 17.6875 5.55098 16.8 5.12598 16.5625C4.77598 16.375 4.27598 15.9125 5.11348 15.9C5.90098 15.8875 6.46348 16.625 6.65098 16.925C7.55098 18.4375 8.98848 18.0125 9.56348 17.75C9.65098 17.1 9.91348 16.6625 10.201 16.4125C7.97598 16.1625 5.65098 15.3 5.65098 11.475C5.65098 10.3875 6.03848 9.4875 6.67598 8.7875C6.57598 8.5375 6.22598 7.5125 6.77598 6.1375C6.77598 6.1375 7.61348 5.875 9.52598 7.1625C10.326 6.9375 11.176 6.825 12.026 6.825C12.876 6.825 13.726 6.9375 14.526 7.1625C16.4385 5.8625 17.276 6.1375 17.276 6.1375C17.826 7.5125 17.476 8.5375 17.376 8.7875C18.0135 9.4875 18.401 10.375 18.401 11.475C18.401 15.3125 16.0635 16.1625 13.8385 16.4125C14.201 16.725 14.5135 17.325 14.5135 18.2625C14.5135 19.6 14.501 20.675 14.501 21.0125C14.501 21.275 14.6885 21.5875 15.1885 21.4875C19.259 20.1133 21.9999 16.2963 22.001 12C22.001 6.475 17.526 2 12.001 2Z"/></svg> <a href="https://github.com/yueyezhufeng/bemodel-java">https://github.com/yueyezhufeng/bemodel-java</a></p>
+<hr />
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+</blockquote>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家　@冯伟雄　<a href="https://www.mova.work">www.mova.work</a></p><div class="page-footer">本页面由 <span class="at-acc">@向量之心</span> 打造的 github_anyliasis 系统自动维护。报告为 AI 辅助生成的第三方独立分析，仅供研究参考，不构成投资建议。</div></body></html>

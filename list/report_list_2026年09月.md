@@ -1,7 +1,7 @@
 # 报告清单 · 2026年09月
 
 > 本文件由 github_anyliasis 自动维护，每次发布报告时更新。
-> 本月共收录 74 条报告记录。
+> 本月共收录 75 条报告记录。
 
 | 序号 | 项目 | 综合得分 | 等级 | 一句话结论 |
 |------|------|----------|------|-----------|
@@ -79,6 +79,7 @@
 | 72 | [auenger/SiliRootLogoDesign](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/16/silirootlogodesign/report.html) | 33.0 | D | 存活9分钟、无LICENSE、TAM≈1个客户的内部Logo工具，仅D9易用性7.5分，只宜技术借鉴不宜商业化。 |
 | 73 | [max-sixty/worktrunk](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/16/worktrunk/report.html) | 67.0 | A | 痛点真、迭代猛、上手快，但变现载体为零且上游随时可能内化这一层，买的是窗口期权不是生意。 |
 | 74 | [jadenzhangrobot/zrcs](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/16/zrcs/report.html) | 42.1 | D | 技术底子不差，但法律上不可用、社区上无人用、商业上无设计，当前不具备商业化起步条件。 |
+| 75 | [yueyezhufeng/bemodel-java](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/21/bemodel-java/report.html) | 58.6 | B | 赛道真实、协议最优、技术有深度，但1人8天龄零Release，当前只值得跟踪观察，不宜重投入。 |
 
 ---
 

@@ -73,6 +73,17 @@ a:hover{text-decoration:underline}
   letter-spacing:1px}
 .credit a{color:var(--dim);text-decoration:none}
 .credit a:hover{color:var(--blue);text-decoration:underline}
+/* 署名提示气泡：品牌蓝圆角气泡 + 三角箭头，替代原生黑色 title 提示 */
+.credit .tip{position:relative;cursor:help;border-bottom:1px dashed #94a3b8}
+.credit .tip::after{content:attr(data-tip);position:absolute;left:50%;bottom:calc(100% + 6px);
+  transform:translateX(-50%);background:var(--blue);color:#fff;
+  border-radius:8px;padding:5px 11px;font-size:12px;white-space:nowrap;
+  letter-spacing:0;box-shadow:0 4px 14px rgba(37,99,235,.35);
+  opacity:0;visibility:hidden;pointer-events:none;transition:opacity .15s;z-index:10}
+.credit .tip::before{content:"";position:absolute;left:50%;bottom:100%;
+  transform:translateX(-50%);border:5px solid transparent;border-top-color:var(--blue);
+  opacity:0;visibility:hidden;pointer-events:none;transition:opacity .15s;z-index:11}
+.credit .tip:hover::after,.credit .tip:hover::before{opacity:1;visibility:visible}
 /* 月份快捷按钮 */
 .month-btns{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 20px}
 .month-btn{border:1px solid var(--line);background:#fff;color:var(--ink);
@@ -128,16 +139,20 @@ button.gh-link{font-family:inherit;cursor:pointer}
 @media (max-width:720px){.meth{padding:20px 16px}}
 </style></head><body><div class="wrap"><div class="topbar"><h1>开源项目商业价值分析报告库<span class="badge">分析方法论</span></h1><div class="topbar-links"><a class="gh-link" href="./index.html">← 返回报告库</a><a class="gh-link" href="https://github.com/weixiongf/Open-Source-Alpha-Reports" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>GitHub 仓库 ↗</a><a class="gh-link wish" href="https://github.com/weixiongf/Open-Source-Alpha-Reports/issues" target="_blank" rel="noopener">🙏 求分析 ↗</a></div></div><div class="meth-back"><a class="gh-link" href="./index.html">← 返回报告库</a></div><div class="meth">
 <h2>分析方法论说明</h2>
-<p class="lead">所有报告均由同一套版本化管理的方法论驱动（商业化潜力分析方法论 v1.6 / AI 分析技术方法论 v1.7）。完整版方法论有复杂评判机制，本页仅粗略介绍版本变更记录、评分维度、评分标准与扣分标准。</p>
+<p class="lead">所有报告均由同一套版本化管理的方法论驱动（商业化潜力分析方法论 v1.6.2 / AI 分析技术方法论 v1.7.2）。完整版方法论有复杂评判机制，本页仅粗略介绍版本变更记录、评分维度、评分标准与扣分标准。</p>
 <h3>一、历史版本变更记录</h3>
 <table>
 <thead><tr><th style="width:150px">文档</th><th style="width:130px;white-space:nowrap">版本</th><th>主要变更</th></tr></thead>
 <tbody>
-<tr><td rowspan="4">商业化潜力<br>分析方法论</td><td>v1.6<span class="ver-tag">当前</span></td><td>新增「数据信号归因」原则与归因表；D2 独立性纪律（只依代码/文档/工程事实打分，不受社区数据锚定）</td></tr>
+<tr><td rowspan="6">商业化潜力<br>分析方法论</td><td>v1.6.2<span class="ver-tag">当前</span></td><td>归因纪律补「归因证据不可得」中间态（禁止强行归因良性）；3.5 新增高风险文件素材覆盖要求（安装/构建脚本、scripts/、Dockerfile 等全文，消除非核心文件恶意行为漏检盲区）</td></tr>
+<tr><td>v1.6.1</td><td>3.6 阶段词典补全兜底规则；D4.1 协议档位对齐（BUSL 不误触一票否决）；D3.1 中性档更正；报告模板 D3/D8/D10 新增「数据归因」必输出段</td></tr>
+<tr><td>v1.6</td><td>新增「数据信号归因」原则与归因表；D2 独立性纪律（只依代码/文档/工程事实打分，不受社区数据锚定）</td></tr>
 <tr><td>v1.5</td><td>新增项目生命周期八阶段判定（🌱萌芽 → ⚰️废弃）；新项目专项处理（年龄 < 90 天）与 D8.4 否决豁免</td></tr>
 <tr><td>v1.4</td><td>新增用户利益侵害专项检查与扣分机制（严重 -5 / 中度 -3 / 轻微 -1，封顶 10 分）</td></tr>
 <tr><td>v1.3</td><td>新增 D10 功能价值、D11 社会价值平行维度与价值画像判定；勘误 D5 细则分值</td></tr>
-<tr><td rowspan="3">AI 分析<br>技术方法论</td><td>v1.7<span class="ver-tag">当前</span></td><td>评分卡新增「数据归因字段」；汇总环节新增「数据-质量解耦纪律」</td></tr>
+<tr><td rowspan="5">AI 分析<br>技术方法论</td><td>v1.7.2<span class="ver-tag">当前</span></td><td>调用 12 侵害检查素材补高风险文件全文；D8 评分卡补「deprecated 标记」；新增 profile_boundary 画像临界标记（临界区间报告须标注「画像临界」）</td></tr>
+<tr><td>v1.7.1</td><td>调用 12 计入各级调用次数；流程图补侵害检查节点；汇总顺序修正（扣分先于一票否决）</td></tr>
+<tr><td>v1.7</td><td>评分卡新增「数据归因字段」；汇总环节新增「数据-质量解耦纪律」</td></tr>
 <tr><td>v1.6</td><td>新项目（< 90 天）数据补采与 Star 逐日分布；D3/D8 特例切片；D8.4 否决豁免</td></tr>
 <tr><td>v1.5</td><td>新增用户利益侵害专项检查调用（M2.12 分析轮）与扣分计算</td></tr>
 </tbody>
@@ -199,4 +214,4 @@ button.gh-link{font-family:inherit;cursor:pointer}
 <li><b>一票否决</b>：以下任一情况等级直接判 D——① D6 法律合规 ≤ 3 分（根本性法律障碍）；② D8.4 项目可持续性 ≤ 1 分（项目已停滞/废弃）；③ D4.1 协议严重限制商业使用（≤ 0.5 分，如无协议或严重限制性协议）。年龄 < 90 天且保持活跃的新项目豁免 D8.4 否决（无历史 ≠ 停滞）。</li>
 <li><b>数据信号归因纪律</b>：数据低 ≠ 技术差。数据驱动的低分（社区指标、活动数据等）评分前先做归因——「太新 / 未推广 / 语言·地域壁垒 / 单人维护 / 工具型低互动 / 垂直小众」等良性归因不改分，但报告中禁止把数据低写成技术差、质量差。</li>
 </ul>
-</div><div class="meth-back"><a class="gh-link" href="./index.html">← 返回报告库</a></div><div class="foot">本页面由 @向量之心 打造的 github_anyliasis 系统自动维护。报告为 AI 辅助生成的第三方独立分析，仅供研究参考，不构成投资建议。</div><div class="credit"><a href="https://www.mova.work" target="_blank" rel="noopener">@魔法工厂</a> <span title="搜索微信视频号">@向量之心</span> <span title="搜索抖音号、微信公众号">@南山科学家</span> <a href="https://github.com/weixiongf" target="_blank" rel="noopener">@冯伟雄</a> · <a href="https://www.mova.work">www.mova.work</a></div></div></body></html>
+</div><div class="meth-back"><a class="gh-link" href="./index.html">← 返回报告库</a></div><div class="foot">本页面由 @向量之心 打造的 github_anyliasis 系统自动维护。报告为 AI 辅助生成的第三方独立分析，仅供研究参考，不构成投资建议。</div><div class="credit"><a href="https://www.mova.work" target="_blank" rel="noopener">@魔法工厂</a> <span class="tip" data-tip="搜索微信视频号">@向量之心</span> <span class="tip" data-tip="搜索抖音号、微信公众号">@南山科学家</span> <a href="https://github.com/weixiongf" target="_blank" rel="noopener">@冯伟雄</a> · <a href="https://www.mova.work" target="_blank" rel="noopener">www.mova.work</a></div></div></body></html>

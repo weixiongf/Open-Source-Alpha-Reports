@@ -1,0 +1,1840 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><title>Movo 商业价值分析报告</title><style>/* default — 品牌蓝紫主题（从 md2pdf.py 原 CSS 常量迁出，视觉与历史产物一致） */
+@page { size: A4; margin: 18mm 15mm 20mm 15mm; }
+* { box-sizing: border-box; }
+/* 字体规范：一律开源思源黑体 CN（OFL 免费商用）；正文 Regular/标题 Bold/大字数字 Light */
+body { font-family: "Source Han Sans CN","思源黑体 CN","Noto Sans SC",sans-serif; color:#1e293b; font-size:10.5pt; line-height:1.75; margin:0; }
+.cover { page-break-after: always; text-align:center; padding-top:40px; }
+.cover .kicker { color:#2563eb; letter-spacing:6px; font-size:12pt; font-weight:500; }
+.cover h1 { font-size:26pt; margin:14px 0 6px; }
+.cover .sub { color:#64748b; font-size:11pt; margin-bottom:22px; }
+.badge { display:inline-block; background:linear-gradient(135deg,#2563eb,#7c3aed); color:#fff; border-radius:18px; padding:16px 44px; margin:10px 0 18px; }
+.badge .g { font-size:34pt; font-weight:300; line-height:1; }
+.badge .s { font-size:12pt; opacity:.92; margin-top:4px; }
+.meta { color:#475569; font-size:9.5pt; margin-top:14px; margin-bottom:40px; }
+.bars { max-width:620px; margin:20px auto 0; text-align:left; }
+.bar-row { display:flex; align-items:center; gap:8px; margin:5px 0; font-size:9pt; }
+.bar-name { width:110px; text-align:right; color:#334155; font-weight:500; }
+.bar-track { flex:1; height:9px; background:#f1f5f9; border-radius:5px; overflow:hidden; }
+.bar-fill { display:block; height:100%; border-radius:5px; }
+.bar-val { width:30px; font-weight:700; color:#0f172a; }
+.bar-w { width:52px; color:#94a3b8; font-size:8pt; }
+h1 { font-size:17pt; color:#0f172a; border-bottom:3px solid #2563eb; padding-bottom:8px; }
+h2 { font-size:13.5pt; color:#1d4ed8; margin-top:26px; page-break-after: avoid; border-left:5px solid #2563eb; padding-left:10px; }
+h3 { font-size:11.5pt; color:#0f172a; margin-top:18px; page-break-after: avoid; }
+table { border-collapse:collapse; width:100%; margin:10px 0; font-size:9pt; page-break-inside:avoid; }
+th { background:#eff6ff; color:#1e3a8a; }
+th,td { border:1px solid #dbe3ef; padding:5px 8px; text-align:left; }
+tr:nth-child(even) td { background:#f8fafc; }
+code { background:#f1f5f9; border-radius:4px; padding:1px 5px; font-family:"JetBrains Mono","Cascadia Mono",monospace; font-size:9pt; color:#be185d; }
+pre { background:#0f172a; color:#e2e8f0; border-radius:8px; padding:12px 14px; overflow-x:auto; page-break-inside:avoid; }
+pre code { background:none; color:inherit; padding:0; }
+blockquote { border-left:4px solid #93c5fd; background:#eff6ff; margin:10px 0; padding:8px 14px; color:#334155; border-radius:0 8px 8px 0; }
+hr { border:none; border-top:1px dashed #cbd5e1; margin:22px 0; }
+strong { color:#0f172a; }
+.credit { color:#2563eb; font-size:10.5pt; font-weight:700; letter-spacing:1px; margin-top:12px; }
+.at-acc { background:#dbeafe; color:#1d4ed8; border-radius:4px; padding:0 4px; font-weight:500; white-space:nowrap; }
+.tail { page-break-inside:avoid; margin-top:26px; border-top:2px solid #2563eb; padding-top:14px; }
+.tail p { color:#64748b; font-size:8.5pt; line-height:1.6; margin:0 0 10px; }
+.tail .credit { text-align:center; margin:0; }
+.page-footer { text-align:center; color:#94a3b8; font-size:8.5pt; line-height:1.6; margin-top:28px; padding-top:12px; border-top:1px solid #e2e8f0; }
+/* Remix Icon 内联 SVG（icon_mode=remix 时由脚本注入，语义色与评分条一致） */
+.ri { width:1.05em; height:1.05em; vertical-align:-0.18em; display:inline-block; }
+.ri-ok { color:#16a34a; } .ri-warn { color:#d97706; } .ri-bad { color:#dc2626; }
+.ri-muted { color:#64748b; } .ri-star { color:#f59e0b; } .ri-brand { color:#2563eb; }
+.ri-gold { color:#d4a017; } .ri-silver { color:#9ca3af; } .ri-bronze { color:#b45309; }
+/* 屏幕预览：@page 边距仅在打印时生效，浏览器中居中限宽并收边（不影响 PDF 输出） */
+@media screen {
+  body { margin: 0 auto; padding: 28px 36px 56px; max-width: 980px; }
+}
+</style></head><body><div class="cover">
+<div class="kicker">开源项目商业化潜力分析 · 第 118 期</div>
+<h1>GitHub 开源项目 Movo<br>商业价值分析报告</h1>
+<div class="sub">himovo/movo · 自托管企业级 Agent 平台 · 九维度加权评估</div>
+<div class="badge"><div class="g">A 级 · 67.8</div><div class="s">综合评分（满分 100）· 高商业化潜力</div></div>
+<div><svg viewBox="0 0 560 480" width="560" height="480" xmlns="http://www.w3.org/2000/svg"><polygon points="280.0,209.6 299.5,216.7 309.9,234.7 306.3,255.2 290.4,268.6 269.6,268.6 253.7,255.2 250.1,234.7 260.5,216.7" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,179.2 319.1,193.4 339.9,229.4 332.7,270.4 300.8,297.1 259.2,297.1 227.3,270.4 220.1,229.4 240.9,193.4" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,148.8 338.6,170.1 369.8,224.2 359.0,285.6 311.2,325.7 248.8,325.7 201.0,285.6 190.2,224.2 221.4,170.1" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,118.4 358.2,146.8 399.8,218.9 385.3,300.8 321.6,354.3 238.4,354.3 174.7,300.8 160.2,218.9 201.8,146.8" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,88.0 377.7,123.6 429.7,213.6 411.6,316.0 332.0,382.8 228.0,382.8 148.4,316.0 130.3,213.6 182.3,123.6" fill="none" stroke="#e2e8f0" stroke-width="1"/><line x1="280.0" y1="240.0" x2="280.0" y2="88.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="377.7" y2="123.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="429.7" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="411.6" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="332.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="228.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="148.4" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="130.3" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="182.3" y2="123.6" stroke="#d8dee9" stroke-width="1"/><polygon points="280.0,126.0 353.3,152.7 378.8,222.6 374.8,294.7 306.0,311.4 280.0,240.0 181.3,297.0 199.2,225.7 280.0,240.0" fill="rgba(37,99,235,.22)" stroke="#2563eb" stroke-width="2.5"/><circle cx="280.0" cy="126.0" r="3.5" fill="#2563eb"/><circle cx="353.3" cy="152.7" r="3.5" fill="#2563eb"/><circle cx="378.8" cy="222.6" r="3.5" fill="#2563eb"/><circle cx="374.8" cy="294.7" r="3.5" fill="#2563eb"/><circle cx="306.0" cy="311.4" r="3.5" fill="#2563eb"/><circle cx="280.0" cy="240.0" r="3.5" fill="#2563eb"/><circle cx="181.3" cy="297.0" r="3.5" fill="#2563eb"/><circle cx="199.2" cy="225.7" r="3.5" fill="#2563eb"/><circle cx="280.0" cy="240.0" r="3.5" fill="#2563eb"/><text x="280.0" y="44.0" text-anchor="middle" font-size="12.5" fill="#334155" font-weight="600">D1</text><text x="280.0" y="58.0" text-anchor="middle" font-size="11" fill="#64748b">市场需求 7.5</text><text x="406.0" y="89.9" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D2</text><text x="406.0" y="103.9" text-anchor="start" font-size="11" fill="#64748b">技术成熟度 7.5</text><text x="473.0" y="206.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D3</text><text x="473.0" y="220.0" text-anchor="start" font-size="11" fill="#64748b">社区生态 6.6</text><text x="449.7" y="338.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D4</text><text x="449.7" y="352.0" text-anchor="start" font-size="11" fill="#64748b">变现潜力 7.2</text><text x="347.0" y="424.2" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D5</text><text x="347.0" y="438.2" text-anchor="start" font-size="11" fill="#64748b">竞争格局 5.0</text><text x="213.0" y="424.2" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D6</text><text x="213.0" y="438.2" text-anchor="end" font-size="11" fill="#64748b">法律合规 N/A</text><text x="110.3" y="338.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D7</text><text x="110.3" y="352.0" text-anchor="end" font-size="11" fill="#64748b">企业就绪 7.5</text><text x="87.0" y="206.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D8</text><text x="87.0" y="220.0" text-anchor="end" font-size="11" fill="#64748b">团队治理 5.4</text><text x="154.0" y="89.9" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D9</text><text x="154.0" y="103.9" text-anchor="end" font-size="11" fill="#64748b">上手难度 N/A</text></svg></div>
+<div class="bars"><div class="bar-row"><span class="bar-name">D1 市场需求</span>
+<span class="bar-track"><span class="bar-fill" style="width:75.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.5</span><span class="bar-w">权重13%</span></div>
+<div class="bar-row"><span class="bar-name">D2 技术成熟度</span>
+<span class="bar-track"><span class="bar-fill" style="width:75.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.5</span><span class="bar-w">权重14%</span></div>
+<div class="bar-row"><span class="bar-name">D7 企业就绪</span>
+<span class="bar-track"><span class="bar-fill" style="width:75.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.5</span><span class="bar-w">权重8%</span></div>
+<div class="bar-row"><span class="bar-name">D4 变现潜力</span>
+<span class="bar-track"><span class="bar-fill" style="width:72.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.2</span><span class="bar-w">权重18%</span></div>
+<div class="bar-row"><span class="bar-name">D3 社区生态</span>
+<span class="bar-track"><span class="bar-fill" style="width:66.0%;background:#d97706"></span></span>
+<span class="bar-val">6.6</span><span class="bar-w">权重11%</span></div>
+<div class="bar-row"><span class="bar-name">D8 团队治理</span>
+<span class="bar-track"><span class="bar-fill" style="width:54.0%;background:#dc2626"></span></span>
+<span class="bar-val">5.4</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D5 竞争格局</span>
+<span class="bar-track"><span class="bar-fill" style="width:50.0%;background:#dc2626"></span></span>
+<span class="bar-val">5.0</span><span class="bar-w">权重12%</span></div>
+<div class="bar-row"><span class="bar-name">D6 法律合规</span>
+<span class="bar-track"><span class="bar-fill" style="width:0.0%;background:#dc2626"></span></span>
+<span class="bar-val">N/A</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D9 上手难度</span>
+<span class="bar-track"><span class="bar-fill" style="width:0.0%;background:#dc2626"></span></span>
+<span class="bar-val">N/A</span><span class="bar-w">权重10%</span></div></div>
+<div class="meta">分析时点 2026-09-22 ｜ 数据来源：GitHub API + 仓库代码实测 ｜ 方法论 v1.6.2</div>
+</div><h1>第 118 期 · Movo 商业化潜力分析报告（完整版）</h1>
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家　@冯伟雄</p>
+<p><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/#methodology" target="_blank" rel="noopener">方法论版本: v1.6.2</a> | 综合评分: <strong>67.8</strong> | 等级: <strong>A（高商业化潜力）</strong> | 价值画像: 纯商业工具 | 【新项目豁免】无历史不构成停滞证据 | 【画像临界】落点与相邻画像路径差异见 5.3</p>
+</blockquote>
+<h2>一、项目概览</h2>
+<p><strong>MOVO（himovo/movo）</strong> 是一个自托管的企业级 Agent 平台，定位为把 DeepSeek Harness（DSH）等 Agent 运行时转化为可部署、可治理、可管理的企业生产级平台，覆盖企业知识问答、深度研究、内容生成、文档解析、工作流自动化、浏览器自动化与治理审计等 7+ 场景，主要面向企业技术决策者、架构师与 AI-ML 工程师。</p>
+<ul>
+<li><strong>生命周期阶段: 萌芽期</strong></li>
+<li><strong>项目年龄: 21 天</strong>（创建于 2026-09-01，末次推送 2026-09-22）</li>
+<li><strong>新项目豁免：无历史不构成停滞证据</strong>（年龄 &lt; 90 天、无 archived/deprecated 标记、近 30 天有 74 次 commit，D8.4 一票否决豁免）</li>
+<li>技术栈：Python（201,998 行）/ Vue（55,883 行）/ TypeScript（17,578 行），代码总量 275,964 行，测试占比 16.8%，50 份文档，5 条 CI workflow</li>
+<li>部署形态：本地部署（Docker Compose，默认 12 个服务）/ 混合部署</li>
+<li>许可：MOVO Community License（基于 Apache-2.0 + 附加限制，非 OSI 认证，GitHub 标注 NOASSERTION）</li>
+<li>社区规模：145 Star / 34 Fork / 5 Watcher / 1 位贡献者 / 42 个开放 Issue</li>
+<li>商业化距离：近（已内建商业授权、专有桌面端与 OEM/SaaS 授权入口）</li>
+</ul>
+<hr />
+<h2>二、安装部署与使用指南</h2>
+<blockquote>
+<p>上手难度等级：🟢 <strong>简单（8.0/10，位于 8–10 档下边界）</strong> —— 面向「具备 Docker 基础的技术人员」，可提供完整操作步骤。</p>
+</blockquote>
+<h3>1. 前置条件（README「Requirements and platform notes」）</h3>
+<table>
+<thead>
+<tr>
+<th>项</th>
+<th>要求</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>工具</td>
+<td>Git；Docker Desktop，或 Docker Engine + Docker Compose v2</td>
+</tr>
+<tr>
+<td>内存</td>
+<td>至少 8 GB 可用内存</td>
+</tr>
+<tr>
+<td>磁盘</td>
+<td>至少 20 GB 可用空间（镜像 + 应用数据）</td>
+</tr>
+<tr>
+<td>网络</td>
+<td>首次拉取镜像需可访问 GHCR 与 Docker Hub</td>
+</tr>
+<tr>
+<td>凭据</td>
+<td>至少一个兼容模型 API 的凭据，用于完成初始化</td>
+</tr>
+<tr>
+<td>平台</td>
+<td>Linux / macOS 直接可用；Windows 需 Docker Desktop + WSL 2 + Ubuntu</td>
+</tr>
+</tbody>
+</table>
+<h3>2. 五分钟快速启动（README「Start in 5 minutes」原文命令）</h3>
+<pre><code class="language-bash">git clone https://github.com/himovo/movo.git
+cd movo
+chmod +x movo
+./movo up
+</code></pre>
+<p>启动完成后打开：</p>
+<pre><code class="language-text">http://localhost:3000/admin/setup
+</code></pre>
+<p>README 明确说明：启动器会拉取官方预构建镜像、等待服务健康后打印初始化地址，<strong>不需要 <code>.env</code> 文件，也不需要本地构建镜像</strong>。Windows 用户需在 Ubuntu WSL 2 发行版中运行 MOVO，先用 <code>wsl -l -v</code> 确认 Ubuntu 存在，再用 <code>wsl -d Ubuntu</code> 进入；不要在 <code>docker-desktop:</code> 提示符下运行。</p>
+<h3>3. 替代启动方式</h3>
+<pre><code class="language-bash">docker compose up -d        # 直接使用同一批官方预构建镜像，Windows PowerShell/CMD 亦可
+./movo up --build           # 从源码构建并启动（开发者/贡献者路径）
+./movo build                # 仅构建镜像，不启动服务
+</code></pre>
+<p>README 提示：两种方式都不要求 <code>.env</code>；但原生 Compose 并行拉取，不具备启动器的持续重试与就绪等待；源码构建需额外下载 Playwright、LibreOffice、Docling 与模型资产，耗时与磁盘占用显著更高。</p>
+<h3>4. 首次初始化（Setup Wizard）</h3>
+<p><code>http://localhost:3000/admin/setup</code> 的向导会检查部署状态，并引导完成：创建组织与初始账号 → 连接默认对话模型 → 可选配置 embedding、rerank、vision、图像生成与 Web 搜索 Provider。Provider 凭据加密后存储。</p>
+<p>初始化完成后的三个入口（README 原文）：</p>
+<table>
+<thead>
+<tr>
+<th>Entry</th>
+<th>Default URL</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>User workspace</td>
+<td><code>http://localhost:3000/</code></td>
+<td>对话、研究、知识、文件与内容生成</td>
+</tr>
+<tr>
+<td>Admin console</td>
+<td><code>http://localhost:3000/admin/</code></td>
+<td>用户、模型、知识、Skills、Tools 与治理</td>
+</tr>
+<tr>
+<td>Setup wizard</td>
+<td><code>http://localhost:3000/admin/setup</code></td>
+<td>仅首次初始化</td>
+</tr>
+</tbody>
+</table>
+<h3>5. 日常运维命令（README「Common operations」原文）</h3>
+<pre><code class="language-bash">./movo status
+./movo logs chat-api
+./movo restart
+./movo update
+./movo backup /path/on/a/large-disk/movo-backup
+./movo down       # Stop containers and preserve data
+./movo down -v    # Permanently delete MOVO data after confirmation
+</code></pre>
+<p>生产环境建议固定 release tag 而非 <code>latest</code>，镜像选择、升级、备份恢复、反向代理与生产基线见 <code>docs/docker-deployment.md</code>。</p>
+<h3>6. 配置（默认无需 .env，仅在需要改端口/域名/版本/卷前缀时）</h3>
+<pre><code class="language-bash">cp .env.example .env
+</code></pre>
+<pre><code class="language-env">MOVO_PORT=3000
+MOVO_VOLUME_PREFIX=movo
+MOVO_IMAGE_PREFIX=ghcr.io/himovo/movo
+MOVO_VERSION=vX.Y.Z
+PUBLIC_BASE_URL=https://movo.example.com
+</code></pre>
+<p>注意：首次启动后需保持 <code>MOVO_VOLUME_PREFIX</code> 稳定；DNS、TLS 证书与外部反向代理由部署方自行负责。</p>
+<h3>7. 部署规模与能力边界</h3>
+<ul>
+<li><code>docker-compose.yml</code> 定义的服务：<code>bootstrap</code>（一次性密钥生成）、<code>mongo</code>、<code>redis</code>、<code>weaviate</code>、<code>dsh-runtime-host</code>、<code>chat-api</code>、<code>admin-api</code>、<code>document-api</code>、<code>document-worker</code>、<code>user-web</code>、<code>admin-web</code>、<code>gateway</code>，README 表述为「默认 Docker Compose 部署会启动 12 个服务」。所有外部组件（MongoDB / Redis / Weaviate）均由 Compose 内置并带健康检查，密钥由 <code>bootstrap</code> 服务自动生成，无需人工初始化。</li>
+<li><strong>Browser Agent 与 Code Agent</strong> 需另装 <a href="https://www.himovo.com/en/download.html">MOVO Desktop</a> 并连接自托管服务；该客户端为专有软件，源码不包含在本仓库与 Community Edition 中。</li>
+<li>仓库卫生检查：<code>python3 scripts/check_open_source_hygiene.py</code>。</li>
+</ul>
+<h2>三、评分总览</h2>
+<h3>九维评分表（D1–D9）</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>权重</th>
+<th>得分</th>
+<th>加权得分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1 市场与需求</td>
+<td>0.13</td>
+<td>7.5</td>
+<td>0.975</td>
+</tr>
+<tr>
+<td>D2 技术成熟度</td>
+<td>0.14</td>
+<td>7.5</td>
+<td>1.050</td>
+</tr>
+<tr>
+<td>D3 社区与生态</td>
+<td>0.11</td>
+<td>6.6</td>
+<td>0.726</td>
+</tr>
+<tr>
+<td>D4 商业模式与许可</td>
+<td>0.18</td>
+<td>7.2</td>
+<td>1.296</td>
+</tr>
+<tr>
+<td>D5 竞争格局与护城河</td>
+<td>0.12</td>
+<td>5.0</td>
+<td>0.600</td>
+</tr>
+<tr>
+<td>D6 法律合规</td>
+<td>0.07</td>
+<td>N/A</td>
+<td>—</td>
+</tr>
+<tr>
+<td>D7 工程化与运维</td>
+<td>0.08</td>
+<td>7.5</td>
+<td>0.600</td>
+</tr>
+<tr>
+<td>D8 可持续性</td>
+<td>0.07</td>
+<td>5.4</td>
+<td>0.378</td>
+</tr>
+<tr>
+<td>D9 团队与组织</td>
+<td>0.10</td>
+<td>N/A</td>
+<td>—</td>
+</tr>
+<tr>
+<td><strong>综合评分</strong></td>
+<td></td>
+<td></td>
+<td><strong>67.8</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>口径说明</strong>：D6、D9 因分析失败被标 N/A，未参与加权计算；一票否决检查不完整（D6 缺失）。综合评分 67.8，等级 <strong>A（高商业化潜力）</strong>。</p>
+</blockquote>
+<h3>D10 / D11 平行维度表</h3>
+<table>
+<thead>
+<tr>
+<th>平行维度</th>
+<th>得分</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10 功能价值</td>
+<td>6.4</td>
+<td>平台级交付物（12 服务），但 Browser/Code Agent 被隔断在闭源 Desktop 后</td>
+</tr>
+<tr>
+<td>D11 社会价值</td>
+<td>4.9</td>
+<td>源可用许可与闭源组件切割普惠性，无下游依赖图谱，非数字公共产品</td>
+</tr>
+<tr>
+<td><strong>公共价值分</strong></td>
+<td><strong>5.7</strong></td>
+<td>(D10 + D11) / 2</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>平行维度不进入综合评分公式，仅用于价值画像判定。</p>
+</blockquote>
+<hr />
+<h2>四、各维度详细分析</h2>
+<h3>D1. 市场需求与商业机会</h3>
+<h3>D1.0 项目分类标签</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>数据与AI / 应用软件（企业级 Agent 平台，含中间件与 DevOps 属性）</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>通用/跨行业</td>
+</tr>
+<tr>
+<td>目标用户角色</td>
+<td>企业决策者/CTO、架构师、AI/ML 工程师、后端开发者（次要：非技术业务用户）</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>企业内部工具、数据处理与分析、内容管理、协作沟通、研发流程优化、基础设施搭建</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>本地部署（Docker Compose 12 服务）/ 混合部署；配套专有桌面端</td>
+</tr>
+</tbody>
+</table>
+<p><strong>一句话定位</strong>：MOVO 是一个自托管的企业级 Agent 平台（应用平台），适用于通用/跨行业的企业知识问答、深度研究、内容生成与流程自动化场景，主要面向企业技术决策者、架构师与 AI 工程师，用于把 DeepSeek Harness 等 Agent 运行时转化为可部署、可治理、可管理的企业生产级平台。</p>
+<h3>D1.1 目标市场规模与增长性（满分 2.5）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TAM 估算</td>
+<td>十亿美元级以上（估算，未经外部数据验证，置信度低）</td>
+<td>定位于"企业级 Agent 平台"，聚合 RAG、深度研究、内容生成、工作流自动化、治理与管理员控制等多个高价值 AI 应用品类</td>
+</tr>
+<tr>
+<td>增长趋势</td>
+<td>明确扩张期</td>
+<td>LLM Agent / MCP 生态处于高速增长阶段；项目 topics 覆盖 agent、ai-agents、mcp、rag、workflow-automation 等热点赛道</td>
+</tr>
+<tr>
+<td>市场层级</td>
+<td>成长期市场（非蓝海，非红海终局）</td>
+<td>企业 AI Agent 平台在 2026 年仍是资本与厂商密集投入方向，格局未固化</td>
+</tr>
+</tbody>
+</table>
+<p><strong>小分：2.0 / 2.5（7–8 档，80%）</strong>
+依据：所对应的"企业 AI Agent 平台"属大型且高速增长的软件品类，量级可达十亿美元级以上；但外部市场规模数据不可采，无法确证"百亿美元级"，故不给满分档，并明确标注置信度低。</p>
+<h3>D1.2 痛点真实性与解决程度（满分 2.5）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>痛点真实性</td>
+<td>真实但非独占刚需</td>
+<td>README 明确指出"运行 Agent Demo 与为团队运营 Agent 平台非常不同"，认证、知识、管理、治理、交付是企业真实缺口；Issue 42 个开放、90 天 6 个关闭，说明有活跃反馈但尚未形成规模化刚需验证</td>
+</tr>
+<tr>
+<td>解决完整度</td>
+<td>部分方案</td>
+<td>Web 侧能力较完整（知识库、深度研究、文档解析 PDF/DOCX/XLSX/PPTX、内容与文件生成、Skills/MCP、治理审计、管理员控制台），但 Browser Agent 与 Code Agent 依赖<strong>专有且不开源</strong>的 MOVO Desktop，核心差异化能力不在社区版内</td>
+</tr>
+<tr>
+<td>替代成本</td>
+<td>替代品众多</td>
+<td>企业自托管 LLM/Agent 平台已有 Dify、RAGFlow、FastGPT、n8n、LangChain 生态等成熟选项，用户迁移与替换成本低</td>
+</tr>
+</tbody>
+</table>
+<p><strong>小分：1.5 / 2.5（5–6 档，60%）</strong>
+依据：解决了企业 Agent 落地中真实存在的治理/知识/管理痛点，方案覆盖面广（27.6 万行代码、166 个测试文件、50 篇文档），具备"基本可用"的完整性；但需求带有一定"锦上添花"色彩（项目自述"只需底层运行时则 DSH 足够"），且替代品密集、关键能力被专有桌面端切割，未达"行业级刚需 + 替代品极少"。</p>
+<h3>D1.3 市场时机判断（满分 2.5）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术成熟度曲线</td>
+<td>处于实质生产期前段</td>
+<td>Agent + MCP + RAG 已越过概念热炒，进入企业生产部署讨论；项目 2026-09 创建，3 周内密集发布 v0.1.1–v0.1.16 与 83 个 PR，说明踩在技术落地窗口</td>
+</tr>
+<tr>
+<td>竞争密度</td>
+<td>有先行者，格局未定但很拥挤</td>
+<td>开源企业 AI 平台已有多个头部项目占据心智，MOVO 依托 DSH（DeepSeek Harness）生态差异化，属"成长期 + 强竞争"</td>
+</tr>
+<tr>
+<td>监管/标准</td>
+<td>有正向推力</td>
+<td>MCP 等接口标准推进、企业数据合规与本地化部署诉求强化，对自托管治理型平台构成需求拉动</td>
+</tr>
+</tbody>
+</table>
+<p><strong>小分：2.0 / 2.5（7–8 档，80%）</strong>
+依据：恰逢 Agent 企业化落地的成长期，标准（MCP）与合规诉求推动需求；但同赛道已聚集实力派先行者，非"爆发前夜无竞争"的 9–10 档。</p>
+<h3>D1.4 应用场景广度（满分 2.5）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>行业覆盖</td>
+<td>全行业通用</td>
+<td>定位"企业 Agent 平台"，文档解析、知识问答、研究报告、内容与 PPT/表格生成、翻译、模板填充、系统集成均为跨行业能力</td>
+</tr>
+<tr>
+<td>场景多样性</td>
+<td>横向通用工具</td>
+<td>覆盖知识管理、深度研究、内容生成、工作流自动化、浏览器自动化、代码 Agent、治理审计、平台运维等 7+ 类场景</td>
+</tr>
+<tr>
+<td>可延展性</td>
+<td>强</td>
+<td>通过 Skills、Tools、MCP 连接业务系统，11 个内置 skills_specs（docx/pdf/pptx/xlsx/research/stock_analysis/theme-factory 等）体现横向可扩展</td>
+</tr>
+</tbody>
+</table>
+<p><strong>小分：2.0 / 2.5（7–8 档，80%）</strong>
+依据：跨行业、多场景、可延展性强，接近"通用基础设施级"；但本质是企业应用平台而非数据库/消息队列级底层基础设施，故未给 9–10 档。</p>
+<h3>D1 维度结论</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1.1 市场规模与增长性</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8 档</td>
+</tr>
+<tr>
+<td>D1.2 痛点真实性与解决程度</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6 档</td>
+</tr>
+<tr>
+<td>D1.3 市场时机判断</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8 档</td>
+</tr>
+<tr>
+<td>D1.4 应用场景广度</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8 档</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>7.5</strong></td>
+<td><strong>7–8 档（良好）</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：MOVO 落在一个规模大、增长快、跨行业通用的企业级 AI Agent 平台赛道，时机踩在技术生产化窗口，场景广度与解决方案覆盖面为其加分项（27.6 万行代码、12 服务 Docker Compose、完善文档与治理/管理能力）。主要扣分在于：①痛点虽真实但非独占刚需，Dify/RAGFlow/FastGPT/n8n 等成熟替代品密集；②Browser Agent 与 Code Agent 等差异化能力被封锁在不开源的专有桌面端，社区版方案完整度打折；③市场已有先行者，需正面竞争。整体市场机会成立但非"蓝海独占"，属良好水平（7.5/10）。<strong>注意：本维度外部市场规模数据不可采，TAM 与增长量级均为基于项目类型/行业的量级估算，未经外部数据验证，置信度较低。</strong></p>
+<h3>D2. 技术成熟度与产品质量</h3>
+<p><strong>维度权重</strong>: 14% ｜ <strong>维度得分</strong>: 7.5 / 10</p>
+<p>movo 是一个自托管企业级 Agent 平台，包含两套 Web 前端（user-web / admin-web）与三套后端服务（chat-api / admin-api / document-parser），代码总量约 27.6 万行、1608 个源码文件。工程规模与功能野心远超同 Star 量级的典型开源项目：契约驱动分层、完整企业治理（多租户/组织/配额/审计）、成熟的 CI 供应链门禁、完善的双语文档，均为其技术成熟度提供了有力支撑；但普遍存在的单文件巨型化（多处 1000–4000 行）、<code>except Exception: pass</code> 静默吞异常、重复代码与死代码堆积，以及 v0.1.x 的早期版本状态，构成了商业化交付前需重点偿还的技术债。</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据摘要</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D2.1</td>
+<td>产品设计与创新性</td>
+<td>1.5</td>
+<td>1.2</td>
+<td>7–8（80%）</td>
+<td>企业 Agent 平台定位清晰，治理能力差异化明显；但功能面极宽（知识/研究/写作/PPT/编码/浏览器/翻译/生图/定时任务），有整合式堆砌倾向</td>
+</tr>
+<tr>
+<td>D2.2</td>
+<td>架构设计与工程质量</td>
+<td>2</td>
+<td>1.6</td>
+<td>7–8（80%）</td>
+<td>契约驱动 + 引擎/策略/适配器分层清晰，复刻门槛高；但单文件职责过载、技术债明显，扣分</td>
+</tr>
+<tr>
+<td>D2.3</td>
+<td>代码整洁性与规范性</td>
+<td>1</td>
+<td>0.6</td>
+<td>5–6（60%）</td>
+<td>命名规范、注释详尽、类型注解较完整；但重复代码多、死代码、any 泛滥</td>
+</tr>
+<tr>
+<td>D2.4</td>
+<td>安全性</td>
+<td>1</td>
+<td>0.8</td>
+<td>7–8（80%）</td>
+<td>多租户隔离、注入防护、脚本沙箱、Trivy/SBOM/供应链门禁完备；但存在前端 XSS 与 URL 协议校验缺失</td>
+</tr>
+<tr>
+<td>D2.5</td>
+<td>UI/UX/UE</td>
+<td>1</td>
+<td>0.8</td>
+<td>7–8（80%）</td>
+<td>Naive UI + 主题工厂 + 双语 + 响应式 + reduced-motion，交互设计细致；但巨型组件、死样式、<code>window.alert</code> 等瑕疵</td>
+</tr>
+<tr>
+<td>D2.6</td>
+<td>功能完备度与稳定性</td>
+<td>1.5</td>
+<td>0.9</td>
+<td>5–6（60%）</td>
+<td>功能覆盖极广、i18n/时区完善；但版本仅 v0.1.x、21 天迭代 16 版、性能隐忧、环境依赖偏重</td>
+</tr>
+<tr>
+<td>D2.7</td>
+<td>文档与开发者体验</td>
+<td>1</td>
+<td>0.8</td>
+<td>7–8（80%）</td>
+<td>50 个文档文件，部署/发布/贡献/安全/技能规范齐全且中英双语；缺 API 参考</td>
+</tr>
+<tr>
+<td>D2.8</td>
+<td>测试与质量保障</td>
+<td>1</td>
+<td>0.8</td>
+<td>7–8（80%）</td>
+<td>CI 体系成熟（5 workflow、镜像扫描、供应链 guard、多平台矩阵）；但测试覆盖率低（行数比 16.8%）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td><strong>7.5</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>关键发现</h3>
+<p><strong>加分项（高于行业平均）</strong></p>
+<ol>
+<li>
+<p><strong>工程化门禁体系成熟</strong>：<code>.github/workflows</code> 含 5 条流水线——容器发布（validate → plan → publish → promote 四阶段）、镜像提升、DSH Runtime Guard（供应链/原生代码边界/升级契约三重校验）、升级候选隔离评估、Runtime Guard。CI 集成 Trivy 镜像扫描（<code>severity: CRITICAL,HIGH</code>，<code>exit-code: "1"</code>）、SBOM 生成、provenance attestation、<code>check_open_source_hygiene.py</code> 开源卫生检查，质量门禁强度达到商业级。</p>
+</li>
+<li>
+<p><strong>架构抽象层次高</strong>：<code>app/llm/providers</code>、<code>enterprise_capabilities/{browser,content,data,research}</code>、<code>services/presentation</code> 等模块以 Pydantic 契约（<code>contracts.py</code>）、引擎组合（<code>geometry_constraints_engine</code>/<code>overlap_resolver_engine</code>/<code>style_normalizer_engine</code>）、策略/状态机模式（<code>GeneralBrowserContext</code>、<code>FormTransactionTracker</code>、<code>LearnedWorkflowDriver</code>）组织。浏览器 Agent 的效果验证、表单事务账本、工作流学习回放，以及写作引擎「大纲→分节→视觉规划→后处理」流水线，均为高门槛自研积累，复刻难度显著。</p>
+</li>
+<li>
+<p><strong>安全工程扎实</strong>：全路由 <code>require_api_principal</code> / <code>get_current_admin_user</code> 鉴权；<code>_mongo_safe</code> 递归转义防 NoSQL 注入；<code>add_main_scope</code>/<code>resolve_main_id</code> 多租户隔离贯穿数据层；脚本引擎具备 <code>_deny_network</code>、<code>_guarded_open</code>、<code>_limit_child_process</code> 沙箱；<code>strip_external_web_raw</code> 防提示注入；密码哈希、API Key 解密、凭据脱敏（<code>redact_credential_payload</code>）齐备；含 SECURITY.md。</p>
+</li>
+<li>
+<p><strong>国际化与本地化完善</strong>：admin-web / user-web 均维护中英双语消息字典，配套 <code>appTimezone</code> 时区适配与 <code>formatScheduledWallTime</code> 等工具，对面向全球市场的商业化有实际价值。</p>
+</li>
+</ol>
+<p><strong>减分项（商业化障碍）</strong></p>
+<ol>
+<li>
+<p><strong>单文件巨型化是系统性缺陷</strong>：<code>desktop_agent_executor.py</code> &gt; 4000 行且导入近 80 个模块；<code>unified_compose/components.py</code> &gt; 2200 行；<code>App.vue</code> &gt; 2000 行；<code>ChatWindow.vue</code> ~1781 行；<code>skills.py</code>/<code>compose_skill.py</code>/<code>writer_engine/pipeline.py</code>/<code>presentation/*</code> 等超过 10 个文件在 1000 行以上。违反单一职责，显著抬高维护与协作成本。</p>
+</li>
+<li>
+<p><strong>异常处理与技术债堆积</strong>：<code>except Exception: pass</code> / <code>except Exception: return ""</code> 在 document_parser、sessions、compose、presentation 等多处静默吞异常，损害可观测性；已发现死代码（<code>_fallback_build</code> 未被调用）、未使用导入与参数、<code>str(payload).replace("'", '"')</code> 脆弱 JSON 构造、<code>test_draft</code> 分支引用未定义变量、async 路由中使用同步 <code>urllib.request</code> 阻塞事件循环、<code>list_users</code> 聚合 5+ 集合的 N+1 隐患。</p>
+</li>
+<li>
+<p><strong>前端安全瑕疵</strong>：<code>AnalyticsPage.vue</code> 的 <code>renderMarkdown</code> 对普通文本与表格单元格未做 HTML 转义即经 <code>v-html</code> 注入，存在 XSS 风险；<code>downloadDocument</code> 使用 <code>window.open(url)</code> 未校验协议；多处 <code>catch {}</code> 静默失败。此外 <code>any</code> 类型在 Vue/TS 代码中较为普遍，削弱类型安全。</p>
+</li>
+<li>
+<p><strong>版本成熟度偏低</strong>：最新版本 v0.1.16，仍处 0.1.x 早期阶段；项目创建至末次推送仅约 21 天，期间发布 7 个 Release、patch 号跳跃频繁（0.1.1/0.1.2/0.1.9/0.1.11/0.1.14/0.1.15/0.1.16），向后兼容性尚未验证。运行环境依赖较重（Python 3.10/3.11、Node 22/24、pnpm、MongoDB、阿里云 OSS、外部 LLM/搜索服务），提高部署门槛。<strong>注</strong>：无 Dockerfile 于采集数据中体现，但存在 docker compose 引用与容器 CI，疑为目录未穷尽采集所致。</p>
+</li>
+</ol>
+<p><strong>N/A 说明</strong>：D2.5 适用于含 UI 项目（user-web / admin-web 均为完整 Vue 3 应用），不触发 N/A；D2 总分无需缩放。硬件要求项：项目无 GPU/TPU 强制依赖（推理经外部 API），标记为宽松。</p>
+<h3>结论</h3>
+<p>movo 在架构设计意图、CI 工程化、安全实践与国际化维度表现出高于行业平均的水准，且核心自研能力（企业治理、浏览器 Agent 引擎、写作/演示引擎）具备明显复刻门槛与护城河。但其代码整洁性受制于单文件巨型化与静默异常处理，版本仍停留在 v0.1.x 早期，构成商业化交付前的主要技术风险。综合评定 <strong>7.5 / 10（良好）</strong>——技术底座具备商业化潜力，但需在模块拆分、异常治理、测试覆盖率与版本稳定化上持续投入。</p>
+<h1>D3. 社区健康度与生态势能（权重 11%）</h1>
+<h3>D3.1 社区活跃度指标（满分 3 分）→ <strong>2.4 / 3</strong></h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Star 增速</td>
+<td>年龄 21 天（&lt;30 天），按附录A 外推：145 ÷ 21 × 30 ≈ <strong>207 Star/月</strong></td>
+<td>落入 7–8 档（100–500/月）区间，但为外推值，波动大</td>
+</tr>
+<tr>
+<td>Fork 比率</td>
+<td>34 / 145 = <strong>23.4%</strong></td>
+<td>Star &gt;100，分母可用；23% 高于常见 10–15% 区间，衍生意愿较强，正向证据</td>
+</tr>
+<tr>
+<td>Issue 活跃度</td>
+<td>近 90 天 PR 新建 <strong>83</strong> 条、Issue 关闭 6 条、当前开放 Issue <strong>42</strong> 个</td>
+<td>参与热度很高，但开放 Issue 远多于关闭数，存在积压迹象</td>
+</tr>
+<tr>
+<td>响应速度</td>
+<td>无 Issue 平均关闭时长数据</td>
+<td>不可测，标 N/A（从本细则判断中剔除，不作扣分依据）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：项目核心指标强项为 Star 增速与 Fork 比率。Star 总量 145、年龄 21 天，按方法论「年龄 &lt; 30 天 → 附录A 年轻项目月增外推」得约 207 Star/月，落在 7–8 档（100–500/月）。Fork 比率 23.4% 在 Star&gt;100 时可作参考，属"被看好"的正向证据。PR/Issue 活动量极高（83 PR / 42 开放 Issue，3 周内），说明已有真实用户涌入并提交反馈。短板在于：42 个开放 Issue 仅关闭 6 个，Issue 响应速度无数据可测，且全部 PR 来自唯一贡献者（见 D3.2），无法确认社区协作式响应能力——因此不吃满 8–10 档。综合取 <strong>7–8 档（80%）→ 2.4/3</strong>。</p>
+<blockquote>
+<p>说明：stargazers API 采集失败（404），近 90 天/近 7 天 Star 增量缺失，故月增依靠「Star 总量 ÷ 实际年龄 × 30」外推，<strong>外推值不确定性高</strong>，需后续复采校准；Star 总量 145 为实测硬值。README 中有两处"点击 Star"引导及 linux.do 社区徽标，<strong>不能排除营销驱动成分</strong>，但 D3.1 只对社区活动规模计分，不据此加减。</p>
+</blockquote>
+<h3>D3.2 贡献者结构多样性（满分 2.5 分）→ <strong>1.5 / 2.5</strong></h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>贡献者数量</td>
+<td><strong>1 人</strong></td>
+<td>单点</td>
+</tr>
+<tr>
+<td>组织多样性</td>
+<td>无外部组织参与证据</td>
+<td>单一来源</td>
+</tr>
+<tr>
+<td>核心团队占比</td>
+<td>近 90 天 83 条 PR 均来自唯一贡献者</td>
+<td>100% 内部</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：项目年龄 21 天（&lt; 90 天），按新项目专项——<strong>贡献者少/单人属自然状态</strong>，外部贡献者尚未有时间出现，底线取 <strong>5–6 档（60%）→ 1.5/2.5</strong>。本项目至今未出现外部贡献者或多组织参与，故不上浮。</p>
+<blockquote>
+<p><strong>归因纪律提示（1.7）</strong>：单人维护属「结构性归因：单人/小团队维护」。本细则低分照给（贡献者结构单一是真实的生态与组织风险，巴士因子/传承风险交 D8 评估），<strong>但不得据此推断技术质量差</strong>——技术质量以 D2 独立评估为准。本项目代码规模（27.6 万行、测试 4.6 万行、5 个 CI workflow）与 D2 结论应相互印证，禁止以"1 个贡献者"否定工程水平。</p>
+</blockquote>
+<h3>D3.3 第三方生态成熟度（满分 3 分）→ <strong>1.8 / 3</strong></h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>插件/扩展</td>
+<td>有自带 skills_specs（docx/pdf/pptx/xlsx/theme-factory 等），但为<strong>内置</strong>能力，非第三方插件</td>
+<td>无第三方插件市场</td>
+</tr>
+<tr>
+<td>集成生态</td>
+<td>项目<strong>消费</strong> DSH Runtime / MCP 生态（topics: mcp, dsh-plugin），非被第三方集成</td>
+<td>单向依赖，非被集成</td>
+</tr>
+<tr>
+<td>衍生项目</td>
+<td>未发现基于 MOVO 的二次开发/商业衍生品</td>
+<td>缺失</td>
+</tr>
+<tr>
+<td>教程/课程</td>
+<td>有官方文档站与 demo 视频（自建），无外部第三方教程</td>
+<td>尚无</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：项目年龄 21 天（&lt; 90 天），第三方生态需时间发育，当前缺失<strong>不构成负面信号</strong>，按新项目专项底线取 <strong>5–6 档（60%）→ 1.8/3</strong>。需注意区分方向：MOVO 是作为 DSH 的插件/上层平台<strong>接入</strong>既有生态（MCP、DSH），属于"被集成方"的消费端，而非已形成"围绕 MOVO 的第三方生态"。未出现外部集成或衍生项目，故不上浮。</p>
+<h3>D3.4 品牌认知与行业影响力（满分 1.5 分）→ <strong>0.9 / 1.5</strong></h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>品牌辨识度</td>
+<td>领域内尚无明显认知度</td>
+<td>萌芽</td>
+</tr>
+<tr>
+<td>行业采用</td>
+<td>无知名企业采用/背书证据</td>
+<td>缺失</td>
+</tr>
+<tr>
+<td>媒体覆盖</td>
+<td>有自建文档站（himovo.com）、demo 视频、linux.do 社区徽标；无第三方媒体/会议报道</td>
+<td>自营曝光为主</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：项目年龄 21 天（&lt; 90 天），品牌建立需要时间，无认知度不构成负面信号，按新项目专项底线取 <strong>5–6 档（60%）→ 0.9/1.5</strong>。发布方 himovo 具备公司化产品包装（官方文档、演示视频、README 双语），属"有一定组织背书"，但<strong>尚未达到</strong>方法论所称"知名组织/个人发布（如 Z.ai 发布 ZCode）"的上浮门槛，也未见头部企业采用或媒体覆盖，故不上浮至 7–8 档。</p>
+<hr />
+<h3>数据归因（1.7 归因表匹配）</h3>
+<ul>
+<li><strong>时间性归因：太新</strong>（created_at 2026-09-01，年龄 21 天 &lt; 90 天）——社区、贡献者与第三方生态指标天然处于低位，属"尚未发生"而非"已衰"。本轮 D3.2/D3.3/D3.4 均按新项目专项取中性底线档，<strong>不构成负面信号</strong>。</li>
+<li><strong>结构性归因：单人/小团队维护</strong>——贡献者 1 人导致 D3.2 低分照给（组织风险真实），但技术质量结论以 D2 独立评估为准，禁止混同。</li>
+<li><strong>质量性归因不成立</strong>：未见用户负面反馈、维护停滞等负面证据，不得得出"质量不足"结论。</li>
+<li>数据低原因整体清晰（时间 + 单人维护），归因证据充分。</li>
+</ul>
+<h3>生命周期阶段判定</h3>
+<p>依据素材预计算指标：<strong>年龄 21 天</strong>、Star 总量 <strong>145</strong>、Fork <strong>34</strong>、近 7 天 Star 增量 N/A、近 90 天增量 N/A、最近推送 2026-09-22（活跃）、最新 release v0.1.16（2026-09-21）。</p>
+<p>按 3.6 阶段词典优先级匹配：
+- 非废弃/死寂（近 30 天 74 次 commit、多 release、有推送）；
+- 不满足 🚀 爆发期（年龄 &lt; 90 天但 Star 145 &lt; 1000、Fork 34 &lt; 500）；
+- 不满足 📈 高速增长（月增外推 ~207 &gt; 100，但"趋势上升"需两窗口数据，前一窗口不可得，退化条件不启用）；
+- 命中 <strong>🌱 萌芽期</strong>：年龄 &lt; 90 天且不满足爆发/早期弃坑条件。</p>
+<blockquote>
+<p>近 7 天 Star 增量 N/A，「势头强劲」加注条件无法判定，故不加注。<strong>阶段为时点快照，元数据大幅变化时需重跑 D3 并重判。</strong></p>
+</blockquote>
+<h3>结论</h3>
+<p>D3 维度得分 <strong>6.6 / 10</strong>，处于"一般偏上、潜力待验证"区间。亮点是<strong>新项目阶段的 Star/Fork 牵引力</strong>（21 天 145 Star、34 Fork、23.4% Fork 比率、83 PR / 42 Issue 的高互动量），说明已获得真实关注；短板集中在<strong>社区结构单薄</strong>（1 名贡献者、无外部协作）与<strong>生态/品牌尚未建立</strong>，均为项目年轻所致，按新项目专项处理为中性档，不构成负面信号。</p>
+<p>商业化视角：社区即潜在客户池。当前客户池处于<strong>萌芽状态</strong>——关注度真实但尚未转化为稳定的外部贡献者与第三方生态；建议在"运营/推广短板"维度给予正面评价（README 产品化程度高、有公司化包装），同时在"组织风险"维度提示单人维护的巴士因子隐患（归 D8）。后续需重点跟踪：Star 增量能否持续、外部贡献者是否出现、Issue 响应/关闭能力是否随规模提升——这三项将决定 D3 从"萌芽"走向"增长"还是"回落"。</p>
+<p>数据归因：时间性归因：太新（年龄 21 天，社区/贡献者/生态尚未形成）+ 结构性归因：单人维护（contributors=1）；无质量性归因负面证据。</p>
+<h3>D4. 商业模式与变现潜力（权重 18%）</h3>
+<p><strong>核心判断</strong>：MOVO 的商业化设计意图在仓库层面表达得非常明确——<strong>"社区版自托管免费 + 专有桌面端 + 商业授权双许可 + 自营托管 SaaS"</strong> 的 Open Core 组合拳，其 LICENSE、README 分工表、<code>docs/open-source-productization/</code> 目录共同构成了一份近乎完整的变现蓝图。但项目仅创建 3 周、单一贡献者、社区版把"企业级治理与管理"这一最有付费价值的部分整体免费放出，且生态协议栈存在杂质（内含 Anthropic 专有 Skills 许可），因此"模型清晰"但"转化被大幅让利"，属于<strong>7 分档的良好水平</strong>。</p>
+<h4>细则打分表</h4>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+<th>判断摘要</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D4.1 协议对变现模式的影响</td>
+<td>2.0</td>
+<td><strong>0.8</strong></td>
+<td>3–4（40%）</td>
+<td>自定义 source-available 协议，明文禁止多租户 SaaS / 去 LOGO / OEM 白标，属 BUSL 类严重约束</td>
+</tr>
+<tr>
+<td>D4.2 变现路径清晰度</td>
+<td>3.5</td>
+<td><strong>2.8</strong></td>
+<td>7–8（80%）</td>
+<td>Open Core + 双协议商业授权 + 自营 SaaS + 商业支持共 4 条路径，均有仓库内明文依据</td>
+</tr>
+<tr>
+<td>D4.3 付费转化逻辑</td>
+<td>2.5</td>
+<td><strong>2.0</strong></td>
+<td>7–8（80%）</td>
+<td>Browser/Code Agent 需专有 Desktop 构成硬性升级门槛；但社区版无成员上限、计费关闭，转化存在明显泄漏</td>
+</tr>
+<tr>
+<td>D4.4 增值服务空间与定价天花板</td>
+<td>2.0</td>
+<td><strong>1.6</strong></td>
+<td>7–8（80%）</td>
+<td>企业级治理/合规/审计/配额/SLA 增值空间大，客单价可达 $10K+/年量级，但无公开定价可验证</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>7.2</strong></td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h4>D4.1 协议对变现模式的影响（0.8 / 2.0）</h4>
+<p>GitHub API 返回 <code>NOASSERTION</code>，本地实测 LICENSE 为 <strong>"MOVO Community License"</strong>——以 Apache 2.0 为基底附加三项条件：</p>
+<ol>
+<li><strong>多租户 SaaS 禁止</strong>：未经书面商业许可，不得用 MOVO 或其衍生品向第三方提供托管式多租户 SaaS（单租户分别部署不视为多租户）；</li>
+<li><strong>前端 LOGO/版权不可移除</strong>：<code>apps/user-web/</code>、<code>apps/admin-web/</code> 及由其构建的镜像中的 MOVO 标识与版权声明不得删除、替换或修改；</li>
+<li><strong>OEM/白标/贴牌转售禁止</strong>：不得将 MOVO 或其衍生品作为"主要产品"以 OEM、白标、换牌企业 Agent 平台形式对外销售。</li>
+</ol>
+<p>同时贡献者条款明确"贡献可用于 MOVO 商业产品"且"未来版本协议可变得更严格或更宽松（不追溯）"——这是典型的 <strong>source-available + CLA 商业保留结构</strong>，与 BUSL/Elastic License 2.0 同类。</p>
+<p>按评分表映射，这属于"AGPL / SSPL / BUSL 级严重约束 → 部分变现路径不可行"，落 <strong>3–4 档 → 0.8</strong>。需说明两点：其一，<strong>对版权方（北京果然智汇）而言这是护城河而非约束</strong>——限制的正是第三方云厂商与白标商，SaaS/OEM 商业授权通道由 <code>support@himovo.com</code> 明文保留，这本身是收入来源；其二，扣分来自"对外"约束：协议非 OSI 认证，部分企业开源合规政策会直接排除此类许可，且它排除了"生态伙伴白标分销"和"认证/市场分成"这类路径。此外仓库内 <code>skills_specs/{docx,pdf,pptx,xlsx}/LICENSE.txt</code> 为 Anthropic 专有条款（明确禁止"提取、复制、创建衍生作品、分发/再许可给第三方"），与 source-available 再分发存在潜在冲突，使协议栈并不干净，进一步压低本项。</p>
+<h4>D4.2 变现路径清晰度（2.8 / 3.5）</h4>
+<p>仓库素材支持以下路径，且多数有<strong>明文而非推测</strong>的依据：</p>
+<table>
+<thead>
+<tr>
+<th>路径</th>
+<th>仓库内依据</th>
+<th>可行性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Open Core（主路径）</strong></td>
+<td>README 明确"Community Edition"仅含 Web 工作台/Admin/API/DSH Runtime Host；<strong>Browser Agent 与 Code Agent 必须安装 MOVO Desktop</strong>，而 Desktop "distributed separately as proprietary software; its source code is not included"</td>
+<td>强：免费自托管版 + 专有客户端付费墙，教科书式 Open Core</td>
+</tr>
+<tr>
+<td><strong>双协议商业授权（备选①）</strong></td>
+<td>LICENSE 附加条件明列"commercial licensing / multi-tenant SaaS authorization / OEM or white-label distribution / alternative branding rights，联系 support@himovo.com"</td>
+<td>强：授权本身就是商品（对标 MongoDB 早期、Elastic）</td>
+</tr>
+<tr>
+<td><strong>自营托管 SaaS</strong></td>
+<td>社区版租户标记为 <code>community</code>，"billing and commercial plan enforcement are disabled"——反证代码库中存在<strong>计费与商业套餐校验模块</strong>，即已有商业版/托管版形态</td>
+<td>中强：存在付费版实现，但本次未开放</td>
+</tr>
+<tr>
+<td><strong>商业支持/专业服务</strong></td>
+<td>README "Security, commercial licensing and support: support@himovo.com"；<code>docs/open-source-productization/release-checklist.md</code>、<code>self-hosted-deployment-implementation-plan.md</code> 等产品化文档</td>
+<td>中：企业私有化部署天然伴随交付/运维付费</td>
+</tr>
+</tbody>
+</table>
+<p>不存在"平台抽成/插件市场"与"认证生态"路径（无插件市场与认证体系证据）。综合看：<strong>1 条主路径（Open Core）+ 2~3 条备选（商业授权/托管 SaaS/支持服务）均清晰可行，有 Strapi、GitLab、Supabase、Next.js 等成熟先例可对标</strong>，落 7–8 档。未给满分的原因：所有路径均只有"自我声明"，无定价页、无付费客户、无公开收入或案例，项目仅 3 周龄，路径尚未被任何市场结果验证。</p>
+<h4>D4.3 付费转化逻辑（2.0 / 2.5）</h4>
+<p><strong>触发点（正面）</strong>：README 的能力对照表是硬性功能闸门——自托管 Web 工作台 "Browser Agent — / Code Agent, local projects, terminal and Git —"，Desktop 列全为 ✓。用户一旦需要浏览器自动化或代码 Agent，<strong>只能购买/安装专有 Desktop 并连接自托管服务</strong>。这是"免费不够用 → 自然升级"的典型结构，触发点可以说相当自然。</p>
+<p><strong>付费意愿（中性偏正）</strong>：目标客户是需要私有化 Agent 平台、对数据主权与治理敏感的中大型企业与政企客户（协议声明"数据与运行时服务留在你自己的部署内"、凭据加密存储、审计/配额/组织角色管理），这类客户预算充足、付费意愿中上。</p>
+<p><strong>转化漏斗（负面，主要扣分项）</strong>：社区版自我定位为 <strong>"no member-count limit、billing and commercial plan enforcement are disabled、self-managed model connections are enabled"</strong>，即"企业级治理+管理+知识+研究+内容生成"这些最有付费价值的能力被整体免费放出；而 LICENSE 同时允许"内部企业部署、二次开发、作为企业方案的一部分交付、作为其他应用的后端"全部免费商用。这意味着<strong>主流自托管企业客户可以永久免费使用完整生产功能</strong>，不存在按席位或按功能的强制升级点；唯一强制付费点是 Desktop 与 SaaS/OEM 权利。材料中亦<strong>无法确认 MOVO Desktop 是否收费</strong>（仅给出 <code>himovo.com/download.html</code> 下载页，无定价信息），这是本项最大的数据盲区。</p>
+<p>综合：有明确且自然的升级触发点，但免费层过厚使漏斗从中段开始大量漏损，落 7–8 档偏下沿位置。</p>
+<h4>D4.4 增值服务空间与定价天花板（1.6 / 2.0）</h4>
+<p><strong>增值空间大</strong>：产品自带 RBAC/组织与用户管理、模型供应商管理（凭据加密）、知识库与检索（Weaviate）、文档解析（PDF/DOCX/XLSX/PPTX/CSV）、审计记录、配额、任务调度与敏感工具审批（governance）、Runtime 健康监控。可叠加的增值层清晰：SSO/SCIM 集成、合规与数据驻留、私有化交付与升级运维（<code>./movo backup/update</code> 流程）、行业 Skill/模板定制、模型网关与用量管理、SLA 支持、安全加固与渗透测试。<code>docs/open-source-productization/</code> 的存在说明团队已在系统性地做商业化打包。</p>
+<p><strong>定价天花板与收入扩展性</strong>：面向企业私有化 Agent 平台，按"平台年费 + 席位 + 私有化交付"计价，客单价远超 $10K/年量级完全合理（对标 GitLab/Elastic/Strapi 企业版区间）；收入可从 per-seat 扩展到 enterprise flat fee 与用量（模型 token 用量、文档解析量）计费，扩展性良好。</p>
+<p><strong>扣分理由</strong>：材料中<strong>无任何公开定价、无商业版功能对照表、无客户案例或 ARR 线索</strong>，"客单价可达 $10K+/年"属基于客户画像与同业对标的推断而非实测；同时 42 个 open issue、单一贡献者（contributors=1）与 3 周龄，交付能力与售后 SLA 能否支撑高客单价存在不确定性。故落 7–8 档（而非 9–10 档）。</p>
+<h4>结论</h4>
+<p>MOVO 的商业模式设计成熟度<strong>显著高于同类 3 周龄项目</strong>：仓库即商业计划书——source-available 协议精确圈出多租户 SaaS/OEM 白标两个收费口，Desktop 与社区版的功能表切出专有付费墙，计费模块的存在反证商业版已在代码层落地，产品化文档目录显示团队在做系统化打包。方向上可对标 GitLab/Elastic/Strapi 的 Open Core + 双许可组合。</p>
+<p>三项核心风险：<strong>① 免费层过厚</strong>——社区版无成员上限、计费关闭、且许可允许免费内部企业商用，等于把最有价值的治理/管理能力送出，付费转化依赖 Desktop 与授权两个外部闸门，而 Desktop 是否收费未经验证；<strong>② 协议栈不干净</strong>——内含 Anthropic docx/pdf/pptx/xlsx Skills 的专有许可（禁止再分发与衍生），叠加非 OSI 认证的自定义协议，可能被部分企业合规政策直接排除，侵蚀可寻址市场；<strong>③ 商业化证据为零</strong>——无定价、无付费客户、无收入信号，145 Star / 1 贡献者 / 3 周龄，路径清晰但完全未验证。综合得分 <strong>7.2/10</strong>，属"模型良好、执行待验证"。</p>
+<h3>D5. 竞争格局与差异化壁垒</h3>
+<h3>D5.1 竞品对比与市场定位（1.8 / 3）</h3>
+<p><strong>定位描述（源自 README）</strong>：MOVO 的自我定位高度明确且单句可表达——"DSH runs the Agent; MOVO brings the Agent into enterprise production"，即做 DeepSeek Harness（DSH）之上的<strong>企业级产品化与治理层</strong>，而非重造 Agent Runtime。差异点包括：DSH 原生（复用官方 Runtime/Skills/Tools/MCP）、自托管数据可控、企业治理（账号/角色/模型/知识/配额/审计）、Community Edition 无成员上限。</p>
+<p><strong>竞品验证说明</strong>：本次仅使用经 GitHub Search API 实测验证的 5 个仓库作为对比基准。需特别说明——这 5 个竞品均位于<strong>记忆 / 技能 / 上下文 / 知识</strong>组件层，属于 MOVO 能力栈中的<strong>相邻或间接竞品</strong>，并非"完整自托管企业 Agent 平台"意义上的直接竞品。通用企业 Agent 平台赛道（完整平台形态的竞品）未在本次验证清单中覆盖，故本细则的竞品图景存在覆盖盲区，结论置信度相应下降。</p>
+<table>
+<thead>
+<tr>
+<th>竞品名称</th>
+<th>类型</th>
+<th>仓库/官网</th>
+<th>验证方式</th>
+<th>Star</th>
+<th>核心差异</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>volcengine/OpenViking</td>
+<td>间接竞品（能力层重叠，架构路径不同）</td>
+<td>github.com/volcengine/OpenViking</td>
+<td>GitHub Search API 确认</td>
+<td>38,393</td>
+<td>自演化 Context Database，统合 Agent Memory / 知识 RAG / Skills；是<strong>数据与能力底座</strong>，不含企业账号、治理、交付物生成等平台层</td>
+</tr>
+<tr>
+<td>titanwings/distilly</td>
+<td>间接竞品</td>
+<td>github.com/titanwings/distilly</td>
+<td>GitHub Search API 确认</td>
+<td>24,955</td>
+<td>将"思维方式"蒸馏为可复用 Skills 供任意 Agent 使用；只解决 Skill 生产，不解决部署与治理</td>
+</tr>
+<tr>
+<td>EverMind-AI/EverOS</td>
+<td>间接竞品</td>
+<td>github.com/EverMind-AI/EverOS</td>
+<td>GitHub Search API 确认</td>
+<td>13,125</td>
+<td>跨应用可移植的 Memory 层，local-first、Markdown-native；与 MOVO 的 RAG 有功能重叠，无平台化能力</td>
+</tr>
+<tr>
+<td>plastic-labs/honcho</td>
+<td>间接竞品</td>
+<td>github.com/plastic-labs/honcho</td>
+<td>GitHub Search API 确认</td>
+<td>7,295</td>
+<td>面向有状态 Agent 的 Memory 库（SDK 形态）；面向开发者而非企业用户</td>
+</tr>
+<tr>
+<td>anbeime/skill</td>
+<td>间接竞品</td>
+<td>github.com/anbeime/skill</td>
+<td>GitHub Search API 确认</td>
+<td>7,085</td>
+<td>Skills 商店 / 聚合索引；与 MOVO 的 <code>skills_specs</code> 生态位部分重叠</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：
+- 加分项：定位清晰、差异化可一句话讲明白，"DSH 原生企业化"这一定位在已验证竞品中确无重合者；商业许可（MOVO Community License，基于 Apache-2.0 附加限制）也构成商业模式上的独特选择。
+- 减分项：已验证竞品的 Star 量级为 7,085–38,393，最高者约为 MOVO（145）的 <strong>265 倍</strong>，MOVO 在生态能量上处于绝对边缘位置；且 OpenViking 明确宣称"Unify Agent Memory, Knowledge RAG and Skills"，与 MOVO 的知识管理 + Skills 两大卖点构成能力层正面重叠。MOVO 自身仅 <strong>1 名贡献者、约 3 周项目历史（2026-09-01 创建）</strong>，定位尚未经市场验证。</p>
+<p>综合：差异化定位明确（对应"7–8 档"特征），但竞品生态规模碾压、能力层存在实质重叠、定位未经市场检验（对应"3–4 档 / 5–6 档"特征），故取 <strong>60%（1.8 分）</strong>。</p>
+<h3>D5.2 技术壁垒与网络效应（1.2 / 3）</h3>
+<blockquote>
+<p>归属说明：本节从<strong>商业防御效果</strong>评估壁垒，工程复刻难度已在 D2.2 计分，不重复计入。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术壁垒</td>
+<td><strong>无专利、无独有算法、无独占数据</strong>。核心技术栈全部为公开组件集成：DSH Runtime（上游 DeepSeek 提供，非自有）、MongoDB/Redis/Weaviate（通用基础设施）、Docling/LibreOffice/Playwright（通用文档与浏览器组件）。27.6 万行代码（.py 201,998 行 + .vue 55,883 行 + .ts 17,578 行）体现的是工程量与集成广度，属可被投入资源复刻的成果，不构成商业壁垒。</td>
+</tr>
+<tr>
+<td>网络效应</td>
+<td><strong>几乎为零</strong>。贡献者仅 1 人；Skills 支持从 ZIP 包本地安装，但仓库内未见插件市场、注册中心或跨用户共享机制；自托管部署使各租户数据物理隔离，无法形成数据飞轮。生态位依附于 DSH 生态而非自建生态。</td>
+</tr>
+<tr>
+<td>规模效应</td>
+<td><strong>反向</strong>。自托管模式下，用户增长不带来边际成本下降，反而每个客户部署（默认 12 个服务：网关、2 个 Web、3 个 API、DSH Runtime Host、文档 worker、MongoDB、Redis、Weaviate、bootstrap）都产生独立的运维负担。README 明确"数据与运行时服务保留在您自己的部署中"，即刻意放弃 SaaS 规模经济。</td>
+</tr>
+<tr>
+<td>生态锁定风险</td>
+<td>关键差异化能力（Browser Agent、Code Agent、本地终端与 Git）被放在<strong>闭源的 MOVO Desktop</strong> 中，仅以二进制专有软件分发。这削弱了社区共建的可能，使护城河不仅是"薄"而且是"分裂"的。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：无技术壁垒、无网络效应、无规模效应，三重防御机制均缺失；唯一可称得上防御性的是"完整平台拼装 + 企业治理功能矩阵"的集成完整性，但这属于工程实现而非竞争壁垒。对应"3–4 档：壁垒薄弱，容易被复制"，取 <strong>40%（1.2 分）</strong>。</p>
+<h3>D5.3 切换成本与用户粘性（1.2 / 2）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>迁移成本</td>
+<td><strong>中等偏高</strong>。落地一次需完成 12 服务编排、组织与账号体系建立、模型 Provider（含 embedding / rerank / vision / image / web search）配置（凭据加密存储）、知识库导入、Skills 与 Tools 配置。这些配置资产在切换时基本不可复用。</td>
+</tr>
+<tr>
+<td>深度集成</td>
+<td><strong>较深</strong>。企业场景下 MOVO 会成为账号、模型接入、知识资产与审计记录的汇聚点，属于"平台层"而非"工具层"集成；Web 端与 MOVO Desktop 双向耦合（Desktop 必须连回自托管 MOVO 服务）。</td>
+</tr>
+<tr>
+<td>习惯锁定</td>
+<td><strong>尚未形成</strong>。项目创建于 2026-09-01，到最近推送仅约 3 周，无任何留存信号（无 star 时间线数据，采集失败），组织流程依赖不可能在 3 周内沉淀。</td>
+</tr>
+<tr>
+<td>数据可迁移性</td>
+<td><strong>较高</strong>。底层存储为 MongoDB / Redis / Weaviate 通用组件，<code>./movo backup</code> 提供原生备份能力，数据主权在用户侧，不存在数据扣押型锁定。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：集成深度与初始部署成本带来一定粘性（对应 7–8 档特征），但底层组件通用、无数据扣押、用户习惯完全未形成（对应 3–4 档特征）。取中间 <strong>60%（1.2 分）</strong>。</p>
+<h3>D5.4 护城河可持续性（0.8 / 2）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>护城河趋势</td>
+<td><strong>尚未建立，谈不上增强或削弱</strong>。项目 3 周龄、1 名贡献者、145 Star，护城河处于"零基线"状态；虽 7 个 Release、30 天 74 次提交显示迭代速度很快，但速度不等于壁垒积累。</td>
+</tr>
+<tr>
+<td>颠覆风险</td>
+<td><strong>存在结构性、自上而下的高颠覆风险</strong>。MOVO 的全部差异化建立在"DSH 原生企业化"这一命题上，而 DSH（DeepSeek Harness）及其生态由上游掌控。一旦上游官方推出企业级产品层或治理方案，MOVO 的定位将被直接覆盖——这是典型的"租用上游护城河"结构。次要风险来自通用 Agent 平台赛道已有大量高热度项目（已验证竞品 Star 达数千至数万），认知与开发者注意力被持续分流。</td>
+</tr>
+<tr>
+<td>时间窗口</td>
+<td><strong>短且不确定</strong>。项目自身许可证已明确禁止"托管的多人租户 SaaS 提供"与 OEM/白标分发，这保护了商业化路径，但同时也压缩了社区通过 SaaS 规模化形成护城河的可能。</td>
+</tr>
+<tr>
+<td>反向信号</td>
+<td>5 个 CI workflow（含 <code>dsh-migration-step1.yml</code>、<code>dsh-upgrade-candidate.yml</code>、<code>runtime-guard.yml</code>）显示项目主动跟随 DSH 升级，这是工程跟进能力，同时也是<strong>上游依赖深度</strong>的量化证据。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：护城河未建立（非"削弱"，而是"尚未成形"），且存在明确的结构性颠覆者（上游 DSH 官方）与拥挤的相邻赛道。对应"3–4 档：有明确颠覆者"，取 <strong>40%（0.8 分）</strong>。</p>
+<h3>小结</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D5.1 竞品对比与市场定位</td>
+<td>3</td>
+<td>1.8</td>
+<td>60%</td>
+</tr>
+<tr>
+<td>D5.2 技术壁垒与网络效应</td>
+<td>3</td>
+<td>1.2</td>
+<td>40%</td>
+</tr>
+<tr>
+<td>D5.3 切换成本与用户粘性</td>
+<td>2</td>
+<td>1.2</td>
+<td>60%</td>
+</tr>
+<tr>
+<td>D5.4 护城河可持续性</td>
+<td>2</td>
+<td>0.8</td>
+<td>40%</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>5.0</strong></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：MOVO 拥有清晰且罕见的差异化定位（"DSH 的企业产品化与治理层"），在已验证竞品中无同构者，且 27.6 万行代码、16.8% 测试占比、7 个 Release 表明工程执行力强。但其竞争地位在商业维度上偏弱：无技术/数据/专利壁垒，无网络效应与规模效应，关键差异化能力（Browser/Code Agent）被闭源到 MOVO Desktop 而无法反哺社区生态；同时护城河的核心来源（DSH）掌握在上游手中，构成结构性颠覆风险。<strong>竞争壁垒不足以支撑长期商业化防御，需要依赖执行速度与商业化授权模式寻找护城河补强路径。</strong></p>
+<p><strong>置信度说明</strong>：本次竞品验证仅覆盖记忆/技能/上下文组件层，未覆盖通用自托管企业 Agent 平台赛道；且 Star 时间序列采集失败（GitHub stargazers API 返回 404），无法评估增长动能。D5 维度结论置信度为<strong>中低</strong>。</p>
+<h3>D6. 法律合规与知识产权</h3>
+<blockquote>
+<p>本维度评估 MOVO 商业化过程中可能阻断整条商业路径的法律与 IP 硬伤。核心发现：项目采用「Apache-2.0 + 附加商业限制」的自定义许可，且仓库内<strong>直接内置了 4 套明确禁止再分发的 Anthropic 专有 Skill 材料</strong>，构成可识别的法律风险；贡献者治理框架基本齐备但商标/专利状态未经人工核查。</p>
+</blockquote>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+<th>核心判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D6.1 开源协议合规性与商业限制</td>
+<td>3</td>
+<td>1.2</td>
+<td>3–4（40%）</td>
+<td>自定义许可含多租户 SaaS / OEM 白标限制性附加条款，部分商业模式法律上不可行</td>
+</tr>
+<tr>
+<td>D6.2 依赖链法律风险</td>
+<td>2.5</td>
+<td>1.0</td>
+<td>3–4（40%）</td>
+<td>主依赖以 MIT/BSD/Apache 为主，但内置 Anthropic 禁止再分发材料 + 18 个来源存疑的 DSH alpha 包</td>
+</tr>
+<tr>
+<td>D6.3 商标与专利风险</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6（60%）</td>
+<td>无人工商标/专利检索数据，按规则默认中档，置信度低</td>
+</tr>
+<tr>
+<td>D6.4 贡献者协议完备性</td>
+<td>2</td>
+<td>1.6</td>
+<td>7–8（80%）</td>
+<td>LICENSE 内含贡献授权条款 + CONTRIBUTING/PR 模板，但无独立 CLA/DCO，版权高度集中</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>5.3</strong></td>
+<td>—</td>
+<td>法律合规构成中等偏弱的商业化障碍</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>D6.1 开源协议合规性与商业限制（1.2 / 3，3–4 档）</h3>
+<p><strong>硬事实</strong>
+- LICENSE 为自定义的 <strong>「MOVO Community License」</strong>，声明以 Apache-2.0 为基础，但附加了三类限制性条件，与 Apache-2.0 冲突时附加条件优先：
+  1. <strong>多租户 SaaS 限制</strong>：未获独立商业许可，不得用 MOVO 或其衍生品向第三方提供托管式多租户 SaaS；
+  2. <strong>Logo/版权声明保留</strong>：不得移除、替换或修改 MOVO Logo 与版权声明（适用于 <code>apps/user-web/</code>、<code>apps/admin-web/</code> 前端及镜像）；
+  3. <strong>OEM / 白标 / 贴牌销售限制</strong>：未获独立商业许可，不得将 MOVO 或衍生品作为主产品以 OEM、白标或换牌形式向第三方销售。
+- 贡献条款同时声明：贡献可用于 MOVO 商业产品，且 MOVO 可将未来版本许可「变得更宽松或更严格」，但不追溯改变已发布版本。
+- GitHub API 返回 <code>license: NOASSERTION</code>，即该协议<strong>不是标准 SPDX 标识</strong>，自动化工具无法识别归类。</p>
+<p><strong>判断依据</strong>
+- 协议文本清晰、条款定义严谨（明确界定了 tenant、frontend 范围），且<strong>内部企业部署、二次开发、作为企业方案的一部分交付、作为其他应用后端</strong>均被明确允许。相较 BUSL/SSPL 类协议，其限制面较窄。
+- 但多租户 SaaS 与 OEM/白标是 SMB/平台型产品的常见变现路径，被<strong>明文禁止</strong>，正对应评分指引中「部分商业模式法律上不可行」的 3–4 档特征。
+- <code>NOASSERTION</code> 说明协议非标准，企业法务需额外人工审查，合规可管理性下降。
+- 不涉及 copyleft 传染（本细则不重复评估协议类型本身对变现档位的影响）。</p>
+<p>→ 归入 <strong>3–4 档（限制性附加条款）</strong>，得分 3 × 40% = <strong>1.2</strong>。</p>
+<hr />
+<h3>D6.2 依赖链法律风险（1.0 / 2.5，3–4 档）</h3>
+<p><strong>硬事实</strong>
+- Python 主依赖（chat-api <code>requirements.txt</code> 约 50+ 项、admin-api、document-parser）经逐一核对，均为宽松协议族：FastAPI/Pydantic (MIT)、uvicorn (BSD)、pymongo/motor (Apache-2.0)、oss2 (MIT)、playwright (Apache-2.0)、trafilatura (Apache-2.0)、pandas (BSD)、python-docx/pptx、openpyxl、pdfplumber、tushare、dashscope 等，<strong>未见 GPL/AGPL 传染性依赖</strong>。
+- 前端依赖（vue、naive-ui、codemirror、fabric、pdfjs-dist、xterm、axios）同为 MIT/Apache-2.0 族，无 copyleft。
+- <strong>高风险项 1</strong>：仓库内置 4 套第三方 Skill 材料并各自携带其自有 LICENSE——
+  <code>services/chat-api/app/skills_specs/{docx,pdf,pptx,xlsx}/LICENSE.txt</code> 均为「© 2025 Anthropic, PBC」专有条款，<strong>明文禁止</strong>："Extract these materials from the Services or retain copies of these materials outside the Services"、"Reproduce or copy"、"Create derivative works"、"Distribute, sublicense, or transfer"。该等材料被直接<strong>再分发进开源仓库</strong>，与该许可条款直接冲突。
+  （同目录 <code>theme-factory/LICENSE.txt</code> 为 Apache-2.0，无此问题。）
+- <strong>高风险项 2</strong>：<code>services/chat-api/dsh/runtime-host/package.json</code> 依赖 <strong>18 个 <code>@deepseek-ai/dsh-*</code> 与 <code>@deepseek-ai/cordis*</code> 包（版本 0.1.6-alpha.1）</strong>，是产品核心运行时，但其许可状态未明示（alpha 版本，公开渠道许可信息缺失）。
+- 本地采集的 <code>dependencies</code> 字段为空，无法自动核验传递依赖；仓库存在 <code>services/chat-api/dsh/licenses/NOTICE.md</code>，表明作者对第三方声明有一定处理意识。</p>
+<p><strong>判断依据</strong>
+- 绝大多数软件包依赖来源可靠、协议宽松 → 排除 1–2 档的整体定性。
+- 但依赖/材料链中同时存在：（a）<strong>明确禁止再分发的内置第三方材料</strong>，与仓库实际分发行为冲突；（b）<strong>18 个许可状态不明的核心运行时包</strong>。这正是评分指引「依赖来源：是否依赖来源不明或高风险的包」的高风险情形，且 docx/pdf/pptx/xlsx 技能对应企业文档生成等核心卖点，替换成本不低。
+- 若内置 Anthropic 材料无法移除或取得授权，或 DSH 包无法确认许可，本细则将进一步下探至 1–2 档。</p>
+<p>→ 归入 <strong>3–4 档（合规成本高）</strong>，得分 2.5 × 40% = <strong>1.0</strong>。</p>
+<hr />
+<h3>D6.3 商标与专利风险（1.5 / 2.5，5–6 档，置信度低）</h3>
+<p><strong>硬事实与限制</strong>
+- 无人工商标检索或专利排查数据；按方法论规定，<strong>禁止凭模型记忆断言商标/专利状态</strong>。
+- 「MOVO」为常见短词名称，存在与他人商标碰撞的潜在可能，但无法在无检索数据下确认。
+- LICENSE 的附加条件（b）实质构成一种「商标/品牌使用约束」——要求保留 MOVO Logo 与版权声明，方向上保护品牌一致性，但<strong>未见独立的商标使用政策文档</strong>（如 TRADEMARK.md）。
+- 技术领域（Agent 平台、RAG、浏览器自动化、LLM 编排）专利密集，但无证据表明存在已知专利争议。</p>
+<p><strong>判断依据</strong>
+- 依据自动化限制规则，无人工核查时默认按 5–6 档给分并标注低置信度。</p>
+<p>→ 归入 <strong>5–6 档</strong>，得分 2.5 × 60% = <strong>1.5</strong>。<strong>未经人工核查，置信度低。</strong></p>
+<hr />
+<h3>D6.4 贡献者协议完备性（1.6 / 2.0，7–8 档）</h3>
+<p><strong>硬事实</strong>
+- <code>CONTRIBUTING.md</code> 存在，明确说明「提交贡献即视为同意 LICENSE 中的贡献条款，包括贡献可用于 MOVO 商业产品与服务」，并声明不得提交无权按该条款授权的代码/资产。
+- LICENSE 第 2 条实质承担了 <strong>CLA 式入站授权</strong>功能：赋予 MOVO 将贡献用于商业产品，并可对未来版本调整许可严格度（不追溯）。
+- 有 <code>pull_request_template.md</code>、<code>CODE_OF_CONDUCT.md</code>、<code>SECURITY.md</code>、<code>SUPPORT.md</code>，贡献流程与安全披露规范。
+- <strong>无独立 CLA 文件、无 DCO sign-off 要求</strong>（如 Signed-off-by 机器人）；<code>has_codeowners: false</code>，无 CODEOWNERS。
+- 贡献者数 = <strong>1</strong>，版权高度集中于单一实体（<code>Copyright 2026 北京果然智汇科技有限公司</code>）。</p>
+<p><strong>判断依据</strong>
+- 相比「仅有贡献指南但无正式 CLA」的 5–6 档，本项目 LICENSE 内嵌贡献授权条款，功能性接近 CLA，且配套模板完善 → 达到 7–8 档。
+- 未达 9–10 档的原因：无独立、显式签名的 CLA/DCO 工具链；CODEOWNERS 缺失；版权虽集中（利于双协议/商业许可模式），但随之带来单点依赖与贡献治理未经验证的问题。</p>
+<p>→ 归入 <strong>7–8 档</strong>，得分 2 × 80% = <strong>1.6</strong>。</p>
+<hr />
+<h3>结论</h3>
+<p>MOVO 在 D6 维度得分 <strong>5.3/10</strong>，法律合规构成中等偏弱的商业化障碍。<strong>协议层面</strong>，自定义「MOVO Community License」在 Apache-2.0 之上叠加了多租户 SaaS 与 OEM/白标限制，使部分主流变现路径需另购商业许可，且 <code>NOASSERTION</code> 使其难以被自动化合规工具识别；<strong>依赖与材料层面</strong>，仓库直接内置 4 套 Anthropic 明文禁止再分发的专有 Skill 材料，并依赖 18 个许可状态不明的 DSH alpha 核心包，构成需优先处置的法律硬伤；贡献者治理框架基本齐备（LICENSE 内嵌贡献授权 + 规范流程），商标/专利状态因缺人工核查数据而需低置信度待定。<strong>建议商业化前优先完成</strong>：① 移除或取得 Anthropic 材料的合法授权；② 厘清 DSH 包许可并与上游确认；③ 就多租户 SaaS/OEM 场景明确商业许可路径；④ 补做 MOVO 商标与核心技术的检索排查。</p>
+<h3>D7. 企业就绪度与可运营性</h3>
+<p><strong>维度权重</strong>: 8% ｜ <strong>维度得分</strong>: 7.5 / 10（良好）</p>
+<p>本维度考察项目能否被企业客户"跑起来、管得住、扩得开、看得见"。MOVO 由活跃的企业级私有产品（ASKAI）转为 Community Edition 开源，在<strong>发布/升级工程化</strong>与<strong>租户级权限与审计</strong>上表现突出，明显高于同类早期开源 Agent 项目；短板集中在<strong>集群化高可用</strong>与<strong>标准可观测协议</strong>（Prometheus/OpenTelemetry）的缺位。</p>
+<h4>细则打分表</h4>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>核心判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D7.1 运维复杂度与升级路径</td>
+<td>3.0</td>
+<td>2.4</td>
+<td>7–8（80%）</td>
+<td>一键启动 + 预构建镜像 + 版本钉选 + 候选-晋升式发布与 DSH 回滚恢复校验；数据迁移机制未见显式框架</td>
+</tr>
+<tr>
+<td>D7.2 安全管理与权限控制</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8（80%）</td>
+<td>多租户隔离 + 组织/部门/岗位角色 + 能力门控 + 审计日志 + 密钥自动生成与模型 Key 加密；SSO 仅见 admin_sso 端点，LDAP/SAML 无证据</td>
+</tr>
+<tr>
+<td>D7.3 可扩展性与高可用能力</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6（60%）</td>
+<td>API/文档 worker 可水平扩展（Redis 队列解耦），但 Mongo/Redis/Weaviate/Gateway 均为单实例，无集群/故障转移配置</td>
+</tr>
+<tr>
+<td>D7.4 集成兼容与可观测性</td>
+<td>2.0</td>
+<td>1.6</td>
+<td>7–8（80%）</td>
+<td>REST/SSE/MCP/OpenAI 兼容协议 + 结构化日志 + 健康检查齐备；无 Prometheus 指标端点、无 OpenTelemetry 证据</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>7.5</strong></td>
+<td><strong>7–8（良好）</strong></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h4>D7.1 运维复杂度与升级路径（2.4 / 3.0）</h4>
+<p><strong>配置管理</strong>：强。根 <code>.env.example</code> 仅保留 8 个部署级变量（<code>MOVO_PORT</code> / <code>MOVO_VOLUME_PREFIX</code> / <code>MOVO_IMAGE_PREFIX</code> / <code>MOVO_VERSION</code> / <code>PUBLIC_BASE_URL</code> / 嵌入模型相关），并明确"首次启动后 <code>MOVO_VOLUME_PREFIX</code> 必须保持稳定"；<code>ASKAI_PORT</code> 作为遗留变量做了向后兼容。各服务另有独立 <code>.env.example</code>（admin-api、chat-api、document-parser、admin-web），全部为环境变量驱动，注释区分"开发直连需要"与"Docker 部署自动生成"，配置边界清晰。支持私有源定制（<code>MOVO_APT_MIRROR</code>/<code>MOVO_NPM_REGISTRY</code>/<code>MOVO_PYPI_INDEX_URL</code>/<code>MOVO_HF_ENDPOINT</code>），适配隔离内网环境。</p>
+<p><strong>运维负担</strong>：中等。<code>docker-compose.yml</code> 编排 <strong>12 个服务</strong>（bootstrap、mongo、redis、weaviate、dsh-runtime-host、chat-api、admin-api、document-api、document-worker、user-web、admin-web、gateway），其中 <strong>10 个配置了 healthcheck</strong>（含 30s start_period、20–30 次重试），并通过 <code>depends_on: condition: service_healthy</code> 建立健康依赖序，避免启动竞态；<code>bootstrap</code> 以 <code>umask 077</code> 一次性生成 12 项随机密钥（<code>END_USER_AUTH_SECRET</code>、<code>ASKAI_ADMIN_JWT_SECRET</code>、<code>ADMIN_BACKEND_SERVICE_TOKEN</code>、<code>DSH_MODEL_GATEWAY_SIGNING_SECRET</code>、<code>DOCUMENT_PROCESSING_*_TOKEN</code> 等）并落盘至独立卷，免除人工密钥管理。<code>./movo up</code> 一个命令拉取预构建镜像并等待健康，README 明确"无需 .env、无需本地构建"。负担主要来自组件数量与 document-parser 的重量级镜像（docling + torch + LibreOffice + 中文字体），对资源有实质要求。</p>
+<p><strong>升级路径</strong>：优。<code>container-release.yml</code> 采用"<strong>candidate → 审核 → promote</strong>"模式：打 <code>v*</code> tag 后先推 <code>candidate-&lt;sha&gt;</code> 镜像，经 Trivy 扫描（<code>severity: CRITICAL,HIGH</code>，<code>exit-code: "1"</code> 直接失败）、生成 <code>sbom: true</code> 与 <code>provenance: mode=max</code> 证明、多架构构建（amd64+arm64）、并把 <code>MOVO_SECURITY_REFRESH</code> 注入构建参数以强制基线刷新；仅在发布 jobs 全绿后才由 <code>promote-release</code> 打 <code>vX.Y.Z</code> 与 <code>latest</code> 标签，另有独立 <code>container-promote.yml</code> 做人工灰度晋升。<code>MOVO_VERSION</code> 支持生产环境钉选版本，镜像按需选择性重建（<code>plan_container_release.py</code> 增量计划）。</p>
+<p><strong>回滚与数据迁移</strong>：DSH 运行时侧相当扎实——<code>dsh-migration-step1.yml</code>（Runtime Guard）在 PR 阶段执行 <code>check_dsh_upgrade_contract.py</code>、<code>check_dsh_supply_chain.py</code>、<code>check_dsh_native_code_boundary.py</code>，并运行 <code>verify_dsh_rollback_resume.py</code> 验证"回滚列车上的 Session 能在活跃 Host 上恢复"；<code>dsh-upgrade-candidate.yml</code> 每周一 cron 在隔离环境评估上游 DSH 候选版本并上传评估证据，配合 <code>dsh/compatibility-matrix.yaml</code>。但<strong>应用数据层（MongoDB 集合/Weaviate 集合）的 schema 迁移未见显式迁移框架</strong>，仅有 <code>ensure_indexes</code> 幂等建索引；版本升级时的数据迁移说明在给定素材中缺失，是该项未能上探 9–10 的主因。</p>
+<h4>D7.2 安全管理与权限控制（2.0 / 2.5）</h4>
+<p><strong>认证授权</strong>：中上。管理员侧为 JWT（<code>ASKAI_ADMIN_JWT_SECRET</code>，由 bootstrap 生成，<code>MODEL_CONFIG_SECRET</code> 复用该值），用户侧 <code>END_USER_AUTH_SECRET</code>，服务间走独立 Bearer token（<code>ADMIN_BACKEND_SERVICE_TOKEN</code>、<code>DOCUMENT_PROCESSING_SERVICE_TOKEN</code>、<code>DOCUMENT_PROCESSING_CALLBACK_TOKEN</code>、<code>DSH_RUNTIME_HOST_TOKEN</code>），<code>dsh-runtime-host</code> 的 healthcheck 亦要求带 token 访问 <code>/health</code>，服务网格边界明确。<code>require_api_principal</code> / <code>get_current_admin_user</code> 作为 FastAPI 依赖强制注入到主要路由。企业 IdP 侧：<code>directory.py</code> 提供 <code>list/add/delete_user_identity</code>（外部身份绑定），<code>auth.py</code> 提供 <code>admin_sso</code> 端点，前端有 <code>buildAdminSsoUrl</code>，说明<strong>管理端 SSO 存在但能力范围不明</strong>；素材中<strong>未见 LDAP / SAML / OIDC 的完整配置或文档</strong>，故不能按 9–10 档给分。</p>
+<p><strong>权限模型</strong>：强。具备组织 → 部门（物化路径 <code>path_ids</code>/<code>path_names</code>）→ 用户 → 岗位角色的多层模型，支持 <code>EmployeeCapabilityOverrideDialog</code> 的员工级能力覆盖、<code>BulkPositionRoleDialog</code> 批量岗位分配、自定义字段配置；<code>useEnterpriseAccessPolicy</code> 在前端对 Code / Browser / Knowledge / Skills / Tools 逐项门控，后端 <code>MongoEmployeePolicyResolver.allows_skill</code> 做组织级技能可见性过滤；工具调用侧有 <code>enterprise_tool_approvals</code> 审批流（含待审批计数聚合）、浏览器 Agent 的 <code>validate_action()</code> 契约级只读约束、<code>detail_write_gate</code> 写入门控、最终提交拦截与人工协助升级。</p>
+<p><strong>审计日志</strong>：强。<code>directory.py</code> 的 <code>_write_audit</code> 切面记录操作者与 payload，并提供 <code>list_audit_logs</code> 查询；管理后台仪表盘暴露审计记录与运行健康；Token 用量维度提供 <code>list_token_usage</code> / <code>get_token_usage_detail</code> / <code>get_session_chat_history</code> 三级可追溯分析；浏览器侧有 <code>LearningTrace</code>/<code>EffectTracker</code> 执行轨迹。日志中显式做了脱敏与截断（<code>redact_credential_payload</code>、<code>_short_text</code>、异常信息截断 1200/2000 字符）。</p>
+<p><strong>数据安全</strong>：中上。多租户隔离贯穿全链路（<code>add_main_scope</code> / <code>resolve_main_id</code>，几乎所有查询注入 <code>main_id</code>；<code>_authorized_scope()</code> 对 user_id/main_id 不匹配返回 404 防越权枚举）；NoSQL 注入防护（<code>_mongo_safe</code> 递归转义 <code>$</code>/<code>.</code> 前缀键）、路径穿越防护（<code>_safe_filename</code> 用 <code>Path().name</code>）、HTTP 头注入防护（<code>_content_disposition</code>）、XSS 清洗（<code>structural_sanitizer</code> 的 <code>_HTML_TAG_RE</code>）、脚本插件沙箱（<code>_limit_child_process</code>、<code>_deny_network</code>、<code>_check_path</code>、<code>_guarded_open</code>）；模型 API Key 支持加密存储与掩码回显（<code>apiKeyMasked</code>、<code>_decrypt_api_key</code>）。<strong>不足</strong>：默认网关为 HTTP（<code>http://localhost:3000</code>），TLS 需自行前置，未见强制 HTTPS 或 HSTS 配置；未见数据静态加密（at-rest）证据；<code>weaviate</code> 在 compose 中显式设置 <code>AUTHENTICATION_ANONYMOUS_ACCESS_ENABLED: "true"</code>（虽在 <code>internal: true</code> 的 backend 网络上，仍属可收敛面）。</p>
+<h4>D7.3 可扩展性与高可用能力（1.5 / 2.5）</h4>
+<p><strong>水平扩展</strong>：部分支持。应用层设计偏无状态——<code>chat-api</code>、<code>admin-api</code>、<code>document-api</code> 状态外置到 Mongo/Redis/Weaviate，会话与产物落卷；<code>document-worker</code> 与 <code>document-api</code> 使用<strong>同一镜像不同 command</strong>（<code>["api"]</code> / <code>["worker"]</code>），经 Redis + Celery（<code>MOVO_DOC_PROCESSING_CELERY_QUEUE=document_processing</code>）解耦，这是可独立扩容的正确形态。但 compose 中<strong>未提供 <code>deploy.replicas</code> 或 scale 指引</strong>，素材中也<strong>未见 Kubernetes / Helm / Nomad 编排清单</strong>，横向扩展需用户自行改造。</p>
+<p><strong>高可用</strong>：弱。mongo（单 <code>mongo:6.0.20</code>）、redis（单实例 AOF）、weaviate（<code>CLUSTER_HOSTNAME: node1</code> 但无副本配置）、gateway（单 <code>80</code> 端口映射）<strong>均为单点</strong>；仅靠 <code>restart: unless-stopped</code> 与 healthcheck 提供进程级自愈，<strong>无跨节点故障转移、无副本集/哨兵配置、无读写分离</strong>。<code>backend</code> 网络 <code>internal: true</code> 是很好的安全设计，但也意味着外部负载均衡需额外接入 <code>public</code> 网络。</p>
+<p><strong>性能瓶颈</strong>：可识别。document-parser 为重量级（docling + PyTorch + LibreOffice + 多语言文字处理，通过 <code>PYTORCH_ACCELERATOR</code> 支持 cu128/cu130 加速说明 CPU 路径会成为瓶颈）；<code>OPENBLAS_NUM_THREADS=1</code> 等线程数限制表明作者已在控制 CPU 争用。LLM 调用为主要时延来源，具备请求级 token 用量统计与告警阈值（<code>LLM_SLOW_MS</code>/<code>TOOL_SLOW_MS</code>/<code>DB_SLOW_MS</code>），但未见并发限流/熔断在部署层的统一配置。</p>
+<p><strong>数据一致性</strong>：有防护但非分布式保证。Mongo 为文档主存、Weaviate 为向量索引，二者通过 <code>_request_document_index</code> / <code>IndexCallbackPayload</code> 回调最终一致（软删除与 <code>_request_document_vector_delete</code> 分离），具备重试入口（<code>retry_document_index</code>）与 <code>ensure_indexes</code> 复合索引（<code>main_id+deleted_at+updated_at</code>）。素材中未见分布式事务或两阶段提交机制，跨存储一致性依赖回调与重试，属可接受但非强保证。</p>
+<blockquote>
+<p>补充风险（不计入本维度分，但影响可运营性判断）：<code>contributors = 1</code>、<code>open_issues = 42</code>、<code>CODEOWNERS</code> 缺失，单一维护者构成<strong>巴士因子风险</strong>；项目创建于 2026-09-01、当前版本 <code>v0.1.16</code>，仍处早期。</p>
+</blockquote>
+<h4>D7.4 集成兼容与可观测性（1.6 / 2.0）</h4>
+<p><strong>API 完备性</strong>：强。Python 侧基于 FastAPI，具备会话（<code>sessions.py</code>）、技能（<code>skills.py</code>，用户端 + 管理端双套）、外部工具（<code>external_tools.py</code>）、知识文档（<code>knowledge_documents.py</code>）、目录组织（<code>directory.py</code>）、模型实例（<code>models.py</code>）、分析（<code>analytics.py</code>）、DSH 对话（<code>dsh_chat.py</code>，含桌面端 turn 生命周期：<code>desktop_turn_start</code>/<code>desktop_turn_events</code>/<code>desktop_turn_cancel</code>/<code>desktop_runtime_rebind</code>）等完整 REST 面；提供 SSE 流式接口（<code>stream_model_instance_test</code> + <code>event_stream</code>/<code>_sse</code>）；管理端与用户端 API 分离（<code>/admin-api</code> 与 <code>/askai-api</code> 前缀，由 gateway 重写）。Pydantic 模型做请求/响应契约，<code>ApiResponse</code> 统一包裹。素材中<strong>未见显式导出的 OpenAPI 契约文件</strong>（FastAPI 默认生成，但无 CI 校验或 SDK 发布证据），故未给满分。</p>
+<p><strong>标准协议</strong>：中。支持 <strong>MCP</strong>（<code>discover_mcp_tools</code>、<code>_mcp_jsonrpc</code>、streamable HTTP 传输，含工具白名单校验），支持 <strong>OpenAI 兼容</strong>与 <strong>Azure OpenAI</strong> 模型接口，支持 HTTP 工具自定义接入，支持 S3/OSS 对象存储后端（<code>STORAGE_BACKEND=local|oss</code>），文档处理走内网 HTTP 回调（可视为内部 webhook）。<strong>缺口</strong>：未见 Prometheus <code>/metrics</code> 端点，未见 OpenTelemetry tracing 接入，未见 Webhook 出站订阅模型——标准可观测协议覆盖不足是本项未达 9–10 的直接原因。</p>
+<p><strong>监控告警</strong>：中上。每个服务内置健康端点（chat-api <code>/ready</code>、admin-api <code>/health</code>、document-api <code>/api/health</code>、dsh-runtime-host <code>/health</code> 且额外校验 <code>v.ok===true &amp;&amp; v.kernel==='dsh'</code>、gateway <code>/healthz</code>），compose healthcheck 统一 10s 间隔、5s 超时、20–30 次重试；管理后台 <code>DashboardPage</code> 消费 <code>/api/dashboard/overview</code> 展示近 24h 指标、部署/健康状态、待处理事项与核心资产状态，并提供 <code>healthStatus</code>/<code>healthLabel</code> 分级；告警阈值可配置（<code>LOG_SLOW_SPAN_MS</code>、<code>LLM_SLOW_MS</code>、<code>TOOL_SLOW_MS</code>、<code>DB_SLOW_MS</code>、<code>PRESENTATION_PAGE_SLOW_MS</code>）。但<strong>无 push 式告警通道</strong>（邮件/Webhook/Alertmanager），监控止于"可看"。</p>
+<p><strong>日志体系</strong>：强。chat-api 暴露完整的结构化日志开关矩阵：<code>LOG_FILE_FORMAT=json</code>、<code>LOG_CONSOLE_PRETTY</code>、<code>LOG_LEVEL</code>、<code>LOG_FILE_ENABLED/PATH</code>、<code>LOG_CAPTURE_PRINTS</code>、<code>LOG_DEBUG_PAYLOADS</code>、<code>LOG_REQUEST_HEARTBEAT_SECONDS=15</code>，并有慢 span 分级阈值；代码中广泛使用 <code>logger.warning</code> 与 <code>extra</code> 结构化字段（如浏览器驱动的 <code>event</code> 字段、<code>_log_stage</code> 阶段日志），便于日志平台解析。<code>DEBUG_ARTIFACTS_ENABLED</code> + <code>DEBUG_ARTIFACT_RETENTION_DAYS=7</code> 提供可控的排障快照与保留策略（生产默认关闭）。不足在于缺少日志分级治理文档与集中采集（Fluent Bit/Loki 等）编排。</p>
+<hr />
+<h4>结论</h4>
+<p>MOVO 的 D7 表现呈现<strong>清晰的"工程化高、集群化低"偏斜</strong>：</p>
+<ol>
+<li><strong>强项在其企业基因</strong>——这不是一个演示型开源项目。十服务编排 + 健康依赖序 + 自动密钥生成 + candidate/promote 发布流水线 + Trivy/SBOM/provenance + DSH 升级契约与回滚恢复校验，构成了一套<strong>接近商业发行物</strong>的升级与发布治理；多租户隔离、组织/部门/岗位/能力覆盖四级权限、审计日志与工具审批流，直接对应企业客户的合规刚需。这部分（D7.1、D7.2）明显高于早期开源 Agent 平台的行业均值。</li>
+<li><strong>短板决定天花板</strong>——数据层（Mongo/Redis/Weaviate/Gateway）全部单实例且无副本集/集群配置，且未提供 K8s/Helm 编排，意味着<strong>当前形态适合部门级/单机自托管，尚不足以支撑企业核心业务的 HA 承诺</strong>；标准可观测协议（Prometheus/OTel）缺失，则使其难以无缝接入企业既有 SRE 体系。</li>
+<li><strong>可运营性之外的风险提示</strong>——<code>contributors = 1</code>、42 个开放 Issue、无 CODEOWNERS，且版本仍在 <code>v0.1.x</code>。即便工具链成熟，<strong>单点维护者</strong>对企业的长期运维承诺构成实质折价，建议商业化时以商业支持/SLA 形式对冲。</li>
+</ol>
+<p><strong>综合</strong>：D7 = <strong>7.5 / 10（良好）</strong>。若补齐（a）数据库/向量库副本集或外部托管接入文档、（b）Kubernetes/Helm 部署清单、（c）Prometheus 指标端点与 OTel tracing、（d）数据 schema 迁移框架，本维度具备上探 9 分的结构基础。</p>
+<h3>D8. 团队治理与可持续性</h3>
+<h3>数据归因前置说明</h3>
+<p>本维度命中 <strong>1.7 归因表</strong> 两条类别：</p>
+<ol>
+<li><strong>时间性归因：太新</strong>——项目创建于 2026-09-01，至评估日（约 2026-09-22）仅约 21 天（&lt; 90 天），社区/生态/治理历史尚未形成。按 D8.4 新项目专项与 3.3 豁免执行（优先级最高）。</li>
+<li><strong>结构性归因：单人/小团队维护</strong>——GitHub 实采 <code>contributors = 1</code>，属单人维护结构。但项目同时存在明确的<strong>商业实体背书</strong>（官网 himovo.com、<code>support@himovo.com</code>、许可证声明「use of the contribution in MOVO commercial products and services」、Community Edition 与商业版并存），因此需同时区分「组织风险（真实）」与「技术质量（归 D2，本维度不评）」。</li>
+</ol>
+<blockquote>
+<p><strong>归因纪律提示</strong>：单人维护 + 高代码量（27.6 万行）+ 高测试占比（16.8%）并不矛盾；本项目 D2 技术质量不受团队规模影响。以下低分仅反映<strong>组织与可持续性风险</strong>，不构成「技术不行」的结论。</p>
+</blockquote>
+<h3>细则打分</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D8.1 核心维护者能力与背景</td>
+<td>2.5</td>
+<td><strong>1.0</strong></td>
+<td>3–4 档（40%）</td>
+<td><code>contributors = 1</code>，巴士因子 = 1，高度依赖单人；无公开的团队/维护者背景信息，商业经验仅能从公司实体（himovo.com）间接推断。高活跃度（30d 74 commits、频繁发版）说明投入度高，但无法证明全职与多维护者备份，按「高度依赖 1 人」落入 3–4 档。</td>
+</tr>
+<tr>
+<td>D8.2 治理模型透明度</td>
+<td>2.0</td>
+<td><strong>1.2</strong></td>
+<td>5–6 档（60%）</td>
+<td>有 <code>CONTRIBUTING.md</code>、<code>CODE_OF_CONDUCT.md</code>、<code>SECURITY.md</code>、PR 模板、<code>docs/release-process.md</code> 等基础流程文档，贡献规范清晰；但<strong>无 GOVERNANCE.md、无 CODEOWNERS</strong>，决策机制为单一商业实体主导，外部贡献者参与决策路径不透明，未加入任何基金会。符合「有简单贡献指南、决策由核心团队主导」。</td>
+</tr>
+<tr>
+<td>D8.3 资金支持与商业赞助</td>
+<td>2.5</td>
+<td><strong>2.0</strong></td>
+<td>7–8 档（80%）</td>
+<td>存在明确的<strong>商业公司实体</strong>在运营（himovo.com 官网、企业文档站、<code>support@himovo.com</code> 安全邮箱、开源版/商业版 open-core 结构、许可声明提及「MOVO commercial products and services」），属「有公司支持、资金可持续」；但<strong>无 VC 融资公开证据、无 GitHub Sponsors/Open Collective 数据</strong>，故不达 9–10 档。</td>
+</tr>
+<tr>
+<td>D8.4 项目可持续性与传承风险</td>
+<td>3.0</td>
+<td><strong>1.2</strong></td>
+<td>3–4 档（40%）</td>
+<td><strong>新项目专项适用</strong>（年龄 ≈ 21 天 &lt; 90 天）：① <code>archived = false</code>，无 deprecated 声明；② 近 30 天 commit <strong>74 次</strong>，发版频繁（v0.1.1→v0.1.16，9 月内 7 个 release），活跃正常；③ Issue 响应可观测（90 天关闭 6 个），但开放 Issue 42 个、积压增长。三项均无停滞负面信号，按专项落 <strong>3–4 档底线（4 分档）</strong>，标注「新项目无历史，可持续性未知，不构成停滞证据」。</td>
+</tr>
+</tbody>
+</table>
+<h3>维度得分</h3>
+<p><strong>D8 = (1.0 + 1.2 + 2.0 + 1.2) / 10 × 10 = 5.4 / 10</strong></p>
+<h3>结论</h3>
+<p>MOVO 呈现典型的「<strong>商业实体背书 + 单人 GitHub 贡献者</strong>」画像：一方面有公司化运营（官网、文档站、open-core 商业模式、专业的安全/贡献/发布流程），资金与运营可持续性明显优于纯志愿者项目（D8.3 达 7–8 档）；另一方面 <code>contributors = 1</code> 带来<strong>真实的巴士因子风险</strong>——单点故障一旦发生，项目延续性存疑（D8.1 落 3–4 档）。治理层面仅有基础流程文档，缺乏 GOVERNANCE.md/CODEOWNERS 等正式治理结构（D8.2 中游）。项目年龄仅约 21 天，尚无足够历史评估活跃趋势与传承机制（D8.4 按新项目专项落底线档）。</p>
+<p><strong>一票否决检查</strong>：
+- D8.4 = 1.2 &gt; 1，<strong>不触发</strong> D8.4 一票否决；且项目年龄 &lt; 90 天、无 archived/deprecated 标记、近 30 天有 commit，<strong>适用 D8.4 新项目豁免</strong>。
+- 与 D6（法律合规）、D4.1（协议变现）无关，本维度无其他否决触发项。</p>
+<p><strong>短板识别</strong>：本维度核心短板为「<strong>组织风险</strong>」——单人维护 + 无正式治理文档，属可改善的运营/治理短板；<strong>不得据此推断技术质量不足</strong>（技术评估归 D2，本项目高代码量 + 16.8% 测试占比提示工程质量不弱）。因项目高度依赖商业实体单一贡献者，建议在尽调中重点关注维护者集中度与公司对该开源线路的长期投入承诺。</p>
+<p>数据归因: 结构性归因：单人/小团队维护（contributors=1，但存在 himovo 商业实体背书）；时间性归因：太新（创建 2026-09-01，年龄 ≈ 21 天 &lt; 90 天，适用 D8.4 新项目专项与 3.3 豁免）。</p>
+<h3>D9 上手难度与易用性 维度详析</h3>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D9.1 安装难度</td>
+<td>2.5</td>
+<td><strong>2.0</strong></td>
+<td>80%（7–8 档）</td>
+<td>容器化安装，<code>git clone → cd → chmod +x movo → ./movo up</code> 四条命令即可，官方预构建镜像、无需 <code>.env</code>、无需本地构建；但强依赖 Docker Desktop/Engine + Compose v2，需 ≥8GB 内存、≥20GB 磁盘、可访问 GHCR/Docker Hub 的网络，Windows 必须走 WSL 2 + Ubuntu（README 专设 Windows 安装指南）。属于「有容器化安装，需少量配置」，未达「单条命令且无外部依赖」的 9–10 档</td>
+</tr>
+<tr>
+<td>D9.2 部署与配置难度</td>
+<td>2.5</td>
+<td><strong>2.0</strong></td>
+<td>80%（7–8 档）</td>
+<td>标准化 docker compose 部署（12 个服务一次编排），<code>bootstrap</code> 服务自动生成全部运行时密钥，MongoDB/Redis/Weaviate 均由 Compose 内置并带 healthcheck，默认无需 <code>.env</code>；<code>.env.example</code> 仅暴露端口、镜像前缀、版本、卷前缀、PUBLIC_BASE_URL 等少量变量；setup 向导逐项探测 Mongo/Redis/存储/Chat API 与 DSH Runtime/文档处理/Weaviate 并给出「已就绪」状态。扣分点：12 服务编排与非技术可完成度仍有距离，首次镜像拉取体量大（document-parser 含 LibreOffice、Docling 模型、Playwright），生产还需自行处理 DNS/TLS/反向代理并固定 release tag</td>
+</tr>
+<tr>
+<td>D9.3 易用性与操作门槛</td>
+<td>2.5</td>
+<td><strong>2.0</strong></td>
+<td>80%（7–8 档）</td>
+<td>面向最终用户是全 GUI 的 Vue 3 工作台与管理控制台，日常「对话/研究/知识/文件/内容生成」无需命令行；运维侧 <code>./movo</code> 提供 <code>status/logs/restart/update/backup/down/down -v</code> 语义化子命令，README「Common operations」一节可直接照抄；后端 setup 路由对失败给出明确中文提示（如「以下服务尚未就绪：…」「管理员账号和员工账号不能相同」「员工 Default Token 不能超过企业总 Token」），并对账号密码设最小长度校验；健康检查覆盖每个服务。扣分点：管理员仍需理解模型 Provider（baseUrl/model/API key/embedding 维度）、外部搜索 Provider 等概念，非专家无法独立完成全部管理配置</td>
+</tr>
+<tr>
+<td>D9.4 学习曲线与首体验</td>
+<td>2.5</td>
+<td><strong>2.0</strong></td>
+<td>80%（7–8 档）</td>
+<td>README 提供「Start in 5 minutes」quickstart + 演示视频 + 官方文档站 + Windows 安装指南 + Docker 部署文档，setup 向导本身就是交互式 onboarding，首体验路径清晰；基础对话/知识问答对终端用户几乎零学习成本。扣分点：本地实测 <code>示例: 0 文件</code>，仓库内无可运行的示例工程或模板项目（仅有 <code>skills_specs/*/SKILL.md</code>、报告模板与主题库）；首次成功使用受镜像拉取时间影响，README 自述「first startup downloads several container images and can take some time」；进阶能力（DSH Runtime、Skills、MCP、embedding/rerank、治理与审批）存在明显概念门槛；Browser/Code Agent 还需额外安装专有客户端</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>8.0</strong></td>
+<td>🟢 简单（8–10，下边界）</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h3>分析</h3>
+<p><strong>安装链路短、依赖自包含，是该项目最突出的上手优势。</strong> README 给出的主路径是四条命令 + 一次 <code>./movo up</code>，采用官方预构建镜像，明确「No <code>.env</code> file or local image build is required」；<code>docker-compose.yml</code> 中 MongoDB、Redis、Weaviate 全部作为受管服务内置，<code>bootstrap</code> 服务用 <code>alpine:3.21</code> 在首次启动时生成 <code>END_USER_AUTH_SECRET</code>、<code>ASKAI_ADMIN_JWT_SECRET</code>、<code>DSH_RUNTIME_HOST_TOKEN</code> 等全部机密并落盘到共享卷，各服务通过 <code>depends_on: condition: service_healthy</code> 与 <code>healthcheck</code> 完成就绪编排。用户不需要像传统自托管方案那样手工安装数据库、创建库表、配置对象存储或拼装密钥。这一设计把安装难度压到了容器化方案的 7–8 档水平。</p>
+<p><strong>主要门槛在于前置环境而非项目本身。</strong> 硬性要求包括 Docker Desktop/Engine + Compose v2、≥8 GB 内存、≥20 GB 磁盘、首次拉取需访问 GHCR 与 Docker Hub，以及至少一个兼容模型 API 凭据；Windows 不能直接跑，必须先落 Docker Desktop + WSL 2 + Ubuntu，且须用 <code>wsl -d Ubuntu</code> 显式进入。对一个「企业级 Agent 平台」而言这属于行业常见基线，但仍将受众限定在具备容器基础的技术人员，而非任意非技术用户——因此四项细则均落在 80%（良好）档而未能触达 9–10 档。</p>
+<p><strong>部署即用性做得较扎实。</strong> 12 个服务一次 compose 编排，默认配置即可跑通：<code>.env.example</code> 只暴露五个变量，README 明确「保持 <code>MOVO_VOLUME_PREFIX</code> 首次启动后不变」这类少见的踩坑提示；<code>/admin/setup</code> 向导会主动探测 Mongo、Redis、持久化存储、</p>
+<h3>D10 功能价值（使用价值视角）</h3>
+<blockquote>
+<p>平行维度，权重 0%，不计入综合评分。评估 MOVO 为使用者创造的效用总量，不问付费意愿。</p>
+</blockquote>
+<h3>项目效用形态概述</h3>
+<p>MOVO Community Edition 是一个自托管企业级 Agent 平台，把 DeepSeek Harness（DSH）Runtime 包装成「可部署的产品」：默认 Docker Compose 一次拉起 12 个服务（网关、两个 Web 应用、三个 API、DSH Runtime Host、文档 worker、MongoDB、Redis、Weaviate、密钥引导服务），覆盖对话/研究/知识库/文档解析与生成/内容产出/技能与 MCP/审批与审计/组织与权限管理。代码体量 275,964 行（Python 201,998 行、Vue 55,883 行、TS 17,578 行），测试 46,344 行（占比 16.8%），50 份文档、5 条 CI 工作流，<code>./movo up</code> 一键启动，<code>./movo backup / status / logs / update</code> 提供运维闭环——这是一个「平台级交付物」而非单点工具。</p>
+<h3>细则打分</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10.1 效用强度</td>
+<td>3</td>
+<td>2.4</td>
+<td>7–8（80%）</td>
+<td>采用后属项目级依赖：一个团队若自建企业 Agent 平台，需自行拼装身份认证、知识检索、文档解析、内容生成、审批治理、审计与管理台，MOVO 以 12 服务组合一次性交付，显著节省开发与运营成本；CE 租户无成员上限、不启用计费，可长期承载内部生产使用。未给满分的原因：效用高度依赖 DSH 运行时与自备模型 API（需至少一个兼容模型凭据 + 8GB 内存 + 20GB 磁盘），且描述与 topics 中的 Browser Automation、Vibe Coding 两项卖点在开源版不可得；同类自托管 Agent 平台（通用 RAG/工作流平台）成熟度更高，替代路径存在。</td>
+</tr>
+<tr>
+<td>D10.2 实际使用规模</td>
+<td>3</td>
+<td>1.2</td>
+<td>3–4（40%）</td>
+<td>实测：Star 145、Fork 34、Watchers 5、开放 Issue 42、贡献者 1；Dependents 计数与 npm/PyPI 下载量均为 N/A（未采集到，禁止估算）。以 145 Star / 34 Fork 计，属「千级以下、小范围使用」。<strong>归因：项目创建于 2026-09-01，评估时仅约 21 天（&lt; 90 天），使用规模尚未形成，属自然状态而非负面信号</strong>；同时为单人维护的早期平台项目，平台类项目本身不像库/CLI 那样产生 Dependents 计数，依赖方指标对本品类天然不敏感。存在 42 个开放 Issue 与 83 个 90 天 PR，说明已有真实使用者投入并与维护者互动，非「无人使用」。</td>
+</tr>
+<tr>
+<td>D10.3 免费可得的完整效用</td>
+<td>2</td>
+<td>1.2</td>
+<td>5–6（60%）</td>
+<td>CE 免费版本身可用且不阉割账号数（无成员上限、计费关闭、可自管模型连接），对话、深度研究、企业知识、文档理解、内容与文件生成、管理台、治理审批等主体能力均在开源仓库内。但两项被高调宣传的能力被隔断在闭源付费软件之后：<strong>Browser Agent 与 Code Agent（本地项目/终端/Git）必须安装专有分发的 MOVO Desktop，其源码不包含在本仓库、不属于 CE 源发布</strong>；而 <code>brower-automation</code>、<code>vibe-coding</code> 恰是仓库描述与 topics 的头部卖点，属「关键能力受限」而非「少量企业增值功能」。另许可为基于 Apache-2.0 的 MOVO Community License，禁止托管多租户 SaaS、OEM/白标与去除前端品牌，商业形态下并非完全免费可得。</td>
+</tr>
+<tr>
+<td>D10.4 效用可持续性</td>
+<td>2</td>
+<td>1.6</td>
+<td>7–8（80%）</td>
+<td>架构为完全自托管：应用数据、知识库、运行时服务均在用户自己的部署内（MongoDB/Redis/Weaviate 自建容器），桌面与云服务非必需，模型供应商由用户自行接入（外部但可替换）；支持 <code>./movo up --build</code> 源码本地构建，代码完整可重现，LICENSE 允许内部自行修改与分叉延续，停维后 Web 工作台、知识检索、文档处理、内容生成、管理与治理等主体效用可长期存续。扣分项：Browser Agent / Code Agent 依赖厂商闭源分发的 MOVO Desktop，供应商停止维护即该部分能力归零；许可为 source-available（GitHub API 标注 NOASSERTION，实为 Apache-2.0+附加条件），限制去品牌化再分发，削弱社区将其分叉为可分发产品继续运营的空间。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>加权合计</strong>：2.4 + 1.2 + 1.2 + 1.6 = <strong>6.4 / 10</strong>（无 N/A 细则，无需缩放）</p>
+<h3>结论</h3>
+<p>MOVO 的效用结构是「大而全、真而早」：作为交付物，它把 12 个服务、201k 行 Python 后端与 5.6 万行 Vue 前端封装成一条 <code>./movo up</code> 的部署路径，对确需企业级 Agent 平台的团队构成项目级甚至基础设施级的成本替代（免于自建鉴权、知识库、文档链路、治理与审计），这是其功能价值的核心来源，也是 6.4 分的主要支撑。</p>
+<p>但使用价值中有三处折价清晰可见：（1）效用兑现以「接受 DSH 运行时 + 自备模型凭据 + 8GB/20GB 资源门槛」为前提，且平台整体处于 v0.1.16 阶段（30 天 74 次提交、42 个开放 Issue、单人维护），稳定性预期尚未被时间验证；（2）Browser Agent 与 Code Agent 这两项头部宣传能力在开源版完全不可得，必须搭配专有闭源的 MOVO Desktop，D10.3 因此落在 5–6 档——这与商业侧付费转化逻辑（D4.3）天然反相关，正是「使用价值 vs 交换价值」的典型张力，可在报告中直接引用解释其价值结构；（3）source-available 许可限制去品牌化再分发，使社区分叉延续的通路窄于标准 OSI 开源项目，削弱了长期效用保障。</p>
+<p>使用规模（D10.2 仅 1.2）低是<strong>年龄与品类双重归因的结果</strong>：项目仅 21 天，平台型项目也不产生 Dependents 类依赖计数，不能读作质量问题；但反过来，145 Star / 34 Fork 也意味着「规模效应」这一使用价值放大器尚未启动，当前的 6.4 分刻画的是<strong>潜在效用</strong>而非已被大规模兑现的效用。</p>
+<p><strong>数据归因</strong>: 时间性归因（太新，created_at 2026-09-01，评估时约 21 天 &lt; 90 天）+ 结构性归因（单人维护的平台型项目，依赖方/下载量指标天然不敏感）；无质量性归因证据（无用户负面反馈、Issue 非积压型，90 天内有 83 个 PR 与 7 次发版）。使用规模低不构成质量负面信号。</p>
+<h3>D11. 社会价值——正外部性视角（平行维度，权重 0%，不计入综合评分）</h3>
+<blockquote>
+<p>本维度为平行维度，权重 0%，不进入综合评分与一票否决，仅用于 3.4 价值画像。评估项目对使用者之外的行业与社会的正外部性。</p>
+</blockquote>
+<h3>D11.1 数字公共基础设施属性（3 分）</h3>
+<p><strong>事实核验</strong>
+- 项目定位为「自托管企业级 Agent 平台」，属于<strong>终端产品/平台型项目</strong>，而非被下游引用的库或底层组件；补采 <code>dependencies: {}</code>，未体现任何下游依赖图谱。
+- 项目无 npm/PyPI 分发（<code>npm_weekly_downloads: N/A</code>、<code>pypi_monthly_downloads: N/A</code>），因此不存在可量化的下游供应链。（注：采集失败项已标 N/A，但即便补上，平台型项目通常也无此类分发指标。）
+- 项目极年轻：创建于 2026-09-01，评估时约 3 周；Star 145、Fork 34、<strong>contributors = 1</strong>、watchers 5。
+- 许可为「MOVO Community License」，基于 Apache-2.0 但附加限制（禁止多租户 SaaS、禁止移除 LOGO、禁止 OEM/白标），README 自述<strong>明确不是 OSI 认可的开源许可</strong>——这与 DPG（数字公共产品）所要求的"开放许可"特征存在实质冲突。
+- 停摆假设：项目消失不会波及任何软件供应链，仅影响其自托管部署者自身。</p>
+<p><strong>判断</strong>：属于自建、自用型平台产品，无下游依赖、无分发渠道、许可非开放标准，"数字底座"属性不成立。按标尺落入 3–4 档（几乎无下游依赖，停摆影响微小），且许可限制使其连"开放可复用"这一公共品要件都不完全满足，取该档中位。</p>
+<p><strong>得分：3/10 档 → 40% × 3 = 1.2 分</strong></p>
+<h3>D11.2 教育与人才价值（2.5 分）</h3>
+<p><strong>事实核验</strong>
+- 仓库内文档密度高：50 个文档文件，含 README（中英双语）、CONTRIBUTING、SECURITY、SUPPORT、CODE_OF_CONDUCT、部署/发布/Windows 安装指南（含中文版）。
+- 存在结构化「技能规范」示范：<code>skills_specs/</code> 下含 docx/pdf/pptx/xlsx/research/stock_analysis/theme-factory 等 SKILL.md 及主题工厂 11 套主题，具备一定工程范本价值。
+- 测试占比较高（46,344 行 / 16.8%，314 个测试文件），有 DSH 兼容性文档与迁移工作流，代码可读性尚可。
+- 但：无任何外部证据表明其被课程、教材、awesome 列表或教学路径采用；社区规模极小（1 位贡献者、5 watchers、145 stars），不存在"被广泛研读/借鉴"的迹象；Issue 中学习者提问占比无法确认（42 个开放 Issue 中未体现教学属性）。</p>
+<p><strong>判断</strong>：内部工程文档与规范属"面向用户的产品文档"，而非"面向学习者的教育资料"；无外部教学采用证据。按标尺 3–4 档（几乎无教学/学习场景），取上沿。</p>
+<p><strong>得分：3/10 档 → 40% × 2.5 = 1.0 分</strong></p>
+<h3>D11.3 普惠与可及性（2.5 分）</h3>
+<p><strong>事实核验（正面）</strong>
+- Community Edition 免费自托管：<code>community</code> 租户<strong>无成员数限制</strong>、<strong>关闭计费与商业套餐限制</strong>、<strong>允许自管模型连接</strong>、数据与运行时留在自有部署——将"企业级 Agent 平台 + 知识库 + 治理 + 审计 + 文件交付"这类原本由商业 SaaS 按席位收费的能力，以近零许可成本下放给中小团队。
+- 用户可自带模型供应商凭据（BYO model），避免绑定单一厂商 API 付费。
+- i18n 支持：README.zh-CN.md、windows-installation.zh-CN.md，中文文档较完善。</p>
+<p><strong>事实核验（负面）</strong>
+- 硬件/技术门槛明确：需 Docker Desktop / Docker Engine + Compose v2、<strong>≥8GB 内存、≥20GB 磁盘</strong>、GHCR/Docker Hub 网络访问、至少一个模型 API 凭据。
+- Windows 用户必须使用 WSL 2 + Ubuntu，门槛进一步抬高。
+- <strong>Browser Agent 与 Code Agent 不在开源仓库内</strong>，需安装闭源、专有的 MOVO Desktop（"distributed separately as proprietary software; its source code is not included"）——核心能力被许可围墙切割，普惠性打折。
+- 许可证限制多租户 SaaS 与 OEM/白标，限制了第三方再普惠的可能。</p>
+<p><strong>判断</strong>：具备真实的"替代昂贵商业方案"的普惠效果，但被技术门槛、硬件要求与闭源切割显著限制，未达到"完善可及性支持"。按标尺 5–6 档（有普惠效果但受技术门槛/语言/硬件限制）。</p>
+<p><strong>得分：5/10 档 → 60% × 2.5 = 1.5 分</strong></p>
+<h3>D11.4 开放标准与行业推动（2 分）</h3>
+<p><strong>事实核验</strong>
+- 明确实现/对接开放标准：仓库 topics 含 <code>mcp</code>（Model Context Protocol），README 列示 "Skills, Tools and MCP" 与「连接 HTTP 或 MCP 服务到业务系统」；DSH（DeepSeek Harness）原生运行时、Skills 规范、ZIP 安装外部 Skills 等属生态兼容行为。
+- 有一定行业示范：将 Agent 运行时补齐为"可部署、可治理、可审计"的企业产品的分层思路（Runtime / 平台 / 治理），对同类自托管 Agent 平台有参考意义。
+- 但：无证据表明其<strong>推动或主导</strong>任何开放标准；无学术引用/科研支撑证据（未检索到论文引用，标 N/A，不纳入加分）；反而其许可明确限制再分发与再商业化，且关键能力（Browser/Code Agent）以专有软件形式闭源交付——这在"防止厂商锁定"维度上表现中性偏弱。</p>
+<p><strong>判断</strong>：遵循并实现了 MCP 等重要开放标准，但无标准主导力与科研/学术外溢。按标尺 5–6 档（遵循开放标准但无推动作用）。</p>
+<p><strong>得分：5/10 档 → 60% × 2 = 1.2 分</strong></p>
+<h3>D11 细则分值汇总</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>档位</th>
+<th>小分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D11.1</td>
+<td>数字公共基础设施属性</td>
+<td>3</td>
+<td>3–4 档（40%）</td>
+<td>1.2</td>
+</tr>
+<tr>
+<td>D11.2</td>
+<td>教育与人才价值</td>
+<td>2.5</td>
+<td>3–4 档（40%）</td>
+<td>1.0</td>
+</tr>
+<tr>
+<td>D11.3</td>
+<td>普惠与可及性</td>
+<td>2.5</td>
+<td>5–6 档（60%）</td>
+<td>1.5</td>
+</tr>
+<tr>
+<td>D11.4</td>
+<td>开放标准与行业推动</td>
+<td>2</td>
+<td>5–6 档（60%）</td>
+<td>1.2</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td></td>
+<td><strong>4.9</strong></td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<p>MOVO 的社会正外部性处于<strong>中等偏低水平（4.9/10）</strong>，呈现"普惠动机强、公共属性弱"的分裂特征：</p>
+<ol>
+<li><strong>普惠是唯一亮点</strong>：Community Edition 无成员上限、关闭计费、BYO 模型、数据自持，确实把企业级 Agent 平台的能力以零许可成本下放，对中小团队有实际价值；叠加中英双语文档，覆盖了主要语言人群。</li>
+<li><strong>公共基础设施属性几乎为零</strong>：项目无下游依赖、无包分发渠道、仅 1 位贡献者、社区规模极小（145 stars），且许可证为<strong>源可用（source-available）而非 OSI 开源</strong>，附加了禁止多租户 SaaS / OEM / 改标的多项限制，与"数字公共产品"要件正面冲突。</li>
+<li><strong>普惠性被围墙切割</strong>：Browser Agent / Code Agent 依赖闭源专有 MOVO Desktop；硬件门槛（8GB/20GB）、WSL 2 要求进一步收窄可及人群。</li>
+<li><strong>标准角色为"遵循者"而非"推动者"</strong>：实现 MCP 等开放标准值得肯定，但无标准主导力、无学术外溢证据。</li>
+</ol>
+<p><strong>综合判断</strong>：该项目当前更像一款<strong>商业产品的社区版引流入口</strong>，而非公共品或行业教材；其正外部性主要体现为"降低自建企业 Agent 平台的门槛"，一旦涉及核心能力（浏览器/代码 Agent）与再分发，即被许可证与专有软件回收。评估置信度：中等（依赖项、下载量、学术引用均 N/A，且项目仅 3 周历史，外溢效应尚未充分显现）。</p>
+<h2>五、商业化价值判断</h2>
+<h3>5.1 核心商业价值</h3>
+<ul>
+<li><strong>项目最大的商业价值在于</strong>：把 Agent Demo 到企业生产之间的治理/知识/管理缺口产品化——以 12 服务 Docker Compose 一次性交付对话、深度研究、知识库、文档解析与生成、内容产出、技能与 MCP、审批治理、组织权限等企业级能力，对采用方构成项目级成本替代；同时已内建商业授权、专有桌面端与 OEM/SaaS 授权入口，变现路径明文可辨且达 4 条。</li>
+<li><strong>价值验证依据</strong>：</li>
+<li>痛点真实（Agent Demo 到企业生产的治理/知识/管理缺口），场景覆盖极广（7+ 场景，跨行业通用平台）；</li>
+<li>工程化门禁成熟：5 条 CI workflow，含 Trivy 镜像扫描（CRITICAL/HIGH 阻断）、SBOM、provenance attestation、DSH 供应链/边界/升级契约三重 guard；</li>
+<li>安全工程扎实：全路由鉴权、多租户 main_id 隔离、脚本沙箱、凭据脱敏与 SECURITY.md 齐备；</li>
+<li>多租户与权限体系完备：组织-部门-岗位角色-员工四级模型，useEnterpriseAccessPolicy 逐项门控；</li>
+<li>增值空间与定价天花板高：企业级 RBAC/审计/配额/知识库/模型管理/合规/SLA/私有化交付，客单价可达 $10K+/年量级；</li>
+<li><strong>但</strong>：无任何公开定价或付费客户可验证，替代品密集（Dify/RAGFlow/FastGPT/n8n），未达独占刚需。</li>
+</ul>
+<h3>5.2 价值量化判断</h3>
+<ul>
+<li><strong>潜在市场规模估算</strong>：对应企业级 AI Agent 平台大赛道，量级十亿美元级以上且高速增长；但外部市场数据不可采，TAM 为低置信度估算。</li>
+<li><strong>可触达市场估算</strong>：市场处于成长期、格局未定，MCP 标准化与企业合规诉求构成需求推力；但已有实力派先行者需正面竞争，且第三方云与白标分销路径被许可封锁，可触达面收窄。</li>
+<li><strong>商业化时间窗口</strong>：项目仅约 3 周历史，护城河处于零基线，时间窗口短；存在结构性颠覆风险——整个差异化命题依附于上游 DSH/DeepSeek 生态，一旦上游官方进入企业平台层将直接覆盖 MOVO 定位。</li>
+</ul>
+<h3>5.3 价值画像（商业 × 功能 × 社会）</h3>
+<ul>
+<li>功能价值 D10：<strong>6.4/10</strong>，社会价值 D11：<strong>4.9/10</strong>，公共价值分：<strong>5.7/10</strong></li>
+<li>画像判定：<strong>💼 纯商业工具</strong>（综合评分 67.8 ≥ 65 且 公共价值分 5.7 &lt; 7）</li>
+<li><strong>画像临界</strong>：综合评分 67.8 落在 60–70 临界区间，须同时说明相邻画像的路径差异：</li>
+<li><strong>落点画像（💼 纯商业工具）</strong>：按 D4 最优路径直接变现——Open Core + 双协议商业授权 + 自营托管 SaaS + 商业支持服务，以专有 MOVO Desktop 作为硬性升级闸门。</li>
+<li><strong>相邻画像（⭐ 明星资产）</strong>：若后续公共价值分升至 ≥ 7（例如开放 Browser/Code Agent 能力、获得外部生态采用），则应转向「正常商业化 + 经营社区声誉」双轨，避免竭泽而渔（参照 Elastic 改协议的反噬教训）。</li>
+<li>当前证据（源可用许可 + 闭源 Desktop 切割普惠性 + 无下游依赖图谱 + 无外部教学采用证据）更支持纯商业工具落点，但项目仅 3 周历史，画像存在向明星资产迁移的可能，故不强行二选一。</li>
+<li><strong>画像解读</strong>：D10 得分 6.4 反映平台级交付物的真实效用，但 D10.3（免费可得完整性，1.2）与商业侧 D4.3 付费转化逻辑构成天然反相关——CLI 化能力被隔断在专有 Desktop 后，是理解该项目价值结构的关键张力；D11 得分 4.9 反映其许可与闭源组件切割普惠性，且不构成数字底座。对第六章商业路径建议的修正方向：<strong>按 D4 最优路径直接变现，不投入影响力变现路线</strong>。</li>
+</ul>
+<hr />
+<h2>六、商业路径分析</h2>
+<h3>6.1 推荐商业路径（最优路径）</h3>
+<ul>
+<li><strong>模式</strong>：Open Core 双轨（社区版自托管 + 专有 Desktop + 商业/OEM/SaaS 授权）</li>
+<li><strong>路径描述</strong>：以 MOVO Community License 下的社区版自托管作为获客与信任入口（免费内部企业商用、无成员上限、BYO 模型、数据自持），以专有闭源的 MOVO Desktop 承载 Browser Agent / Code Agent 作为唯一硬性升级闸门，再以 LICENSE 明列的多租户 SaaS / OEM / 白标品牌授权与商业支持服务完成变现。</li>
+<li><strong>可行性论证</strong>：</li>
+<li>变现路径明文可辨且达 4 条：Open Core、双协议商业授权（LICENSE 明列 SaaS/OEM/品牌授权联系 support@himovo.com）、自营托管 SaaS（社区版 billing 与商业套餐校验被关闭，反证计费模块存在）、商业支持服务；</li>
+<li>付费触发点清晰：Browser Agent / Code Agent 需专有 Desktop；</li>
+<li>存在明确商业实体背书（himovo.com、open-core 商业版、support@himovo.com），资金/运营可持续性优于纯志愿者项目；</li>
+<li>工程化发布链路（candidate→Trivy→SBOM+provenance→promote、MOVO_VERSION 生产钉版）支撑企业交付；</li>
+<li><strong>风险点</strong>：社区版无成员上限、计费关闭、许可证允许免费内部企业商用，等于把治理/审计/配额/管理能力整体免费放出，转化被大幅让利；且材料无法确认 Desktop 是否收费。</li>
+<li><strong>预期收入模型</strong>：企业级 RBAC/审计/配额/知识库/模型管理/合规/SLA/私有化交付，客单价可达 $10K+/年量级，并可向 enterprise flat fee 与用量计费扩展；但无任何公开定价或付费客户可验证。</li>
+</ul>
+<h3>6.2 备选商业路径</h3>
+<ul>
+<li><strong>路径B：自营托管 SaaS</strong>。社区版 billing 与商业套餐校验被关闭，反证计费模块存在；但需单独商业授权，且自托管模式使规模扩张带来运维成本上升而非边际成本下降，需先补齐高可用（当前 mongo/redis/weaviate/gateway 全为单实例）。</li>
+<li><strong>路径C：OEM / 白标贴牌 + 商业支持服务</strong>。LICENSE 明列 OEM/品牌授权入口，可面向系统集成商与行业解决方案商分销；但第三方云与白标分销路径被许可封锁，需逐案授权，规模化难度高。</li>
+</ul>
+<h3>6.3 不推荐的路径及原因</h3>
+<ul>
+<li><strong>纯开源社区驱动 + 捐赠/赞助模式</strong>：许可证为源可用（MOVO Community License，非 OSI 开源）且附加禁止多租户 SaaS/OEM/改标条款，与数字公共产品（DPG）开放要件冲突，难以获得开源基金会托管与社区捐赠生态支持。</li>
+<li><strong>依赖第三方云市场/白标分销规模化</strong>：多租户 SaaS、移除前端 LOGO、OEM/白标贴牌销售均需单独商业授权，第三方云与白标分销路径被封锁。</li>
+<li><strong>以「开源版即完整产品」为卖点的免费增值</strong>：Browser Agent 与 Code Agent（仓库头部卖点）在开源版完全不可得，免费版方案完整度打折，若以此定位将削弱转化锚点。</li>
+</ul>
+<hr />
+<h2>七、能力评估：能做什么 &amp; 最适合做什么</h2>
+<h3>7.1 能做什么（能力清单）</h3>
+<ul>
+<li><strong>企业级 Agent 平台交付</strong>：默认 Docker Compose 拉起 12 个服务（bootstrap, mongo, redis, weaviate, dsh-runtime-host, chat-api, admin-api, document-api, document-worker, user-web, admin-web, gateway），覆盖对话/研究/知识库/文档解析与生成/内容产出/技能与 MCP/审批治理/组织权限。</li>
+<li><strong>多租户与权限治理</strong>：add_main_scope/resolve_main_id 贯穿所有查询，组织-部门-岗位角色-员工四级模型，useEnterpriseAccessPolicy 逐项门控 Code/Browser/Knowledge/Skills/Tools，MongoEmployeePolicyResolver 做组织级技能可见性过滤。</li>
+<li><strong>审计与密钥管理</strong>：_write_audit/list_audit_logs 审计切面，enterprise_tool_approvals 工具审批流，bootstrap 以 umask 077 自动生成 12 项随机密钥，模型 API Key 加密存储并掩码回显。</li>
+<li><strong>发布与升级工程化</strong>：container-release.yml 采用 candidate→Trivy 扫描(CRITICAL/HIGH 即失败)→SBOM+provenance→promote 流程，container-promote.yml 支持人工灰度晋升，MOVO_VERSION 支持生产钉版；dsh-upgrade-candidate.yml 每周 cron 隔离评估上游候选，Runtime Guard 执行 check_dsh_upgrade_contract.py 与 verify_dsh_rollback_resume.py 验证回滚列车 Session 可在活跃 Host 恢复。</li>
+<li><strong>安全工程</strong>：全路由鉴权、_mongo_safe 防 NoSQL 注入、多租户 main_id 隔离、脚本沙箱（_deny_network/_guarded_open/_limit_child_process）、凭据脱敏与 SECURITY.md 齐备。</li>
+<li><strong>国际化</strong>：admin-web 与 user-web 均维护中英双语消息字典，配套时区适配工具，对全球市场商业化有实际价值。</li>
+<li><strong>高复刻门槛的架构抽象</strong>：契约驱动（Pydantic contracts）+ 引擎/策略/状态机模式，浏览器 Agent 效果验证/表单事务账本/工作流学习回放与写作流水线。</li>
+<li><strong>可观测性基础</strong>：结构化 JSON 日志开关矩阵完整（LOG_FILE_FORMAT/LOG_SLOW_SPAN_MS/LOG_REQUEST_HEARTBEAT_SECONDS），服务健康端点齐全（10/12 服务带 healthcheck）。</li>
+</ul>
+<h3>7.2 最适合做什么（最优定位）</h3>
+<ul>
+<li><strong>最适合的商业化场景</strong>：企业内部自托管的 Agent 生产平台——把 DeepSeek Harness 等 Agent 运行时转化为可部署、可治理、可管理的企业生产级平台，优先落地知识问答、深度研究、文档解析与生成、工作流自动化等治理敏感场景。</li>
+<li><strong>最适合的目标客户</strong>：有数据主权与合规诉求、需要私有化部署的中大型企业技术决策者、架构师与 AI-ML 工程师团队；对浏览器自动化/代码生成有强需求、愿意为专有 Desktop 付费的客户为高价值转化对象。</li>
+<li><strong>最适合的商业模式</strong>：Open Core 双轨（社区版自托管免费获客 + 专有 MOVO Desktop 硬性升级闸门 + 商业/OEM/SaaS 授权 + 商业支持服务）。</li>
+<li><strong>理由</strong>：定位极度清晰（'DSH runs the Agent; MOVO brings the Agent into enterprise production'），在经 GitHub Search API 验证的 5 个竞品中无同构者；自托管部署涉及 12 服务编排、组织/账号/模型 Provider/知识库/Skills 治理配置，初始集成深、迁移成本不低，粘性中等；但底层为 MongoDB/Redis/Weaviate 通用组件且数据主权在用户侧，无数据扣押型锁定，故应以治理与合规能力而非数据锁定作为价值锚。</li>
+</ul>
+<hr />
+<h2>八、短板识别：还缺少什么</h2>
+<h3>8.1 商业化硬伤（需优先解决）</h3>
+<table>
+<thead>
+<tr>
+<th>短板</th>
+<th>所属维度</th>
+<th>严重程度</th>
+<th>补齐建议</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>护城河零基线：无专利/独占算法/数据壁垒（技术栈全为 DSH、Weaviate、Docling、Playwright 等公开组件集成），无网络效应（仅 1 名贡献者、无插件市场/数据飞轮），无规模效应（自托管使规模扩张带来运维成本上升）</td>
+<td>D5</td>
+<td>🔴 高</td>
+<td>建立差异化壁垒：沉淀垂直领域数据/评测基准、构建插件市场或技能生态、以专有 Desktop 能力形成可验证的性能代差</td>
+</tr>
+<tr>
+<td>结构性颠覆风险：整个差异化命题依附于上游 DSH/DeepSeek 生态，一旦上游官方进入企业平台层将直接覆盖 MOVO 定位</td>
+<td>D5</td>
+<td>🔴 高</td>
+<td>加速上游解耦（多运行时适配）、抢占企业治理层标准位、以客户合同与集成深度锁定</td>
+</tr>
+<tr>
+<td>高可用缺失：docker-compose 中 mongo/redis/weaviate/gateway 全为单实例，仅有 restart: unless-stopped 与 healthcheck 自愈，无副本集/集群/故障转移配置，素材中亦未见 K8s/Helm 编排清单</td>
+<td>D7</td>
+<td>🔴 高</td>
+<td>提供副本集/集群部署模板与 K8s/Helm 清单，补齐故障转移与容量规划文档</td>
+</tr>
+<tr>
+<td>协议栈不干净：仓库内 docx/pdf/pptx/xlsx Skills 附带 Anthropic 专有条款（禁止提取、复制、衍生、向第三方分发/再许可），叠加非 OSI 认证的自定义许可，可能被企业开源合规政策排除</td>
+<td>D4</td>
+<td>🔴 高</td>
+<td>替换或隔离受限 Skills，提供合规替代实现，出具第三方许可清单与合规说明</td>
+</tr>
+<tr>
+<td>巴士因子=1：contributors=1，高度依赖单人维护，无 GOVERNANCE.md / CODEOWNERS</td>
+<td>D8</td>
+<td>🔴 高</td>
+<td>引入第二维护者与 CODEOWNERS，建立治理文档与决策流程，降低单点依赖</td>
+</tr>
+<tr>
+<td>关键差异化能力闭源：Browser Agent、Code Agent、本地终端与 Git 被拆分到闭源的 MOVO Desktop，源码不含于仓库，削弱社区共建与生态锁定能力</td>
+<td>D5 / D10</td>
+<td>🔴 高</td>
+<td>明确 Desktop 的定价与授权边界，或开放部分能力源码以换取生态共建</td>
+</tr>
+</tbody>
+</table>
+<h3>8.2 改进建议（可提升空间）</h3>
+<table>
+<thead>
+<tr>
+<th>短板</th>
+<th>所属维度</th>
+<th>严重程度</th>
+<th>补齐建议</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>单文件巨型化系统性缺陷：desktop_agent_executor.py &gt;4000 行（≈80 个 import）、unified_compose/components.py &gt;2200 行、App.vue &gt;2000 行、ChatWindow.vue ~1781 行，超 10 个文件 &gt;1000 行</td>
+<td>D2</td>
+<td>🟡 中</td>
+<td>按职责拆分模块，引入架构约束检查（如 import-linter）与文件行数门禁</td>
+</tr>
+<tr>
+<td>技术债明显：多文件 except Exception: pass 静默吞异常、死代码（_fallback_build 未被调用）、脆弱 JSON 构造、async 路由内同步 urllib 阻塞、list_users 聚合 5+ 集合的 N+1 隐患</td>
+<td>D2</td>
+<td>🟡 中</td>
+<td>收敛异常处理、清理死代码、异步化阻塞调用、优化聚合查询</td>
+</tr>
+<tr>
+<td>前端安全瑕疵：AnalyticsPage.vue renderMarkdown 未转义文本即 v-html 存在 XSS，window.open(url) 未校验协议，TS 代码 any 类型普遍</td>
+<td>D2</td>
+<td>🟡 中</td>
+<td>引入 DOMPurify 等转义方案、协议白名单校验、收紧 TS 类型</td>
+</tr>
+<tr>
+<td>版本成熟度低：最新 v0.1.16，21 天内发布 7 个 Release 且 patch 号跳跃频繁，向后兼容未经检验</td>
+<td>D2</td>
+<td>🟡 中</td>
+<td>建立语义化版本与兼容性承诺，补充升级迁移指南</td>
+</tr>
+<tr>
+<td>可观测性不完整：无 Prometheus /metrics 端点、无 OpenTelemetry tracing、无出站告警通道</td>
+<td>D7</td>
+<td>🟡 中</td>
+<td>接入标准指标与 tracing 体系，配置告警通道</td>
+</tr>
+<tr>
+<td>企业 IdP 支持不完整：仅见 admin_sso 端点与 buildAdminSsoUrl、user_identity 外部身份绑定接口，无 LDAP/SAML/OIDC 完整配置或文档证据</td>
+<td>D7</td>
+<td>🟡 中</td>
+<td>补齐 LDAP/SAML/OIDC 配置与文档，提供对接样例</td>
+</tr>
+<tr>
+<td>数据层迁移机制缺失：仅有 ensure_indexes 幂等建索引，未见 Mongo/Weaviate schema 迁移框架；升级时数据迁移说明在素材中缺失</td>
+<td>D7</td>
+<td>🟡 中</td>
+<td>引入 schema 迁移框架与版本化迁移脚本，补齐升级文档</td>
+</tr>
+<tr>
+<td>安全面残留可收敛项：weaviate 设置 AUTHENTICATION_ANONYMOUS_ACCESS_ENABLED=true（虽位于 internal 网络），默认网关为 HTTP，未见强制 TLS/HSTS 与静态加密证据</td>
+<td>D7</td>
+<td>🟡 中</td>
+<td>默认关闭匿名访问、强制 TLS/HSTS、补充静态加密方案</td>
+</tr>
+<tr>
+<td>Issue 积压呈增长态势：开放 Issue 42 个 vs 90 天关闭 6 个</td>
+<td>D8</td>
+<td>🟡 中</td>
+<td>建立 Issue 分类与响应 SLA，定期清理与归档</td>
+</tr>
+<tr>
+<td>社区结构单薄：唯一贡献者 1 人，全部 PR 来自核心团队，无外部协作与多组织参与</td>
+<td>D3</td>
+<td>🟡 中</td>
+<td>设计 good-first-issue、贡献者激励与外部维护者培养机制</td>
+</tr>
+<tr>
+<td>运行环境依赖偏重：Python/Node/pnpm/MongoDB/OSS/外部 LLM，需 Docker + 8GB 内存 + 20GB 磁盘 + WSL2</td>
+<td>D2 / D11</td>
+<td>🟡 中</td>
+<td>提供轻量部署档位与一键安装脚本，降低试用门槛</td>
+</tr>
+</tbody>
+</table>
+<h3>8.3 发展路线图建议</h3>
+<ul>
+<li><strong>短期（1-3个月）</strong>：补齐高可用部署模板（副本集/集群、K8s/Helm）；清理 Anthropic 专有条款 Skills 的合规风险；引入第二维护者与 CODEOWNERS；建立 Issue 响应 SLA 与分类机制；明确 MOVO Desktop 的定价与授权边界。</li>
+<li><strong>中期（3-6个月）</strong>：拆分巨型文件、收敛技术债与前端安全瑕疵；接入 Prometheus/OpenTelemetry 与告警通道；补齐 LDAP/SAML/OIDC 与数据迁移框架；发布公开定价与首批付费客户案例。</li>
+<li><strong>长期（6-12个月）</strong>：建立差异化壁垒（垂直领域数据/评测基准、插件市场或技能生态）；推进上游解耦与多运行时适配以对冲结构性颠覆风险；将公共价值分提升至 ≥ 7 以向「明星资产」画像迁移。</li>
+</ul>
+<hr />
+<h2>九、风险提示</h2>
+<table>
+<thead>
+<tr>
+<th>风险类型</th>
+<th>风险描述</th>
+<th>概率</th>
+<th>影响</th>
+<th>缓解措施</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>市场风险</td>
+<td>替代品密集（Dify/RAGFlow/FastGPT/n8n），未达独占刚需；已验证竞品 Star 量级碾压（7,085–38,393，OpenViking 38,393 为 MOVO 145 的约 265 倍）；无任何公开定价或付费客户可验证</td>
+<td>高</td>
+<td>高</td>
+<td>聚焦治理/合规差异化场景，以私有化交付与 SLA 建立切换成本，尽快验证付费转化</td>
+</tr>
+<tr>
+<td>技术风险</td>
+<td>单文件巨型化（desktop_agent_executor.py &gt;4000 行）、静默吞异常、死代码、async 路由内同步 urllib 阻塞、N+1 隐患、前端 XSS 与协议未校验；高可用全为单实例；版本仅 v0.1.16 且 patch 号跳跃频繁，向后兼容未经检验</td>
+<td>高</td>
+<td>中</td>
+<td>按 8.2 逐项整改，建立架构与安全门禁，补齐高可用与迁移机制</td>
+</tr>
+<tr>
+<td>法律风险</td>
+<td>自定义 MOVO Community License（非 OSI 认证）附加禁止多租户 SaaS/OEM/改标条款；仓库内 docx/pdf/pptx/xlsx Skills 附带 Anthropic 专有条款（禁止提取、复制、衍生、向第三方分发/再许可），可能被企业开源合规政策排除；D6 分析失败，一票否决检查不完整</td>
+<td>中</td>
+<td>高</td>
+<td>出具第三方许可清单与合规说明，替换或隔离受限 Skills，必要时寻求法律意见</td>
+</tr>
+<tr>
+<td>竞争风险</td>
+<td>三重防御机制全部缺失（无专利/独占算法/数据壁垒、无网络效应、无规模效应）；关键差异化能力（Browser Agent、Code Agent、本地终端与 Git）被拆分到闭源 MOVO Desktop；存在结构性颠覆风险——整个差异化命题依附于上游 DSH/DeepSeek 生态，一旦上游官方进入企业平台层将直接覆盖 MOVO 定位；护城河处于零基线，时间窗口短</td>
+<td>高</td>
+<td>高</td>
+<td>加速上游解耦与多运行时适配，构建插件市场/技能生态，以集成深度与合同锁定客户</td>
+</tr>
+<tr>
+<td>组织风险</td>
+<td>contributors=1，巴士因子=1，高度依赖单人维护；无 GOVERNANCE.md / CODEOWNERS，决策由单一商业实体主导；开放 Issue 42 个 vs 90 天关闭 6 个，积压呈增长态势</td>
+<td>高</td>
+<td>中</td>
+<td>引入第二维护者与 CODEOWNERS，建立治理文档与 Issue 响应 SLA</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>说明：D6（法律合规）因分析失败被标 N/A，一票否决检查不完整；D9（团队与组织）同样为 N/A，组织维度结论以 D8 素材为准。</p>
+</blockquote>
+<hr />
+<h2>十、结论与建议</h2>
+<ul>
+<li><strong>综合评级：A（高商业化潜力）</strong></li>
+<li><strong>一句话结论</strong>：MOVO 以 12 服务自托管平台精准切入「Agent Demo 到企业生产」的治理缺口，变现路径明文可辨且工程化门禁成熟，但护城河零基线、单人维护与上游依附构成真实风险，属「可投入商业化、需补齐少量短板」的高潜力早期项目。</li>
+<li><strong>核心建议（3条）</strong>：
+  1. <strong>优先补齐商业化硬伤</strong>：明确 MOVO Desktop 定价与授权边界、清理 Anthropic 专有条款 Skills 的合规风险、提供高可用部署模板（副本集/集群、K8s/Helm），并引入第二维护者与 CODEOWNERS 降低巴士因子。
+  2. <strong>以治理与合规为价值锚，尽快验证付费转化</strong>：社区版已把治理/审计/配额/管理能力整体免费放出，转化被大幅让利；应发布公开定价与首批付费客户案例，把 Browser/Code Agent 的专有 Desktop 闸门转化为可验证的收入。
+  3. <strong>对冲结构性颠覆风险</strong>：加速上游 DSH/DeepSeek 解耦与多运行时适配，构建插件市场或技能生态以形成网络效应，避免上游官方进入企业平台层时被直接覆盖。</li>
+<li><strong>商业化可行性判定：谨慎推荐</strong></li>
+<li>支持理由：综合评分 67.8（A 级）、变现路径达 4 条且明文可辨、工程化与安全工程扎实、商业实体背书明确、企业级增值空间与定价天花板高。</li>
+<li>谨慎理由：护城河零基线且时间窗口短、上游依附的结构性颠覆风险、单人维护的组织风险、协议栈不干净可能被企业合规政策排除、无公开定价或付费客户可验证；D6 分析失败致一票否决检查不完整，法律合规维度存在未覆盖盲区。</li>
+<li>
+<p>本项目无用户利益侵害，用户利益扣分项为 0，不影响上述判定。</p>
+</li>
+<li>
+<p><strong>数据信号归因说明</strong>：本项目 D3（社区与生态，6.6）、D8（可持续性，5.4）、D10（功能价值，6.4）数据偏低，经归因检查主要源于<strong>时间性归因：太新</strong>（项目年龄 21 天 &lt; 90 天，社区/生态指标尚未形成）与<strong>结构性归因：单人/小团队维护</strong>（contributors=1，平台型项目依赖方/下载指标天然不敏感，Dependents 与 npm/PyPI 下载量均 N/A），<strong>不构成技术质量负面信号</strong>；其中 D8 的组织风险（巴士因子=1、无 GOVERNANCE.md/CODEOWNERS、Issue 积压呈增长态势）属<strong>真实商业化风险但非质量风险</strong>。技术质量结论以 D2 技术维度独立评估为准（D2: 7.5/10），D2 的低分项（单文件巨型化、技术债、前端安全瑕疵、版本成熟度低）为独立的技术质量证据，与上述数据归因无关。</p>
+</li>
+</ul>
+<blockquote>
+<p>【注意】一票否决检查不完整: D6</p>
+</blockquote>
+<h2>十一、项目地址</h2>
+<p><svg class="ri ri-muted" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.001 2C6.47598 2 2.00098 6.475 2.00098 12C2.00098 16.425 4.86348 20.1625 8.83848 21.4875C9.33848 21.575 9.52598 21.275 9.52598 21.0125C9.52598 20.775 9.51348 19.9875 9.51348 19.15C7.00098 19.6125 6.35098 18.5375 6.15098 17.975C6.03848 17.6875 5.55098 16.8 5.12598 16.5625C4.77598 16.375 4.27598 15.9125 5.11348 15.9C5.90098 15.8875 6.46348 16.625 6.65098 16.925C7.55098 18.4375 8.98848 18.0125 9.56348 17.75C9.65098 17.1 9.91348 16.6625 10.201 16.4125C7.97598 16.1625 5.65098 15.3 5.65098 11.475C5.65098 10.3875 6.03848 9.4875 6.67598 8.7875C6.57598 8.5375 6.22598 7.5125 6.77598 6.1375C6.77598 6.1375 7.61348 5.875 9.52598 7.1625C10.326 6.9375 11.176 6.825 12.026 6.825C12.876 6.825 13.726 6.9375 14.526 7.1625C16.4385 5.8625 17.276 6.1375 17.276 6.1375C17.826 7.5125 17.476 8.5375 17.376 8.7875C18.0135 9.4875 18.401 10.375 18.401 11.475C18.401 15.3125 16.0635 16.1625 13.8385 16.4125C14.201 16.725 14.5135 17.325 14.5135 18.2625C14.5135 19.6 14.501 20.675 14.501 21.0125C14.501 21.275 14.6885 21.5875 15.1885 21.4875C19.259 20.1133 21.9999 16.2963 22.001 12C22.001 6.475 17.526 2 12.001 2Z"/></svg> <a href="https://github.com/himovo/movo">https://github.com/himovo/movo</a></p>
+<hr />
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+</blockquote>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家　<a href="https://github.com/weixiongf" target="_blank" rel="noopener">@冯伟雄</a>　<a href="https://www.mova.work">www.mova.work</a></p>
+<p><strong>查看所有报告：</strong><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/">https://weixiongf.github.io/Open-Source-Alpha-Reports/</a></p><div class="page-footer">本页面由 <span class="at-acc">@向量之心</span> 打造的 github_anyliasis 系统自动维护。报告为 AI 辅助生成的第三方独立分析，仅供研究参考，不构成投资建议。</div></body></html>

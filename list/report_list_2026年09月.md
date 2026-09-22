@@ -80,7 +80,7 @@
 | 73 | [max-sixty/worktrunk](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/16/worktrunk/report.html) | 67.0 | A | 痛点真、迭代猛、上手快，但变现载体为零且上游随时可能内化这一层，买的是窗口期权不是生意。 |
 | 74 | [jadenzhangrobot/zrcs](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/16/zrcs/report.html) | 42.1 | D | 技术底子不差，但法律上不可用、社区上无人用、商业上无设计，当前不具备商业化起步条件。 |
 | 75 | [yueyezhufeng/bemodel-java](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/21/bemodel-java/report.html) | 58.6 | B | 赛道真实、协议最优、技术有深度，但1人8天龄零Release，当前只值得跟踪观察，不宜重投入。 |
-| 76 | [zai-org/ZCode](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/21/zcode/report.html) | 66.3 | A | A级剧本站在第一幕幕后：赛道与协议满分，但28次周下载才是它真正的成绩单。 |
+| 76 | [zai-org/ZCode](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/21/zcode/report.html) | 66.3 | A | 九维最高分 7.9 的商业模式，配上 0.1% 的测试覆盖率——引擎装好了，车还没上过路。 |
 
 ---
 

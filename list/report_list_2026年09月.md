@@ -82,7 +82,7 @@
 | 75 | [yueyezhufeng/bemodel-java](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/21/bemodel-java/report.html) | 58.6 | B | 赛道真实、协议最优、技术有深度，但1人8天龄零Release，当前只值得跟踪观察，不宜重投入。 |
 | 76 | [zai-org/ZCode](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/21/zcode/report.html) | 66.3 | A | 九维最高分 7.9 的商业模式，配上 0.1% 的测试覆盖率——引擎装好了，车还没上过路。 |
 | 77 | [himovo/movo](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/22/movo/report.html) | 67.8 | A | 12 服务自托管平台精准切入 Agent 企业化治理缺口，但护城河零基线、核心能力闭源、单人维护，赌的是上游下场前能否跑出生态。 |
-| 78 | [QoderAI/better-harness](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/23/better-harness/report.html) | 74.0 | A | 63天跑出同赛道24倍star，技术已赢麻、商业还没开局——A级潜力，但付费触发点仍是空白。 |
+| 78 | [QoderAI/better-harness](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/23/better-harness/report.html) | 74.0 | A | 两个月2320星、同赛道竞品最高仅95星，但商业命门是「开源即全部价值」——赚钱的钥匙交到了母公司Qoder手里。 |
 | 79 | [cloudflare](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/23/cloudflare/) | ? | ? |  |
 | 80 | [nandhakishorm](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/23/nandhakishorm/) | ? | ? |  |
 

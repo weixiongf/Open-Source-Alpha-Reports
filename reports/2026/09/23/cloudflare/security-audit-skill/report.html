@@ -1,0 +1,1833 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><title>Security-audit-skill 商业价值分析报告</title><style>/* default — 品牌蓝紫主题（从 md2pdf.py 原 CSS 常量迁出，视觉与历史产物一致） */
+@page { size: A4; margin: 18mm 15mm 20mm 15mm; }
+* { box-sizing: border-box; }
+/* 字体规范：一律开源思源黑体 CN（OFL 免费商用）；正文 Regular/标题 Bold/大字数字 Light */
+body { font-family: "Source Han Sans CN","思源黑体 CN","Noto Sans SC",sans-serif; color:#1e293b; font-size:10.5pt; line-height:1.75; margin:0; }
+.cover { page-break-after: always; text-align:center; padding-top:40px; }
+.cover .kicker { color:#2563eb; letter-spacing:6px; font-size:12pt; font-weight:500; }
+.cover h1 { font-size:26pt; margin:14px 0 6px; }
+.cover .sub { color:#64748b; font-size:11pt; margin-bottom:22px; }
+.badge { display:inline-block; background:linear-gradient(135deg,#2563eb,#7c3aed); color:#fff; border-radius:18px; padding:16px 44px; margin:10px 0 18px; }
+.badge .g { font-size:34pt; font-weight:300; line-height:1; }
+.badge .s { font-size:12pt; opacity:.92; margin-top:4px; }
+.meta { color:#475569; font-size:9.5pt; margin-top:14px; margin-bottom:40px; }
+.bars { max-width:620px; margin:20px auto 0; text-align:left; }
+.bar-row { display:flex; align-items:center; gap:8px; margin:5px 0; font-size:9pt; }
+.bar-name { width:110px; text-align:right; color:#334155; font-weight:500; }
+.bar-track { flex:1; height:9px; background:#f1f5f9; border-radius:5px; overflow:hidden; }
+.bar-fill { display:block; height:100%; border-radius:5px; }
+.bar-val { width:30px; font-weight:700; color:#0f172a; }
+.bar-w { width:52px; color:#94a3b8; font-size:8pt; }
+h1 { font-size:17pt; color:#0f172a; border-bottom:3px solid #2563eb; padding-bottom:8px; }
+h2 { font-size:13.5pt; color:#1d4ed8; margin-top:26px; page-break-after: avoid; border-left:5px solid #2563eb; padding-left:10px; }
+h3 { font-size:11.5pt; color:#0f172a; margin-top:18px; page-break-after: avoid; }
+table { border-collapse:collapse; width:100%; margin:10px 0; font-size:9pt; page-break-inside:avoid; }
+th { background:#eff6ff; color:#1e3a8a; }
+th,td { border:1px solid #dbe3ef; padding:5px 8px; text-align:left; }
+tr:nth-child(even) td { background:#f8fafc; }
+code { background:#f1f5f9; border-radius:4px; padding:1px 5px; font-family:"JetBrains Mono","Cascadia Mono",monospace; font-size:9pt; color:#be185d; }
+pre { background:#0f172a; color:#e2e8f0; border-radius:8px; padding:12px 14px; overflow-x:auto; page-break-inside:avoid; }
+pre code { background:none; color:inherit; padding:0; }
+blockquote { border-left:4px solid #93c5fd; background:#eff6ff; margin:10px 0; padding:8px 14px; color:#334155; border-radius:0 8px 8px 0; }
+hr { border:none; border-top:1px dashed #cbd5e1; margin:22px 0; }
+strong { color:#0f172a; }
+.credit { color:#2563eb; font-size:10.5pt; font-weight:700; letter-spacing:1px; margin-top:12px; }
+.at-acc { background:#dbeafe; color:#1d4ed8; border-radius:4px; padding:0 4px; font-weight:500; white-space:nowrap; }
+.tail { page-break-inside:avoid; margin-top:26px; border-top:2px solid #2563eb; padding-top:14px; }
+.tail p { color:#64748b; font-size:8.5pt; line-height:1.6; margin:0 0 10px; }
+.tail .credit { text-align:center; margin:0; }
+.page-footer { text-align:center; color:#94a3b8; font-size:8.5pt; line-height:1.6; margin-top:28px; padding-top:12px; border-top:1px solid #e2e8f0; }
+/* Remix Icon 内联 SVG（icon_mode=remix 时由脚本注入，语义色与评分条一致） */
+.ri { width:1.05em; height:1.05em; vertical-align:-0.18em; display:inline-block; }
+.ri-ok { color:#16a34a; } .ri-warn { color:#d97706; } .ri-bad { color:#dc2626; }
+.ri-muted { color:#64748b; } .ri-star { color:#f59e0b; } .ri-brand { color:#2563eb; }
+.ri-gold { color:#d4a017; } .ri-silver { color:#9ca3af; } .ri-bronze { color:#b45309; }
+/* 屏幕预览：@page 边距仅在打印时生效，浏览器中居中限宽并收边（不影响 PDF 输出） */
+@media screen {
+  body { margin: 0 auto; padding: 28px 36px 56px; max-width: 980px; }
+}
+</style></head><body><div class="cover">
+<div class="kicker">开源项目商业化潜力分析 · 第 119 期</div>
+<h1>GitHub 开源项目 Security-audit-skill<br>商业价值分析报告</h1>
+<div class="sub">cloudflare/security-audit-skill · 面向编码代理的多阶段安全审计技能包 · 九维度加权评估 62.0/B</div>
+<div class="badge"><div class="g">B 级 · 62.0</div><div class="s">综合评分（满分 100）· 中等商业化潜力</div></div>
+<div><svg viewBox="0 0 560 480" width="560" height="480" xmlns="http://www.w3.org/2000/svg"><polygon points="280.0,209.6 299.5,216.7 309.9,234.7 306.3,255.2 290.4,268.6 269.6,268.6 253.7,255.2 250.1,234.7 260.5,216.7" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,179.2 319.1,193.4 339.9,229.4 332.7,270.4 300.8,297.1 259.2,297.1 227.3,270.4 220.1,229.4 240.9,193.4" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,148.8 338.6,170.1 369.8,224.2 359.0,285.6 311.2,325.7 248.8,325.7 201.0,285.6 190.2,224.2 221.4,170.1" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,118.4 358.2,146.8 399.8,218.9 385.3,300.8 321.6,354.3 238.4,354.3 174.7,300.8 160.2,218.9 201.8,146.8" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,88.0 377.7,123.6 429.7,213.6 411.6,316.0 332.0,382.8 228.0,382.8 148.4,316.0 130.3,213.6 182.3,123.6" fill="none" stroke="#e2e8f0" stroke-width="1"/><line x1="280.0" y1="240.0" x2="280.0" y2="88.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="377.7" y2="123.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="429.7" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="411.6" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="332.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="228.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="148.4" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="130.3" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="182.3" y2="123.6" stroke="#d8dee9" stroke-width="1"/><polygon points="280.0,126.0 339.6,169.0 375.8,223.1 341.9,275.7 309.1,320.0 239.5,351.4 207.6,281.8 181.2,222.6 211.6,158.5" fill="rgba(37,99,235,.22)" stroke="#2563eb" stroke-width="2.5"/><circle cx="280.0" cy="126.0" r="3.5" fill="#2563eb"/><circle cx="339.6" cy="169.0" r="3.5" fill="#2563eb"/><circle cx="375.8" cy="223.1" r="3.5" fill="#2563eb"/><circle cx="341.9" cy="275.7" r="3.5" fill="#2563eb"/><circle cx="309.1" cy="320.0" r="3.5" fill="#2563eb"/><circle cx="239.5" cy="351.4" r="3.5" fill="#2563eb"/><circle cx="207.6" cy="281.8" r="3.5" fill="#2563eb"/><circle cx="181.2" cy="222.6" r="3.5" fill="#2563eb"/><circle cx="211.6" cy="158.5" r="3.5" fill="#2563eb"/><text x="280.0" y="44.0" text-anchor="middle" font-size="12.5" fill="#334155" font-weight="600">D1</text><text x="280.0" y="58.0" text-anchor="middle" font-size="11" fill="#64748b">市场需求 7.5</text><text x="406.0" y="89.9" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D2</text><text x="406.0" y="103.9" text-anchor="start" font-size="11" fill="#64748b">技术成熟度 6.1</text><text x="473.0" y="206.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D3</text><text x="473.0" y="220.0" text-anchor="start" font-size="11" fill="#64748b">社区生态 6.4</text><text x="449.7" y="338.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D4</text><text x="449.7" y="352.0" text-anchor="start" font-size="11" fill="#64748b">变现潜力 4.7</text><text x="347.0" y="424.2" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D5</text><text x="347.0" y="438.2" text-anchor="start" font-size="11" fill="#64748b">竞争格局 5.6</text><text x="213.0" y="424.2" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D6</text><text x="213.0" y="438.2" text-anchor="end" font-size="11" fill="#64748b">法律合规 7.8</text><text x="110.3" y="338.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D7</text><text x="110.3" y="352.0" text-anchor="end" font-size="11" fill="#64748b">企业就绪 5.5</text><text x="87.0" y="206.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D8</text><text x="87.0" y="220.0" text-anchor="end" font-size="11" fill="#64748b">团队治理 6.6</text><text x="154.0" y="89.9" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D9</text><text x="154.0" y="103.9" text-anchor="end" font-size="11" fill="#64748b">上手难度 7.0</text></svg></div>
+<div class="bars"><div class="bar-row"><span class="bar-name">D6 法律合规</span>
+<span class="bar-track"><span class="bar-fill" style="width:78.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.8</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D1 市场需求</span>
+<span class="bar-track"><span class="bar-fill" style="width:75.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.5</span><span class="bar-w">权重13%</span></div>
+<div class="bar-row"><span class="bar-name">D9 上手难度</span>
+<span class="bar-track"><span class="bar-fill" style="width:70.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.0</span><span class="bar-w">权重10%</span></div>
+<div class="bar-row"><span class="bar-name">D8 团队治理</span>
+<span class="bar-track"><span class="bar-fill" style="width:66.0%;background:#d97706"></span></span>
+<span class="bar-val">6.6</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D3 社区生态</span>
+<span class="bar-track"><span class="bar-fill" style="width:64.0%;background:#d97706"></span></span>
+<span class="bar-val">6.4</span><span class="bar-w">权重11%</span></div>
+<div class="bar-row"><span class="bar-name">D2 技术成熟度</span>
+<span class="bar-track"><span class="bar-fill" style="width:61.0%;background:#d97706"></span></span>
+<span class="bar-val">6.1</span><span class="bar-w">权重14%</span></div>
+<div class="bar-row"><span class="bar-name">D5 竞争格局</span>
+<span class="bar-track"><span class="bar-fill" style="width:56.0%;background:#dc2626"></span></span>
+<span class="bar-val">5.6</span><span class="bar-w">权重12%</span></div>
+<div class="bar-row"><span class="bar-name">D7 企业就绪</span>
+<span class="bar-track"><span class="bar-fill" style="width:55.0%;background:#dc2626"></span></span>
+<span class="bar-val">5.5</span><span class="bar-w">权重8%</span></div>
+<div class="bar-row"><span class="bar-name">D4 变现潜力</span>
+<span class="bar-track"><span class="bar-fill" style="width:47.0%;background:#dc2626"></span></span>
+<span class="bar-val">4.7</span><span class="bar-w">权重18%</span></div></div>
+<div class="meta">分析时点 2026-09-23 ｜ 数据来源：GitHub API + 仓库代码实测 ｜ 方法论 v1.6.2</div>
+</div><h1>第 119 期 · Security-audit-skill 商业化潜力分析报告（完整版）</h1>
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家　@冯伟雄</p>
+<p><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/#methodology" target="_blank" rel="noopener">方法论版本: v1.6.2</a> | 综合评分: <strong>62.0</strong> | 等级: <strong>B（中等商业化潜力）</strong> | 价值画像: 长尾项目 | 【画像临界】落点与相邻画像路径差异见 5.3</p>
+</blockquote>
+<h2>一、项目概览</h2>
+<p><strong>项目名称</strong>：cloudflare/security-audit-skill</p>
+<p><strong>一句话定位</strong>：一个面向编码代理的安全审计技能包，适用于通用跨行业的代码库与系统安全审计，主要面向安全工程师与后端开发者，通过六阶段流程产出可独立验证、机器可读的漏洞发现记录。</p>
+<p><strong>生命周期阶段</strong>：高速增长期（月增 &gt;100，趋势条件按纪律 6 退化到当前窗口绝对值）</p>
+<p><strong>项目年龄</strong>：96 天</p>
+<p><strong>核心事实</strong>：
+- 分类：安全 / 通用跨行业 / 开源库SDK（MIT 全开源，无 Open Core 或 SaaS 分层）
+- 部署形态：本地部署
+- 技术领域：AI Agent / 应用安全（AppSec）
+- 变现距离：远（无任何商业化机制，MIT 全开源 + 邮箱联系渠道，Cloudflare 品牌与生态引流为主）
+- 关键数据：20,072 Star / 1,135 Fork / 3 贡献者 / 48 开放 Issue / 90 天关闭 2 个 Issue / 近 30 天 3 次 commit
+- 交付物形态：15 份 Markdown 文档 + 2 个零依赖 .cjs 校验器，源码实测 0 行、CI 0 个、依赖 0 个</p>
+<hr />
+<h2>二、安装部署与使用指南</h2>
+<blockquote>
+<p>【注意】本章节为降级概要（安装指南草稿缺失），要点来自 D9 评分卡：</p>
+</blockquote>
+<ul>
+<li>安装为单条命令 <code>npx skills add &lt;repo&gt; --skill security-audit</code>，两个校验器零依赖（dependencies 为空），但硬性要求「支持并行子代理的编码代理 + OS 级强制沙箱」，非纯一键无依赖场景</li>
+<li>仓库无 Dockerfile / docker-compose / Helm / CI workflow（has_dockerfile=false，CI 0 个），无标准化部署件，也无 quickstart demo 脚本；配置项极少且默认输出目录合理</li>
+<li>运行前需手工搭建沙箱（禁外部网络、白名单环境、资源限制、仅可写 scratch 路径），否则工作流只输出 needs_validation 而不执行目标代码，产品核心价值失效</li>
+<li>交互侧表现优秀：自然语言触发、无需记命令、两个零依赖校验器强制校验 findings/ledger 结构，默认配置开箱可用</li>
+<li>无示例工程（示例 0 文件）、无交互式教程/onboarding；概念门槛高（六阶段、coverage ledger、三种裁决语义、十余份攻击面文档），且 README 自述单次运行仅覆盖约一半漏洞、需多轮运行才有完整结果</li>
+</ul>
+<h2>三、评分总览</h2>
+<h3>九维评分表</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>权重</th>
+<th>得分</th>
+<th>加权得分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1 市场与需求</td>
+<td>0.13</td>
+<td>7.5</td>
+<td>0.975</td>
+</tr>
+<tr>
+<td>D2 技术成熟度</td>
+<td>0.14</td>
+<td>6.1</td>
+<td>0.854</td>
+</tr>
+<tr>
+<td>D3 社区与生态</td>
+<td>0.11</td>
+<td>6.4</td>
+<td>0.704</td>
+</tr>
+<tr>
+<td>D4 商业模式与变现</td>
+<td>0.18</td>
+<td>4.7</td>
+<td>0.846</td>
+</tr>
+<tr>
+<td>D5 竞争与壁垒</td>
+<td>0.12</td>
+<td>5.6</td>
+<td>0.672</td>
+</tr>
+<tr>
+<td>D6 法律合规</td>
+<td>0.07</td>
+<td>7.8</td>
+<td>0.546</td>
+</tr>
+<tr>
+<td>D7 工程与运维</td>
+<td>0.08</td>
+<td>5.5</td>
+<td>0.440</td>
+</tr>
+<tr>
+<td>D8 团队与可持续性</td>
+<td>0.07</td>
+<td>6.6</td>
+<td>0.462</td>
+</tr>
+<tr>
+<td>D9 用户体验与集成</td>
+<td>0.10</td>
+<td>7.0</td>
+<td>0.700</td>
+</tr>
+<tr>
+<td><strong>综合评分</strong></td>
+<td></td>
+<td></td>
+<td><strong>62.0</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>综合评分：62.0 / 100</strong>
+<strong>商业化潜力等级：B（中等商业化潜力）</strong>
+<strong>一票否决：不触发</strong>（D6=7.8&gt;3；D8.4=1.8&gt;1；D4.1=2.0&gt;0.5）</p>
+<h3>D10/D11 平行维度表</h3>
+<table>
+<thead>
+<tr>
+<th>平行维度</th>
+<th>得分</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10 功能价值</td>
+<td>N/A</td>
+<td>评分卡重建异常（scorecard_rebuilt_by_regex），数据不可用</td>
+</tr>
+<tr>
+<td>D11 社会价值</td>
+<td>6.5</td>
+<td>教育资产完整、替代商业 SAST 订阅价值显著，但可及性受限、工程本体单薄</td>
+</tr>
+<tr>
+<td><strong>公共价值分</strong></td>
+<td><strong>6.5</strong></td>
+<td>(D10 + D11) / 2，D10 为 N/A 时取 D11</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>四、各维度详细分析</h2>
+<h3>D1. 市场需求与商业机会</h3>
+<h3>项目分类标签（1.6 前置打标）</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>标签</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td><strong>安全</strong>（次：开发者工具 / 数据与AI）</td>
+<td>核心能力是漏洞发现与审计编排，产出机器可读 findings；载体是编码代理的 skill 包</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td><strong>通用/跨行业</strong></td>
+<td>攻击面文档覆盖 Web、云、供应链、客户端、桌面/移动、RPC、内存安全、AI/LLM，无行业限定</td>
+</tr>
+<tr>
+<td>目标用户角色</td>
+<td><strong>安全工程师</strong>（次：后端开发者、AI/ML工程师、架构师）</td>
+<td>触发词为 security audit / pen-test，使用者需能跑编码代理 + Node + OS 级沙箱</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>安全防护、研发流程优化、CI/CD 流水线（潜在）</td>
+<td>六阶段审计流程，写出 findings.json / REPORT.md，README 明确「多轮跑可累加」</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td><strong>本地部署</strong>（代理本地运行，产出落本地目录）</td>
+<td>默认输出到 <code>~/security-audit-skill/&lt;repo&gt;/run-N</code>；无 Dockerfile、无 CI、无服务端组件</td>
+</tr>
+<tr>
+<td>运作模式（pattern）</td>
+<td><strong>开源库SDK</strong>（MIT 全开源，无商业化分层）</td>
+<td>Skills CLI 分发（<code>npx skills add</code>），无 license key、无云服务、无 Open Core 分层痕迹</td>
+</tr>
+</tbody>
+</table>
+<p><strong>一句话定位</strong>：cloudflare/security-audit-skill 是一个面向编码代理的安全审计技能包（catalog + 校验器），适用于通用跨行业的代码库安全审计，主要面向安全工程师与后端开发者，用于以「侦察 → 覆盖驱动狩猎 → 候选验证 → 结构化输出 → 独立复核 → 目标中立报告」的多阶段流程产出可独立验证、机器可读的漏洞发现记录。</p>
+<hr />
+<h3>D1.1 目标市场规模与增长性（满分 2.5）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TAM 估算</td>
+<td>对应 <strong>应用安全（AppSec）/ DevSecOps 工具与安全测试服务</strong> 市场，量级为十亿美元级并向 AI 辅助代码安全细分赛道延伸（<strong>估算未经外部数据验证，置信度低</strong>）</td>
+</tr>
+<tr>
+<td>增长趋势</td>
+<td>扩张。LLM 编码代理在 2025–2026 迅速普及，"代理自动审代码找漏洞"是与主赛道同步增长的新兴需求</td>
+</tr>
+<tr>
+<td>市场层级</td>
+<td><strong>新兴蓝海 / 成长期早期</strong>：AI 驱动的自动化安全审计尚未形成稳固格局</td>
+</tr>
+</tbody>
+</table>
+<p><strong>打分</strong>：<strong>2.0 / 2.5</strong>（80%，对应 7–8 档）
+<strong>依据</strong>：项目所解决的问题（代码与系统安全审计）落在十亿美元级且处于增长期的市场内，并踩中 AI 代理带来的新增需求。但需注意：本项目本身是<strong>免费 MIT 技能包</strong>，其直接可触达的「付费市场」并非整个 AppSec TAM，而是「企业愿意为 AI 辅助安全审计付费」这一尚未被验证的子集。无外部市场规模数据可采，评分为量级估算，<strong>置信度低</strong>。</p>
+<blockquote>
+<p>数据缺口：topics 为空、无外部市场规模数据，未采信任何具体市场数字。</p>
+</blockquote>
+<hr />
+<h3>D1.2 痛点真实性与解决程度（满分 2.5）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>痛点真实性</td>
+<td><strong>高</strong>。安全漏洞与合规审计是"非做不可"的事，人工渗透测试昂贵、周期性差；让编码代理顺手做审计可显著降低边际成本</td>
+</tr>
+<tr>
+<td>解决完整度</td>
+<td><strong>中偏弱</strong>。项目给出完整的方法论骨架（六阶段 + <code>report-schema.json</code> + 两个零依赖校验器 + 15 份攻击面文档），但①实测代码量极小（本地统计源码 0 行，仅 2 个测试文件）；②README 自述 <em>"a single run found roughly half of the vulnerabilities that repeated runs found in total"</em>，单轮检出率约 50%；③依赖 OS 级强制沙箱与支持并行子代理的模型，否则强制降级为 <code>needs_validation</code>，落地门槛高</td>
+</tr>
+<tr>
+<td>替代成本</td>
+<td><strong>低</strong>。替代品众多且成熟：Semgrep/CodeQL/Snyk 等 SAST、GitHub 原生 code scanning、商业 DAST、人工渗透测试；LLM 审计的<strong>不可复现性</strong>正是这些工具的核心优势所在</td>
+</tr>
+</tbody>
+</table>
+<p><strong>打分</strong>：<strong>1.5 / 2.5</strong>（60%，对应 5–6 档）
+<strong>依据</strong>：痛点真实且高价值，但方案可用性受模型能力与沙箱环境强约束，单轮覆盖不足且结果稳定性弱于既有工具，属于"锦上添花/效率增益"而非"替代刚需工具"；替代品密度高。Cloudflare 将其描述为"vulnerability discovery harness 的起点"，也侧面说明它在自家体系里是<strong>上游素材</strong>而非终态产品。</p>
+<hr />
+<h3>D1.3 市场时机判断（满分 2.5）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术成熟度曲线</td>
+<td>编码代理 + 工具调用已于 2025–2026 跨越"期望膨胀期"顶端进入实质生产期；把"安全审计"封装为 agent skill 是当下正被验证的形态（Anthropic/OpenAI/技能市场均在推 skills 生态）</td>
+</tr>
+<tr>
+<td>竞争密度</td>
+<td>成长期、格局未定：SAST 老玩家（Semgrep/Snyk/CodeQL）正加 AI 层，AI-native 安全公司（XBOW、CodeRabbit 类）在起量，但<strong>"可独立验证、机器可读 finding"的代理技能标准</strong>尚属空位</td>
+</tr>
+<tr>
+<td>监管/标准</td>
+<td>有推动力：供应链安全（SBOM）、合规审计、软件安全开发要求持续收紧，企业安全预算刚性</td>
+</tr>
+<tr>
+<td>时间戳</td>
+<td>创建 2026-06-18，最近推送 2026-09-14；90 天 PR 35 件、commits_30d 仅 3，处于<strong>早期快速迭代后趋缓</strong>阶段</td>
+</tr>
+</tbody>
+</table>
+<p><strong>打分</strong>：<strong>2.0 / 2.5</strong>（80%，对应 7–8 档）
+<strong>依据</strong>：时机良好——技术刚跨过拐点、需求侧有 AI 代理普及与合规双重顺风、赛道格局未固化。扣分点在于竞争密度正在快速上升（老牌 SAST + AI 原生安全厂商双向挤压），且本项目所在位置更偏"方法论与规范层"，容易被上游代理平台或下游商业扫描器吸收。</p>
+<hr />
+<h3>D1.4 应用场景广度（满分 2.5）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>行业覆盖</td>
+<td><strong>全行业</strong>。目标是任意代码库与系统，"target-neutral reporting" 明确与目标类型解耦</td>
+</tr>
+<tr>
+<td>场景多样性</td>
+<td><strong>横向通用</strong>。攻击类目横跨：内存安全/二进制/内核、AI 与 LLM（提示注入、代理/工具滥用）、Web 协议与认证、客户端 DOM、供应链与发布、云与部署（IAM/IaC/容器/Serverless）、RPC/消息队列/流式协议、资源耗尽与可用性、多租户数据隔离与生命周期、桌面/移动与本地 IPC</td>
+</tr>
+<tr>
+<td>可延展性</td>
+<td>强。schema + 校验器 + 攻击类目目录是<strong>可插拔的</strong>，新增攻击类目只需加一份 md + 覆盖账本单元；多轮运行可增量叠加（additive）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>打分</strong>：<strong>2.0 / 2.5</strong>（80%，对应 7–8 档）
+<strong>依据</strong>：跨行业、跨技术栈覆盖度极高，接近"安全审计领域的通用方法论基础设施"。未给到满分的原因：作用面被限定在<strong>「有编码代理 + 可跑 OS 级沙箱」</strong>的使用场景内，非技术用户与无沙箱环境完全无法使用；且当前仅有 15 份文档 + 2 个校验脚本，横向广度靠"提示词目录"撑起而非引擎能力。</p>
+<hr />
+<h3>D1 维度小结</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1.1 目标市场规模与增长性</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8</td>
+</tr>
+<tr>
+<td>D1.2 痛点真实性与解决程度</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6</td>
+</tr>
+<tr>
+<td>D1.3 市场时机判断</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8</td>
+</tr>
+<tr>
+<td>D1.4 应用场景广度</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>7.5</strong></td>
+<td><strong>→ 7.5 / 10</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：D1 = <strong>7.5 / 10</strong>。这是一个<strong>需求真实、时机正确、场景极宽</strong>的项目：它命中的是安全审计这一刚性且高预算的领域，且恰好站在编码代理普及与合规收紧的双重风口中，横向覆盖几乎所有技术栈的攻击面，具备成为"代理时代安全审计方法论标准"的潜质。主要短板在 <strong>D1.2</strong>：交付物本质是提示词目录 + 两个校验脚本（本地实测源码 0 行、仅 2 个测试文件），单轮检出率自述约 50%，强依赖高质量模型与 OS 级沙箱，相对成熟 SAST/DAST/人工渗透的<strong>替代成本低</strong>——它更像"提效与规范化层"，而非可替代既有工具的刚需产品。</p>
+<p><strong>置信度声明</strong>：无外部市场规模数据、topics 为空、星标时间线采集失败（stargazers 404）、代码行数统计为 0（采集器未识别 <code>.cjs</code>），D1.1 为纯量级估算，<strong>置信度低</strong>；其余细则基于 README 全文、文件清单与 GitHub 实采元数据判断，置信度中。另需提示：20,072 stars 对 3 contributors / 0 CI / 0 topics 的仓库属于异常高值，存在热度非自然增长的可能，规模类指标应谨慎采信。</p>
+<h3>D2 技术成熟度与产品质量</h3>
+<h3>项目性质判定</h3>
+<p><code>cloudflare/security-audit-skill</code> 并非传统意义上的「应用程序」，而是一个 <strong>coding-agent 技能包（Agent Skill）</strong>：以 <code>SKILL.md</code> 为入口，配合按攻击面切分的 15 份 Markdown 知识文档，向编码 Agent 注入一套分阶段安全审计方法论，并要求产出「可独立验证、机器可读」的审计结论。</p>
+<p><strong>数据可用性说明（影响本维度置信度）</strong>：本地采集结果显示 <code>total_code_lines = 0</code>、<code>code_stats_by_ext = {}</code>、<code>source_files = 0</code>，但 GitHub 主语言标记为 JavaScript，两者矛盾。结合目录树仅暴露 <code>skills/security-audit/</code>（3 层截断）与 15 个 <code>.md</code> 文件来看，<strong>该仓库主体应为文档/提示词内容</strong>，但不排除采集器未正确解析 JS 文件的可能。因此凡涉及「源码级」判断的细则（代码整洁性、安全编码）标记 N/A，本维度整体置信度为<strong>中</strong>。</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D2.1 产品设计与创新性</td>
+<td>1.5</td>
+<td><strong>1.2</strong></td>
+<td>80%</td>
+<td>产品理念清晰：把「安全审计」拆成侦察→攻击面狩猎→验证→报告的多阶段流程，并要求 findings 可独立验证、机器可读，这是对「让 Agent 输出可信审计结论」这一真实痛点的针对性设计。按攻击面（Web/Auth、客户端、云与部署、数据隔离、内存安全与二进制、协议/RPC、供应链、资源耗尽、AI/LLM、桌面移动 IPC）分文件组织，信息架构围绕核心场景，无明显功能堆砌。差异化点在于「独立验证 + 机器可读」而非泛泛的「让 AI 找漏洞」。创新属<strong>模式/体验层创新</strong>（能力封装形态），非算法创新，故未给满档。</td>
+</tr>
+<tr>
+<td>D2.2 架构设计与工程质量</td>
+<td>2.0</td>
+<td><strong>1.2</strong></td>
+<td>60%</td>
+<td>「架构」体现为文档与知识模块的组织：15 份专题文档 + 统一入口 SKILL.md，按攻击面高内聚切分，命名一致（全大写连字符），模块边界清晰，具备<strong>内容层的可复用性</strong>（单份攻击面文档可独立引用）。但作为工程实体：无可评估的源码分层、无抽象/接口定义、无公共工具模块、无依赖管理（<code>dependencies = {}</code>）、无 <code>CODEOWNERS</code>、无 CI 流水线、目录层级极浅（<code>skills/security-audit/</code> 单层），工程化基建基本空白。技术护城河主要来自 Cloudflare 的安全领域知识与方法论文本积累，<strong>复刻门槛中等偏高</strong>（内容可重写，但体系化攻击面覆盖与验证方法论需真实攻防经验），不构成工程复杂度壁垒。</td>
+</tr>
+<tr>
+<td>D2.3 代码整洁性与规范性</td>
+<td>1.0</td>
+<td><strong>N/A</strong></td>
+<td>—</td>
+<td>采集到源码行数为 0，无可审查目标；语言标记与实测冲突，属「数据缺失且无法补采」，按 N/A 处理，不计入总分。</td>
+</tr>
+<tr>
+<td>D2.4 安全性</td>
+<td>1.0</td>
+<td><strong>0.6</strong></td>
+<td>60%</td>
+<td>无源码 → 无注入面、无硬编码密钥、无第三方依赖（<code>dependencies = {}</code>），攻击面本身极低，这是结构性优势。但项目<strong>自身的安全治理缺位</strong>：无 <code>SECURITY.md</code>（对一个对外主张安全审计能力的项目尤为刺眼）、无 <code>has_security_md</code>、无任何依赖/密钥扫描工作流（<code>ci_workflows = 0</code>）。作为安全类项目，未展示自身安全实践的表达，扣至中档。</td>
+</tr>
+<tr>
+<td>D2.5 UI/UX/UE 人机交互</td>
+<td>1.0</td>
+<td><strong>N/A</strong></td>
+<td>—</td>
+<td>本项目为 Agent 技能内容包，交互界面由宿主编码 Agent 提供，仓库内无 Web/桌面/移动/交互式 CLI 界面，不参与计分。</td>
+</tr>
+<tr>
+<td>D2.6 功能完备度与稳定性</td>
+<td>1.5</td>
+<td><strong>0.9</strong></td>
+<td>60%</td>
+<td>覆盖面看似完整：REONNAISSANCE/HUNTING/VALIDATION-AND-REPORTING 构成闭环，10 类攻击面文档齐备，方法论闭环性较好。但：① <code>recent_releases = []</code>，<strong>零 Release、零版本号</strong>，项目创建于 2026-06-18、最近推送 2026-09-14（约 3 个月），按新项目规则不因无 Release 额外惩罚，但也无从验证向后兼容与稳定性；② <code>open_issues = 48</code> 而 90 天内仅关闭 2 个（<code>issues_closed_90d = 2</code>），同期新建 PR 35 个，反馈积压明显，迭代吞吐与问题收敛能力存疑；③ 无 i18n/l10n 支持，对面向全球交付的商业化场景是短板。运行环境要求极为宽松（纯文档，无 OS/运行时/中间件/硬件依赖，硬件项 N/A），此项加分。</td>
+</tr>
+<tr>
+<td>D2.7 文档与开发者体验</td>
+<td>1.0</td>
+<td><strong>0.8</strong></td>
+<td>80%</td>
+<td>文档是本项目最厚实的一环：15 份文档，含 README、入口文档 SKILL.md，以及按攻击面、狩猎方法、验证与报告流程分列的专题文档，覆盖度与结构化程度均高于同类项目平均，具备「手册级」完备性。未给满档的原因：无法核实文档与内容版本是否同步（无 CHANGELOG、无版本号）、无交互式教程、无 CONTRIBUTING/示例目录（<code>examples = 0</code>、<code>has_contributing = false</code>），外部贡献者上手路径不完整。</td>
+</tr>
+<tr>
+<td>D2.8 测试与质量保障</td>
+<td>1.0</td>
+<td><strong>0.2</strong></td>
+<td>20%</td>
+<td><code>ci_workflows = 0</code>（无任何自动化构建/测试/发布流水线）；测试文件 2 个但实测 0 行，无可验证的测试资产；无覆盖率报告、无静态分析/lint 配置、无安全扫描、无 CODEOWNERS 代码评审机制。质量门禁链条基本缺失，仅因存在 2 个测试目录文件而不给最低档。</td>
+</tr>
+</tbody>
+</table>
+<h3>计分</h3>
+<ul>
+<li>已评估细则得分合计：1.2 + 1.2 + 0.6 + 0.9 + 0.8 + 0.2 = <strong>4.9</strong></li>
+<li>已评估细则满分合计：1.5 + 2.0 + 1.0 + 1.5 + 1.0 + 1.0 = <strong>8.0</strong>（D2.3、D2.5 为 N/A，剔除）</li>
+<li><strong>D2 得分 = 4.9 ÷ 8.0 × 10 = 6.1</strong></li>
+</ul>
+<h3>结论</h3>
+<p>D2 = <strong>6.1 分（一般偏上，未达商业化交付门槛）</strong>。</p>
+<p><strong>优势侧</strong>：产品设计有明确的问题意识和差异化（可独立验证、机器可读的审计结论），知识体系按攻击面高度结构化，文档完备度显著高于行业平均，且运行环境零依赖、部署门槛极低。</p>
+<p><strong>短板侧</strong>：本项目本质是「内容 + 方法论」型资产，工程化程度极低——零 CI、零可验证测试、零版本发布、零依赖治理，导致产品质量<strong>无法被机械验证</strong>，只能依赖人工信任与 Cloudflare 品牌背书。48 个开放 Issue 仅关闭 2 个，反馈积压与迭代收敛能力不足；无 i18n 限制全球化交付；作为安全类项目却缺少自身安全治理声明（SECURITY.md）与安全扫描，形成「审视他人安全、自身治理缺位」的观感落差。</p>
+<p><strong>商业化含义</strong>：作为可交付的审计能力组件，其价值高度依赖内容质量与后续维护节奏。若要在商业场景中承担责任，需补齐版本化发布、CI 与测试/回归验证机制（尤其是对「机器可读 findings」的 schema 校验与端到端回归）、以及面向用户的安全与合规声明。当前状态适合作为「专家经验加速器」使用，尚不足以作为有 SLA 保证的产品化交付物。</p>
+<blockquote>
+<p>置信度提示：由于本地采集源码行数为 0 而语言标记为 JavaScript，存在采集器漏解析的可能；若实际存在 JS 工具代码（如 findings schema 校验、报告生成脚本），D2.2/D2.3/D2.8 有上修空间。本结论基于现有硬事实，置信度中等。</p>
+</blockquote>
+<h3>D3. 社区健康度与生态势能（权重 11%）</h3>
+<p><strong>评估前提</strong>：项目年龄 96 天（&gt;90 天阈值，<strong>非新项目</strong>），故不适用「新项目专项」的 90 天中性档保护；但 96 天仍属极早期，生态/贡献者维度需结合时间背景解读。Star 时间线补采失败（stargazers API 404），近 90 天/近 7 天增量均为 N/A，Star 月增采用退化公式。</p>
+<h3>D3.1 社区活跃度指标（满分 3 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Star 增速</td>
+<td>总量 20,072；近 90 天增量 N/A（补采失败）→ 退化为 Star ÷ 年龄(月) = 20,072 ÷ 3.2 ≈ <strong>6,272/月</strong></td>
+<td>史诗级增速，远超 9–10 档 &gt;500 阈值</td>
+</tr>
+<tr>
+<td>Fork 比率</td>
+<td>1,135 / 20,072 = <strong>5.65%</strong></td>
+<td>分母大、比率健康，衍生意愿良好</td>
+</tr>
+<tr>
+<td>Issue/PR 活跃度</td>
+<td>近 90 天 PR 35 个；<code>issues_closed_90d</code>=2；开放 Issue 48</td>
+<td>PR 活跃度高；Issue 净增长明显</td>
+</tr>
+<tr>
+<td>响应速度</td>
+<td>90 天仅关闭 2 个 Issue vs 48 个开放</td>
+<td><strong>响应能力弱、存在积压</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>打分：2.4 / 3（8 档，80%）</strong>
+- Star 增速为绝对顶级（6,272/月），单独看足以进入 9–10 档；Fork 比率 5.65%、90 天 35 个 PR 亦属活跃。
+- 扣分项为 <strong>Issue 响应</strong>：90 天仅关闭 2 个、48 个开放，明显不符合 9–10 档「&lt;2 天响应」要求，甚至有积压迹象。综合高增速与弱响应，落于 7–8 档上限区。
+- <strong>口径声明</strong>：因 stargazers 补采 404，月增使用退化公式（历史平均），对 96 天项目而言该值≈全量 Star÷3.2，<strong>高估风险有限</strong>，但仍标注为估算值。
+- <strong>归因检查（1.7）</strong>：本细则数据<strong>高而非低</strong>，无需低数据归因。Issue 积压属「工具/文档型项目 + 早期井喷流量」的常见现象，说明维护产能未跟上关注度，是真实的<strong>运营/维护产能风险</strong>，非技术质量信号。</p>
+<h3>D3.2 贡献者结构多样性（满分 2.5 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>贡献者数量</td>
+<td><strong>3 人</strong></td>
+<td>&lt;5 人，集中度高</td>
+</tr>
+<tr>
+<td>组织多样性</td>
+<td>主体为 Cloudflare 单一组织</td>
+<td>单一组织</td>
+</tr>
+<tr>
+<td>核心团队占比</td>
+<td>35 个 PR / 仅 3 贡献者</td>
+<td>贡献高度集中</td>
+</tr>
+</tbody>
+</table>
+<p><strong>打分：1.0 / 2.5（3–4 档，40%）</strong>
+- 3 名贡献者落在「&lt;5 贡献者」区间，高度集中；虽为 Cloudflare 企业项目（非个人），但贡献者结构单一、组织多样性为零。
+- <strong>归因（1.7 结构性归因：单人/小团队维护）</strong>：本细则低分照给——贡献者结构单一是<strong>真实的组织风险（传承/巴士因子，另归 D8 评估）</strong>；但须明确区分——<strong>这不构成技术质量负面信号</strong>，技术结论以 D2 独立评估为准。企业背书降低了「核心离开即项目消亡」的极端风险，但生态自生长能力仍弱。</p>
+<h3>D3.3 第三方生态成熟度（满分 3 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>插件/扩展</td>
+<td>无第三方插件/扩展记录；Topics 为空</td>
+<td>生态尚未形成</td>
+</tr>
+<tr>
+<td>集成生态</td>
+<td>可通过 Skills CLI（skills.sh）安装，属 agent 技能生态集成</td>
+<td>存在初步平台集成</td>
+</tr>
+<tr>
+<td>衍生项目</td>
+<td>README 载明其「孕育了 Cloudflare 漏洞发掘 harness」，母体已衍生为多阶段系统</td>
+<td>存在官方衍生，但非社区衍生</td>
+</tr>
+<tr>
+<td>教程/课程</td>
+<td>有 Cloudflare 官方博客（Build your own vulnerability harness）覆盖</td>
+<td>官方内容为主，缺社区教程</td>
+</tr>
+</tbody>
+</table>
+<p><strong>打分：1.8 / 3（5–6 档，60%）</strong>
+- 无第三方插件/扩展，Topics 为空，社区衍生生态基本空白；但存在 <strong>Skills CLI 安装链路</strong>与 <strong>Cloudflare 官方衍生系统 + 官方博客</strong>，构成「少量第三方/平台级集成」证据，落于 5–6 档。
+- 96 天极早期，第三方生态天然来不及发育，属「尚未发生」，不构成负面信号。</p>
+<h3>D3.4 品牌认知与行业影响力（满分 1.5 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>品牌辨识度</td>
+<td><code>cloudflare/</code> 命名，Cloudflare 为全球知名安全厂商；3 个月 20K Star</td>
+<td>辨识度高</td>
+</tr>
+<tr>
+<td>行业采用</td>
+<td>该 skill 是 Cloudflare 漏洞发掘 harness 的起点，已在企业内规模化落地</td>
+<td>有头部企业背书与自有采用</td>
+</tr>
+<tr>
+<td>媒体覆盖</td>
+<td>Cloudflare 官方博客专文介绍其衍生系统</td>
+<td>有厂商级媒体覆盖</td>
+</tr>
+</tbody>
+</table>
+<p><strong>打分：1.2 / 1.5（7–8 档，80%）</strong>
+- <strong>发布即具背书</strong>：由头部安全厂商 Cloudflare 发布，并获官方博客覆盖、内部较大规模采用，属 D3.4 条款中「知名组织发布」的正面上浮情形。
+- 尚未见第三方头部企业采用案例或频繁会议亮相等 9–10 档证据，故落 7–8 档。</p>
+<h3>D3 维度小结</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D3.1 社区活跃度指标</td>
+<td>3.0</td>
+<td>2.4</td>
+<td>8 档</td>
+</tr>
+<tr>
+<td>D3.2 贡献者结构多样性</td>
+<td>2.5</td>
+<td>1.0</td>
+<td>3–4 档</td>
+</tr>
+<tr>
+<td>D3.3 第三方生态成熟度</td>
+<td>3.0</td>
+<td>1.8</td>
+<td>5–6 档</td>
+</tr>
+<tr>
+<td>D3.4 品牌认知与行业影响力</td>
+<td>1.5</td>
+<td>1.2</td>
+<td>7–8 档</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>6.4</strong></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：D3 = <strong>6.4/10（一般偏上）</strong>。项目呈现典型的「<strong>高势能、低结构</strong>」画像——Star/PR/品牌势能顶级（D3.1、D3.4 接近高档），但贡献者高度集中（3 人、单一组织）与第三方生态空白（Topics 为空、无社区插件）显著拖累总分。核心商业化含义：<strong>社区即潜在客户池的规模已具备（20K Star 意味着巨大触达），但客户池的「自组织、可承接」能力薄弱</strong>——流量集中在 Cloudflare 自身，外部贡献者与生态伙伴尚未涌入。若商业化依赖社区共创/插件生态，需主动投入生态运营；若仅依赖品牌触达+官方交付，则现有势能已足够。</p>
+<p><strong>数据归因: 无良性归因（数据不低）</strong>。本维度数据整体为高数值，不存在「低数据→低质量」的推断问题；唯一数据缺口为 stargazers 时间线补采失败（API 404），导致近 90 天 Star 增量 N/A（已用退化公式替代并标注）。低分项（D3.2 贡献者结构、D3.3 生态空白）源于项目仅 96 天且由单一企业主导，属「尚未发生」与「企业集中」而非质量缺陷，正文已按 1.7 归因表区分组织风险与技术质量。</p>
+<h3>生命周期阶段判定</h3>
+<ul>
+<li><strong>输入</strong>：年龄 96 天；Star 总量 20,072；Fork 1,135；Star 月增 ≈6,272（退化公式，因前窗口增量不可得）；近 30 天 commit 3 次；最近推送 2026-09-14；无 release。</li>
+<li><strong>匹配过程</strong>（按优先级）：</li>
+<li>⚰️ 废弃期：无 archived/deprecated 标记 → 不命中。</li>
+<li>💤 死寂期：近 30 天有 commit（3 次）、近期有推送与 Issue 活动 → 不命中。</li>
+<li>🚀 爆发期：分支一需年龄 &lt;90 天（本例 96 天）→ 不命中；分支二「月增 &gt;500 且较前一窗口翻倍」因前窗口增量不可得 → 按纪律 6 不启用。</li>
+<li>📈 高速增长期：Star 月增 &gt;100；「趋势上升」因前窗口增量不可得，按纪律 6 退化为仅看当前窗口绝对值（6,272 &gt;100）→ <strong>命中</strong>。</li>
+<li><strong>判定结果：📈 高速增长期</strong>。</li>
+<li><strong>商业化含义</strong>：优质标的——增长与留存（Fork、PR）并存；但需警惕 Issue 维护产能未跟上关注度的隐患，后续窗口应持续复核月增是否断崖回落。</li>
+</ul>
+<h1>D4. 商业模式与变现潜力（权重 18%）</h1>
+<h3>D4.1 协议对变现模式的影响（满分 2 分）</h3>
+<p><strong>实测依据</strong>：仓库根目录 <code>LICENSE</code> 为 <strong>MIT License</strong>（Copyright (c) 2025-2026 Cloudflare, Inc.），SPDX 标识 <code>MIT</code>，与 GitHub API <code>license: "MIT"</code> 一致；无附加条款、无 Commons Clause、无自定义限制性声明；<code>package.json</code> 层面的依赖与协议声明为 0（<code>dependencies: {}</code>）。</p>
+<p><strong>判断</strong>：MIT 属最宽松许可，不限制闭源衍生、SaaS 托管、双协议再授权或 Open Core 分层。项目自身也不存在上游 GPL/AGPL 代码的传染性输入（纯文档 + 自研零依赖脚本）。所有变现路径在法律上无任何障碍。</p>
+<table>
+<thead>
+<tr>
+<th>档位</th>
+<th>得分</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>9–10（100%）</td>
+<td><strong>2.0 / 2.0</strong></td>
+<td>MIT，零协议约束，全部变现路径合法可行</td>
+</tr>
+</tbody>
+</table>
+<h3>D4.2 变现路径清晰度（满分 3.5 分）</h3>
+<p><strong>实测依据</strong>：
+- 交付物为<strong>纯文档型 agent skill</strong>：代码总行数 <strong>0</strong>，源码文件 <strong>0</strong>，仅 2 个零依赖 CJS 校验器（<code>validate-findings.cjs</code> / <code>validate-coverage-ledger.cjs</code>）+ 16 个 Markdown 文档；无 <code>package.json</code> 依赖、无 Dockerfile、无 CI。
+- 分发方式为完全免费的 <code>npx skills add &lt;repo&gt; --skill security-audit</code>，无 npm 私有 registry、无付费插件市场入口。
+- README 明确自述："This is the skill that <strong>seeded Cloudflare's vulnerability discovery harness</strong>… the harness grew into a multi-stage, <strong>fleet-wide system</strong>; this skill is the single-repo starting point it evolved from"——即开源的是"起点"，企业内部的多阶段舰队级系统未开源，构成事实上的 <strong>Open Core 结构</strong>（但闭源侧不在本仓库可控范围内）。
+- 提供 <code>security-ai-research@cloudflare.com</code> 作为商务/研究对口联系邮箱，属于弱信号的服务引流，但无定价、无服务目录、无 SLA 描述。
+- License 未做任何"企业版/商业授权"区分；无 <code>LICENSE-COMMERCIAL</code> 或双协议入口。</p>
+<p><strong>逐模式可行性</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>可行性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Open Core</td>
+<td>概念可行、不可控</td>
+<td>闭源侧（fleet-wide harness）不在本仓库，本仓库不具备可分层售卖的功能载体</td>
+</tr>
+<tr>
+<td>SaaS 托管</td>
+<td>间接可行</td>
+<td>需依赖外部（Cloudflare Workers/AI 或三方 agent 平台）另行构建，本仓库无托管物</td>
+</tr>
+<tr>
+<td>双协议许可</td>
+<td>不适用</td>
+<td>无企业版/商业授权入口，MIT 已完全放开</td>
+</tr>
+<tr>
+<td>专业服务</td>
+<td>唯一较现实路径</td>
+<td>依托 Cloudflare 安全业务与 <code>security-ai-research@</code> 邮箱引流，但属公司既有业务的引流，非本仓库产品化</td>
+</tr>
+<tr>
+<td>市场/插件抽成</td>
+<td>不适用</td>
+<td>通过 skills.sh 免费分发，无抽成机制</td>
+</tr>
+<tr>
+<td>认证/生态</td>
+<td>不适用</td>
+<td>无认证体系、无合作伙伴计划、无 topics 分类</td>
+</tr>
+<tr>
+<td>捐赠/赞助</td>
+<td>不适用</td>
+<td>由上市公司 Cloudflare 维护，非社区捐赠模式</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断</strong>：变现路径存在但<strong>均为间接、战略型</strong>（品牌/安全业务引流 + 闭源 harness 的 Open Core 影子），本仓库自身零产品化载体（0 行代码、无包、无定价、无企业功能分层），任何直接变现都需在仓库之外重建产品。属"路径模糊、需大量探索"而非"潜在路径已成形待验证"。</p>
+<table>
+<thead>
+<tr>
+<th>档位</th>
+<th>得分</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3–4（40%）</td>
+<td><strong>1.4 / 3.5</strong></td>
+<td>仅存在一条间接战略路径（安全服务引流 / 闭源舰队 harness），无仓库级产品化载体，路径模糊</td>
+</tr>
+</tbody>
+</table>
+<h3>D4.3 付费转化逻辑（满分 2.5 分）</h3>
+<p><strong>实测依据</strong>：
+- 全部功能对任何人免费开放，MIT 授权，无 Free/Pro/Enterprise 分层，无功能门禁（README 中不存在任何 edition / plan / pricing / upgrade 字样）。
+- 使用链路为 <code>npx skills add</code> → agent 自动触发 → 本地/沙箱内产出报告，<strong>全流程无任何需要付费解锁的环节</strong>。
+- 需求侧虽真实（安全审计、合规证据、机器可读 findings），但需求的付费对象是<strong>安全咨询/平台服务</strong>（Cloudflare 自身或竞品），而非此 skill 本身。
+- 目标用户（使用 coding agent 的开发者/安全工程师）对"一份开源审计 prompt 方法论"的付费意愿接近于零：同类资产（Semgrep 规则集、审计 checklist、prompt 库）在公开渠道均以免费形式大量存在，且可任意 fork 再分发（已有 1,135 fork）。</p>
+<p><strong>判断</strong>：仓库内不存在任何"免费不够用→自然升级付费"的触发点，也未设计任何转化漏斗（无账号体系、无用量计量、无云端产物托管）。</p>
+<table>
+<thead>
+<tr>
+<th>档位</th>
+<th>得分</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1–2（20%）</td>
+<td><strong>0.5 / 2.5</strong></td>
+<td>完全找不到仓库内的付费触发点，无功能分层、无计量、无转化路径</td>
+</tr>
+</tbody>
+</table>
+<h3>D4.4 增值服务空间与定价天花板（满分 2 分）</h3>
+<p><strong>实测依据</strong>：
+- 可叠加的增值方向在业务层面确实存在：合规级审计报告与留痕、独立验证的托管执行、SLA/责任担保、CI/CD 集成与持续审计、企业级沙箱与配额治理。
+- 但本仓库未提供上述任何一项的可售载体：无服务端组件、无仪表盘、无私有 registry、无企业功能、无定价页；唯一对外商业接触点是 <code>security-ai-research@cloudflare.com</code>。
+- 目标客户画像（有安全审计刚需的中大型企业）理论上具备高付费能力，安全服务类客单价可达 $1K–$10K+/年量级，但该收入归属于 Cloudflare 的安全产品线，本项目无法据此定价。
+- 收入扩展性（per-seat → per-usage → enterprise flat）在本项目内不存在计量基础。</p>
+<p><strong>判断</strong>：增值方向"存在但不可由本项目承接"，客单价完全取决于外部服务而非本仓库，属增值空间小且需自建。</p>
+<table>
+<thead>
+<tr>
+<th>档位</th>
+<th>得分</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3–4（40%）</td>
+<td><strong>0.8 / 2.0</strong></td>
+<td>有理论增值方向（合规/托管/SLA），但项目内无可售载体，客单价无法由本项目锚定</td>
+</tr>
+</tbody>
+</table>
+<h3>维度汇总</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+<th>核心结论</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D4.1 协议对变现模式的影响</td>
+<td>2.0</td>
+<td><strong>2.0</strong></td>
+<td>9–10（100%）</td>
+<td>MIT 零约束，全路径合法</td>
+</tr>
+<tr>
+<td>D4.2 变现路径清晰度</td>
+<td>3.5</td>
+<td><strong>1.4</strong></td>
+<td>3–4（40%）</td>
+<td>仅间接战略路径，无产品化载体</td>
+</tr>
+<tr>
+<td>D4.3 付费转化逻辑</td>
+<td>2.5</td>
+<td><strong>0.5</strong></td>
+<td>1–2（20%）</td>
+<td>无付费触发点、无功能分层</td>
+</tr>
+<tr>
+<td>D4.4 增值服务空间与定价天花板</td>
+<td>2.0</td>
+<td><strong>0.8</strong></td>
+<td>3–4（40%）</td>
+<td>增值方向存在但项目不可承接</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>4.7</strong></td>
+<td>—</td>
+<td><strong>D4 = 4.7 / 10（较弱）</strong></td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<p><code>cloudflare/security-audit-skill</code> 是典型的<strong>大厂战略型开源资产</strong>，而非商业产品：</p>
+<ol>
+<li><strong>协议维度满分，但这是唯一的强项</strong>。MIT 让所有变现路径在法律上畅通，然而"能卖"不等于"有东西卖"。</li>
+<li><strong>缺少可售载体是根本短板</strong>。仓库代码行数为 0，交付物是 16 个 Markdown + 2 个零依赖校验脚本，通过 <code>npx skills add</code> 免费分发；既无企业版功能分层，也无托管服务、无双协议入口、无用量计量，付费触发点为零。</li>
+<li><strong>真实变现路径高度间接</strong>。README 自述该 skill 是 Cloudflare 内部 fleet-wide 漏洞发现 harness 的"单仓库起点"，构成事实上的 Open Core 影子结构——但闭源侧不在此仓库；唯一商业接触点为 <code>security-ai-research@cloudflare.com</code>，指向的是 Cloudflare 既有安全业务/研究合作，属于<strong>品牌与线索引流</strong>，而非项目自身的产品化变现。</li>
+<li><strong>战略价值 ≠ 变现价值</strong>。20,072 stars 反映了极高的技术影响力与 Cloudflare 品牌背书，但按本维度方法论，明星数不构成商业模式；可复制的付费逻辑、定价锚点与转化漏斗在此项目中均不存在。</li>
+</ol>
+<p><strong>商业化建议（若需变现）</strong>：可从三处补强——① 建立托管式"验证即服务"（含独立 verifier 执行、合规留痕、SLA）；② 在 MIT 之上叠加企业级功能/内容包（合规映射、报告模板、私有规则库）形成 Open Core 分层；③ 将审计执行与 Cloudflare 安全产品线（或第三方 agent 平台）绑定，以 per-scan/per-seat 计量形成可扩展收入。上述均需在仓库之外新建，短期内 D4 难以显著提升。</p>
+<h3>D5. 竞争格局与差异化壁垒</h3>
+<p><strong>维度得分：5.6 / 10</strong>（D5.1 2.4 + D5.2 1.2 + D5.3 1.2 + D5.4 0.8）</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据（硬事实）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D5.1 竞品对比与市场定位</td>
+<td>3</td>
+<td>2.4</td>
+<td>7–8（80%）</td>
+<td>定位表述清晰且差异化（多阶段 + 对抗式独立验证 + 机器可读 findings）；但同品类已高度拥挤，本项目定位为"方法论工作流"而非检测能力</td>
+</tr>
+<tr>
+<td>D5.2 技术壁垒与网络效应</td>
+<td>3</td>
+<td>1.2</td>
+<td>3–4（40%）</td>
+<td>交付物为 Markdown 提示词库（15 个文档）+ 2 个零依赖 CJS 校验器，源码行数 0，MIT 许可，无专利/数据飞轮/插件生态，可被整体 fork</td>
+</tr>
+<tr>
+<td>D5.3 切换成本与用户粘性</td>
+<td>2</td>
+<td>1.2</td>
+<td>5–6（60%）</td>
+<td>安装为一次性 <code>npx skills add</code>，卸载即走；但 <code>report-schema.json</code> / <code>coverage-ledger.json</code> 输出格式与"多次运行增量叠加"机制带来中等程度的流程粘性</td>
+</tr>
+<tr>
+<td>D5.4 护城河可持续性</td>
+<td>2</td>
+<td>0.8</td>
+<td>3–4（40%）</td>
+<td>底层能力（Agent 化漏洞发现）正在被模型厂商与安全厂商快速商品化；README 自述其内部 harness 已"演进为舰队级系统"，开源技能定位为"起点"而非护城河本体</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>D5.1 竞品对比与市场定位（2.4 / 3）</h3>
+<p><strong>竞品对比表（GitHub Search API 实测，本次可验证结果）</strong></p>
+<table>
+<thead>
+<tr>
+<th>竞品名称</th>
+<th>类型</th>
+<th>仓库/官网</th>
+<th>验证方式</th>
+<th>Star/用户量</th>
+<th>核心差异</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>schumannx/security-audit-skill</td>
+<td>非独立竞品（同名镜像/派生）</td>
+<td>github.com/schumannx/security-audit-skill</td>
+<td>GitHub 搜索 API 实测确认存在</td>
+<td>0</td>
+<td>描述与 pushed_at（2026-09-14T19:29:02Z）与被评项目完全一致，判定为同源镜像，<strong>不构成独立竞品</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>防幻觉声明</strong>：本次 GitHub Search API 检索仅命中 1 条结果，且该结果经比对为被评项目的同名镜像（description 逐字相同、pushed_at 相同）。
+<strong>经搜索确认，独立的同类直接竞品为 0 个。</strong></p>
+</blockquote>
+<p><strong>未经验证的品类背景（本环境未做搜索验证，仅作背景参考，不计入评分依据，可能存在偏差）</strong>：AI 安全审计品类中已知存在 Snyk Code、Semgrep、GitHub CodeQL / Advanced Security、OpenAI Aardvark、ZeroPath、Corgea 等商业或开源产品，以及各编码代理自带的 security-review 能力。上述名称<strong>未在本次检索中验证</strong>，仅用于说明品类拥挤度，不得作为评分硬依据。</p>
+<p><strong>定位清晰度（高）</strong>：项目定位表述具体且可区分——"多阶段（6 阶段）安全审计 + 隔离猎手 + 对抗式验证（发现者≠验证者）+ 三级裁定（confirmed / needs_validation / rejected）+ coverage-ledger 覆盖账本 + 机器可读 findings"。与"扫描器输出告警列表"的传统范式存在明确的方法论差异。</p>
+<p><strong>扣分理由</strong>：
+1. 定位差异化建立在<strong>方法论</strong>而非检测能力/数据资产上，同类定位极易被复述与复制；
+2. 在"Agent 安全审计"这一功能位面上，编码代理厂商与安全厂商的进入者众多，本项目属于众多实现之一，不构成"无直接竞品"的局面；
+3. 存在数据异常需警惕：20,072 Star 与 3 名贡献者、90 天 3 次提交、90 天关闭 2 个 Issue 的组合明显失衡，Star 信号的可靠性存疑，不宜作为"市场领先"的充分证据。</p>
+<h3>D5.2 技术壁垒与网络效应（1.2 / 3）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测事实</th>
+<th>结论</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术壁垒</td>
+<td>代码总行数 0；交付物为 15 个 Markdown 文档 + 2 个零依赖 <code>.cjs</code> 校验器；无 CI 工作流；MIT 许可；无专利/商标/专有数据披露</td>
+<td>壁垒来自<strong>内容知识密度</strong>（覆盖内存安全、LLM 提示注入、云 IAM、供应链、跨租户隔离等 13 类攻击面）而非结构性资产，可全文复制</td>
+</tr>
+<tr>
+<td>网络效应</td>
+<td>无插件市场、无中心化数据回流、无社区贡献的检测规则库；findings 与 ledger 均落在本地目标仓库目录</td>
+<td><strong>无网络效应</strong>；"多次运行提升覆盖率"是单仓内的时间累积，不随全局用户数增长</td>
+</tr>
+<tr>
+<td>规模效应</td>
+<td>用户规模扩大不带来检测能力提升或成本下降；无遥测聚合机制</td>
+<td>无规模效应</td>
+</tr>
+</tbody>
+</table>
+<p><strong>扣分理由</strong>：提示词资产的知识含量是真实的，但可读即可复制，且以 MIT 许可完全放开；生态侧无插件、无数据飞轮、无规则市场，缺少任何能随用户增长而自我强化的机制。20,072 Star 带来的是分发与心智优势（已在 D5.1 计入定位），而非防御性壁垒。</p>
+<h3>D5.3 切换成本与用户粘性（1.2 / 2）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测事实</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>迁移成本</td>
+<td>安装为 <code>npx skills add &lt;repo&gt; --skill security-audit</code>（可 <code>--global</code>），卸载即移除；无账号、无云端数据</td>
+<td>低</td>
+</tr>
+<tr>
+<td>深度集成</td>
+<td>运行于目标代码库上下文，产物为目录内的 <code>architecture.md</code>、<code>coverage-ledger.json</code>、<code>findings.json</code>、<code>REPORT.md</code> 等，Schema 由 <code>report-schema.json</code> 定义；团队若在 CI/看板中消费该 Schema，则需重写消费端</td>
+<td>中等</td>
+</tr>
+<tr>
+<td>习惯锁定</td>
+<td>"多次运行增量叠加、复用历史 ledger 定位缺口"的工作流会随使用次数累积仓级状态，切换工具将丢失该累计覆盖状态</td>
+<td>中等偏弱</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断</strong>：项目本身高度可插拔（即装即用、即删即走），粘性主要来自输出 Schema 与增量账本的"弱锁定"，属于典型中等迁移成本，尚不构成组织级流程依赖。</p>
+<h3>D5.4 护城河可持续性（0.8 / 2）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>护城河趋势</td>
+<td><strong>趋向削弱</strong>。Agent 化安全审计正被编码代理与安全厂商快速内置化、商品化；提示词工作流不是可持续的独占资产。项目 README 亦自述其内部 harness 已"成长为多阶段、舰队级系统"，即开源技能明确定位为<strong>起点/引流物</strong>，真正的能力沉淀在未开源的内部系统</td>
+</tr>
+<tr>
+<td>颠覆风险</td>
+<td>高。具备更强模型、更大扫描基础设施与商业闭环的进入者，可在能力维度直接越过本项目；本项目无专利、无数据资产、无生态锁定可作缓冲</td>
+</tr>
+<tr>
+<td>时间窗口</td>
+<td>短。方法论层面的先发优势通常仅能维持到同类厂商复刻同等工作流为止（以季度计）</td>
+</tr>
+<tr>
+<td>正向因素</td>
+<td>Cloudflare 品牌背书 + 官方博客叙事（Build your own vulnerability harness）+ 20,072 Star 带来的心智占位，可在短期内维持"品类参照物"地位</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>结论</h3>
+<p>D5 维度综合得分 <strong>5.6 / 10</strong>，属于"一般"档。项目的<strong>定位清晰度</strong>是明显优点：多阶段对抗式验证、覆盖账本、机器可读且经验证的 findings，构成了一套可解释、可审计的方法论，与"扫描器输出告警"的范式差异明确，并借 Cloudflare 品牌与官方博客获得品类心智。</p>
+<p>但商业化防御视角下短板显著：
+1. <strong>无独立直接竞品被验证</strong>（检索仅命中同名镜像），但这源于品类检索结果稀疏而非本项目具备独占优势；相邻的 AI 安全审计品类进入者密集；
+2. <strong>技术壁垒与网络效应几近缺失</strong>（纯提示词资产 + MIT，无插件生态、无数据飞轮、无规模效应）；
+3. <strong>切换成本低</strong>，仅靠输出 Schema 与增量账本构成弱粘性；
+4. <strong>护城河处于削弱通道</strong>，底层能力正被快速商品化，且项目自述定位为内部舰队级系统的"单一仓库起点"。</p>
+<p><strong>置信度说明</strong>：D5.1 依赖的竞品检索仅返回 1 条同名镜像，竞品面覆盖不足，该细则评分为<strong>中等置信度</strong>；D5.2–D5.4 基于本地实测（代码 0 行、15 文档、2 测试、MIT、无 CI）与 README 自述，置信度较高。另需提示 20,072 Star 与 3 贡献者/90 天 3 提交存在显著失衡，Star 指标不宜单独作为竞争优势证据。</p>
+<h3>D6. 法律合规与知识产权</h3>
+<p><strong>维度得分: 7.8 / 10</strong></p>
+<p>本项目本质上是一个「coding-agent skill」——以 Markdown 文档为主体（15 个文档文件、0 行源码），配套 MIT 协议与 Cloudflare 公司版权声明。法律风险面整体较窄：无依赖、无 copyleft、无商业附加条款，主要短板在贡献者协议缺失与商标/专利未经人工核查。</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D6.1 开源协议合规性与商业限制</td>
+<td>3.0</td>
+<td><strong>3.0</strong></td>
+<td>9–10（100%）</td>
+<td>根目录存在规范 <code>LICENSE</code> 文件，GitHub API 与本地实采均识别为 MIT（SPDX 标准标识）；正文为标准 MIT 模板，版权方明确为 "Cloudflare, Inc.（2025–2026）"。MIT 为宽松许可，无 copyleft 传染性，无 Commons Clause / BUSL / SSPL 等商业附加条款，无使用领域限制，法律明确性高。</td>
+</tr>
+<tr>
+<td>D6.2 依赖链法律风险</td>
+<td>2.5</td>
+<td><strong>2.5</strong></td>
+<td>9–10（100%）</td>
+<td>本地实测 <code>dependencies</code> 为空 <code>{}</code>，项目无 package.json 依赖清单、无 lockfile、无第三方包引入；文档型 skill 不构成依赖链，不存在传递依赖的传染性协议审查成本，合规风险为零。</td>
+</tr>
+<tr>
+<td>D6.3 商标与专利风险</td>
+<td>2.5</td>
+<td><strong>1.5</strong></td>
+<td>5–6（60%）</td>
+<td><strong>未经人工核查，置信度低。</strong> 商标检索（"Security Audit Skill" 通用名称 + Cloudflare 品牌名）与专利排查无法由自动化完成。项目名称为高度通用描述性词汇，可注册性存疑但侵权风险亦低；README 中未发现独立的商标使用政策，但作为 Cloudflare 官方仓库，品牌归属清晰。无已知商标冲突或专利诉讼信息。按方法论默认 5–6 档处理。</td>
+</tr>
+<tr>
+<td>D6.4 贡献者协议完备性</td>
+<td>2.0</td>
+<td><strong>0.8</strong></td>
+<td>3–4（40%）</td>
+<td>实测 <code>has_contributing: false</code>、<code>has_codeowners: false</code>，无 CONTRIBUTING.md、无 CODEOWNERS、无 <code>.github/</code> 贡献模板，亦无 CLA/DCO 配置。贡献流程不规范，无法确保外部贡献版权归集，对潜在双许可（dual-license）模式的可行性构成障碍。缓解因素：版权方为单一法人实体 Cloudflare，贡献者仅 3 人，版权并未实际分散。</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>7.8</strong></td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<p><strong>法律合规状态总体健康，但存在两个可修补的缺口。</strong></p>
+<p><strong>优势（实质法律障碍少）：</strong>
+1. <strong>协议清晰规范</strong>——MIT 无传染性、无商业附加条款，商业化路径选择不受许可限制；SPDX 标识规范，法律明确性满分。
+2. <strong>零依赖链</strong>——纯文档型 skill，无第三方依赖，供应链法律风险几乎为零，合规审查成本极低。</p>
+<p><strong>风险点：</strong>
+1. <strong>贡献者协议缺失（D6.4，主要扣分项）</strong>——无 CLA/DCO、无 CONTRIBUTING.md、无 CODEOWNERS。作为已有 20k+ Star、3 位贡献者、90 天内 35 个 PR 的活跃项目，若无贡献者许可协议，法律上无法保证所有贡献版权可被 Cloudflare 统一处置，将限制未来双协议/商业授权模式的法律可行性。建议尽快引入 CLA 或 DCO 并补充 CONTRIBUTING.md。
+2. <strong>商标/专利未核查（D6.3，置信度低）</strong>——项目名 "Security Audit Skill" 为通用描述性名称，作为产品商标注册存在显著性障碍，若商业化需重新品牌化。此项须由法务人工完成商标检索与专利 FTO（Freedom-to-Operate）分析，当前评分仅为占位值。</p>
+<p><strong>对商业化的影响：</strong> 法律层面不构成阻断性硬伤。核心产品（skill 文档与审计方法论）可自由商业化、再许可或嵌入闭源产品。唯一需前置处理的是补齐贡献者协议，以解锁双许可等高级变现模式。</p>
+<h3>D7. 企业就绪度与可运营性</h3>
+<p><strong>本维度得分：5.5 / 10</strong>（权重 8%）</p>
+<blockquote>
+<p><strong>前置说明</strong>：<code>cloudflare/security-audit-skill</code> 不是可部署的服务端系统，而是通过 <code>npx skills add</code>（skills.sh CLI）分发的<strong>编码智能体技能包</strong>——仓库内代码总行数为 0，产物为 15 个 Markdown 文档 + 2 个零依赖 Node 校验器（<code>validate-findings.cjs</code> / <code>validate-coverage-ledger.cjs</code>）。因此 D7 的多数企业运营指标（RBAC、集群、监控端点）在本项目上属于"结构性不适用"，评估时仅对<strong>实际存在的运营面</strong>计分，并在结论中标注置信度折损。以下所有判断均以实测数据为限，不臆测未提供的机制。</p>
+</blockquote>
+<h4>细则打分表</h4>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D7.1 运维复杂度与升级路径</td>
+<td>3.0</td>
+<td><strong>1.8</strong></td>
+<td>5–6（60%）</td>
+<td>零运行时（无服务进程、无 DB、无状态文件），常态运维投入趋近于 0，这是其真实优势；但配置管理基本缺位（无配置文件、无环境变量说明，唯一"配置"是 SKILL.md 的触发语义与输出目录选择）；升级路径为重复执行 <code>npx skills add</code>，属<strong>手动覆盖式升级</strong>，且 <code>recent_releases</code> 为空、无版本 tag，<strong>无法固定版本、无回滚机制、无 CHANGELOG 迁移说明</strong>；数据迁移不适用（无持久状态，多次运行产物以 <code>run-&lt;N&gt;</code> 目录累加，天然不冲突）。综合落在"需一定运维投入、升级需手动操作"档。</td>
+</tr>
+<tr>
+<td>D7.2 安全管理与权限控制</td>
+<td>2.5</td>
+<td><strong>1.0</strong></td>
+<td>3–4（40%）</td>
+<td>产品内<strong>无任何认证/授权/权限模型/审计日志/加密与密钥管理</strong>：无 SSO/OAuth/LDAP/SAML，无 RBAC/ABAC，无 <code>SECURITY.md</code>、无 <code>CODEOWNERS</code>，无发布签名与完整性校验，企业无法证明"谁在何时对哪个仓库跑过审计"、也无法验证所安装技能包的来源完整性。可计入的仅有"薄弱但存在"的安全卫生：文档强制要求 OS 级沙箱（禁用外网、净化白名单环境、资源限额）、两个校验器为零依赖（无第三方供应链面）、findings/ledger 双校验形成过程可追溯的机器可读记录。对单机 CLI 技能而言缺 SSO/RBAC 并非根本缺陷，但确实构成企业规模化准入的障碍。</td>
+</tr>
+<tr>
+<td>D7.3 可扩展性与高可用能力</td>
+<td>2.5</td>
+<td><strong>1.5</strong></td>
+<td>5–6（60%）</td>
+<td>架构天然面向并行扇出：以 coverage-ledger 为工作单元派发隔离 hunter、由 coverage critic 补漏、候选由独立 verifier 复核，README 明确其孵化出"fleet-wide"多阶段系统，<strong>水平扩展性来自宿主智能体的并行子智能体能力而非本仓库</strong>；无服务端、无集群、无故障转移概念，故高可用项在本形态下不适用，也<strong>不存在传统单点故障</strong>（无长驻组件）。真实瓶颈在宿主侧：模型 token 成本、子智能体并发上限、审计耗时随代码库规模线性增长；多次运行以累加方式对同一仓库续跑，避免覆盖冲突。落在"单机性能可接受、扩展依赖外部平台（需改造/额外配置）"档。</td>
+</tr>
+<tr>
+<td>D7.4 集成兼容与可观测性</td>
+<td>2.0</td>
+<td><strong>1.2</strong></td>
+<td>5–6（60%）</td>
+<td><strong>无 REST/gRPC/SDK API</strong>，也无 OpenTelemetry/Prometheus/Webhook 等标准协议接入、无内置指标与健康检查端点、无结构化日志与日志级别管理——这是本维度的明确短板。可计入的集成面是项目自带的<strong>机器可读契约</strong>：<code>report-schema.json</code>（JSON Schema，标准格式）、<code>findings.json</code>/<code>coverage-ledger.json</code> 三类判定（confirmed / needs_validation / rejected）的结构化产出，以及两个零依赖、退出码可判定的校验器，可直接嵌入 CI 流水线做门禁。即"有文件+CLI 级集成契约，但监控与日志基本空白"。</td>
+</tr>
+</tbody>
+</table>
+<h4>结论</h4>
+<ul>
+<li><strong>可运营性总体处于"一般"档（5.5/10）</strong>：它把运维复杂度压到了同类产品的最低限度——没有服务器、没有数据库、没有配置面、没有数据迁移，日常运营投入接近零；但这份"轻"的另一面是<strong>企业运营特性的全面缺位</strong>：无版本发布与回滚、无认证授权与审计、无监控告警与结构化日志。</li>
+<li><strong>最短板是 D7.2（安全与权限）</strong>：该技能会被授权在代码库中执行构建、测试、浏览器、模糊测试等目标侧可控代码，文档正确地把隔离责任下压给"OS 强制沙箱"，但仓库自身不提供任何准入、审计或完整性验证能力，企业采购/安全评审时缺乏可核验的合规凭证（无 SECURITY.md、无 CODEOWNERS、无签名发布、无 tag）。</li>
+<li><strong>最具商业化价值的是 D7.4 的机器可读契约</strong>：schema 化的多判定 findings + 零依赖校验器，使其能被漏洞管理平台或 CI 门禁直接消费，这是从"提示词集合"升级为"可被流水线调用的一环"的关键资产，也是提升企业就绪度最经济的投入方向（补 CHANGELOG/语义化版本、发布 tag 与签名、可选 JSONL 结构化执行日志、CI 示例工作流）。</li>
+<li><strong>重要结构性情形的说明</strong>：本项目形态下 D7.2/D7.3 的部分考察点（多租户 RBAC、集群故障转移、加密存储）属"不适用"，本报告未按 N/A 剔除整条细则，而是按"该形态下实际可评判的运营面"给分，因此<strong>本维度置信度低于常规服务型项目</strong>；同时 20,072 star / 3 位贡献者 / 90 天仅 2 个 issue 关闭 / 30 天 3 次提交 的错配，提示社区热度与工程投入不匹配，企业采用时需自行承担维护连续性风险。</li>
+</ul>
+<h3>D8. 团队治理与可持续性</h3>
+<p><strong>数据归因检查（1.7 归因表联动）</strong>: 本项目贡献者仅 3 人、近 30 天 commit 仅 3 次、90 天仅关闭 2 个 Issue（积压 48 个），呈现典型的<strong>结构性归因：小团队/小规模维护</strong>特征；同时叠加<strong>时间性归因：项目年轻</strong>（<code>created_at</code> 2026-06-18，至报告期 2026-09-23 约 97 天，越过后仍处早期）。需要区分表述：<strong>组织风险真实存在</strong>（巴士因子低、传承依赖单一厂商），但<strong>不构成技术质量结论</strong>——本项目由 Cloudflare 官方组织发布、文档体系完备，团队规模小是运营/组织特征，而非代码或产品质量信号（技术质量归 D2 独立评估，不受本维度锚定）。</p>
+<blockquote>
+<p><strong>年龄与豁免边界说明</strong>: 以报告日期 2026-09-23 计，项目年龄 ≈ 97 天，<strong>略超 90 天新项目阈值</strong>，故不正式套用 D8.4 新项目底线档；若以 <code>pushed_at</code>（2026-09-14）计为 88 天，则落入新项目专项范围。两种口径下<strong>均无 archived/deprecated 标记且近期有 commit</strong>，结论一致：无停滞证据，不触发 3.3 一票否决。</p>
+</blockquote>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>档位</th>
+<th>小分</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D8.1 核心维护者能力与背景</td>
+<td>2.5</td>
+<td>7–8（80%）</td>
+<td><strong>2.0</strong></td>
+<td>项目归属 <strong>cloudflare 官方组织</strong>，背靠大型上市公司安全团队，技术与商业经验充足；但 <code>contributors = 3</code>，巴士因子仅约 3（未达 9–10 档要求的 ≥5），且无法证实该仓库存在专属全职团队。按 7–8 档「团队投入度高、有一定商业经验、巴士因子 ≥3」判定。</td>
+</tr>
+<tr>
+<td>D8.2 治理模型透明度</td>
+<td>2.0</td>
+<td>3–4（40%）</td>
+<td><strong>0.8</strong></td>
+<td>无 <code>GOVERNANCE.md</code>、无 <code>CONTRIBUTING.md</code>、无 <code>CODEOWNERS</code>（<code>has_contributing=false</code>、<code>has_codeowners=false</code>），非 CNCF/Apache/LF 基金会项目。仓库为单一厂商主导，外部贡献者无制度化决策入口，治理文档缺位，属「治理不透明、决策由核心团队/厂商主导」。虽有 README 与 15 份专题文档，但属产品文档而非治理结构。</td>
+</tr>
+<tr>
+<td>D8.3 资金支持与商业赞助</td>
+<td>2.5</td>
+<td>7–8（80%）</td>
+<td><strong>2.0</strong></td>
+<td>由 <strong>Cloudflare 公司实体运营</strong>（官方 org 发布，并在官方博客披露为该 harness 的种子项目），具备公司级稳定资金与资源，符合「有稳定公司支持、资金可持续」。未见 GitHub Sponsors / Open Collective 公开赞助页；亦无证据表明存在 VC 专项投入或专属全职团队，故未达 9–10 档。</td>
+</tr>
+<tr>
+<td>D8.4 项目可持续性与传承风险</td>
+<td>3.0</td>
+<td>5–6（60%）</td>
+<td><strong>1.8</strong></td>
+<td>无 archived/deprecated 标记；<code>pushed_at</code> 2026-09-14 距报告期仅约 9 天，近期有活动；90 天 PR 35 个，社区参与度不低。但 <code>commits_30d=3</code> 偏低、90 天仅关闭 2 个 Issue 而积压 48 个，存在 Issue 积压与维护节奏波动。传承机制上为<strong>单一厂商主导</strong>（contributors=3），缺乏社区接管制度。综合为「活跃度有波动、传承风险中等」。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>D8 维度得分 = 2.0 + 0.8 + 2.0 + 1.8 = 6.6 / 10</strong></p>
+<h3>结论</h3>
+<p>本项目<strong>D8 得分 6.6（一般偏上）</strong>，核心特征为「<strong>强厂商背书 + 弱治理结构 + 小团队执行</strong>」：</p>
+<ul>
+<li><strong>优势</strong>: 归属 Cloudflare 官方组织，具备上市公司的资金、品牌与安全领域专业能力，商业化可持续性基础扎实；MIT 协议、文档体系统完备（15 份专题文档），组织层面不存在生存风险。</li>
+<li><strong>短板（组织风险，真实）</strong>: ① 巴士因子低（contributors=3），关键人流失风险高；② 治理不透明——无 GOVERNANCE/CONTRIBUTING/CODEOWNERS，属单一厂商主导，外部社区无制度化的决策与接管通道；③ 近期 commit 频率偏低、Issue 积压（48 开 / 90 天仅关 2），维护节奏存在波动。</li>
+<li><strong>一票否决</strong>: D8.4 = 1.8 &gt; 1，<strong>不触发</strong>；D6/D4.1 本维度不涉及。<strong>无否决，等级不受影响</strong>。</li>
+</ul>
+<p><strong>数据信号归因说明</strong>: 本维度低分项（D8.1 巴士因子、D8.2 治理缺位、D8.4 维护节奏）归因于 <strong>结构性归因：小团队/单一厂商维护（contributors=3，Cloudflare 官方 org）</strong> 叠加 <strong>时间性归因：项目年轻（约 97 天）</strong>，均属组织与可持续性风险，<strong>与代码/技术质量无关</strong>，不得据此推断「技术不行」。当前数据未出现 Issue 负面反馈、无维护停滞、无废弃声明等质量性归因证据，故不做质量性结论。</p>
+<p>数据归因: 结构性归因：小团队/单一厂商维护（证据：contributors=3、无 GOVERNANCE/CONTRIBUTING/CODEOWNERS、Cloudflare 官方 org）+ 时间性归因：项目年轻（created_at 2026-06-18，约 97 天）。组织风险真实，技术质量不受影响。</p>
+<h3>D9. 上手难度与易用性（权重 10%）</h3>
+<p><strong>上手难度等级：🟡 中等（7.0 / 10）</strong></p>
+<p>安装是一条 <code>npx</code> 命令、使用是自然语言触发，链路本身很轻；但真正的运行前提（一个支持并行子代理的编码代理 + 一套 OS 级强制沙箱）需要技术人员配置，且仓库无示例工程、无交互式引导、无容器化部署件，新用户仍需自行摸索六阶段工作流。</p>
+<hr />
+<h4>安装部署与使用指南（草稿）</h4>
+<blockquote>
+<p>等级为 🟡 中等：提供关键步骤，省略基础操作（如 Node.js 安装、编码代理的获取与登录）。</p>
+</blockquote>
+<p><strong>① 安装（单条命令）</strong></p>
+<pre><code class="language-bash">npx skills add https://github.com/cloudflare/security-audit-skill \
+  --skill security-audit
+</code></pre>
+<p>用户级全局安装：</p>
+<pre><code class="language-bash">npx skills add https://github.com/cloudflare/security-audit-skill \
+  --skill security-audit \
+  --global
+</code></pre>
+<p>代理选择与非交互选项：<code>npx skills --help</code></p>
+<p><strong>② 环境要求</strong>（README「Requirements」原文要点）</p>
+<ul>
+<li>一个支持工具调用与<strong>并行子代理</strong>的编码代理（<code>A coding agent with a model that supports tool use and parallel sub-agents</code>）；</li>
+<li><strong>Node.js</strong>，用于两个零依赖校验器 <code>validate-findings.cjs</code> / <code>validate-coverage-ledger.cjs</code>；</li>
+<li>一个 <strong>OS 级强制沙箱</strong>：须禁用外部网络、使用已清洗的白名单环境、施加资源限制，且只允许写入分配的 scratch 路径。README 明确说明：<code>Without these controls, the workflow keeps the lead as needs_validation instead of executing target code.</code></li>
+</ul>
+<p><strong>③ 使用（自然语言触发，无需记忆命令）</strong></p>
+<p>在待审计代码库内（或指向该库）启动编码代理，直接提问（README 原文示例）：</p>
+<pre><code>security audit this codebase
+</code></pre>
+<pre><code>find security vulnerabilities in ./src
+</code></pre>
+<pre><code>do a security review, output to ~/audits/my-project
+</code></pre>
+<p>请求命中触发词（security audit / find vulnerabilities / pen-test the code）时技能自动激活。全量审计模式下，未指定输出目录时默认为 <code>~/security-audit-skill/&lt;repo-name&gt;/run-&lt;N&gt;</code>。</p>
+<p><strong>④ 部署要点</strong></p>
+<p>仓库<strong>无 Dockerfile、无 docker-compose / Helm、无 CI workflow</strong>，也<strong>无独立服务端进程</strong>，不需要初始化数据库/缓存/消息队列等外部组件。「部署」在本项目中等于：把技能装入编码代理 + 准备符合要求的沙箱环境。</p>
+<hr />
+<h4>D9 维度详析</h4>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>核心判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D9.1 安装难度</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>80%（良好）</td>
+<td><code>npx skills add</code> 单条命令安装，两个校验器零依赖；但硬性依赖「支持并行子代理的编码代理 + OS 级强制沙箱」，非纯一键</td>
+</tr>
+<tr>
+<td>D9.2 部署与配置难度</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>60%（一般）</td>
+<td>无 Dockerfile / compose / Helm / CI，无标准化部署件；沙箱需手工配置（禁网、白名单环境、资源限制、scratch 写权限）方可执行目标代码</td>
+</tr>
+<tr>
+<td>D9.3 易用性与操作门槛</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>80%（良好）</td>
+<td>自然语言触发、无需记命令，默认输出目录合理，提供两个零依赖校验器做结构化校验；但阶段产物（ledger/findings/schema）需理解</td>
+</tr>
+<tr>
+<td>D9.4 学习曲线与首体验</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>60%（一般）</td>
+<td>触发即用缩短首体验，但无示例工程（示例 0 文件）、无交互式教程，概念门槛高（六阶段、信任边界、三种裁决语义），单次运行仅覆盖约一半漏洞、需多轮</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>7.0</strong></td>
+<td>🟡 中等</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<p><strong>D9.1 安装难度（2.0 / 2.5，80%）</strong>
+安装路径本身是六档中的高档位：README 只给出一条 <code>npx skills add &lt;repo&gt; --skill security-audit</code> 命令，全局安装加一个 <code>--global</code> 即可；两个校验脚本被明确描述为 <code>Zero-dependency validator</code>，本地采集的依赖清单为空（<code>dependencies: {}</code>），不存在需要编译的系统级依赖或数据库。未给满分的扣分点在于「外部依赖」并不为零：运行前必须有<strong>支持并行子代理</strong>的代理宿主，以及一套 <strong>OS 级强制沙箱</strong>（禁外部网络、白名单环境、资源限制、仅可写 scratch 路径），这两项不属于包管理器能自动补齐的依赖。平台覆盖方面，npx/Node.js 跨 Windows/macOS/Linux，但沙箱要求是操作系统级能力，实际可落地平台更窄。</p>
+<p><strong>D9.2 部署与配置难度（1.5 / 2.5，60%）</strong>
+仓库不含任何标准化部署件——本地实测 <code>has_dockerfile: false</code>、CI workflows 0 个，README 也无 docker-compose / Helm 章节。好消息是组件极少：无服务端常驻进程、无数据库/缓存/消息队列需要初始化，配置项几乎只有「输出目录」一项，且默认值合理（<code>~/security-audit-skill/&lt;repo-name&gt;/run-&lt;N&gt;</code>）。坏消息是<strong>执行前提的手工成本集中在沙箱</strong>：需要自行搭建并验证禁网、白名单环境、资源限制与 scratch 写入约束，否则按 README 说法工作流会退化为只产出 <code>needs_validation</code> 而不执行目标代码——也就是说沙箱没配好，产品核心价值（可执行验证）直接不生效。同时仓库未提供 quickstart/demo 脚本，无法用「10 分钟跑通 demo」验证部署正确性。综合落在 60%（一般）档。</p>
+<p><strong>D9.3 易用性与操作门槛（2.0 / 2.5，80%）</strong>
+日常交互是 D9 里最强的一环：用户只需用自然语言提出 <code>security audit this codebase</code> 之类请求，技能按触发词自动激活，不需要背 CLI 参数；默认配置（输出目录、三种裁决语义 <code>confirmed</code> / <code>needs_validation</code> / <code>rejected</code> 的定义）在 README 中已明确，无需大量调参即可工作。错误处理上有明确亮点：<code>validate-findings.cjs</code> 与 <code>validate-coverage-ledger.cjs</code> 作为零依赖校验器，在 Phase 4/5 及每次 ledger 更新后被强制执行，把「结构不合规」变成可机读的校验失败，而非让用户面对自由文本。扣分点在于：产物体系（<code>architecture.md</code>、<code>coverage-ledger.json</code>、<code>findings.json</code>、<code>report-schema.json</code>）对非安全专家仍是需要理解的对象，解读 <code>confirmed</code> / <code>needs_validation</code> 的差别需要安全审计背景；且用户端无法直接看到 hunter/verifier 的内部过程，出错时只能依赖校验器输出，自主排障空间有限。</p>
+<p><strong>D9.4 学习曲线与首体验（1.5 / 2.5，60%）</strong>
+首体验的两端差异明显。上手极快的一端：装完即用自然语言触发，第一次「跑起来」是分钟级。慢的一端有三个硬约束：其一，<strong>无示例工程、无交互式教程、无 onboarding 流程</strong>（本地实测示例 0 文件），用户只能拿自己的真实代码库试水；其二，<strong>概念门槛高</strong>——六阶段流程、覆盖账本（coverage ledger）、信任边界、攻击类别分类（十余个 <code>*.md</code> 攻击面文档）、三种裁决语义，需要安全审计领域知识才能判断输出质量；其三，<strong>成果产出周期长</strong>——README 自述 <code>a single run found roughly half of the vulnerabilities that repeated runs found in total</code>，意味着有效结果依赖多轮运行而非单次体验，单次运行的「Aha Moment」被削弱。文档量本身充足（15 个文档文件，含 SKILL.md 与各攻击面指南），属于「文档齐全但需自行摸索」的典型 60% 档，而非「快速入门 + 示例模仿」的 80% 档。</p>
+<p><strong>结论</strong>：本项目把「安装」压缩到一条 npx 命令、把「使用」压缩到一句自然语言，入口体验接近满分；但它的运行前提绑定「支持并行子代理的编码代理 + OS 级强制沙箱」这一组合，且没有 Docker/K8s/示例工程/交互式引导来兜底，导致<strong>部署验证与学习曲线两项只能给到一般档</strong>，最终合计 7.0/10，判为 🟡 中等——有技术基础者（会配置沙箱的开发者/安全工程师）可顺利完成，非技术角色只能完成安装步骤而无法独立让流程跑出有效结论。</p>
+<h3>D10 功能价值（使用价值视角）</h3>
+<p><strong>维度定位</strong>: 平行维度，权重 0%，不计入综合评分。本维度只回答「用它的人省了多少」，与 D1–D9 商业评分正交。</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10.1</td>
+<td>效用强度</td>
+<td>3</td>
+<td>1.8</td>
+<td>5–6（60%）</td>
+</tr>
+<tr>
+<td>D10.2</td>
+<td>实际使用规模</td>
+<td>3</td>
+<td>1.8</td>
+<td>5–6（60%）</td>
+</tr>
+<tr>
+<td>D10.3</td>
+<td>免费可得的完整效用</td>
+<td>2</td>
+<td>2.0</td>
+<td>9–10（100%）</td>
+</tr>
+<tr>
+<td>D10.4</td>
+<td>效用可持续性</td>
+<td>2</td>
+<td>2.0</td>
+<td>9–10（100%）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td><strong>7.6</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>D10.1 效用强度 — 1.8 / 3（一般偏上，5–6 档）</h3>
+<ul>
+<li><strong>单用户节省量</strong>: 该技能把一个原本需要人工编排的安全审计流程（侦察 → 覆盖驱动的漏洞狩猎 → 候选验证 → 结构化输出 → 独立复核 → 目标中性报告，六阶段）固化为可复用的 agent 工作流，并附带两个零依赖校验器（<code>validate-findings.cjs</code>、<code>validate-coverage-ledger.cjs</code>）强制产出机器可读、可校验的 <code>findings.json</code>。对安全团队而言，节省的是审计编排与结果核验的时间，而非替代审计本身。</li>
+<li><strong>效用层级</strong>: 属于<strong>工作流级/项目级效率工具</strong>，不是运行时依赖、也不是业务命脉级基础设施——不用它，代码照常运行，只是审计过程更手工、覆盖更依赖个人经验。README 的核心证据是 Cloudflare 内部把它发展成「fleet-wide vulnerability discovery harness」，说明在<strong>特定组织内</strong>它可以长成核心系统；但开源形态对外部使用者提供的是方法论与编排模板。</li>
+<li><strong>效用确定性</strong>: 效用高度依赖外部条件——需要「支持工具调用与并行子 agent 的编码 agent」以及<strong>OS 级沙箱</strong>（禁用外网、净化环境、资源限额）。README 明确：不具备这些控制时工作流只能把线索停在 <code>needs_validation</code>，即<strong>降级为线索清单而非确认漏洞</strong>。收益因此是条件性的、概率性的（README 自称单次运行大约只覆盖重复运行总漏洞量的一半）。</li>
+<li>结论：明确、可观的效率提升，但替代品充足（自写审计 prompt、商用 SAST/DAST、渗透服务），且收益依赖用户自身 agent 与沙箱能力。落在「明确但有限的效率提升，易被替代」上沿，取 6/10。</li>
+</ul>
+<h3>D10.2 实际使用规模 — 1.8 / 3（5–6 档，数据口径受限）</h3>
+<ul>
+<li><strong>依赖方数量</strong>: GitHub Dependents 未采集到（N/A）。项目以 <code>npx skills add &lt;github url&gt;</code> 方式分发，<strong>不经过 npm/PyPI 等注册中心</strong>，故 <code>npm_weekly_downloads</code> / <code>pypi_monthly_downloads</code> 官方计数均为 N/A——这是分发形态导致的结构性指标缺失，不是使用量为零的证据。</li>
+<li><strong>可得的量化代理</strong>: Star 20,072（万级）、Fork 1,135（千级）、Fork/Star ≈ 5.7%（处于正常区间上沿，说明有相当比例的人愿意复制/改造而非仅收藏）。以仓库型 skill 的可得指标看，处于「万级关注 + 千级复制」量级。</li>
+<li><strong>生产采用证据</strong>: README 明确说明该技能是 Cloudflare 漏洞发现 harness 的起点，并链接官方博客《Build your own vulnerability harness》，即一个可公开引用的<strong>规模化生产使用案例</strong>（但属厂商自述，非第三方独立佐证）。</li>
+<li><strong>归因</strong>: 见文末数据归因。项目年龄约 88–97 天（created 2026-06-18，最近 push 2026-09-14），处在「新项目」判定边界；对外部依赖方而言使用规模尚未充分形成。结合指标口径缺失与年龄因素，低分不构成质量负面信号——但也<strong>不能仅凭 20k Star 拔高</strong>，Star 是关注度而非使用量。</li>
+<li>结论：可得证据支持「万级关注 / 千级复制 / 有真实规模化的生产案例」，但依赖方与下载量两个主口径双双缺位，无法证实「万级依赖方」。取 5–6 档（60%），并在置信度上标注口径不足。</li>
+</ul>
+<h3>D10.3 免费可得的完整效用 — 2.0 / 2（9–10 档）</h3>
+<ul>
+<li><strong>开源版完整性</strong>: MIT 协议，仓库内容即全部价值——15 个方法论文档（SKILL.md、HUNTING.md、ATTACK-CLASSES.md 及 8 个攻击面分类文档等）+ <code>report-schema.json</code> + 2 个校验器 + 2 个测试文件。无社区版/企业版分层，无功能阉割，无「付费解锁」设计。</li>
+<li><strong>自托管完整性</strong>: 无官方托管形态，使用方式即在本地仓库/本地 agent 中运行，本地即是完整形态。</li>
+<li><strong>无隐性收费</strong>: 无账号、无 license key、无用量配额。唯一外部成本是用户自备的编码 agent（模型推理费用）与沙箱环境，属外部依赖而非本项目设置的付费墙。</li>
+<li><strong>与 D4.3 的张力</strong>: 本项满分意味着「价值几乎完全免费可得」，这与商业变现能力天然反相关——使用价值越高、越免费，可转化的交换价值越少。本项目的价值结构是典型的「厂商开源以放大方法论影响力和招才/生态效应，而非直接售卖」，报告中应直接引用这一对比解释其价值画像。</li>
+<li>取 100% → 2.0。</li>
+</ul>
+<h3>D10.4 效用可持续性 — 2.0 / 2（9–10 档）</h3>
+<ul>
+<li><strong>停维后效用存续</strong>: 交付物是纯文本方法论 + 零依赖 CJS 脚本，全部在用户本地。项目停维后，已安装的 skill 与文档<strong>继续可用</strong>，现有工作流不会失效；唯一衰减是攻击面分类（如新协议、新模型攻击手法）逐渐过时，属内容新鲜度问题而非效用归零。</li>
+<li><strong>供应商锁定</strong>: 无任何厂商闭源组件或云服务调用。README 甚至强调「target-neutral reporting」与「独立的记录复核」，设计上刻意不绑定目标形态。对 agent/模型厂商亦无绑定——任何支持工具调用与并行子 agent 的模型均可驱动。</li>
+<li><strong>可分叉维护性</strong>: MIT 协议允许自由分叉与再分发；无构建步骤（零依赖 CJS）、无 CI 依赖、无私有制品，构建可重现性极高，社区分叉后可持续维护成本极低。</li>
+<li>取 100% → 2.0。</li>
+</ul>
+<h3>结论</h3>
+<p>D10 = <strong>7.6 / 10</strong>（不计入综合评分）。价值画像为「<strong>高免费可得性 + 高可持续性 + 中等强度效用 + 使用规模口径受限</strong>」：</p>
+<ol>
+<li><strong>最强项是免费与可持续</strong>（D10.3、D10.4 双满分）——MIT、纯本地、零依赖、无锁定，用户获得的是完整且可永久分叉的效用，这也是其 D4.3 付费转化必然偏弱的镜像原因。</li>
+<li><strong>中等项是效用强度</strong>——它是工作流级效率工具而非命脉级基础设施，收益受「用户是否具备强 agent + OS 沙箱」强约束，且替代品充足。</li>
+<li><strong>使用规模口径受限</strong>——Star/Fork 量级与 Cloudflare 公开的生产案例支持「已被大规模关注并有真实规模化使用」，但依赖方与下载量两个主口径因分发形态（npx skills add，非注册中心包）而结构性缺失，无法给出更强的量化结论。</li>
+</ol>
+<p><strong>数据归因</strong>: 结构性归因：工具型低依赖计数（该 skill 经 <code>npx skills add &lt;github url&gt;</code> 分发，不进入 npm/PyPI 注册中心，Dependents 与下载量口径结构性不可得，非「无人使用」）+ 时间性归因：太新（created 2026-06-18，距今约 88–97 天，处于新项目判定边界，外部依赖方尚未形成）。可得正面证据（20,072 Star、1,135 Fork、Cloudflare 公开博客所述 fleet-wide harness 生产案例）与口径缺失并存，故 D10.2 低分不构成质量负面信号，亦不得以 Star 关注度替代使用量证据。</p>
+<h3>D11. 社会价值（正外部性）——平行维度（权重 0%，不计入综合评分）</h3>
+<blockquote>
+<p><strong>定位说明</strong>: 本维度为平行维度，权重 0%，不参与综合评分与一票否决，仅用于 3.4 价值画像。评估视角为「项目对使用者之外的外溢贡献本身」；与 D3.4（品牌影响力对商业势能的助力）区分——后者评商业输入，本维度评社会外溢。</p>
+</blockquote>
+<h3>D11.1 数字公共基础设施属性（满分 3）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测证据</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>关键依赖地位</td>
+<td>无 dependents 数据、无 npm/pypi 发布（<code>npm_weekly_downloads: N/A</code>）、<code>dependencies: {}</code>；本项目为 prompt/文档型 skill，不被任何软件包依赖引用</td>
+<td>弱</td>
+</tr>
+<tr>
+<td>停摆影响面</td>
+<td>项目消失不会中断任何软件供应链；下游仅为「安装该 skill 的 agent 用户」</td>
+<td>微弱</td>
+</tr>
+<tr>
+<td>数字公共产品属性</td>
+<td>MIT 许可、完全开放、可复用；服务对象是「安全审计能力」这一公共利益；经 <code>npx skills add</code> 分发</td>
+<td>部分符合</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>: 该项目不是 curl/OpenSSL 式的「数字底座」，其产物是方法论与提示词集合，不存在被引用的代码依赖链，停摆对软件供应链的影响近乎为零。但它在「开放、可复用、服务公共利益」的 DPG 特征上成立：MIT 许可、零依赖、任何团队可免费获取一套结构化的多阶段安全审计流程，且 20,072 star / 1,135 fork（fork/star ≈ 5.7%，远高于常规项目，说明大量用户 fork 后本地改造复用）证明其再分发与再利用强度高。属于「有一定公共产品属性、但可替代性强、无关键依赖地位」。</p>
+<p><strong>小分</strong>: 3 × 60% = <strong>1.8</strong></p>
+<h3>D11.2 教育与人才价值（满分 2.5）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测证据</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>教学采用</td>
+<td>15 个文档文件（<code>SKILL.md</code>、<code>RECONNAISSANCE.md</code>、<code>HUNTING.md</code>、<code>ATTACK-CLASSES.md</code> 等）构成完整的审计方法论课程体系；Cloudflare 官方博客《Build your own vulnerability harness》以本项目为起点教材</td>
+<td>较强</td>
+</tr>
+<tr>
+<td>门槛降低效应</td>
+<td>README 明确「turns your agent into a security auditor」，使无专职安全团队的组织可执行 6 阶段审计流程</td>
+<td>较强</td>
+</tr>
+<tr>
+<td>源码学习价值</td>
+<td>代码仅 2 个零依赖校验器（<code>validate-findings.cjs</code> / <code>validate-coverage-ledger.cjs</code>），<code>total_code_lines: 0</code>（未采集到有效代码统计），工程范本价值有限</td>
+<td>弱</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>: 本项目的核心产物本身就是「教育性知识资产」——覆盖内存安全/二进制、AI/LLM 提示注入、Web 协议与认证、客户端、供应链与发布、云与部署、RPC 与消息、资源耗尽与可用性、数据隔离与生命周期、桌面移动与本地 IPC 十大攻击面类目，并配有对抗式验证（Adversarial validation，验证者≠发现者）、覆盖账本（coverage ledger）等最佳实践示范。它天然是同行学习「AI 驱动安全审计如何组织」的参考路径。短板在于：未检索到规模化外部课程/教程采用证据，且代码本体（校验器工具）教学价值有限，学习价值集中在方法论文档而非源码。</p>
+<p><strong>小分</strong>: 2.5 × 80% = <strong>2.0</strong></p>
+<h3>D11.3 普惠与可及性（满分 2.5）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测证据</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>能力平权化</td>
+<td>以 MIT 免费许可交付「多阶段安全审计」这一传统上依赖专业团队/商业工具的能力</td>
+<td>较强</td>
+</tr>
+<tr>
+<td>替代价格差</td>
+<td>对位商业方案：SAST/DAST 商业订阅（Semgrep/Snyk 付费层）、Veracode 类平台、以及单次数千至数十万元的外部渗透测试服务；本项目近零边际成本</td>
+<td>显著</td>
+</tr>
+<tr>
+<td>可及性支持</td>
+<td>15 个文档全为英文、无 i18n 证据；无无障碍相关文件；要求「支持工具调用与并行子 agent 的模型」+ Node.js + OS 级强制沙箱，实际隐含付费 LLM 接入与非平凡技术门槛</td>
+<td>弱</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>: 普惠效应真实存在——安全审计曾是只有中大型组织才负担得起的能力，本项目将方法论免费开放，个人开发者亦可借助 coding agent 运行结构化审计，替代价格差明显。但可及性受限：英文单语、无 i18n/无障碍产物、强依赖付费模型访问与工程化的沙箱环境，低资源使用者实际获得门槛不低。符合「有普惠效果但受技术门槛/语言/硬件限制」。</p>
+<p><strong>小分</strong>: 2.5 × 60% = <strong>1.5</strong></p>
+<h3>D11.4 开放标准与行业推动（满分 2）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测证据</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>标准推动</td>
+<td>定义了机器可读产物规范：<code>report-schema.json</code>（三档判定 confirmed/needs_validation/rejected）、<code>coverage-ledger.json</code>、<code>findings.json</code>；目标中立（target-neutral）报告，属事实标准雏形，非行业采纳标准</td>
+<td>中等</td>
+</tr>
+<tr>
+<td>科研支撑</td>
+<td>无论文引用检索数据（外部搜索不可得 → 该子项 N/A，不单独赋分）</td>
+<td>不可评估</td>
+</tr>
+<tr>
+<td>行业示范效应</td>
+<td>Cloudflare 博客披露本 skill 是其 fleet-wide 漏洞发现 harness 的「单仓库起点」，其「发现者≠验证者」的对抗式验证设计被公开示范</td>
+<td>中等</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>: 项目在开放方向上态度明确（MIT、零依赖、开放 schema），并尝试为 AI 驱动的安全审计定义可机读、可复现的产出格式，具备一定标准推动意图与行业示范效应（尤其「对抗式独立验证」的工程理念）。但它并未定义或主导任何被广泛采纳的行业标准，也不属于协议/规范实现方，科研使用无数据佐证。落在「遵循并局部定义开放格式，但无实质标准主导力」区间。</p>
+<p><strong>小分</strong>: 2 × 60% = <strong>1.2</strong></p>
+<h3>D11 细则分值汇总</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>小分</th>
+<th>满分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D11.1</td>
+<td>数字公共基础设施属性</td>
+<td>1.8</td>
+<td>3</td>
+</tr>
+<tr>
+<td>D11.2</td>
+<td>教育与人才价值</td>
+<td>2.0</td>
+<td>2.5</td>
+</tr>
+<tr>
+<td>D11.3</td>
+<td>普惠与可及性</td>
+<td>1.5</td>
+<td>2.5</td>
+</tr>
+<tr>
+<td>D11.4</td>
+<td>开放标准与行业推动</td>
+<td>1.2</td>
+<td>2</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>6.5</strong></td>
+<td><strong>10</strong></td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<p><strong>D11 社会价值（正外部性）得分：6.5 / 10（一般偏良好，平行维度不计入综合评分）</strong></p>
+<p>该项目的社会外溢贡献集中在<strong>知识公共品 + 能力平权</strong>两条线上：MIT 许可下开放的 15 份方法论文档与机器可读产出规范，把原本昂贵的安全审计流程以近零成本释放给个人与中小团队，Cloudflare 官方博客进一步放大了其作为「行业教材/架构范本」的示范效应，20,072 star 与 1,135 fork（fork/star ≈ 5.7%）佐证了高强度的 fork 复用与再分发。</p>
+<p>但它<strong>不是供应链意义上的关键依赖</strong>：无 dependents、无包管理器发布、无被引用的代码依赖链，停摆不会波及任何软件供应链；代码本体仅两个零依赖校验器，源码学习价值有限；英文单语、无 i18n/无障碍支持，且实际使用隐含付费模型访问与 OS 级沙箱门槛，压制了普惠上限；在标准层面仅定义了自有 schema，未见被行业采纳或学术引用的证据。因此其外溢价值定性为「开放方法论型公共品」，而非「数字底座型基础设施」。</p>
+<blockquote>
+<p><strong>置信度说明</strong>: 本维度评估所用素材中，star 时间序列、npm/pypi 下载量、论文引用均不可得（标记 N/A，未做估算）；D11.1/D11.2 的判断部分依赖 README 与文档结构的定性推断，置信度中等。</p>
+</blockquote>
+<h2>五、商业化价值判断</h2>
+<h3>5.1 核心商业价值</h3>
+<ul>
+<li><strong>项目最大的商业价值在于</strong>：以 MIT 全开源方式提供了一套结构化的、面向编码代理的多阶段安全审计方法论——六阶段审计流程、发现者≠验证者的对抗式验证机制、coverage-ledger 覆盖账本与 report-schema.json 机器可读裁定（confirmed/needs_validation/rejected），叠加 Cloudflare 头部安全厂商的品牌背书与内部规模化采用经验。</li>
+<li><strong>价值验证依据</strong>：</li>
+<li>20,072 Star / 1,135 Fork（fork/star ≈ 5.7%），Star 月增约 6,272/月（退化公式估算），体现高强度关注与 fork 复用</li>
+<li>15 份文档覆盖 Web/云/供应链/客户端/移动/AI-LLM/内存安全等十大攻击面类目，文档完备度高于同类平均</li>
+<li>README 自述该 skill 是 Cloudflare 内部 fleet-wide 漏洞发现 harness 的单仓库起点，具备企业级实战验证背景</li>
+<li>命中十亿美元级且处于增长期的应用安全/DevSecOps市场，叠加 AI 编码代理带来的新增需求</li>
+</ul>
+<h3>5.2 价值量化判断</h3>
+<ul>
+<li><strong>潜在市场规模估算</strong>：应用安全/DevSecOps 市场为十亿美元级且处于增长期，叠加 AI 编码代理带来的新增审计需求，市场层级为新兴蓝海早期（估算未获外部数据验证，置信度低）</li>
+<li><strong>可触达市场估算</strong>：当前可触达为使用支持并行子代理的编码代理 + 具备 OS 级强制沙箱能力的安全工程师与后端开发者群体；受限于英文单语、无 i18n/无障碍产物，可及性受限</li>
+<li><strong>商业化时间窗口</strong>：编码代理刚跨越成熟度拐点，agent skill 生态标准尚为空位，时机良好；但老牌 SAST（Semgrep/CodeQL/Snyk）与 AI 原生安全厂商双向挤压，竞争密度快速上升，窗口期有限</li>
+</ul>
+<h3>5.3 价值画像（商业 × 功能 × 社会）</h3>
+<ul>
+<li>功能价值 D10：N/A，社会价值 D11：6.5/10，公共价值分：6.5/10</li>
+<li><strong>画像判定：📦 长尾项目（画像临界）</strong></li>
+<li><strong>画像解读</strong>：</li>
+<li>综合评分 62.0 &lt; 65 且公共价值分 6.5 &lt; 7，按判定规则落入「长尾项目」。</li>
+<li><strong>画像临界说明</strong>：综合评分 62.0 落在 60–70 临界区间，公共价值分 6.5 落在 6.5–7.5 临界区间，两项均处于边界。若综合评分因 D4 商业模式改善而提升至 65 以上，画像将转为「💼 纯商业工具」（按 D4 最优路径直接变现）；若公共价值分因 i18n/无障碍/开放格式采纳而提升至 7 以上，画像将转为「🏛️ 公共产品型」（走影响力变现：赞助/基金会托管/大厂雇佣维护者/围绕生态做服务与培训）。</li>
+<li>当前落点「长尾项目」对应的路径差异：技术借鉴或人才引进，不投入商业化。但鉴于 Cloudflare 品牌背书与内部规模化采用事实，实际建议偏向「公共产品型」的影响力变现路径，而非完全放弃。</li>
+<li>对第六章商业路径建议的修正方向：优先考虑影响力变现与生态服务，而非直接产品化变现。</li>
+</ul>
+<hr />
+<h2>六、商业路径分析</h2>
+<h3>6.1 推荐商业路径（最优路径）</h3>
+<ul>
+<li><strong>模式</strong>：间接战略型 / 影响力变现（Open Core 影子结构 + 企业安全服务引流）</li>
+<li><strong>路径描述</strong>：维持 MIT 全开源不变，将本项目作为 Cloudflare 安全业务的战略引流入口与品牌资产。通过 README 中 security-ai-research@cloudflare.com 的商业接触点，将开源用户转化为 Cloudflare 企业安全服务（如托管验证、合规审计留痕、SLA 保障、CI/CD 集成）的付费客户。项目本身不直接变现，而是作为 Cloudflare 内部 fleet-wide 漏洞发现 harness 的公开起点，展示能力、吸引人才、培育生态。</li>
+<li><strong>可行性论证</strong>：</li>
+<li>MIT 协议零约束，所有变现路径法律上均可行（D4.1=2.0 满分）</li>
+<li>项目为纯文档型 agent skill，代码总行数 0、源码文件 0，缺少任何可售产品载体，直接产品化不可行</li>
+<li>README 自述该 skill 是 Cloudflare 内部 fleet-wide 漏洞发现 harness 的单仓库起点，事实上的 Open Core 影子结构已存在</li>
+<li>20,072 stars 与 1,135 fork 体现战略影响力，Cloudflare 品牌背书强（D3.4 上浮至 7-8 档）</li>
+<li>增值空间（合规审计留痕、托管验证、SLA、CI/CD 集成）理论上存在且企业客户付费能力高，但无服务端组件/仪表盘/私有 registry 承接，客单价无法由本项目锚定</li>
+<li><strong>预期收入模型</strong>：项目本身无直接收入；间接收入来自 Cloudflare 企业安全服务的客户转化与品牌溢价，无法由本项目单独锚定客单价</li>
+</ul>
+<h3>6.2 备选商业路径</h3>
+<ul>
+<li><strong>路径B：生态服务与培训</strong>——围绕六阶段审计方法论、coverage-ledger 与 report-schema.json 机读格式，提供企业内训、安全审计咨询服务、方法论认证。利用 15 份文档构成的安全教育资产，面向安全工程师群体提供付费培训。可行性中等：方法论差异化清晰，但技术壁垒薄弱（15 个 Markdown 文档 + 2 个零依赖 .cjs 校验器，可被整体 fork），需依赖 Cloudflare 品牌与专家资源支撑溢价。</li>
+<li><strong>路径C：托管验证 SaaS</strong>——将「发现者≠验证者的对抗式验证」环节产品化，提供云端独立验证服务。可行性偏低：当前无服务端组件/仪表盘/私有 registry 承接，需从零构建基础设施；且 findings/ledger 均落在本地目标仓库目录，无中心化数据回流，改造工程量大。</li>
+</ul>
+<h3>6.3 不推荐的路径及原因</h3>
+<ul>
+<li><strong>直接 Open Core 分层</strong>：项目为纯文档型 skill，全功能免费、MIT、npx skills add 分发，无 Free/Pro/Enterprise 分层、无用量计量、无账号体系，仓库内不存在任何升级付费触发点。缺少可售产品载体（代码总行数 0、无 npm 包、无 Dockerfile、无 CI），无法构建付费墙。</li>
+<li><strong>双协议/改协议变现</strong>：虽 MIT 允许再许可，但项目无 CONTRIBUTING.md / CODEOWNERS / CLA / DCO，贡献流程不规范，限制双许可等高级变现模式的法律可行性；且参照 Elastic 改协议的反噬教训，对高 Star 项目改协议风险极高。</li>
+<li><strong>纯 SaaS 产品化</strong>：无服务端组件、无 REST/gRPC/SDK、无 Prometheus/OpenTelemetry、无内置指标健康检查、无结构化日志，从零构建 SaaS 的工程投入与当前项目形态严重不匹配。</li>
+</ul>
+<hr />
+<h2>七、能力评估：能做什么 &amp; 最适合做什么</h2>
+<h3>7.1 能做什么（能力清单）</h3>
+<ul>
+<li><strong>多阶段安全审计流程</strong>：六阶段审计流程，覆盖侦察/狩猎/验证/报告闭环，按 10 类攻击面高内聚切分文档</li>
+<li><strong>对抗式独立验证</strong>：发现者≠验证者的验证机制，产出 confirmed/needs_validation/rejected 三种裁决语义</li>
+<li><strong>机器可读产出</strong>：report-schema.json（JSON Schema）+ findings.json / coverage-ledger.json 结构化产出，两个零依赖校验器（validate-findings.cjs / validate-coverage-ledger.cjs）强制校验结构，退出码可判定，可接入 CI</li>
+<li><strong>广泛攻击面覆盖</strong>：15 份文档覆盖 Web/云/供应链/客户端/移动/AI-LLM/内存安全等十大攻击面类目</li>
+<li><strong>自然语言触发</strong>：支持 security audit / find vulnerabilities / pen-test the code 等触发短语，无需记命令</li>
+<li><strong>并行扇出审计</strong>：以 coverage-ledger 派发隔离 hunter 并由独立 verifier 复核，天然并行扇出</li>
+<li><strong>安全教育资产</strong>：15 份文档构成完整安全教育资产，示范对抗式独立验证方法论</li>
+</ul>
+<h3>7.2 最适合做什么（最优定位）</h3>
+<ul>
+<li><strong>最适合的商业化场景</strong>：作为 Cloudflare 安全业务的战略引流入口与品牌资产，以及面向安全工程师群体的方法论培训与生态服务</li>
+<li><strong>最适合的目标客户</strong>：使用支持并行子代理的编码代理 + 具备 OS 级强制沙箱能力的安全工程师（次：后端开发者、AI/ML工程师、架构师）；企业客户为需要合规审计留痕、托管验证、SLA 保障的组织</li>
+<li><strong>最适合的商业模式</strong>：影响力变现（赞助/基金会托管/大厂雇佣维护者/围绕生态做服务与培训）+ 企业安全服务引流</li>
+<li><strong>理由</strong>：</li>
+<li>项目为纯文档型 agent skill，无代码载体，直接产品化不可行</li>
+<li>Cloudflare 品牌背书强，内部规模化采用，具备企业级实战验证背景</li>
+<li>公共价值分 6.5，社会价值显著（替代商业 SAST/DAST 订阅与外部渗透测试服务）</li>
+<li>技术壁垒薄弱（可被整体 fork），护城河处于削弱通道，不适合重资产商业化投入</li>
+</ul>
+<hr />
+<h2>八、短板识别：还缺少什么</h2>
+<h3>8.1 商业化硬伤（需优先解决）</h3>
+<table>
+<thead>
+<tr>
+<th>短板</th>
+<th>所属维度</th>
+<th>严重程度</th>
+<th>补齐建议</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>缺少任何可售产品载体：代码总行数 0、源码文件 0、无 npm 包、无 Dockerfile、无 CI</td>
+<td>D4</td>
+<td>🔴 高</td>
+<td>构建服务端组件/仪表盘/私有 registry 承接增值服务，或明确走间接战略型路径不追求直接变现</td>
+</tr>
+<tr>
+<td>付费转化逻辑缺失：全功能免费、MIT、无 Free/Pro/Enterprise 分层、无用量计量、无账号体系</td>
+<td>D4</td>
+<td>🔴 高</td>
+<td>若走直接变现需设计分层机制；若走间接路径需明确商业接触点转化漏斗</td>
+</tr>
+<tr>
+<td>技术壁垒薄弱：交付物为 15 个 Markdown 文档 + 2 个零依赖 .cjs 校验器，可被整体 fork</td>
+<td>D5</td>
+<td>🔴 高</td>
+<td>通过持续方法论迭代、专有数据资产或生态锁定构建壁垒</td>
+</tr>
+<tr>
+<td>质量保障体系缺失：无任何 CI 工作流、测试实测 0 行、无 lint/静态分析/覆盖率/CODEOWNERS</td>
+<td>D2</td>
+<td>🔴 高</td>
+<td>建立 CI 流水线、补充测试、引入质量门禁</td>
+</tr>
+<tr>
+<td>贡献者高度集中：仅 3 人、单一组织 Cloudflare，巴士因子仅 3</td>
+<td>D3/D8</td>
+<td>🔴 高</td>
+<td>引入外部维护者、建立 GOVERNANCE.md / CONTRIBUTING.md / CODEOWNERS，降低组织风险</td>
+</tr>
+</tbody>
+</table>
+<h3>8.2 改进建议（可提升空间）</h3>
+<table>
+<thead>
+<tr>
+<th>短板</th>
+<th>所属维度</th>
+<th>严重程度</th>
+<th>补齐建议</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Issue 响应积压：90 天仅关闭 2 个 Issue vs 48 个开放</td>
+<td>D3</td>
+<td>🟡 中</td>
+<td>建立 Issue 分类与响应 SLA，定期清理积压</td>
+</tr>
+<tr>
+<td>无版本管理：零 Release、零版本号、无 CHANGELOG，升级只能重跑 npx skills add 手动覆盖</td>
+<td>D7</td>
+<td>🟡 中</td>
+<td>引入语义化版本与 Release 流程，提供版本固定与回滚机制</td>
+</tr>
+<tr>
+<td>安全治理表达缺位：无 SECURITY.md、无依赖/密钥扫描</td>
+<td>D2</td>
+<td>🟡 中</td>
+<td>作为安全类项目应展示自身安全实践，补充 SECURITY.md 与安全扫描</td>
+</tr>
+<tr>
+<td>无示例工程、无交互式教程/onboarding，概念门槛高</td>
+<td>D9</td>
+<td>🟡 中</td>
+<td>补充 quickstart demo 脚本与示例工程，降低上手门槛</td>
+</tr>
+<tr>
+<td>第三方生态空白：Topics 为空、无社区插件</td>
+<td>D3</td>
+<td>🟡 中</td>
+<td>补充 Topics 标签，培育社区插件生态</td>
+</tr>
+<tr>
+<td>英文单语、无 i18n/无障碍产物，可及性受限</td>
+<td>D11</td>
+<td>🟡 中</td>
+<td>补充多语言支持与无障碍产物，扩大普惠上限</td>
+</tr>
+</tbody>
+</table>
+<h3>8.3 发展路线图建议</h3>
+<ul>
+<li><strong>短期（1-3个月）</strong>：建立 CI 流水线与质量门禁；补充 SECURITY.md / CONTRIBUTING.md / CODEOWNERS；清理 Issue 积压，建立响应 SLA；引入语义化版本与 Release 流程</li>
+<li><strong>中期（3-6个月）</strong>：补充 quickstart demo 与示例工程，降低上手门槛；培育社区插件生态，补充 Topics 标签；引入外部维护者，降低巴士因子风险</li>
+<li><strong>长期（6-12个月）</strong>：明确商业化路径（间接战略型 vs 影响力变现）；构建服务端组件/仪表盘/私有 registry 承接增值服务；推动 report-schema.json / coverage-ledger.json 成为行业采纳的开放格式</li>
+</ul>
+<hr />
+<h2>九、风险提示</h2>
+<table>
+<thead>
+<tr>
+<th>风险类型</th>
+<th>风险描述</th>
+<th>概率</th>
+<th>影响</th>
+<th>缓解措施</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>市场风险</td>
+<td>老牌 SAST（Semgrep/CodeQL/Snyk）与 AI 原生安全厂商双向挤压，竞争密度快速上升；替代成本低，本项目更接近「提效与规范化层」而非刚需替代品</td>
+<td>高</td>
+<td>中</td>
+<td>强化方法论差异化与 Cloudflare 品牌背书，聚焦 agent skill 生态标准空位</td>
+</tr>
+<tr>
+<td>技术风险</td>
+<td>质量保障体系缺失（无 CI、测试 0 行、无 lint/覆盖率）；单轮检出率自述约 50%，强依赖高质量模型 + OS 级强制沙箱，否则强制降级为 needs_validation</td>
+<td>高</td>
+<td>高</td>
+<td>建立 CI 流水线与测试体系；明确沙箱要求与降级策略的用户沟通</td>
+</tr>
+<tr>
+<td>法律风险</td>
+<td>商标与专利风险未经人工核查，项目名称「Security Audit Skill」为通用描述性词汇，商标显著性存疑；无 CONTRIBUTING.md / CODEOWNERS / CLA / DCO，限制双许可等高级变现模式</td>
+<td>中</td>
+<td>中</td>
+<td>由法务补做商标检索与 FTO 分析；补充贡献流程规范</td>
+</tr>
+<tr>
+<td>竞争风险</td>
+<td>技术壁垒薄弱，交付物可被整体 fork；无网络效应与规模效应；切换成本低（npx skills add 即装即用、卸载即走）；护城河处于削弱通道</td>
+<td>高</td>
+<td>高</td>
+<td>通过持续方法论迭代、专有数据资产或生态锁定构建壁垒</td>
+</tr>
+<tr>
+<td>组织风险</td>
+<td>贡献者高度集中（仅 3 人、单一组织 Cloudflare），巴士因子仅 3；治理结构缺位（无 GOVERNANCE.md / CONTRIBUTING.md / CODEOWNERS）；Issue 响应积压（90 天仅关闭 2 个 vs 48 个开放）</td>
+<td>高</td>
+<td>中</td>
+<td>引入外部维护者，建立治理结构，降低单一厂商依赖</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>十、结论与建议</h2>
+<ul>
+<li><strong>综合评级：B（中等商业化潜力）</strong></li>
+<li><strong>一句话结论</strong>：cloudflare/security-audit-skill 是一个高势能、低结构的 agent skill 项目——凭借 Cloudflare 品牌背书与 20,072 Star 的战略影响力，在 AI 编码代理安全审计这一新兴蓝海占据先机，但缺少可售产品载体、技术壁垒薄弱、组织风险集中，直接商业化条件不成熟，更适合走影响力变现与战略引流路径。</li>
+<li><strong>核心建议（3条）</strong>：
+  1. <strong>明确商业化路径定位</strong>：鉴于项目为纯文档型 skill、无可售产品载体，建议走间接战略型路径（Cloudflare 企业安全服务引流）或影响力变现（生态服务与培训），而非追求直接产品化变现。
+  2. <strong>优先补齐组织与工程短板</strong>：引入外部维护者降低巴士因子风险，建立 GOVERNANCE.md / CONTRIBUTING.md / CODEOWNERS 治理结构，建立 CI 流水线与质量门禁，清理 Issue 积压。
+  3. <strong>构建可持续壁垒</strong>：通过持续方法论迭代、专有数据资产或生态锁定构建壁垒，推动 report-schema.json / coverage-ledger.json 成为行业采纳的开放格式，避免被整体 fork 后失去差异化。</li>
+<li><strong>商业化可行性判定：谨慎推荐</strong></li>
+<li>理由：综合评分 62.0 处于 B 级（中等商业化潜力），项目具备高势能（20,072 Star、Cloudflare 品牌背书、高速增长期）与真实市场需求（应用安全/DevSecOps 十亿美元级市场），但 D4 商业模式与变现仅 4.7 分（缺少可售产品载体、付费转化逻辑缺失），D5 竞争与壁垒仅 5.6 分（技术壁垒薄弱、护城河削弱），直接商业化风险较高。建议以战略引流与影响力变现为主，待补齐产品载体与壁垒后再评估直接变现可行性。</li>
+<li><strong>数据信号归因说明</strong>：本项目 D8 团队与可持续性维度数据偏低（6.6/10），经归因检查主要源于结构性归因（小团队/单一厂商维护，contributors=3，Cloudflare 官方 org，无 GOVERNANCE/CONTRIBUTING/CODEOWNERS）与时间性归因（项目年轻，created_at=2026-06-18，约 97 天），属真实组织风险但非质量风险；D3 社区与生态维度 D3.2/D3.3 低分归因于项目仅 96 天与单一企业主导，属尚未发生/企业集中，非质量缺陷。技术质量结论以 D2 技术维度独立评估为准（D2: 6.1/10）。</li>
+</ul>
+<h2>十一、项目地址</h2>
+<p><svg class="ri ri-muted" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.001 2C6.47598 2 2.00098 6.475 2.00098 12C2.00098 16.425 4.86348 20.1625 8.83848 21.4875C9.33848 21.575 9.52598 21.275 9.52598 21.0125C9.52598 20.775 9.51348 19.9875 9.51348 19.15C7.00098 19.6125 6.35098 18.5375 6.15098 17.975C6.03848 17.6875 5.55098 16.8 5.12598 16.5625C4.77598 16.375 4.27598 15.9125 5.11348 15.9C5.90098 15.8875 6.46348 16.625 6.65098 16.925C7.55098 18.4375 8.98848 18.0125 9.56348 17.75C9.65098 17.1 9.91348 16.6625 10.201 16.4125C7.97598 16.1625 5.65098 15.3 5.65098 11.475C5.65098 10.3875 6.03848 9.4875 6.67598 8.7875C6.57598 8.5375 6.22598 7.5125 6.77598 6.1375C6.77598 6.1375 7.61348 5.875 9.52598 7.1625C10.326 6.9375 11.176 6.825 12.026 6.825C12.876 6.825 13.726 6.9375 14.526 7.1625C16.4385 5.8625 17.276 6.1375 17.276 6.1375C17.826 7.5125 17.476 8.5375 17.376 8.7875C18.0135 9.4875 18.401 10.375 18.401 11.475C18.401 15.3125 16.0635 16.1625 13.8385 16.4125C14.201 16.725 14.5135 17.325 14.5135 18.2625C14.5135 19.6 14.501 20.675 14.501 21.0125C14.501 21.275 14.6885 21.5875 15.1885 21.4875C19.259 20.1133 21.9999 16.2963 22.001 12C22.001 6.475 17.526 2 12.001 2Z"/></svg> <a href="https://github.com/cloudflare/security-audit-skill">https://github.com/cloudflare/security-audit-skill</a></p>
+<hr />
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+</blockquote>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家　<a href="https://github.com/weixiongf" target="_blank" rel="noopener">@冯伟雄</a>　<a href="https://www.mova.work">www.mova.work</a></p>
+<p><strong>查看所有报告：</strong><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/">https://weixiongf.github.io/Open-Source-Alpha-Reports/</a></p><div class="page-footer">本页面由 <span class="at-acc">@向量之心</span> 打造的 github_anyliasis 系统自动维护。报告为 AI 辅助生成的第三方独立分析，仅供研究参考，不构成投资建议。</div></body></html>

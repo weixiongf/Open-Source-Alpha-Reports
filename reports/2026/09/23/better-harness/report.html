@@ -1,0 +1,1691 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><title>Better-harness 商业价值分析报告</title><style>/* default — 品牌蓝紫主题（从 md2pdf.py 原 CSS 常量迁出，视觉与历史产物一致） */
+@page { size: A4; margin: 18mm 15mm 20mm 15mm; }
+* { box-sizing: border-box; }
+/* 字体规范：一律开源思源黑体 CN（OFL 免费商用）；正文 Regular/标题 Bold/大字数字 Light */
+body { font-family: "Source Han Sans CN","思源黑体 CN","Noto Sans SC",sans-serif; color:#1e293b; font-size:10.5pt; line-height:1.75; margin:0; }
+.cover { page-break-after: always; text-align:center; padding-top:40px; }
+.cover .kicker { color:#2563eb; letter-spacing:6px; font-size:12pt; font-weight:500; }
+.cover h1 { font-size:26pt; margin:14px 0 6px; }
+.cover .sub { color:#64748b; font-size:11pt; margin-bottom:22px; }
+.badge { display:inline-block; background:linear-gradient(135deg,#2563eb,#7c3aed); color:#fff; border-radius:18px; padding:16px 44px; margin:10px 0 18px; }
+.badge .g { font-size:34pt; font-weight:300; line-height:1; }
+.badge .s { font-size:12pt; opacity:.92; margin-top:4px; }
+.meta { color:#475569; font-size:9.5pt; margin-top:14px; margin-bottom:40px; }
+.bars { max-width:620px; margin:20px auto 0; text-align:left; }
+.bar-row { display:flex; align-items:center; gap:8px; margin:5px 0; font-size:9pt; }
+.bar-name { width:110px; text-align:right; color:#334155; font-weight:500; }
+.bar-track { flex:1; height:9px; background:#f1f5f9; border-radius:5px; overflow:hidden; }
+.bar-fill { display:block; height:100%; border-radius:5px; }
+.bar-val { width:30px; font-weight:700; color:#0f172a; }
+.bar-w { width:52px; color:#94a3b8; font-size:8pt; }
+h1 { font-size:17pt; color:#0f172a; border-bottom:3px solid #2563eb; padding-bottom:8px; }
+h2 { font-size:13.5pt; color:#1d4ed8; margin-top:26px; page-break-after: avoid; border-left:5px solid #2563eb; padding-left:10px; }
+h3 { font-size:11.5pt; color:#0f172a; margin-top:18px; page-break-after: avoid; }
+table { border-collapse:collapse; width:100%; margin:10px 0; font-size:9pt; page-break-inside:avoid; }
+th { background:#eff6ff; color:#1e3a8a; }
+th,td { border:1px solid #dbe3ef; padding:5px 8px; text-align:left; }
+tr:nth-child(even) td { background:#f8fafc; }
+code { background:#f1f5f9; border-radius:4px; padding:1px 5px; font-family:"JetBrains Mono","Cascadia Mono",monospace; font-size:9pt; color:#be185d; }
+pre { background:#0f172a; color:#e2e8f0; border-radius:8px; padding:12px 14px; overflow-x:auto; page-break-inside:avoid; }
+pre code { background:none; color:inherit; padding:0; }
+blockquote { border-left:4px solid #93c5fd; background:#eff6ff; margin:10px 0; padding:8px 14px; color:#334155; border-radius:0 8px 8px 0; }
+hr { border:none; border-top:1px dashed #cbd5e1; margin:22px 0; }
+strong { color:#0f172a; }
+.credit { color:#2563eb; font-size:10.5pt; font-weight:700; letter-spacing:1px; margin-top:12px; }
+.at-acc { background:#dbeafe; color:#1d4ed8; border-radius:4px; padding:0 4px; font-weight:500; white-space:nowrap; }
+.tail { page-break-inside:avoid; margin-top:26px; border-top:2px solid #2563eb; padding-top:14px; }
+.tail p { color:#64748b; font-size:8.5pt; line-height:1.6; margin:0 0 10px; }
+.tail .credit { text-align:center; margin:0; }
+.page-footer { text-align:center; color:#94a3b8; font-size:8.5pt; line-height:1.6; margin-top:28px; padding-top:12px; border-top:1px solid #e2e8f0; }
+/* Remix Icon 内联 SVG（icon_mode=remix 时由脚本注入，语义色与评分条一致） */
+.ri { width:1.05em; height:1.05em; vertical-align:-0.18em; display:inline-block; }
+.ri-ok { color:#16a34a; } .ri-warn { color:#d97706; } .ri-bad { color:#dc2626; }
+.ri-muted { color:#64748b; } .ri-star { color:#f59e0b; } .ri-brand { color:#2563eb; }
+.ri-gold { color:#d4a017; } .ri-silver { color:#9ca3af; } .ri-bronze { color:#b45309; }
+/* 屏幕预览：@page 边距仅在打印时生效，浏览器中居中限宽并收边（不影响 PDF 输出） */
+@media screen {
+  body { margin: 0 auto; padding: 28px 36px 56px; max-width: 980px; }
+}
+</style></head><body><div class="cover">
+<div class="kicker">开源项目商业化潜力分析 · 第 121 期</div>
+<h1>GitHub 开源项目 Better-harness<br>商业价值分析报告</h1>
+<div class="sub">QoderAI/better-harness · 面向AI编码代理的Harness Engineering平台 · 九维度加权评估</div>
+<div class="badge"><div class="g">A 级 · 74.0</div><div class="s">综合评分（满分 100）· 高商业化潜力</div></div>
+<div><svg viewBox="0 0 560 480" width="560" height="480" xmlns="http://www.w3.org/2000/svg"><polygon points="280.0,209.6 299.5,216.7 309.9,234.7 306.3,255.2 290.4,268.6 269.6,268.6 253.7,255.2 250.1,234.7 260.5,216.7" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,179.2 319.1,193.4 339.9,229.4 332.7,270.4 300.8,297.1 259.2,297.1 227.3,270.4 220.1,229.4 240.9,193.4" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,148.8 338.6,170.1 369.8,224.2 359.0,285.6 311.2,325.7 248.8,325.7 201.0,285.6 190.2,224.2 221.4,170.1" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,118.4 358.2,146.8 399.8,218.9 385.3,300.8 321.6,354.3 238.4,354.3 174.7,300.8 160.2,218.9 201.8,146.8" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,88.0 377.7,123.6 429.7,213.6 411.6,316.0 332.0,382.8 228.0,382.8 148.4,316.0 130.3,213.6 182.3,123.6" fill="none" stroke="#e2e8f0" stroke-width="1"/><line x1="280.0" y1="240.0" x2="280.0" y2="88.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="377.7" y2="123.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="429.7" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="411.6" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="332.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="228.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="148.4" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="130.3" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="182.3" y2="123.6" stroke="#d8dee9" stroke-width="1"/><polygon points="280.0,126.0 360.1,144.5 280.0,240.0 384.0,300.0 312.2,328.6 240.0,350.0 201.0,285.6 178.2,222.1 201.8,146.8" fill="rgba(37,99,235,.22)" stroke="#2563eb" stroke-width="2.5"/><circle cx="280.0" cy="126.0" r="3.5" fill="#2563eb"/><circle cx="360.1" cy="144.5" r="3.5" fill="#2563eb"/><circle cx="280.0" cy="240.0" r="3.5" fill="#2563eb"/><circle cx="384.0" cy="300.0" r="3.5" fill="#2563eb"/><circle cx="312.2" cy="328.6" r="3.5" fill="#2563eb"/><circle cx="240.0" cy="350.0" r="3.5" fill="#2563eb"/><circle cx="201.0" cy="285.6" r="3.5" fill="#2563eb"/><circle cx="178.2" cy="222.1" r="3.5" fill="#2563eb"/><circle cx="201.8" cy="146.8" r="3.5" fill="#2563eb"/><text x="280.0" y="44.0" text-anchor="middle" font-size="12.5" fill="#334155" font-weight="600">D1</text><text x="280.0" y="58.0" text-anchor="middle" font-size="11" fill="#64748b">市场需求 7.5</text><text x="406.0" y="89.9" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D2</text><text x="406.0" y="103.9" text-anchor="start" font-size="11" fill="#64748b">技术成熟度 8.2</text><text x="473.0" y="206.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D3</text><text x="473.0" y="220.0" text-anchor="start" font-size="11" fill="#64748b">社区生态 N/A</text><text x="449.7" y="338.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D4</text><text x="449.7" y="352.0" text-anchor="start" font-size="11" fill="#64748b">变现潜力 7.9</text><text x="347.0" y="424.2" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D5</text><text x="347.0" y="438.2" text-anchor="start" font-size="11" fill="#64748b">竞争格局 6.2</text><text x="213.0" y="424.2" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D6</text><text x="213.0" y="438.2" text-anchor="end" font-size="11" fill="#64748b">法律合规 7.7</text><text x="110.3" y="338.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D7</text><text x="110.3" y="352.0" text-anchor="end" font-size="11" fill="#64748b">企业就绪 6.0</text><text x="87.0" y="206.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D8</text><text x="87.0" y="220.0" text-anchor="end" font-size="11" fill="#64748b">团队治理 6.8</text><text x="154.0" y="89.9" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D9</text><text x="154.0" y="103.9" text-anchor="end" font-size="11" fill="#64748b">上手难度 8.0</text></svg></div>
+<div class="bars"><div class="bar-row"><span class="bar-name">D2 技术成熟度</span>
+<span class="bar-track"><span class="bar-fill" style="width:82.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.2</span><span class="bar-w">权重14%</span></div>
+<div class="bar-row"><span class="bar-name">D9 上手难度</span>
+<span class="bar-track"><span class="bar-fill" style="width:80.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.0</span><span class="bar-w">权重10%</span></div>
+<div class="bar-row"><span class="bar-name">D4 变现潜力</span>
+<span class="bar-track"><span class="bar-fill" style="width:79.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.9</span><span class="bar-w">权重18%</span></div>
+<div class="bar-row"><span class="bar-name">D6 法律合规</span>
+<span class="bar-track"><span class="bar-fill" style="width:77.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.7</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D1 市场需求</span>
+<span class="bar-track"><span class="bar-fill" style="width:75.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.5</span><span class="bar-w">权重13%</span></div>
+<div class="bar-row"><span class="bar-name">D8 团队治理</span>
+<span class="bar-track"><span class="bar-fill" style="width:68.0%;background:#d97706"></span></span>
+<span class="bar-val">6.8</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D5 竞争格局</span>
+<span class="bar-track"><span class="bar-fill" style="width:62.0%;background:#d97706"></span></span>
+<span class="bar-val">6.2</span><span class="bar-w">权重12%</span></div>
+<div class="bar-row"><span class="bar-name">D7 企业就绪</span>
+<span class="bar-track"><span class="bar-fill" style="width:60.0%;background:#d97706"></span></span>
+<span class="bar-val">6.0</span><span class="bar-w">权重8%</span></div>
+<div class="bar-row"><span class="bar-name">D3 社区生态</span>
+<span class="bar-track"><span class="bar-fill" style="width:0.0%;background:#dc2626"></span></span>
+<span class="bar-val">N/A</span><span class="bar-w">权重11%</span></div></div>
+<div class="meta">分析时点 2026-09-23 ｜ 数据来源：GitHub API + 仓库代码实测 ｜ 方法论 v1.6.2</div>
+</div><h1>第 121 期 · Better-harness 商业化潜力分析报告（完整版）</h1>
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家　@冯伟雄</p>
+<p><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/#methodology" target="_blank" rel="noopener">方法论版本: v1.6.2</a> | 综合评分: <strong>74.0</strong> | 等级: <strong>A（高商业化潜力）</strong> | 价值画像: 纯商业工具 | 【新项目豁免】无历史不构成停滞证据</p>
+</blockquote>
+<h2>一、项目概览</h2>
+<p><strong>Better Harness</strong>（QoderAI/better-harness）是一个面向 AI 编码代理（coding agent）的 <strong>Harness Engineering 开发者工具平台</strong>——以「harness-as-code」方式定义代理工作循环（Agent Work Loop），运行受控实验、检视证据并对比结果，最终将任务证据转化为可执行的团队与组织级改进洞察。</p>
+<ul>
+<li><strong>项目定位</strong>：开源插件/SDK（Open Core 生态，绑定商业宿主 Qoder Desktop 内嵌），本地部署（coding agent 插件/CLI 本地运行，报告为本地 HTML/Markdown）</li>
+<li><strong>技术领域</strong>：AI 编码代理工作流工程 / Agent 可观测性与评估</li>
+<li><strong>目标用户</strong>：全栈开发者、AI/ML 工程师、架构师/技术管理者（CTO）</li>
+<li><strong>技术栈</strong>：多语言 monorepo（TypeScript 78,318 行 + Rust 41,063 行 + TSX 19,076 行，共 143,229 行 / 693 文件），MIT 协议</li>
+<li><strong>宿主适配</strong>：10+ 编码代理宿主（Claude Code、Codex、Qoder、Cursor、GitHub Copilot、Qwen Code、Pi、Kimi Code、WorkBuddy、Grok）</li>
+<li><strong>社区规模</strong>：2,320 Star、186 Fork、32 贡献者、90 天 144 PR、近 30 天 279 commits</li>
+<li><strong>生命周期阶段</strong>：无（<code>lifecycle_stage</code> 为空，未标注阶段）</li>
+<li><strong>项目年龄</strong>：63 天（<code>created_at</code> 2026-07-21，采样 2026-09-23）</li>
+<li><strong>新项目豁免</strong>：成立（年龄 &lt; 90 天、无 archived/deprecated 标记、近 30 天有 commit）——<strong>无历史不构成停滞证据</strong></li>
+</ul>
+<hr />
+<h2>二、安装部署与使用指南</h2>
+<h1>Better Harness — D9 上手难度与易用性 评估</h1>
+<blockquote>
+<p>判定结论：<strong>🟢 简单（8.0 / 10）</strong>。核心使用路径为「在已装编码 Agent 宿主内执行一条自然语言 slash 命令」，无数据库/缓存/消息队列等外部依赖、无需编写配置文件；扣分主因是<strong>全仓无任何容器化部署产物（无 Dockerfile / docker-compose / Helm）</strong>，且安装入口按 10 个宿主分散、无统一入口。</p>
+</blockquote>
+<hr />
+<h2>安装部署与使用指南</h2>
+<h3>一、前置条件</h3>
+<table>
+<thead>
+<tr>
+<th>使用路径</th>
+<th>前置要求</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>插件路径（推荐，绝大多数用户）</td>
+<td>已安装并登录以下任一宿主：Qoder Desktop/CLI、Claude Code、Codex Desktop/CLI、Cursor、GitHub Copilot CLI、Qwen Code、Pi（含 OMP）、Kimi Code、WorkBuddy、Grok</td>
+</tr>
+<tr>
+<td>源码/桌面端路径（仅开发者）</td>
+<td>Node.js <code>&gt;=22.20.0 &lt;25.0.0</code>、npm <code>&gt;=10.9.3 &lt;12.0.0</code>（Windows / macOS / Linux）；构建 Harness Studio 桌面端另需 Rust 1.96、Go 1.26 工具链与 Electron</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>无需安装数据库、缓存或消息队列；无需准备任何配置文件。安装或更新插件后，<strong>必须新开一个会话或任务</strong>，宿主才会重新加载插件清单。</p>
+</blockquote>
+<h3>二、按宿主安装（命令均取自 README 原文）</h3>
+<p><strong>Qoder Desktop / Qoder CLI（零安装）</strong>——Better Harness 已内置于 Qoder 桌面应用，无需 Marketplace 或本地插件安装。可直接在会话中执行：</p>
+<pre><code class="language-text">/better-harness analyze this project's AI coding workflow and generate an evidence-backed report
+</code></pre>
+<p>Qoder 1.18.0+ 也可从 Quest 左侧边栏选择 <strong>Better Harness (Beta)</strong>。仅在未安装 Qoder Desktop 的 Qoder CLI 环境下才需手动安装：</p>
+<pre><code class="language-bash">qodercli plugin marketplace add 'https://github.com/QoderAI/better-harness.git'
+qodercli plugin install better-harness@better-harness
+qodercli plugin list
+</code></pre>
+<p><strong>Claude Code</strong></p>
+<pre><code class="language-text">/plugin marketplace add QoderAI/better-harness
+/plugin install better-harness@better-harness
+</code></pre>
+<pre><code class="language-bash">claude plugin details better-harness@better-harness
+</code></pre>
+<p>新开 Claude 会话后执行 <code>/better-harness analyze this project's AI coding workflow and generate an evidence-backed report</code>。默认在仓库 <code>.claude/better-harness</code> 报告根下产出 <code>report.html</code>、<code>report.md</code>、<code>findings.json</code>。</p>
+<p><strong>Codex CLI</strong></p>
+<pre><code class="language-bash">codex plugin marketplace add \
+  'https://github.com/QoderAI/better-harness.git' \
+  --ref main
+codex plugin list --marketplace better-harness
+codex plugin add better-harness@better-harness
+</code></pre>
+<p>调用提示为 <code>$better-harness:better-harness analyze this project's AI coding workflow and generate an evidence-backed report</code>。Codex Desktop 则通过 <strong>Settings &gt; Plugins &gt; + Add &gt; From Marketplace</strong>，填入仓库 URL、Git ref（<code>main</code>）、Sparse paths 留空，添加后安装 <strong>Better Harness</strong>。</p>
+<p><strong>GitHub Copilot CLI</strong></p>
+<pre><code class="language-bash">copilot plugin marketplace add QoderAI/better-harness
+copilot plugin install better-harness@better-harness
+copilot plugin list
+</code></pre>
+<p><strong>Cursor</strong>——插件未发布到 marketplace，README 明确其安装计划为「unavailable」，仅给出如下非执行型计划命令：</p>
+<pre><code class="language-bash">git clone https://github.com/QoderAI/better-harness.git
+better-harness plugin plan install --host cursor --surface agent --scope session
+</code></pre>
+<p><strong>更多适配器</strong>
+- Qwen Code：<code>qwen extensions install QoderAI/better-harness</code>
+- Pi：<code>pi install &lt;source&gt;</code> 或 <code>pi -e &lt;source&gt;</code>
+- Kimi Code：<code>.kimi-plugin/plugin.json</code> 插件安装
+- WorkBuddy、Grok：见 Host Adapter Matrix（无托管生命周期面）</p>
+<h3>三、插件生命周期检查与计划（Beta）</h3>
+<p>不接触注册表、不修改宿主配置，仅检视本地安装证据：</p>
+<pre><code class="language-bash">better-harness plugin status --host all
+better-harness doctor --platform all
+</code></pre>
+<p>生成宿主专属的安装/更新/移除计划（计划以类型化 argv 数据保留原生步骤，Better Harness 不代为执行）：</p>
+<pre><code class="language-bash">better-harness plugin plan install --host qwen --surface cli --scope user
+better-harness plugin verify --host qwen --surface cli
+</code></pre>
+<h3>四、从源码运行（开发者）</h3>
+<pre><code class="language-bash">npm ci
+npm test
+npm run pack:verify
+</code></pre>
+<p>构建源本地 Codex 插件产物（输出到 <code>dist/plugins/better-harness</code>）：</p>
+<pre><code class="language-bash">node scripts/packaging/build-host-plugin.mjs
+</code></pre>
+<p>不读取本地会话、仅检视仓库证据：</p>
+<pre><code class="language-bash">node scripts/better-harness.mjs report --no-sessions
+</code></pre>
+<p>本地预览（默认监听 <code>127.0.0.1</code>）：</p>
+<pre><code class="language-bash">npm run preview -- --open
+</code></pre>
+<blockquote>
+<p>Canvas 预览需要已安装的 Qoder 运行时，或显式指定 <code>--sdk-media</code> / <code>--sdk-root</code> 路径；这是本地检视工具，不是带鉴权的共享服务。</p>
+</blockquote>
+<h3>五、先看效果再决定是否安装</h3>
+<ul>
+<li>自包含英文 HTML 样例报告：<code>https://qoderai.github.io/better-harness/demo/better-harness-report/</code></li>
+<li>交互式 Harness Inspector 样例（虚构英文数据，不读取你的工作区）：<code>https://qoderai.github.io/better-harness/inspector</code></li>
+<li>历史趋势静态演示：<code>dev/terminal-demo/README.md</code></li>
+</ul>
+<hr />
+<h2>三、评分总览</h2>
+<h3>3.1 九维评分表</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>权重</th>
+<th>得分</th>
+<th>加权得分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1 市场与需求</td>
+<td>0.13</td>
+<td>7.5</td>
+<td>0.975</td>
+</tr>
+<tr>
+<td>D2 技术成熟度</td>
+<td>0.14</td>
+<td>8.2</td>
+<td>1.148</td>
+</tr>
+<tr>
+<td>D3 社区活跃度</td>
+<td>0.11</td>
+<td>N/A</td>
+<td>—</td>
+</tr>
+<tr>
+<td>D4 商业模式与变现</td>
+<td>0.18</td>
+<td>7.9</td>
+<td>1.422</td>
+</tr>
+<tr>
+<td>D5 竞争壁垒</td>
+<td>0.12</td>
+<td>6.2</td>
+<td>0.744</td>
+</tr>
+<tr>
+<td>D6 法律合规</td>
+<td>0.07</td>
+<td>7.7</td>
+<td>0.539</td>
+</tr>
+<tr>
+<td>D7 工程化与运维</td>
+<td>0.08</td>
+<td>6.0</td>
+<td>0.480</td>
+</tr>
+<tr>
+<td>D8 项目可持续性</td>
+<td>0.07</td>
+<td>6.8</td>
+<td>0.476</td>
+</tr>
+<tr>
+<td>D9 团队与执行力</td>
+<td>0.10</td>
+<td>8.0</td>
+<td>0.800</td>
+</tr>
+<tr>
+<td><strong>综合评分</strong></td>
+<td></td>
+<td></td>
+<td><strong>74.0</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>D3 因分析失败标 N/A，未计入加权（权重 0.11 空缺），综合评分置信度相应下降。</p>
+</blockquote>
+<p><strong>综合评分：74.0 / 100　等级：A（高商业化潜力）</strong></p>
+<h3>3.2 平行维度表（D10 / D11，不入公式）</h3>
+<table>
+<thead>
+<tr>
+<th>平行维度</th>
+<th>得分</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10 功能价值</td>
+<td>6.6 / 10</td>
+<td>诊断洞察型效用；使用规模当前最小（npm 周下载 488）；免费可得完整度高</td>
+</tr>
+<tr>
+<td>D11 社会价值</td>
+<td>5.4 / 10</td>
+<td>生态位为宿主内插件（叶子节点）；自带完整方法论教材；普惠效果实质但影响限于细分小圈子</td>
+</tr>
+<tr>
+<td><strong>公共价值分</strong></td>
+<td><strong>6.0 / 10</strong></td>
+<td>(D10 + D11) / 2</td>
+</tr>
+</tbody>
+</table>
+<h3>3.3 一票否决检查</h3>
+<table>
+<thead>
+<tr>
+<th>检查项</th>
+<th>实际值</th>
+<th>触发阈值</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D6 法律合规（维度总分）</td>
+<td>7.7</td>
+<td>≤ 3</td>
+<td>未触发</td>
+</tr>
+<tr>
+<td>D8.4 项目可持续性（细则小分）</td>
+<td>1.2</td>
+<td>≤ 1</td>
+<td>未触发（且新项目豁免成立）</td>
+</tr>
+<tr>
+<td>D4.1 协议对变现模式的影响（细则小分）</td>
+<td>2.0</td>
+<td>≤ 0.5</td>
+<td>未触发</td>
+</tr>
+</tbody>
+</table>
+<p><strong>一票否决：无。</strong> 等级维持 A。</p>
+<hr />
+<h2>四、各维度详细分析</h2>
+<h3>D1. 市场需求与商业机会（权重 13%）</h3>
+<h3>项目分类标签</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>开发者工具 / 数据与AI（Agent 可观测性与评估）</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>通用/跨行业（任何使用编码代理的软件研发组织）</td>
+</tr>
+<tr>
+<td>目标用户角色</td>
+<td>全栈开发者、AI/ML 工程师、架构师、技术管理者/CTO</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>研发流程优化、数据处理与分析、学习研究、企业内部工具</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>本地部署（作为 coding agent 插件 / CLI 本地运行）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>一句话定位</strong>：Better Harness 是一个面向 AI 编码代理（Coding Agent）的 Harness Engineering 开发者工具平台，适用于任何采用编码代理的软件研发团队与行业，主要面向全栈开发者、AI 工程师与架构师/技术管理者，用于以证据驱动的方式评估和改进编码代理的「Agent Work Loop」，并把任务证据转化为可执行的团队/组织级改进洞察。</p>
+<h3>细则打分</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1.1 目标市场规模与增长性</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7/10</td>
+<td>底层市场是当下增长最快的 AI 编码代理/开发者工具赛道；本项目处于其衍生层（Agent 工作流可观测性与评估），属于成长期的新兴细分市场。<strong>无外部数据验证，按项目类型做量级估算，置信度低</strong>。</td>
+</tr>
+<tr>
+<td>D1.2 痛点真实性与解决程度</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7/10</td>
+<td>README 列出的 5 类痛点（目标模糊、步骤不可复现、缺验证、"能跑就行"、经验流失）是 AI 编码规模化的真实系统性短板；方案覆盖"证据采集→统一分析→优先发现→修复草案→历史对比"的完整链路，完整度高于多数同类替代（人工评审、CI、通用 LLM 评估平台），但本质是诊断/建议层，需人来闭环。</td>
+</tr>
+<tr>
+<td>D1.3 市场时机判断</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>8/10</td>
+<td>编码代理已越过期望膨胀期进入实质生产期（AGENTS.md、MCP、Skills 等标准正在成型），"Harness Engineering" 概念新近提出，专用竞品稀少，格局未定；项目 2026-07 创建即切入，属早期窗口。</td>
+</tr>
+<tr>
+<td>D1.4 应用场景广度</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>6/10</td>
+<td>用户面极广（任何写软件的组织），且适配 10+ 宿主（Claude Code、Codex、Qoder、Cursor、Copilot、Qwen Code、Pi、Kimi、WorkBuddy、Grok），可跨语言/框架/行业；但核心用例高度集中于「编码代理工作循环分析」这一纵向场景，非横向通用基础设施，可延展性主要体现在向组织级工程洞察延伸。</td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<p><strong>D1 加权得分（维度内）：7.5 / 10</strong></p>
+<ul>
+<li><strong>优势</strong>：处于高热度、高增速的 AI 编码代理主赛道衍生层，时机极早、专用竞品少；痛点真实且随 AI 代码量爆炸而加剧；方案完成度高（三证据域独立采集 + 统一分析、Inspector、历史趋势、findings.json），多宿主适配与中英双语文档显示产品工程化程度远超同期项目。</li>
+<li><strong>风险</strong>：直接付费市场尚未被验证——项目为 MIT 开源、由商业宿主 Qoder 免费内嵌，OSS 本身的变现距离远；「Harness Engineering」作为付费品类仍处教育期，且编码代理厂商可能将同类治理/评测能力内化，压缩第三方空间。</li>
+<li><strong>数据说明</strong>：外部市场规模数据不可用，D1.1 为基于项目类型的量级估算；社区增长数据强（2320 stars / 32 贡献者 / 90 天 144 PRs），但 Issue 互动稀疏（仅 9 open），缺乏真实用户需求强度的直接证据，整体置信度中等偏低。</li>
+</ul>
+<h1>D2 技术成熟度与产品质量评估</h1>
+<h3>总览</h3>
+<p>Better Harness 是一个以「harness-as-code」为核心的 coding agent 工程化平台，采用 TypeScript + Rust + Go + Electron 的多语言 monorepo 架构，代码总规模 143,229 行（693 个源码文件），涵盖 DSL 编译器、多宿主适配器、实验对比引擎、证据分析宿主、桌面 Studio 与组织级 Dashboard。项目创建于 2026-07-21（约 64 天），处于活跃迭代期（近 30 天 279 commit，近 90 天 144 PR）。</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D2.1</td>
+<td>产品设计与创新性</td>
+<td>1.5</td>
+<td>1.2</td>
+<td>7–8</td>
+<td>「harness 定义为代码 + 受控实验 + 证据检视」的产品定位在 agent 工具链中具差异化；提供 DSL（Langium 语法）、10 宿主适配器、实验对比、报告画布、组织洞察等围绕核心场景的功能，取舍得当；设计文档（DESIGN.md、ADRs、feature-tree）印证理念清晰</td>
+</tr>
+<tr>
+<td>D2.2</td>
+<td>架构设计与工程质量</td>
+<td>2</td>
+<td>1.6</td>
+<td>7–8</td>
+<td>monorepo 分层清晰（harness 核心 / harness-studio / desktop / ui / apps），适配器-编译器-IR-解析器解耦良好，Rust 侧 crate 划分合理；ADRs、CODEOWNERS、依赖治理脚本齐全；但存在千行级文件、<code>route</code>/<code>compute_neighbours</code> 等超长函数、若干 <code>as any</code>，复刻门槛极高（tree-sitter/difftastic/Langium/ACP 协议栈）</td>
+</tr>
+<tr>
+<td>D2.3</td>
+<td>代码整洁性与规范性</td>
+<td>1</td>
+<td>0.8</td>
+<td>7–8</td>
+<td>命名一致、注释解释设计权衡、i18n/测试代码规范；但大量文件 &gt;600–1200 行，内联样式与重复构造较多，局部 <code>as any</code>/非空断言削弱类型安全</td>
+</tr>
+<tr>
+<td>D2.4</td>
+<td>安全性</td>
+<td>1</td>
+<td>0.8</td>
+<td>7–8</td>
+<td>安全编码实践突出：多层密钥脱敏（redactTraceValue/redact_private_text）、路径约束（realpath/isWithin/safeLogicalPath）、原型污染防护（UNSAFE_JSON_KEYS + Object.create(null)）、同源校验、CSP、TOCTOU 防护、allow_roots 默认拒绝、无硬编码密钥；但缺 SECURITY.md 与自动化安全扫描集成</td>
+</tr>
+<tr>
+<td>D2.5</td>
+<td>UI/UX/UE 人机交互</td>
+<td>1</td>
+<td>0.8</td>
+<td>7–8</td>
+<td>适用（Electron Studio + 组织 Dashboard + 报告画布 + Docusaurus 站点）；React + i18n（react-i18next、zh-CN 全量文案）+ a11y（aria-label/aria-live/role/inert）+ 虚拟列表 + Shadow DOM 隔离 + 响应式布局，交互体系完整，个别组件过大</td>
+</tr>
+<tr>
+<td>D2.6</td>
+<td>功能完备度与稳定性</td>
+<td>1.5</td>
+<td>1.2</td>
+<td>7–8</td>
+<td>功能覆盖广（DSL/编译/多宿主/实验/对比/Inspector/Memory/多格式 Artifact/Git 历史/架构影响）；最新版 v0.7.0-alpha2 仍为 alpha（新项目常态，按宣称稳定+代码质量评估不额外惩罚）；支持 mac/win/linux，runtime 需 Node 22–24 + Rust + Go；国际化完善（双语文档 + i18n 框架）</td>
+</tr>
+<tr>
+<td>D2.7</td>
+<td>文档与开发者体验</td>
+<td>1</td>
+<td>1.0</td>
+<td>9–10</td>
+<td>465 个文档文件：README（含 zh-CN）、CHANGELOG、CONTRIBUTING、CODE_OF_CONDUCT、DESIGN、ARCHITECTURE、10 篇 ADR、Docusaurus 文档站（concepts/reference/troubleshooting/your-first-report）、博客、案例研究、AGENTS.md、SKILL 说明，且含 zh-Hans 本地化</td>
+</tr>
+<tr>
+<td>D2.8</td>
+<td>测试与质量保障</td>
+<td>1</td>
+<td>0.8</td>
+<td>7–8</td>
+<td>311 个测试文件 / 26,427 行（test_ratio 18.5%）；5 个 CI workflow 覆盖多 OS 矩阵、Rust/Go/native/browser（Playwright）/smoke 测试、JUnit 上报；含 generated sources 校验、pack:verify、CODEOWNERS、PR 模板等质量门禁</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td><strong>8.2</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<p>D2 得分 <strong>8.2 / 10</strong>，处于「良好偏上」区间。</p>
+<p><strong>优势</strong>：
+- <strong>工程质量扎实</strong>：多语言 monorepo 分层清晰，ADR 驱动的架构决策、CODEOWNERS、依赖治理脚本、多 OS CI 矩阵构成完整的工程体系。
+- <strong>安全编码突出</strong>：纵深防御式的脱敏、路径约束、同源/CSP、原型污染防护在多模块反复出现，无硬编码凭据。
+- <strong>文档极为完备</strong>：双语文档站 + ADR + 案例研究 + 概念参考，显著降低上手门槛。
+- <strong>技术护城河高</strong>：tree-sitter/difftastic 差异引擎、Langium DSL 运行时、ACP 协议宿主栈，复刻难度极大。</p>
+<p><strong>短板</strong>：
+- <strong>版本仍在 alpha</strong>（v0.7.0-alpha2），API 与协议可能未冻结，向后兼容性尚未经长期验证。
+- <strong>局部代码质量欠佳</strong>：存在多个 600–1200+ 行大文件与超长函数（<code>route</code>、<code>compute_neighbours</code>、<code>analyze_with</code>），散布 <code>as any</code>、<code>expect/unwrap</code> panic 点，建议拆分。
+- <strong>安全自动化缺位</strong>：无 SECURITY.md、未见 Dependabot/Snyk/Trivy 等扫描集成。
+- <strong>安装门槛</strong>：完整桌面版需 Rust/Go 工具链，非纯 npm 一键链路。</p>
+<p>综合来看，该项目技术成熟度足以支撑商业化交付的技术底座，主要风险集中于 alpha 阶段的版本稳定性与部分模块的可维护性，而非根本性工程缺陷。</p>
+<h3>D3. 社区健康度与生态势能</h3>
+<p><strong>项目年龄: 63 天（新项目 = 是）</strong> | Star 2320 | Fork 186 | 贡献者 32 | 近 30 天 commit 279 | 近 90 天 PR 144 / 关闭 Issue 34 / 开放 Issue 9</p>
+<blockquote>
+<p><strong>数据口径预警</strong>: <code>stargazers</code> API 采集失败（404），近 90 天 / 近 7 天 Star 增量均为 N/A。按 D3.1 规则退化为「Star 总量 ÷ 项目年龄(月)」估算月增。本项年龄仅 63 天，全生命周期即"早期"，退化公式对本案不存在"高估老项目早期红利"的偏差，但仍是平均值估算，非实测窗口增量。项目满足年龄 &lt; 90 天 → 全程按<strong>新项目专项</strong>处理。</p>
+</blockquote>
+<h3>D3.1 社区活跃度指标（满分 3）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Star 增速</td>
+<td>近 90 天增量 N/A → 退化估算 2320 ÷ (63/30) ≈ <strong>1104/月</strong></td>
+<td>远超 &gt;500/月阈值</td>
+</tr>
+<tr>
+<td>Fork 比率</td>
+<td>186 / 2320 = <strong>8.0%</strong></td>
+<td>衍生意愿健康</td>
+</tr>
+<tr>
+<td>Issue 活跃度</td>
+<td>近 90 天 PR 144（≈1.6/天）、关闭 Issue 34、开放 Issue 仅 9、30 天 commit 279</td>
+<td>参与度极高、积压极低</td>
+</tr>
+<tr>
+<td>响应速度</td>
+<td>无逐条关闭时长数据；开放 9 vs 关闭 34，积压比例低</td>
+<td>不可精确测量，但无积压迹象</td>
+</tr>
+</tbody>
+</table>
+<p><strong>打分: 3.0 / 3（9–10 档，100%）</strong></p>
+<p>判断依据：年龄仅 63 天即积累 2320 Star，退化估算月增约 1104，超过 9–10 档 &gt;500/月阈值；Fork 比率 8.0% 属健康区间；Issue/PR 活跃度呈"极度活跃"特征（90 天 144 个 PR、30 天 279 次 commit、开放 Issue 仅 9 个）。按新项目专项「爆发型不压分」原则，爆发特征明显（年龄 &lt; 90 天且 Star ≥ 1000），如实给高分。<strong>不确定性标注</strong>：Star 月增为退化公式估算而非实测窗口增量，且 Issue 平均关闭时长不可测，波动性偏高；若后续实测增速断崖回落，档位需下调。响应速度项不可测，本细则以其余三项佐证，未据其单独扣分。</p>
+<h3>D3.2 贡献者结构多样性（满分 2.5）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>贡献者数量</td>
+<td><strong>32 人</strong>（API 实采）</td>
+<td>落在 20–50 区间</td>
+</tr>
+<tr>
+<td>组织多样性</td>
+<td>API 未提供组织归属，无法核验</td>
+<td>证据不足</td>
+</tr>
+<tr>
+<td>核心团队占比</td>
+<td>无 PR 作者归属统计；90 天 144 PR 提示存在外部提交</td>
+<td>无法量化</td>
+</tr>
+</tbody>
+</table>
+<p><strong>打分: 2.0 / 2.5（7–8 档，80%）</strong></p>
+<p>判断依据：贡献者 32 人显著超过 5–20 的 5–6 档区间，落入 7–8 档「20–50 贡献者」。但 7–8 档同时要求「来自 5+ 组织」，而组织多样性数据缺失，且本项目由 QoderAI（公司主导）发布，早期贡献者可能集中于单一组织——故不上探 9–10 档，取 7–8 档。<strong>归因说明</strong>：贡献者结构尚未充分披露，属新项目自然状态；即便内部贡献占比较高，也应按 1.7 归因表将其归为「组织/生态风险（组织集中度）」而非「技术质量」问题，技术质量结论以 D2 独立评估为准。</p>
+<h3>D3.3 第三方生态成熟度（满分</h3>
+<h3>D4. 商业模式与变现潜力</h3>
+<p><strong>维度得分：7.9 / 10</strong></p>
+<blockquote>
+<p>Better Harness 采用 MIT 协议（约束为零），且与商业公司 Qoder（阿里系 AI 编程 IDE）同源，具备"开源插件引流 → 商业宿主产品 + 企业级组织洞察"的清晰变现底座。但项目当前仍处早期（v0.7.0-alpha2），仓库内<strong>未见任何付费分层、企业版目录或定价信息</strong>，付费转化触发点依赖母公司产品间接实现，尚未被硬证据坐实。</p>
+</blockquote>
+<h3>D4.1 协议对变现模式的影响（2 / 2 分）</h3>
+<table>
+<thead>
+<tr>
+<th>检查项</th>
+<th>实测结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>根 LICENSE</td>
+<td>MIT License（Copyright 2026 Qoder）</td>
+</tr>
+<tr>
+<td>子包协议</td>
+<td><code>packages/harness/LICENSE</code>、<code>packages/harness-studio/LICENSE</code> 均为 MIT</td>
+</tr>
+<tr>
+<td>第三方组件</td>
+<td><code>difftastic-core</code>（vendored）为 MIT；<code>ai-elements</code> 组件为 Apache 2.0</td>
+</tr>
+<tr>
+<td>限制性条款</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：全仓库均为 MIT / Apache 2.0 等宽松协议，无 GPL/AGPL/SSPL 类传染性或网络服务限制条款。所有变现路径（Open Core、SaaS 托管、双协议、专业服务、市场分发）在法律层面均无障碍。对照评分表落在 <strong>9–10 档</strong>。</p>
+<p><strong>得分：2.0 / 2（100%）</strong></p>
+<h3>D4.2 变现路径清晰度（2.8 / 3.5 分）</h3>
+<table>
+<thead>
+<tr>
+<th>候选模式</th>
+<th>可行性</th>
+<th>证据支撑</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Open Core / 商业宿主引流</strong></td>
+<td>✅ 清晰</td>
+<td>README 明确 "Better Harness is built into the Qoder desktop app"；部分能力（Canvas 预览）"requires an installed Qoder runtime"——开源插件天然成为 Qoder 商业 IDE 的获客漏斗</td>
+</tr>
+<tr>
+<td><strong>企业团队洞察（B2B）</strong></td>
+<td>✅ 较清晰</td>
+<td>项目描述核心卖点为 "Turn task evidence into actionable <strong>team and organization</strong> insights"；仓库含 <code>docs/blog/2026-09-09-organizational-harness-engineering.md</code> 组织级专题</td>
+</tr>
+<tr>
+<td><strong>市场/插件分发</strong></td>
+<td>⚠️ 非抽成变现</td>
+<td>已上架 Claude Code / Codex / Copilot / Qwen / Qoder 等多个宿主 Marketplace，但分发本身对项目方不产生直接收入</td>
+</tr>
+<tr>
+<td><strong>专业服务</strong></td>
+<td>⚠️ 潜在</td>
+<td>有 <code>CONTRIBUTING.md</code>、<code>docs/community.md</code>、适配器贡献指南，生态可支撑咨询/集成服务，但无商业化证据</td>
+</tr>
+<tr>
+<td><strong>捐赠/赞助</strong></td>
+<td>❌</td>
+<td>无赞助入口、无 Open Collective</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：存在一条<strong>主路径清晰可行</strong>——以 MIT 开源插件驱动母公司 Qoder 商业产品的采用（Next.js↔Vercel、Supabase 式的"开源 + 商业宿主"结构）；并有<strong>一条备选路径</strong>——面向工程组织的团队/组织级洞察（对齐 DX、Jellyfish、LinearB 类研发效能平台）。但仓库内<strong>未发现任何付费分层文件、企业版目录或定价页</strong>，故未达 9–10 档"2+ 条已有成功先例直接可参照"的强度。落在 <strong>7–8 档</strong>。</p>
+<p><strong>得分：2.8 / 3.5（80%）</strong></p>
+<h3>D4.3 付费转化逻辑（1.5 / 2.5 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>免费→付费触发点</td>
+<td>间接：免费插件使用 → 部分能力依赖 Qoder Runtime（Canvas 预览等）→ 驱使团队采购 Qoder 商业 IDE；或从单点报告升级到组织级治理</td>
+</tr>
+<tr>
+<td>付费意愿强度</td>
+<td>目标客户为有 AI 编码治理/合规/效能度量诉求的工程组织，付费意愿中偏上；但插件本身对个人开发者完全免费</td>
+</tr>
+<tr>
+<td>转化漏斗</td>
+<td>存在"个人用免费工具 → 团队需要组织级洞察 → 企业采购"的自然路径，但<strong>无落地页、无定价、无企业版功能对比可供验证</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：转化逻辑成立但<strong>触发点不够自然、缺乏显式证据</strong>——免费版并非"不够用"，而是通过宿主产品的运行时依赖与组织级需求间接牵引。README 反复强调开源与"honest evidence"定位，本身亦非为付费墙设计。落在 <strong>5–6 档</strong>。</p>
+<p><strong>得分：1.5 / 2.5（60%）</strong></p>
+<h3>D4.4 增值服务空间与定价天花板（1.6 / 2.0 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>增值空间</td>
+<td>大：证据链分析（findings/evidence）、Harness Inspector、组织级 Loop Discovery、多维趋势对比（5 个 Agent Work Loop 维度），均可延展到安全/合规审计、跨团队效能度量、SLA 保障</td>
+</tr>
+<tr>
+<td>定价天花板</td>
+<td>对标企业级研发效能/可观测平台（DX、Jellyfish、LinearB），客单价可达 $1K–10K+/年/组织</td>
+</tr>
+<tr>
+<td>收入扩展性</td>
+<td>可从 per-seat 扩展到 per-usage（分析次数/证据量）或 enterprise flat fee（组织级治理）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：项目定位为"工程组织的 AI 编码工作流治理与度量"，正处在企业级研发效能这一高 ACV 赛道；<code>docs/blog/2026-09-09-organizational-harness-engineering.md</code> 的组织级叙事明确了向上销售的想象空间。但当前产品为 v0.7.0-alpha2、无付费产品化痕迹，尚未兑现。落在 <strong>7–8 档</strong>。</p>
+<p><strong>得分：1.6 / 2.0（80%）</strong></p>
+<h3>小结</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D4.1 协议对变现模式的影响</td>
+<td>2.0</td>
+<td>2.0</td>
+<td>100%（9–10 档）</td>
+</tr>
+<tr>
+<td>D4.2 变现路径清晰度</td>
+<td>3.5</td>
+<td>2.8</td>
+<td>80%（7–8 档）</td>
+</tr>
+<tr>
+<td>D4.3 付费转化逻辑</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>60%（5–6 档）</td>
+</tr>
+<tr>
+<td>D4.4 增值服务空间与定价天花板</td>
+<td>2.0</td>
+<td>1.6</td>
+<td>80%（7–8 档）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>7.9</strong></td>
+<td><strong>7.9 / 10</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：MIT 协议为变现扫清了全部法律障碍；项目由商业公司 Qoder 主导、并已内置于 Qoder 商业 IDE，构成"开源引流 + 商业宿主"的清晰主路径，叠加面向工程组织的团队洞察定位，潜在客单价可观。主要短板在于<strong>付费转化触发点依赖母公司产品间接实现、且仓库内无任何付费分层/定价/企业版落地证据</strong>，商业闭环尚停留在"战略布局"而非"已验证模式"。整体处于良好区间（7–8 档），但存在转化路径未被硬证据坐实的结构性风险。</p>
+<h3>D5. 竞争格局与差异化壁垒</h3>
+<p><strong>维度得分：6.2 / 10</strong></p>
+<h3>D5.1 竞品对比与市场定位（2.4 / 3，档位 7–8）</h3>
+<p>本项目定位为「Harness Engineering 平台」——把 harness 定义为代码、运行受控实验、检视证据链、对比结果，并把任务证据沉淀为团队/组织级洞察。它自述开放三层：工程实践（Session Evidence / Project Harness / Agent Customize / Loop Engineering）、评估模型（五维 Agent Work Loop）、可运行实现（<code>/better-harness</code> skill + 证据采集器/分析器/渲染器 + 宿主适配器）。</p>
+<p><strong>竞品对比表</strong>（下表竞品均通过 GitHub Search API 于本次分析中实测确认存在）</p>
+<table>
+<thead>
+<tr>
+<th>竞品名称</th>
+<th>类型</th>
+<th>仓库/官网</th>
+<th>验证方式</th>
+<th>Star/用户量</th>
+<th>核心差异</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Better Harness（本项目）</strong></td>
+<td>—</td>
+<td>github.com/QoderAI/better-harness</td>
+<td>仓库自身（README/API 实采）</td>
+<td>2,320 star / 186 fork</td>
+<td>harness as code + 受控实验 + 证据边界显式化 + 跨 10 宿主适配 + 组织级洞察</td>
+</tr>
+<tr>
+<td>netil/oh-my-hi</td>
+<td>直接竞品</td>
+<td>github.com/netil/oh-my-hi</td>
+<td>GitHub Search API 确认</td>
+<td>57 star</td>
+<td>定位为 Claude Code/Codex 的 "harness insights dashboard"，做 skills/agents/plugins/hooks/memory 的可视化目录与 token 分析，偏静态盘点与用量统计，无五维评估模型、无实验对比、无跨宿主证据链</td>
+</tr>
+<tr>
+<td>EverMind-AI/EverMe</td>
+<td>间接竞品</td>
+<td>github.com/EverMind-AI/EverMe</td>
+<td>GitHub Search API 确认</td>
+<td>62 star</td>
+<td>跨设备、跨 Agent 的个人记忆层 CLI/插件，解决「记忆持久化」而非「工作循环评估」，属同一分发渠道下的不同问题域</td>
+</tr>
+<tr>
+<td>StarryKit/starrykit-plugin</td>
+<td>间接竞品</td>
+<td>github.com/StarryKit/starrykit-plugin</td>
+<td>GitHub Search API 确认</td>
+<td>95 star</td>
+<td>Codex/Claude Code/Cursor 的 AI 演示文稿与海报生成插件；与本项目共享 "agent-plugin" 分发渠道但问题域完全不同，属渠道层面竞争</td>
+</tr>
+<tr>
+<td>AmethystLuna/embedded-workbench</td>
+<td>直接竞品（垂直）</td>
+<td>github.com/AmethystLuna/embedded-workbench</td>
+<td>GitHub Search API 确认</td>
+<td>12 star</td>
+<td>嵌入式 C/C++ 工程插件，firmware skills + "1% Rule / Plan Verification Gate" 纪律，是垂直领域的 harness/纪律强化路径</td>
+</tr>
+<tr>
+<td>yofine/mexus-agent-team</td>
+<td>直接竞品（轻量）</td>
+<td>github.com/yofine/mexus-agent-team</td>
+<td>GitHub Search API 确认</td>
+<td>11 star</td>
+<td>纯 Markdown 的 Claude Code/Codex agent team 工作流，属于「用文档约定 harness」的轻量替代路径</td>
+</tr>
+</tbody>
+</table>
+<p><strong>分析</strong>：</p>
+<ol>
+<li>
+<p><strong>赛道早期且分散</strong>。经 GitHub Search API 检索 agent-plugin / harness 相关关键词，浮出的同赛道项目全部在 100 star 以下（最高 95 star 的 starrykit-plugin 实际问题域还不同）。真正意义上的直接竞品 oh-my-hi 仅 57 star，且能力面（可视化盘点 + token 统计）明显窄于本项目（评估模型 + 实验对比 + 跨宿主证据链 + 组织洞察）。本项目在「harness 工程」这一命名赛道中，star 量约为最近竞品的 24–100 倍，属于<strong>明显领先</strong>，符合 9–10 档「无直接竞品或明显领先」的部分特征。</p>
+</li>
+<li>
+<p><strong>定位清晰度高</strong>。README 用「Delegate coding to agents. Improve the loop around them.」一句话锚定价值，并给出显式的证据边界哲学（"Missing evidence stays explicit"、配置存在 ≠ 被使用、通过检查 ≠ 循环改善），这在同类插件中非常少见，属于真正差异化的定位语言。五维 Agent Work Loop 模型具备可命名、可传播的框架属性。</p>
+</li>
+<li>
+<p><strong>扣分项</strong>：(a) 该定位尚可被复制，术语 "harness engineering" 本身源自公开行业讨论（README 直接引用 Martin Fowler 文章），并非本项目独创概念；(b) 项目仅发布至 v0.7.0-alpha2，市场地位仍处于「抢跑」而非「锁定」阶段；(c) 竞品搜索只覆盖了开源侧——各宿主厂商第一方自带的分析/统计能力构成潜在同构竞争，但<strong>未经本次搜索验证，此处仅作风险提示，不计入竞品表</strong>。</p>
+</li>
+</ol>
+<p>综合：有清晰且差异化的定位，并在同赛道开源侧明显领先，但赛道极早期、绝对护城河未形成，取 80%（7–8 档）。</p>
+<hr />
+<h3>D5.2 技术壁垒与网络效应（1.8 / 3，档位 5–6）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术壁垒</td>
+<td><strong>弱</strong>。MIT 协议，无专利声明、无专有数据、无闭源组件。核心资产是 14.3 万行代码（TS 78k / Rust 41k / TSX 19k）、311 个测试文件（测试占比 18.5%）、10 个宿主适配器与一套证据 schema。工程量不小（复刻成本已在 D2.2 计分），但从竞争战略看，<strong>MIT 允许任意 fork</strong>，不构成排他性壁垒</td>
+</tr>
+<tr>
+<td>网络效应</td>
+<td><strong>基本缺失</strong>。报告是本地产物（HTML/Markdown/Canvas），官方明确说明 Inspector "never reads your workspace"、预览是 "local inspection tool, not an authenticated sharing service"，演示数据为虚构数据。没有跨用户的数据汇聚、没有共享基准库、没有飞轮</td>
+</tr>
+<tr>
+<td>规模效应</td>
+<td><strong>弱</strong>。单机运行的分析工具，用户规模不带来边际成本下降或体验提升；唯一规模化收益是宿主适配器数量（10 个）带来的「一次编写、多宿主复用」的开发侧效率</td>
+</tr>
+<tr>
+<td>生态结构</td>
+<td><strong>中等偏弱</strong>。存在贡献者生态雏形（32 contributors、90 天 144 PR）、明确的社区扩展地图（<code>docs/community.md</code>）、可分层的贡献面（skills/references/models/hooks/templates/case-studies），以及插件市场分发（Claude Code / Codex / Copilot marketplace、npm <code>@qoder-ai/better-harness</code>）。这是<strong>分发优势与生态雏形</strong>，但尚未形成用户间相互增值的网络效应</td>
+</tr>
+</tbody>
+</table>
+<p>唯一接近「准壁垒」的是：Qoder Desktop 内置捆绑（<code>better-harness</code> 随 Qoder 商业产品出厂），这是<strong>母公司分发壁垒</strong>而非技术壁垒，且只覆盖 Qoder 单一宿主；相对 Claude Code / Cursor 的装机量，Qoder 的渠道势能有限。</p>
+<p>判定：有壁垒但明显不深厚——无专利、无数据飞轮、无网络效应、MIT 可自由 fork。取 60%（5–6 档）。</p>
+<hr />
+<h3>D5.3 切换成本与用户粘性（0.8 / 2，档位 3–4）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>迁移成本</td>
+<td><strong>低</strong>。用户数据不在本项目里——它只读项目证据（README 明示 "inspect repository evidence without reading local sessions"，且提供 <code>--no-sessions</code>）。卸载插件后无需迁移任何业务数据，产物为本地 <code>report.html</code> / <code>report.md</code> / <code>findings.json</code></td>
+</tr>
+<tr>
+<td>深度集成</td>
+<td><strong>中等偏低</strong>。集成方式是宿主插件/skill（<code>/plugin install</code>、<code>copilot plugin install</code>、<code>npm ci</code> 本地运行），属于外挂式分析器而非运行时依赖；代码库未引入其依赖（自身 runtime 依赖仅 3 个生产依赖：tree-sitter-wasm、esbuild-wasm、yaml），用户项目不会因它产生耦合</td>
+</tr>
+<tr>
+<td>习惯锁定</td>
+<td><strong>中等</strong>。真正的粘性来自组织流程：团队若把 AGENTS.md / DESIGN.md / Skills / findings 修复闭环纳入交付规范，替换工具意味着改流程；报告历史视图（五维随时间变化）会积累可比基线，形成轻度的「历史连续性」依赖。但这属于<strong>流程自建</strong>的粘性，不是产品造成的锁定</td>
+</tr>
+</tbody>
+</table>
+<p>判定：即插即用、无数据沉淀、MIT 可替换，切换成本实质很低；仅组织流程与纵向基线提供有限粘性。取 40%（3–4 档）。</p>
+<hr />
+<h3>D5.4 护城河可持续性（1.2 / 2，档位 5–6）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>护城河趋势</td>
+<td><strong>增强中但基数小</strong>。项目 2026-07-21 创建、2026-09-23 最新推送，约两个月内积累 2,320 star / 186 fork / 32 贡献者，30 天 279 commits、90 天 144 PR、34 个已关闭 issue，5 个 CI workflow、10 篇 ADR、465 份文档、双语站点、roadmap 更新至 2026、v0.7.0-alpha2 与 v0.4.1 两个 release。动能明确正向，但版本号仍处 alpha，护城河处于「刚开挖」阶段</td>
+</tr>
+<tr>
+<td>颠覆风险</td>
+<td><strong>中高</strong>。(a) 赛道正被定义中，任何一方都可自称 harness engineering 平台；(b) 底层理念源自公开讨论，不可专利化；(c) MIT 协议下任何宿主厂商或有资源的团队可 fork 并内置；(d) 宿主侧第一方分析/看板能力（未在本次搜索中验证，仅作风险方向提示）一旦官方化，将直接压缩第三方分析层空间；(e) 依赖宿主插件协议（README 已记录 Cursor 的 <code>--plugin-dir</code> 契约失效、Codex CLI 参数变更等），宿主 API 变动即是外部风险</td>
+</tr>
+<tr>
+<td>时间窗口</td>
+<td><strong>中等</strong>。领先窗口可能维持 6–12 个月（取决于宿主厂商是否自建与赛道是否出现大厂入场），但优势来自「跑得快 + 命名了品类 + 跨 10 宿主覆盖」，而非不可逾越的结构性壁垒</td>
+</tr>
+</tbody>
+</table>
+<p>判定：护城河稳定度一般，正向动能与明确颠覆风险并存。取 60%（5–6 档）。</p>
+<hr />
+<h3>结论</h3>
+<p>Better Harness 在「Agent Harness Engineering」这一新兴赛道中拥有<strong>清晰的差异化定位与显著的相对领先</strong>（2,320 star vs 同赛道开源竞品 ≤95 star，跨 10 宿主适配无人可及），并借助 Qoder 母公司获得出厂级分发。但它的防御能力整体偏弱：MIT 协议 + 无专利 + 无数据沉淀 + 无网络效应，产品本质是一个高度可替换的本地只读分析器，切换成本低、复刻门槛低；护城河目前的实质是<strong>先发速度 + 品类命名权 + 渠道分发</strong>，而非技术与数据壁垒。真正的商业化护城河需要靠「组织级基线数据积累」与「宿主生态位固化」在未来 1–2 年内自建，否则易被宿主厂商第一方能力或 fork 分流。</p>
+<p><strong>维度得分：2.4 + 1.8 + 0.8 + 1.2 = 6.2 / 10（一般，达到行业平均，有改进空间）</strong></p>
+<blockquote>
+<p>竞品数据均经 GitHub Search API 实测确认；未通过搜索验证的潜在竞争者（宿主厂商第一方分析能力等）已在正文中标注为风险提示，未计入竞品表与打分。</p>
+</blockquote>
+<h3>D6. 法律合规与知识产权</h3>
+<p><strong>维度得分：7.7 / 10</strong>（细则加权合计 7.7 / 10，无 N/A 剔除）</p>
+<h3>D6.1 开源协议合规性与商业限制（满分 3 分，得分 3.0 / 3.0）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测情况</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>协议明确性</td>
+<td>根目录 <code>LICENSE</code> 为标准 MIT 全文；<code>packages/harness</code>、<code>packages/harness-studio</code>、<code>packages/better-harness-desktop</code>、<code>packages/harness-studio/src/app/components/ai-elements</code>、<code>packages/better-harness-desktop/rust/difftastic-core</code> 共 5 处 LICENSE 文件齐备；各 <code>package.json</code> 均声明 <code>"license": "MIT"</code>（SPDX 风格标识规范）</td>
+<td>优</td>
+</tr>
+<tr>
+<td>copyleft 传染性</td>
+<td>声明依赖中未发现 GPL / AGPL / LGPL / SSPL 等传染性协议；核心 JS 依赖为 <code>yaml</code>(ISC)、<code>esbuild-wasm</code>(MIT)、<code>@vscode/tree-sitter-wasm</code>(MIT)，Rust 侧为 <code>oxc_*</code>(MIT)、<code>tree-sitter</code>(MIT)、<code>objc2/block2</code>(MIT)、<code>zstd</code>(MIT) 等宽松协议</td>
+<td>优</td>
+</tr>
+<tr>
+<td>商业附加条款</td>
+<td>无 Commons Clause、BUSL、Elastic License、SSPL 等限制商业使用的附加条款；MIT 允许自由商用、闭源衍生与再许可</td>
+<td>优</td>
+</tr>
+<tr>
+<td>第三方许可兼容性</td>
+<td>内嵌 <code>difftastic-core</code> 保留上游 MIT 与作者署名（Wilfred Hughes, 2021–2025）；<code>ai-elements</code> 组件保留 Vercel 的 Apache-2.0 全文——两者均与 MIT 主协议兼容且合规标注</td>
+<td>优</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判定依据</strong>：协议层级清晰、SPDX 标识规范、传染性为零、无任何商业限制性附加条款，且对两个内嵌第三方组件均做了合规的许可证与版权保留。四项考察点全部命中 9–10 档描述，给满分。</p>
+<hr />
+<h3>D6.2 依赖链法律风险（满分 2.5 分，得分 2.0 / 2.5）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测情况</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>依赖协议审查</td>
+<td>已识别的直接/间接依赖均为宽松协议（MIT / Apache-2.0 / ISC / BSD 系）：<code>langium</code>、<code>@sinclair/typebox</code>、<code>semver</code>、<code>shiki</code>、<code>react</code>、<code>@radix-ui/*</code>、<code>xterm</code>、<code>pdfjs-dist</code>(Apache-2.0)、<code>oxc-parser</code>、<code>imara-diff</code>(Apache-2.0)、<code>ignore</code>(MIT/Unlicense) 等；<strong>未发现 GPL/AGPL 传染性依赖</strong></td>
+<td>良</td>
+</tr>
+<tr>
+<td>依赖数量</td>
+<td>数量偏多：Rust <code>difftastic-core</code> 单个 crate 即引入约 50 个依赖（含 ~40 个 <code>tree-sitter-*</code> 语法包）+ 8 个 native service crate；<code>harness-studio</code> 前端约 28 个生产依赖；根包仅 3 个直接依赖。整体合规审查（含传递依赖、SBOM）工作量中等偏高</td>
+<td>中</td>
+</tr>
+<tr>
+<td>依赖来源</td>
+<td>绝大多数来自 npm/crates.io 主流包；存在 3 处需人工确认的项：<code>boxlite = "0.10"</code>（内嵌 microVM 运行时，来源与协议未在素材中披露）、可选 peer <code>@homology/integration-harness-notebook-provider</code>、以及 <code>@earendil-works/pi-coding-agent</code>、<code>@qoder-ai/qoder-agent-sdk</code>（后者为一方可控）</td>
+<td>中</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判定依据</strong>：无任何已知传染性依赖，来源整体可靠，但依赖基数大（尤其 Rust 侧 50 项）、且存在个别协议未披露的第三方 crate，合规审查成本不可忽略，未达「依赖少且来源可靠」的 9–10 档。落入 7–8 档（80%）。</p>
+<hr />
+<h3>D6.3 商标与专利风险（满分 2.5 分，得分 1.5 / 2.5）⚠️ 未经人工核查，置信度低</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测情况</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>商标可用性</td>
+<td><strong>未做人工商标检索</strong>。可观察到的客观线索：项目名 <code>better-harness</code> 为强描述性组合词，固有显著性弱；「Harness」一词在 DevOps 领域已被 Harness Inc.（harness.io）作为企业品牌长期使用，存在名称近似/类别重叠的<strong>潜在</strong>冲突面，但无法据此断言注册状态</td>
+<td>待查</td>
+</tr>
+<tr>
+<td>专利风险</td>
+<td>核心技术为 harness-as-code 编排、证据桥接、结构化 diff（vendored difftastic）与 tree-sitter 语法解析，属成熟工程领域；<strong>未做 FTO 检索</strong>，<code>boxlite</code> microVM 运行时等第三方技术的专利归属不明</td>
+<td>待查</td>
+</tr>
+<tr>
+<td>商标政策</td>
+<td>仓库中未见独立的商标使用政策/Trademark Policy，<code>README</code> 与 <code>CONTRIBUTING</code> 未对衍生品使用项目名称作出约束说明</td>
+<td>缺位</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判定依据</strong>：按方法论自动化限制条款，商标检索与专利排查无法由 AI 自动完成，在无人工核查数据时本细则默认按 5–6 档给 <strong>1.5 / 2.5</strong>，并标注置信度低。<strong>禁止凭模型记忆断言商标/专利状态</strong>——上述「Harness Inc.」仅为提示人工核查方向的客观观察，不作为评分提高或降低的依据。</p>
+<hr />
+<h3>D6.4 贡献者协议完备性（满分 2 分，得分 1.2 / 2.0）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测情况</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CLA / DCO</td>
+<td><strong>无 CLA 文件</strong>；<code>CONTRIBUTING.md</code> 中含一条 inbound license 声明（"By submitting a contribution, you confirm that you have the right to contribute it and agree that it may be distributed under the repository's MIT License"），功能上接近 DCO 的入站授权，但<strong>未要求 Signed-off-by 签名流程</strong>，无正式 DCO 工具链</td>
+<td>中</td>
+</tr>
+<tr>
+<td>版权归属</td>
+<td>32 位贡献者、90 天内 144 个 PR——版权分散在众多个人/实体手中，且无 CLA 集中授权。这直接限制了未来切换双协议、BUSL/Commons Clause 或专有许可的弹性（须逐一取得贡献者同意）</td>
+<td>弱</td>
+</tr>
+<tr>
+<td>贡献流程</td>
+<td>流程规范度高：<code>CONTRIBUTING.md</code>（含开发环境、owner 归属矩阵、Conventional Commits、测试门槛）、<code>CODE_OF_CONDUCT.md</code>、<code>.github/pull_request_template.md</code>、<code>CODEOWNERS</code>（<code>has_codeowners: true</code>）、以及 <code>AGENTS.md</code> 中的 spec/验收标准政策</td>
+<td>优</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判定依据</strong>：贡献指南与流程达到较高水准（PR 模板、CODEOWNERS、CoC、spec 政策齐备），但<strong>无正式 CLA、无 DCO 签名机制、版权未集中</strong>，命中 5–6 档「有贡献指南但无正式 CLA」的描述。CONTRIBUTING 中的入站授权声明是本项高于纯「裸指南」的加分事实，但尚不足以升至 7–8 档的「有基本贡献协议和流程」。给 60%。</p>
+<hr />
+<h3>结论</h3>
+<p>QoderAI/better-harness 在 D6 维度<strong>不存在阻断商业化路径的法律硬伤</strong>：主协议为清晰规范的 MIT（5 处 LICENSE 齐备 + SPDX 声明），无 copyleft 传染、无 Commons Clause/BUSL 等商业附加条款，两处内嵌第三方组件（difftastic MIT、Vercel ai-elements Apache-2.0）均合规保留署名，商业自由度处于开源项目的第一梯队。</p>
+<p>风险集中在两处<strong>非阻断但需处理的软肋</strong>：</p>
+<ol>
+<li><strong>商标/专利状态完全未核查（占本维度 2.5 分，仅得 1.5）</strong>——名称描述性强、且「Harness」在 DevOps 领域存在既有强势商业品牌，建议在品牌投入前委托代理机构做中国/美国/欧盟的类别检索与 FTO 初筛。</li>
+<li><strong>贡献者版权未集中（1.2 / 2.0）</strong>——32 位贡献者、无 CLA/DCO，虽当前 MIT 下商用无忧，但<strong>剥夺了未来重许可、双协议或转 BUSL 的期权</strong>；若后续需要商业模式的许可层弹性，应尽快补 CLA 或 DCO（并对历史贡献者做一次性授权回收）。</li>
+<li>依赖数量偏大（Rust 侧约 50 项）且存在 <code>boxlite</code> 等协议未披露的第三方 crate，建议生成 SBOM 并做一次全量 license 扫描，成本可控。</li>
+</ol>
+<p>综合：<strong>7.7 / 10</strong>（良好），无法律硬伤，但有明确的合规待办项。</p>
+<h3>D7. 企业就绪度与可运营性</h3>
+<p><strong>维度定位</strong>：本维度评估 Better Harness 是否具备企业客户（商业化的主要付费方）所要求的运营特性——配置与升级、安全与权限、扩展与高可用、集成与可观测性。需注意本项目本质是<strong>本地优先（local-first）的开发者工具 + 桌面应用</strong>，而非服务端集群产品，这一定位显著影响多项判断。</p>
+<h3>细则打分</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D7.1 运维复杂度与升级路径</td>
+<td>3</td>
+<td>1.8</td>
+<td>5–6（60%）</td>
+<td>配置可经 CLI/环境变量/localStorage 管理，但<strong>无 Dockerfile、无配置中心、无 Helm</strong>；多工具链（Node 22/24 + Rust 1.96 + Go + Electron）构建门槛高；版本处于 0.x（<code>v0.7.0-alpha2</code>/<code>v0.4.1</code>），API 稳定性未承诺；未见数据迁移脚本或回滚机制；安装路径按 10 个宿主各自独立（README 明言"不使用统一入口点"），运维面分散。CI（5 个工作流）与 npm 发布自动化较完善，属"有一定运维投入、升级需手动"区间。</td>
+</tr>
+<tr>
+<td>D7.2 安全管理与权限控制</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6（60%）</td>
+<td>有基础鉴权（<code>x-harness-studio-token</code> + <code>assertStudioBindAddressAllowed</code> 限制远程绑定 + <code>sameOriginRequest</code> 防 CSRF）；有较细粒度的<strong>工具级权限门</strong>（ACP <code>PermissionStore</code>/<code>await_permission</code>/<code>option_id</code> 校验、每工具 <code>allow_roots</code> 默认拒绝）+ 全链路凭据脱敏（<code>redactTraceValue</code>、<code>privacy.rs</code>）+ 路径穿越/符号链接/TOCTOU 防护。但<strong>无 SSO/OAuth/LDAP/SAML，无 RBAC/ABAC，无面向用户操作的审计日志，无 <code>SECURITY.md</code></strong>，整体为单机本地安全模型，未构成企业安全体系。</td>
+</tr>
+<tr>
+<td>D7.3 可扩展性与高可用能力</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6（60%）</td>
+<td>单进程本地服务模型：Studio 以内存 <code>Map</code> 保存 <code>projects</code>/<code>experimentRuns</code>/<code>acpRuns</code>/<code>artifactImports</code> 等状态，<strong>无集群部署、无故障转移、无水平扩展设计</strong>，单点是固有特征。亮点在于单机资源治理出色：Rust 原生组件（difftastic tree-diff、evidence-host、acp-host）、有界通道背压（<code>mpsc</code> 容量 4096）、<code>MAX_*</code> 上限、span 截断、虚拟化列表——"单机性能可接受，扩展需改造"契合 5–6 档。</td>
+</tr>
+<tr>
+<td>D7.4 集成兼容与可观测性</td>
+<td>2</td>
+<td>1.2</td>
+<td>5–6（60%）</td>
+<td>API 完备性高：Studio 暴露大量 REST 端点（workspace/artifacts/git/experiment/pty 等）+ SSE 流式，且有版本化线协议（<code>acp-rust-2.0.0+jsonl-v1</code>）与插件/适配器注册表（10 个宿主适配、多格式 artifact 适配器）。但<strong>未见 OpenAPI/protobuf 契约、未见 OTel/Prometheus 等标准监控协议、无健康检查端点、无内置指标告警</strong>，日志以 Rust <code>pretty_env_logger</code> 为主，Node 侧结构化日志证据缺失——"有 API 但监控/日志薄弱"。</td>
+</tr>
+</tbody>
+</table>
+<h3>综合结论</h3>
+<p><strong>D7 得分：6.0 / 10（一般，5–6 档）</strong></p>
+<p>Better Harness 的工程卫生水平明显高于同类早期开源项目：三大 CI 工作流覆盖 macOS/Windows/Ubuntu 多平台测试、自动化 npm 发布与多平台安装包构建、Rust 原生加速组件、统一的有界资源与权限治理、贯穿全仓的凭据脱敏。这些说明团队具备成熟的软件工程能力，<strong>D9（易用性）与工程质量维度会显著受益</strong>。</p>
+<p>但从<strong>企业就绪度</strong>这一特定视角看，短板集中在"为组织付费方服务"所必需的能力上：</p>
+<ol>
+<li><strong>无企业身份与治理体系</strong>——缺 SSO/RBAC/审计，意味着难以在受监管企业内部做多用户管控；</li>
+<li><strong>无容器化/集群/HA</strong>——单机、进程内状态，难以支撑"组织级洞察"所暗示的多用户协作服务化部署；</li>
+<li><strong>可观测性缺位</strong>——无标准监控协议、无健康检查、无指标导出，企业运维无法接入既有监控告警栈；</li>
+<li><strong>0.x 版本 + 多宿主分散安装</strong>——升级平滑性与运维面仍需验证。</li>
+</ol>
+<p>因此本维度构成<strong>中等程度的商业化摩擦</strong>：对"个人/小团队本地使用"几乎无碍，但若目标客群是采购流程规范的中大型企业，D7 是需要在产品路线（如托管/服务化版本、SSO、审计、OTel 接入）上重点补强的方向。<strong>置信度说明</strong>：判断基于 README/文档清单/CI 配置/代码摘要等公开素材，未直接审阅部署文档全文与 CHANGELOG 迁移条目，D7.1 的升级路径判断置信度中等。</p>
+<h3>D8. 团队治理与可持续性（权重 7%）</h3>
+<h4>细则打分汇总</h4>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>对应档位</th>
+<th>判断摘要</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D8.1 核心维护者能力与背景</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8（80%）</td>
+<td>商业实体 Qoder 背书，32 名贡献者、90 天 144 PR / 279 commits，巴士因子与投入度均达标</td>
+</tr>
+<tr>
+<td>D8.2 治理模型透明度</td>
+<td>2.0</td>
+<td>1.6</td>
+<td>7–8（80%）</td>
+<td>有 CONTRIBUTING / CODE_OF_CONDUCT / CODEOWNERS / roadmap / 10 份 ADR，但无 GOVERNANCE.md，非基金会项目，决策由核心团队主导</td>
+</tr>
+<tr>
+<td>D8.3 资金支持与商业赞助</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8（80%）</td>
+<td>公司实体运营（QoderAI 组织、qoder.com 域名邮箱、官方 npm 包），资金依托公司而非募捐</td>
+</tr>
+<tr>
+<td>D8.4 项目可持续性与传承风险</td>
+<td>3.0</td>
+<td>1.2</td>
+<td>3–4（40%，新项目底线档）</td>
+<td>年龄 64 天 &lt; 90 天，无历史可判断趋势；无 archived/deprecated，近 30 天 commit 279 次，三项事实均无负面信号</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>6.8</strong></td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h4>D8.1 核心维护者能力与背景（2.0 / 2.5）</h4>
+<p><strong>技术能力与投入度</strong>：项目由 <code>QoderAI</code> 组织承载，npm 包名为 <code>@qoder-ai/better-harness</code>，行为准则举报邮箱为 <code>dev@qoder.com</code>——三项硬事实互相印证这是<strong>由商业公司（Qoder）团队主导的开源项目</strong>，而非个人业余作品。90 天内创建 144 个 PR、关闭 34 个 Issue、近 30 天 279 次 commit，说明存在一支稳定、高频的维护力量；32 名贡献者意味着核心维护者数量明显 &gt;1，巴士因子不会因单人离开而崩塌。</p>
+<p><strong>商业经验</strong>：以公司产品形态（Qoder 是面向 coding agent 的商业 IDE 场景）交付开源工具，团队具备企业级产品与开发者关系经验。</p>
+<p><strong>未达 9–10 档的原因</strong>：无法核实「核心团队全职投入」及「成功商业化经验」的具体证据；贡献者看板未提供核心维护者的个人背景。综合判断落在 7–8 档（80%），即 2.0 分。</p>
+<h4>D8.2 治理模型透明度（1.6 / 2.0）</h4>
+<p><strong>治理文档</strong>：项目已具备 <code>CONTRIBUTING.md</code>（含 owner 路由、spec 政策、评审与合并流程）、<code>CODE_OF_CONDUCT.md</code>、<code>CODEOWNERS</code>、<code>roadmap.md</code> 与 <code>roadmap-2026.md</code>，另在 <code>docs/adrs/</code> 下沉淀了 10 份架构决策记录，并配有 <code>docs/community.md</code>（外部扩展的 owner 归属矩阵）。对一个仅成立 64 天的项目而言，这套治理骨架明显超出「简单贡献指南」水平。</p>
+<p><strong>开放程度与基金会</strong>：贡献指南明确了评审标准、非目标、证据要求，外部贡献者路径清晰；但<strong>没有独立的 <code>GOVERNANCE.md</code></strong> 描述顶层决策机制，且项目<strong>不属于 CNCF / Apache / Linux Foundation 等中立基金会</strong>，最终决策权由 Qoder 核心团队掌握，外部贡献者参与治理的正式通道有限。</p>
+<p>落入 7–8 档（「有基本治理结构，决策较透明」），即 1.6 分；因缺失中立基金会与正式治理宪章，不足以进入 9–10 档。</p>
+<h4>D8.3 资金支持与商业赞助（2.0 / 2.5）</h4>
+<p><strong>现有资金与商业实体</strong>：项目挂在 <code>QoderAI</code> 组织下，配套官方 npm 发布包与公司域名邮箱，是明确的<strong>公司支持型开源项目</strong>——资金可持续性依托企业预算而非志愿者热情，稳定性显著高于纯社区项目。素材未显示 GitHub Sponsors 或 Open Collective 页面，说明其资金模式是「公司自养」而非「众筹赞助」。</p>
+<p><strong>未达 9–10 档的原因</strong>：无公开的 VC 融资、无「全职团队规模」等可核实证据，「资金充足」无法确证。按 7–8 档（「有稳定赞助或公司支持，资金可持续」）给 2.0 分。</p>
+<blockquote>
+<p><strong>数据归因</strong>: 结构性归因：公司/组织主导（证据：QoderAI 组织 + <code>@qoder-ai</code> 官方 npm 包 + <code>dev@qoder.com</code> 举报邮箱）——资金与治理背书强于同规模个人项目；同时存在「组织集中风险」：单一商业实体的战略调整可能改变项目走向，属真实组织风险，与技术质量无关。</p>
+</blockquote>
+<h4>D8.4 项目可持续性与传承风险（1.2 / 3.0）</h4>
+<p><strong>新项目专项判定</strong>：<code>created_at = 2026-07-21</code>，<code>pushed_at = 2026-09-23</code>，项目年龄约 <strong>64 天 &lt; 90 天</strong>，命中 D8.4 新项目专项，按三项事实评估：</p>
+<ol>
+<li><strong>archived / deprecated 标记</strong>：均为「无」，无低分触发条件；</li>
+<li><strong>近 30 天 commit</strong>：279 次，开发高度活跃；</li>
+<li><strong>Issue 响应</strong>：90 天关闭 34 个 Issue，当前开放 9 个，无积压停摆信号。</li>
+</ol>
+<p>三项均无负面信号 → 按专项规则落在<strong>底线 3–4 档（40%）= 1.2 分</strong>，并标注「新项目无历史，可持续性未知，不构成停滞证据」。该底线取 4 分档（而非中性 5–6 档）是刻意的：<strong>可持续性尚未被时间验证本身就是真实的商业化风险，不以中性分掩盖</strong>。</p>
+<p><strong>传承与分叉</strong>：项目年轻，尚无社区分裂信号（186 fork 属正常传播量级）；但同样尚未形成「核心团队退出后的接管机制」证据。</p>
+<blockquote>
+<p><strong>数据归因</strong>: 时间性归因：太新（<code>created_at</code> 距今 64 天 &lt; 90 天）——活跃趋势、传承机制、社区分裂等历史信号尚未形成，低分源于「无历史」而非「停滞」；<code>archived=false</code>、近 30 天 279 次 commit 均可证伪停滞。<strong>豁免 3.3 一票否决</strong>：本项目满足「年龄 &lt; 90 天 + 无 archived/deprecated + 近 30 天有 commit」全部条件，D8.4 不触发一票否决（仅豁免否决，不豁免评分）。</p>
+</blockquote>
+<h4>结论</h4>
+<p>D8 维度得分 <strong>6.8 / 10</strong>，处于「一般偏良好」区间。项目的组织与资金面是<strong>明确加分项</strong>：Qoder 商业公司背书、32 名贡献者、90 天 144 PR / 279 commits 的活跃度，使 D8.1–D8.3 三项均落在 7–8 档，巴士因子与资金可持续性均好于典型个人开源项目。唯一拖累项是 D8.4——<strong>项目仅 64 天历史，可持续性尚未被时间验证</strong>，按新项目专项取 1.2 分底线档；这是「时间性归因」而非质量性结论，报告的短板识别应表述为<strong>「组织可持续性尚待观察」</strong>，而非「团队/产品能力不足」。</p>
+<p>需明确区分两类表述：<strong>组织风险（真实）</strong>——单一商业实体的战略依赖、无中立基金会、无正式 <code>GOVERNANCE.md</code>，外部接管机制未建立；<strong>技术质量（本维度不评估，归 D2）</strong>——本项目代码规模 14.3 万行、测试占比 18.5%、CI 五条流水线，团队规模数据不构成对其技术水平的任何判断。<strong>未发现 D8.4 一票否决触发条件</strong>（小分 1.2 &gt; 1，且新项目豁免成立）。</p>
+<h3>D9 维度详析</h3>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D9.1 安装难度</td>
+<td>2.5</td>
+<td><strong>2.0</strong></td>
+<td>80%（7–8）</td>
+<td>有已发布的 npm 包 <code>@qoder-ai/better-harness</code>（v0.7.0-alpha2，含 <code>bin: better-harness</code>）与各宿主原生 marketplace 安装（通常 2 条命令）；Qoder Desktop 路径为<strong>零安装</strong>。插件运行依赖自包含（根 <code>package.json</code> 仅 3 个运行时依赖：<code>yaml</code>、<code>esbuild-wasm</code>、<code>@vscode/tree-sitter-wasm</code>）。但<strong>仓库无 Dockerfile、无一键通用脚本</strong>，README 明确「Better Harness does not use one universal entrypoint across every host」，10 个宿主命令各不相同，Cursor 安装路径被判为 unavailable，故未达 9–10 档</td>
+</tr>
+<tr>
+<td>D9.2 部署与配置难度</td>
+<td>2.5</td>
+<td><strong>2.0</strong></td>
+<td>80%（7–8）</td>
+<td><strong>无任何外部组件需初始化</strong>（无数据库/缓存/消息队列），<strong>无需编写配置文件</strong>，安装插件即达可用态；官方提供在线样例报告与交互式 Inspector 供安装前验证。但<strong>无 Docker/K8s/Helm/docker-compose 任何标准化容器部署产物</strong>（<code>has_dockerfile: false</code>），部署能力完全依附宿主插件机制，故不能给 9–10；面向人群实际为「已在用编码 Agent 的开发者」，非开发人员难以独立完成（Cursor/WorkBuddy 等宿主缺托管路径）</td>
+</tr>
+<tr>
+<td>D9.3 易用性与操作门槛</td>
+<td>2.5</td>
+<td><strong>2.0</strong></td>
+<td>80%（7–8）</td>
+<td>核心操作门槛极低：宿主内执行一条自然语言 slash 命令 <code>/better-harness analyze this project's AI coding workflow and generate an evidence-backed report</code>，输出可视化 HTML/Markdown/JSON 报告。提供 <code>better-harness doctor --platform all</code> 诊断与 <code>plugin status/plan/verify</code> 生命周期检查，并有 <code>docs/docs/troubleshooting.md</code>。默认配置合理（报告根 <code>.claude/better-harness</code>）。扣分点：独立 CLI 子命令带较多 flag（如 <code>plugin plan install --host qwen --surface cli --scope user</code>），且「缺失证据保持显式」的设计意味着非专家需理解证据边界语义</td>
+</tr>
+<tr>
+<td>D9</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>D10 功能价值（使用价值视角）</h3>
+<blockquote>
+<p>平行维度，权重 0%，不计入综合评分、不参与一票否决。以下评估只回答「用它的人省了/赚了多少」，与商业交换价值（D1–D9）正交。</p>
+</blockquote>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10.1</td>
+<td>效用强度</td>
+<td>3</td>
+<td>1.8</td>
+<td>5–6（60%）</td>
+</tr>
+<tr>
+<td>D10.2</td>
+<td>实际使用规模</td>
+<td>3</td>
+<td>1.2</td>
+<td>3–4（40%）</td>
+</tr>
+<tr>
+<td>D10.3</td>
+<td>免费可得的完整效用</td>
+<td>2</td>
+<td>2.0</td>
+<td>9–10（100%）</td>
+</tr>
+<tr>
+<td>D10.4</td>
+<td>效用可持续性</td>
+<td>2</td>
+<td>1.6</td>
+<td>7–8（80%）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td><strong>6.6</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>D10.1 效用强度：1.8 / 3（5–6 档）</h3>
+<ul>
+<li><strong>单用户节省量</strong>：Better Harness 以插件形式嵌入 Claude Code / Codex / Qoder / Cursor / GitHub Copilot CLI 等宿主，采集项目证据与会话证据，产出「五维 Agent Work Loop」评估、优先级 findings 及带验收检查的修复方案。用户获得的是一次结构化的工程体检，省掉的是人工梳理 <code>AGENTS.md</code>/Skills/测试/Hook/交付卡点的时间。收益形态是<strong>诊断洞察</strong>，而非自动化的交付产出。</li>
+<li><strong>效用层级</strong>：不处于代码交付的关键路径，也不是被其他项目依赖的库/中间件，属于「团队可选采纳的工程实践工具」——READM 反复强调「Missing evidence stays explicit」「只有可比的后续结果才能证明循环改善」，即效用兑现依赖用户读完报告后主动行动，单次报告只能证明干预被演练过。</li>
+<li><strong>效用确定性</strong>：中等偏低。产出质量受宿主会话证据可得性影响（Cursor / WorkBuddy 等明确标注证据边界，Copilot 无 per-response token 记录），分析由宿主 LLM 驱动，跨次结果可比性有限。</li>
+<li><strong>结论</strong>：真实但间接的效率增益，替代方案（人工 review、通用 prompt/工作流审计）成本相近，落 5–6 档。</li>
+</ul>
+<h3>D10.2 实际使用规模：1.2 / 3（3–4 档）</h3>
+<ul>
+<li><strong>实采数据</strong>：npm 周下载 488（折合月约 2 千级）；GitHub Star 2320、Fork 186、贡献者 32、开放 Issue 9；近 90 天 PR 144、关闭 Issue 34。<strong>Dependents（Used by）计数未取到 → N/A</strong>；PyPI 月下载 N/A。</li>
+<li>按标尺「千级及以下，小范围使用」落 3–4 档（月下载千级）。</li>
+<li><strong>新项目标注</strong>：项目 <code>created_at</code> 2026-07-21，距采样（2026-09-23）约 <strong>64 天 &lt; 90 天</strong>，使用规模尚未形成属自然状态，非「无人愿意使用」信号。64 天内积累 2320 Star、488 周下载，对插件型项目属较快起步。</li>
+<li><strong>归因</strong>：时间性归因（太新）+ 结构性归因（工具型/插件型项目天然低依赖计数，分发走宿主 marketplace，npm 下载是弱代理指标）。</li>
+<li><strong>数据归因</strong>: 时间性归因（太新，created_at 2026-07-21 距今约 64 天 &lt; 90 天）；结构性归因（工具型/插件型项目，Dependents 不可得，npm 周下载 488 为弱代理）。<strong>使用规模低不构成质量负面信号</strong>。</li>
+</ul>
+<h3>D10.3 免费可得的完整效用：2.0 / 2（9–10 档）</h3>
+<ul>
+<li>MIT License。README「What is open」明确开放三层，且三层契约一致：工程实践（<code>references/</code>）、评估模型（<code>models/agent-work-loop.md</code>）、可运行实现（<code>skills/</code>、<code>scripts/</code>、<code>docs/adapters/</code>）。</li>
+<li><strong>无功能分层</strong>：仓库中未见企业版/付费版或任何付费墙，<code>node scripts/better-harness.mjs report --no-sessions</code> 可在本地完整运行，npm 包 <code>@qoder-ai/better-harness</code> 公开发布。</li>
+<li>唯一边界属<strong>宿主能力而非授权</strong>：Qoder Canvas 报告需已安装的 Qoder runtime；Cursor 插件未上架 marketplace（宿主命令契约「正在调和」，属能力边界，不是收费门槛）。开源版即可获得全部核心价值。</li>
+<li><strong>与 D4.3 的关系</strong>：本项满分（开源即全部价值）与付费转化逻辑天然反向——该项目当前的价值结构更可能是"用免费 harness 带动 Qoder 主产品采用"，而非对 harness 本身收费。二者不矛盾，是使用价值与交换价值的正常张力。</li>
+</ul>
+<h3>D10.4 效用可持续性：1.6 / 2（7–8 档）</h3>
+<ul>
+<li><strong>形态与依赖</strong>：本地 CLI/插件运行，运行时依赖仅 3 个 npm 包（<code>@vscode/tree-sitter-wasm</code>、<code>esbuild-wasm</code>、<code>yaml</code>），均可替换；提供 <code>--no-sessions</code> 的纯离线路径（不读本地会话、不连注册表）。</li>
+<li><strong>可分叉维护性</strong>：MIT + 完整源码（14.3 万行 TS/Rust/Go/JS + 2.6 万行测试、5 条 CI workflow、源码构建路径 <code>npm ci</code> / <code>npm test</code> / <code>npm run pack:verify</code> 完整），社区可分叉自维护；停维后本地分析能力长期存续。</li>
+<li><strong>扣分项</strong>：效用高度耦合第三方宿主（Claude Code / Codex / Qoder / Cursor / Copilot 等）的插件契约与会话格式，这些宿主本身闭源；宿主契约变更会直接使对应 adapter 失效。故非 9–10 档，落 7–8 档（主体本地化，少量外部依赖但非完全自洽）。</li>
+</ul>
+<h3>结论</h3>
+<p>Better Harness 的使用价值画像为「效用结构清晰、兑现依赖用户行动、规模尚在起步、授权完全开放、存续性良好」：</p>
+<ul>
+<li><strong>强项</strong>：免费完整度（2.0/2）与可持续性（1.6/2）——MIT 全开放、可离线本地运行、可分叉，停维后本地分析能力不归零。</li>
+<li><strong>中等项</strong>：效用强度（1.8/3）——它是"改善 agent 循环"的诊断工具，不在交付关键路径，收益需用户主动转化，可替代性较高。</li>
+<li><strong>当前最弱项</strong>：使用规模（1.2/3），但主因是项目仅约 64 天（&lt; 90 天，新项目），叠加工具型低依赖计数特征，<strong>非质量信号</strong>。</li>
+<li><strong>价值结构提示</strong>：D10.3 满分意味着项目对使用者的效用几乎是"白送"的，其商业逻辑更可能落在 Qoder 主产品生态入口的带动，而非 harness 自身的直接变现——D10 与 D4 的对比构成该项目价值画像的核心张力。</li>
+</ul>
+<p><strong>数据归因</strong>: 时间性归因（太新，created_at 2026-07-21 距今约 64 天）+ 结构性归因（工具型/插件型低依赖计数，Dependents 不可得，npm 周下载 488 为弱代理）。低使用规模不构成质量负面信号。</p>
+<h3>十一、D11 社会价值——正外部性（平行维度，权重 0%，不计入综合评分）</h3>
+<blockquote>
+<p>本维度仅用于 3.4 价值画像，不参与综合评分与一票否决。评价视角为「项目对使用者之外的行业/社会的外溢贡献」，与 D3.4（品牌对商业势能的助力）、D2.5/D2.6（工程质量视角）区分。</p>
+</blockquote>
+<h3>D11.1 数字公共基础设施属性（满分 3）</h3>
+<p><strong>实测事实</strong>：MIT 许可；运行时依赖仅 3 个（<code>yaml</code>、<code>@vscode/tree-sitter-wasm</code>、<code>esbuild-wasm</code>）；npm 周下载 488；Star 2320 / Fork 186；定位为「运行在编码代理宿主之内的插件/技能」，而非被下游引用的库。</p>
+<p><strong>判断</strong>：项目是宿主生态的<strong>消费者</strong>而非<strong>被依赖方</strong>——它调用 Claude Code / Codex / Cursor / Qoder 等宿主的插件机制，反向不存在任何库级 dependents，停摆不会波及软件供应链（不会出现 curl/OpenSSL 式的级联故障）。同时它具备开放、可复用、服务公共利益的 DPG 色彩（MIT + 开源评估模型 + 本地只读），但缺乏「关键依赖」这一核心要件。落在 3–4 档（几乎无下游依赖，停摆影响微小）。</p>
+<p><strong>小分：1.2 / 3（40% 档）</strong></p>
+<h3>D11.2 教育与人才价值（满分 2.5）</h3>
+<p><strong>实测事实</strong>：文档 465 个文件，含 9 篇 ADR、5 篇官方博客、<code>case-studies/</code> 实战案例、<code>.agents/skills/*/SKILL.md</code> 可读范例、<code>DESIGN.md</code>/<code>ARCHITECTURE.md</code>/<code>CONTRIBUTING.md</code>、<code>README.zh-CN.md</code> 与 <code>docs/i18n/zh-Hans/</code> 双语文档；语言为 JavaScript/TypeScript/Rust 混合，测试 311 文件 / 26,427 行（测试占比 18.5%），工程规范度高。</p>
+<p><strong>判断</strong>：项目自带一份「Harness Engineering / Agent Work Loop」的新兴工程方法论教材（模型 + 实践 + 案例 + ADR 决策记录），代码本身可作为插件化架构与证据链设计的研读范本，对入门者降低「如何为代理搭工作回路」的认知门槛。但项目创建于 2026-07-21，评估时仅约 2 个月，外部教程/课程生态尚未形成，教学采用主要限于该细分领域的小圈子。落在 5–6 档（有一定教学使用，影响限于小圈子）。</p>
+<p><strong>小分：1.5 / 2.5（60% 档）</strong></p>
+<h3>D11.3 普惠与可及性（满分 2.5）</h3>
+<p><strong>实测事实</strong>：MIT 免费；跨 10+ 编码代理宿主（Claude Code、Codex、Qoder、Cursor、Copilot、Qwen Code、Pi、Kimi Code、WorkBuddy、Grok）适配；本地运行、只读工作区（隐私友好，数据不外发）；i18n 覆盖英语 + 简体中文（README + Docusaurus i18n 目录）；硬件门槛低（Node.js ≥22.20.0 即可，WASM 依赖无原生编译）。<strong>未发现无障碍（a11y）支持证据</strong>；各宿主安装路径互不相同、需逐个安装。</p>
+<p><strong>判断</strong>：它以近零成本提供了商业侧通常按席位收费的「代理工作流可观测/评估」能力，且跨宿主适配削弱了单一厂商锁定，双语文档覆盖了中文开发者这一庞大群体，属于实质性的能力平权化。但可及性受两项限制：语言仅 2 种、宿主安装心智负担较高，且无 a11y 证据。这在 5–6 档（有普惠效果但受技术门槛/语言限制）与 7–8 档之间，取中偏保守。</p>
+<p><strong>小分：1.5 / 2.5（60% 档）</strong></p>
+<h3>D11.4 开放标准与行业推动（满分 2）</h3>
+<p><strong>实测事实</strong>：开源并文档化「Agent Work Loop」五维评估模型（<code>models/agent-work-loop.md</code>）；发布公开的 Host Adapter Matrix 与《新增编码代理贡献指南》；定义 Skill 资产格式与证据状态契约；<code>docs/adrs/</code> 公开架构决策；博客输出「组织级 harness engineering」行业观点；与 Martin Fowler「harness engineering」论述形成对话。</p>
+<p><strong>判断</strong>：项目在<strong>主动推动跨宿主集成契约与评估模型的开放化</strong>，并把方法论而非仅工具开源，具备行业示范意图。但它是「提出方」而非「被采纳的标准方」——评估时无任何学术引用证据（不可得，视作该考察点无支撑），也未见第三方项目广泛模仿其模型或矩阵的痕迹，2320 Star / 2 个月的项目尚不足以确认标准扩散。落在 5–6 档（遵循/提出开放做法但无实际推动作用）。</p>
+<p><strong>小分：1.2 / 2（60% 档）</strong></p>
+<h3>D11 细则分值汇总</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D11.1</td>
+<td>数字公共基础设施属性</td>
+<td>3</td>
+<td>1.2</td>
+<td>3–4 档（40%）</td>
+</tr>
+<tr>
+<td>D11.2</td>
+<td>教育与人才价值</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6 档（60%）</td>
+</tr>
+<tr>
+<td>D11.3</td>
+<td>普惠与可及性</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6 档（60%）</td>
+</tr>
+<tr>
+<td>D11.4</td>
+<td>开放标准与行业推动</td>
+<td>2</td>
+<td>1.2</td>
+<td>5–6 档（60%）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td><strong>5.4</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<p>Better Harness 的正外部性呈「<strong>方法论公共品强、基础设施属性弱</strong>」的形态：它把一套新兴的 Agent Work Loop 评估模型与工程实践连同 MIT 代码一起开源，在跨宿主集成、双语可及性、本地只读隐私设计上有明确的普惠贡献，对「如何围绕编码代理建立可验证工作回路」这一议题具备教育与示范价值。但它的生态位是<strong>宿主内插件（叶子节点）而非被依赖的底座</strong>，无任何下游库依赖，停摆不触及供应链，因此 D11.1 显著偏低；D11.2–D11.4 亦受限于项目仅约 2 个月的存续期、488 的 npm 周下载量、仅 2 种语言的 i18n、缺失的 a11y 证据与零学术引用，尚停留在「小圈子有影响、行业水位未抬升」的阶段。综合 5.4/10，属中等水平的正外部性——与其 2320 Star 的可见度相比，社会外溢仍主要发生在直接使用者圈层内部。</p>
+<blockquote>
+<p>置信度说明：stargazers 时间线采集失败（404）、学术引用与第三方模仿证据不可得，D11.4 科研支撑考察点无数据支撑；自评分基于 GitHub 实采指标与本地仓库扫描，置信度中等。</p>
+</blockquote>
+<h2>五、商业化价值判断</h2>
+<h3>5.1 核心商业价值</h3>
+<ul>
+<li><strong>项目最大的商业价值在于</strong>：在 AI 编码代理进入实质生产期、AGENTS.md/MCP/Skills 标准成型、专用竞品稀少的窗口期，提供了一个<strong>差异化明显、复刻门槛极高</strong>的 Agent 工作循环评估平台——「harness-as-code + 受控实验 + 证据检视」的产品定位，配合 10+ 宿主适配器与五维评估模型，构成同赛道开源侧明显领先的能力面（本项目 2,320 star，GitHub Search API 验证的同赛道竞品最高仅 95 star，最接近的直接竞品仅 57 star）。</li>
+<li><strong>价值验证依据</strong>：</li>
+<li>痛点真实：AI 编码规模化的验证/复现/治理/经验沉淀短板，方案覆盖证据采集到历史对比的完整链路</li>
+<li>工程验证：143,229 行多语言 monorepo、693 文件、311 测试文件（测试比 18.5%）、5 个 CI workflow 覆盖多 OS 矩阵、465 个文档文件（含 zh-Hans 本地化文档站、10 篇 ADR、案例研究）</li>
+<li>商业宿主验证：与商业公司 Qoder 同源，已内置于 Qoder 商业 Desktop 应用，构成「开源插件引流商业宿主」的清晰主路径（Next.js↔Vercel 式结构）</li>
+<li>组织级定位：项目核心定位含 "team and organization insights"，指向 B2B 研发效能/治理赛道，客单价天花板可达 $1K–10K+/年</li>
+</ul>
+<h3>5.2 价值量化判断</h3>
+<ul>
+<li><strong>潜在市场规模估算</strong>：所处市场为高速增长的 AI 编码代理赛道的衍生层（Agent 工作流可观测性/评估），成长期新兴细分，<strong>无外部数据验证，量级估算置信度低</strong>；跨行业用户面广、适配 10+ coding agent 宿主，但核心用例为单一纵向场景（编码代理工作循环分析），非通用基础设施。</li>
+<li><strong>可触达市场估算</strong>：当前可触达规模最小——npm 周下载 488（月约千级）、Star 2,320、Fork 186，Dependents 不可得；项目仅约 63 天（&lt; 90 天）属新项目，<strong>使用规模尚未形成，非负面信号</strong>（时间性归因 + 工具型/插件型低依赖计数）。</li>
+<li><strong>商业化时间窗口</strong>：时机偏早且格局未定——编码代理进入实质生产期、标准成型、专用竞品稀少；但项目处于 v0.7.0-alpha2 早期阶段（2026-09-12），产品化变现尚未兑现，<strong>直接付费意愿与付费市场未被验证，是最大的商业化不确定性</strong>。</li>
+</ul>
+<h3>5.3 价值画像（商业 × 功能 × 社会）</h3>
+<ul>
+<li><strong>功能价值 D10：6.6/10，社会价值 D11：5.4/10，公共价值分：6.0/10</strong></li>
+<li><strong>画像判定：💼 纯商业工具</strong>（综合评分 74.0 ≥ 65 且 公共价值分 6.0 &lt; 7）</li>
+<li><strong>画像临界</strong>：否（综合评分 74.0 不在 60–70 区间，公共价值分 6.0 不在 6.5–7.5 区间）</li>
+<li><strong>画像解读</strong>：项目商业评分高（A 级）而公共价值分中等偏低，符合「纯商业工具」画像。原因在于：D10 效用为「诊断洞察」型，以插件嵌入宿主 agent，不在交付关键路径，收益需用户主动转化；D11 生态位是宿主内运行的插件/技能（叶子节点），运行时依赖仅 3 个、无任何库级下游 dependents，停摆不波及软件供应链，数字底座属性弱。<strong>对第六章商业路径建议的修正方向</strong>：按 D4 最优路径直接变现，而非走「影响力变现」（赞助/基金会托管）路线；同时需注意 D10.3 满分（开源即全部价值）意味着商业逻辑更可能落在 Qoder 主产品采用的生态带动，而非 harness 本身直接收费。</li>
+</ul>
+<hr />
+<h2>六、商业路径分析</h2>
+<h3>6.1 推荐商业路径（最优路径）</h3>
+<ul>
+<li><strong>模式</strong>：Open Core 生态 + 商业宿主内嵌（Next.js↔Vercel 式结构）</li>
+<li><strong>路径描述</strong>：以 MIT 全开源三层（工程实践/评估模型/可运行实现）持续扩大开发者采用与宿主适配覆盖，将 harness 作为 Qoder 商业 Desktop 应用的内嵌能力免费提供，通过母公司 Qoder 主产品的商业转化实现间接变现；同时围绕项目核心定位中的 "team and organization insights" 向 B2B 研发效能/治理赛道延伸，探索组织级 Harness Engineering 服务。</li>
+<li><strong>可行性论证</strong>：</li>
+<li>全仓库 MIT（根 + packages/harness、packages/harness-studio）+ 一个 Apache-2.0 组件，无传染性/网络服务限制，<strong>全部变现路径合法无阻</strong>（D4.1 得 2.0/2）</li>
+<li>与商业公司 Qoder 同源，已内置于 Qoder 商业 Desktop 应用，部分能力依赖 Qoder Runtime——主路径结构清晰</li>
+<li>组织级定位明确，客单价天花板可达 $1K–10K+/年</li>
+<li>增长动能强：约两个月即达 2,320 star、32 贡献者、90 天 144 PR、30 天 279 commits</li>
+<li><strong>预期收入模型</strong>：OSS 本身无直接收费点（monetization_distance 为「远」）；收入依赖母公司 Qoder 产品间接实现。<strong>风险提示</strong>：仓库内无任何付费分层、企业版目录、定价页或付费墙证据（paid_tier_evidence: none found），免费→付费触发点依赖母公司产品间接实现，<strong>转化逻辑未被硬证据坐实</strong>。</li>
+</ul>
+<h3>6.2 备选商业路径</h3>
+<ul>
+<li><strong>路径B：B2B 研发效能/治理服务</strong>——依托项目 "team and organization insights" 定位与组织级 Harness Engineering 专题博客，面向采用编码代理的中大型研发团队提供评估咨询、流程治理与培训服务，客单价天花板可达 $1K–10K+/年。可行性受限于：项目处于 v0.7.0-alpha2 早期阶段，产品化变现尚未兑现。</li>
+<li><strong>路径C：企业级能力补强后销售</strong>——在现有安全设计（token 鉴权、同源校验、工具级权限门、全链路凭据脱敏）基础上补齐 SSO/RBAC/审计日志、OTel/Prometheus 监控接入与服务化部署能力，面向中大型企业采购。可行性受限于：当前 Studio 以进程内 Map 保存状态，无集群/故障转移/水平扩展设计，且无 Dockerfile、无配置中心、无 Helm。</li>
+</ul>
+<h3>6.3 不推荐的路径及原因</h3>
+<ul>
+<li><strong>不推荐：OSS 本身直接收费/付费墙</strong>——MIT 全开源三层、无付费墙、无企业版分层、可离线本地运行，D10.3 满分（开源即全部价值），与 D4.3 付费转化呈天然反向张力；强行设置付费墙将直接损害其最大价值来源。</li>
+<li><strong>不推荐：依赖网络效应/数据飞轮的 SaaS 模式</strong>——网络效应基本缺失：报告为本地 HTML/Markdown/Canvas 产物，Inspector 明确 "never reads your workspace"、预览是 "local inspection tool, not an authenticated sharing service"，演示为虚构数据，无跨用户数据飞轮或共享基准。</li>
+<li><strong>不推荐：以技术排他性构建商业防御</strong>——无技术排他性壁垒：MIT 协议、无专利、无专有数据、无闭源组件，14.3 万行代码与 10 个宿主适配器构成工程量优势但可被任意 fork，复刻门槛不构成商业防御。</li>
+</ul>
+<hr />
+<h2>七、能力评估：能做什么 &amp; 最适合做什么</h2>
+<h3>7.1 能做什么（能力清单）</h3>
+<ul>
+<li><strong>Harness-as-code 定义能力</strong>：以代码方式定义编码代理的 harness，支持受控实验运行与结果对比</li>
+<li><strong>Agent 工作循环评估能力</strong>：产出五维 Agent Work Loop 评估与 findings，覆盖证据采集到历史对比的完整链路</li>
+<li><strong>多宿主适配能力</strong>：10+ 编码代理宿主适配器注册表（Claude Code、Codex、Qoder、Cursor、GitHub Copilot、Qwen Code、Pi、Kimi Code、WorkBuddy、Grok）</li>
+<li><strong>证据检视与报告能力</strong>：本地 HTML/Markdown/Canvas 报告产物，Inspector 本地只读（"never reads your workspace"）</li>
+<li><strong>组织级洞察能力</strong>：将任务证据转化为可执行的团队/组织级改进洞察（"team and organization insights"）</li>
+<li><strong>安全与权限治理能力</strong>：多层密钥脱敏、路径困惑防护、原型污染防护（Object.create(null)+UNSAFE_JSON_KEYS）、同源校验、CSP、TOCTOU 防护、allow_roots 默认拒绝、ACP PermissionStore 工具级权限门</li>
+<li><strong>工程交付能力</strong>：5 个 CI workflow 覆盖多 OS 矩阵与 Rust/Go/native/Playwright/smoke 测试，含 CODEOWNERS、pack:verify 等门禁；自动化 npm 发布与多平台安装包构建</li>
+<li><strong>集成能力</strong>：REST+SSE 端点、版本化 NDJSON 线协议（acp-rust-2.0.0+jsonl-v1）</li>
+<li><strong>文档与教育能力</strong>：465 个文档文件、10 篇 ADR、5 篇博客、case-studies 与 SKILL.md 范例、中英双语（en/zh-Hans）</li>
+</ul>
+<h3>7.2 最适合做什么（最优定位）</h3>
+<ul>
+<li><strong>最适合的商业化场景</strong>：面向采用编码代理的软件研发团队，提供以证据驱动方式评估并改进 Agent Work Loop 的诊断洞察工具，并将任务证据转化为团队/组织级改进洞察</li>
+<li><strong>最适合的目标客户</strong>：全栈开发者、AI/ML 工程师、架构师/技术管理者（CTO）；组织级场景指向 B2B 研发效能/治理赛道</li>
+<li><strong>最适合的商业模式</strong>：Open Core 生态 + 商业宿主内嵌（开源插件引流 Qoder 商业宿主），辅以组织级研发效能服务</li>
+<li><strong>理由</strong>：</li>
+<li>产品定位差异化明显（harness-as-code + 受控实验 + 证据检视），复刻门槛极高（difftastic/tree-sitter/Langium/ACP 栈）</li>
+<li>同赛道开源侧明显领先（竞品最高 95 star，最接近直接竞品 57 star，且能力面窄于本项目的五维评估模型+实验对比+跨 10 宿主证据链）</li>
+<li>与商业公司 Qoder 同源，主路径结构清晰</li>
+<li>但需注意：效用为「诊断洞察」型，不在交付关键路径，收益需用户主动转化，替代方案成本相近，属中等效用强度</li>
+</ul>
+<hr />
+<h2>八、短板识别：还缺少什么</h2>
+<h3>8.1 商业化硬伤（需优先解决）</h3>
+<table>
+<thead>
+<tr>
+<th>短板</th>
+<th>所属维度</th>
+<th>严重程度</th>
+<th>补齐建议</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>免费→付费触发点依赖母公司产品间接实现，仓库内无任何付费分层、企业版目录、定价页或付费墙证据，转化逻辑未被硬证据坐实</td>
+<td>D4</td>
+<td>🔴 高</td>
+<td>明确 OSS 与商业宿主的能力边界与转化触点，建立可度量的免费→付费路径</td>
+</tr>
+<tr>
+<td>无技术排他性壁垒：MIT 协议、无专利、无专有数据、无闭源组件，14.3 万行代码与 10 个宿主适配器可被任意 fork</td>
+<td>D5</td>
+<td>🔴 高</td>
+<td>以组织流程自建与纵向报告基线提升粘性，而非依赖代码复刻门槛</td>
+</tr>
+<tr>
+<td>网络效应基本缺失：报告为本地产物、Inspector 明确不读工作区、预览非认证共享服务、演示为虚构数据，无跨用户数据飞轮或共享基准</td>
+<td>D5</td>
+<td>🔴 高</td>
+<td>设计可选的跨团队基准/共享能力（须兼顾隐私承诺）</td>
+</tr>
+<tr>
+<td>项目处于 v0.7.0-alpha2 早期阶段，产品化变现尚未兑现</td>
+<td>D4</td>
+<td>🔴 高</td>
+<td>推进版本稳定化，明确 GA 时间表</td>
+</tr>
+<tr>
+<td>无 CLA、无 DCO 签名机制，32 位贡献者版权分散，削弱未来双协议/重许可的商业模式弹性</td>
+<td>D6</td>
+<td>🔴 高</td>
+<td>引入 CLA 或 DCO 签名机制，集中版权以保留重许可弹性</td>
+</tr>
+</tbody>
+</table>
+<h3>8.2 改进建议（可提升空间）</h3>
+<table>
+<thead>
+<tr>
+<th>短板</th>
+<th>所属维度</th>
+<th>严重程度</th>
+<th>补齐建议</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>版本仍为 alpha（v0.7.0-alpha2），存在多个 600-1200+ 行大文件与超长函数、散布 as any/非空断言与 panic 点</td>
+<td>D2</td>
+<td>🟡 中</td>
+<td>拆分大文件与超长函数，收敛类型断言与 panic 点</td>
+</tr>
+<tr>
+<td>缺 SECURITY.md 与自动化安全扫描</td>
+<td>D2 / D7</td>
+<td>🟡 中</td>
+<td>补充 SECURITY.md，接入自动化安全扫描与 SBOM</td>
+</tr>
+<tr>
+<td>无 SSO/RBAC/审计日志</td>
+<td>D7</td>
+<td>🟡 中</td>
+<td>补齐企业级身份与审计能力</td>
+</tr>
+<tr>
+<td>无 OTel/Prometheus/健康检查等标准监控</td>
+<td>D7</td>
+<td>🟡 中</td>
+<td>接入标准可观测性协议</td>
+</tr>
+<tr>
+<td>扩展性受限于单机本地模型：Studio 以进程内 Map 保存状态，无集群/故障转移/水平扩展设计</td>
+<td>D7</td>
+<td>🟡 中</td>
+<td>设计服务化部署与水平扩展路径</td>
+</tr>
+<tr>
+<td>无 Dockerfile、无配置中心、无 Helm，多工具链（Node+Rust+Go+Electron）运维门槛高</td>
+<td>D7</td>
+<td>🟡 中</td>
+<td>提供容器化与配置管理方案</td>
+</tr>
+<tr>
+<td>缺 OpenAPI/protobuf 契约</td>
+<td>D7</td>
+<td>🟡 中</td>
+<td>补充接口契约定义</td>
+</tr>
+<tr>
+<td>版本处于 0.x 且安装路径按宿主分散（README 明示无统一入口点），升级平滑性与回滚/数据迁移机制未见证据</td>
+<td>D7</td>
+<td>🟡 中</td>
+<td>提供统一入口与升级/回滚机制</td>
+</tr>
+<tr>
+<td>商标与专利状态未经人工核查；『Harness』在 DevOps 领域有既有强势商业品牌</td>
+<td>D6</td>
+<td>🟡 中</td>
+<td>品牌投入前做商标检索与 FTO</td>
+</tr>
+<tr>
+<td>Rust 侧依赖基数大（difftastic-core 单个 crate 约 50 项依赖，含约 40 个 tree-sitter 语法包），boxlite 等第三方 crate 协议未披露</td>
+<td>D6</td>
+<td>🟡 中</td>
+<td>全量 license 扫描与 SBOM</td>
+</tr>
+<tr>
+<td>i18n 仅 en/zh-Hans，无 a11y 证据</td>
+<td>D11</td>
+<td>🟡 中</td>
+<td>扩展语言覆盖与无障碍支持</td>
+</tr>
+<tr>
+<td>无 GOVERNANCE.md、非中立基金会项目，顶层决策由核心团队掌握</td>
+<td>D8</td>
+<td>🟡 中</td>
+<td>建立正式治理宪章与接管机制</td>
+</tr>
+</tbody>
+</table>
+<h3>8.3 发展路线图建议</h3>
+<ul>
+<li><strong>短期（1-3 个月）</strong>：补齐 SECURITY.md 与自动化安全扫描；引入 CLA/DCO 签名机制；执行商标检索与 FTO；完成全量 license 扫描与 SBOM；推进版本从 alpha 向稳定版演进。</li>
+<li><strong>中期（3-6 个月）</strong>：明确 OSS 与商业宿主的能力边界与免费→付费转化触点；补齐 SSO/RBAC/审计日志与 OTel/Prometheus 监控接入；提供容器化部署方案；拆分大文件与超长函数，收敛类型断言。</li>
+<li><strong>长期（6-12 个月）</strong>：设计服务化部署与水平扩展路径；建立正式治理宪章与接管机制；围绕组织级 Harness Engineering 探索 B2B 研发效能/治理服务；在兼顾隐私承诺前提下设计可选的跨团队基准能力。</li>
+</ul>
+<hr />
+<h2>九、风险提示</h2>
+<table>
+<thead>
+<tr>
+<th>风险类型</th>
+<th>风险描述</th>
+<th>概率</th>
+<th>影响</th>
+<th>缓解措施</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>市场风险</td>
+<td>所处市场为成长期新兴细分，无外部数据验证，量级估算置信度低；直接付费意愿与付费市场未被验证，是最大的商业化不确定性</td>
+<td>高</td>
+<td>高</td>
+<td>以母公司 Qoder 主产品间接变现为主路径，避免依赖 OSS 直接收费；持续验证组织级付费意愿</td>
+</tr>
+<tr>
+<td>技术风险</td>
+<td>版本仍为 alpha（v0.7.0-alpha2），存在多个 600-1200+ 行大文件与超长函数、散布 as any/非空断言与 panic 点；缺 SECURITY.md 与自动化安全扫描</td>
+<td>中</td>
+<td>中</td>
+<td>拆分大文件、收敛类型断言、补充 SECURITY.md 与自动化安全扫描</td>
+</tr>
+<tr>
+<td>法律风险</td>
+<td>商标与专利状态未经人工核查；『Harness』在 DevOps 领域有既有强势商业品牌；Rust 侧依赖基数大且 boxlite 等第三方 crate 协议未披露；无 CLA/DCO，32 位贡献者版权分散</td>
+<td>中</td>
+<td>中</td>
+<td>品牌投入前做商标检索与 FTO；全量 license 扫描与 SBOM；引入 CLA/DCO</td>
+</tr>
+<tr>
+<td>竞争风险</td>
+<td>无技术排他性壁垒（MIT、无专利、无专有数据、无闭源组件），可被任意 fork；harness engineering 理念源自公开讨论（README 引用 Martin Fowler 文章）不可专利化；宿主厂商第一方分析能力与宿主插件协议变动（如 Cursor --plugin-dir 契约失效）均可能压缩第三方分析层空间</td>
+<td>高</td>
+<td>高</td>
+<td>以组织流程自建与纵向报告基线提升粘性；持续跟踪宿主协议变动并快速适配</td>
+</tr>
+<tr>
+<td>组织风险</td>
+<td>单一商业实体战略依赖、无中立基金会、无正式治理宪章、接管机制未建立；巴士因子依赖 Qoder 组织投入</td>
+<td>中</td>
+<td>中</td>
+<td>建立正式治理宪章与接管机制，降低单一实体依赖</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>十、结论与建议</h2>
+<ul>
+<li><strong>综合评级：A（高商业化潜力）</strong></li>
+<li>
+<p><strong>一句话结论</strong>：Better Harness 在 AI 编码代理评估这一新兴细分赛道中，以差异化明显、复刻门槛极高的产品定位与同赛道开源侧明显领先的能力面，具备高商业化潜力，但变现路径依赖母公司 Qoder 商业宿主、无技术排他性壁垒、网络效应缺失，需谨慎推进。</p>
+</li>
+<li>
+<p><strong>核心建议（3条）</strong>：
+  1. <strong>以 Open Core 生态 + 商业宿主内嵌为主路径</strong>，明确 OSS 与 Qoder 商业产品的能力边界与免费→付费转化触点，避免在 MIT 全开源基础上强行设置付费墙。
+  2. <strong>优先补齐商业化硬伤</strong>：引入 CLA/DCO 集中版权以保留重许可弹性、执行商标检索与 FTO、完成全量 license 扫描与 SBOM，并推进版本从 alpha 向稳定版演进。
+  3. <strong>在兼顾隐私承诺前提下设计粘性机制</strong>：以组织流程自建与纵向报告基线提升切换成本，探索可选的跨团队基准能力，弥补网络效应缺失。</p>
+</li>
+<li>
+<p><strong>商业化可行性判定：谨慎推荐</strong></p>
+</li>
+<li>
+<p>判定依据：综合评分 74.0（A 级）、无用户利益侵害扣分、一票否决未触发，具备商业化基础；但变现路径依赖母公司产品间接实现、转化逻辑未被硬证据坐实、无技术排他性壁垒、网络效应缺失、项目仍处 alpha 阶段，故为「谨慎推荐」而非「推荐」。</p>
+</li>
+<li>
+<p><strong>数据信号归因说明</strong>：本项目 D8（项目可持续性，6.8/10）与 D10（功能价值，6.6/10）数据偏低，经归因检查主要源于<strong>时间性归因（太新）</strong>——<code>created_at</code> 2026-07-21，距今约 63 天 &lt; 90 天，活跃趋势与传承机制尚未形成，使用规模尚未形成（npm 周下载 488、Dependents 不可得）；同时叠加<strong>结构性归因（公司/组织主导）</strong>——QoderAI 组织 + @qoder-ai 官方 npm 包 + dev@qoder.com 邮箱，以及<strong>工具型/插件型低依赖计数</strong>。上述低数据<strong>不构成技术质量负面信号</strong>，属真实商业化风险但非质量风险；技术质量结论以 D2 技术维度独立评估为准（<strong>D2: 8.2/10</strong>）。D8 的组织风险（单一商业实体战略依赖、无中立基金会、无正式治理宪章、接管机制未建立）为真实组织风险，须与技术质量分离表述，禁止由团队/资金数据推断「技术不行」。</p>
+</li>
+</ul>
+<h2>十一、项目地址</h2>
+<p><svg class="ri ri-muted" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.001 2C6.47598 2 2.00098 6.475 2.00098 12C2.00098 16.425 4.86348 20.1625 8.83848 21.4875C9.33848 21.575 9.52598 21.275 9.52598 21.0125C9.52598 20.775 9.51348 19.9875 9.51348 19.15C7.00098 19.6125 6.35098 18.5375 6.15098 17.975C6.03848 17.6875 5.55098 16.8 5.12598 16.5625C4.77598 16.375 4.27598 15.9125 5.11348 15.9C5.90098 15.8875 6.46348 16.625 6.65098 16.925C7.55098 18.4375 8.98848 18.0125 9.56348 17.75C9.65098 17.1 9.91348 16.6625 10.201 16.4125C7.97598 16.1625 5.65098 15.3 5.65098 11.475C5.65098 10.3875 6.03848 9.4875 6.67598 8.7875C6.57598 8.5375 6.22598 7.5125 6.77598 6.1375C6.77598 6.1375 7.61348 5.875 9.52598 7.1625C10.326 6.9375 11.176 6.825 12.026 6.825C12.876 6.825 13.726 6.9375 14.526 7.1625C16.4385 5.8625 17.276 6.1375 17.276 6.1375C17.826 7.5125 17.476 8.5375 17.376 8.7875C18.0135 9.4875 18.401 10.375 18.401 11.475C18.401 15.3125 16.0635 16.1625 13.8385 16.4125C14.201 16.725 14.5135 17.325 14.5135 18.2625C14.5135 19.6 14.501 20.675 14.501 21.0125C14.501 21.275 14.6885 21.5875 15.1885 21.4875C19.259 20.1133 21.9999 16.2963 22.001 12C22.001 6.475 17.526 2 12.001 2Z"/></svg> <a href="https://github.com/QoderAI/better-harness">https://github.com/QoderAI/better-harness</a></p>
+<hr />
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+</blockquote>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家　<a href="https://github.com/weixiongf" target="_blank" rel="noopener">@冯伟雄</a>　<a href="https://www.mova.work">www.mova.work</a></p>
+<p><strong>查看所有报告：</strong><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/">https://weixiongf.github.io/Open-Source-Alpha-Reports/</a></p><div class="page-footer">本页面由 <span class="at-acc">@向量之心</span> 打造的 github_anyliasis 系统自动维护。报告为 AI 辅助生成的第三方独立分析，仅供研究参考，不构成投资建议。</div></body></html>

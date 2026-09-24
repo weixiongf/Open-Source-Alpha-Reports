@@ -1,7 +1,7 @@
 # 报告清单 · 2026年09月
 
 > 本文件由 github_anyliasis 自动维护，每次发布报告时更新。
-> 本月共收录 83 条报告记录。
+> 本月共收录 84 条报告记录。
 
 | 序号 | 项目 | 综合得分 | 等级 | 一句话结论 |
 |------|------|----------|------|-----------|
@@ -85,9 +85,10 @@
 | 78 | [QoderAI/better-harness](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/23/better-harness/report.html) | 74.0 | A | 两个月2320星、同赛道竞品最高仅95星，但商业命门是「开源即全部价值」——赚钱的钥匙交到了母公司Qoder手里。 |
 | 79 | [cloudflare](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/23/cloudflare/) | ? | ? |  |
 | 80 | [nandhakishorm](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/23/nandhakishorm/) | ? | ? |  |
-| 81 | [browser-use](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/24/browser-use/) | ? | ? |  |
-| 82 | [codecrafters-io/build-your-own-x](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/24/build-your-own-x/report.html) | 67.0 | A | 它用0行代码换来54.9万Star，却也因此永远卖不出第一份产品——最值钱的是它头顶那行Banner。 |
-| 83 | [codecrafters-io](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/24/codecrafters-io/) | ? | ? |  |
+| 81 | [QoderAI/better-harness](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/24/better-harness/report.html) | 74.0 | A | 技术已跑在商业模式前面的 A 级先行者：企业门槛全缺、免费版太完整，补齐就绪度与付费定义前，谨慎推荐。 |
+| 82 | [browser-use](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/24/browser-use/) | ? | ? |  |
+| 83 | [codecrafters-io/build-your-own-x](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/24/build-your-own-x/report.html) | 67.0 | A | 它用0行代码换来54.9万Star，却也因此永远卖不出第一份产品——最值钱的是它头顶那行Banner。 |
+| 84 | [codecrafters-io](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/24/codecrafters-io/) | ? | ? |  |
 
 ---
 

@@ -1,7 +1,7 @@
 # 报告清单 · 2026年09月
 
 > 本文件由 github_anyliasis 自动维护，每次发布报告时更新。
-> 本月共收录 80 条报告记录。
+> 本月共收录 81 条报告记录。
 
 | 序号 | 项目 | 综合得分 | 等级 | 一句话结论 |
 |------|------|----------|------|-----------|
@@ -85,6 +85,7 @@
 | 78 | [QoderAI/better-harness](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/23/better-harness/report.html) | 74.0 | A | 两个月2320星、同赛道竞品最高仅95星，但商业命门是「开源即全部价值」——赚钱的钥匙交到了母公司Qoder手里。 |
 | 79 | [cloudflare](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/23/cloudflare/) | ? | ? |  |
 | 80 | [nandhakishorm](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/23/nandhakishorm/) | ? | ? |  |
+| 81 | [browser-use](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/24/browser-use/) | ? | ? |  |
 
 ---
 

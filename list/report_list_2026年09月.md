@@ -1,7 +1,7 @@
 # 报告清单 · 2026年09月
 
 > 本文件由 github_anyliasis 自动维护，每次发布报告时更新。
-> 本月共收录 85 条报告记录。
+> 本月共收录 84 条报告记录。
 
 | 序号 | 项目 | 综合得分 | 等级 | 一句话结论 |
 |------|------|----------|------|-----------|
@@ -83,13 +83,12 @@
 | 76 | [zai-org/ZCode](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/21/zcode/report.html) | 66.3 | A | 九维最高分 7.9 的商业模式，配上 0.1% 的测试覆盖率——引擎装好了，车还没上过路。 |
 | 77 | [himovo/movo](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/22/movo/report.html) | 67.8 | A | 12 服务自托管平台精准切入 Agent 企业化治理缺口，但护城河零基线、核心能力闭源、单人维护，赌的是上游下场前能否跑出生态。 |
 | 78 | [QoderAI/better-harness](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/23/better-harness/report.html) | 74.0 | A | 两个月2320星、同赛道竞品最高仅95星，但商业命门是「开源即全部价值」——赚钱的钥匙交到了母公司Qoder手里。 |
-| 79 | [cloudflare](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/23/cloudflare/) | ? | ? |  |
-| 80 | [nandhakishorm](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/23/nandhakishorm/) | ? | ? |  |
+| 79 | [NandhaKishorM/laya](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/23/laya/report.html) | 70.3 | A | 33ms 跑赢对手 7 倍，却还没想清楚向谁收第一笔钱——技术冲线，商业还在系鞋带。 |
+| 80 | [cloudflare/security-audit-skill](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/23/security-audit-skill/report.html) | 62.0 | B | 高势能低结构的 agent skill：两万星是战略影响力不是商业模式，适合影响力变现而非直接产品化。 |
 | 81 | [QoderAI/better-harness](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/24/better-harness/report.html) | 74.0 | A | 技术已跑在商业模式前面的 A 级先行者：企业门槛全缺、免费版太完整，补齐就绪度与付费定义前，谨慎推荐。 |
-| 82 | [browser-use](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/24/browser-use/) | ? | ? |  |
-| 83 | [codecrafters-io/build-your-own-x](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/24/build-your-own-x/report.html) | 67.0 | A | 它用0行代码换来54.9万Star，却也因此永远卖不出第一份产品——最值钱的是它头顶那行Banner。 |
-| 84 | [codecrafters-io](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/24/codecrafters-io/) | ? | ? |  |
-| 85 | [browser-use/jev-ultrafast](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/29/jev-ultrafast/report.html) | 64.5 | B | 它不是造好了的答案，而是一扇还没装锁的门：2,032 行换 2 万 Star，值钱的是接口而非仓库。 |
+| 82 | [codecrafters-io/build-your-own-x](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/24/build-your-own-x/report.html) | 67.0 | A | 它用0行代码换来54.9万Star，却也因此永远卖不出第一份产品——最值钱的是它头顶那行Banner。 |
+| 83 | [browser-use/jev-ultrafast](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/24/jev-ultrafast/report.html) | 63.7 | B | Jev Ultrafast 是一个基于「索引化动作空间 + 小模型按需生成文本」的浏览器 AI Agent 库，适用于通用跨行业的网页操作自动化（比价、检索、表 |
+| 84 | [browser-use/jev-ultrafast](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/09/29/jev-ultrafast/report.html) | 64.5 | B | 它不是造好了的答案，而是一扇还没装锁的门：2,032 行换 2 万 Star，值钱的是接口而非仓库。 |
 
 ---
 

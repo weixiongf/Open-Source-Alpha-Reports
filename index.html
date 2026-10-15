@@ -54,6 +54,8 @@ table{width:100%;table-layout:fixed;border-collapse:collapse;background:#fff;
 /* 表格横向滚动容器：窄屏保持表格最小宽度、左右滑动查看，避免压缩列宽 */
 .tbl-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
 .tbl-scroll table{min-width:840px}
+/* 报告列表表格加宽：保证「一句话结论」单行可容纳多数结论 */
+#list .tbl-scroll table{min-width:1160px}
 th{background:#eff6ff;color:#1e3a8a;text-align:left;padding:9px 12px;font-size:13px;
   white-space:nowrap}
 td{padding:8px 12px;border-top:1px solid var(--line);font-size:13px;
@@ -64,7 +66,8 @@ th.c-date,td.c-date{width:92px;white-space:nowrap}
 th.c-proj,td.c-proj{width:24%;white-space:nowrap}
 th.c-score,td.c-score{width:88px;white-space:nowrap}
 td.c-proj a{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-td.c-note{word-break:break-word}
+/* 一句话结论：强制单行，超出省略显示，悬停 title 看全文（行高统一） */
+td.c-note{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 a{color:var(--blue);text-decoration:none}
 a:hover{text-decoration:underline}
 .g{font-weight:700}
@@ -349,7 +352,7 @@ function rowHtml(r){
   var link=r.h?'<a href="'+r.h+'" title="'+r.p+'" target="_blank" rel="noopener">'+r.p+'</a>':r.p;
   return '<tr><td class="c-date">'+r.d+'</td><td class="c-proj">'+link+'</td>'+
     '<td class="c-score g g-'+r.g+'">'+r.g+' · '+r.s+'</td>'+
-    '<td class="c-note">'+r.o+'</td></tr>';
+    '<td class="c-note" title="'+r.o+'">'+r.o+'</td></tr>';
 }
 function renderMonth(m){
   var sec=document.createElement('section');

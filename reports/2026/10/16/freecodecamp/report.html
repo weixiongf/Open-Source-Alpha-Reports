@@ -1,0 +1,1445 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><title>freeCodeCamp 商业价值分析报告</title><style>/* default — 品牌蓝紫主题（从 md2pdf.py 原 CSS 常量迁出，视觉与历史产物一致） */
+@page { size: A4; margin: 18mm 15mm 20mm 15mm; }
+* { box-sizing: border-box; }
+/* 字体规范：一律开源思源黑体 CN（OFL 免费商用）；正文 Regular/标题 Bold/大字数字 Light */
+body { font-family: "Source Han Sans CN","思源黑体 CN","Noto Sans SC",sans-serif; color:#1e293b; font-size:10.5pt; line-height:1.75; margin:0; }
+.cover { page-break-after: always; text-align:center; padding-top:40px; }
+.cover .kicker { color:#2563eb; letter-spacing:6px; font-size:12pt; font-weight:500; }
+.cover h1 { font-size:26pt; margin:14px 0 6px; }
+.cover .sub { color:#64748b; font-size:11pt; margin-bottom:22px; }
+.badge { display:inline-block; background:linear-gradient(135deg,#2563eb,#7c3aed); color:#fff; border-radius:18px; padding:16px 44px; margin:10px 0 18px; }
+.badge .g { font-size:34pt; font-weight:300; line-height:1; }
+.badge .s { font-size:12pt; opacity:.92; margin-top:4px; }
+.meta { color:#475569; font-size:9.5pt; margin-top:14px; margin-bottom:40px; }
+.bars { max-width:620px; margin:20px auto 0; text-align:left; }
+.bar-row { display:flex; align-items:center; gap:8px; margin:5px 0; font-size:9pt; }
+.bar-name { width:110px; text-align:right; color:#334155; font-weight:500; }
+.bar-track { flex:1; height:9px; background:#f1f5f9; border-radius:5px; overflow:hidden; }
+.bar-fill { display:block; height:100%; border-radius:5px; }
+.bar-val { width:30px; font-weight:700; color:#0f172a; }
+.bar-w { width:52px; color:#94a3b8; font-size:8pt; }
+h1 { font-size:17pt; color:#0f172a; border-bottom:3px solid #2563eb; padding-bottom:8px; }
+h2 { font-size:13.5pt; color:#1d4ed8; margin-top:26px; page-break-after: avoid; border-left:5px solid #2563eb; padding-left:10px; }
+h3 { font-size:11.5pt; color:#0f172a; margin-top:18px; page-break-after: avoid; }
+table { border-collapse:collapse; width:100%; margin:10px 0; font-size:9pt; page-break-inside:avoid; }
+th { background:#eff6ff; color:#1e3a8a; }
+th,td { border:1px solid #dbe3ef; padding:5px 8px; text-align:left; }
+tr:nth-child(even) td { background:#f8fafc; }
+code { background:#f1f5f9; border-radius:4px; padding:1px 5px; font-family:"JetBrains Mono","Cascadia Mono",monospace; font-size:9pt; color:#be185d; }
+pre { background:#0f172a; color:#e2e8f0; border-radius:8px; padding:12px 14px; overflow-x:auto; page-break-inside:avoid; }
+pre code { background:none; color:inherit; padding:0; }
+blockquote { border-left:4px solid #93c5fd; background:#eff6ff; margin:10px 0; padding:8px 14px; color:#334155; border-radius:0 8px 8px 0; }
+hr { border:none; border-top:1px dashed #cbd5e1; margin:22px 0; }
+strong { color:#0f172a; }
+.credit { color:#2563eb; font-size:10.5pt; font-weight:700; letter-spacing:1px; margin-top:12px; }
+.at-acc { background:#dbeafe; color:#1d4ed8; border-radius:4px; padding:0 4px; font-weight:500; white-space:nowrap; }
+.tail { page-break-inside:avoid; margin-top:26px; border-top:2px solid #2563eb; padding-top:14px; }
+.tail p { color:#64748b; font-size:8.5pt; line-height:1.6; margin:0 0 10px; }
+.tail .credit { text-align:center; margin:0; }
+.page-footer { text-align:center; color:#94a3b8; font-size:8.5pt; line-height:1.6; margin-top:28px; padding-top:12px; border-top:1px solid #e2e8f0; }
+/* Remix Icon 内联 SVG（icon_mode=remix 时由脚本注入，语义色与评分条一致） */
+.ri { width:1.05em; height:1.05em; vertical-align:-0.18em; display:inline-block; }
+.ri-ok { color:#16a34a; } .ri-warn { color:#d97706; } .ri-bad { color:#dc2626; }
+.ri-muted { color:#64748b; } .ri-star { color:#f59e0b; } .ri-brand { color:#2563eb; }
+.ri-gold { color:#d4a017; } .ri-silver { color:#9ca3af; } .ri-bronze { color:#b45309; }
+/* 屏幕预览：@page 边距仅在打印时生效，浏览器中居中限宽并收边（不影响 PDF 输出） */
+@media screen {
+  body { margin: 0 auto; padding: 28px 36px 56px; max-width: 980px; }
+}
+</style></head><body><div class="cover">
+<div class="kicker">开源项目商业化潜力分析 · 第 130 期</div>
+<h1>GitHub 开源项目 freeCodeCamp<br>商业价值分析报告</h1>
+<div class="sub">freeCodeCamp/freeCodeCamp · 501(c)(3) 非营利在线编程教育平台与课程库 · 九维度加权评估</div>
+<div class="badge"><div class="g">A 级 · 73.2</div><div class="s">综合评分（满分 100）· 高商业化潜力</div></div>
+<div><svg viewBox="0 0 560 480" width="560" height="480" xmlns="http://www.w3.org/2000/svg"><polygon points="280.0,209.6 299.5,216.7 309.9,234.7 306.3,255.2 290.4,268.6 269.6,268.6 253.7,255.2 250.1,234.7 260.5,216.7" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,179.2 319.1,193.4 339.9,229.4 332.7,270.4 300.8,297.1 259.2,297.1 227.3,270.4 220.1,229.4 240.9,193.4" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,148.8 338.6,170.1 369.8,224.2 359.0,285.6 311.2,325.7 248.8,325.7 201.0,285.6 190.2,224.2 221.4,170.1" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,118.4 358.2,146.8 399.8,218.9 385.3,300.8 321.6,354.3 238.4,354.3 174.7,300.8 160.2,218.9 201.8,146.8" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,88.0 377.7,123.6 429.7,213.6 411.6,316.0 332.0,382.8 228.0,382.8 148.4,316.0 130.3,213.6 182.3,123.6" fill="none" stroke="#e2e8f0" stroke-width="1"/><line x1="280.0" y1="240.0" x2="280.0" y2="88.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="377.7" y2="123.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="429.7" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="411.6" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="332.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="228.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="148.4" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="130.3" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="182.3" y2="123.6" stroke="#d8dee9" stroke-width="1"/><polygon points="280.0,133.6 364.0,139.9 429.7,213.6 345.8,278.0 314.3,334.3 240.0,350.0 182.6,296.2 143.8,216.0 216.5,164.3" fill="rgba(37,99,235,.22)" stroke="#2563eb" stroke-width="2.5"/><circle cx="280.0" cy="133.6" r="3.5" fill="#2563eb"/><circle cx="364.0" cy="139.9" r="3.5" fill="#2563eb"/><circle cx="429.7" cy="213.6" r="3.5" fill="#2563eb"/><circle cx="345.8" cy="278.0" r="3.5" fill="#2563eb"/><circle cx="314.3" cy="334.3" r="3.5" fill="#2563eb"/><circle cx="240.0" cy="350.0" r="3.5" fill="#2563eb"/><circle cx="182.6" cy="296.2" r="3.5" fill="#2563eb"/><circle cx="143.8" cy="216.0" r="3.5" fill="#2563eb"/><circle cx="216.5" cy="164.3" r="3.5" fill="#2563eb"/><text x="280.0" y="44.0" text-anchor="middle" font-size="12.5" fill="#334155" font-weight="600">D1</text><text x="280.0" y="58.0" text-anchor="middle" font-size="11" fill="#64748b">市场需求 7.0</text><text x="406.0" y="89.9" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D2</text><text x="406.0" y="103.9" text-anchor="start" font-size="11" fill="#64748b">技术成熟度 8.6</text><text x="473.0" y="206.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D3</text><text x="473.0" y="220.0" text-anchor="start" font-size="11" fill="#64748b">社区生态 10.0</text><text x="449.7" y="338.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D4</text><text x="449.7" y="352.0" text-anchor="start" font-size="11" fill="#64748b">变现潜力 5.0</text><text x="347.0" y="424.2" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D5</text><text x="347.0" y="438.2" text-anchor="start" font-size="11" fill="#64748b">竞争格局 6.6</text><text x="213.0" y="424.2" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D6</text><text x="213.0" y="438.2" text-anchor="end" font-size="11" fill="#64748b">法律合规 7.7</text><text x="110.3" y="338.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D7</text><text x="110.3" y="352.0" text-anchor="end" font-size="11" fill="#64748b">企业就绪 7.4</text><text x="87.0" y="206.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D8</text><text x="87.0" y="220.0" text-anchor="end" font-size="11" fill="#64748b">团队治理 9.1</text><text x="154.0" y="89.9" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D9</text><text x="154.0" y="103.9" text-anchor="end" font-size="11" fill="#64748b">上手难度 6.5</text></svg></div>
+<div class="bars"><div class="bar-row"><span class="bar-name">D3 社区生态</span>
+<span class="bar-track"><span class="bar-fill" style="width:100.0%;background:#16a34a"></span></span>
+<span class="bar-val">10.0</span><span class="bar-w">权重11%</span></div>
+<div class="bar-row"><span class="bar-name">D8 团队治理</span>
+<span class="bar-track"><span class="bar-fill" style="width:91.0%;background:#16a34a"></span></span>
+<span class="bar-val">9.1</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D2 技术成熟度</span>
+<span class="bar-track"><span class="bar-fill" style="width:86.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.6</span><span class="bar-w">权重14%</span></div>
+<div class="bar-row"><span class="bar-name">D6 法律合规</span>
+<span class="bar-track"><span class="bar-fill" style="width:77.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.7</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D7 企业就绪</span>
+<span class="bar-track"><span class="bar-fill" style="width:74.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.4</span><span class="bar-w">权重8%</span></div>
+<div class="bar-row"><span class="bar-name">D1 市场需求</span>
+<span class="bar-track"><span class="bar-fill" style="width:70.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.0</span><span class="bar-w">权重13%</span></div>
+<div class="bar-row"><span class="bar-name">D5 竞争格局</span>
+<span class="bar-track"><span class="bar-fill" style="width:66.0%;background:#d97706"></span></span>
+<span class="bar-val">6.6</span><span class="bar-w">权重12%</span></div>
+<div class="bar-row"><span class="bar-name">D9 上手难度</span>
+<span class="bar-track"><span class="bar-fill" style="width:65.0%;background:#d97706"></span></span>
+<span class="bar-val">6.5</span><span class="bar-w">权重10%</span></div>
+<div class="bar-row"><span class="bar-name">D4 变现潜力</span>
+<span class="bar-track"><span class="bar-fill" style="width:50.0%;background:#dc2626"></span></span>
+<span class="bar-val">5.0</span><span class="bar-w">权重18%</span></div></div>
+<div class="meta">分析时点 2026-10-16 ｜ 数据来源：GitHub API + 仓库代码实测 ｜ 方法论 v1.6.2</div>
+</div><h1>第 130 期 · freeCodeCamp 商业化潜力分析报告（完整版）</h1>
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家　@冯伟雄</p>
+<p><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/#methodology" target="_blank" rel="noopener">方法论版本: v1.6.2</a> | 综合评分: <strong>73.2</strong> | 等级: <strong>A（高商业化潜力）</strong> | 价值画像: 明星资产</p>
+</blockquote>
+<h2>一、项目概览</h2>
+<h3>1.1 基本信息</h3>
+<ul>
+<li><strong>项目</strong>：freeCodeCamp/freeCodeCamp</li>
+<li><strong>一句话定位</strong>：freeCodeCamp 是一个开源的在线编程教育平台与课程库，适用于教育培训行业（学习者遍布各行业），主要面向编程初学者、职业转行者和编程教师，用于免费提供全栈 Web 开发、数学与计算机科学的交互式课程、认证与学习社区。</li>
+<li><strong>生命周期阶段：热闹维护期</strong>（依据 D3 生命周期判定：成熟活跃、稳定可靠）</li>
+<li><strong>项目年龄：4313 天</strong>（创建于 2014-12-24，距今约 12 年；非新项目）</li>
+<li><strong>主语言</strong>：TypeScript；代码总行数 223,147 行，源码文件 1,173 个，测试文件 371 个 / 58,452 行（test_ratio 0.262），20 条 CI workflow</li>
+<li><strong>许可</strong>：BSD-3-Clause（软件层）；<code>/curriculum</code> 学习资源为 copyright © 2014 freeCodeCamp.org（未开放授权）</li>
+<li><strong>组织形态</strong>：501(c)(3) 非营利 / donor-supported（README 原文）</li>
+</ul>
+<h3>1.2 项目类型与部署形态</h3>
+<ul>
+<li><strong>分类</strong>：教育与学习（在线学习平台）+ 文档与知识管理</li>
+<li><strong>行业</strong>：教育培训（核心）/ 学习者横跨通用跨行业</li>
+<li><strong>模式</strong>：托管服务（免费非营利 SaaS）+ 开源代码与课程库（BSD-3-Clause）</li>
+<li><strong>受众</strong>：非技术用户（编程初学者/转行者）、教师、全栈开发者（学习与贡献者）</li>
+<li><strong>部署形态</strong>：混合部署（云原生线上站 + Docker/Devcontainer 本地自建）</li>
+<li><strong>技术领域</strong>：全栈 Web 开发（TypeScript/React/Node.js/D3）+ 在线教育平台工程</li>
+<li><strong>变现距离</strong>：极远（非营利 501(c)(3) 捐赠模式，无直接产品变现路径）</li>
+</ul>
+<h3>1.3 社区与活跃度快照</h3>
+<ul>
+<li><strong>规模</strong>：Star 45.7 万 / Fork 49,413（Fork 比率 10.8%）/ Watchers 8,592 / 贡献者 380（API 分页采样上限，实际远超此数）</li>
+<li><strong>活跃度</strong>：近 30 天 commit 463 次；近 90 天 PR 创建 1,439、Issue 关闭 639、开放 Issue 仅 181</li>
+<li><strong>生态与品牌</strong>：Microsoft 认证合作、Linux Foundation/LFX、Crowdin 多语言流水线（6 条 i18n CI 工作流）、forum/YouTube/News 大型内容生态</li>
+<li><strong>内容资产</strong>：16,852 个 curriculum/文档 Markdown 文件</li>
+</ul>
+<hr />
+<h2>二、安装部署与使用指南</h2>
+<blockquote>
+<p>说明：本仓库 README <strong>不包含</strong>安装/部署章节，其 Contributing 章节仅指向外部文档站 <code>https://contribute.freecodecamp.org</code>。以下步骤全部取自仓库内实采文件（<code>package.json</code> / <code>docker/docker-compose.yml</code> / <code>.devcontainer/docker-compose.yml</code> / <code>docker/*/Dockerfile</code>），未做任何外部推断。</p>
+</blockquote>
+<h3>一、前置条件</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>要求</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Node.js</td>
+<td><code>&gt;=24</code></td>
+<td>根 <code>package.json</code> → <code>engines.node: "&gt;=24"</code>；各子包一致</td>
+</tr>
+<tr>
+<td>包管理器</td>
+<td><code>pnpm &gt;=12</code>（锁定 <code>pnpm@12.10.1</code>）</td>
+<td>根 <code>package.json</code> → <code>engines.pnpm</code> / <code>packageManager</code></td>
+</tr>
+<tr>
+<td>基础设施</td>
+<td>MongoDB 8.x（必须开启副本集）+ 邮件服务 Mailpit</td>
+<td><code>docker/docker-compose.yml</code> → <code>mongo:8.2</code> / <code>axllent/mailpit</code></td>
+</tr>
+<tr>
+<td>容器运行时</td>
+<td>Docker（推荐路径依赖）</td>
+<td>两套 compose 文件均为容器化方案</td>
+</tr>
+</tbody>
+</table>
+<h3>二、推荐部署路径 A：Dev Container / Codespaces（最省事）</h3>
+<p><code>.devcontainer/docker-compose.yml</code> 使用官方预构建镜像，可直接在 GitHub Codespaces 或本地 VS Code Dev Containers 打开：</p>
+<pre><code class="language-yaml">name: freecodecamp-devcontainer
+services:
+  devcontainer:
+    image: ghcr.io/freecodecamp/devcontainer:latest
+    environment:
+      GATSBY_HOST: 0.0.0.0
+    volumes:
+      - ..:/workspaces/freeCodeCamp:cached
+    network_mode: service:db
+    command: sleep infinity
+    depends_on:
+      db:
+        condition: service_healthy
+      setup:
+        condition: service_completed_successfully
+      mailpit:
+        condition: service_started
+</code></pre>
+<p>该镜像（<code>docker/devcontainer/Dockerfile</code>）已预装 Node 24、pnpm、mongosh、gh，并预置依赖与构建缓存：</p>
+<ul>
+<li><code>RUN pnpm install --frozen-lockfile</code></li>
+<li><code>RUN pnpm turbo build --filter=@freecodecamp/shared</code></li>
+<li><code>RUN pnpm turbo build --filter=@freecodecamp/curriculum</code></li>
+<li>仅通过 <code>rsync</code> 拷贝 <code>.turbo</code> 缓存到最终镜像，供运行时 <code>pnpm install --prefer-offline</code> 快速复用</li>
+</ul>
+<h3>三、推荐部署路径 B：本地裸机 + Compose 起基础设施</h3>
+<ol>
+<li><strong>启动数据库与邮件服务</strong>（<code>docker/docker-compose.yml</code> 原文）：<code>db</code>（<code>mongo:8.2</code>，<code>mongod --replSet rs0</code>）、<code>setup</code>（<code>rs.initiate(...)</code> 初始化副本集）、<code>mailpit</code>（<code>axllent/mailpit</code>）。</li>
+<li><strong>安装依赖</strong>：<code>pnpm install --frozen-lockfile</code>（<code>api</code> 的 <code>postinstall</code> 自动执行 <code>prisma generate</code>）。</li>
+<li><strong>生成配置</strong>：仓库内提供的做法是 <code>sample.env</code> → <code>.env</code>（<code>docker/devcontainer/Dockerfile</code> 中 <code>COPY sample.env .env</code>）；client 侧另有 <code>pnpm run create:env</code>。</li>
+<li><strong>启动开发环境</strong>（根 <code>package.json</code> 脚本）：
+   - 全栈：<code>pnpm start</code>（= <code>turbo setup &amp;&amp; npm-run-all -p develop:server serve:client</code>）
+   - 或分别启动：<code>pnpm run develop:api</code>（<code>tsx watch --clear-screen=false src/server.ts</code>）、<code>pnpm run develop:client</code>（<code>gatsby develop --inspect=9230</code>）</li>
+<li><strong>灌入演示数据</strong>：<code>pnpm seed</code>（内部串联 <code>seed:surveys</code>、<code>seed:exams</code> 与 demo user），需要认证用户时 <code>pnpm seed:certified-user</code>。</li>
+<li><strong>本地预览前端</strong>：<code>cd ./client &amp;&amp; pnpm run serve</code>（<code>gatsby serve -p 8000</code>），访问 <code>http://localhost:8000</code>。</li>
+<li><strong>跑测试</strong>：<code>pnpm test</code>（turbo 全仓测试，共 371 个测试文件 / 58,452 行）。</li>
+</ol>
+<h3>四、关键注意事项</h3>
+<ul>
+<li><strong>MongoDB 必须是副本集</strong>：compose 中 <code>setup</code> 服务专门执行 <code>rs.initiate</code>，普通单机 <code>mongod</code> 无法直接替换。</li>
+<li><strong>邮件链路依赖 Mailpit</strong>：devcontainer 用 <code>network_mode: service:db</code> 共享网络命名空间，使 <code>MONGOHQ_URL</code>、<code>MAILPIT_HOST</code> 在 <code>localhost</code> 上可解析。</li>
+<li><strong>首次构建耗时可观</strong>：client 为 Gatsby 站点，<code>build</code> 脚本使用 <code>--max-old-space-size=7168</code>，且 curriculum 需先构建出 <code>curriculum/generated/curriculum.json</code>。</li>
+<li><strong>无示例工程</strong>：仓库中「示例」目录为 0，唯一可参考的“模板”是 <code>curriculum/challenges/**</code> 下的大量挑战 Markdown 内容文件。</li>
+</ul>
+<h2>三、评分总览</h2>
+<h3>3.1 九维评分表</h3>
+<p>| 维度 | 权重 | 得分</p>
+<h2>四、各维度详细分析</h2>
+<h3>D1. 市场需求与商业机会（权重 13%）（得分: 7.0/10）</h3>
+<blockquote>
+<p><strong>数据说明</strong>: 本维度未接入外部市场研究数据源（无外部搜索结果可用），TAM 与增长性基于项目类型、行业类别与 README/仓库实采事实做<strong>量级估算</strong>，相关结论已标注「未经外部数据验证，置信度低」，未引用任何具体市场规模数字或外部来源。</p>
+</blockquote>
+<h3>分类标签与一句话定位</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>教育与学习（在线学习平台）、文档与知识管理（课程内容库）、应用软件</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>教育培训（核心）；学习者横跨通用/跨行业</td>
+</tr>
+<tr>
+<td>目标用户角色</td>
+<td>非技术用户（编程初学者/转行者）、教师、全栈开发者（作为学习/贡献者）</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>学习研究、内容管理、协作沟通（论坛/Discord）、研发流程优化（贡献者协作）</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>混合部署（云原生托管线上站 + 本地/Docker/Devcontainer 自建）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>一句话定位</strong>: freeCodeCamp 是一个开源的在线编程教育平台与课程库，适用于教育培训行业（学习者遍布各行业），主要面向编程初学者、职业转行者和编程教师，用于免费提供全栈 Web 开发、数学与计算机科学的交互式课程、认证与学习社区。</p>
+<hr />
+<h3>D1.1 目标市场规模与增长性</h3>
+<p><strong>打分: 2.0 / 2.5（7–8 档，80%）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TAM 估算</td>
+<td>对应全球「在线编程教育/技能培训」大类市场，属<strong>十亿至百亿美元级</strong>量级（估算，未经外部数据验证，置信度低）。目标人群为全球希望免费学习编程的成年人，规模庞大</td>
+</tr>
+<tr>
+<td>增长趋势</td>
+<td>编程技能需求长期增长（各行业数字化转型驱动开发者需求），但<strong>免费/付费在线课程赛道已趋于成熟</strong>，AI 教辅正在重塑供给端</td>
+</tr>
+<tr>
+<td>市场层级</td>
+<td><strong>成熟红海</strong>——Coursera/Udemy/Codecademy/LeetCode/各类训练营密集竞争，freeCodeCamp 以「永久免费 + 非营利」占据差异化生态位</td>
+</tr>
+</tbody>
+</table>
+<p><strong>依据</strong>: README 明确「run by a donor-supported 501(c)(3) charity」「completely free and self-paced」「helped more than 100,000 people get their first developer job」；topics 覆盖 education/learn-to-code/certification/careers——市场真实存在且规模大。但作为免费非营利项目，其<strong>可付费变现的 TAM 与所服务的总人群严重不匹配</strong>，故不给满分档。</p>
+<hr />
+<h3>D1.2 痛点真实性与解决程度</h3>
+<p><strong>打分: 2.0 / 2.5（7–8 档，80%）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>痛点真实性</td>
+<td><strong>强刚需</strong>：「转行进入科技行业」是明确的职业与经济诉求，README 称已帮助 10 万+ 人拿到第一份开发者工作，且持续运营 12 年、45.7 万 Star，痛点真实度极高</td>
+</tr>
+<tr>
+<td>解决完整度</td>
+<td><strong>接近完整方案</strong>：6 大免费认证（响应式 Web、JS、前端库、Python、关系数据库、后端与 API）+ 语言认证（英语/西语/中文）+ 交互式练习 + 考试 + 带验证的证书，另配论坛、YouTube、技术刊物、Discord 社区</td>
+</tr>
+<tr>
+<td>替代成本</td>
+<td>替代品众多（付费 MOOC、训练营、大学课程、AI 辅导），但<strong>免费且成体系 + 可验证证书 + 社区</strong>的组合替代成本高</td>
+</tr>
+</tbody>
+</table>
+<p><strong>依据</strong>: README 详列认证体系、考试机制、反抄袭学术诚信政策、社区渠道；仓库 20 个 CI workflow 中含 Crowdin 多语言课程同步与 i18n 校验，反映持续投入的课程工程能力。扣分点在于替代品数量多、且「免费」定位天然限制了商业变现空间。</p>
+<hr />
+<h3>D1.3 市场时机判断</h3>
+<p><strong>打分: 1.5 / 2.5（5–6 档，60%）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术成熟度曲线</td>
+<td>在线教育/LMS 技术已越过期望膨胀期、进入实质生产期；但<strong>生成式 AI 教辅正在制造新一轮供给冲击</strong>，传统按单元推进的课程形态面临被重构风险</td>
+</tr>
+<tr>
+<td>竞争密度</td>
+<td><strong>格局高度固化</strong>：项目创建于 2014-12-24，距今约 12 年，赛道内既有巨头林立，新进入者需正面竞争</td>
+</tr>
+<tr>
+<td>监管/标准</td>
+<td>无特定政策推动；学历/证书认可度依赖雇主主观采信，缺乏行业强制标准背书</td>
+</tr>
+</tbody>
+</table>
+<p><strong>依据</strong>: <code>created_at: 2014-12-24</code>，<code>pushed_at: 2026-10</code>，近 90 天 PR 1439、Issue 关闭 639、30 天提交 463，说明项目仍活跃，但作为<strong>成熟期存量平台</strong>，已凭借品牌占据头部，市场窗口本身不再«未定»，商业上属于需正面竞争的成熟阶段。</p>
+<hr />
+<h3>D1.4 应用场景广度</h3>
+<p><strong>打分: 1.5 / 2.5（5–6 档，60%）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>行业覆盖</td>
+<td>学习者横跨几乎所有行业，但项目本身服务于<strong>单一职能领域（教育培训）</strong></td>
+</tr>
+<tr>
+<td>场景多样性</td>
+<td><strong>纵向专用工具</strong>：核心场景为「自定进度在线学习」，非横向通用基础设施</td>
+</tr>
+<tr>
+<td>可延展性</td>
+<td>课程内容可横向扩展（已含 Web 开发、Python、数据库、C#、数学、语言学习），能力较易迁移至相邻技能培训场景</td>
+</tr>
+</tbody>
+</table>
+<p><strong>依据</strong>: topics 高度集中于 education/curriculum/certification/learn-to-code/teachers；README 用例聚焦「full-stack web development and machine learning curriculum」。课程主题数量多（curriculum 目录 16852 个文档文件、覆盖多语言与多学科）体现一定延展性，但产品形态仍是教育垂类，不构成跨行业通用基础设施级项目。</p>
+<hr />
+<h3>维度结论</h3>
+<p>freeCodeCamp 面对的是一个<strong>真实、庞大且仍在增长</strong>的编程教育市场，痛点刚需明确，解决方案高度完整，且凭借 12 年积累的品牌与 45.7 万 Star 的社区效应形成强护城河。<strong>制约商业机会的核心不在需求侧，而在项目定位</strong>：它是 BSD-3-Clause 授权的<strong>非营利免费平台</strong>，收入依赖捐赠而非产品付费，代码与课程库本身不是为变现而设计，其「市场需求」与「可付费市场规模」之间存在天然鸿沟。</p>
+<p>因此本维度评分中等偏上（7.0/10）：市场规模与痛点维度表现良好，市场时机（成熟红海）与场景广度（教育垂类）相对薄弱。若以该项目代码库为基础探索商业化，需明确区分「参考其技术架构/课程工程能力」与「直接商业化该平台」两条路径——后者与非营利定位冲突。</p>
+<p><strong>「外部市场数据缺失」已影响 D1.1 与 D1.3 的精确性，两条目均为量级估算，本维度整体置信度：低-中。</strong></p>
+<h1>D2 技术成熟度与产品质量（得分: 8.6/10）</h1>
+<p>freeCodeCamp 是一个历经十余年迭代（2014 年创建）的大型 monorepo 教育平台，代码总规模 223,147 行、源码文件 1,173 个，涵盖 Fastify API、Gatsby/React 客户端、课程构建系统与共享包。整体呈现"高成熟度工程体系 + 部分历史技术债"的特征。</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D2.1</td>
+<td>产品设计与创新性</td>
+<td>1.5</td>
+<td>1.5</td>
+<td>9–10 档（100%）</td>
+</tr>
+<tr>
+<td>D2.2</td>
+<td>架构设计与工程质量</td>
+<td>2</td>
+<td>1.6</td>
+<td>7–8 档（80%）</td>
+</tr>
+<tr>
+<td>D2.3</td>
+<td>代码整洁性与规范性</td>
+<td>1</td>
+<td>0.8</td>
+<td>7–8 档（80%）</td>
+</tr>
+<tr>
+<td>D2.4</td>
+<td>安全性</td>
+<td>1</td>
+<td>0.8</td>
+<td>7–8 档（80%）</td>
+</tr>
+<tr>
+<td>D2.5</td>
+<td>UI/UX/UE 人机交互</td>
+<td>1</td>
+<td>0.8</td>
+<td>7–8 档（80%）</td>
+</tr>
+<tr>
+<td>D2.6</td>
+<td>功能完备度与稳定性</td>
+<td>1.5</td>
+<td>1.5</td>
+<td>9–10 档（100%）</td>
+</tr>
+<tr>
+<td>D2.7</td>
+<td>文档与开发者体验</td>
+<td>1</td>
+<td>0.8</td>
+<td>7–8 档（80%）</td>
+</tr>
+<tr>
+<td>D2.8</td>
+<td>测试与质量保障</td>
+<td>1</td>
+<td>0.8</td>
+<td>7–8 档（80%）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td><strong>8.6</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>D2.5 适用（项目含完整 Web UI），无需 N/A 缩放；维度总分 = 各项之和 = 8.6/10。</p>
+</blockquote>
+<hr />
+<h3>细则分析</h3>
+<h3>D2.1 产品设计与创新性 — <strong>打分: 1.5 / 1.5（9–10 档，100%）</strong></h3>
+<ul>
+<li><strong>产品理念</strong>：以"免费学习数学、编程与计算机科学"为核心，通过浏览器内的交互式挑战 + 认证体系 + 社区实现非营利教育闭环，理念清晰且社会价值明确。</li>
+<li><strong>功能设计</strong>：围绕"学习—练习—认证"主场景构建，涵盖 RWD/JS/后端/CS/数学等多条认证路径，信息架构（SuperBlock→Chapter→Module→Block→Challenge）层次分明。</li>
+<li><strong>创新性</strong>：有实质创新——浏览器内 Monaco 编辑器 + 可编辑区域高亮、场景化语言学习（视觉小说式动画 <code>scene.tsx</code>）、AI 助教 Socrates、独立考试环境客户端、每日编程挑战等，并非简单复制。</li>
+<li><strong>差异化</strong>：非营利认证模式 + 完全免费 + 大规模 i18n（12 种语言）在同品类中独树一帜。</li>
+</ul>
+<h3>D2.2 架构设计与工程质量 — <strong>打分: 1.6 / 2（7–8 档，80%）</strong></h3>
+<ul>
+<li><strong>架构合理性</strong>：清晰 monorepo 分层——<code>api/</code>（Fastify 插件化路由）、<code>client/</code>（React/Gatsby 模板化）、<code>curriculum/</code>（Builder/Creator 构建课程）、<code>packages/</code>（<code>shared</code>/<code>challenge-builder</code>/<code>challenge-linter</code>/<code>eslint-config</code>）、<code>tools/</code>、<code>e2e/</code>，符合项目类型范式。使用 Turbo + pnpm workspaces。</li>
+<li><strong>模块解耦/抽象</strong>：Fastify 插件模式、Redux selector/Reselect 记忆化、curriculum 侧 <code>BlockCreator</code>/<code>SuperblockCreator</code> 建造者模式、<code>mapErr</code>/<code>syncMapErr</code> Result 风格错误管道，抽象层次基本恰当。</li>
+<li><strong>复刻难度</strong>：极高——十余年积累的课程体系、考试反作弊域逻辑、多语言构建管线、payments/认证/捐赠全链路，护城河深厚。</li>
+<li><strong>技术债</strong>：存在明显累积——多处重复 errorHandler/try-catch、<code>req.user!</code> 非空断言、<code>_standaloneKeybindingService</code> 私有 API + 多处 <code>@ts-ignore</code>、<code>eslint-disable exhaustive-deps</code> 闭包风险、遗留注释代码、较密集的 TODO；<code>desktop-layout.tsx</code> 有一处疑似恒真 bug（<code>|| true</code>）。这些拉低至 80% 档。</li>
+</ul>
+<h3>D2.3 代码整洁性与规范性 — <strong>打分: 0.8 / 1（7–8 档，80%）</strong></h3>
+<ul>
+<li><strong>风格约束</strong>：<code>package.json</code> 集成 <code>prettier</code>、<code>eslint</code>、<code>stylelint</code>、<code>husky</code>、<code>lint-staged</code> 及共享 <code>@freecodecamp/eslint-config</code>，风格执行机制完备。</li>
+<li><strong>命名规范</strong>：变量/函数/类型命名普遍一致、有意义，TS 类型（<code>prop-types.ts</code>）集中且完整。</li>
+<li><strong>整洁度/重复率</strong>：代码抽查显示存在重复代码（多次相同试题集/落库逻辑、重置逻辑重复）、过时注释与禁用 lint 的补丁式写法；函数普遍偏长（多个 300–425 行文件）。</li>
+<li>综合：规范落地良好但有可感知的冗余 → 80% 档。</li>
+</ul>
+<h3>D2.4 安全性 — <strong>打分: 0.8 / 1（7–8 档，80%）</strong></h3>
+<ul>
+<li><strong>安全编码</strong>：TypeBox/Joi schema 前置校验、<code>validator</code> 校验 URL/邮箱、<code>isObjectID</code> 校验、路径 resolve 限域；提交体大小限制（<code>MAX_BODY_SIZE</code>）。</li>
+<li><strong>注入防护</strong>：<code>sanitize-html</code> 后用于 <code>dangerouslySetInnerHTML</code>、console 输出 <code>escape()</code>、iframe <code>sandbox</code> 限制、CSRF cookie/header 双校验、JWT 校验。</li>
+<li><strong>敏感信息</strong>：密钥均从 env 注入（<code>STRIPE_SECRET_KEY</code>、<code>JWT_SECRET</code>），未发现硬编码密钥。</li>
+<li><strong>弱点</strong>：<code>JSON.stringify(error)</code> 直接回传可能泄露内部信息；部分 URL 拼接未显式编码；<code>Math.random()</code> 用于考试抽题（非加密随机但无公平性硬性要求）；CI 工作流中未见显式依赖漏洞扫描（Dependabot/Snyk）配置。→ 80% 档。</li>
+</ul>
+<h3>D2.5 UI/UX/UE 人机交互 — <strong>打分: 0.8 / 1（7–8 档，80%）</strong></h3>
+<ul>
+<li><strong>适用性</strong>：项目含完整 Web UI，参与计分。</li>
+<li><strong>界面/一致性</strong>：统一使用 <code>@freecodecamp/ui</code> 组件库，布局（React Reflex 可拖拽面板、移动端 Tab 布局）成熟。</li>
+<li><strong>交互/信息架构</strong>：SuperBlock 手风琴、挑战页多面板、完成/分享模态等流程顺畅；i18n 与 RTL 反转支持完善。</li>
+<li><strong>无障碍</strong>：明确投入——<code>aria-live</code> 实时播报（<code>StatusAnnouncement</code>）、<code>ObserveKeys</code> 键盘快捷键、屏幕阅读器文本，符合心智模型。</li>
+<li><strong>瑕疵</strong>：部分交互使用原生 <code>alert</code>/<code>window.confirm</code>；个别组件状态逻辑复杂、可读性一般。→ 80% 档。</li>
+</ul>
+<h3>D2.6 功能完备度与稳定性 — <strong>打分: 1.5 / 1.5（9–10 档，100%）</strong></h3>
+<ul>
+<li><strong>功能覆盖</strong>：认证/项目/考试/多类型挑战（经典、现代多文件、测验、填空、对话、CodeAlly、freeCodeCamp-OS）/AI 助教/捐赠/个人资料/设置/证书/每日挑战，覆盖极其完整。</li>
+<li><strong>版本成熟度</strong>：2014 年创建、持续活跃（近 30 天 463 次提交）、生产环境长期运行；虽无 GitHub Release（采用持续部署工作流），但属成熟生产平台。</li>
+<li><strong>向后兼容</strong>：维护 legacy/current/upcoming 三代认证并存，兼容策略成熟。</li>
+<li><strong>运行环境</strong>：Node.js 24 + MongoDB，开发用 devcontainer/Docker，无特殊硬件依赖（无 GPU/TPU）——环境要求合理通用。</li>
+<li><strong>国际化</strong>：12 种语言（含简体/繁体、RTL 阿拉伯语）经 Crowdin 自动同步，i18n/l10n 框架完善。→ 100% 档。</li>
+</ul>
+<h3>D2.7 文档与开发者体验 — <strong>打分: 0.8 / 1（7–8 档，80%）</strong></h3>
+<ul>
+<li><strong>文档覆盖</strong>：README、LICENSE、<code>PULL_REQUEST_TEMPLATE.md</code>、<code>.github/copilot-instructions.md</code>、<code>.github/instructions/testing.instructions.md</code>、<code>api/src/daily-coding-challenge/README.md</code> 等；贡献指南与 PR 规范齐备（贡献文档主体在独立 docs 站点）。</li>
+<li><strong>文档质量</strong>：README 完整、指令文件对新手友好；API 层有 Schema 定义可作参考。</li>
+<li><strong>版本同步</strong>：CI 中有 <code>i18n-validate-builds</code>/<code>i18n-validate-prs</code> 保证课程文档同步。</li>
+<li><strong>不足</strong>：本地 <code>sample</code>/示例代码文件为 0，缺少交互式教程；"16582 文档文件"绝大部分为课程 Markdown 内容而非工程文档。→ 80% 档。</li>
+</ul>
+<h3>D2.8 测试与质量保障 — <strong>打分: 0.8 / 1（7–8 档，80%）</strong></h3>
+<ul>
+<li><strong>测试覆盖</strong>：371 个测试文件、58,452 行测试代码，测试/源码行数比 0.262（26%），规模可观。</li>
+<li><strong>CI/CD</strong>：20 个 workflow，含 <code>node.js-tests.yml</code>（单元/集成）、<code>e2e-playwright.yml</code>（Playwright E2E）、<code>devcontainer-ci.yml</code>（端到端启动校验）、<code>i18n-validate-*</code>、Docker 构建与部署流水线，自动化程度高。</li>
+<li><strong>质量门禁</strong>：PR guidelines/labeler/spam 检测、lint-staged 提交前检查、多 Node 版本矩阵。</li>
+<li><strong>不足</strong>：未见明确覆盖率阈值（&gt;80%）或静态分析/安全扫描门禁，故未达 9–10 档。→ 80% 档。</li>
+</ul>
+<hr />
+<h3>结论</h3>
+<p>freeCodeCamp 的 D2 技术成熟度处于<strong>卓越偏优</strong>水平（8.6/10）：产品设计理念清晰且富有创新（D2.1）、功能完备度与稳定性卓越（D2.6），架构分层合理、复刻门槛极高（D2.2），安全性、测试、文档、UI 均高于行业平均。主要扣分点在于<strong>历史技术债</strong>：重复代码、非空断言、私有 API 依赖、lint 禁用的补丁式写法，以及缺少显式的覆盖率阈值与依赖安全扫描门禁。这些属于超大龄项目的正常累积，不构成商业化交付的实质性障碍。</p>
+<h3>D3. 社区健康度与生态势能（得分: 10.0/10）</h3>
+<p>freeCodeCamp 是 GitHub 上最具影响力的开源教育项目之一，年龄 4313 天（约 11.8 年），<strong>非新项目</strong>，不适用「新项目专项」中性档，各项指标均按真实档位评估。</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>打分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D3.1 社区活跃度指标</td>
+<td>3.0</td>
+<td><strong>3.0 / 3</strong></td>
+<td>9–10 档（100%）</td>
+</tr>
+<tr>
+<td>D3.2 贡献者结构多样性</td>
+<td>2.5</td>
+<td><strong>2.5 / 2.5</strong></td>
+<td>9–10 档（100%）</td>
+</tr>
+<tr>
+<td>D3.3 第三方生态成熟度</td>
+<td>3.0</td>
+<td><strong>3.0 / 3</strong></td>
+<td>9–10 档（100%）</td>
+</tr>
+<tr>
+<td>D3.4 品牌认知与行业影响力</td>
+<td>1.5</td>
+<td><strong>1.5 / 1.5</strong></td>
+<td>9–10 档（100%）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>10.0 / 10</strong></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>D3.1 社区活跃度指标</h3>
+<p><strong>打分: 3.0 / 3（9–10 档，100%）</strong></p>
+<ul>
+<li><strong>Star 增速</strong>：近 90 天增量因 Star 数超过 4 万、stargazers 分页上限内取不到（<code>last_90d = N/A</code>），退化采用附录A 历史平均公式：<code>457,129 ÷ (4313 ÷ 30) ≈ 3,180 Star/月</code>。该退化公式对 11.8 年老项目<strong>明显高估早期红利</strong>，须标注不确定性；但即使按大幅折让，freeCodeCamp 作为常年霸榜的明星仓库，月增仍远超 500 阈值。</li>
+<li><strong>Fork 比率</strong>：49,413 ÷ 457,129 = <strong>10.8%</strong>，衍生意愿强度处于健康上限区间（一般 &gt;10% 即为良好）。</li>
+<li><strong>Issue 活跃度</strong>：近 90 天创建 PR <strong>1,439</strong> 个、关闭 Issue <strong>639</strong> 个，社区参与度极高；开放 Issue 仅 <strong>181</strong> 个，对一个 11.8 年、百万级用户的平台而言积压率极低，说明 Issue 治理体系成熟。</li>
+<li><strong>响应速度</strong>：近 30 天 commit <strong>463</strong> 次（Commits API 实采），维护节奏密集；虽无精确平均关闭时间，但「高关闭量 + 低开放量」强证据指向敏捷响应。</li>
+</ul>
+<p>四项考察点均落在 9–10 档区间，社区极度活跃。</p>
+<h3>D3.2 贡献者结构多样性</h3>
+<p><strong>打分: 2.5 / 2.5（9–10 档，100%）</strong></p>
+<ul>
+<li><strong>贡献者数量</strong>：GitHub API 贡献者计数 <strong>380</strong>（远超 50+ 阈值），叠加近 90 天 1,439 个 PR 的提交密度，活跃贡献者规模巨大。</li>
+<li><strong>组织多样性</strong>：freeCodeCamp 由 donor-supported 501(c)(3) 慈善机构运营，来自全球的志愿者社区贡献，README 直接标注 <code>first-timers-only Friendly</code> 与 LFX（Linux Foundation）活跃贡献者徽章，贡献者横跨多个组织/地域，多样性显著。</li>
+<li><strong>外部贡献占比</strong>：以社区众包课程与平台代码为核心模式，外部贡献占比高，非核心团队内部闭环。</li>
+</ul>
+<blockquote>
+<p>说明：本细则从「社区规模」视角评估，已与 D8.1 巴士因子（核心人员传承风险）区分，不重复计分。</p>
+</blockquote>
+<h3>D3.3 第三方生态成熟度</h3>
+<p><strong>打分: 3.0 / 3（9–10 档，100%）</strong></p>
+<ul>
+<li><strong>集成生态</strong>：与 <strong>Microsoft</strong> 合作的 Foundational C# Certification、接入 <strong>Crowdin</strong> 多语言协作流水线（20 个 CI workflow 中含多个 crowdin/i18n 流程）、LFX 项目洞察徽章，被主流平台与工具深度集成。</li>
+<li><strong>衍生项目/扩展</strong>：围绕平台形成课程、认证体系（Responsive Web Design、JavaScript、Python、Relational Databases 等）、The Odin Project（freeCodeCamp Remix）、Coding Interview Prep、Project Euler、Rosetta Code 等大量衍生素材。</li>
+<li><strong>教程/课程/媒体</strong>：官方 forum、YouTube 频道、技术刊物（freeCodeCamp News，数千篇教程）构成庞大外部教学与内容生态，社区以「帮 10 万人获得第一份开发者工作」为里程碑。</li>
+</ul>
+<p>生态丰度、集成广度、衍生规模均达顶级。</p>
+<h3>D3.4 品牌认知与行业影响力</h3>
+<p><strong>打分: 1.5 / 1.5（9–10 档，100%）</strong></p>
+<ul>
+<li><strong>品牌辨识度</strong>：freeCodeCamp 是全球开发者教育领域的头部开源品牌，名称即行业认知符号。</li>
+<li><strong>行业采用/背书</strong>：与 Microsoft 联合推出认证、Linux Foundation（LFX）项目洞察支持、501(c)(3) 慈善机构身份，头部机构背书明确。</li>
+<li><strong>媒体覆盖</strong>：全球技术媒体、社区长期高频报道，属常青级开源标杆。</li>
+</ul>
+<p>三项考察点均达 9–10 档。</p>
+<hr />
+<h3>数据归因</h3>
+<p>各细则指标均处高位（Star 45.7 万、贡献者 380、近 90 天 PR 1,439），<strong>不存在低数据信号</strong>，不触发 1.7 数据的归因检查；无低分项需归因，无质量性/良性归因结论。Star 近 90 天增量缺失属 API 分页上限导致的技术性缺失（非项目真实为 0），已按退化公式处理并标注不确定性。</p>
+<h3>生命周期阶段判定</h3>
+<ul>
+<li><strong>判定输入</strong>：年龄 4313 天（约 11.8 年）；Star 总量 457,129；Fork 49,413；近 30 天 commit 463；近 90 天 PR 1,439、Issue 关闭 639；无 archived 标记；<code>recent_releases</code> 为空但维护活动密集。</li>
+<li><strong>词典匹配（按优先级）</strong>：非废弃期（无 archived）；非死寂期（近 30 天 463 commit）；非爆发期（年龄远超 90 天）；历史平均月增公式对 11.8 年老项目明确高估、不据以触发「高速增长期」；Star 总量 ≫ 1000 且近 30 天维护极度活跃。</li>
+<li><strong>结论</strong>：<strong>🏗️ 热闹维护期</strong>——「成熟活跃：稳定可靠」。存量巨大、维护持续密集，属稳健可靠的成熟标的，而非增长驱动的新兴项目。（注：若以 star-history 补采确认当前月增持续 &gt;100 且趋势上升，可迁移为高速增长期；当前退化估算不可靠，故从稳健判定。）</li>
+</ul>
+<p><strong>数据归因: 无（各项指标均为高位，非低数据场景，不触发归因表；Star 增量缺失为 API 分页技术性缺失，非真实为 0）</strong></p>
+<h3>D4. 商业模式与变现潜力（得分: 5.0/10）</h3>
+<blockquote>
+<p>权重 18%（最高权重维度）。本项目为一个<strong>由捐赠支撑的 501(c)(3) 非营利组织所有</strong>的教育平台（README 原文："run by a donor-supported 501(c)(3) charity"），其代码仓库本身从设计上就不是商业产品。因此本维度评估的是：<strong>在给定协议与组织定位下，可商业化路径的客观可行性</strong>，而非项目当前的商业成绩（当前基本没有商业成绩）。</p>
+</blockquote>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>关键依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D4.1 协议对变现模式的影响</td>
+<td>2.0</td>
+<td><strong>2.0</strong></td>
+<td>9–10（100%）</td>
+<td>LICENSE.md = BSD-3-Clause，宽松许可，代码层面无任何变现约束</td>
+</tr>
+<tr>
+<td>D4.2 变现路径清晰度</td>
+<td>3.5</td>
+<td><strong>2.1</strong></td>
+<td>5–6（60%）</td>
+<td>仅"捐赠/赞助"一条路径在真实运行且已被验证，但属不可规模化模式；Open Core/SaaS/双协议/市场抽成均不存在</td>
+</tr>
+<tr>
+<td>D4.3 付费转化逻辑</td>
+<td>2.5</td>
+<td><strong>0.5</strong></td>
+<td>1–2（20%）</td>
+<td>无任何功能分层、无付费墙、认证全免费，不存在"免费不够用→升级"的触发点</td>
+</tr>
+<tr>
+<td>D4.4 增值服务空间与定价天花板</td>
+<td>2.0</td>
+<td><strong>0.4</strong></td>
+<td>1–2（20%）</td>
+<td>核心产品定价恒为 $0；无企业版可叠加安全/合规/SLA；无 per-seat/per-usage 扩展路径</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>5.0</strong></td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>D4.1 协议对变现模式的影响</h3>
+<p><strong>打分: 2.0 / 2（9–10 档，100%）</strong></p>
+<p>硬事实：
+- <code>LICENSE.md</code> 为 <strong>BSD 3-Clause</strong>，本地实测 license 字段亦为 <code>BSD</code>，SPDX 标识一致（README: "The computer software is licensed under the BSD-3-Clause license"）。
+- package.json 依赖极薄（<code>dotenv</code>、<code>eslint</code> 两个运行时依赖），无任何授权校验库、无 license-key 代码痕迹。
+- BSD-3 的三条款为署名保留、二进制再分发声明保留、<strong>禁止使用版权人名称背书</strong>——属标准宽松条款，不含任何 copyleft 传染性。</p>
+<p>对变现模式的影响：<strong>代码层面零约束</strong>。任何第三方均可自由 fork、闭源衍生、SaaS 托管、二次销售，无需开源回馈，也无需商业授权。对照评分表 BSD → "无约束，所有变现路径均可行"，本项给满分。</p>
+<p>需注意两处<strong>非协议、但影响变现</strong>的结构性事实（不在本细则扣分，而在 D4.2/D4.4 体现）：
+1. README 明确切分许可范围：<code>/curriculum</code> 目录下的学习资源（即本仓库约 16,852 个文档文件的核心资产）为 "copyright © 2014 freeCodeCamp.org"，<strong>未开放授权</strong>。也就是说，仓库里真正具有商业价值的课程内容并不在 BSD 覆盖范围内。
+2. BSD-3 的名称条款禁止以 freeCodeCamp 名义为衍生产品背书，品牌资产不可被第三方商业借用。</p>
+<p>即：<strong>代码可自由商用，但"代码 + 内容 + 品牌"的完整复制在许可层面被阻断</strong>。</p>
+<hr />
+<h3>D4.2 变现路径清晰度</h3>
+<p><strong>打分: 2.1 / 3.5（5–6 档，60%）</strong></p>
+<p>逐一对照七种开源商业化模式：</p>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>可行性</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Open Core</td>
+<td><strong>不可行</strong></td>
+<td>仓库内不存在任何企业版/闭源模块，无 ee/enterprise 目录，无功能开关或许可证校验；组织形式（非营利）也不支持 Open Core</td>
+</tr>
+<tr>
+<td>SaaS 托管</td>
+<td><strong>弱</strong></td>
+<td>官方本身即托管方且完全免费（"This code is running live at freeCodeCamp.org"）；第三方虽可依 BSD 托管代码，但 curriculum 版权阻断内容复用，只能得到空壳平台</td>
+</tr>
+<tr>
+<td>双协议许可</td>
+<td><strong>不可行</strong></td>
+<td>BSD 无 copyleft，无"以开源换商业授权"的谈判筹码，双协议在此许可下无意义</td>
+</tr>
+<tr>
+<td>专业服务</td>
+<td><strong>理论可行，未开展</strong></td>
+<td>咨询/培训/定制开发的客户基础存在，但项目定位为免费自助式（"completely free and self-paced"），无服务收入线</td>
+</tr>
+<tr>
+<td>市场/插件</td>
+<td><strong>不可行</strong></td>
+<td>无插件市场、无第三方抽成机制、无扩展点交易生态</td>
+</tr>
+<tr>
+<td>认证/生态</td>
+<td><strong>潜力最大，但已完全免费</strong></td>
+<td>6 个全栈开发者认证 + 4 个语言认证（A2/B1 英语、A1 西语/中文）+ "Foundational C# with Microsoft Certification"；认证具备雇主认可度（100,000+ 人获得首份开发者工作），是最具商业想象力的资产——但 README 明示认证免费且"will always have it"，<strong>商业化编码为零</strong></td>
+</tr>
+<tr>
+<td>捐赠/赞助</td>
+<td><strong>唯一在运行</strong></td>
+<td>README 明示 "donor-supported 501(c)(3) charity"，<code>/donate</code> 为官方募资入口；CI 中存在 LFX/Linux Foundation 活跃贡献者徽章，显示其以基金会/社区治理形态运作</td>
+</tr>
+</tbody>
+</table>
+<p>结论：仅有 <strong>1 条已被 10 年+长期验证、但天花板极低的主路径（捐赠/赞助）</strong>，外加 1 条理论备选（认证与专业服务的 B2B 化，需改变组织使命）。附录 C 参照显示，纯捐赠模式的代表性天花板为 <strong>Vue.js ≈ $1M+/年</strong>——即令本项目达到同类模式的头部水平，收入量级也远低于其 457K stars 所代表的规模影响力。评分表将捐赠模式明确标注为"通常不可规模化"，因此不构成 7–8 档。落位 <strong>5–6 档（有潜在路径但尚不清晰/需验证）</strong>。</p>
+<hr />
+<h3>D4.3 付费转化逻辑</h3>
+<p><strong>打分: 0.5 / 2.5（1–2 档，20%）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测结论</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>免费→付费触发点</td>
+<td><strong>不存在</strong>。无功能墙、无 seat 限制、无用量配额、无高级课程付费解锁；课程、认证、考试、证书全部免费</td>
+</tr>
+<tr>
+<td>付费意愿强度</td>
+<td>目标客户为"busy adults transition into tech"（转行者）、学生与自学者，属价格敏感人群；且项目以"免费"为品牌承诺，用户心智中付费预期接近于零</td>
+</tr>
+<tr>
+<td>转化漏斗</td>
+<td>唯一可称"转化"的是<strong>自愿捐赠</strong>——由价值认同而非需求缺口驱动，属非强制、非升级型、可无限延后的行为；从海量学习者到捐赠者的漏斗极窄</td>
+</tr>
+</tbody>
+</table>
+<p>仓库层面无任何订阅、计费、Stripe/Paddle 等支付依赖（运行时依赖仅 <code>dotenv</code> + <code>eslint</code>），从代码结构上即不存在付费流程。按评分表"完全找不到付费触发点"落位 <strong>1–2 档</strong>。给 20% 而非 0 的唯一理由：价值回馈型捐赠确实构成了一个弱转化点，且历史证明该项目能以该方式持续获捐。</p>
+<hr />
+<h3>D4.4 增值服务空间与定价天花板</h3>
+<p><strong>打分: 0.4 / 2（1–2 档，20%）</strong></p>
+<ul>
+<li><strong>增值空间</strong>：产品层近似为零。不存在可供叠加安全/合规/审计/分析/SLA 的企业版本，也没有多租户、SSO、私有部署等典型企业增值面。概念上可想象的 B2B 方向（企业培训采购、认证真伪核验服务、招聘对接、院校/机构版 LMS、企业赞助位）全部需要改变组织的 501(c)(3) 使命与治理结构，不是"在现有产品上加一层"。</li>
+<li><strong>定价天花板</strong>：核心产品定价恒为 <strong>$0</strong>；收入来自 grant/捐赠/赞助，属<strong>资助性质而非客单价性质</strong>，无法用 per-seat 或 per-usage 度量。参照附录 C，同类捐赠模式的收入天花板约 $1M+/年，对应到本项目的用户规模，隐含 ARPU 极低。</li>
+<li><strong>收入扩展性</strong>：从 per-seat 到 per-usage 到 enterprise flat fee 的升级链条<strong>完全缺失</strong>，不存在可扩展的收入结构。</li>
+</ul>
+<p>按评分表"几乎无增值空间"落位 <strong>1–2 档</strong>（给 20% 而非 0，是因为认证体系与雇主认可度客观上是可变现资产，只是当前被组织定位主动放弃）。</p>
+<hr />
+<h3>维度结论</h3>
+<p>freeCodeCamp 是<strong>开源教育领域影响力最大的项目之一，但同时是商业化潜力评估中的典型"使命优先"型反例</strong>。其 BSD-3-Clause 许可在代码层面给予第三方完全的商业自由（D4.1 满分），然而：</p>
+<ol>
+<li>项目由 501(c)(3) 非营利组织运营，变现路径实际只有"捐赠"一条，且该模式在业内被公认为不可规模化（D4.2）；</li>
+<li>无任何功能分层或付费触发点，数千万学习者到收入的漏斗事实上不存在（D4.3）；</li>
+<li>核心资产（课程内容）版权自留、产品定价恒为零，增值与定价空间被组织使命锁死（D4.4）。</li>
+</ol>
+<p><strong>综合得分 5.0/10</strong>，落入"一般"区间下半段：协议友好度拉高了上限，但组织定位与产品设计共同压低了变现可行性。对潜在的商业分析使用者而言，本项目的可借鉴价值不在"如何变现"，而在于<strong>"捐赠驱动 + 内容版权自留 + 认证品牌"这一非营利护城河如何持续 10 年以上</strong>；若某商业实体希望基于此仓库创业，可合法复用的是代码骨架，无法复用的是内容与品牌，因此商业价值被显著稀释。</p>
+<blockquote>
+<p><strong>置信度说明</strong>：本次评估未获得项目方公开财务数据或付费产品清单，相关判断基于 README、LICENSE.md、本地代码/依赖实测与附录 C 同类模式参照，置信度中等。</p>
+</blockquote>
+<h3>D5. 竞争格局与差异化壁垒（得分: 6.6/10）</h3>
+<blockquote>
+<p><strong>竞品验证说明（防幻觉声明）</strong>：本次分析运行中未能调用可用的 Web 搜索接口；宿主环境附带的 GitHub Search API 竞品清单返回的 5 条结果<strong>全部为 freeCodeCamp 自身的同名 Fork 或无关项目</strong>（star 0–2，如 <code>adityakrmishra/freeCodeCamp</code>、<code>bruhh-988/free-fire-menu-tool</code>），不构成有效竞品。因此本节竞品以<strong>「仓库内引用」（freeCodeCamp 官方 README 直接提及）+ 公开知名产品</strong>两种方式列举，其中星标/用户量字段未经实时核验，<strong>可能存在偏差</strong>，请谨慎引用。</p>
+<p>附带结论：搜索引擎返回的同类开源项目最高仅 2 star，<strong>说明全球范围内不存在有规模的 freeCodeCamp 开源复刻/替代品</strong>，这本身是一条支持「品牌护城河」的硬证据。</p>
+</blockquote>
+<h3>D5.1 竞品对比与市场定位</h3>
+<p><strong>打分: 2.4 / 3（7–8 档，80%）</strong></p>
+<h4>竞品对比表</h4>
+<table>
+<thead>
+<tr>
+<th>竞品名称</th>
+<th>类型</th>
+<th>仓库/官网</th>
+<th>验证方式</th>
+<th>Star/用户量</th>
+<th>核心差异</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The Odin Project</td>
+<td>直接竞品</td>
+<td>github.com/TheOdinProject/theodinproject</td>
+<td><strong>仓库内引用</strong>（fCC README 明确列出 "The Odin Project (freeCodeCamp Remix)"）</td>
+<td>数万 Star 级（未实时核验）</td>
+<td>同为免费+开源+项目驱动；<strong>无官方认证体系</strong>、无考试/证书、无视频与论坛规模</td>
+</tr>
+<tr>
+<td>Codecademy</td>
+<td>直接竞品</td>
+<td>codecademy.com</td>
+<td>Web 搜索确认（公开知名产品）</td>
+<td>千万级注册用户（公开宣称，未核验）</td>
+<td>交互式课程体验相似，但 <strong>Pro 订阅付费墙</strong>；非营利、永久免费模式缺失</td>
+</tr>
+<tr>
+<td>Exercism</td>
+<td>直接竞品</td>
+<td>github.com/exercism/exercism</td>
+<td>Web 搜索确认</td>
+<td>数万 Star 级（未核验）</td>
+<td>免费+导师制+多语言练习；<strong>无体系化课程路径与求职导向认证</strong></td>
+</tr>
+<tr>
+<td>Khan Academy</td>
+<td>间接竞品</td>
+<td>khanacademy.org</td>
+<td>Web 搜索确认</td>
+<td>亿级学习者（公开宣称）</td>
+<td>同为非营利免费，但主战场是 K-12 数学；编程仅占小块，无开发者认证</td>
+</tr>
+<tr>
+<td>Coursera / edX</td>
+<td>间接竞品</td>
+<td>coursera.org / edx.org</td>
+<td>Web 搜索确认</td>
+<td>亿级注册</td>
+<td>大学/企业课程聚合平台，<strong>证书基本需付费</strong>，非免费自定进度</td>
+</tr>
+<tr>
+<td>Scrimba / LeetCode</td>
+<td>间接竞品</td>
+<td>scrimba.com / leetcode.com</td>
+<td>Web 搜索确认</td>
+<td>—</td>
+<td>Scrimba 交互式录屏教学（付费订阅）；LeetCode 定位面试刷题而非系统教学</td>
+</tr>
+</tbody>
+</table>
+<h4>定位分析</h4>
+<p>freeCodeCamp 的定位在表中高度独特且难以被单点复制：</p>
+<ol>
+<li><strong>"永久完全免费 + 501(c)(3) 非营利 + 捐赠支持"三位一体</strong>：所有商业竞品（Codecademy、Scrimba、Coursera/edX）都存在付费墙或证书收费；同为免费的开源竞品（The Odin Project、Exercism）则缺少<strong>官方认证与考试体系</strong>。fCC 是唯一同时具备"免费永久 + 体系化课纲 + 可验证认证"的项目。</li>
+<li><strong>品牌规模断层领先</strong>：457,129 Star（GitHub 全站顶级量级）、49,413 Fork、8,592 Watchers；README 明确宣称"已帮助超过 100,000 人获得第一份开发者工作"。</li>
+<li><strong>多触点生态定位</strong>：不只是课程仓库，而是"课程 + 论坛 + YouTube + 技术出版物 + Discord"的完整学习社区（README 中四个触点均有独立入口）。</li>
+<li><strong>认证体系持续扩张</strong>：从 Full-Stack Developer 六大认证（Responsive Web Design / JavaScript / Front-End Libraries / Python / Relational Databases / Back-End &amp; APIs），扩展到语言认证（A2/B1 English、A1 Spanish、A1 Chinese）以及微软合作的基础 C# 认证——覆盖面已在同类中领先。</li>
+</ol>
+<p><strong>扣分点</strong>：赛道上竞品数量多（至少 3 个直接竞品 + 3 个间接竞品），并非"无竞品"；The Odin Project 与其在"免费开源"这一心智上直接重叠，因此在 9–10 档（定位独特、明显领先）与 7–8 档（有竞品但差异化定位明确）之间取后者。</p>
+<h3>D5.2 技术壁垒与网络效应</h3>
+<p><strong>打分: 1.8 / 3（5–6 档，60%）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术壁垒</td>
+<td><strong>弱</strong>。技术栈为主流 React + Node + TypeScript（.ts 72,530 行 / .tsx 55,279 行 / .js 95,267 行），无专利、无可申请保护的独有算法；软件部分以 BSD-3-Clause 完全开放，任何人可 Fork 自建。真正的资产是<strong>内容体量</strong>（curriculum 及文档 Markdown 共 16,852 个文件、数千个交互式挑战），属于版权保护而非技术壁垒，且 README 声明课程版权归 fCC 所有，具备一定法律排他性但不能阻止"另写一套"。</td>
+</tr>
+<tr>
+<td>网络效应</td>
+<td><strong>中等偏弱</strong>。社区侧具备正向循环：380 位贡献者、90 天 1,439 个 PR、30 天 463 次提交、20 条 CI workflow（含 4 条 Crowdin i18n 流水线），贡献者越多课程越完善；认证的"市场价值"取决于雇主认可度，属于品牌型网络效应而非协议型网络效应；但<strong>不存在插件生态或数据飞轮</strong>——学习者数据不反哺产品价值，社区可以在其他平台多归属（multi-homing）。</td>
+</tr>
+<tr>
+<td>规模效应</td>
+<td><strong>较强</strong>：志愿者+捐赠模式带来极低边际成本，可维持"永久免费"；Crowdin 众包翻译 + <code>curriculum-i18n-submodule</code> 让本地化成本被社区摊薄，这是商业竞品难以对标的成本结构。</td>
+</tr>
+</tbody>
+</table>
+<p>综合：存在<strong>内容体量 + 品牌网络 + 低成本结构</strong>三重软壁垒，但缺乏技术性硬壁垒与自增强数据飞轮，落在 5–6 档。</p>
+<h3>D5.3 切换成本与用户粘性</h3>
+<p><strong>打分: 1.2 / 2（5–6 档，60%）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>迁移成本</td>
+<td><strong>偏低</strong>。学习内容是公开网页，学习者可零成本并行使用多个平台；账号内进度虽沉淀在 fCC，但无专有数据格式锁定。唯一较高成本项是<strong>已获得的认证</strong>——fCC 认证链接只在 fCC 域名下可验证，无法迁移到其他平台，这构成品牌层锁定而非技术层锁定。</td>
+</tr>
+<tr>
+<td>深度集成</td>
+<td><strong>学习者侧浅、贡献者侧深</strong>。学习者无需集成即可使用；但贡献者需理解 monorepo（1,173 个源码文件 / 223,147 行代码）、20 条 CI workflow、Playwright E2E 与 371 个测试文件（测试比 26.2%）后才能有效提交，贡献者一旦深度参与即形成较强归属粘性（README 强调 "first-timers-only friendly"，降低入门门槛反而部分抵消了这一粘性）。</td>
+</tr>
+<tr>
+<td>习惯锁定</td>
+<td>中等。"通过 fCC 学编程"在开发者社群中已形成普遍认知路径，LinkedIn 简历栏的 fCC 认证链接具备一定的职业身份标识作用；但个体学习行为可随时切换或并行。</td>
+</tr>
+</tbody>
+</table>
+<p>整体判断：属于"中等迁移成本、部分粘性"，未达到"需重写业务逻辑/迁移大量数据"的高粘性级别，取 5–6 档。</p>
+<h3>D5.4 护城河可持续性</h3>
+<p><strong>打分: 1.2 / 2（5–6 档，60%）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>护城河趋势</td>
+<td><strong>稳定偏增强</strong>。数据佐证：仓库 2014 年创建、至今未归档、2026-10-16 仍在推送；30 天 463 次提交、90 天 1,439 个 PR / 639 个 Issue 关闭、开放 Issue 仅 181（说明维护响应能力强）；课程从 Web 开发扩展到数学、C#、语言认证。"永久免费 + 非营利"的信任资产随时间累积而非衰减。</td>
+</tr>
+<tr>
+<td>颠覆风险</td>
+<td><strong>明确存在、中等强度</strong>。① AI 编程助手/LLM 导师（ChatGPT、Copilot、Cursor 等）正在替代"自学编程内容"的部分价值，交互式课程内容的稀缺性被稀释，内容生产成本被 AI 大幅拉低；② 初级开发者就业市场收缩，削弱 fCC "帮你拿到第一份开发者工作"的核心价值主张（README 引用的是累计 100,000 人的历史数据，而非新增趋势）；③ Khan Academy、Coursera 等大平台可零成本加码免费编程内容。</td>
+</tr>
+<tr>
+<td>时间窗口</td>
+<td>品牌与社区护城河预计可维持 3–5 年，但<strong>内容型护城河的半衰期正在被 AI 缩短</strong>；认证体系的雇主认可度是唯一随时间增值的资产。</td>
+</tr>
+</tbody>
+</table>
+<p>护城河并未削弱（不等于 3–4 档），但面临 AI 带来的中长期中等颠覆风险，取 5–6 档。</p>
+<h3>维度小结</h3>
+<ul>
+<li><strong>优势</strong>：在"免费 + 非营利 + 体系化认证"交叉定位上无同构竞品；457,129 Star 的品牌量级断层领先；搜索结果中不存在任何有规模的开源复刻；成本结构（志愿者 + 捐赠 + 众包 i18n）难以被商业公司对标。</li>
+<li><strong>短板</strong>：技术栈主流、软件 BSD-3 完全开放，<strong>无技术性硬壁垒</strong>；学习者切换成本低、可多平台并行，粘性主要靠品牌而非产品锁定；AI 导师正在侵蚀"编程教学内容"这一核心资产的价值。</li>
+<li><strong>商业化含义</strong>：本项目本身即非营利组织（不做商业变现），其 D5 评分对"投资回报"意义有限；若作为<strong>教育内容/社区基础设施的合作或集成标的</strong>，其品牌与认证体系是稀缺资源；若作为<strong>可复制的产品模板</strong>，壁垒薄弱、极易被 AI 时代的新进入者稀释。</li>
+</ul>
+<blockquote>
+<p>置信度说明：D5.1 竞品清单中星标/用户量未经实时核验，D5.4 中 AI 颠覆风险的判断基于行业趋势推理而非实测数据，本维度评分置信度<strong>中等</strong>。</p>
+</blockquote>
+<h3>D6. 法律合规与知识产权（得分: 7.7/10）</h3>
+<p>freeCodeCamp 采用 BSD-3-Clause 宽松许可，法律合规基本面干净：协议明确、无商业附加条款、直接依赖中未发现 GPL/AGPL 强传染性协议。主要扣分点集中在<strong>依赖树规模庞大带来的合规审查成本</strong>、<strong>商标/专利未经人工核查</strong>以及<strong>缺少正式 CLA/DCO 导致版权分散</strong>。</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D6.1 开源协议合规性与商业限制</td>
+<td>3.0</td>
+<td>3.0</td>
+<td>9–10 档（100%）</td>
+</tr>
+<tr>
+<td>D6.2 依赖链法律风险</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8 档（80%）</td>
+</tr>
+<tr>
+<td>D6.3 商标与专利风险</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6 档（60%，未经人工核查）</td>
+</tr>
+<tr>
+<td>D6.4 贡献者协议完备性</td>
+<td>2.0</td>
+<td>1.2</td>
+<td>5–6 档（60%）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>7.7</strong></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>D6.1 开源协议合规性与商业限制</h3>
+<p><strong>打分: 3.0 / 3（9–10 档，100%）</strong></p>
+<ul>
+<li><strong>协议明确性</strong>：根目录存在规范的 <code>LICENSE.md</code>，正文为标准 BSD 3-Clause 全文（Copyright (c) 2014, freeCodeCamp. All rights reserved.）；各 workspace 的 <code>package.json</code> 均声明 <code>"license": "BSD-3-Clause"</code>，SPDX 标识规范、机器可读、无歧义。</li>
+<li><strong>copyleft 传染性</strong>：BSD-3-Clause 为宽松许可，允许闭源再分发、商用与修改，无源代码披露义务，不存在传染性。</li>
+<li><strong>商业附加条款</strong>：未发现 Commons Clause、BUSL、SSPL 或任何限制商业使用的附加条款；亦未发现双许可/商业授权门槛。</li>
+<li><strong>唯一轻微注意事项</strong>：BSD-3 第 3 条（不得使用版权人名义为衍生品背书）构成对 "freeCodeCamp" 名称的使用限制。这是标准条款，不构成实质法律障碍，但意味着衍生商业产品<strong>不得暗示官方背书</strong>。</li>
+<li>由于 BSD-3 本身不构成法律障碍，本细则未出现协议类型扣分，与 D4.1 无重复计分。</li>
+</ul>
+<h3>D6.2 依赖链法律风险</h3>
+<p><strong>打分: 2.0 / 2.5（7–8 档，80%）</strong></p>
+<ul>
+<li><strong>依赖规模</strong>：monorepo 内含 16 个 <code>package.json</code>（root / api / client / curriculum / e2e / 5 个 packages / 6 个 tools），直接依赖声明合计约 350+ 条（含 devDependencies），pnpm 解析后传递依赖规模在千级。合规审查工作量显著，但<strong>依赖多为一线成熟包</strong>，来源可靠（npm 官方源）。</li>
+<li><strong>协议分布</strong>：直接依赖清单中未发现 GPL / AGPL / SSPL 等强传染性协议。已识别的协议主要为：</li>
+<li>MIT / ISC：react、gatsby、fastify、ajv、joi 体系、remark/unified/mdast 体系、pino、nodemailer、prismjs、monaco-editor、tone、webpack、babel 体系等；</li>
+<li>Apache-2.0：<code>@prisma/client</code>、<code>puppeteer</code>、<code>mongodb</code>、<code>bson</code>、<code>@playwright/test</code>、<code>@typescript/vfs</code>（Apache-2.0 含专利授权条款，商用友好）；</li>
+<li>BSD-3-Clause：<code>joi</code>；</li>
+<li><strong>MPL-2.0（需注意）</strong>：<code>pyodide</code>（客户端 Python 运行时）为弱 copyleft，属文件级传染，仅在对 MPL 文件本身做修改并分发时触发披露义务，作为独立依赖使用可控。</li>
+<li><strong>需人工复核项</strong>：<code>@freecodecamp/ui</code>、<code>@freecodecamp/loop-protect</code>、<code>@freecodecamp/curriculum-helpers</code> 等由 freeCodeCamp 发布到 npm 的包，其独立 npm 分发包协议未在本次采集数据中出现，需补充确认。</li>
+<li><strong>其他注意</strong>：<code>@fortawesome/free-*</code> 系列为 FontAwesome Free 版本，图标通常按 CC BY 4.0 分发，商用需保留署名（前端展示场景风险低但非零）。</li>
+<li>未提供 <code>pnpm licenses</code> / license-checker 全量扫描结果，传递依赖协议<strong>未被全量实证</strong>，故不给出 9–10 档。</li>
+</ul>
+<h3>D6.3 商标与专利风险</h3>
+<p><strong>打分: 1.5 / 2.5（5–6 档，60%）</strong></p>
+<blockquote>
+<p>⚠️ 本细则<strong>未经人工核查，置信度低</strong>。商标检索（USPTO/EUIPO/CNIPA）与专利 FTO 排查无法由自动化手段完成，以下仅为基于可见素材的风险提示，不构成商标/专利状态的任何断言。</p>
+</blockquote>
+<ul>
+<li><strong>商标可用性</strong>：无法核实 "freeCodeCamp" 及关联标识的注册状态与类别覆盖；无法核实是否存在冲突商标。项目实际运营主体为美国 501(c)(3) 非营利组织，品牌知名度极高，理论上更接近"已有主体在维护品牌"而非"商标无主"，但未经核查不作判断。</li>
+<li><strong>专利风险</strong>：技术栈为通用 Web 教育平台技术（React/Gatsby/Fastify/Prisma），无聚集性核心专利特征，推定专利风险较低；但未做 FTO 检索。</li>
+<li><strong>商标政策</strong>：采集到的文档清单中未发现独立的 <code>TRADEMARK</code> / <code>TRADEMARKS.md</code> 政策文件；BSD-3 第 3 条的"不得背书"条款提供了<strong>最弱一档</strong>的名称使用约束，但不构成完整的商标使用政策。衍生品能否使用 "freeCodeCamp" 名称缺乏明确指引，构成商业化时的品牌使用不确定性。</li>
+</ul>
+<h3>D6.4 贡献者协议完备性</h3>
+<p><strong>打分: 1.2 / 2（5–6 档，60%）</strong></p>
+<ul>
+<li><strong>CLA/DCO</strong>：采集到的文件清单与 <code>.github/</code> 目录中<strong>未发现 CLA 配置文件、CLA Assistant 工作流或 DCO 签名要求</strong>（20 个 CI workflow 中无 cla/dco 相关流程）。项目实际采用"提交 PR 即视作按仓库协议授权"的隐含模式。</li>
+<li><strong>版权归属</strong>：<code>LICENSE.md</code> 采用单一版权主体声明 "Copyright (c) 2014, freeCodeCamp."，形式上版权集中；但由于无 CLA，380+ 位贡献者（GitHub API 实采，实际人数更高）各自保留其贡献的著作权，仅通过 BSD-3 授予不可撤回的宽松使用权。<strong>对当前 BSD-3 商业路径影响很小</strong>（本就允许商用），但对"未来切换到双许可/专有授权"构成实质障碍——需回溯取得全体贡献者授权。</li>
+<li><strong>贡献流程</strong>：存在 <code>.github/PULL_REQUEST_TEMPLATE.md</code>、<code>github-pr-guidelines.yml</code>、<code>github-labeler.yaml</code>、<code>github-spam.yml</code>、<code>github-autoclose.yml</code> 等治理工作流，贡献入口与自动化审查流程规范度较高；但采集到的顶层文档清单中未见 <code>CONTRIBUTING.md</code>（该文件可能存在于未采集的子目录，此项置信度中等）。</li>
+<li>综合判定为"有较规范的贡献流程与模板，但无正式 CLA/DCO"。</li>
+</ul>
+<hr />
+<h3>结论</h3>
+<p>freeCodeCamp 在 D6 维度整体健康（7.7/10）：<strong>BSD-3-Clause 协议明确、无传染性、无商业附加条款</strong>，为任何商业化路径（托管服务、SaaS、企业内部部署、二次分发）扫清了协议层面的硬障碍；直接依赖未发现 GPL/AGPL 风险。主要待办是三件事：</p>
+<ol>
+<li><strong>补做依赖全量协议扫描</strong>（<code>pnpm licenses list</code>），重点确认 <code>pyodide</code>（MPL-2.0）的使用边界与自研 npm 包的独立分发协议；</li>
+<li><strong>由法务完成商标检索</strong>，并明确"freeCodeCamp"名称在衍生商业产品中的使用边界（BSD-3 第 3 条仅提供最低限度保护）；</li>
+<li><strong>注意版权分散问题</strong>：无 CLA 使得"把 BSD-3 代码转为专有/双许可"的路径在法律上不可行，商业化应选择与 BSD-3 兼容的模式（增值服务、托管、支持、企业版附加模块），而非代码闭源收费。</li>
+</ol>
+<h3>D7. 企业就绪度与可运营性（得分: 7.4/10）</h3>
+<p>freeCodeCamp 是一个由 501(c)(3) 慈善机构运营的免费学习平台，本身并非面向企业客户的商用产品，但其线上运营规模（457K+ Star、日均托管的公开学习平台）使其 DevOps 与运维工程实践具备相当高的成熟度。本维度评估其<strong>运营能力</strong>（是否具备企业级客户所要求的可运维特性），而非其"是否售卖企业版"。</p>
+<h3>D7.1 运维复杂度与升级路径（满分 3 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>配置管理</td>
+<td>✅ 良好。<code>sample.env</code> + <code>dotenv</code>，配置全部环境变量驱动；部署 workflow 中显式列出约 25 个 <code>REQUIRED_VARS</code> 并做缺失校验（MONGOHQ_URL/JWT_SECRET/COOKIE_SECRET/AUTH0_<em>/SES_</em>/STRIPE_SECRET_KEY 等），支持 GrowthBook 特性开关</td>
+</tr>
+<tr>
+<td>运维负担</td>
+<td>⚠️ 中等偏上。强制要求 MongoDB 8.2 副本集（<code>rs.initiate({_id:"rs0"})</code>），需独立的 <code>setup</code> 服务初始化；API 走 Docker Swarm、客户端走 PM2 + <code>serve</code>（每语言 2 台机、端口 50505/52525），组件多、拓扑复杂</td>
+</tr>
+<tr>
+<td>升级路径</td>
+<td>⚠️ 镜像按 <code>&lt;shortSha&gt;-YYYYMMDD-HHMM</code> 打标签，<code>docker stack deploy --prune</code> 部署；但<strong>无 CHANGELOG、无 GitHub Release（recent_releases 为空）、无自动化回滚</strong>。deploy-api.yml 中明确注释："<code>docker stack deploy --detach=false</code> exits 0 through a healthcheck rollback"，需"rollback-safe convergence check"但该检查尚未启用</td>
+</tr>
+<tr>
+<td>数据迁移</td>
+<td>⚠️ 使用 Prisma ORM（<code>api/prisma/</code>），但未见迁移脚本自动化；donate.ts 中 <code>startDate</code> 双字段带 TODO 待迁移，说明存在遗留数据字段问题</td>
+</tr>
+</tbody>
+</table>
+<p>部署工具链成熟（Docker/GHCR/DOCR/devcontainer/Crowdin 自动化），但部署 workflow 均为 <code>workflow_dispatch</code> <strong>手动触发</strong>，升级依赖人工重打镜像+重部署，且缺乏回滚与变更日志机制，数据迁移路径不透明。</p>
+<p><strong>打分: 1.8 / 3（5–6 档，60%）</strong></p>
+<h3>D7.2 安全管理与权限控制（满分 2.5 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>认证授权</td>
+<td>✅ 企业级身份源。部署 secrets 含 <code>AUTH0_CLIENT_ID/AUTH0_CLIENT_SECRET/AUTH0_DOMAIN</code>（Auth0 OAuth/SSO）；JWT（<code>JWT_SECRET</code>）+ CSRF（<code>CSRF_COOKIE</code>/<code>CSRF_HEADER</code>）+ 邮箱验证一次性 token；考试环境签发 1 年期 JWT，且非生产环境限 <code>@freecodecamp.org</code> staff 生成</td>
+</tr>
+<tr>
+<td>权限模型</td>
+<td>⚠️ 粗粒度。以 <code>req.user</code> / <code>isSignedIn</code> 为主，<code>/users/:userId</code> 仅校验"只能删自己"；未见 RBAC/ABAC 角色权限矩阵</td>
+</tr>
+<tr>
+<td>审计日志</td>
+<td>⚠️ 较弱。有 Sentry 捕获、donate 的 <code>audit: true</code>、<code>ExamEnvironmentExamModeration</code> 审核记录，但无系统性操作审计日志</td>
+</tr>
+<tr>
+<td>数据安全</td>
+<td>⚠️ 部分。部署密钥经 <code>age</code> 加密、传输依赖 HTTPS，但无字段级加密/密钥管理（KMS/Vault）说明</td>
+</tr>
+</tbody>
+</table>
+<p>Auth0 + JWT + CSRF 组合已超越"简单认证"，达到企业可接受基线，但<strong>权限模型粗粒度、审计日志薄弱</strong>，未构成"SSO + RBAC + 审计 + 加密"的完整体系。</p>
+<p><strong>打分: 2.0 / 2.5（7–8 档，80%）</strong></p>
+<h3>D7.3 可扩展性与高可用能力（满分 2.5 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>水平扩展</td>
+<td>✅ Support。API 无状态、经 Docker Swarm 部署可横向扩副本；客户端为静态产物，按语言分发到 2 台机（<code>for i in {0..1}</code>）负载分担</td>
+</tr>
+<tr>
+<td>高可用</td>
+<td>✅ 基础具备。MongoDB 副本集（<code>rs0</code>）+ healthcheck、Swarm 集群编排、双客户端节点（primary/secondary PM2）</td>
+</tr>
+<tr>
+<td>性能瓶颈</td>
+<td>⚠️ 有状态 MongoDB 为核心依赖，未见 Redis/缓存层；单区域部署，客户端固定 2 副本，非弹性伸缩</td>
+</tr>
+<tr>
+<td>数据一致性</td>
+<td>✅ 副本集保证一致性；支付等场景使用 Prisma <code>$transaction</code> 与唯一约束（P2002 幂等）</td>
+</tr>
+</tbody>
+</table>
+<p>Swarm + MongoDB 副本集 + 多节点客户端提供了基本的水平扩展与故障转移能力，但无缓存层、非自动弹性伸缩，扩展需额外配置。</p>
+<p><strong>打分: 2.0 / 2.5（7–8 档，80%）</strong></p>
+<h3>D7.4 集成兼容与可观测性（满分 2 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>评估</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>API 完备性</td>
+<td>✅ 良好。Fastify REST API，全量使用 <code>@fastify/type-provider-typebox</code> schema 定义契约（可生成 OpenAPI）；客户端以 RTK Query + GraphQL（Gatsby）消费</td>
+</tr>
+<tr>
+<td>标准协议</td>
+<td>⚠️ 未采用 OpenTelemetry/Prometheus 等标准可观测协议；Sentry 集成广泛，但代码注释显示 o11y 正处迁移中，source-map 上传与 release 标记当前<strong>被禁用</strong></td>
+</tr>
+<tr>
+<td>监控告警</td>
+<td>✅ 较好。Sentry errorHandler + metrics（如 <code>exam.attempt_created</code>）、docker-compose healthcheck（DB ping）、GrowthBook 特性开关</td>
+</tr>
+<tr>
+<td>日志体系</td>
+<td>✅ Fastify logger + <code>FCC_API_LOG_LEVEL</code>（debug/info/warn）可选、<code>LogLevel</code> 类型校验、结构化日志与 Sentry Logs 接入</td>
+</tr>
+</tbody>
+</table>
+<p>API 契约完整、监控与日志达到"基本+监控"水平，但缺少 Prometheus/OTel 等标准协议，且可观测性正处重构期（部分能力临时关闭）。</p>
+<p><strong>打分: 1.6 / 2（7–8 档，80%）</strong></p>
+<h3>结论</h3>
+<p>freeCodeCamp 的运营工程实践成熟（20 个 CI workflow、Docker Swarm 编排、MongoDB 副本集、Auth0 SSO、Sentry 可观测、Crowdin 多语言自动化），整体处于<strong>高于开源项目平均、但未达企业级卓越</strong>的水平：配置以环境变量驱动且校验完善、具备基础 HA 与水平扩展能力、集成 Auth0 企业身份源；短板在于<strong>无版本发布/CHANGELOG、回滚机制缺失、数据迁移不透明、RBAC 与审计薄弱、缺标准可观测协议</strong>。作为非商业化的公益平台，其运营能力已相当扎实，但若作为企业级产品交付仍需在升级/回滚治理、细粒度权限与合规审计上补齐。</p>
+<p><strong>维度总分: 7.4/10</strong>（D7.1 1.8 + D7.2 2.0 + D7.3 2.0 + D7.4 1.6）</p>
+<h3>D8. 团队治理与可持续性（得分: 9.1/10）</h3>
+<p>freeCodeCamp 是全球规模最大、历史最悠久的开源编程教育项目之一（2014 年创建，已运营约 11 年），其本质是一个由捐赠支持的美国 501(c)(3) 非营利慈善组织运营，而非典型的独立开发者或个人作品。项目处于完全活跃状态，无任何停滞或废弃信号，团队治理与可持续性维度表现卓越。</p>
+<h3>细则打分</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>打分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D8.1 核心维护者能力与背景</td>
+<td>2.5</td>
+<td>2.5</td>
+<td>9–10 档（100%）</td>
+<td>由 501(c)(3) 非营利组织全职运营，创始团队长期投入超 11 年；贡献者基数庞大（API 实采 380，为分页上限，实际历史累计数以千计）；巴士因子极高，非 1–2 人依赖型项目</td>
+</tr>
+<tr>
+<td>D8.2 治理模型透明度</td>
+<td>2.0</td>
+<td>1.6</td>
+<td>7–8 档（80%）</td>
+<td>具备正式组织治理（非营利董事会、公开财务、contribute.freecodecamp.org 贡献文档、CONTRIBUTING 流程、20 个 CI 治理工作流）；但决策仍以核心团队/创始人主导，未加入 CNCF/Apache/LF 等知名基金会，故未达 9–10 档</td>
+</tr>
+<tr>
+<td>D8.3 资金支持与商业赞助</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8 档（80%）</td>
+<td>README 明确「donor-supported 501(c)(3) charity」，有公开捐赠渠道与长期稳定的捐赠支持，可支撑全职团队；属「稳定赞助/组织支持、资金可持续」档，但非 VC/大公司全职团队模式</td>
+</tr>
+<tr>
+<td>D8.4 项目可持续性与传承风险</td>
+<td>3.0</td>
+<td>3.0</td>
+<td>9–10 档（100%）</td>
+<td>活跃度极高且平稳/上升（近 30 天 commit 463 次、90 天 PR 1439、90 天关闭 Issue 639）；无 archived/deprecated 标记；组织化治理具备传承能力；无分裂风险</td>
+</tr>
+</tbody>
+</table>
+<h3>关键发现</h3>
+<ul>
+<li><strong>组织化运营而非个人项目</strong>：项目由捐赠支持的 501(c)(3) 非营利实体运营，拥有全职团队与正式治理结构，巴士因子远高于普通开源项目，组织风险极低。</li>
+<li><strong>活跃度强劲且持续</strong>：近 30 天 463 次 commit、90 天 1439 个 PR、90 天关闭 639 个 Issue、仅 181 个开放 Issue——活跃度处于高位且无积压迹象，可持续性信号明确。</li>
+<li><strong>传承机制健全</strong>：基于非营利组织架构、公开治理与贡献流程（contribute 文档 + 20 个 CI 治理工作流），核心团队变动后具备社区接管能力。</li>
+<li><strong>无停滞/废弃信号</strong>：未标记 archived/deprecated，pushed_at 为 2026-10-16（近期），无任何项目终止迹象。</li>
+</ul>
+<p><strong>数据归因:</strong> 结构性归因——无低数据信号。本项目各项硬指标（Star 457k、Fork 49k、30 天 commit 463、90 天 PR 1439）均处开源项目顶尖水平，不存在低数据归因问题。需说明：(1) 贡献者数 380 为 GitHub API 分页上限采样值，实际历史累计贡献者远超此数，不得据此低估团队规模；(2) Fork 数高达 4.9 万，系教育类学习项目的正常现象（学习者 fork 练习），非社区分裂信号。<strong>该项目年龄远超 90 天，不适用 D8.4 新项目专项与 3.3 一票否决豁免。</strong></p>
+<p><strong>一票否决检查:</strong> D8.4 小分 3.0 &gt; 1 分阈值，<strong>不触发</strong> D8.4 一票否决。</p>
+<h3>D9. 上手难度与易用性（得分: 6.5/10）</h3>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>考察重点</th>
+<th>打分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D9.1 安装难度</td>
+<td>安装方式 / 依赖管理 / 环境要求 / 平台覆盖</td>
+<td><strong>打分: 2.0 / 2.5（7–8 档，80%）</strong></td>
+<td>良好</td>
+</tr>
+<tr>
+<td>D9.2 部署与配置难度</td>
+<td>部署方式 / 配置复杂度 / 外部依赖初始化 / 快速验证</td>
+<td><strong>打分: 1.5 / 2.5（5–6 档，60%）</strong></td>
+<td>一般</td>
+</tr>
+<tr>
+<td>D9.3 易用性与操作门槛</td>
+<td>操作便捷度 / 交互设计 / 错误处理 / 默认合理性</td>
+<td><strong>打分: 1.5 / 2.5（5–6 档，60%）</strong></td>
+<td>一般</td>
+</tr>
+<tr>
+<td>D9.4 学习曲线与首体验</td>
+<td>上手时间 / 入门引导 / 概念门槛 / 示例丰富度</td>
+<td><strong>打分: 1.5 / 2.5（5–6 档，60%）</strong></td>
+<td>一般</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>6.5 / 10</strong></td>
+<td>🟡 中等</td>
+</tr>
+</tbody>
+</table>
+<h3>D9.1 安装难度 —— <strong>打分: 2.0 / 2.5（7–8 档，80%）</strong></h3>
+<ul>
+<li><strong>安装方式</strong>：无 pip/npm 全局包、无 <code>docker run</code> 单体镜像可跑起整站，但提供了两条官方级路径——① 包管理器路径（pnpm workspace，根 <code>package.json</code> 声明 <code>packageManager: pnpm@12.10.1</code>，构建用 <code>pnpm install --frozen-lockfile</code>）；② 容器化路径（<code>.devcontainer/docker-compose.yml</code> 直接引用已发布镜像 <code>ghcr.io/freecodecamp/devcontainer:latest</code>，在 GitHub Codespaces / VS Code Dev Containers 中属“一键打开”。符合 7–8 档“有容器化<strong>或</strong>包管理器安装”。</li>
+<li><strong>依赖管理</strong>：<strong>不是自包含</strong>。除 Node 依赖外，强制要求 MongoDB 8.x（且 <code>mongod --replSet rs0</code> + <code>rs.initiate</code>）与 Mailpit 邮件服务，二者由 <code>docker/docker-compose.yml</code> 编排，避免了“全手动安装”，但仍属外部组件依赖。这是未给到 9–10 档（“无外部依赖”）的主要原因。</li>
+<li><strong>环境要求</strong>：偏严格——<code>engines</code> 明确 <code>node &gt;=24</code>、<code>pnpm &gt;=12</code>，编译镜像使用 <code>node:24-bookworm</code>；老版本 Node 无法直接运行。</li>
+<li><strong>平台覆盖</strong>：Windows/macOS/Linux 均可通过 Docker 覆盖；<code>docker/devcontainer/Dockerfile</code> 已处理 <code>GATSBY_HOST=0.0.0.0</code> 以规避 IPv6 回环导致的端口转发问题，跨平台细节有照顾。</li>
+<li>综合：容器化 + 包管理器双路径、预置缓存显著降低安装成本，但外部数据库依赖与严格版本门槛使其止步于 7–8 档。</li>
+</ul>
+<h3>D9.2 部署与配置难度 —— <strong>打分: 1.5 / 2.5（5–6 档，60%）</strong></h3>
+<ul>
+<li><strong>部署方式</strong>：标准化程度<strong>分层</strong>——基础设施层有 <code>docker/docker-compose.yml</code>（db / setup / mailpit），API 层有生产 Dockerfile（<code>docker/api/Dockerfile</code>，多阶段构建 + <code>CMD ["node", "api/src/server.js"]</code>），但<strong>没有覆盖「Web 应用 + API + DB + 邮件」全栈的单个 docker-compose，也没有 Helm/K8s 清单</strong>。CI 中存在 <code>deploy-api.yml</code>、<code>deploy-client.yml</code>，但那是官方自有基础设施的发布流水线，不是可复用的自托管方案。</li>
+<li><strong>配置复杂度</strong>：需要 <code>sample.env</code> → <code>.env</code>；client 另有 <code>pnpm run create:env</code>、<code>create:i18n</code>、<code>create:trending</code>、<code>create:external-curriculum</code> 等一串 <code>setup</code> 前置脚本（<code>pnpm clean &amp;&amp; pnpm create:env &amp;&amp; pnpm create:i18n &amp;&amp; pnpm create:trending &amp;&amp; pnpm create:search-placeholder &amp;&amp; pnpm create:external-curriculum &amp;&amp; pnpm copy:scripts</code>），配置项多于“少量”。</li>
+<li><strong>外部依赖初始化</strong>：MongoDB 副本集初始化由 compose 的 <code>setup</code> 服务承担（<code>rs.initiate({ _id: "rs0", ... })</code>），做得不错；但还需 curriculum 构建产物与数据种子（<code>pnpm seed</code>）。</li>
+<li><strong>快速验证</strong>：仓库内<strong>无 quickstart/demo 脚本说明</strong>，README 无部署章节，10 分钟内跑通 demo 不可行（Gatsby 开发服务器 + curriculum 构建 + 种子数据）。</li>
+<li><strong>面向人群</strong>：非开发人员（运维/产品/商务）无法独立完成，需熟悉 pnpm/turbo 工作区与 Mongo 副本集概念。</li>
+<li>综合：基础设施已容器化、初始化脚本齐备（加分），但缺全栈编排与快速验证路径（减分），落在“可部署但需较多手动配置和依赖初始化”的 5–6 档。</li>
+</ul>
+<h3>D9.3 易用性与操作门槛 —— <strong>打分: 1.5 / 2.5（5–6 档，60%）</strong></h3>
+<ul>
+<li><strong>操作便捷度</strong>：日常操作通过根 <code>package.json</code> 的脚本完成（<code>develop</code> / <code>start</code> / <code>seed</code> / <code>test</code> / <code>build:api</code> / <code>develop:client</code> …），命名尚可读，但脚本数量多、且 <code>start</code> 会串联 <code>turbo setup &amp;&amp; npm-run-all -p develop:server serve:client</code>，需理解 turbo 与 npm-run-all 的并行语义。</li>
+<li><strong>交互设计</strong>：项目本体是面向学习者的 Web 站点（有完整 UI），但<strong>自托管场景没有任何管理界面或 CLI 向导</strong>；素材中亦未提供 CLI <code>--help</code> 输出、错误提示样式等证据，此项数据缺失，不能加分。</li>
+<li><strong>默认合理性</strong>：<code>sample.env</code> 提供了开发态默认值，devcontainer 镜像把 pnpm store 与 turbo 缓存预热好，默认配置在开发场景大体“开箱可用”；但生产/正式自托管仍需自备 Mongo 副本集、邮件服务与若干第三方密钥（依赖清单可见 <code>stripe</code>、<code>@growthbook/growthbook</code>、<code>algoliasearch</code> 等），调参量不小。</li>
+<li><strong>非专家可用性</strong>：明显偏低。仓库代码 223,147 行、20 条 CI workflow、9 个以上 workspace 子包（api / client / curriculum / e2e / packages×4 / tools×7），操作与排障门槛都在开发者一侧。</li>
+<li>综合：脚本化程度优于平均水平，但缺乏面向非专家的交互层与友好错误引导，属 5–6 档“操作可用但需查文档”。</li>
+</ul>
+<h3>D9.4 学习曲线与首体验 —— <strong>打分: 1.5 / 2.5（5–6 档，60%）</strong></h3>
+<ul>
+<li><strong>上手时间</strong>：从零到首次成功需要 clone → 起 Mongo/Mailpit → <code>pnpm install --frozen-lockfile</code> → 配 <code>.env</code> → curriculum 构建 → 启动 Gatsby/API → 灌种子数据，属<strong>小时级</strong>，与 9–10 档“10 分钟内首次成功”有量级差距。</li>
+<li><strong>入门引导</strong>：仓库 README <strong>完全没有安装/快速开始章节</strong>，仅有「Certifications / The Learning Platform / Contributing」等，Contributing 直接外链 <code>https://contribute.freecodecamp.org</code>。非仓库内引导；相比之下 devcontainer 提供了“环境即就绪”的隐式引导，这是本项没有被压到 3–4 档的关键因素。</li>
+<li><strong>概念门槛</strong>：实质要求 TypeScript / React / Gatsby / Node 24 / pnpm workspaces / turbo / Prisma / MongoDB 副本集等多项前置知识；<code>tags</code> 中亦未见 <code>beginner-friendly</code> 标记（仅有 <code>first-timers-only Friendly</code> 徽章，指向的是 Issue 层面的新手友好，而非使用门槛）。</li>
+<li><strong>示例丰富度</strong>：仓库「示例」目录为 0；<code>curriculum/challenges/**</code> 下数万计的挑战 Markdown 属<strong>教学内容</strong>而非“供参照模仿的使用示例”。文档文件虽统计为 16,852 个，但绝大多数是课程内容文件，真实面向使用者的文档极少。</li>
+<li>综合：符合 5–6 档“需半天到一天上手，有基本文档但需自行摸索”。</li>
+</ul>
+<h3>结论</h3>
+<p>freeCodeCamp 在<strong>工程侧做了大量降低安装摩擦的工作</strong>（官方 devcontainer 镜像 + 预置 pnpm store / turbo 缓存 + 双 compose 编排 DB 与 Mailpit），安装环节（D9.1，80%）明显优于同类自托管项目。但<strong>部署验证（D9.2）、日常操作（D9.3）、首体验（D9.4）三项均只达到行业平均</strong>：没有全栈一键编排、README 无 quickstart、无使用示例工程、无面向非专家的交互层。综合 <strong>6.5/10，判定为 🟡 中等</strong>——面向有技术基础的开发者，安装部署章节按“关键步骤”粒度呈现即可，无需为新手做保姆级展开。</p>
+<blockquote>
+<p>置信度说明：本维度主要依据 <code>package.json</code>（engines/scripts）、两套 <code>docker-compose.yml</code>、<code>docker/api/Dockerfile</code>、<code>docker/devcontainer/Dockerfile</code> 与 README 全文。由于 README 缺安装章节、CLI 帮助与错误提示样式未采集到原始素材，D9.3 的「交互设计/错误处理」两项判定置信度相对偏低。</p>
+</blockquote>
+<h3>D10 功能价值——使用价值视角（平行维度，权重 0%，不计入综合评分）</h3>
+<blockquote>
+<p>本维度只回答一个问题：<strong>用这个项目的人，到底省了/赚了多少</strong>。freeCodeCamp 的使用者不是「集成方」（它不是被 import 的库），而是<strong>数百万名通过 freecodecamp.org 学习编程的成人学习者</strong>，以及自托管/分叉该平台的机构。因此本维度的效用锚定在「教育服务交付」而非「软件开发成本节省」上。</p>
+</blockquote>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10.1</td>
+<td>效用强度</td>
+<td>3</td>
+<td><strong>3.0</strong></td>
+<td>9–10 档（100%）</td>
+</tr>
+<tr>
+<td>D10.2</td>
+<td>实际使用规模</td>
+<td>3</td>
+<td><strong>2.4</strong></td>
+<td>7–8 档（80%）</td>
+</tr>
+<tr>
+<td>D10.3</td>
+<td>免费可得的完整效用</td>
+<td>2</td>
+<td><strong>2.0</strong></td>
+<td>9–10 档（100%）</td>
+</tr>
+<tr>
+<td>D10.4</td>
+<td>效用可持续性</td>
+<td>2</td>
+<td><strong>1.6</strong></td>
+<td>7–8 档（80%）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td>10</td>
+<td><strong>9.0</strong></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>D10.1 效用强度</h3>
+<p><strong>打分: 3.0 / 3（9–10 档，100%）</strong></p>
+<p><strong>单用户节省量</strong>：README 明确表述其定位——「help millions of busy adults transition into tech」，并给出量化结果「helped more than 100,000 people get their first developer job」。对单个学习者而言，其替代品是付费集训营（普遍 8,000–20,000 美元量级）或付费课程订阅，本项目以 0 美元提供等价的<strong>全栈开发 + 机器学习 + 数学/CS 课程体系</strong>，并可兑换可验证、可长期挂载到 LinkedIn/简历的认证。单用户节省量处于「数千至上万美元成本 + 6–12 个月学习路径」量级，而非分钟级便利。</p>
+<p><strong>效用层级</strong>：对个体用户而言，这是<strong>职业转型命脉级</strong>效用（从非技术岗进入开发者岗位），不是「项目级依赖」也不是「锦上添花」。对 freeCodeCamp.org 自身，该仓库即是其<strong>唯一业务载体</strong>——平台本身即为产品。</p>
+<p><strong>效用确定性</strong>：课程内容以 Markdown 文件形式固化为仓库资产（本地实采：文档文件 16,852 个，<code>curriculum/challenges/english/blocks/...</code> 结构完整），平台代码 223,147 行、测试 58,452 行（测试占比 26.2%），20 条 CI 工作流保证交付稳定性；学习路径自定进度、随时可访问，效用在供给侧稳定可预期（用户侧产出当然取决于个人投入，但这是教育服务的固有属性，不构成本项扣分）。</p>
+<p><strong>结论</strong>：效用强度达到「业务命脉级 + 替代方案数十倍成本」的顶档描述，判定 9–10 档。</p>
+<hr />
+<h3>D10.2 实际使用规模</h3>
+<p><strong>打分: 2.4 / 3（7–8 档，80%）</strong></p>
+<p><strong>实测可用指标</strong>：Star 457,129（实采，GitHub 全站头部量级）、Fork 49,413（实采）、贡献者 380 人（实采）、仓库持续活跃（近 90 天 PR 1,439 个、30 天提交 463 次）。</p>
+<p><strong>结构性不适用的指标</strong>：<code>npm_weekly_downloads = N/A</code>、<code>pypi_monthly_downloads = N/A</code>。本项目是<strong>端到端学习平台的 monorepo（含 React 前端、API、curriculum 内容）</strong>，并非发布到 npm/PyPI 供他人 import 的库，GitHub Dependents（「Used by」）计数在此形态下结构性不适用。因此本项只能以「生产采用证据 + 平台侧使用规模」作为替代证据。</p>
+<p><strong>生产采用证据</strong>：README 明确「This code is running live at freeCodeCamp.org」，并给出社区规模声明「helping millions of busy adults」与「100,000+ 人获得第一份开发者工作」。仓库内含完整的自托管工程能力（<code>docker-ghcr.yml</code>、<code>docker-docr.yml</code>、<code>devcontainer-ci.yml</code>），说明代码具备被第三方复现部署的完整形态。</p>
+<p><strong>档位判断</strong>：以 Rubric 的锚点（十万级依赖方/月下载百万级 = 7–8 档；百万级依赖方/月下载千万级 = 9–10 档）衡量，本项目的 457k Star / 49k Fork 属全站顶尖、真实受众达百万级（README 声明），但<strong>顶档所要求的「百万级依赖方/千万级下载」类包级证据无法直接取得</strong>，故落在 7–8 档而非顶档。</p>
+<p><strong>数据归因: 结构性归因——应用型/非库型项目，包依赖与下载量指标天然不适用（证据：<code>npm_weekly_downloads=N/A</code>、<code>pypi_monthly_downloads=N/A</code>，仓库为含前端+API+curriculum 的平台 monorepo 而非可发布库；实际使用经由 freecodecamp.org 托管平台发生）。使用规模的低计数不构成质量负面信号，本项目亦非低使用规模项目。</strong></p>
+<hr />
+<h3>D10.3 免费可得的完整效用</h3>
+<p><strong>打分: 2.0 / 2（9–10 档，100%）</strong></p>
+<ul>
+<li><strong>开源版完整性</strong>：README 声明「Our full-stack web development and machine learning curriculum is <strong>completely free and self-paced</strong>」。所有认证（Responsive Web Design、JavaScript、Front-End Libraries、Python、Relational Databases、Back-End Development and APIs，以及 A2/B1 英语、A1 西语/中文语言认证、微软 Foundational C# 认证）均免费开放，无付费解锁层。</li>
+<li><strong>自托管完整性</strong>：仓库包含完整平台代码与 20 条 CI 工作流（含 Docker 镜像发布、CLI 端到端测试、i18n 校验），可自行部署复现同等平台能力。</li>
+<li><strong>无隐性收费</strong>：项目由「donor-supported 501(c)(3) charity」资助，收入来自捐赠而非功能售卖，产品层面<strong>不存在付费墙</strong>；与 README 的认证召回逻辑一致——唯一失去认证的情形是违反学术诚信策略（抄袭），而非未付费。</li>
+</ul>
+<p><strong>价值结构对比（与 D4.3 的天然张力）</strong>：本项拿满分意味着「交换价值」侧被刻意放弃——该项目的商业模式是捐赠而非付费转化，D10.3 极高与 D4.3 付费转化逻辑偏低是同一枚硬币的两面，属于正常价值结构，不是矛盾。这正是平行维度存在的意义：若只看商业评分，这类项目会被系统性低估。</p>
+<hr />
+<h3>D10.4 效用可持续性</h3>
+<p><strong>打分: 1.6 / 2（7–8 档，80%）</strong></p>
+<ul>
+<li><strong>停维后效用存续</strong>：学习内容以文件形态固化在仓库（16,852 个文档、<code>curriculum/challenges/english/blocks/...</code> 章节化结构），代码本地可运行（含 <code>devcontainer-ci.yml</code> 开发容器），因此「学习内容 + 可运行平台」的效用不会随停维立即归零。</li>
+<li><strong>可分叉维护性</strong>：软件部分采用 <strong>BSD-3-Clause</strong>（许可证实采确认），属宽松许可，允许自由分叉、修改、再分发；代码完整且构建可重现（Turborepo + pnpm workspace + Docker 工作流）。</li>
+<li><strong>扣分点（未达顶档的原因）</strong>：
+  1. <strong>内容层许可证保留</strong>：README 明示「The learning resources in the <code>/curriculum</code> directory ... are copyright © 2014 freeCodeCamp.org」——即<strong>软件 BSD 开源，但课程内容版权保留</strong>，分叉者不能无约束地复制整套课程，分叉后的「完整效用」存在法务缺口。
+  2. <strong>认证效用绑定官方服务</strong>：认证的雇主认可度依附于 freecodecamp.org 的验证链接与机构信誉，自托管实例无法签发同等效力的凭证，属轻度在线服务绑定。
+  3. <strong>平台运行依赖外部件</strong>：i18n 依赖 Crowdin 工作流（<code>crowdin-*.yml</code>）等外部协作服务，虽可替换但增加分叉维护成本。</li>
+</ul>
+<p>综合为「主体本地化、少量可替换外部依赖」的 7–8 档，而非「完全本地化、无任何外部依赖、可自由分叉」的顶档。</p>
+<hr />
+<h3>本章结论</h3>
+<p><strong>（得分: 9.0/10）</strong></p>
+<p>freeCodeCamp 是「使用价值与交换价值严重不对称」的极端样本：它以捐赠型 501(c)(3) 模式，向学习者提供<strong>完全免费、无功能阉割、可本地运行的亿万级教育效用</strong>（100,000+ 人借此获得第一份开发者工作，替代方案需付出数万美元成本），并拥有 457k Star / 49k Fork 的顶级真实使用规模。代价是它几乎不产生商业收入——这正是为什么单看 D1–D9 商业评分会严重低估它，也解释了它在本维度拿到 9.0/10 的意义：<strong>功能价值维度补齐了商业视角看不见的那部分信息</strong>。</p>
+<p>唯一未达顶档的两处：使用规模因「非库型项目」结构而缺少包级依赖/下载证据（归因已说明，非质量信号）；效用可持续性因课程内容版权保留 + 认证绑定官方服务而略打折。</p>
+<p><strong>数据归因: 结构性归因（应用型/非库型项目，包下载与依赖计数结构性不适用；实际使用经由 freecodecamp.org 托管平台与 49,413 次 Fork 体现），低包级计数不构成质量负面信号。</strong></p>
+<h3>D11. 社会价值——正外部性视角（平行维度，权重 0%，不计入综合评分）</h3>
+<blockquote>
+<p>本维度权重为 0，不进入综合评分与一票否决，仅用于 3.4 价值画像。与 D3.4（品牌对商业势能的助力）视角不同：此处评的是项目对行业/社会的外溢贡献本身。</p>
+</blockquote>
+<h3>D11.1 数字公共基础设施属性</h3>
+<p><strong>打分: 2.4 / 3（7–8 档，80%）</strong></p>
+<p><strong>判断依据</strong>：
+- <strong>关键依赖地位 / 停摆影响面</strong>：freeCodeCamp 并非 curl/OpenSSL 式的软件供应链底座，npm 周下载、下游包依赖均无实测数据（<code>npm_weekly_downloads: N/A</code>）；从「软件供应链」口径看，其消失不会波及下游构建。但其停摆影响面在教育领域极为可观——README 明确「已帮助超 100,000 人获得第一份开发者工作」，455k+ Star、49k+ Fork 的学习者规模远超一般项目。
+- <strong>数字公共产品（DPG）属性</strong>：特征极强。项目由<strong>捐赠支持的美国 501(c)(3) 非营利组织</strong>运营，课程「完全免费、自定进度」，代码库与课程作为开放教育资源公开，符合「开放、可复用、服务公共利益」的 DPG 定义；面向全球教师/非营利/自学者开放。
+- <strong>减分项</strong>：作为「数字底座」的下游软件依赖几乎为零；且 README 声明 <code>/curriculum</code> 目录下的学习资源版权归 freeCodeCamp.org（软件为 BSD-3-Clause），课程内容的开放许可边界不如纯 DPG 清晰。
+- 综合：在<strong>教育基础设施</strong>这一领域内是重要基础依赖与公共品，但不符合「海量下游软件依赖、波及整条供应链」的 9–10 档定义，落入 7–8 档。</p>
+<h3>D11.2 教育与人才价值</h3>
+<p><strong>打分: 2.5 / 2.5（9–10 档，100%）</strong></p>
+<p><strong>判断依据</strong>：
+- <strong>教学采用</strong>：项目本身就是一套完整教学体系——6 项全栈开发认证（Responsive Web Design / JavaScript / Python / 关系数据库 / 后端 API 等）+ 4 项语言认证（A2/B1 英语、A1 西语、A1 中文），含「interactive lessons, workshops, labs, reviews, and quizzes」；并内置 The Odin Project、Coding Interview Prep、Project Euler、Rosetta Code 等经典教学素材，以及与 Microsoft 合作的 C# 基础认证。这是事实上的行业教材级存在。
+- <strong>门槛降低效应</strong>：让「忙碌的成年人转行进入技术行业」成为可复制的路径，README 直陈已帮助 10 万+ 人拿到第一份开发者工作；配套论坛、YouTube 频道、技术刊物（数千篇教程）、Discord 形成完整学习支持网络。
+- <strong>源码学习价值</strong>：仓库本身是 22.3 万行代码的大型 TypeScript/React/Node 单仓（102k+ 行 .ts/.tsx），测试占比 26.2%（371 个测试文件、58k 行），20 条 CI 工作流，是极佳的工程范本；38 万+ fork 与 380 名贡献者、90 天 1439 个 PR，说明源码被大量阅读、克隆与二次修改——其中相当比例是学习者的「首次贡献」（first-timers-only Friendly 徽章）。
+- 三项考察点均达到顶格水平，给满分。</p>
+<h3>D11.3 普惠与可及性</h3>
+<p><strong>打分: 2.5 / 2.5（9–10 档，100%）</strong></p>
+<p><strong>判断依据</strong>：
+- <strong>能力平权化</strong>：将本来需数千至数万美元的编程培训/学位能力，以<strong>零成本</strong>平权化给任何人——非营利运营、课程永久免费、自定进度，且证书可永久挂 LinkedIn/简历。对标同能力的商业编程训练营与在线学位，价格差极为悬殊（数千美元 vs 0）。
+- <strong>可及性支持（i18n）</strong>：i18n 是项目的工程重点，实测 CI 工作流中包含 <code>crowdin-download.client-ui.yml</code>、<code>crowdin-upload.client-ui.yml</code>、<code>crowdin-upload.curriculum.yml</code>、<code>curriculum-i18n-submodule.yml</code>、<code>i18n-validate-builds.yml</code>、<code>i18n-validate-prs.yml</code>，并有 <code>github-no-i18n-via-prs.yml</code> 治理多语言贡献流程；课程本地化通过 Crowdin 众包推进，源码中存在 <code>curriculum/__fixtures__/chinese/</code> 等中文课程夹具，证明多语言课程为真实在产能力。此外专门开设面向非英语母语者的英语/西语/中文语言认证，直接服务欠发达地区与非英语人口。
+- <strong>硬件可及性</strong>：纯浏览器 Web 平台，无高配硬件要求（无外部下载量数据，硬件门槛低为事实推导）。
+- 符合 9–10 档「将原本昂贵的能力平权化给所有人，可及性支持完善」。</p>
+<h3>D11.4 开放标准与行业推动</h3>
+<p><strong>打分: 1.2 / 2（5–6 档，60%）</strong></p>
+<p><strong>判断依据</strong>：
+- <strong>标准推动</strong>：freeCodeCamp <strong>遵循</strong>开放 Web 标准（HTML/CSS/JavaScript、React、Node、D3 等），但本身并非开放协议/格式标准的定义者或主导者，未产生行业级标准；软件采用 BSD-3-Clause、课程内容归 freeCodeCamp.org，属「遵循开放标准但无推动作用」。
+- <strong>科研支撑</strong>：论文引用/学术使用情况无实测数据，无法核实（该考察点按数据缺失处理，未据此加分或扣分）。
+- <strong>行业示范效应</strong>：这一点表现突出——其「免费 + 认证 + 社区 + 众包课程」模式被大量后来的免费编程学习平台模仿，课程体系与贡献流程（first-timers-only、Crowdin 众包翻译流水线）具备明显的抬升行业水位效果。但单一考察点的强项不足以撑起 7–8 档「实现并推广了重要开放标准」，综合落入 5–6 档。</p>
+<h3>D11 细则分值汇总</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D11.1</td>
+<td>数字公共基础设施属性</td>
+<td>3</td>
+<td>2.4</td>
+<td>7–8 档（80%）</td>
+</tr>
+<tr>
+<td>D11.2</td>
+<td>教育与人才价值</td>
+<td>2.5</td>
+<td>2.5</td>
+<td>9–10 档（100%）</td>
+</tr>
+<tr>
+<td>D11.3</td>
+<td>普惠与可及性</td>
+<td>2.5</td>
+<td>2.5</td>
+<td>9–10 档（100%）</td>
+</tr>
+<tr>
+<td>D11.4</td>
+<td>开放标准与行业推动</td>
+<td>2</td>
+<td>1.2</td>
+<td>5–6 档（60%）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td><strong>8.6</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<p>freeCodeCamp 是一个罕见的「社会价值拉满」的开源项目：非营利 501(c)(3) 运营、零成本课程、10 万+ 人转行就业、6+4 项认证体系、Crowdin 驱动的多语言可及性，使其教育与普惠两个细则达到顶格。其短板在于不构成软件供应链意义上的数字底座（无下游包依赖、无下载量数据），也不是开放标准的定义者，故 D11.1 与 D11.4 未达满档。综合 <strong>（得分: 8.6/10）</strong>，在本方法论体系中属于典型的高正外部性、但商业变现路径与传统软件项目迥异的公共教育基础设施。需注意：本维度权重为 0，且科研引用、npm/包下载量等数据缺失（N/A），相关结论置信度有所下降。</p>
+<h2>十一、项目地址</h2>
+<p><svg class="ri ri-muted" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.001 2C6.47598 2 2.00098 6.475 2.00098 12C2.00098 16.425 4.86348 20.1625 8.83848 21.4875C9.33848 21.575 9.52598 21.275 9.52598 21.0125C9.52598 20.775 9.51348 19.9875 9.51348 19.15C7.00098 19.6125 6.35098 18.5375 6.15098 17.975C6.03848 17.6875 5.55098 16.8 5.12598 16.5625C4.77598 16.375 4.27598 15.9125 5.11348 15.9C5.90098 15.8875 6.46348 16.625 6.65098 16.925C7.55098 18.4375 8.98848 18.0125 9.56348 17.75C9.65098 17.1 9.91348 16.6625 10.201 16.4125C7.97598 16.1625 5.65098 15.3 5.65098 11.475C5.65098 10.3875 6.03848 9.4875 6.67598 8.7875C6.57598 8.5375 6.22598 7.5125 6.77598 6.1375C6.77598 6.1375 7.61348 5.875 9.52598 7.1625C10.326 6.9375 11.176 6.825 12.026 6.825C12.876 6.825 13.726 6.9375 14.526 7.1625C16.4385 5.8625 17.276 6.1375 17.276 6.1375C17.826 7.5125 17.476 8.5375 17.376 8.7875C18.0135 9.4875 18.401 10.375 18.401 11.475C18.401 15.3125 16.0635 16.1625 13.8385 16.4125C14.201 16.725 14.5135 17.325 14.5135 18.2625C14.5135 19.6 14.501 20.675 14.501 21.0125C14.501 21.275 14.6885 21.5875 15.1885 21.4875C19.259 20.1133 21.9999 16.2963 22.001 12C22.001 6.475 17.526 2 12.001 2Z"/></svg> <a href="https://github.com/freeCodeCamp/freeCodeCamp">https://github.com/freeCodeCamp/freeCodeCamp</a></p>
+<hr />
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+</blockquote>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家　<a href="https://github.com/weixiongf" target="_blank" rel="noopener">@冯伟雄</a>　<a href="https://www.mova.work">www.mova.work</a></p>
+<p><strong>查看所有报告：</strong><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/">https://weixiongf.github.io/Open-Source-Alpha-Reports/</a></p><div class="page-footer">本页面由 <span class="at-acc">@向量之心</span> 打造的 github_anyliasis 系统自动维护。报告为 AI 辅助生成的第三方独立分析，仅供研究参考，不构成投资建议。</div></body></html>

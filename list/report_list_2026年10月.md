@@ -1,13 +1,14 @@
 # 报告清单 · 2026年10月
 
 > 本文件由 github_anyliasis 自动维护，每次发布报告时更新。
-> 本月共收录 3 条报告记录。
+> 本月共收录 4 条报告记录。
 
 | 序号 | 项目 | 综合得分 | 等级 | 一句话结论 |
 |------|------|----------|------|-----------|
 | 1 | [jev-chat/jev-chat-jarvis](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/10/15/jev-chat-jarvis/report.html) | 66.5 | A | 23 天 7,747 星、直接竞品挂零的爆款，却亲手焊死了三条最赚钱的路——它不缺用户，缺一个收款口。 |
 | 2 | [morluto/rea](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/10/15/rea/report.html) | 77.6 | A | 184天26万星的逆向工程Agent工具链，技术顶配、商业化零分，赌注是企业服务那一层。 |
-| 3 | [storytold/photocraft](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/10/16/photocraft/report.html) | 75.5 | A | 15天6.3万星，不因它能替代Photoshop，而因它做了Adobe不做的事——生死不在代码，在钱从哪来。 |
+| 3 | [freeCodeCamp/freeCodeCamp](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/10/16/freecodecamp/report.html) | 73.2 | A | 它不是一门生意，而是一台帮 10 万人省下数万美元学费的公共机器——想赚它的钱，先做它的生态，别做它的股东。 |
+| 4 | [storytold/photocraft](https://weixiongf.github.io/Open-Source-Alpha-Reports/reports/2026/10/16/photocraft/report.html) | 75.5 | A | 15天6.3万星，不因它能替代Photoshop，而因它做了Adobe不做的事——生死不在代码，在钱从哪来。 |
 
 ---
 

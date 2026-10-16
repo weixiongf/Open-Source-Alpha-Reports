@@ -1,0 +1,1690 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><title>Photocraft 商业价值分析报告</title><style>/* default — 品牌蓝紫主题（从 md2pdf.py 原 CSS 常量迁出，视觉与历史产物一致） */
+@page { size: A4; margin: 18mm 15mm 20mm 15mm; }
+* { box-sizing: border-box; }
+/* 字体规范：一律开源思源黑体 CN（OFL 免费商用）；正文 Regular/标题 Bold/大字数字 Light */
+body { font-family: "Source Han Sans CN","思源黑体 CN","Noto Sans SC",sans-serif; color:#1e293b; font-size:10.5pt; line-height:1.75; margin:0; }
+.cover { page-break-after: always; text-align:center; padding-top:40px; }
+.cover .kicker { color:#2563eb; letter-spacing:6px; font-size:12pt; font-weight:500; }
+.cover h1 { font-size:26pt; margin:14px 0 6px; }
+.cover .sub { color:#64748b; font-size:11pt; margin-bottom:22px; }
+.badge { display:inline-block; background:linear-gradient(135deg,#2563eb,#7c3aed); color:#fff; border-radius:18px; padding:16px 44px; margin:10px 0 18px; }
+.badge .g { font-size:34pt; font-weight:300; line-height:1; }
+.badge .s { font-size:12pt; opacity:.92; margin-top:4px; }
+.meta { color:#475569; font-size:9.5pt; margin-top:14px; margin-bottom:40px; }
+.bars { max-width:620px; margin:20px auto 0; text-align:left; }
+.bar-row { display:flex; align-items:center; gap:8px; margin:5px 0; font-size:9pt; }
+.bar-name { width:110px; text-align:right; color:#334155; font-weight:500; }
+.bar-track { flex:1; height:9px; background:#f1f5f9; border-radius:5px; overflow:hidden; }
+.bar-fill { display:block; height:100%; border-radius:5px; }
+.bar-val { width:30px; font-weight:700; color:#0f172a; }
+.bar-w { width:52px; color:#94a3b8; font-size:8pt; }
+h1 { font-size:17pt; color:#0f172a; border-bottom:3px solid #2563eb; padding-bottom:8px; }
+h2 { font-size:13.5pt; color:#1d4ed8; margin-top:26px; page-break-after: avoid; border-left:5px solid #2563eb; padding-left:10px; }
+h3 { font-size:11.5pt; color:#0f172a; margin-top:18px; page-break-after: avoid; }
+table { border-collapse:collapse; width:100%; margin:10px 0; font-size:9pt; page-break-inside:avoid; }
+th { background:#eff6ff; color:#1e3a8a; }
+th,td { border:1px solid #dbe3ef; padding:5px 8px; text-align:left; }
+tr:nth-child(even) td { background:#f8fafc; }
+code { background:#f1f5f9; border-radius:4px; padding:1px 5px; font-family:"JetBrains Mono","Cascadia Mono",monospace; font-size:9pt; color:#be185d; }
+pre { background:#0f172a; color:#e2e8f0; border-radius:8px; padding:12px 14px; overflow-x:auto; page-break-inside:avoid; }
+pre code { background:none; color:inherit; padding:0; }
+blockquote { border-left:4px solid #93c5fd; background:#eff6ff; margin:10px 0; padding:8px 14px; color:#334155; border-radius:0 8px 8px 0; }
+hr { border:none; border-top:1px dashed #cbd5e1; margin:22px 0; }
+strong { color:#0f172a; }
+.credit { color:#2563eb; font-size:10.5pt; font-weight:700; letter-spacing:1px; margin-top:12px; }
+.at-acc { background:#dbeafe; color:#1d4ed8; border-radius:4px; padding:0 4px; font-weight:500; white-space:nowrap; }
+.tail { page-break-inside:avoid; margin-top:26px; border-top:2px solid #2563eb; padding-top:14px; }
+.tail p { color:#64748b; font-size:8.5pt; line-height:1.6; margin:0 0 10px; }
+.tail .credit { text-align:center; margin:0; }
+.page-footer { text-align:center; color:#94a3b8; font-size:8.5pt; line-height:1.6; margin-top:28px; padding-top:12px; border-top:1px solid #e2e8f0; }
+/* Remix Icon 内联 SVG（icon_mode=remix 时由脚本注入，语义色与评分条一致） */
+.ri { width:1.05em; height:1.05em; vertical-align:-0.18em; display:inline-block; }
+.ri-ok { color:#16a34a; } .ri-warn { color:#d97706; } .ri-bad { color:#dc2626; }
+.ri-muted { color:#64748b; } .ri-star { color:#f59e0b; } .ri-brand { color:#2563eb; }
+.ri-gold { color:#d4a017; } .ri-silver { color:#9ca3af; } .ri-bronze { color:#b45309; }
+/* 屏幕预览：@page 边距仅在打印时生效，浏览器中居中限宽并收边（不影响 PDF 输出） */
+@media screen {
+  body { margin: 0 auto; padding: 28px 36px 56px; max-width: 980px; }
+}
+</style></head><body><div class="cover">
+<div class="kicker">开源项目商业化潜力分析 · 第 129 期</div>
+<h1>GitHub 开源项目 Photocraft<br>商业价值分析报告</h1>
+<div class="sub">storytold/photocraft · 开源纯 Rust 的 Photoshop 级图像编辑器 · 九维度加权评估</div>
+<div class="badge"><div class="g">A 级 · 75.5</div><div class="s">综合评分（满分 100）· 高商业化潜力</div></div>
+<div><svg viewBox="0 0 560 480" width="560" height="480" xmlns="http://www.w3.org/2000/svg"><polygon points="280.0,209.6 299.5,216.7 309.9,234.7 306.3,255.2 290.4,268.6 269.6,268.6 253.7,255.2 250.1,234.7 260.5,216.7" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,179.2 319.1,193.4 339.9,229.4 332.7,270.4 300.8,297.1 259.2,297.1 227.3,270.4 220.1,229.4 240.9,193.4" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,148.8 338.6,170.1 369.8,224.2 359.0,285.6 311.2,325.7 248.8,325.7 201.0,285.6 190.2,224.2 221.4,170.1" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,118.4 358.2,146.8 399.8,218.9 385.3,300.8 321.6,354.3 238.4,354.3 174.7,300.8 160.2,218.9 201.8,146.8" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,88.0 377.7,123.6 429.7,213.6 411.6,316.0 332.0,382.8 228.0,382.8 148.4,316.0 130.3,213.6 182.3,123.6" fill="none" stroke="#e2e8f0" stroke-width="1"/><line x1="280.0" y1="240.0" x2="280.0" y2="88.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="377.7" y2="123.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="429.7" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="411.6" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="332.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="228.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="148.4" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="130.3" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="182.3" y2="123.6" stroke="#d8dee9" stroke-width="1"/><polygon points="280.0,133.6 366.0,137.5 407.2,217.6 378.7,297.0 317.4,342.8 240.0,350.0 201.0,285.6 185.7,223.4 201.8,146.8" fill="rgba(37,99,235,.22)" stroke="#2563eb" stroke-width="2.5"/><circle cx="280.0" cy="133.6" r="3.5" fill="#2563eb"/><circle cx="366.0" cy="137.5" r="3.5" fill="#2563eb"/><circle cx="407.2" cy="217.6" r="3.5" fill="#2563eb"/><circle cx="378.7" cy="297.0" r="3.5" fill="#2563eb"/><circle cx="317.4" cy="342.8" r="3.5" fill="#2563eb"/><circle cx="240.0" cy="350.0" r="3.5" fill="#2563eb"/><circle cx="201.0" cy="285.6" r="3.5" fill="#2563eb"/><circle cx="185.7" cy="223.4" r="3.5" fill="#2563eb"/><circle cx="201.8" cy="146.8" r="3.5" fill="#2563eb"/><text x="280.0" y="44.0" text-anchor="middle" font-size="12.5" fill="#334155" font-weight="600">D1</text><text x="280.0" y="58.0" text-anchor="middle" font-size="11" fill="#64748b">市场需求 7.0</text><text x="406.0" y="89.9" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D2</text><text x="406.0" y="103.9" text-anchor="start" font-size="11" fill="#64748b">技术成熟度 8.8</text><text x="473.0" y="206.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D3</text><text x="473.0" y="220.0" text-anchor="start" font-size="11" fill="#64748b">社区生态 8.5</text><text x="449.7" y="338.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D4</text><text x="449.7" y="352.0" text-anchor="start" font-size="11" fill="#64748b">变现潜力 7.5</text><text x="347.0" y="424.2" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D5</text><text x="347.0" y="438.2" text-anchor="start" font-size="11" fill="#64748b">竞争格局 7.2</text><text x="213.0" y="424.2" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D6</text><text x="213.0" y="438.2" text-anchor="end" font-size="11" fill="#64748b">法律合规 7.7</text><text x="110.3" y="338.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D7</text><text x="110.3" y="352.0" text-anchor="end" font-size="11" fill="#64748b">企业就绪 6.0</text><text x="87.0" y="206.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D8</text><text x="87.0" y="220.0" text-anchor="end" font-size="11" fill="#64748b">团队治理 6.3</text><text x="154.0" y="89.9" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D9</text><text x="154.0" y="103.9" text-anchor="end" font-size="11" fill="#64748b">上手难度 8.0</text></svg></div>
+<div class="bars"><div class="bar-row"><span class="bar-name">D2 技术成熟度</span>
+<span class="bar-track"><span class="bar-fill" style="width:88.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.8</span><span class="bar-w">权重14%</span></div>
+<div class="bar-row"><span class="bar-name">D3 社区生态</span>
+<span class="bar-track"><span class="bar-fill" style="width:85.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.5</span><span class="bar-w">权重11%</span></div>
+<div class="bar-row"><span class="bar-name">D9 上手难度</span>
+<span class="bar-track"><span class="bar-fill" style="width:80.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.0</span><span class="bar-w">权重10%</span></div>
+<div class="bar-row"><span class="bar-name">D6 法律合规</span>
+<span class="bar-track"><span class="bar-fill" style="width:77.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.7</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D4 变现潜力</span>
+<span class="bar-track"><span class="bar-fill" style="width:75.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.5</span><span class="bar-w">权重18%</span></div>
+<div class="bar-row"><span class="bar-name">D5 竞争格局</span>
+<span class="bar-track"><span class="bar-fill" style="width:72.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.2</span><span class="bar-w">权重12%</span></div>
+<div class="bar-row"><span class="bar-name">D1 市场需求</span>
+<span class="bar-track"><span class="bar-fill" style="width:70.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.0</span><span class="bar-w">权重13%</span></div>
+<div class="bar-row"><span class="bar-name">D8 团队治理</span>
+<span class="bar-track"><span class="bar-fill" style="width:63.0%;background:#d97706"></span></span>
+<span class="bar-val">6.3</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D7 企业就绪</span>
+<span class="bar-track"><span class="bar-fill" style="width:60.0%;background:#d97706"></span></span>
+<span class="bar-val">6.0</span><span class="bar-w">权重8%</span></div></div>
+<div class="meta">分析时点 2026-10-16 ｜ 数据来源：GitHub API + 仓库代码实测 ｜ 方法论 v1.6.2</div>
+</div><h1>第 129 期 · Photocraft 商业化潜力分析报告（完整版）</h1>
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家　@冯伟雄</p>
+<p><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/#methodology" target="_blank" rel="noopener">方法论版本: v1.6.2</a> | 综合评分: <strong>75.5</strong> | 等级: <strong>A（高商业化潜力）</strong> | 价值画像: 明星资产 | 【新项目豁免】无历史不构成停滞证据 | 【画像临界】落点与相邻画像路径差异见 5.3</p>
+</blockquote>
+<h2>一、项目概览</h2>
+<ul>
+<li><strong>项目</strong>：storytold/photocraft —— PhotoCraft: An open-source, photo editor written by scratch in pure Rust</li>
+<li><strong>一句话定位</strong>：PhotoCraft 是一个开源、纯 Rust 实现的 Photoshop 级图像编辑应用（clean-room 重写），适用于媒体内容、设计、摄影等跨行业创意场景，主要面向设计师/摄影师/艺术家等创意用户及需自动化图像处理的开发者与 AI Agent，用于在本地离线、跨平台完成图层/蒙版/文字/矢量/PSD 等专业图像编辑与批处理自动化。</li>
+<li><strong>分类属性</strong>：应用软件；行业为通用/跨行业（媒体内容·设计·摄影）；模式为「本地部署开源应用 + CLI/SDK 可编程（含 WebAssembly 托管网页版）」；部署形态为本地部署 + 混合部署（桌面原生 / 浏览器 WebAssembly）；技术域为 Rust · GPU 合成（wgpu）· 图像处理 · clean-room 重实现；变现距离为「中」——项目本身 MIT/Apache 双许可无直接收费，变现依赖母品牌 ArtCraft/getartcraft.com 承载托管与增值服务。</li>
+<li><strong>生命周期阶段</strong>：爆发期；<strong>项目年龄：15 天</strong>（created_at 2026-09-30，依据 computed.repo_age_days）。爆发期的含义是：社区与生态指标短期内呈现象级增长，但尚未进入稳定沉淀阶段；<strong>新项目豁免：无历史不构成停滞证据</strong>——项目年龄 &lt; 90 天，相关的 D8.4 停滞判定不适用，其数据空白/未成熟不得表述为负面信号。</li>
+<li><strong>关键事实</strong>：63,441 Star、11,021 Fork（Fork 比率 17.4%）、309 名贡献者、近 90 天 3,436 PR 与 1,672 关闭 Issue、近 30 天 2,402 commit；566,259 行代码（Rust 565,984 行、1,350 个源文件、48,997 行测试、测试比 8.7%）；最新版本 v0.9.0，产品状态 early alpha；许可 MIT OR Apache-2.0；支持 macOS / Windows / Linux / FreeBSD / Web(WASM) 五端（含 linux-riscv64 构建）。</li>
+</ul>
+<hr />
+<h2>二、安装部署与使用指南</h2>
+<blockquote>
+<p>上手难度等级：<strong>🟢 简单</strong>（D9 = 8.0/10）——提供全平台预编译安装包，普通用户可用；从源码构建面向开发者。</p>
+</blockquote>
+<h3>一、面向普通用户（推荐）</h3>
+<p>PhotoCraft 在 macOS、Windows、Linux、FreeBSD 和 Web 上均有预编译安装包：</p>
+<ul>
+<li><strong>官方下载页</strong>：README 明确「New to PhotoCraft? Download it from the <a href="https://getartcraft.com/apps/photocraft">PhotoCraft page on getartcraft.com</a>. That's the easiest way to install it.」</li>
+<li><strong>GitHub Releases</strong>：「Installers for macOS, Windows, Linux, FreeBSD and the web are attached to each [GitHub release]」，Windows 另有 <code>windows-arm64</code> 构建。</li>
+</ul>
+<h3>二、Linux 各安装形态</h3>
+<p>README 列出的 Linux 安装包为 AppImage、<code>.deb</code>、<code>.rpm</code>、tarball 或 Flatpak bundle。<strong>AppImage 无需安装</strong>：</p>
+<blockquote>
+<p>The AppImage needs no install: the first run registers its launcher icon and menu entry in <code>~/.local/share</code> so the dock shows PhotoCraft's icon on Wayland. Set <code>PHOTOCRAFT_NO_DESKTOP_INTEGRATION=1</code> to skip that.</p>
+</blockquote>
+<p><strong>Flatpak</strong>（需 Flathub 的 freedesktop runtime）：</p>
+<pre><code class="language-sh">flatpak install --user photocraft-&lt;version&gt;-linux-x86_64.flatpak   # or -linux-aarch64
+flatpak run ai.storyteller.photocraft
+</code></pre>
+<h3>三、macOS 命令行工具（photocraft-cli）</h3>
+<p>CLI 以 <code>photocraft-cli-&lt;version&gt;-macos-universal.zip</code> 提供，已由 Apple 公证：</p>
+<pre><code class="language-sh">ditto -x -k photocraft-cli-&lt;version&gt;-macos-universal.zip .
+spctl --assess --type install -vv photocraft-cli-&lt;version&gt;-macos-universal/photocraft-cli
+# ... accepted, source=Notarized Developer ID
+</code></pre>
+<h3>四、FreeBSD 14 (x86_64)</h3>
+<p>先装运行时库，再解包到 <code>/usr/local</code>：</p>
+<pre><code class="language-sh">pkg install libxkbcommon wayland libX11 libXcursor libXrandr libXi libxcb mesa-libs vulkan-loader gtk3 fontconfig freetype2 alsa-lib
+tar -xzf photocraft-&lt;version&gt;-freebsd-x86_64.tar.gz --strip-components 1 -C /usr/local
+photocraft
+</code></pre>
+<h3>五、Web 版自托管（Docker）</h3>
+<blockquote>
+<p>To self-host the browser version with Docker, see <a href="packaging/web/README.md#docker">Docker web hosting</a>.</p>
+</blockquote>
+<p>仓库内 <code>Dockerfile</code> 为社区维护的自托管配方：builder 阶段（<code>rust:${RUST_VERSION}-slim-bookworm</code>）安装 wasm target 并用 <code>trunk build --release --locked</code> 构建，runtime 阶段基于 <code>nginx:1.28-alpine</code> 托管静态站点，暴露 8080 端口并带 <code>HEALTHCHECK</code>。</p>
+<h3>六、从源码构建（开发者）</h3>
+<p>前置条件：Rust（<code>rust-version = "1.95"</code>，<code>edition = "2024"</code>）。标准步骤：</p>
+<pre><code class="language-sh">git clone https://github.com/storytold/photocraft
+cd photocraft
+cargo run --release -p photocraft -- image.psd   # the desktop app
+cargo test --workspace                           # the test suite
+</code></pre>
+<p>如需日文字体（可选构建输入）：</p>
+<pre><code class="language-sh">git clone https://github.com/storytold/craft-fonts ../craft-fonts
+CRAFT_FONTS_DIR=&quot;$PWD/../craft-fonts&quot; cargo run --release -p photocraft
+</code></pre>
+<h3>七、日常使用</h3>
+<p><strong>桌面 GUI</strong>：菜单、快捷键、面板与 Photoshop 一致（README：「If you know Photoshop, you already know PhotoCraft」），另有命令面板 ⌘F。</p>
+<p><strong>无头 CLI</strong>（<code>photocraft-cli</code>）——来自 README 的原始示例：</p>
+<pre><code class="language-sh"># Headless: open, edit, save
+photocraft-cli run wave.psd \
+  --cmd filter.sharpen.smartSharpen     --params '{&quot;amount&quot;:80}' \
+  --cmd layer.newAdjustmentLayer.curves --params '{&quot;points&quot;:[[0,0],[64,48],[192,212],[255,255]]}' \
+  --out wave-final.png
+
+# Apply one action list to a folder of images
+photocraft-cli batch --actions grade.json --in ./raw --out ./graded
+
+# Every subcommand explains itself
+photocraft-cli batch --help
+
+# Let an agent drive it over MCP (headless, or bridged to the running app)
+photocraft-cli mcp
+</code></pre>
+<p><strong>运行中应用的受控通道</strong>：<code>photocraft --control</code>（仅回环、需认证），详见 <code>docs/control-protocol.md</code>。</p>
+<p><strong>测试语料</strong>（可选）：</p>
+<pre><code class="language-sh">cargo xtask corpus --all
+cargo xtask test-corpus
+</code></pre>
+<h3>八、已知注意事项</h3>
+<ul>
+<li><strong>Wayland</strong>：文件拖拽暂不可用（winit 0.30 限制，#386），改用 File › Open 或 Ctrl+V 粘贴；如需拖拽可在 XWayland 下运行：<code>WAYLAND_DISPLAY= photocraft</code>。</li>
+</ul>
+<h2>三、评分总览</h2>
+<h3>3.1 九维评分表</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>权重</th>
+<th>得分</th>
+<th>加权得分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1 市场需求与痛点</td>
+<td>0.13</td>
+<td>7.0</td>
+<td>0.910</td>
+</tr>
+<tr>
+<td>D2 技术成熟度</td>
+<td>0.14</td>
+<td>8.8</td>
+<td>1.232</td>
+</tr>
+<tr>
+<td>D3 社区与生态</td>
+<td>0.11</td>
+<td>8.5</td>
+<td>0.935</td>
+</tr>
+<tr>
+<td>D4 商业模式可行性</td>
+<td>0.18</td>
+<td>7.5</td>
+<td>1.350</td>
+</tr>
+<tr>
+<td>D5 竞争壁垒</td>
+<td>0.12</td>
+<td>7.2</td>
+<td>0.864</td>
+</tr>
+<tr>
+<td>D6 法律合规</td>
+<td>0.07</td>
+<td>7.7</td>
+<td>0.539</td>
+</tr>
+<tr>
+<td>D7 运维与工程化</td>
+<td>0.08</td>
+<td>6.0</td>
+<td>0.480</td>
+</tr>
+<tr>
+<td>D8 可持续性与治理</td>
+<td>0.07</td>
+<td>6.3</td>
+<td>0.441</td>
+</tr>
+<tr>
+<td>D9 用户体验与交付</td>
+<td>0.10</td>
+<td>8.0</td>
+<td>0.800</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td>1.00</td>
+<td>—</td>
+<td><strong>7.551</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>综合评分(百分制) = 7.551 × 10 = 75.5</strong>（与计算口径 weighted_score 一致，无用户利益扣分项）</p>
+<h3>3.2 平行维度表（不入公式，仅用于价值画像）</h3>
+<table>
+<thead>
+<tr>
+<th>平行维度</th>
+<th>得分</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10 功能价值</td>
+<td>7.8</td>
+<td>功能面接近完整 Photoshop 替代，并具备 500+ 命令统一驱动 UI/CLI/JSON/MCP 的独占增量效用</td>
+</tr>
+<tr>
+<td>D11 社会价值</td>
+<td>6.4</td>
+<td>应用层公共品（无下游依赖者），普惠性、工程范本价值突出，但属标准「遵循者」而非「定义者」</td>
+</tr>
+<tr>
+<td><strong>公共价值分 = (D10 + D11) / 2</strong></td>
+<td><strong>7.1</strong></td>
+<td>用于价值画像判定</td>
+</tr>
+</tbody>
+</table>
+<h3>3.3 等级与一票否决检查</h3>
+<table>
+<thead>
+<tr>
+<th>检查项</th>
+<th>取值</th>
+<th>触发线</th>
+<th>结论</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D6 法律合规（维度总分）</td>
+<td>7.7</td>
+<td>≤ 3</td>
+<td>不触发</td>
+</tr>
+<tr>
+<td>D8.4 项目可持续性（细则小分）</td>
+<td>1.2</td>
+<td>≤ 1</td>
+<td>不触发（1.2 &gt; 1，且适用<strong>新项目豁免：无历史不构成停滞证据</strong>）</td>
+</tr>
+<tr>
+<td>D4.1 协议对变现模式的影响（细则小分）</td>
+<td>2.0</td>
+<td>≤ 0.5</td>
+<td>不触发</td>
+</tr>
+</tbody>
+</table>
+<p><strong>一票否决：无</strong>（veto = null；否决检查完整，无 N/A 项）。综合评分 75.5，<strong>等级 A（高商业化潜力）</strong>，含义：可投入商业化，需补齐少量短板。</p>
+<h3>3.4 价值画像</h3>
+<p>功能价值 D10 = 7.8，社会价值 D11 = 6.4，<strong>公共价值分 = 7.1</strong>；综合评分 75.5（≥ 65）且公共价值分 ≥ 7 → 画像判定 <strong>⭐ 明星资产</strong>，但因公共价值分落于 6.5–7.5 临界区间，须标注「<strong>画像临界</strong>」（详见 5.3）。</p>
+<hr />
+<h2>四、各维度详细分析</h2>
+<h3>D1. 市场需求与商业机会（得分: 7.0/10）</h3>
+<h3>项目分类标签</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>应用软件（图形/创意工具）</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>通用/跨行业（媒体内容、设计、摄影为核心）</td>
+</tr>
+<tr>
+<td>目标用户角色</td>
+<td>非技术用户（设计师/摄影师/艺术家）、UI/UX 设计师、AI/ML 工程师（Agent 驱动）</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>客户面向产品、内容创作、自动化批处理、研发流程嵌入</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>本地部署、混合部署（桌面原生 + 浏览器 WebAssembly）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>一句话定位</strong>：PhotoCraft 是一个开源、纯 Rust 实现的 Photoshop 级图像编辑应用（clean-room 重写），适用于媒体内容、设计、摄影等跨行业创意场景，主要面向设计师/摄影师/艺术家等创意用户及需要自动化图像处理的开发者与 AI Agent，用于在本地离线、跨平台地完成图层/蒙版/文字/矢量/PSD 等专业图像编辑与批处理自动化。</p>
+<hr />
+<h3>D1.1 目标市场规模与增长性</h3>
+<p><strong>打分: 2.0 / 2.5（7–8 档，80%）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TAM 估算</td>
+<td>属于「图像编辑/创意软件」赛道。以品类量级估算为<strong>十亿美元级</strong>（含桌面与移动图像编辑工具），若并入广义创意设计套件则更大（Adobe 数字媒体板块年收入量级在百亿美元级，Photoshop 为核心单品）。（<strong>估算未经外部数据验证，置信度低</strong>）</td>
+</tr>
+<tr>
+<td>增长趋势</td>
+<td>平稳偏扩张：创意内容需求持续增长，AI 生成正在扩容而非萎缩品类</td>
+</tr>
+<tr>
+<td>市场层级</td>
+<td>成熟赛道中的成长期细分（本地优先/开源/Agent 原生），非蓝海</td>
+</tr>
+</tbody>
+</table>
+<p><strong>依据</strong>：README 明确对标 Photoshop，覆盖图层、蒙版、调整层、图层样式、PSD 交换等专业能力；63k Star、11k Fork、309 贡献者、90 天 3436 PR，说明对应需求规模与活跃度真实存在。判断为十亿美元级、仍处增长的成熟市场。</p>
+<hr />
+<h3>D1.2 痛点真实性与解决程度</h3>
+<p><strong>打分: 1.5 / 2.5（5–6 档，60%）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>痛点真实性</td>
+<td>真实：Photoshop 订阅制（持续付费）、需账号/联网、闭源、生态锁定，对预算敏感用户（学生/独立创作者）、隐私/离线需求方、希望数据自持的机构构成明确痛点；PSD 生态兼容性长期是开源工具的短板</td>
+</tr>
+<tr>
+<td>解决完整度</td>
+<td><strong>部分方案</strong>：README 自述 "early alpha…it is not yet a Photoshop replacement for daily professional work"，缺口包括 AI/生成式功能、15 个缺失工具、排版与专业工作流深度、插件兼容</td>
+</tr>
+<tr>
+<td>替代成本</td>
+<td>替代品众多：GIMP、Krita、Photopea（免费网页）、Affinity Photo（买断）、Pixelmator，以及 Photoshop 本身</td>
+</tr>
+</tbody>
+</table>
+<p><strong>依据</strong>：痛点成立，且 PSD 高保真往返（307/309 语料）与 clean-room/离线是差异化卖点；但成熟替代品多、自身功能面尚不完整，属于「明确痛点 + 较可用的部分方案 + 替代品众多」，落在中档。</p>
+<hr />
+<h3>D1.3 市场时机判断</h3>
+<p><strong>打分: 1.5 / 2.5（5–6 档，60%）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术成熟度曲线</td>
+<td>图像编辑属长周期成熟技术，无「预期膨胀→生产期」的临界爆发红利；但 GPU 合成（wgpu）、WASM 与 MCP/Agent 驱动为新的落地窗口</td>
+</tr>
+<tr>
+<td>竞争密度</td>
+<td><strong>高</strong>：Adobe 事实垄断，开源侧 GIMP/Krita/Photopea 已占据免费心智，正面竞争不可避免</td>
+</tr>
+<tr>
+<td>监管/标准</td>
+<td>无特定政策驱动需求爆发；反订阅/数据主权/开源合规是软性趋势推力</td>
+</tr>
+</tbody>
+</table>
+<p><strong>依据</strong>：产品创建于 2026-09（数据给定），无先行技术红利，赛道成熟、强者林立，属需正面竞争区间。"Agent-ready / MCP / 命令行批处理"是较贴合 AI Agent 浪潮的时点加分项，但不足以改变整体成熟红海的属性，故 5–6 档。</p>
+<hr />
+<h3>D1.4 应用场景广度</h3>
+<p><strong>打分: 2.0 / 2.5（7–8 档，80%）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>行业覆盖</td>
+<td>广：设计、广告营销、电商、媒体出版、教育、摄影、游戏素材、科研（FITS 天文图像）等</td>
+</tr>
+<tr>
+<td>场景多样性</td>
+<td>通用工具横跨「人工精修」与「自动化批处理」两类范式：GUI、CLI（<code>photocraft-cli run/batch</code>）、JSON 控制通道、MCP 服务器、Web/WASM</td>
+</tr>
+<tr>
+<td>可延展性</td>
+<td>强：500+ 统一命令注册表、24 crates 引擎化架构，核心与 UI 解耦，可迁移至服务端/嵌入式/流水线；且与同团队 Crafting Apps（VectorCraft/FilmCraft 等）共享约定</td>
+</tr>
+</tbody>
+</table>
+<p><strong>依据</strong>：既是面向内容的终端产品，又是可编程的图像引擎，跨行业 + 可自动化 + 可嵌入，明显高于单一行业专用工具，但未达「跨行业通用基础设施」级别，故判为 7–8 档。</p>
+<hr />
+<h3>维度小结</h3>
+<ul>
+<li><strong>得分: 7.0/10</strong>（2.0 + 1.5 + 1.5 + 2.0）</li>
+<li>该赛道为真实的十亿美元级成熟市场，痛点（订阅/闭源/PSD 兼容）真实，应用面广且具备 Agent 自动化延展性，构成明确的商业机会底盘。</li>
+<li>主要制约：市场高度成熟、替代品众多，产品自称 early alpha，功能完整度尚未支撑「专业日常替代」；变现路径依赖母品牌 ArtCraft（getartcraft.com）承载托管/增值，而非本项目直接收费。</li>
+<li><strong>置信度说明</strong>：无外部市场数据可核验，TAM 与增长率为量级估算，D1.1/D1.3 打分置信度偏低。</li>
+</ul>
+<h3>D2. 技术成熟度与产品质量（得分: 8.8/10）</h3>
+<blockquote>
+<p>说明：本维度严格依据代码/文档/工程事实评估，未采用社区数据（Star/Fork/热度）锚定。项目创建于 2026-09-30，评估日 2026-10-16，属新项目（年龄 &lt; 90 天）。项目含完整 GUI（egui/eframe 桌面端 + wasm 浏览器端），故 D2.5 适用、不标 N/A，8 项细则全部计分。</p>
+</blockquote>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断摘要</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D2.1 产品设计与创新性</td>
+<td>1.5</td>
+<td>1.2</td>
+<td>7–8 档（80%）</td>
+<td>产品理念清晰、功能极全，Photoshop 对标；创新偏工程实现</td>
+</tr>
+<tr>
+<td>D2.2 架构设计与工程质量</td>
+<td>2</td>
+<td>2.0</td>
+<td>9–10 档（100%）</td>
+<td>强制分层、47 crate、依赖注入、复刻难度极高</td>
+</tr>
+<tr>
+<td>D2.3 代码整洁性与规范性</td>
+<td>1</td>
+<td>0.8</td>
+<td>7–8 档（80%）</td>
+<td>lint 严格、注释优秀，但存在超大文件/超长函数</td>
+</tr>
+<tr>
+<td>D2.4 安全性</td>
+<td>1</td>
+<td>0.8</td>
+<td>7–8 档（80%）</td>
+<td>forbid unsafe、模糊测试、威胁模型齐全；缺依赖漏洞扫描</td>
+</tr>
+<tr>
+<td>D2.5 UI/UX/UE</td>
+<td>1</td>
+<td>0.8</td>
+<td>7–8 档（80%）</td>
+<td>Photoshop 级界面、主题/i18n/RTL/kittest，视觉未直接核验</td>
+</tr>
+<tr>
+<td>D2.6 功能完备度与稳定性</td>
+<td>1.5</td>
+<td>1.2</td>
+<td>7–8 档（80%）</td>
+<td>功能完备、平台广、i18n 强，但 pre-1.0、2131 开放 issue</td>
+</tr>
+<tr>
+<td>D2.7 文档与开发者体验</td>
+<td>1</td>
+<td>1.0</td>
+<td>9–10 档（100%）</td>
+<td>mdbook + 99 文档 + 每 crate README，质量极高</td>
+</tr>
+<tr>
+<td>D2.8 测试与质量保障</td>
+<td>1</td>
+<td>1.0</td>
+<td>9–10 档（100%）</td>
+<td>oracle/位级/corpus/模糊/UI 测试 + 7 条 CI 多层门禁</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>D2.1 产品设计与创新性</h3>
+<p><strong>打分: 1.2 / 1.5（7–8 档，80%）</strong></p>
+<ul>
+<li><strong>产品理念</strong>：定位为「从零用纯 Rust 编写的开源照片编辑器」，对标 Photoshop 做功能与行为级对齐（README、模块注释反复标注 Photoshop 像素级行为与 issue 编号）。定位清晰、取舍明确。</li>
+<li><strong>功能设计</strong>：功能覆盖极为完整——图层/蒙版/通道、调整层、图层样式、滤镜、文字引擎、矢量/路径、Camera Raw、动作（.atn）、自动化/MCP、批处理、Web 导出，信息架构严格复刻 Photoshop（<code>TOOL_SECTIONS</code> 按其顺序组织）。</li>
+<li><strong>创新性</strong>：创新主要体现在工程与架构层面——纯 Rust、CPU 参考合成器与 GPU 后端 1/255 一致性契约、传输无关的程序化控制协议（供代理/测试/MCP）、wasm 浏览器构建。产品概念本身为「Photoshop 复刻」，属增量创新而非品类开创。</li>
+<li><strong>差异化</strong>：与同类编辑器相比，差异化点在「纯 Rust 实现 + 双后端一致性 + 自动化控制面 + wasm」。</li>
+</ul>
+<p>综合：产品设计清晰、功能取舍得当、差异点明显，但概念创新度更像「有创新」而非「显著创新」，落 7–8 档。</p>
+<h3>D2.2 架构设计与工程质量</h3>
+<p><strong>打分: 2.0 / 2（9–10 档，100%）</strong></p>
+<ul>
+<li><strong>架构合理性</strong>：Cargo workspace 划分为 <code>crates/*</code>（约 40 余个聚焦 crate：geom/color/cms/raster/doc/ops/psd/codecs/raw/affinity/compose/gpu/paint/algo/io/text/vector/format/automation/plugins/engine/ui-egui/testkit/tablet/heif）+ <code>apps/*</code>（desktop/cli/web）+ <code>xtask</code>，分层清晰。</li>
+<li><strong>模块解耦</strong>：CI 中有 <code>cargo xtask layers</code> 强制校验依赖分层方向（硬性架构约束），这是罕见的架构纪律；<code>ui-egui</code> 通过 <code>Services</code>（30+ 可注入函数指针）实现端口-适配器模式，UI crate 自身不含 I/O 依赖。</li>
+<li><strong>抽象与复用</strong>：<code>photocraft-compose</code> 作为 CPU 参考实现、<code>photocraft-gpu/src/plan.rs</code> 镜像其语义，抽象层次恰当；<code>testkit</code>、<code>algo</code> 为可复用公共组件。</li>
+<li><strong>目录管理与代码量</strong>：目录命名一致、逻辑清晰；566,259 行对完整照片编辑器而言规模与复杂度匹配。</li>
+<li><strong>复刻难度</strong>：极高——PSD/PSB、TIFF 内嵌图层、Affinity、.atn、.grd/.aco/.ase 等格式解析、PatchMatch 内容感知填充、Delaunay+ARAP 人偶变形、GPU 合成器、字体/文本引擎、CMYK/Lab 原生合成，构成深厚技术护城河。</li>
+<li><strong>技术债</strong>：存在若干超大文件（widgets.rs &gt;2000 行、plan.rs &gt;1000 行、filter_dialog ~1800 行）与位标志常量需与 WGSL 手工同步等维护性欠账，但相对 56 万行规模属局部可接受。</li>
+</ul>
+<p>综合：架构优秀、解耦充分、复用性强、目录规范、复刻门槛极高，技术债不足以降档，给 9–10 档。</p>
+<h3>D2.3 代码整洁性与规范性</h3>
+<p><strong>打分: 0.8 / 1（7–8 档，80%）</strong></p>
+<ul>
+<li><strong>规范性</strong>：<code>Cargo.toml</code> 配置 <code>unsafe_code = "forbid"</code>、<code>clippy::dbg_macro/todo = warn</code>；多个 crate 根 <code>deny(clippy::unwrap_used/expect_used/panic)</code>；CI 执行 <code>cargo fmt --all -- --check</code> 与 <code>cargo clippy ... -D warnings</code>，风格约束严格且实际执行。</li>
+<li><strong>命名/注释</strong>：命名一致有意义；注释质量突出——大量注释标注 Photoshop 实测依据、论文出处与 issue 编号（#412、#2204、#3806 等），可追溯性强。</li>
+<li><strong>整洁度/重复率</strong>：多数模块职责单一；但存在明显问题——多处文件超 2000 行、超长函数（<code>toolbar</code>、<code>dispatch</code>、<code>apply_depth</code>、<code>paste</code>/<code>copy</code>）、<code>transform_tool</code> 的 <code>begin_*</code> 系列重复、<code>file_cmds</code> 的 cfg 平台双实现重复、<code>layer_style</code> 字符串键访问与 O(n²) 查找。</li>
+</ul>
+<p>综合：规范性强、注释优秀，但超大文件与重复逻辑使整洁度未达 9–10 档，落 7–8 档。</p>
+<h3>D2.4 安全性</h3>
+<p><strong>打分: 0.8 / 1（7–8 档，80%）</strong></p>
+<ul>
+<li><strong>安全编码</strong>：输入校验普遍严格——有限性（<code>is_finite</code>）、范围 clamp、<code>try_reserve</code>/<code>checked_mul</code>/<code>saturating_*</code> 防溢出；<code>#![forbid(unsafe_code)]</code> 从根源消除内存安全类缺陷。</li>
+<li><strong>注入/解析防护</strong>：PSD/TIFF/descriptor 解析有长度上限、深度上限、签名校验、溢出保护与失败回滚；自动化控制面有 <code>automation_authorize</code>/<code>automation_command</code> 门禁、modal 门禁与路径授权白名单；<code>file_cmds</code> 避免以丢数据格式覆盖原文件。</li>
+<li><strong>模糊测试</strong>：CI 含 cargo-fuzz，20+ 目标覆盖 psd/codecs/affinity/format（但该 job 为手动触发占位，未纳入自动运行）。</li>
+<li><strong>文档</strong>：<code>book/src/security/</code> 含 threat-model、trust-boundaries、parser-hardening、secure-file-handling、vulnerability-reporting，<code>SECURITY.md</code> 齐备。</li>
+<li><strong>缺口</strong>：未发现 Dependabot/Snyk/Trivy 等依赖漏洞扫描集成；未见硬编码密钥（依赖经 git rev 固定）。</li>
+</ul>
+<p>综合：安全编码规范与解析加固扎实、模糊测试与威胁模型到位，但缺自动化依赖漏洞扫描、fuzz 未常态化，落 7–8 档。</p>
+<h3>D2.5 UI/UX/UE 人机交互</h3>
+<p><strong>打分: 0.8 / 1（7–8 档，80%）</strong></p>
+<ul>
+<li><strong>适用性</strong>：含桌面 GUI（egui/eframe）与浏览器 wasm 界面，适用本项。</li>
+<li><strong>界面/交互</strong>：<code>ui-egui</code> crate 提供标题栏、选项栏、工具栏（含 flyout/长按/右键）、状态栏、停靠卡片、属性面板、画布、各类对话框，深度对齐 Photoshop 交互（选择工具、屏幕模式、可擦除标签、RTL 适配）。</li>
+<li><strong>信息架构/一致性</strong>：<code>theme.rs</code> 提供 Token 化主题系统，<code>widgets.rs</code> 提供统一控件库，全局一致。</li>
+<li><strong>无障碍/本地化</strong>：<code>i18n</code> 覆盖多语言（含俄/捷/法/葡/波复数规则、CJK），字体粗细/混合模式/各 UI 术语均有翻译。</li>
+<li><strong>局限</strong>：缺少截图/演示素材，无法直接核验视觉专业度与美观度；仅能凭代码证据判断功能完备与工程化程度。</li>
+</ul>
+<p>综合：交互与工程化程度高、i18n 完善，但视觉美观度无法证实，落 7–8 档。</p>
+<h3>D2.6 功能完备度与稳定性</h3>
+<p><strong>打分: 1.2 / 1.5（7–8 档，80%）</strong></p>
+<ul>
+<li><strong>功能覆盖</strong>：核心功能高度完整（图层/蒙版/通道/调整/滤镜/文字/矢量/Camera Raw/动作/样式/自动化/批处理/Web 导出）。</li>
+<li><strong>版本成熟度</strong>：已发布至 v0.9.0（v0.1.1-rc 起多轮发布），尚未到 v1.0；项目年龄 &lt; 90 天，按新项目规则不因缺 Release 额外惩罚，「版本成熟度」以「宣称稳定 + 代码/文档质量」评估为早期稳定版。</li>
+<li><strong>向后兼容/性能</strong>：<code>perf-nightly.yml</code> 有预算与基线回归（p50 回归 &gt;15% 报警），并有 15% 阈值的性能门禁；发布节奏快，兼容性未充分验证。</li>
+<li><strong>运行环境/硬件</strong>：桌面覆盖 Windows/Linux/macOS/FreeBSD + 浏览器 wasm；需 Rust 1.95/edition 2024；GPU 加速但存在 CPU 参考后端，非强制 GPU，环境要求合理。</li>
+<li><strong>国际化/本地化</strong>：i18n 完善（多语言 + 复数规则），为全球化加分。</li>
+<li><strong>风险信号</strong>：2131 个开放 issue，反映规模与活跃度，也提示边缘 case 较多。</li>
+</ul>
+<p>综合：功能完备、平台广、i18n 强、性能有体系化跟踪，但 pre-1.0、极年轻、开放 issue 高，稳定性尚未充分证明，落 7–8 档。</p>
+<h3>D2.7 文档与开发者体验</h3>
+<p><strong>打分: 1.0 / 1（9–10 档，100%）</strong></p>
+<ul>
+<li><strong>覆盖</strong>：mdbook（<code>book/src/</code> 含 architecture/automation/formats/security/development/getting-started）+ <code>docs/</code>（架构、控制协议、贡献、决策、性能、逐格式 parity 等）+ 每 crate README（affinity/cms/codecs/heif/psd/raw）+ README/SECURITY/ROADMAP/AGENTS/ATTRIBUTION，共 99 个文档文件。</li>
+<li><strong>质量</strong>：含架构总览、crates 分层、渲染、命令引擎、自动化安全模型等，专业度高。</li>
+<li><strong>版本同步</strong>：<code>docs.yml</code> CI 在文档变更时构建 mdbook，保证可构建性。</li>
+</ul>
+<p>综合：文档极其完善且专业，给 9–10 档。</p>
+<h3>D2.8 测试与质量保障</h3>
+<p><strong>打分: 1.0 / 1（9–10 档，100%）</strong></p>
+<ul>
+<li><strong>测试覆盖</strong>：246 个测试文件、48,997 测试行（测试/源码比 8.7%）；测试设计极强——<code>compose/src/tests.rs</code> 用旧实现作位级 oracle、<code>retouch_cmds/tests.rs</code> 做 live vs commit 差分、<code>text/src/tests.rs</code> 黄金值回归、proptest、<code>egui_kittest</code> UI 无头测试；另含 sha256 校验的真实文件 corpus 测试（约 95 个 corpus 测试二进制）。</li>
+<li><strong>CI/CD</strong>：7 条 workflow——ci.yml（跨平台 nextest + doctest + clippy + fmt）、corpus、wasm check、web 构建与 24MiB 体积门禁、fuzz、docs、perf-nightly、freebsd、windows-arm64、release。</li>
+<li><strong>质量门禁</strong>：多层——<code>cargo fmt --check</code>、<code>clippy -D warnings</code>、<code>xtask layers</code>（依赖分层）、<code>xtask scorecard --check</code>（记分卡同步）、corpus 校验。</li>
+<li><strong>说明</strong>：未提供显式覆盖率百分比，但 CI/CD 与多层门禁、测试方法学均达行业高水平。</li>
+</ul>
+<p>综合：测试体系与方法学卓越、CI/CD 完善、多层质量门禁齐备，给 9–10 档。</p>
+<hr />
+<h3>结论</h3>
+<p>PhotoCraft 在 D2 维度表现优秀（<strong>8.8/10</strong>）：架构强制分层、crate 高度解耦、<code>forbid(unsafe)</code> 与严格 lint、文档与测试体系达行业高端，复刻门槛极高，具备支撑商业化交付的工程底座。主要扣分点在于：<strong>产品概念偏 Photoshop 复刻（创新度为工程层面）</strong>、<strong>代码存在超大文件/超长函数/局部重复</strong>、<strong>缺自动化依赖漏洞扫描</strong>、<strong>项目极年轻（&lt;90 天）且 pre-1.0、开放 issue 达 2131</strong>。这些属「良好但有改进空间」，非商业化障碍。</p>
+<h1>D3. 社区健康度与生态势能（得分: 8.5/10）</h1>
+<blockquote>
+<p><strong>新项目专项说明</strong>: 项目创建于 2026-09-30，距当前仅 15 天（代码预计算「年龄天数: 15 天」），属 D3 总则定义的「新项目」（年龄 &lt; 90 天）。本项目数据并非低位，而是<strong>异常亮眼的爆发型</strong>，按 D3 专项「爆发型不压分」原则如实按高挡打分，并标注爆发特征。</p>
+</blockquote>
+<h3>D3.1 社区活跃度指标</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Star 增速</td>
+<td>年龄 15 天 &lt; 30 天 → 附录A「年轻项目月增外推」：63441 ÷ 15 × 30 ≈ <strong>126,882/月</strong>（外推，波动大）</td>
+<td>远超 &gt;500/月阈值</td>
+</tr>
+<tr>
+<td>Fork 比率</td>
+<td>11021 / 63441 ≈ <strong>17.4%</strong></td>
+<td>衍生意愿强（远高于常见 5–10%）</td>
+</tr>
+<tr>
+<td>Issue/PR 活跃度</td>
+<td>近 90 天 PR 3436、关闭 Issue 1672；近 30 天 commit 2402</td>
+<td>全部发生在项目 15 天生命周期内，极度活跃</td>
+</tr>
+<tr>
+<td>响应速度</td>
+<td>90 天关闭 Issue 1672（对应开放 2131），关闭效率高</td>
+<td>维护响应积极，不可测精确平均时长</td>
+</tr>
+</tbody>
+</table>
+<p><strong>打分: 3.0 / 3（9–10 档，100%）</strong></p>
+<p>依据：按附录A「年轻项目月增外推」，Star 月增约 12.7 万，属现象级；Fork 比率 17.4%、Fork 绝对量 11021（≥300）为强正向证据；15 天内即产出 3436 个 PR 与 1672 个关闭 Issue，社区参与与响应达到 9–10 档标准。报告注明：月增系数值在 15 天极短窗口外推，波动大，但即便以最保守口径（Star 总量 63k / 15 天）仍远超高档阈值。<strong>注：Star 近 90 天/近 7 天增量因总量超 4 万分页上限不可得，已改用附录A 外推口径。</strong></p>
+<h3>D3.2 贡献者结构多样性</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>贡献者数量</td>
+<td><strong>309</strong> 人</td>
+<td>远超 50+ 阈值</td>
+</tr>
+<tr>
+<td>组织多样性</td>
+<td>素材未提供组织来源明细，但 309 名贡献者规模足以支撑多组织参与</td>
+<td>推断来自多组织，证据强度中等</td>
+</tr>
+<tr>
+<td>核心团队占比</td>
+<td>素材未提供核心 vs 外部 PR 比例明细</td>
+<td>无法量化</td>
+</tr>
+</tbody>
+</table>
+<p><strong>打分: 2.5 / 2.5（9–10 档，100%）</strong></p>
+<p>依据：15 天内即汇聚 309 名贡献者，远超 9–10 档「50+ 活跃贡献者」标准；以 2402 次近 30 天 commit、3436 个 90 天 PR 的高强度协作看，外部贡献占比高，非单人/单组织项目。组织多样性无逐项明细，但如此体量的贡献者基数与高速 PR 流已充分证明贡献者结构高度多元。<strong>此细则从社区规模视角评估，与 D8.1 巴士因子无重复计分。</strong></p>
+<h3>D3.3 第三方生态成熟度</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>现状</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>插件/扩展</td>
+<td>已内置 <code>photocraft-plugins</code> crate、MCP Server、CLI、JSON 控制协议等<strong>第一方集成面</strong>，但无第三方插件市场/扩展列表证据</td>
+<td>基础设施就绪，第三方生态未形成</td>
+</tr>
+<tr>
+<td>集成生态</td>
+<td>Agent-ready（MCP）、多平台（macOS/Windows/Linux/FreeBSD/Web）原生支持</td>
+<td>自身集成能力强，第三方平台集成证据缺失</td>
+</tr>
+<tr>
+<td>衍生项目</td>
+<td>Fork 11021（被强烈看好），但无明确第三方向二次开发/商业衍生证据</td>
+<td>暂无实证</td>
+</tr>
+<tr>
+<td>教程/课程</td>
+<td>素材未见外部教程/课程，仅有第一方 <code>book/</code> 与 <code>docs/</code> 文档（99 文件）</td>
+<td>暂无实证</td>
+</tr>
+</tbody>
+</table>
+<p><strong>打分: 1.8 / 3（5–6 档，60%）</strong></p>
+<p>依据：按新项目专项，第三方生态需时间发育，当前缺失不构成负面信号，取中性底线 5–6 档（1.8/3）。项目已具备强大的第一方集成骨架（插件 crate、MCP、CLI、控制协议、Discord 社区），但严格以「第三方插件/集成/衍生项目/教程」证据衡量，尚无实证的第三方生态。标注「第三方生态尚未发育，不构成负面信号；第一方集成面已就绪，若后续出现第三方插件与集成，可上浮档位」。</p>
+<h3>D3.4 品牌认知与行业影响力</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>现状</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>品牌辨识度</td>
+<td>15 天 63k Star、11021 Fork，项目在极短时间内获得现象级关注</td>
+<td>领域辨识度极高</td>
+</tr>
+<tr>
+<td>行业采用</td>
+<td>素材无头部企业/项目背书或采用的直接证据</td>
+<td>暂无实证</td>
+</tr>
+<tr>
+<td>媒体覆盖</td>
+<td>无直接媒体/会议证据，但 Star 爆发式增长本身反映广泛传播</td>
+<td>间接证据强</td>
+</tr>
+</tbody>
+</table>
+<p><strong>打分: 1.2 / 1.5（7–8 档，80%）</strong></p>
+<p>依据：按 D3.4 新项目专项，「发布即具背书/首发即获头部社区讨论」者可按实际证据上浮。本项目 15 天内 63k Star，属现象级发布传播，品牌辨识度已达 7–8 档水平（高于「小圈子认知」的 5–6 档底线）。未给 9–10 档，因素材缺乏「被头部企业采用」「技术会议常客」的直接实证，故取 7–8 档。<strong>爆发特征显著，随增量分析若出现企业背书/媒体证据应上调。</strong></p>
+<h3>数据归因</h3>
+<p><strong>数据归因: 时间性归因（太新）</strong>（证据：created_at 2026-09-30，年龄 15 天 &lt; 90 天）— 仅 D3.3 第三方生态项因「太新」处于未发育状态，取中性底线，不构成负面信号。D3.1/D3.2/D3.4 数据异常亮眼（63k Star、309 贡献者、11021 Fork），属<strong>爆发型正面信号</strong>，非低数据归因，无负面证据；不适用「质量性归因」。</p>
+<h3>生命周期阶段判定</h3>
+<p><strong>判定结果: 🚀 爆发期</strong></p>
+<p>判定依据（按 3.6 阶段词典优先级顺序匹配）：非废弃期（archived=false）；非死寂期（近 30 天 2402 次 commit、近 90 天 7 个 release，活跃充分）；命中<strong>🚀 爆发期</strong>——<strong>年龄 15 天 &lt; 90 天且 Star 总量 63441 ≥ 1000</strong>（同时满足 Fork 总量 11021 ≥ 500，被强烈看好）。爆发期不因项目年轻而压分，D3 各细则按实际高档位打分与之互相印证。商业化含义：<strong>现象级关注，重点跟踪，警惕昙花一现</strong>；后续若增速断崖回落跌破高增长阈值，阶段应随新分析时点迁移。</p>
+<h3>D3 维度小结</h3>
+<p>PhotoCraft 是 15 天内实现现象级爆发的开源 Rust 图片编辑器，社区势能已达成熟项目水准：63k Star、11021 Fork、309 贡献者、90 天 3436 PR，D3.1/D3.2 均达 9–10 档。主要短板在 <strong>D3.3 第三方生态</strong>——第一方集成骨架（插件、MCP、CLI、控制协议）已就绪，但第三方插件市场、外部集成与衍生项目尚未发育，属新项目时间性归因，非质量信号。D3.4 品牌辨识度因爆发传播迅速建立，接近高档但缺企业背书实证。<strong>维度得分 8.5/10</strong>，社区即潜在客户池已具规模化基础，后续跟踪重点为：增速是否可持续、第三方生态能否起量、以及爆发后留存（Issue 积压消化、社区治理）。</p>
+<h3>D4. 商业模式与变现潜力（权重 18%）</h3>
+<blockquote>
+<p>核心判断：PhotoCraft 是一款以 MIT/Apache-2.0 双许可发布的免费开源桌面级图像编辑器，其变现叙事并不落在"卖软件"本身，而是依托母公司 ArtCraft 的"开放核心 + 商业云服务"生态（ArtCraft AI 工作室 + 7 款 Crafting Apps 矩阵）。协议层面完全开放，商业路径空间大；但产品仍处于 early alpha、官方定位为"free, open-source"，产品内的付费触发点尚不清晰，整体呈"路径存在、验证未完成"的状态。</p>
+</blockquote>
+<h3>细则打分</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D4.1 协议对变现模式的影响</td>
+<td>2</td>
+<td>2.0</td>
+<td>9–10 档(100%)</td>
+<td>MIT OR Apache-2.0 双许可，无任何约束</td>
+</tr>
+<tr>
+<td>D4.2 变现路径清晰度</td>
+<td>3.5</td>
+<td>2.8</td>
+<td>7–8 档(80%)</td>
+<td>1 条主路径（ArtCraft 开放核心/商业 AI 层）+ 多条备选（SaaS/插件市场/专业服务）</td>
+</tr>
+<tr>
+<td>D4.3 付费转化逻辑</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6 档(60%)</td>
+<td>免费到付费触发点不够自然，产品明确定位免费，AI 等付费点外置到 ArtCraft</td>
+</tr>
+<tr>
+<td>D4.4 增值服务空间与定价天花板</td>
+<td>2</td>
+<td>1.2</td>
+<td>5–6 档(60%)</td>
+<td>增值方向明确，但客单价受消费级/专业创意工具锚定（$100–600/seat/年）压制</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>7.5</strong></td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h3>逐项分析</h3>
+<h4>D4.1 协议对变现模式的影响</h4>
+<p><strong>打分: 2.0 / 2（9–10 档，100%）</strong></p>
+<ul>
+<li>硬事实：<code>Cargo.toml</code> 声明 <code>license = "MIT OR Apache-2.0"</code>；README「License and credits」明确双许可「at your option」；GitHub API license 字段为 <code>Apache-2.0</code>（<code>collect_local.py</code> 在根目录未定位到单一 LICENSE 文件，但 LICENSE-MIT / LICENSE-APACHE 均被 README 引用，<code>assets/app-icon/LICENSE.txt</code> 亦确认同样双许可）。</li>
+<li>MIT/Apache-2.0 属最宽松许可，对 Open Core、SaaS、闭源衍生、双授权、插件市场等所有路径均无法律约束，本项目在此项上无任何商业化障碍，满分。</li>
+<li>唯一需注意的非代码约束：<code>docs/brand/</code> 下 ArtCraft 名称/商标不随代码许可开放，fork 须移除品牌资产——这只影响品牌使用，不构成变现模式约束（法律合规风险归 D6.1）。</li>
+</ul>
+<h4>D4.2 变现路径清晰度</h4>
+<p><strong>打分: 2.8 / 3.5（7–8 档，80%）</strong></p>
+<p>可适配的变现模式逐项评估：</p>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>可行性</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Open Core</strong></td>
+<td>★★★ 主路径</td>
+<td>母公司 ArtCraft 已有商业化的「AI image and video studio」（getartcraft.com），PhotoCraft 为免费开源前端，商业 AI/团队功能可承接在上层，与 Next.js+Vercel 结构同构</td>
+</tr>
+<tr>
+<td><strong>SaaS 托管</strong></td>
+<td>★★ 备选</td>
+<td>引擎全量编译到 WebAssembly（<code>photocraft-web-&lt;ver&gt;.zip</code>），已支持 Docker 自托管，具备推出托管服务的技术底座</td>
+</tr>
+<tr>
+<td><strong>专业服务</strong></td>
+<td>★★ 中等</td>
+<td>60 万行 Rust 工程 + 完整文档书（99 篇），面向工作室/企业的定制、集成、培训有空间</td>
+</tr>
+<tr>
+<td><strong>市场/插件</strong></td>
+<td>★★ 潜力</td>
+<td>存在独立 <code>photocraft-plugins</code> crate，README 将"plug-in compatibility"列为待补短板，插件市场有先例（Photoshop 插件生态、VS Code）</td>
+</tr>
+<tr>
+<td><strong>认证/生态</strong></td>
+<td>★ 弱</td>
+<td>7 款 Crafting Apps 共享约定，有生态协同，但无认证体系迹象</td>
+</tr>
+<tr>
+<td><strong>双协议许可</strong></td>
+<td>✗ 不适用</td>
+<td>已是 MIT/Apache 全开放，无开源版/商业授权分层空间</td>
+</tr>
+<tr>
+<td><strong>捐赠/赞助</strong></td>
+<td>★ 可选项</td>
+<td>Discord 社区活跃，但规模天花板低（Vue 参照约 $1M+）</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>判定：存在一条相对清晰的主路径（借 ArtCraft 商业 AI 层形成开放核心，对标 Next.js/Vercel、Supabase），且有 SaaS、插件市场、专业服务等备选路径，符合 7–8 档"1 条主路径清晰 + 备选"。</li>
+<li>扣分点：项目本身迄今没有任何付费版/企业版功能分层证据，README 反复强调 "free, open-source"，商业实体与开源项目的收入归属关系未公开，路径成立但尚未经产品验证。</li>
+</ul>
+<h4>D4.3 付费转化逻辑</h4>
+<p><strong>打分: 1.5 / 2.5（5–6 档，60%）</strong></p>
+<ul>
+<li>免费→付费触发点：README「Status」明确给出的最大缺口正是 <strong>AI/generative features</strong>、<strong>15 missing tools</strong>、<strong>typography/pro workflow depth</strong>、<strong>plug-in compatibility</strong>——这些天然是付费增值层候选。但 ArtCraft 的商业 AI 能力被做成独立的 ArtCraft 工作室产品，PhotoCraft 本身被定义为免费工具，触发点在"产品之外"，对本项目而言并不自然。</li>
+<li>付费意愿强度：目标客户为个人创作者与设计/摄影从业者，付费能力中等偏上；但该赛道被 Adobe（订阅 ~$264/年）与 Affinity（一次性买断 ~$70）、GIMP/Krita/Photopea（免费）夹击，专业用户对"完整兼容 Photoshop"要求高，而项目自认"not yet a Photoshop replacement for daily professional work"，削弱付费理由。</li>
+<li>转化漏斗：从 GitHub star（63K）/下载 → 付费的路径依赖 ArtCraft 平台承接，漏斗存在但环节不明确。</li>
+<li>判定：有升级逻辑（AI/云/企业功能），但触发点隔着母公司产品层、不够自然，付费意愿中等，落在 5–6 档（一般）。</li>
+</ul>
+<h4>D4.4 增值服务空间与定价天花板</h4>
+<p><strong>打分: 1.2 / 2（5–6 档，60%）</strong></p>
+<ul>
+<li>增值空间：可叠加项较丰富——AI 生成/去背类功能、云端资产与团队协作、企业级批量自动化（项目已有 500+ 命令注册表、<code>photocraft-cli run/batch</code>、JSON 控制通道、MCP server，天然适配电商/工作室影像流水线）、SLA 与优先支持、插件市场抽成。自动化面（headless CLI + MCP + 控制协议）是高于普通消费级工具的差异化增值点。</li>
+<li>定价天花板：核心锚点是专业创意工具，Adobe ≈ $264/seat/年、Affinity 买断 ≈ $70、Capture One 等 ≈ $2–300/年，因此主体客单价落在 <strong>$100–600/seat/年</strong> 区间；仅企业批量/自动化集成与团队方案存在做到 $1K+ 的空间，但需下游验证。</li>
+<li>收入扩展性：可从 per-seat 向企业 flat fee、per-usage（云 AI、渲染）延伸，具备结构上的扩展性，但受"免费开源替代品"定价锚约束明显。</li>
+<li>判定：增值方向明确、但客单价被消费级/专业创意工具价位锚定，落在 5–6 档（一般），定价上行空间存在但未被证实。</li>
+</ul>
+<h3>结论</h3>
+<p>PhotoCraft 在<strong>协议层面</strong>拥有最优的商业化自由度（MIT/Apache 双许可，满分），且背靠 ArtCraft 的"开源应用矩阵 + 商业 AI 工作室"呈现清晰的开放核心/SaaS 生态叙事（对标 Next.js/Vercel、Supabase），自动化能力（CLI/batch/MCP/控制协议）为企业和工作室场景提供了高于普通消费级工具的增值想象空间。但核心短板在于：产品明确定位为免费开源、仍处 early alpha、自认尚非 Photoshop 的日常替代品，产品内的付费触发点被外置到母公司的 ArtCraft 商业层，付费转化逻辑与客单价天花板均缺乏落地证据。综合判定为"路径成立、验证未完成"。</p>
+<p><strong>维度总分（得分: 7.5/10）</strong></p>
+<h1>D5. 竞争格局与差异化壁垒</h1>
+<p><strong>（得分: 7.2/10）</strong></p>
+<blockquote>
+<p><strong>数据来源与验证说明</strong>：本维度的竞品识别未依赖训练记忆，而是以「仓库内引用」为主要验证手段（README 全篇对标 Adobe Photoshop，并明确提及与 GIMP、Krita、MyPaint、Paint.NET 的格式互通），辅以本次 GitHub Search API 实测。需如实说明：本次 GitHub Search API 返回的 5 个「竞品」中，3 个为同名 0-star fork（<code>kennethabuchi2006-design/photocraft</code> 等），另 2 个（<code>visorcraft/Arte-Ogre</code> 10 star、<code>Alexandre-git-SDV/Filtro</code> 0 star）与 PhotoCraft 不构成实质竞争，<strong>有效直接竞品检索结果为 0</strong>。因此下表竞品的真实性以「仓库内引用」方式确认，属可核验的硬事实。</p>
+</blockquote>
+<hr />
+<h3>D5.1 竞品对比与市场定位</h3>
+<p><strong>打分: 2.4 / 3（7–8 档，80%）</strong></p>
+<h3>竞品对比表</h3>
+<table>
+<thead>
+<tr>
+<th>竞品名称</th>
+<th>类型</th>
+<th>仓库/官网</th>
+<th>验证方式</th>
+<th>Star/用户量</th>
+<th>核心差异</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Adobe Photoshop</strong></td>
+<td>直接竞品</td>
+<td>adobe.com/products/photoshop</td>
+<td>仓库内引用（README 全篇对标，定位为 clean-room 复刻对象）</td>
+<td>商业，数千万付费用户</td>
+<td>闭源商业、行业事实标准、AI/Firefly 生成式能力；PhotoCraft 是其<strong>开源纯 Rust 复刻</strong>，无 AI 生成功能</td>
+</tr>
+<tr>
+<td><strong>GIMP</strong></td>
+<td>直接竞品</td>
+<td>gimp.org（gitlab.gnome.org/GNOME/gimp）</td>
+<td>仓库内引用（README「OpenRaster…for Krita, MyPaint and GIMP」）</td>
+<td>开源元老级，用户量百万级</td>
+<td>C/GTK 实现，插件（Script-Fu/Python-Fu）生态成熟；<strong>非 GPU 原生新架构，PSD 保真度与原生性能较弱</strong></td>
+</tr>
+<tr>
+<td><strong>Krita</strong></td>
+<td>直接竞品</td>
+<td>krita.org</td>
+<td>仓库内引用（README 声明可读 <code>.kra</code>）</td>
+<td>开源，绘画领域领先</td>
+<td>C++/Qt，<strong>偏数字绘画与笔刷</strong>；PhotoCraft 反向兼容读取 <code>.kra</code>，但定位偏通用图像编辑 + PSD 全流程</td>
+</tr>
+<tr>
+<td><strong>Paint.NET</strong></td>
+<td>间接竞品</td>
+<td>getpaint.net</td>
+<td>仓库内引用（README 声明可读 PDN3 全部 14 种混合模式）</td>
+<td>免费闭源，Windows 生态用户量大</td>
+<td>.NET/Windows 单一平台；PhotoCraft 可读其 PDN3，且跨 macOS/Windows/Linux/FreeBSD/Web</td>
+</tr>
+<tr>
+<td><strong>MyPaint</strong></td>
+<td>间接竞品</td>
+<td>mypaint.app</td>
+<td>仓库内引用（README「OpenRaster」互通）</td>
+<td>开源，轻量绘画</td>
+<td>专注无限画布绘画，<strong>无完整图层/PSD 工作流</strong>，属技术路径不同的间接竞品</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>注：Web 版 Photoshop 替代品 Photopea 等因本次未通过 API/Web 搜索验证，<strong>不列入对比表</strong>，以免违反防幻觉规则。</p>
+</blockquote>
+<h3>判断依据</h3>
+<ol>
+<li><strong>定位清晰度极高</strong>：README 开宗明义「an open-source, clean-room reimplementation of Adobe Photoshop, rebuilt in pure Rust」——把「100% Rust + 原生（无 Electron/WebView）+ GPU(wgpu) + 离线 + agent-ready + 真实 PSD」作为差异化标签，定位鲜明且可一句话复述。</li>
+<li><strong>差异化维度明确</strong>：与 GIMP（C/GTK 老架构）、Krita（绘画向）、Paint.NET（Windows/.NET 单平台）相比，PhotoCraft 的差异点集中在<strong>纯 Rust 原生架构 + 命令引擎驱动的可编程性 + 高保真 PSD 往返</strong>，构成了清晰的技术路线差异。</li>
+<li><strong>但竞品林立</strong>：Photoshop 作为行业标准拥有压倒性生态与 AI 能力，GIMP/Krita 已是成熟开源替代，项目<strong>并非「无直接竞品」</strong>，故不能进入 9–10 档。</li>
+</ol>
+<p>综合：定位独特且差异化鲜明，但身处成熟竞品包围中，符合「有竞品但本项目有明确差异化定位」的 7–8 档。</p>
+<hr />
+<h3>D5.2 技术壁垒与网络效应</h3>
+<p><strong>打分: 2.4 / 3（7–8 档，80%）</strong></p>
+<h3>判断依据</h3>
+<p><strong>技术壁垒（较强）</strong>：
+- <strong>工程量壁垒</strong>：565,984 行纯 Rust、1,350 个源文件、24 个 crate，双合成器（CPU 参考 oracle + wgpu GPU）互测架构，copy-on-write 256² 稀疏 tile。
+- <strong>格式保真壁垒</strong>：PSD 高保真往返（psd-tools 测试集 307/309、混合集 169/170），形状层像素对齐 116/116——这是长期测试语料（<code>photocraft-corpus</code>、psd-tools、ag-psd、PngSuite）积累出的实质门槛。
+- <strong>可编程性壁垒</strong>：500+ 命令统一注册表，UI/CLI/JSON 控制通道/MCP 同源。
+- <strong>局限</strong>：代码为 MIT/Apache-2.0 开源，<strong>无专利、无私有数据、无算法封锁</strong>，理论上可被 fork；壁垒来自「从零复刻成本极高」而非法律排他。</p>
+<p><strong>网络效应（中等偏弱）</strong>：
+- 有生态协同雏形：Crafting Apps 家族 8 款应用共享 <code>craft-libs</code>/<code>craft-ui</code>（跨应用共享库形成粘性），已存在 <code>photocraft-plugins</code> crate 与 agent/MCP 生态。
+- 309 名贡献者、2,131 个开放 issue、Discord 社区形成一定协作网络。
+- <strong>但缺乏插件市场/数据飞轮/双向平台效应</strong>，未形成强网络效应。</p>
+<p><strong>规模效应</strong>：Rust + GPU 原生的性能优势（如 radius-180 Gaussian 3.6MP &lt; 1s）在成本/体验上有优势，但非指数级规模效应。</p>
+<p>综合：技术实现壁垒较强（复刻成本构成实质防御），网络效应中等，命中「有技术壁垒或网络效应其一且较强」的 7–8 档。</p>
+<hr />
+<h3>D5.3 切换成本与用户粘性</h3>
+<p><strong>打分: 1.2 / 2（5–6 档，60%）</strong></p>
+<h3>判断依据</h3>
+<p><strong>迁移成本（中低）</strong>：
+- <strong>数据可移植</strong>：核心资产为 PSD/TIFF/OpenRaster 等<strong>开放标准格式</strong>，且刻意与 Photoshop 菜单、快捷键一致（「If you know Photoshop, you already know PhotoCraft」）——这<strong>双向降低</strong>了切换成本，用户可低摩擦进出。
+- <strong>反向风险</strong>：与 Photoshop 高度同构意味着<strong>用户切回 Photoshop 的成本同样很低</strong>，无法靠 UX 锁定用户。</p>
+<p><strong>深度集成（中等偏强）</strong>：
+- CLI（<code>photocraft-cli run/batch/mcp</code>）、JSON control channel、MCP server、action 列表、<code>.pcraft</code> 原生格式、smart object/命令历史——一旦用户围绕命令引擎搭建自动化流水线（批处理、agent 集成），粘性上升。
+- 这是本项中唯一能形成较强粘性的路径。</p>
+<p><strong>习惯锁定（弱）</strong>：图像编辑器属「工具型软件」，用户往往并行使用多款；项目自承认处于 early alpha、尚非 Photoshop 日常替代品，组织流程依赖尚未建立。</p>
+<p>综合：数据格式开放 + UX 刻意同构 → 迁移成本低；仅自动化/agent 集成构成中等粘性，符合「迁移成本中等，有部分粘性」的 5–6 档。</p>
+<hr />
+<h3>D5.4 护城河可持续性</h3>
+<p><strong>打分: 1.2 / 2（5–6 档，60%）</strong></p>
+<h3>判断依据</h3>
+<p><strong>护城河趋势（增强）</strong>：
+- 迭代极快：30 天 2,402 commits、90 天新建 3,436 PR、90 天关闭 1,672 issue、14 个月发 10+ 版本（v0.1.1 → v0.9.0）；309 贡献者、63,441 star 显示社区扩张，护城河处于<strong>上升期</strong>。</p>
+<p><strong>颠覆风险（中等且明确）</strong>：
+- <strong>项目自认最大缺口是 AI/generative features</strong>（README：「The biggest gaps are AI/generative features, 15 missing tools…」）——在 AI 原生图像编辑（生成式修补、文生图、语义编辑）成为行业主战场的当下，这构成<strong>明确的技术范式颠覆风险</strong>。
+- Photoshop 生态锁定 + Firefly 生成能力持续领先，新进入者（AI 原生编辑器）可能绕开「手工复刻传统 PS」的路径直接改写规则。
+- 另一面：WebAssembly 全栈编译、agent/MCP 原生等前瞻布局，部分对冲范式变化。</p>
+<p><strong>时间窗口</strong>：纯 Rust 原生 + clean-room 高保真 PSD 的领先窗口<strong>可维持中期（1–3 年）</strong>，但需依赖功能补齐（尤其 AI 与 15 个缺失工具）方能延续。</p>
+<p>综合：护城河在加深但面临 AI 范式变革与自身功能缺口的双重不确定性，符合「护城河一般，有中等颠覆风险」的 5–6 档。</p>
+<hr />
+<h3>D5 维度结论</h3>
+<p><strong>（得分: 7.2/10）</strong></p>
+<p>PhotoCraft 在竞争格局中拥有<strong>极为清晰且差异化的定位</strong>——「纯 Rust、clean-room 重实现 Photoshop 的原生开源编辑器」——与 GIMP（老架构）、Krita（绘画向）、Paint.NET（单平台）形成明显技术路线区隔，且凭借 56 万行工程量、双合成器 oracle、PSD 高保真往返与 500+ 命令引擎构筑了<strong>较强的技术实现壁垒</strong>（D5.1、D5.2 均达 7–8 档）。主要短板在于：① 采用开放格式 + 刻意同构 Photoshop 的 UX，使<strong>切换成本偏低、反向流失风险高</strong>（D5.3）；② 项目自认缺失 AI/生成式能力、身处 Photoshop 生态与 AI 原生编辑器的<strong>双重颠覆阴影</strong>下，护城河虽在增强但可持续性存在中等不确定性（D5.4）。总体处于「良好但非卓越」区间，商业化需在 AI 能力补齐与 agent/自动化生态粘性上强化护城河。</p>
+<h3>D6. 法律合规与知识产权（得分: 7.7/10）</h3>
+<blockquote>
+<p>本维度评估商业化中的法律硬伤与 IP 障碍。项目采用 Rust 生态标准的 MIT OR Apache-2.0 双许可，依赖链无传染性协议，整体法律风险可控；主要不确定性集中在商标核查（无法自动化）与贡献者版权集中度。</p>
+</blockquote>
+<h3>细则打分</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D6.1 开源协议合规性与商业限制</td>
+<td>3.0</td>
+<td>3.0</td>
+<td>9–10 档（100%）</td>
+</tr>
+<tr>
+<td>D6.2 依赖链法律风险</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8 档（80%）</td>
+</tr>
+<tr>
+<td>D6.3 商标与专利风险</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6 档（60%，未经人工核查）</td>
+</tr>
+<tr>
+<td>D6.4 贡献者协议完备性</td>
+<td>2.0</td>
+<td>1.2</td>
+<td>5–6 档（60%）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>7.7</strong></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h4>D6.1 开源协议合规性与商业限制</h4>
+<p><strong>打分: 3.0 / 3（9–10 档，100%）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>协议明确性</td>
+<td>项目采用 Rust 生态主流双许可 <strong>MIT OR Apache-2.0</strong>，<code>Cargo.toml</code> 的 <code>[workspace.package]</code> 中 <code>license = "MIT OR Apache-2.0"</code> 显式声明；<code>docs/contributing.md</code> 明确列出 <code>LICENSE-MIT</code>、<code>LICENSE-APACHE</code>、<code>NOTICE</code> 三份文件。GitHub API 也识别为 <code>Apache-2.0</code>。SPDX 标识规范清晰。</td>
+</tr>
+<tr>
+<td>copyleft 传染性</td>
+<td>协议本身为<strong>宽松许可（permissive）</strong>，无 copyleft 条款，允许闭源衍生、SaaS 分发与商业再许可，对变现模式无法律限制。</td>
+</tr>
+<tr>
+<td>商业附加条款</td>
+<td><strong>无 Commons Clause、无 BUSL、无 SSPL</strong> 等限制商业使用的附加条款。</td>
+</tr>
+<tr>
+<td>品牌资产隔离</td>
+<td><code>docs/brand/LICENSE-brand.txt</code> 对 ArtCraft 标识作单独的非开源授权，<code>assets/app-icon/LICENSE.txt</code> 明确图标为原创且随项目双许可——品牌资产与代码许可隔离，属<strong>良好实践</strong>。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>说明</strong>：本地采集脚本将根许可文件识别为 <code>NONE</code>，系因许可文件命名为 <code>LICENSE-MIT</code>/<code>LICENSE-APACHE</code> 而非标准 <code>LICENSE</code>（采集器未匹配），非协议缺失。此为工具局限而非合规缺陷。项目源码自身协议明确、无 copyleft、无商业限制，构成商业化优势。</p>
+<blockquote>
+<p>注：依方法论，协议类型对变现模式的影响已在 D4.1 计分，本细则仅就传染范围、附加条款与合规可管理性评估，避免双重计分。</p>
+</blockquote>
+<hr />
+<h4>D6.2 依赖链法律风险</h4>
+<p><strong>打分: 2.0 / 2.5（7–8 档，80%）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>依赖协议审查</td>
+<td>对 <code>Cargo.toml</code> 中显式声明的外部依赖逐一核查：<code>serde</code>/<code>thiserror</code>/<code>rayon</code>/<code>log</code>/<code>flate2</code>/<code>criterion</code>/<code>crc32fast</code>（MIT OR Apache-2.0）、<code>image</code>/<code>png</code>/<code>tiff</code>/<code>exr</code>/<code>zune-jpeg</code>/<code>image-webp</code>/<code>jpeg-encoder</code>（MIT/Apache 系）、<code>egui</code>/<code>eframe</code>/<code>wgpu</code>/<code>criterion</code>（MIT/Apache）、<code>wasmi</code>（MIP OR Apache-2.0，注释明确）、<code>jxl-oxide</code>（注释明确 <strong>MIT OR Apache-2.0</strong>）、<code>heic-rs</code>（纯 Rust）、<code>resvg</code>/<code>usvg</code>/<code>parley</code>/<code>skrifa</code>/<code>zbus</code>/<code>x11rb</code>/<code>objc2</code>/<code>muda</code>/<code>winsafe</code>/<code>xcap</code>（均宽松/知名来源）。<strong>未发现任何 GPL/AGPL/SSPL 等传染性协议依赖。</strong></td>
+</tr>
+<tr>
+<td>依赖数量</td>
+<td>依赖规模较大（1350 个源文件、20+ 内部 crate、跨 macOS/X11/Wayland/Windows 的平台专属依赖），合规审查面较广，但均为 crates.io 主流 crate。</td>
+</tr>
+<tr>
+<td>依赖来源</td>
+<td>绝大多数来自 crates.io 知名发布者；<code>wat</code>（Apache-2.0 WITH LLVM-exception，仅 dev）。<strong>风险点</strong>：存在两个非同源 git 依赖 <code>craft-ui</code> 与 <code>craft-print</code>（<code>storytold/craft-libs</code>），其协议未在采集数据中体现，需人工确认；<code>storytold/craftrules</code> 被文档标注为非公开仓库，<code>craft-fonts</code> 为独立仓库——这些关联仓库的许可状态构成<strong>未验证项</strong>。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>说明</strong>：无传染性依赖是核心优势；扣分主要来自依赖规模带来的审查成本，以及两个内部 git 依赖的许可状态无法从现有材料证实。整体法律风险可控，适合商业化。</p>
+<hr />
+<h4>D6.3 商标与专利风险</h4>
+<p><strong>打分: 1.5 / 2.5（5–6 档，60%）——未经人工核查，置信度低</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>商标可用性</td>
+<td>项目名 "PhotoCraft" 为描述性组合词，<strong>是否可注册、是否与在先商标冲突，未做检索，无法判断</strong>。</td>
+</tr>
+<tr>
+<td>专利风险</td>
+<td>图像编辑、色彩管理、RAW 解码、WebAssembly 插件沙箱等领域存在大量存量专利，<strong>未做 FTO（自由实施）检索</strong>。</td>
+</tr>
+<tr>
+<td>商标政策</td>
+<td>项目对品牌资产有明确政策：<code>docs/brand/LICENSE-brand.txt</code> 声明 ArtCraft 标识<strong>非开源</strong>，<code>docs/contributing.md</code> 明确要求「不得使用品牌标识」，属<strong>友好的商标保护姿态</strong>（限制衍生品使用名称，利于官方品牌控制）。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>说明</strong>：依据方法论，商标检索与专利排查无法由 AI 自动完成，在无人工核查数据时本细则默认按 5–6 档给分并标注低置信度。已知正面信号为品牌资产已与代码许可隔离、有独立的品牌许可政策；但商标可注册性与专利风险<strong>必须由专业人员核查后方可确认</strong>，此处不得凭模型记忆断言。<strong>建议商业化前委托代理机构完成 "PhotoCraft / ArtCraft" 商标检索与图像编辑领域 FTO 分析。</strong></p>
+<hr />
+<h4>D6.4 贡献者协议完备性</h4>
+<p><strong>打分: 1.2 / 2.0（5–6 档，60%）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CLA/DCO</td>
+<td><strong>未发现 CLA 配置，亦无 DCO（Signed-off-by）强制要求</strong>。贡献采用 inbound=outbound 模式——<code>docs/contributing.md</code> 明确「contributions are MIT OR Apache-2.0」，即贡献者默认以项目同等许可提交。</td>
+</tr>
+<tr>
+<td>版权归属</td>
+<td>项目归属 <code>storytold</code> 组织，共 <strong>309 名贡献者</strong>，无 CLA 意味着<strong>版权分散在各贡献者手中、未集中转让</strong>。对当前宽松双许可无实质影响；但若未来需变更许可（如转为双许可商业版/专有再许可），缺少 CLA 将难以获得全体贡献者授权。</td>
+</tr>
+<tr>
+<td>贡献流程</td>
+<td>贡献流程<strong>高度规范</strong>：<code>AGENTS.md</code> + <code>docs/contributing.md</code> + <code>book/src/getting-started/contributing.md</code> 定义了 clean-room 政策、crate 分层、测试要求、命名与视觉验收规则，并强制「第三方资产需宽松许可 + 邻接许可文件 + <code>ATTRIBUTION.md</code> 记录」。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>说明</strong>：贡献流程与资产管理规范度高于行业平均（有 clean-room 与 ASSET 归属制度），但<strong>缺少正式 CLA/DCO</strong>使其止步于 5–6 档。对纯开源商业化（SaaS/托管/增值）不构成障碍；仅在未来需要重新许可或双许可变现时构成版权集中度短板。</p>
+<hr />
+<h3>结论</h3>
+<p>PhotoCraft 的法律基础总体稳健：<strong>MIT OR Apache-2.0 双许可、无 copyleft、无商业附加条款、依赖链无传染性协议</strong>，为闭源衍生、SaaS 托管、企业授权等主流变现路径扫清了协议障碍，构成显著合规优势。主要风险与不确定性为三处：<strong>① 商标/专利未经专业核查（置信度低）</strong>；<strong>② 两个内部 git 依赖（craft-libs）的许可状态未验证</strong>；<strong>③ 无 CLA，版权分散导致未来难以重新许可</strong>。</p>
+<p><strong>商业化建议</strong>：
+1. 商业化前委托专业机构完成 "PhotoCraft" 商标可用性检索与图像编辑/RAW 解码领域 FTO 分析；
+2. 核实 <code>storytold/craft-libs</code>（及关联 <code>craft-fonts</code>、<code>craftrules</code>）的许可条款，确保闭源分发链条完整；
+3. 若计划保留再许可/双许可空间，应尽快引入 CLA（如基于 Harmony 模板）以集中版权；
+4. 保留并延续现有品牌资产隔离政策与 clean-room 制度，避免第三方专有素材污染。</p>
+<p><strong>维度总分（得分: 7.7/10）</strong>，其中 D6.3 为低置信度项，实际结论需人工核查后修正。</p>
+<h3>D7. 企业就绪度与可运营性（得分: 6.0/10）</h3>
+<blockquote>
+<p><strong>定位说明</strong>：PhotoCraft 是一款<strong>原生桌面图像编辑器</strong>（macOS/Windows/Linux/FreeBSD/Web），而非服务器端应用。因此本维度的评估需区分「对桌面软件不适用」的考察点（如 SSO/LDAP、集群高可用）与「对桌面软件同样适用」的考察点（如配置管理、升级路径、安全加固、集成 API、性能可扩展性）。项目自身提供了自托管 Web 版（Docker+nginx）与 CLI/MCP 自动化通道，具备可评估的服务端运营与集成能力。</p>
+</blockquote>
+<h3>D7.1 运维复杂度与升级路径</h3>
+<p><strong>打分: 1.8 / 3（5–6 档，60%）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测证据</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>配置管理</td>
+<td>大量偏好分区（<code>prefs.rs</code> 30+ 枚举、General/Interface/Workspace/Tools/HistoryLog/FileHandling）；环境变量控制（<code>PHOTOCRAFT_NO_PRINT</code>、<code>LPDEST</code>、<code>PHOTOCRAFT_GPU_TILE</code>、<code>PHOTOCRAFT_CANVAS_F16</code>、<code>PHOTOCRAFT_SEPARATE_MIPS</code>）；偏好 JSON 三路合并 + 原子写（temp+fsync+rename）；Camera Raw 设置经 XMP 往返</td>
+<td>清晰且分层良好</td>
+</tr>
+<tr>
+<td>运维负担</td>
+<td>桌面应用，用户自助安装；自托管 Web 版 <code>Dockerfile</code>（nginx + <code>HEALTHCHECK</code> 30s）；打包体系完整（MSI/AppImage/Flatpak/DEB/FreeBSD tarball/Windows ARM64）</td>
+<td>运维成本低</td>
+</tr>
+<tr>
+<td>升级路径</td>
+<td><strong>无 CHANGELOG 迁移说明</strong>；版本处早期 alpha（README 徽章 "early alpha"），两周内从 v0.1.1 迭代到 v0.9.0；<strong>无回滚机制证据</strong></td>
+<td>减分项</td>
+</tr>
+<tr>
+<td>数据迁移</td>
+<td>偏好 JSON 支持三路合并保存、失败指数退避重试；PSD 兼容性对齐；但无升级迁移脚本</td>
+<td>中等</td>
+</tr>
+</tbody>
+</table>
+<p>结论：作为桌面软件，日常运维负担天然低，配置管理（环境变量 + 分区偏好 + XMP 往返 + 三路合并）清晰、打包分发完整，这部分接近 7–8 档；但项目处于早期 alpha 且高频迭代，<strong>缺少 CHANGELOG 迁移说明、LTS/版本稳定性承诺与回滚机制</strong>，升级"平滑度"存疑，拉低至 5–6 档。</p>
+<h3>D7.2 安全管理与权限控制</h3>
+<p><strong>打分: 1.5 / 2.5（5–6 档，60%）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测证据</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>认证授权</td>
+<td><strong>无 SSO/OAuth/LDAP/SAML</strong>（桌面单用户应用，此类企业认证对标 Photoshop 亦不适用）；但有自动化控制面授权边界：<code>automation_authorize</code> 门禁、<code>app.open</code>/<code>app.save</code> 限定授权根目录、<code>modal_allows</code> 防绕过模态</td>
+<td>企业认证不适用，应用级授权健全</td>
+</tr>
+<tr>
+<td>权限模型</td>
+<td>无 RBAC/ABAC（不适用）；有文档级图层锁定（<code>check_text_unlocked</code>、<code>locked_for_transform</code>）、自动化策略校验</td>
+<td>粗粒度，非企业级</td>
+</tr>
+<tr>
+<td>审计日志</td>
+<td>无安全审计日志；有 History 日志偏好分区与命令注册表可追溯（命令 ID 唯一性有测试）</td>
+<td>弱</td>
+</tr>
+<tr>
+<td>数据安全</td>
+<td>安全工程突出：<code>#![forbid(unsafe_code)]</code>、威胁模型/信任边界/解析器加固专门文档（<code>book/src/security/*</code>）、<strong>20 个 cargo-fuzz 目标</strong>（PSD/codecs/affinity/format）、有界读取 <code>MAX_DEPTH</code>/<code>MAX_RENDER_PIXELS</code>；<strong>无加密存储、无密钥管理</strong>；Web 版传输加密依赖 nginx 部署（本仓库未含 TLS 配置）</td>
+<td>加固强，加密存储缺失</td>
+</tr>
+</tbody>
+</table>
+<p>结论：在<strong>适用的</strong>安全层面（自动化授权边界、内存安全、解析器加固、模糊测试、威胁建模）表现远超同类桌面软件，<code>SECURITY.md</code> 与一整套安全文档齐备。但企业安全体系的三要素——<strong>SSO/身份认证、细粒度 RBAC、安全审计日志、加密存储与密钥管理——均缺失</strong>（部分因桌面应用不适用）。综合落于"有基本安全机制、权限粗粒度"的 5–6 档。</p>
+<h3>D7.3 可扩展性与高可用能力</h3>
+<p><strong>打分: 1.5 / 2.5（5–6 档，60%）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测证据</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>水平扩展</td>
+<td>桌面单机应用，<strong>不适用集群横向扩展</strong>；Web 版为静态 wasm 站点（nginx），可多副本/CDN 分发；CLI + MCP 支持批处理任务并行化</td>
+<td>不适用（服务端）/ 静态站可扩展</td>
+</tr>
+<tr>
+<td>高可用</td>
+<td><strong>无集群/故障转移机制（桌面应用不适用）</strong>；Web 版有 <code>HEALTHCHECK</code>；GPU 侧有 <code>DeviceHealth</code> 设备丢失监听 + <code>catch_unwind</code> 兜底</td>
+<td>不适用</td>
+</tr>
+<tr>
+<td>性能瓶颈</td>
+<td>强：GPU 合成器（wgpu 多后端 Metal/Vulkan/DX12/WebGPU）+ CPU 参考实现须 1/255 内匹配；tile 分块（<code>PAGE=2048</code>/<code>CHUNK=1024</code>）、copy-on-write、LRU 逐出、rayon 多线程、前缀复用检查点；<strong>性能预算体系</strong>（<code>perf/budgets.toml</code> + <code>perf/baseline.json</code> + nightly 基准，p50 回归 15% 即失败）</td>
+<td>优秀，无明显单点瓶颈</td>
+</tr>
+<tr>
+<td>数据一致性</td>
+<td>单机 copy-on-write <code>Arc&lt;Tile&gt;</code> 一致性良好；<code>#![forbid(unsafe_code)]</code>；分布式一致性不适用</td>
+<td>单机一致性好</td>
+</tr>
+</tbody>
+</table>
+<p>结论：水平扩展/高可用/集群等<strong>服务端可用性概念对桌面图像编辑器不适用</strong>；但在可评估的<strong>性能可扩展性</strong>上项目极其扎实（GPU/CPU 双后端一致性契约、分块并行、性能预算与夜间基准回归门禁），具备处理大文档与批处理能力。综合 5–6 档。</p>
+<h3>D7.4 集成兼容与可观测性</h3>
+<p><strong>打分: 1.2 / 2（5–6 档，60%）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测证据</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>API 完备性</td>
+<td>强：每个动作都是引擎命令（<code>CommandSpec</code> 注册表），经 <strong>UI / CLI / JSON 控制通道 / MCP server 四路</strong>统一暴露；<code>book/src/automation/{cli,control-protocol,mcp}.md</code>；可嵌入的 Rust crate 库（workspace 26 crate）</td>
+<td>完善</td>
+</tr>
+<tr>
+<td>标准协议</td>
+<td>支持 <strong>MCP</strong>（Model Context Protocol，标准）、XMP 元数据、ICC 色彩管理、<code>.atn</code>/<code>.cube</code>/<code>.3dl</code> 等格式互操作；<strong>无 OpenTelemetry / Prometheus / Webhook</strong></td>
+<td>部分支持</td>
+</tr>
+<tr>
+<td>监控告警</td>
+<td>无内置指标端点（桌面应用）；Web 版有 <code>HEALTHCHECK</code>；GPU <code>health.rs</code> 设备健康；性能预算告警（nightly CI 汇总表）；无 Prometheus 度量</td>
+<td>弱</td>
+</tr>
+<tr>
+<td>日志体系</td>
+<td>依赖 <code>log = "0.4"</code>，有日志级别；Web 请求日志依赖 nginx；无明确结构化日志/日志聚合</td>
+<td>基础</td>
+</tr>
+</tbody>
+</table>
+<p>结论：<strong>集成/自动化 API 是本维度的显著亮点</strong>——命令驱动的统一引擎使 UI、CLI、JSON 控制通道、MCP 四方同源，便于企业自动化集成；但在<strong>标准可观测协议（OpenTelemetry/Prometheus）与结构化日志/监控告警</strong>上缺失，符合 5–6 档"有 API 但监控/日志薄弱"。</p>
+<hr />
+<p><strong>维度结论</strong>：PhotoCraft 在<strong>安全工程</strong>（威胁模型、解析器加固、20 个 fuzz 目标、Rust 内存安全）与<strong>性能可扩展性</strong>（GPU/CPU 双后端、分块并行、性能预算门禁）以及<strong>集成 API</strong>（命令驱动四路暴露、MCP/CLI）上表现出色，这些是商业化中技术实力可直接转化的优势。但作为一款<strong>早期 alpha 阶段的桌面软件</strong>，它在传统"企业就绪度"意义上存在结构性短板：无 CHANGELOG 迁移说明与回滚机制、无企业认证/RBAC/审计日志/加密存储、无标准可观测协议、无集群高可用（后者对桌面应用不适用）。达标项集中在桌面软件同样适用的范围，故整体评分为中等偏上（6.0/10，5–6 档，60%）。</p>
+<h1>D8 团队治理与可持续性（得分: 6.3/10）</h1>
+<blockquote>
+<p>本维度依赖贡献者/活动/资金数据。项目 <code>created_at = 2026-09-30</code>，距最近推送（2026-10-16）仅约 16 天，<strong>年龄 &lt; 90 天，属新项目</strong>，按 D8.4 新项目专项与 3.3 豁免执行（时间性归因优先级最高）。</p>
+</blockquote>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D8.1 核心维护者能力与背景</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8 档（80%）</td>
+</tr>
+<tr>
+<td>D8.2 治理模型透明度</td>
+<td>2.0</td>
+<td>1.6</td>
+<td>7–8 档（80%）</td>
+</tr>
+<tr>
+<td>D8.3 资金支持与商业赞助</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6 档（60%）</td>
+</tr>
+<tr>
+<td>D8.4 项目可持续性与传承风险</td>
+<td>3.0</td>
+<td>1.2</td>
+<td>3–4 档（40%，新项目专项底线）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>6.3</strong></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>D8.1 核心维护者能力与背景</h3>
+<p><strong>打分: 2.0 / 2.5（7–8 档，80%）</strong></p>
+<p><strong>判断依据</strong>：
+- <strong>巴士因子</strong>：贡献者数达 <strong>309 人</strong>，远超「巴士因子 ≥ 5」的满分门槛，单人依赖风险低。
+- <strong>投入度/活跃度</strong>：近 30 天 commit <strong>2402</strong> 次、近 90 天新建 PR <strong>3436</strong> 个、近 90 天关闭 Issue <strong>1672</strong> 个，且 2026-10-02 至 10-14 连发 10+ 个 release（v0.1.1-rc.4 → v0.9.0），呈现接近全职团队级的交付节奏。
+- <strong>技术能力</strong>：项目为 100% Rust 的 clean-room Photoshop 重实现，566K 行代码、约 65K 行测试、7 条 CI（含 FreeBSD / Windows-ARM64 / 夜间性能），工程组织（<code>crates/*</code> 多 crate 分层、<code>xtask layers</code>、禁 <code>unsafe</code>）显示核心维护者技术水准高。
+- <strong>组织背景</strong>：归属 GitHub org <code>storytold</code>，并有同族仓库（<code>craft-libs</code>、<code>craft-fonts</code>、私有 <code>craftrules</code>）与品牌站点 <code>getartcraft.com</code>，显示存在组织化、产品化的运作主体。</p>
+<p><strong>扣分点（为何未达 9–10 档）</strong>：无法从公开数据证实核心团队为「全职投入」及「有成功商业化经验」，故按「投入度高、有组织背景、巴士因子 ≥ 3」落在 7–8 档。</p>
+<blockquote>
+<p><strong>组织 vs 技术区分</strong>：本细则的低风险仅反映<strong>组织与人力结构</strong>；团队技术能力为独立观察，不构成对 D2 技术成熟度的替代判断。</p>
+</blockquote>
+<hr />
+<h3>D8.2 治理模型透明度</h3>
+<p><strong>打分: 1.6 / 2（7–8 档，80%）</strong></p>
+<p><strong>判断依据</strong>：
+- <strong>有基本治理结构</strong>：存在 <code>ROADMAP.md</code> 与 <code>book/src/project/roadmap.md</code>（公开路线图）、<code>docs/decisions.md</code>（公开决策记录）、<code>docs/contributing.md</code> + <code>book/src/getting-started/contributing.md</code>（详尽贡献流程，含 clean-room 政策、crate 分层、命令清单、测试要求、许可与署名规则）、<code>SECURITY.md</code>（安全策略与披露流程）、<code>AGENTS.md</code>（仓库不变量与工程规范）。决策与流程文档较透明。
+- <strong>开放程度</strong>：贡献指南对「如何新增命令、如何验证、如何提交」给出可执行路径，接受外部贡献（309 贡献者佐证）。</p>
+<p><strong>扣分点（为何未达 9–10 档）</strong>：
+- <strong>无 <code>GOVERNANCE.md</code></strong>：未见正式治理章程（角色、TSC、投票/争议解决机制）。
+- <strong>非知名基金会项目</strong>：不属 CNCF / Apache / Linux Foundation，决策仍以 <code>storytold</code> 核心团队为主导（部分规则库 <code>craftrules</code> 不公开），透明度未达基金会级。</p>
+<hr />
+<h3>D8.3 资金支持与商业赞助</h3>
+<p><strong>打分: 1.5 / 2.5（5–6 档，60%）</strong></p>
+<p><strong>判断依据</strong>：
+- <strong>商业实体存在</strong>：README 品牌化为 ArtCraft / <code>getartcraft.com</code>，设有「PhotoCraft on getartcraft.com」「Downloads」「All Crafting Apps」入口，org 为 <code>storytold</code>，暗示有组织化（公司形态）主体在运营该项目，<strong>优于「纯靠热情」档</strong>。
+- <strong>资金可持续性证据不足</strong>：素材中<strong>无 GitHub Sponsors、无 Open Collective、无 VC/公司融资公开信息</strong>，无「backed by / funded by」声明，资金规模与可持续性无法证实。</p>
+<p><strong>扣分点（为何未达 7–8 档）</strong>：7–8 档要求「有稳定赞助或<strong>可证实</strong>的公司支持」，当前仅有商业品牌/站点这一间接信号，缺乏可验证的资金来源；故按「有少量/间接支持、主要依赖自有团队」落在 5–6 档。</p>
+<blockquote>
+<p><strong>归因说明</strong>：此为<strong>信息缺失</strong>，非「确认无资金」。若后续证实 <code>getartcraft.com</code> 背后公司为项目提供全职团队资助，本细则可上调至 7–8 档。</p>
+</blockquote>
+<hr />
+<h3>D8.4 项目可持续性与传承风险</h3>
+<p><strong>打分: 1.2 / 3（3–4 档，40%，新项目专项底线）</strong></p>
+<p><strong>判断依据（按新项目专项三项事实评估）</strong>：
+1. <strong>archived / deprecated 标记</strong>：<code>archived = false</code>，README 无 deprecated/unmaintained 声明 → 无负面信号。
+2. <strong>近 30 天 commit 频率</strong>：<code>commits_30d = 2402</code>，<code>pushed_at = 2026-10-16</code>（距今 ≤ 1 天）→ 高度活跃。
+3. <strong>Issue 响应</strong>：近 90 天关闭 Issue <strong>1672</strong> 个（在办 Issue 2131），Issue 处理在流动 → 无停滞信号。</p>
+<p>三项均无负面信号 → 按新项目专项取<strong>底线 3–4 档（40%，1.2/3）</strong>，并标注：<strong>新项目无历史，可持续性未知，不构成停滞证据</strong>。</p>
+<p><strong>专项规则执行</strong>：
+- 依据「底线取 4 分档而非 D3 各细则 6 分档」——「可持续性未知本身即是真实风险，不以中性分掩盖」，故不打中性分。
+- <strong>D8.4 一票否决豁免</strong>：年龄 &lt; 90 天、无 archived/deprecated 标记、近 30 天有 commit → <strong>豁免 3.3 对 D8.4 的一票否决</strong>（仅豁免否决，不豁免评分）。
+- 触发值核对：D8.4 = 1.2 &gt; 1（满分 3），<strong>本身即未达否决触发线</strong>，叠加新项目豁免，双重不触发。</p>
+<hr />
+<h3>结论</h3>
+<ul>
+<li><strong>正向</strong>：团队与治理面基础扎实——<strong>309 贡献者</strong>、月 <strong>2402 commit</strong>、近 90 天 <strong>3436 PR / 1672 关闭 Issue</strong>、多平台 release 节奏稳定；治理文档（路线图、决策记录、贡献/安全/工程规范）齐备，构成 D8 的主要得分来源。</li>
+<li><strong>风险</strong>：①<strong>项目年龄仅约 16 天</strong>，活跃趋势与传承机制尚无历史可验证，可持续性天然未知；②<strong>无公开资金/赞助/融资数据</strong>，资金可持续性未证实；③无正式 <code>GOVERNANCE.md</code>、非基金会项目，决策集中于 <code>storytold</code> 组织。</li>
+<li><strong>一票否决检查</strong>：D8.4 = 1.2 &gt; 1，未触发；且满足新项目豁免条件，<strong>D8 不触发任何否决</strong>。D6/D4.1 与本维度无关，需在其他维度独立核对。</li>
+<li><strong>技术质量独立性</strong>：本维度得分反映的是<strong>组织、治理与资金</strong>风险，<strong>不构成对项目技术质量（D2）的任何否定</strong>——该项目工程证据（566K 行 Rust、测试与 CI 健全）与高强度交付并存，属「高活跃、组织化、但可持续性与资金未证实」的早期项目画像。</li>
+</ul>
+<p><strong>数据归因: 时间性归因：太新（created_at=2026-09-30，年龄约 16 天 &lt; 90 天）——D8.4 按新项目专项取底线档并豁免 3.3；D8.1/D8.3 数据本身非低，无低数据归因适用；D8.3 的资金缺口属「信息缺失（未公开）」而非「确认无资金」，不据此推断技术或产品质量。</strong></p>
+<h3>D9. 上手难度与易用性（得分: 8.0/10）</h3>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D9.1 安装难度</td>
+<td>2.5</td>
+<td><strong>2.0</strong></td>
+<td>7–8 档（80%）</td>
+<td>全平台预编译安装包（macOS/Windows/Linux/FreeBSD/Web）；Linux 提供 AppImage（免安装）、<code>.deb</code>、<code>.rpm</code>、tarball、Flatpak；Flatpak 单条命令安装。但无 brew/winget/apt 类包管理器一键安装，FreeBSD 需手动 <code>pkg install</code> 一批运行时库。</td>
+</tr>
+<tr>
+<td>D9.2 部署与配置难度</td>
+<td>2.5</td>
+<td><strong>2.0</strong></td>
+<td>7–8 档（80%）</td>
+<td>桌面版本装完即用，无外部依赖（无数据库/缓存/消息队列），初始配置几乎为零；Web 自托管有官方 Dockerfile（nginx:1.28-alpine + 健康检查），但无 docker-compose/Helm，且镜像构建需将 56 万行 Rust 编译为 wasm，耗时较长。</td>
+</tr>
+<tr>
+<td>D9.3 易用性与操作门槛</td>
+<td>2.5</td>
+<td><strong>2.0</strong></td>
+<td>7–8 档（80%）</td>
+<td>菜单/快捷键/面板刻意对齐 Photoshop（⌘J、⇧⌘D 等），提供命令面板（⌘F）；CLI 每个子命令有 <code>--help</code>，错误提示为清晰文案（如超大文件、HEIF 未启用时给出明确「unsupported」）。但 67 个工具、500+ 命令、复杂参数（<code>--params '{"amount":80}'</code>）仍需领域知识，非专家难以驾驭全量能力。</td>
+</tr>
+<tr>
+<td>D9.4 学习曲线与首体验</td>
+<td>2.5</td>
+<td><strong>2.0</strong></td>
+<td>7–8 档（80%）</td>
+<td>README 提供 quickstart（安装包与源码两条路径）与 CLI 示例；仓库含 99 个文档文件、65 个示例、7 个 CI workflow、<code>book/</code> 手册（含 getting-started/installation、building）。有 PS 经验者数分钟内即可首次成功。但无交互式 onboarding/教程，概念门槛高（图层/蒙版/混合模式/ICC/PSD/多色彩模型），且项目自述处于 early alpha。</td>
+</tr>
+</tbody>
+</table>
+<h3>分析</h3>
+<p><strong>优势</strong>：PhotoCraft 作为一款「Photoshop 的清白重写」，把上手体验当作产品设计目标之一——UI 与快捷键刻意对齐行业惯例，降低了目标用户（插画/摄影从业者）的迁移成本；同时它提供覆盖面极广的预编译安装包，Linux 甚至给出 AppImage 这种「下载即运行」的形态，把安装门槛压到最低。</p>
+<p><strong>短板</strong>：
+1. <strong>源码构建门槛高</strong>：<code>rust-version = 1.95</code> + <code>edition = "2024"</code> + 24 个内部 crate + ~26 万行测试代码的 workspace，从零 <code>cargo run</code> 需完整工具链和较长编译时间；<code>craft-ui</code>/<code>craft-print</code> 还是 git 依赖（pin 到具体 rev），进一步抬高源码路线难度。
+2. <strong>无交互式引导</strong>：文档以开发者/架构/安全为主（book 中大量 architecture、security、format 章节），缺少面向新手的交互式教程或 onboarding 流程。
+3. <strong>功能面复杂度=操作复杂度</strong>：67 工具、500+ 命令、多色彩模型/位深、PSD/Krita/OpenRaster 等格式，属于专业软件固有门槛，非专家难以触达全部能力。
+4. <strong>alpha 阶段的粗糙边缘</strong>：项目自述「not yet a Photoshop replacement for daily professional work」「Expect rough edges」，客观上削弱开箱体验的稳定性。</p>
+<p><strong>结论</strong>：D9 = 8.0/10，判定为 <strong>🟢 简单</strong>。安装与首次使用对普通用户友好（尤其面向有 PS 经验的艺术家/摄影师），报告可提供详细操作步骤；但源码构建与高级功能仍面向开发者，建议分「普通用户/开发者」两条路径描述。</p>
+<h3>D10 功能价值（使用价值视角）（得分: 7.8/10）</h3>
+<blockquote>
+<p>平行维度，权重 0%，不计入综合评分。本维度只问「用它的人省了/赚了多少」，与商业交换价值正交，结果用于 3.4 价值画像判定。</p>
+</blockquote>
+<h3>细则打分</h3>
+<h4>D10.1 效用强度</h4>
+<p><strong>打分: 2.4 / 3（7–8 档，80%）</strong></p>
+<p><strong>判断依据</strong>：
+- <strong>效用内容实测充分</strong>：README 与本地代码统计共同印证这是一款功能面接近完整的图像编辑器——67 项工具、图层/组/剪贴蒙版/矢量蒙版、16 种调整图层、图层样式、点/段落文字、矢量形状、真实笔刷引擎、16/32 位与 CMYK/Lab 色彩管理、ICC 色彩管理；本地统计 <strong>565,984 行 Rust / 1,350 个源文件 / 24 个 crate</strong>，为「项目级工具」而非「分钟级便利脚本」。
+- <strong>独有增量效用</strong>：<code>500+ commands</code> 的单一命令注册表让 UI、CLI、JSON 控制通道、MCP server 共享同一引擎，可无头批处理、可被 AI agent 驱动（<code>photocraft-cli batch</code>、<code>photocraft-cli mcp</code>），这是同类免费替代品（GIMP/Krita）普遍不具备的自动化效用，属于「创造额外产出」。
+- <strong>PSD 往返硬证据</strong>：307/309 psd-tools 测试文件重存后渲染一致、116/116 形状图层像素对齐，对已有 PS 工作流用户意味着可直接省下 Adobe 订阅成本。
+- <strong>扣分理由</strong>：项目<strong>自述 early alpha</strong>（"it is not yet a Photoshop replacement for daily professional work"，缺 AI 生成、15 个工具、字体排版深度、插件兼容）；效用层级为「项目级依赖」而非「业务命脉级基础设施」，且 GIMP/Krita/Photopea 等免费替代方案充沛，属「显著节省成本但可被替代」，未达 9–10 档的「替代方案需数倍成本」。</p>
+<h4>D10.2 实际使用规模</h4>
+<p><strong>打分: 1.8 / 3（5–6 档，60%）</strong></p>
+<blockquote>
+<p>데이터归因: 时间性归因：太新（created_at 2026-09-30，距今约 16 天）+ 结构性归因：工具型低依赖计数（桌面应用，Dependents 天然近 0）。</p>
+</blockquote>
+<p><strong>判断依据</strong>：
+- <strong>硬指标实测缺失</strong>：<code>npm_weekly_downloads</code>/<code>pypi_monthly_downloads</code> 均为 <strong>N/A</strong>——本项目为桌面/WASM 应用，经 GitHub Release、AppImage、.deb/.rpm、Flatpak、WASM 分发，不进入任何包管理器生态；GitHub Dependents 未采集，且作为终端应用其计数天然接近 0。
+- <strong>可得的关注度代理</strong>：Star 63,441、Fork 11,021、贡献者 309、30 天提交 2,402、90 天 PR 3,436、90 天关闭 Issue 1,672——Fork 与贡献者数表明有<strong>万级量级</strong>的动手参与，可据此落在 5–6 档。
+- <strong>归因结论</strong>：项目年龄 <strong>&lt; 90 天</strong>，使用规模尚未形成属自然状态，<strong>低分不构成「无人使用/质量不足」的负面信号</strong>；README 未列外部生产用户案例，缺少生产采用证据，故不向上取 7–8 档。
+- <strong>数据归因: 时间性归因：太新（created_at 2026-09-30，约 16 天，&lt; 90 天）+ 结构性归因：工具型低依赖计数（桌面应用无包管理器下载量、Dependents 天然近 0）</strong>——非质量信号。</p>
+<h4>D10.3 免费可得的完整效用</h4>
+<p><strong>打分: 2.0 / 2（9–10 档，100%）</strong></p>
+<p><strong>判断依据</strong>：
+- <strong>开源版即完整价值</strong>：<code>Cargo.toml</code> 声明 <code>license = "MIT OR Apache-2.0"</code>，README 明确 "dual-licensed under MIT or Apache-2.0"，<code>LICENSE-MIT</code>/<code>LICENSE-APACHE</code> 双许可（本地 collector 的 <code>license.file=null</code> 仅因未匹配到名为 <code>LICENSE</code> 的单文件，非无许可证）。全部列出的功能（67 工具、图层、PSD、自动化、GPU 合成）均在开源仓库内，<strong>无付费墙、无企业版功能阉割</strong>。
+- <strong>自托管完整</strong>：Web 版支持 Docker 自托管（<code>packaging/web/README.md#Docker</code>），桌面版本地安装即全功能；官方构建含 HEIC（源码构建需 <code>--features heif</code>，属构建选项而非付费门槛）。
+- <strong>唯一限制为品牌资产</strong>（<code>docs/brand/LICENSE-brand.txt</code> 要求 fork 移除商标），不影响功能效用。
+- <strong>与 D4.3 的张力</strong>：本项满分意味着 D4.3 付费转化逻辑天然偏弱——项目以「免费、离线、属于你」为卖点，使用价值高于交换价值，属正常价值结构。</p>
+<h4>D10.4 效用可持续性</h4>
+<p><strong>打分: 1.6 / 2（7–8 档，80%）</strong></p>
+<p><strong>判断依据</strong>：
+- <strong>主体完全本地化</strong>：纯 Rust 原生应用，可离线运行；智能选区等能力明确 "runs on your machine, with no cloud and no account"，无云服务/账号依赖，停维后已安装的二进制与本地能力<strong>长期存续</strong>。
+- <strong>可分叉维护性良好</strong>：MIT/Apache-2.0 宽松许可 + <code>cargo build</code> 可重现构建 + 完整测试套件（<code>cargo test --workspace</code>，1,700+ 测试），社区可自行分叉续维护。
+- <strong>扣分理由（少量外部依赖）</strong>：<code>craft-ui</code>、<code>craft-print</code> 为 <code>git = "https://github.com/storytold/craft-libs"</code> 的<strong>固定 rev 外部 git 依赖</strong>，字体依赖 <code>storytold/craft-fonts</code>，测试语料依赖外部 corpus 仓库；均为公开、可 fork 的仓库，风险有限但非「无任何外部依赖」，未达 9–10 档，落在「主体本地化，少量可替换的外部依赖」。</p>
+<h3>维度结论</h3>
+<p>PhotoCraft 的<strong>功能效用总量处于「项目级工具」层级</strong>：功能面接近完整的 Photoshop 替代、PSD 往返与像素级 oracle 验证扎实、且独占「命令引擎统一驱动 UI/CLI/MCP/无头批处理」的自动化效用；100% 免费开源、纯本地离线运行、MIT/Apache 可自由分叉，免费可得效用与可持续性均处高档。主要减项在于<strong>效用被 early alpha 成熟度与充沛的免费替代品制约</strong>（D10.1 未达命脉级），以及<strong>实际使用规模无硬数据可采、项目仅 16 天</strong>（D10.2 只能落关注度代理档）。整体呈现「使用价值高、交换价值待验证」的价值结构，与并行商业维度预期形成 D10.3↔D4.3 的正常反相关。</p>
+<p><strong>数据归因: 时间性归因：太新（created_at 2026-09-30，约 16 天 &lt; 90 天，使用规模尚未形成）；结构性归因：工具型低依赖计数（桌面/WASM 应用，无包管理器下载量、Dependents 天然近 0）——低使用规模不构成质量负面信号。</strong></p>
+<h3>D11. 社会价值——正外部性视角（平行维度，权重 0%，不计入综合评分）（得分: 6.4/10）</h3>
+<blockquote>
+<p><strong>维度定位说明</strong>：本维度为平行维度（权重 0%，不参与综合评分与一票否决），仅用于 3.4 价值画像。评价对象是项目对<strong>使用者之外的行业与社会</strong>产生的外溢贡献，与 D3.4「品牌影响力对商业势能的助力」（商业输入）视角不同；D11.3 与 D2.5/D2.6 共用 i18n/无障碍工程事实素材，但此处评价的是<strong>普惠效果</strong>而非工程质量。</p>
+</blockquote>
+<h4>细则打分表</h4>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D11.1</td>
+<td>数字公共基础设施属性</td>
+<td>3</td>
+<td>1.2</td>
+<td>3–4 档（40%）</td>
+</tr>
+<tr>
+<td>D11.2</td>
+<td>教育与人才价值</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8 档（80%）</td>
+</tr>
+<tr>
+<td>D11.3</td>
+<td>普惠与可及性</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8 档（80%）</td>
+</tr>
+<tr>
+<td>D11.4</td>
+<td>开放标准与行业推动</td>
+<td>2</td>
+<td>1.2</td>
+<td>5–6 档（60%）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td><strong>6.4</strong></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h4>D11.1 数字公共基础设施属性</h4>
+<p><strong>打分: 1.2 / 3（3–4 档，40%）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测事实</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>关键依赖地位</td>
+<td>项目为面向终端用户的桌面/Web 图像编辑器应用（<code>apps/photocraft</code>、<code>apps/photocraft-cli</code>）；工作区 24 个 crate 均以 <code>path</code> 依赖组织，未见于 crates.io 分发；外部依赖仅 <code>craft-ui</code>/<code>craft-print</code>（同组织 git 依赖）。<strong>无下游依赖者计数数据（Dependents = N/A）</strong></td>
+<td>非库型底座，无「curl/OpenSSL 式」被依赖关系</td>
+</tr>
+<tr>
+<td>停摆影响面</td>
+<td>假设消失：摄影师/设计师回退到 GIMP、Krita、darktable、Affinity Photo 等既有替代品，<strong>软件供应链不受波及</strong>；受影响的仅是选择使用它的终端用户与 309 名贡献者</td>
+<td>停摆影响局限于用户群，非供应链级</td>
+</tr>
+<tr>
+<td>数字公共产品属性</td>
+<td>符合 DPG 部分特征：MIT OR Apache-2.0 双许可、离线运行、无需账号、无云依赖、跨 macOS/Windows/Linux/FreeBSD/Web(WASM) 五端、全部实现自公开规范（clean-room）、公开 PSD/OpenRaster 等互操作能力（<code>photocraft-psd</code> 独立 crate 可逐字节复现语料）</td>
+<td>满足「开放、可复用、服务公共利益」，但属<strong>应用层公共品</strong>而非基础设施层</td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：三项考察点中两项（关键依赖、停摆影响面）明确不成立——PhotoCraft 是公共品属性的<strong>应用</strong>，而非被下游大量依赖的<strong>底座</strong>。第三项（DPG 特征）成立，故不落入 1–2 档「孤立项目」，但只能给 3–4 档。</p>
+<hr />
+<h4>D11.2 教育与人才价值</h4>
+<p><strong>打分: 2.0 / 2.5（7–8 档，80%）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测事实</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>教学采用</td>
+<td>99 个文档文件，含独立 mdBook 教程书（<code>book/src/</code> 覆盖 overview/crates/command-engine/rendering/automation/formats/security/testing/fuzzing 等 30+ 章节）、<code>AGENTS.md</code>（明确面向新贡献者与 AI agent 的入口）、<code>docs/contributing.md</code>、<code>docs/development.md</code>。<strong>无外部高校课程/教材采用证据（N/A）</strong></td>
+<td>有体系化自建教材，但非事实行业教材</td>
+</tr>
+<tr>
+<td>门槛降低效应</td>
+<td>以纯 Rust 从零实现 Photoshop 级功能面（67 工具、16 种调整层、27 种混合模式、ICC 色彩管理、PSD 往返），并公开 <code>docs/target-app-parity.md</code>、<code>docs/parity-checklist.md</code>、<code>ROADMAP.md</code> 做逐项差距披露；承诺 <code>unsafe_code = "forbid"</code>、1700+ 测试、双合成器（CPU 参考预言机 vs GPU）互验</td>
+<td>为「如何用 Rust 写大型图形应用」提供了少见的完整样本</td>
+</tr>
+<tr>
+<td>源码学习价值</td>
+<td>565,984 行 <code>.rs</code>（1,350 文件）、56.6 万行总量、48,997 行测试（test_ratio 8.7%）、24 crate 编译期分层、copy-on-write 256² 稀疏瓦片、多核 running-sum 盒式模糊等工程实践均有专文记录</td>
+<td>高：可读、有文档、有测试范式的中大型 Rust 代码库</td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：项目在「工程范本 + 自建教材 + 透明差距披露」上明显高于同规模开源项目的平均水平，落到 7–8 档；未给 9–10 档，因缺少被外部课程/教材广泛采用、以及源码被普遍研读的外部证据。</p>
+<hr />
+<h4>D11.3 普惠与可及性</h4>
+<p><strong>打分: 2.0 / 2.5（7–8 档，80%）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测事实</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>能力平权化</td>
+<td>目标能力对标 Adobe Photoshop（订阅制商业软件）；PhotoCraft 0 成本、离线、无账号、无云上传（「Smart selection runs on your machine, with no cloud and no account」）；提供 AppImage/.deb/.rpm/Flatpak/tarball、macOS 通用二进制+公证、Windows、FreeBSD、<strong>WebAssembly 静态站点（任意静态服务器即可托管）</strong>，并含 riscv64 Linux 构建</td>
+<td>把原本按月付费的专业分层编辑能力，以零边际成本开放给个人、中小团队与欠发达地区</td>
+</tr>
+<tr>
+<td>替代价格差</td>
+<td>同类商业方案为订阅制（Photoshop 摄影计划约 $20+/月量级，年化数百美元）；本项目 $0；开源同类中未见量级可比的替代者（GitHub 搜索验证的竞品最高仅 10 stars）</td>
+<td>价差显著且无同量级开源替代</td>
+</tr>
+<tr>
+<td>可及性支持</td>
+<td>i18n：仅通过可选构建输入 <code>craft-fonts</code>（日文字体）+ 系统 CJK 字体回退支持，UI/文档均为英文，<strong>无完整多语言 UI/无障碍专项证据</strong>；硬件：GPU 合成器基于 wgpu（Metal/Vulkan/DX12/WebGPU），但保留 CPU 参考合成器可作回退；自评「early alpha，尚非可替代日常专业工作的 Photoshop 替代品」</td>
+<td>分发与成本可及性优秀，语言/无障碍与成熟度是短板</td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：普惠性（价格归零 + 五端分发 + 浏览器可运行）是本项目最强的正外部性来源，落到 7–8 档；未达 9–10 档的原因有二：① 自评仍处 early alpha，实际「能力平权」尚未完全兑现；② 多语言与无障碍支持仅部分覆盖，主要面向英语/日语文档环境。</p>
+<hr />
+<h4>D11.4 开放标准与行业推动</h4>
+<p><strong>打分: 1.2 / 2（5–6 档，60%）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测事实</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>标准推动</td>
+<td>实现并互操作大量开放/事实标准：PSD/PSB（依 Adobe 公开规范 clean-room 重写，往返渲染 307/309 psd-tools 语料一致、169/170 混合语料一致）、<strong>OpenRaster 读写</strong>（面向 Krita/MyPaint/GIMP 的开放交换格式）、Krita <code>.kra</code> 读、Paint.NET PDN3 读、SVG、TIFF、OpenEXR、PNG/JPEG/WebP/GIF/FITS 等；ICC 色彩管理含四种渲染意图与黑场补偿</td>
+<td>属「遵循并实现开放标准」，<strong>未定义或主导新标准</strong>，故取 5–6 档</td>
+</tr>
+<tr>
+<td>科研支撑</td>
+<td>支持 FITS（8/16 位与 32 位浮点天文图像，保留头信息）为科研图像处理留出入口；<strong>未取得论文引用/科研采用证据（N/A，不可补采）</strong></td>
+<td>无有效依据支撑加分</td>
+</tr>
+<tr>
+<td>行业示范效应</td>
+<td>透明披露差距（parity checklist / roadmap / gaps）、clean-room 声明与 ATTRIBUTION 合规、agent-native 设计（500+ 命令统一注册表，UI/CLI/JSON 控制通道/MCP server 同源）、7 条 CI（含 FreeBSD、Windows ARM64、性能夜跑、打包 lint），并由 8 个「Crafting Apps」共享同一套约定</td>
+<td>有一定工程示范效应，但影响半径限于自有项目家族与新项目，尚无被同行广泛模仿的公开痕迹</td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：项目是开放标准与文件格式互操作的<strong>优秀遵循者与实现者</strong>（尤其 PSD 往返与 OpenRaster 读写），但既不定义标准、也无学术引用与广泛模仿证据，取 5–6 档。</p>
+<hr />
+<h4>维度结论</h4>
+<p>PhotoCraft 的正外部性呈现明显的<strong>「两端强、中间弱」</strong>结构：</p>
+<ul>
+<li><strong>强项（D11.2 教育、D11.3 普惠）</strong>：以 0 成本、离线、无账号、五端（含 WebAssembly）分发的形式，把原本订阅制的专业分层图像编辑能力开放出来；同时以 56.6 万行纯 Rust、1700+ 测试、24 crate 编译期分层、独立 mdBook 教材，构成罕见的大型图形应用工程范本。</li>
+<li><strong>弱项（D11.1 基础设施）</strong>：它是<strong>应用层公共品</strong>而非<strong>供应链底座</strong>。没有任何下游代码依赖证据，停摆不会波及软件供应链，因此无法进入 7 分以上区间。</li>
+<li><strong>中性（D11.4 标准）</strong>：扎实地实现开放与事实标准（PSD 往返、OpenRaster 读写、ICC），但处于「遵循者」而非「定义者/推广者」位置。</li>
+</ul>
+<p><strong>综合得分 6.4/10</strong>（1.2 + 2.0 + 2.0 + 1.2），对应「一般偏良好」的正外部性水平：作为数字公共产品，其普惠与教育外溢显著超出同规模开源项目平均；但基础设施属性与标准主导力有限。</p>
+<p><strong>置信度说明</strong>：本维度置信度中等偏低，原因有三——① Dependents 计数、npm/PyPI 下载量、论文引用、外部课程采用均缺失（标 N/A，未估算）；② 仓库创建于 2026-09-30、最近推送 2026-10-16，公开历史极短，长期外溢效应尚不可观测；③ 本地采集 <code>license</code> 字段显示 <code>NONE</code>（未识别到 LICENSE 文件），而 README 与 Cargo.toml 均声明 MIT OR Apache-2.0 双许可，存在采集口径差异，不影响本维度结论但提示素材一致性风险。</p>
+<h2>五、商业化价值判断</h2>
+<h3>5.1 核心商业价值</h3>
+<ul>
+<li><strong>项目最大的商业价值在于</strong>：以 MIT OR Apache-2.0 双宽松许可提供的、无协议约束的 Photoshop 级本地编辑引擎，叠加「一套命令贯通 UI / CLI / JSON 控制通道 / MCP server」的自动化与 agent 驱动能力——这一独占增量效用为同类免费编辑器所缺；同时母公司 ArtCraft 已有商业化 AI 工作室 + 7 款 Crafting Apps 矩阵，构成「开源应用 + 商业云/AI 层」的开放核心 / SaaS 生态叙事（结构与 Next.js+Vercel、Supabase 同构）。</li>
+<li><strong>价值验证依据</strong>：</li>
+<li>需求侧：对标 Photoshop 的图像编辑赛道为十亿美元级成熟市场，痛点真实（订阅制成本、闭源/联网依赖、开源工具 PSD 兼容差）；Agent-ready/MCP/CLI 批处理与 AI 浪潮时点契合。</li>
+<li>技术侧：PSD 往返 307/309（psd-tools 语料渲染一致）、混合语料 169/170、形状层 116/116 像素对齐、500+ 命令注册表、67 工具、27 种 PS 混合模式、24 crate 引擎化；全代码 `#![</li>
+</ul>
+<h2>十一、项目地址</h2>
+<p><svg class="ri ri-muted" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.001 2C6.47598 2 2.00098 6.475 2.00098 12C2.00098 16.425 4.86348 20.1625 8.83848 21.4875C9.33848 21.575 9.52598 21.275 9.52598 21.0125C9.52598 20.775 9.51348 19.9875 9.51348 19.15C7.00098 19.6125 6.35098 18.5375 6.15098 17.975C6.03848 17.6875 5.55098 16.8 5.12598 16.5625C4.77598 16.375 4.27598 15.9125 5.11348 15.9C5.90098 15.8875 6.46348 16.625 6.65098 16.925C7.55098 18.4375 8.98848 18.0125 9.56348 17.75C9.65098 17.1 9.91348 16.6625 10.201 16.4125C7.97598 16.1625 5.65098 15.3 5.65098 11.475C5.65098 10.3875 6.03848 9.4875 6.67598 8.7875C6.57598 8.5375 6.22598 7.5125 6.77598 6.1375C6.77598 6.1375 7.61348 5.875 9.52598 7.1625C10.326 6.9375 11.176 6.825 12.026 6.825C12.876 6.825 13.726 6.9375 14.526 7.1625C16.4385 5.8625 17.276 6.1375 17.276 6.1375C17.826 7.5125 17.476 8.5375 17.376 8.7875C18.0135 9.4875 18.401 10.375 18.401 11.475C18.401 15.3125 16.0635 16.1625 13.8385 16.4125C14.201 16.725 14.5135 17.325 14.5135 18.2625C14.5135 19.6 14.501 20.675 14.501 21.0125C14.501 21.275 14.6885 21.5875 15.1885 21.4875C19.259 20.1133 21.9999 16.2963 22.001 12C22.001 6.475 17.526 2 12.001 2Z"/></svg> <a href="https://github.com/storytold/photocraft">https://github.com/storytold/photocraft</a></p>
+<hr />
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+</blockquote>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家　<a href="https://github.com/weixiongf" target="_blank" rel="noopener">@冯伟雄</a>　<a href="https://www.mova.work">www.mova.work</a></p>
+<p><strong>查看所有报告：</strong><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/">https://weixiongf.github.io/Open-Source-Alpha-Reports/</a></p><div class="page-footer">本页面由 <span class="at-acc">@向量之心</span> 打造的 github_anyliasis 系统自动维护。报告为 AI 辅助生成的第三方独立分析，仅供研究参考，不构成投资建议。</div></body></html>

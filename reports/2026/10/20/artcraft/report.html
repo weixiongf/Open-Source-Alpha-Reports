@@ -1,0 +1,1387 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><title>Artcraft 商业价值分析报告</title><style>/* default — 品牌蓝紫主题（从 md2pdf.py 原 CSS 常量迁出，视觉与历史产物一致） */
+@page { size: A4; margin: 18mm 15mm 20mm 15mm; }
+* { box-sizing: border-box; }
+/* 字体规范：西文/数字优先系统 UI 字体（数字收敛、观感现代），汉字回落开源思源黑体 CN / Noto Sans SC（OFL 免费商用）；正文 Regular/标题 Bold/大字数字 Light；tabular-nums 保证表格数字列对齐 */
+body { font-family:"Segoe UI","Helvetica Neue",Arial,"Source Han Sans CN","思源黑体 CN","Noto Sans SC",sans-serif; color:#1e293b; font-size:10.5pt; line-height:1.75; margin:0; font-variant-numeric:tabular-nums; }
+.cover { page-break-after: always; text-align:center; padding-top:40px; }
+.cover .kicker { color:#2563eb; letter-spacing:6px; font-size:12pt; font-weight:500; }
+.cover h1 { font-size:26pt; margin:14px 0 6px; }
+.cover .sub { color:#64748b; font-size:11pt; margin-bottom:22px; }
+.badge { display:inline-block; background:linear-gradient(135deg,#2563eb,#7c3aed); color:#fff; border-radius:18px; padding:16px 44px; margin:10px 0 18px; }
+.badge .g { font-size:34pt; font-weight:300; line-height:1; }
+.badge .s { font-size:12pt; opacity:.92; margin-top:4px; }
+.meta { color:#475569; font-size:9.5pt; margin-top:14px; margin-bottom:40px; }
+.bars { max-width:620px; margin:20px auto 0; text-align:left; }
+.bar-row { display:flex; align-items:center; gap:8px; margin:5px 0; font-size:9pt; }
+.bar-name { width:110px; text-align:right; color:#334155; font-weight:500; }
+.bar-track { flex:1; height:9px; background:#f1f5f9; border-radius:5px; overflow:hidden; }
+.bar-fill { display:block; height:100%; border-radius:5px; }
+.bar-val { width:30px; font-weight:700; color:#0f172a; }
+.bar-w { width:52px; color:#94a3b8; font-size:8pt; }
+h1 { font-size:17pt; color:#0f172a; border-bottom:3px solid #2563eb; padding-bottom:8px; }
+h2 { font-size:13.5pt; color:#1d4ed8; margin-top:26px; page-break-after: avoid; border-left:5px solid #2563eb; padding-left:10px; }
+h3 { font-size:11.5pt; color:#0f172a; margin-top:18px; page-break-after: avoid; }
+table { border-collapse:collapse; width:100%; margin:10px 0; font-size:9pt; font-variant-numeric:tabular-nums; }
+thead { display:table-header-group; } /* 打印/PDF 长表跨页时表头每页重复 */
+tr { page-break-inside:avoid; } /* 行内不断开；长表整体允许跨页，避免整表被推到下一页留大块空白 */
+th { background:#eff6ff; color:#1e3a8a; }
+th,td { border:1px solid #dbe3ef; padding:5px 8px; text-align:left; }
+tr:nth-child(even) td { background:#f8fafc; }
+code { background:#f1f5f9; border-radius:4px; padding:1px 5px; font-family:"JetBrains Mono","Cascadia Mono",monospace; font-size:9pt; color:#be185d; }
+pre { background:#0f172a; color:#e2e8f0; border-radius:8px; padding:12px 14px; overflow-x:auto; page-break-inside:avoid; }
+pre code { background:none; color:inherit; padding:0; }
+blockquote { border-left:4px solid #93c5fd; background:#eff6ff; margin:10px 0; padding:8px 14px; color:#334155; border-radius:0 8px 8px 0; }
+hr { border:none; border-top:1px dashed #cbd5e1; margin:22px 0; }
+strong { color:#0f172a; }
+.credit { color:#2563eb; font-size:10.5pt; font-weight:700; letter-spacing:1px; margin-top:12px; }
+.at-acc { background:#dbeafe; color:#1d4ed8; border-radius:4px; padding:0 4px; font-weight:500; white-space:nowrap; }
+.tail { page-break-inside:avoid; margin-top:26px; border-top:2px solid #2563eb; padding-top:14px; }
+.tail p { color:#64748b; font-size:8.5pt; line-height:1.6; margin:0 0 10px; }
+.tail .credit { text-align:center; margin:0; }
+.page-footer { text-align:center; color:#94a3b8; font-size:8.5pt; line-height:1.6; margin-top:28px; padding-top:12px; border-top:1px solid #e2e8f0; }
+/* Remix Icon 内联 SVG（icon_mode=remix 时由脚本注入，语义色与评分条一致） */
+.ri { width:1.05em; height:1.05em; vertical-align:-0.18em; display:inline-block; }
+.ri-ok { color:#16a34a; } .ri-warn { color:#d97706; } .ri-bad { color:#dc2626; }
+.ri-muted { color:#64748b; } .ri-star { color:#f59e0b; } .ri-brand { color:#2563eb; }
+.ri-gold { color:#d4a017; } .ri-silver { color:#9ca3af; } .ri-bronze { color:#b45309; }
+/* 屏幕预览：@page 边距仅在打印时生效，浏览器中居中限宽并收边（不影响 PDF 输出） */
+@media screen {
+  body { margin: 0 auto; padding: 28px 36px 56px; max-width: 980px; }
+}
+</style></head><body><div class="cover">
+<div class="kicker">开源项目商业化潜力分析 · 第 133 期</div>
+<h1>GitHub 开源项目 Artcraft<br>商业价值分析报告</h1>
+<div class="sub">storytold/artcraft · AI 图像/视频创作桌面 IDE · 九维度加权评估</div>
+<div class="badge"><div class="g">A 级 · 70.5</div><div class="s">综合评分（满分 100）· 高商业化潜力</div></div>
+<div><svg viewBox="0 0 560 480" width="560" height="480" xmlns="http://www.w3.org/2000/svg"><polygon points="280.0,209.6 299.5,216.7 309.9,234.7 306.3,255.2 290.4,268.6 269.6,268.6 253.7,255.2 250.1,234.7 260.5,216.7" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,179.2 319.1,193.4 339.9,229.4 332.7,270.4 300.8,297.1 259.2,297.1 227.3,270.4 220.1,229.4 240.9,193.4" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,148.8 338.6,170.1 369.8,224.2 359.0,285.6 311.2,325.7 248.8,325.7 201.0,285.6 190.2,224.2 221.4,170.1" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,118.4 358.2,146.8 399.8,218.9 385.3,300.8 321.6,354.3 238.4,354.3 174.7,300.8 160.2,218.9 201.8,146.8" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,88.0 377.7,123.6 429.7,213.6 411.6,316.0 332.0,382.8 228.0,382.8 148.4,316.0 130.3,213.6 182.3,123.6" fill="none" stroke="#e2e8f0" stroke-width="1"/><line x1="280.0" y1="240.0" x2="280.0" y2="88.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="377.7" y2="123.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="429.7" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="411.6" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="332.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="228.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="148.4" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="130.3" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="182.3" y2="123.6" stroke="#d8dee9" stroke-width="1"/><polygon points="280.0,118.4 343.5,164.3 375.8,223.1 385.3,300.8 314.3,334.3 247.8,328.6 210.2,280.3 172.2,221.0 201.8,146.8" fill="rgba(37,99,235,.22)" stroke="#2563eb" stroke-width="2.5"/><circle cx="280.0" cy="118.4" r="3.5" fill="#2563eb"/><circle cx="343.5" cy="164.3" r="3.5" fill="#2563eb"/><circle cx="375.8" cy="223.1" r="3.5" fill="#2563eb"/><circle cx="385.3" cy="300.8" r="3.5" fill="#2563eb"/><circle cx="314.3" cy="334.3" r="3.5" fill="#2563eb"/><circle cx="247.8" cy="328.6" r="3.5" fill="#2563eb"/><circle cx="210.2" cy="280.3" r="3.5" fill="#2563eb"/><circle cx="172.2" cy="221.0" r="3.5" fill="#2563eb"/><circle cx="201.8" cy="146.8" r="3.5" fill="#2563eb"/><text x="280.0" y="44.0" text-anchor="middle" font-size="12.5" fill="#334155" font-weight="600">D1</text><text x="280.0" y="58.0" text-anchor="middle" font-size="11" fill="#64748b">市场需求 8.0</text><text x="406.0" y="89.9" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D2</text><text x="406.0" y="103.9" text-anchor="start" font-size="11" fill="#64748b">技术成熟度 6.5</text><text x="473.0" y="206.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D3</text><text x="473.0" y="220.0" text-anchor="start" font-size="11" fill="#64748b">社区生态 6.4</text><text x="449.7" y="338.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D4</text><text x="449.7" y="352.0" text-anchor="start" font-size="11" fill="#64748b">变现潜力 8.0</text><text x="347.0" y="424.2" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D5</text><text x="347.0" y="438.2" text-anchor="start" font-size="11" fill="#64748b">竞争格局 6.6</text><text x="213.0" y="424.2" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D6</text><text x="213.0" y="438.2" text-anchor="end" font-size="11" fill="#64748b">法律合规 6.2</text><text x="110.3" y="338.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D7</text><text x="110.3" y="352.0" text-anchor="end" font-size="11" fill="#64748b">企业就绪 5.3</text><text x="87.0" y="206.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D8</text><text x="87.0" y="220.0" text-anchor="end" font-size="11" fill="#64748b">团队治理 7.2</text><text x="154.0" y="89.9" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D9</text><text x="154.0" y="103.9" text-anchor="end" font-size="11" fill="#64748b">上手难度 8.0</text></svg></div>
+<div class="bars"><div class="bar-row"><span class="bar-name">D1 市场需求</span>
+<span class="bar-track"><span class="bar-fill" style="width:80.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.0</span><span class="bar-w">权重13%</span></div>
+<div class="bar-row"><span class="bar-name">D4 变现潜力</span>
+<span class="bar-track"><span class="bar-fill" style="width:80.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.0</span><span class="bar-w">权重18%</span></div>
+<div class="bar-row"><span class="bar-name">D9 上手难度</span>
+<span class="bar-track"><span class="bar-fill" style="width:80.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.0</span><span class="bar-w">权重10%</span></div>
+<div class="bar-row"><span class="bar-name">D8 团队治理</span>
+<span class="bar-track"><span class="bar-fill" style="width:72.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.2</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D5 竞争格局</span>
+<span class="bar-track"><span class="bar-fill" style="width:66.0%;background:#d97706"></span></span>
+<span class="bar-val">6.6</span><span class="bar-w">权重12%</span></div>
+<div class="bar-row"><span class="bar-name">D2 技术成熟度</span>
+<span class="bar-track"><span class="bar-fill" style="width:65.0%;background:#d97706"></span></span>
+<span class="bar-val">6.5</span><span class="bar-w">权重14%</span></div>
+<div class="bar-row"><span class="bar-name">D3 社区生态</span>
+<span class="bar-track"><span class="bar-fill" style="width:64.0%;background:#d97706"></span></span>
+<span class="bar-val">6.4</span><span class="bar-w">权重11%</span></div>
+<div class="bar-row"><span class="bar-name">D6 法律合规</span>
+<span class="bar-track"><span class="bar-fill" style="width:62.0%;background:#d97706"></span></span>
+<span class="bar-val">6.2</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D7 企业就绪</span>
+<span class="bar-track"><span class="bar-fill" style="width:53.0%;background:#dc2626"></span></span>
+<span class="bar-val">5.3</span><span class="bar-w">权重8%</span></div></div>
+<div class="meta">分析时点 2026-10-20 ｜ 数据来源：GitHub API + 仓库代码实测 ｜ 方法论 v1.6.4</div>
+</div><h1>第 133 期 · Artcraft 商业化潜力分析报告（完整版）</h1>
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家　@冯伟雄</p>
+<p><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/#methodology" target="_blank" rel="noopener">方法论版本: v1.6.4</a> | 综合评分: <strong>70.5</strong> | 等级: <strong>A（高商业化潜力）</strong> | 价值画像: 纯商业工具</p>
+</blockquote>
+<h2>核心发现</h2>
+<ol>
+<li><strong>规模势能</strong>：Star 33,787、Fork 5,349（Fork/Star 15.8%），近 90 天新建 PR 306 个、关闭 Issue 94 个，2026-09-26 发布 v0.41.0，开放 Issue 452 个（D3）。</li>
+<li><strong>组织结构</strong>：Contributors API 实采贡献者 <strong>4 人</strong>，近 30 天 commit 18 次，同期 90 天 306 个 PR 由核心团队高强度提交，外部贡献与多组织参与无证据（D3、D8）。</li>
+<li><strong>核心能力</strong>：代码总量 482,290 行（Rust 271,135 行 / TS+TSX 206,569 行），40+ workspace crate，聚合 5 家 provider 共 <strong>62 个模型</strong>；同期测试 144 文件 / 8,980 行、测试代码比 1.9%（8,980/482,290），CI 仅 2 条签名发布流水线、无测试门禁（D2、D4）。</li>
+<li><strong>变现与商业化</strong>：README 与 GitHub 元数据为 MIT/Apache-2.0，客户端全开源、官方后端对应服务未公开，构成事实上的 Open Core；D4.1 得 2.0 分、D6 得 6.2 分，协议层无变现障碍，三项一票否决检查均未触发（D4、D6）。</li>
+<li><strong>关键风险（合规）</strong>：仓库内含 11 个第三方服务客户端（midjourney、openai_sora、grok_consumer、worldlabs_consumer 等）与 <code>cloudflare_mitigation</code>、<code>browser_emulation</code>、<code>cookie_store</code> 模块，属 ToS/反规避条款层面的实质法律风险（D6）。</li>
+<li><strong>综合结果</strong>：综合评分 <strong>70.5</strong>、等级 <strong>A（高商业化潜力）</strong>，公共价值分 <strong>6.0</strong>，价值画像 <strong>💼 纯商业工具</strong>，无停滞否决、无用户利益扣分（计算层给定）。</li>
+</ol>
+<h2>一、项目概览</h2>
+<h3>1.1 基本档案</h3>
+<table>
+<thead>
+<tr>
+<th>项</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目名称</td>
+<td>storytold/artcraft</td>
+</tr>
+<tr>
+<td>一句话定位</td>
+<td>面向 AI 图像与视频创作的桌面 IDE，通过 2D/3D 场景编排与多模型聚合实现可控、可重复的创作（D1）</td>
+</tr>
+<tr>
+<td>分类 / 行业</td>
+<td>应用软件（AI 创意 IDE）/ 数据与AI；媒体内容（影视、广告、设计、游戏、电商内容）（D1）</td>
+</tr>
+<tr>
+<td>目标用户</td>
+<td>艺术家、设计师、电影人、内容创作者（非技术创意用户为主）（D1）</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>本地桌面端（Windows/macOS，Linux 仅源码构建），模型调用走云端（混合部署）（D1、D9）</td>
+</tr>
+<tr>
+<td>主语言</td>
+<td>Rust（另有 TS/TSX 前端 206,569 行）（D2）</td>
+</tr>
+<tr>
+<td>许可</td>
+<td>README 声明 MIT OR Apache-2.0；GitHub 元数据为 Apache-2.0；本地根目录未检出 LICENSE 文件（D6）</td>
+</tr>
+<tr>
+<td>仓库创建日期</td>
+<td>2022-03-31（D8）</td>
+</tr>
+<tr>
+<td><strong>项目年龄</strong></td>
+<td><strong>1,663 天</strong>（来自计算层 repo_age_days）</td>
+</tr>
+<tr>
+<td><strong>生命周期阶段</strong></td>
+<td><strong>高速增长期</strong>（置信度中低；近 90 天 Star 增量 API 采集失败，阶段判定基于退化口径的 Star 月增约 610–620/月历史平均，可能高估）（D3）</td>
+</tr>
+<tr>
+<td>最新版本</td>
+<td>artcraft-v0.41.0（2026-09-26），pre-1.0（D2）</td>
+</tr>
+</tbody>
+</table>
+<h3>1.2 项目性质</h3>
+<p><code>new_project_exempt = false</code>，项目年龄 1,663 天，不适用新项目专项，数据空白不得以「太新」解释。项目为应用型桌面软件而非库/协议，无包管理器分发路径，D10.2 使用规模标 N/A 属结构性不可得。</p>
+<h2>二、安装部署与使用指南</h2>
+<blockquote>
+<p>适用对象：终端创作者优先走 Windows/macOS 预编译安装路径；Linux 与源码构建属于开发者路径。</p>
+</blockquote>
+<h3>1. 终端用户安装（推荐路径）</h3>
+<ol>
+<li>打开 ArtCraft 官方下载页：<code>https://getartcraft.com/</code>，或在 GitHub Releases 下载最新构建：<code>https://github.com/storytold/artcraft/releases</code>。</li>
+<li>README 明确提供 <strong>Windows 与 macOS 的 stable releases</strong>；CI 也仅有 <code>artcraft-macos-publish.yml</code> 与 <code>artcraft-windows-publish.yml</code> 两条发布流水线。</li>
+<li>下载对应平台安装包后按系统常规方式安装并启动。该路径不需要用户安装 Rust、Node、数据库或容器运行时。</li>
+<li>首次使用建议从 <strong>Text to Image</strong> 开始：输入提示词，在应用内选择模型/提供方，先完成一次图像生成，再进入 Canvas、2D/3D 合成等进阶功能。</li>
+<li>进阶功能可按 README 的功能表逐步使用：<strong>Image to Location、3D Image Compositing、2D Image Compositing、Image to 3D Mesh、Character Posing、Scene Blocking with Kitbashing、Character Identity Transfer、Background Removal、Image to Video</strong> 等。</li>
+<li>README 提供 <strong>两分钟 YouTube demo</strong> 与大量功能预览，可作为首次体验前的快速了解材料。</li>
+</ol>
+<h3>2. Linux 与源码构建路径</h3>
+<p>README 将 Linux 归入 <strong>Build from source</strong>，入口为 <code>_docs/dev_setup.md</code>。源码构建不是终端用户的一键安装路径，门槛明显更高：</p>
+<ul>
+<li>仓库是大型 Rust workspace，<code>Cargo.toml</code> 列出近 40 个 workspace 成员；前端为 Nx/React/Vite workspace。</li>
+<li>源码构建需要 Rust 工具链与 Node 环境；<code>frontend/apps/artcraft/package.json</code> 要求 <code>node &gt;=18.0.0</code>。</li>
+<li><code>Cargo.toml</code> 注明 <code>wreq</code> 的原生前置条件：</li>
+<li>macOS：<code>brew install cmake pkg-config llvm</code></li>
+<li>Windows：<code>choco install cmake strawberryperl pkgconfiglite llvm nasm</code></li>
+<li>素材中未见 Dockerfile、docker-compose、Helm Chart 或 K8s 部署清单；该项目本身是桌面应用，不需要服务端容器化部署。</li>
+</ul>
+<h3>3. 首次使用建议</h3>
+<ul>
+<li>先用 <strong>Text to Image</strong> 完成一次生成，建立“提示词 → 模型 → 结果”的基本闭环。</li>
+<li>再尝试 <strong>Prompted Image Editing / Canvas Image Editing / Image to Video</strong>。</li>
+<li>最后进入 2D/3D 合成、角色姿态与场景 Blocking 等高级 Crafting 功能。</li>
+<li>素材未提供可执行的 quickstart 脚本或示例项目；入门主要依赖 README 功能表、两分钟演示视频与应用内 GUI。</li>
+</ul>
+<h2>三、评分总览</h2>
+<h3>3.1 九维评分表（D1–D9，入公式）</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>权重</th>
+<th>得分（10 分制）</th>
+<th>加权得分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1 项目定位与需求真实性</td>
+<td>0.13</td>
+<td>8.0</td>
+<td>1.04</td>
+</tr>
+<tr>
+<td>D2 技术成熟度</td>
+<td>0.14</td>
+<td>6.5</td>
+<td>0.91</td>
+</tr>
+<tr>
+<td>D3 社区与生态</td>
+<td>0.11</td>
+<td>6.4</td>
+<td>0.70</td>
+</tr>
+<tr>
+<td>D4 商业化潜力</td>
+<td>0.18</td>
+<td>8.0</td>
+<td>1.44</td>
+</tr>
+<tr>
+<td>D5 竞争壁垒</td>
+<td>0.12</td>
+<td>6.6</td>
+<td>0.79</td>
+</tr>
+<tr>
+<td>D6 法律合规</td>
+<td>0.07</td>
+<td>6.2</td>
+<td>0.43</td>
+</tr>
+<tr>
+<td>D7 工程与运维</td>
+<td>0.08</td>
+<td>5.3</td>
+<td>0.42</td>
+</tr>
+<tr>
+<td>D8 团队与可持续性</td>
+<td>0.07</td>
+<td>7.2</td>
+<td>0.50</td>
+</tr>
+<tr>
+<td>D9 用户体验与上手</td>
+<td>0.10</td>
+<td>8.0</td>
+<td>0.80</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>1.00</strong></td>
+<td>—</td>
+<td><strong>7.05（×10 = 70.5，与综合评分一致）</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>综合评分 70.5 / 等级 A（高商业化潜力）</strong>。一票否决检查：D6 = 6.2 &gt; 3、D8.4 = 2.4 &gt; 1、D4.1 = 2.0 &gt; 0.5，三项均为「不触发」，检查无缺项。</p>
+<h3>3.2 D10 / D11 平行维度表（不入公式）</h3>
+<table>
+<thead>
+<tr>
+<th>平行维度</th>
+<th>得分</th>
+<th>是否入公式</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10 功能价值</td>
+<td>6.6</td>
+<td>否</td>
+<td>D10.2 使用规模 N/A（应用型分发无包管理器下载/依赖方指标），维度按剩余项等比缩放，置信度中等偏低</td>
+</tr>
+<tr>
+<td>D11 社会价值</td>
+<td>5.4</td>
+<td>否</td>
+<td>无 npm/pypi 分发与下游 dependents，不具备数字底座属性</td>
+</tr>
+<tr>
+<td><strong>公共价值分</strong></td>
+<td><strong>6.0</strong></td>
+<td>—</td>
+<td>= (6.6 + 5.4) / 2（计算层给定）</td>
+</tr>
+</tbody>
+</table>
+<h3>3.3 得分结构解读</h3>
+<ul>
+<li>得分最高的三个维度：D1 8.0、D4 8.0、D9 8.0；其中 D4 权重 0.18 为九维最高，单项贡献 1.44 分，为综合分的第一支撑项。</li>
+<li>得分最低的三个维度：D7 5.3、D6 6.2、D3 6.4；三项合计权重 0.26。</li>
+<li>D7 的 D7.3（集群/水平扩展/故障转移）标 N/A —— 产品为纯桌面应用，无服务端部署面，该细则在架构上不适用，D7 维度置信度相应下降。</li>
+</ul>
+<h2>四、各维度详细分析</h2>
+<h3>D1. 市场需求与商业机会（权重 13%）（得分: 8.0/10）</h3>
+<blockquote>
+<p>数据说明：外部市场规模数据不可用；以下 TAM/增长判断为基于项目类型、topics 与 README 的量级估算，未经外部数据验证，置信度低；未引用具体市场规模数字或来源。</p>
+</blockquote>
+<h3>项目分类标签</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>应用软件、数据与AI</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>媒体内容（影视/广告/设计/游戏/电商内容）；通用/跨行业内容创作</td>
+</tr>
+<tr>
+<td>目标用户</td>
+<td>艺术家、设计师、电影人、内容创作者（非技术创意用户为主）</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>内容创作、创意原型验证、影视/广告制作流程、2D/3D 场景编排</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>本地桌面端 + 云端模型调用（混合部署）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>一句话定位</strong>：ArtCraft 是一个面向 AI 图像与视频创作的桌面 IDE（应用软件），适用于影视、广告设计、游戏与电商内容等媒体内容行业，主要面向艺术家、设计师、电影人和内容创作者，用于通过 2D/3D 场景编排与多模型聚合实现可控、可重复的 AI 图像/视频创作。</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>打分</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1.1 目标市场规模与增长性</td>
+<td>2.5</td>
+<td><strong>打分: 2.0 / 2.5（7–8 档，80%）</strong></td>
+<td>项目处于生成式 AI 图像/视频创作工具与创意软件的交叉赛道，属于扩张期市场：模型供给爆发、AI 视频生成快速产品化、创作者对可控生成工具的需求上升。项目覆盖的是工具层而非基础模型市场，TAM 受专业创作者付费意愿与模型商品化影响。无外部数据，量级估算为十亿美元级及以上、增长期，置信度低。</td>
+</tr>
+<tr>
+<td>D1.2 痛点真实性与解决程度</td>
+<td>2.5</td>
+<td><strong>打分: 2.0 / 2.5（7–8 档，80%）</strong></td>
+<td>README 明确针对“prompt 不可控”痛点：通过 2D/3D 合成、角色姿态、镜头规划、角色一致性、背景移除、画布编辑和多模型选择，把“提示词”变成可重复的创作流程。对需要角色一致性和镜头控制的专业创作者是明确刚需；但方案仍处 v0.x，452 个开放 Issue、仅 4 位贡献者，成熟度与支持能力有限。替代品较多：ComfyUI、Adobe Firefly/Photoshop、Runway、Kling/Veo/Sora 直连、Midjourney、OpenArt/Freepik 等。整体属“痛点明确、方案较完整、替代品多但集成体验有差异”。</td>
+</tr>
+<tr>
+<td>D1.3 市场时机判断</td>
+<td>2.5</td>
+<td><strong>打分: 2.0 / 2.5（7–8 档，80%）</strong></td>
+<td>项目创建于 2022 年，当前已进入 AI 视频/图像生成快速产品化阶段；模型层持续迭代且未固化，聚合层仍有空位。但竞争密集：基础模型厂商、创意软件巨头、开源工作流工具和聚合平台同时发力；项目依赖第三方模型 API 与平台条款，存在平台风险和版权/深伪监管不确定性。属于成长期、有先行者但格局未定，而非蓝海早期。</td>
+</tr>
+<tr>
+<td>D1.4 应用场景广度</td>
+<td>2.5</td>
+<td><strong>打分: 2.0 / 2.5（7–8 档，80%）</strong></td>
+<td>核心能力可覆盖影视分镜与预演、广告营销素材、游戏概念设计、电商产品视觉、设计创意、教育内容等，场景较丰富，且 2D/3D 合成能力可迁移到相邻创作流程。但本质仍是内容创作工具层，不是跨行业基础设施；场景集中在“视觉内容生产”，不具备数据库/云原生类项目的泛行业延展性。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>维度总分：8.0 / 10</strong></p>
+<h3>结论</h3>
+<p>ArtCraft 对应的是真实且高速增长的 AI 创意生产市场：痛点明确（可控构图、角色一致性、镜头规划、多模型统一工作流），应用场景横跨影视、广告、游戏、电商与设计，市场时机处于成长期。主要不确定性在于工具层竞争激烈、替代方案多、对第三方模型与平台依赖强，以及项目仍处 v0.x、贡献者高度集中、Issue 负担较重。D1 得 <strong>8.0/10</strong>，表示需求侧整体良好，但并非无短板。</p>
+<h3>D2 技术成熟度与产品质量（得分: 6.5/10）</h3>
+<p>ArtCraft 是一个超大规模（482,290 行代码 / 4,925 源文件）的 AI 创作工具，Rust Cargo workspace（14 个 provider 客户端 + 通用库 + schema + 桌面壳）加 React/TSX 前端组件库和 egui 原生桌面端。整体呈现「宏观架构扎实、微观文件失控、工程保障薄弱」的画像。</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D2.1</td>
+<td>产品设计与创新性</td>
+<td>1.5</td>
+<td>1.2</td>
+<td>7–8 档（80%）</td>
+</tr>
+<tr>
+<td>D2.2</td>
+<td>架构设计与工程质量</td>
+<td>2</td>
+<td>1.6</td>
+<td>7–8 档（80%）</td>
+</tr>
+<tr>
+<td>D2.3</td>
+<td>代码整洁性与规范性</td>
+<td>1</td>
+<td>0.6</td>
+<td>5–6 档（60%）</td>
+</tr>
+<tr>
+<td>D2.4</td>
+<td>安全性</td>
+<td>1</td>
+<td>0.4</td>
+<td>3–4 档（40%）</td>
+</tr>
+<tr>
+<td>D2.5</td>
+<td>UI/UX/UE 人机交互</td>
+<td>1</td>
+<td>0.8</td>
+<td>7–8 档（80%）</td>
+</tr>
+<tr>
+<td>D2.6</td>
+<td>功能完备度与稳定性</td>
+<td>1.5</td>
+<td>0.9</td>
+<td>5–6 档（60%）</td>
+</tr>
+<tr>
+<td>D2.7</td>
+<td>文档与开发者体验</td>
+<td>1</td>
+<td>0.6</td>
+<td>5–6 档（60%）</td>
+</tr>
+<tr>
+<td>D2.8</td>
+<td>测试与质量保障</td>
+<td>1</td>
+<td>0.4</td>
+<td>3–4 档（40%）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td><strong>6.5</strong></td>
+<td><strong>6.5/10</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>D2.1 产品设计与创新性（1.5 分）</h3>
+<p><strong>打分: 1.2 / 1.5（7–8 档，80%）</strong></p>
+<ul>
+<li><strong>产品理念清晰</strong>：定位为面向艺术家、设计师、电影人的「intentional crafting engine」——不做单一模型聊天壳，而是把多模态生成（图/视频/音频/3D/Splat）嵌入专业创作工作流（分镜 Storyboard、情绪板 Moodboard、画布 PageDraw、3D 场景 PageScene、视频编辑器、角色库 Characters、图库 Gallery、帧提取器）。</li>
+<li><strong>差异化明显</strong>：<code>crates/api_clients/</code> 下并行接入 fal、Kinovi、GMICloud、Grok、Midjourney、OpenAI Sora、WorldLabs 等 14 套服务商，并在 <code>artcraft_router</code> 中做统一路由/参数归一（<code>veo_3p1/build.rs</code>、<code>seedance_2p0/build.rs</code> 等 600–850 行的 provider plan 逻辑），配合 <code>browser_emulation</code>、<code>cloudflare_mitigation</code>、<code>cookie_store</code> 直连消费级 Web 端点，属"聚合 + 深度工作流"的复合创新，不是简单复制。</li>
+<li><strong>功能取舍得当但仍偏冗余</strong>：同时维护 Tauri（<code>crates/desktop/artcraft</code>）、纯 egui 原生（<code>artcraft-native</code>）、Web 前端三套壳，功能面极宽（keybinds、无障碍、任务队列、成本估算、双击确认），有 feature sprawl 迹象，但核心场景（提示词 → 参考素材 → 参数 → 入队 → 图库/时间线）闭环完整。</li>
+<li>扣分项：产品叙事仍偏"能力集合"，缺少统一的创作意图抽象；多个功能点（如 <code>handlePromptedUpdate</code>）明确标注为占位实现。</li>
+</ul>
+<h3>D2.2 架构设计与工程质量（2 分）</h3>
+<p><strong>打分: 1.6 / 2（7–8 档，80%）</strong></p>
+<ul>
+<li><strong>宏观架构优秀</strong>：<code>Cargo.toml</code> workspace 明确按 <code>api_clients/</code>（每 provider 一 crate）、<code>lib/</code>（cookie_store、errors、filesys、jwt_light、http_headers 等细粒度工具 crate）、<code>schema/public/enums</code>（<code>CommonModelType</code> / <code>InferenceModelType</code> 受控词汇表）、<code>desktop/</code>、<code>native/</code> 分层；前端 <code>frontend/libs/</code> 按组件逐包拆分（每个组件有独立 README、<code>@storyteller/ui-*</code> 命名空间）；视频编辑器采用 Command + Facade + Manager（<code>TimelineManager</code>、<code>AudioManager</code>）与 Adapter 注入（<code>VideoEditorAdapters</code>）——这是相当专业的设计范式。</li>
+<li><strong>解耦与抽象</strong>：<code>TimelineManager</code> 把 UI 操作全部翻译为可撤销命令；<code>Scene</code>/<code>Editor</code> 通过 <code>SceneDeps</code> 依赖注入刻意不引入 Zustand/Tauri；<code>rpc</code> 层用 trait 策略做计费（<code>KinoviCostCalculatorTrait</code>）。高内聚低耦合在子系统级成立。</li>
+<li><strong>明显缺陷</strong>：文件级工程失控——<code>gallery-modal.tsx</code> 2,800+ 行、<code>PaintSurface.tsx</code> 2,000+ 行、<code>TransformControls.js</code> 单文件三类、<code>PromptBoxVideo.tsx</code>/<code>Storyboard.tsx</code>/<code>ImagePromptRow.tsx</code> 均 800–1,000+ 行；<code>Backend</code>、<code>ArtcraftApp</code>、<code>Scene</code>、<code>Editor</code>、<code>PageSceneStore</code> 均呈 God Object；<code>InferenceModelType</code> 与 <code>CommonModelType</code> 靠四处手工重复映射（<code>to_str</code>/<code>from_str</code>/<code>serde rename</code>/<code>from_common_model_type</code>）维持，靠测试兜底；<code>index.ts</code> barrel 导出面过大，易造成循环依赖与 tree-shaking 困难。</li>
+<li><strong>复刻难度高</strong>：14 套第三方 provider 的逆向协议封装（含 TLS/UA 指纹模拟、Set-Cookie 会话解析、<code>workflow.runTask</code> tRPC 协议）、WASM 时间基（<code>MediaTime</code>）、de Casteljau 贝塞尔关键帧细分、Konva/Three.js 编辑器，构成真实技术护城河。</li>
+<li>代码量 482K 行对应功能广度基本匹配（未明显臃肿到不可维护，但已接近单人不可全览的规模）。</li>
+</ul>
+<h3>D2.3 代码整洁性与规范性（1 分）</h3>
+<p><strong>打分: 0.6 / 1（5–6 档，60%）</strong></p>
+<ul>
+<li><strong>正面</strong>：命名规范统一（snake_case Rust / camelCase TS，crate 命名语义清晰）；注释密度高且解释性强（<code>Scene</code> 的 Safari 兼容、<code>MentionTextarea</code> 的 IME/光标映射、<code>TimelineManager</code> 的 <code>ConfigRef</code> 性能契约）；存在代码风格约束文档（<code>.claude/rules/code-style.md</code>、<code>testing.md</code>、<code>api-conventions.md</code>）；抽取了大量常量化配置（<code>PAGE_SIZE=100</code>、<code>MIN_BILLED_INPUT_SECONDS=4</code>、<code>PIXELS_PER_SECOND=80</code>）。</li>
+<li><strong>负面且系统</strong>：调试残留广泛（<code>console.log("isdragging")</code>、<code>console.log("setting middle mouse")</code>、<code>console.log("TaskQueue:GetTaskQueue result")</code>、多处 <code>console.log</code> 于上下文菜单）；死代码与无效状态（<code>setAspectRatioList</code> 未使用、<code>setPrompt(prompt)</code> 无效更新）；<code>assert_eq!(1, 2)</code> 作为"人工查看输出"的强制失败断言留在 <code>#[ignore]</code> 集成测试中；大量 <code>any</code> / <code>as any</code>（<code>item: any</code>、<code>primaryActionIcon: any</code>）削弱类型安全；<code>eslint-disable</code> 与 <code>stageRef = {} as Konva.Stage</code> 类型欺骗；magic number 与重复 effect（<code>PromptBoxVideo</code> 两处几乎相同的 <code>setReferenceImages</code> effect）。</li>
+<li>综合：规范意识强、执行不一致，属"可读但需重构"的中位水平。</li>
+</ul>
+<h3>D2.4 安全性（1 分）</h3>
+<p><strong>打分: 0.4 / 1（3–4 档，40%）</strong></p>
+<ul>
+<li><strong>中高风险点</strong>：<code>kinovi_web_client</code> 多个请求模块用 <code>info!</code> <strong>完整打印请求体与响应体</strong>（含 prompt、参考媒体 URL、<code>character_ids</code>），属用户数据泄漏面；<code>GenerateImageArgs</code> 暴露 <code>host_override</code> 可指向任意主机（SSRF/会话劫持面）；凭据经 <code>session::save</code> 持久化，未见本地加密；<code>reference_image_urls</code>、<code>duration</code> 等参数在客户端无显式校验；为绕过 WAF 主动复刻 Firefox143 TLS/UA 指纹（合规风险归 D6，但此处确属攻击面工程）。</li>
+<li><strong>正面</strong>：无硬编码 API Key/Token 检出（FAL key 统一走 backend）；部分文件安全实践到位——<code>MentionTextarea</code> 有 <code>escapeHTML</code>/<code>escapeRegex</code>、复制强制 <code>text/plain</code>、粘贴插入单文本节点；<code>app.rs</code> 的 <code>file_name_for</code> 限制扩展名 ASCII 且长度 ≤4 防路径注入；<code>Debug</code> 手写实现刻意排除 session；大量 <code>try/catch</code> 与 <code>onError</code> 降级。</li>
+<li><strong>质量保障缺失</strong>：CI 仅两个 publish workflow，无 Dependabot/Snyk/Trivy/<code>cargo audit</code> 任何依赖安全扫描。综合判为中低风险密集但无已确认高危漏洞，落 3–4 档。</li>
+</ul>
+<h3>D2.5 UI/UX/UE 人机交互（1 分）</h3>
+<p><strong>打分: 0.8 / 1（7–8 档，80%）</strong></p>
+<ul>
+<li><strong>适用性</strong>：项目含桌面 GUI（Tauri Web 前端 + <code>artcraft-native</code> egui 原生界面）、丰富交互式画布，明确适用。</li>
+<li><strong>界面与信息架构</strong>：建立了完整设计系统（<code>frontend/libs/components/*</code> 每组件独立包 + README，<code>@storyteller/ui-button/modal/tooltip/toaster/gallery-modal/lightbox-modal</code> 等），基于 Radix Dialog、Headless UI、react-spring、Embla、dnd-kit 等成熟件；<code>Modal</code> 实现模块级 zIndex 注册表、栈式 ESC 关闭、<code>releaseStrandedBodyLock</code> 兜底——交互细节考虑深入。</li>
+<li><strong>交互体验</strong>：图库双向虚拟化（<code>LazyDateGroup</code> 800px rootMargin + <code>measuredHeightRef</code> 保持滚动稳定）、词云稳定性哈希排序、灯箱键盘导航（←/→ 切片、↑/↓ 换媒体）、防抖 + <code>cancelled</code> 标志防竞态、<code>ConfirmResetButton</code> 两步确认防误触、<code>visualViewport</code> 感知的下拉翻转。</li>
+<li><strong>无障碍</strong>：<code>KeybindsSettings</code> 具备 <code>role</code>/<code>aria-*</code>、<code>Modal</code> 用 <code>Dialog.Title</code>/<code>VisuallyHidden</code>、<code>aria-label</code> 与 jsx-a11y 规则注释，但仍有 <code>eslint-disable jsx-a11y</code> 与 SVG onClick 反模式，覆盖不完整。</li>
+<li>扣分项：无截图/演示素材可验证视觉专业度；部分 toast 文案未国际化；<code>PromptBox3D</code> 存在 10 秒解锁 hack 与 TODO 提示体验瑕疵。</li>
+</ul>
+<h3>D2.6 功能完备度与稳定性（1.5 分）</h3>
+<p><strong>打分: 0.9 / 1.5（5–6 档，60%）</strong></p>
+<ul>
+<li><strong>功能覆盖广</strong>：图像/视频/音频/3D/Splat 生成、图库与文件夹/标签、角色 @-mention、分镜、情绪板、时间线视频编辑器（关键帧/遮罩/特效/音频混音/转场）、3D 场景编辑器、任务队列与成本估算，核心链路完整且能端到端走通。</li>
+<li><strong>版本成熟度不足</strong>：最新 tag <code>artcraft-v0.41.0</code>，仍处 pre-1.0；半年内连续发版 v0.20 → v0.41（9 月单月两次），<code>CommonModelType</code> 存在多处 <code>#[deprecated]</code> 变体、枚举序列化值明确「不得更改」，暗示历史上频繁 Breaking Change；452 个开放 Issue，90 天关闭 94 个、新建 PR 306 个——高吞吐伴随高不稳定。</li>
+<li><strong>运行环境</strong>：<code>macos-latest-xlarge</code>（universal-apple-darwin）与 <code>windows-latest</code> 双平台签名发布；Linux 在 CI 中被注释掉，无官方 Linux 构建；Windows 需 <code>cmake/perl/llvm/nasm</code> 与 <code>+crt-static</code>，本地开发门槛不低。硬件要求 N/A（无 GPU 强依赖，重负载在云端）。</li>
+<li><strong>性能</strong>：正面有大量优化（节流、rAF 合帧、虚拟化、worker 合成、<code>exp(-deltaY*0.0005)</code> 平滑缩放）；负面存在 O(n·m) 查找（<code>getElementsWithTracks</code>）、<code>Backend</code> 3 次 250ms 退避重试、巨型组件内 <code>useState</code> 于 mousemove 触发重渲染。</li>
+<li><strong>国际化</strong>：未见 i18n 框架，文案硬编码英文，无多语言/时区处理，对全球化商业化为实质短板。</li>
+</ul>
+<h3>D2.7 文档与开发者体验（1 分）</h3>
+<p><strong>打分: 0.6 / 1（5–6 档，60%）</strong></p>
+<ul>
+<li><strong>覆盖面</strong>：40 个文档文件，含 <code>README.md</code>、<code>ROADMAP.md</code>、<code>_docs/dev_setup.md</code>、<code>_docs/artcraft_omni_api.md</code>、<code>docs/performance.md</code>、<code>docs/desktop-session-regression.md</code>、<code>docs/website-login.md</code>，以及贯穿各 crate 的 <code>AGENTS.md</code>/<code>CLAUDE.md</code> 与前端每个 lib 的 README——这是一种"面向 AI 协作 + 面向人类维护"的双轨文档策略，覆盖率高。</li>
+<li><strong>质量</strong>：代码内注释与设计说明质量突出（定价表注释、<code>ConfigRef</code> 性能契约、Safari CORS 缓存 hack 说明、<code>mediaToken</code> 幂等说明）。</li>
+<li><strong>缺口</strong>：无对外 API 参考站点、无交互式教程、<code>examples: 0</code> 文件、无面向最终用户的入门/工作流文档；40 份文档对 4,925 个源文件而言密度偏低；<code>ROADMAP.md</code> 存在但内容未见版本同步机制。归入 5–6 档。</li>
+</ul>
+<h3>D2.8 测试与质量保障（1 分）</h3>
+<p><strong>打分: 0.4 / 1（3–4 档，40%）</strong></p>
+<ul>
+<li><strong>测试体量严重不足</strong>：144 个测试文件 / 8,980 行，对 482,290 行总代码的测试比仅 <strong>1.9%</strong>（测试行/源码行 ≈ 0.019），远低于 50–80% 的 7–8 档门槛。</li>
+<li><strong>测试质量两极</strong>：枚举层（<code>CommonModelType</code>、<code>MediaFileType</code>、<code>InferenceModelType</code>）有 round-trip、<code>all_variants</code> 长度、字符集、<code>MAX_LENGTH ≤ VARCHAR(24)</code> 等机械性守护测试，定价表（<code>cost.rs</code>、<code>generate_seedance_2p0_mini.rs</code> 900+ 行）单元测试扎实；但大量 provider 集成测试标 <code>#[ignore]</code> 且以 <code>assert_eq!(1, 2)</code> 强制失败"人工查看输出"，属调试性遗留而非可回归资产。</li>
+<li><strong>CI/CD 缺位</strong>：<code>.github/workflows/</code> 仅 <code>artcraft-macos-publish.yml</code> 与 <code>artcraft-windows-publish.yml</code>，只做签名打包发布，<strong>无 test / clippy / eslint / fmt / 覆盖率流水线</strong>；无 Dependabot/CodeQL/Snyk 等质量门禁；<code>.claude/rules/testing.md</code> 仅是 AI 协作约定，未转化为自动化执行。判为 3–4 档。</li>
+</ul>
+<hr />
+<h3>结论</h3>
+<p>ArtCraft 在<strong>产品设计与架构骨架</strong>上具备明显商业潜力：多 provider 统一路由、专业创作工作流整合、workspace/crate/adapter/command 的分层范式、高复刻门槛，支撑 7–8 档评价。但<strong>工程执行层</strong>构成实质短板：单文件 800–2,800 行的巨型组件与 God Object 普遍、调试残留与死代码未清理、请求体敏感日志与未加密凭据持久化、1.9% 的超低测试比与完全缺失的测试/静态分析 CI，以及 v0.41 的 pre-1.0 状态、缺失 i18n 与 Linux 平台。综合 <strong>6.5/10</strong>：达到"高于行业平均的架构与产品，低于商业交付要求的质量保障"的水平，商业化前需重点投入测试体系、CI 门禁与大型文件重构。</p>
+<h3>D3. 社区健康度与生态势能（得分: 6.4/10）</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D3.1 社区活跃度指标</td>
+<td><strong>打分: 2.4 / 3（7–8 档，80%）</strong></td>
+<td>高活跃但响应速度未证实</td>
+<td>Star 33,787、Fork 5,349，Fork/Star 约 15.8%；近 90 天 PR 306、关闭 Issue 94，开放 Issue 452；近 30 天 commit 18，2026-09-26 发布 v0.41.0。Star 近 90 天增量采集失败（404），按退化口径 Star/年龄月约 610–620/月，为历史平均、可能高估；Issue 平均关闭时间未采集，无法证实 &lt;2 天，故未给 9–10 档。</td>
+</tr>
+<tr>
+<td>D3.2 贡献者结构多样性</td>
+<td><strong>打分: 1.0 / 2.5（3–4 档，40%）</strong></td>
+<td>贡献者高度集中</td>
+<td>贡献者仅 4 人，远低于 5–20 人档；90 天 306 个 PR 说明核心团队产出高，但外部贡献者与多组织参与无证据，组织多样性必然有限。属真实组织集中风险（巴士因子归 D8），不构成技术质量负面信号。</td>
+</tr>
+<tr>
+<td>D3.3 第三方生态成熟度</td>
+<td><strong>打分: 1.8 / 3（5–6 档，60%）</strong></td>
+<td>有集成广度，缺第三方生态</td>
+<td>仓库内置 fal、GMICloud、Grok、Midjourney、OpenAI Sora、World Labs、Kinovi 等多个 AI 服务客户端，显示模型集成广度；但未见插件市场、第三方扩展目录、awesome 列表、衍生商业产品或外部课程硬证据。README 的 Discord/YouTube/X/LinkedIn 属官方运营渠道，不等同第三方生态。</td>
+</tr>
+<tr>
+<td>D3.4 品牌认知与行业影响力</td>
+<td><strong>打分: 1.2 / 1.5（7–8 档，80%）</strong></td>
+<td>领域内较高认知度</td>
+<td>33.8k Star、5.3k Fork，README 展示官网下载、两分钟 YouTube demo、Discord、X、LinkedIn，品牌在 AI 影像/创作工具圈层有辨识度；未见头部企业采用、技术会议背书等 9–10 档硬证据。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>D3.1 社区活跃度说明</strong>：项目社区规模大、Fork 意愿强、PR 与发布节奏活跃，属于成熟产品型项目的强社区基本盘。但 Star 增速因 stargazers API 404 只能采用退化公式（Star 总量 ÷ 年龄月），该口径对 4.5 年老项目会混入早期红利、可能高估近期增速；Issue 平均关闭时间缺失，无法验证“响应 &lt;2 天”的高档条件。因此给 7–8 档而非 9–10 档。</p>
+<p><strong>D3.2 贡献者结构说明</strong>：4 名贡献者对应 90 天 306 个 PR，说明项目由极少数核心人员高强度驱动。贡献者规模小是真实的生态与组织风险——外部开发者尚未形成社区自组织，商业化后的社区护城河依赖项目方持续投入；但按 1.7 归因纪律，这不能推出“技术不行”，技术质量应以 D2 独立结论为准。</p>
+<p><strong>D3.3 第三方生态说明</strong>：ArtCraft 是面向艺术家的桌面创作 IDE，不是平台型框架，天然缺少插件市场与第三方扩展目录；其生态更多体现为对多家生成式 AI 服务的集成，而非外部开发者围绕项目构建的衍生生态。按产品型项目结构性归因，生态薄不构成技术质量负面信号，但确实是生态势能短板。</p>
+<p><strong>D3.4 品牌说明</strong>：33.8k Star 与多社交渠道表明项目已跨过“小圈子认知”阶段，在 AI 影像创作细分领域有较高品牌辨识度；但缺少知名企业采用、行业会议/媒体背书的直接证据，未给 9–10 档。</p>
+<p><strong>数据归因检查</strong>：D3.2 低分归因为「结构性归因：单人/小团队维护」（contributors=4，核心团队集中，外部贡献多样性无证据），组织风险真实，技术质量以 D2 为准；D3.3 低分归因为「结构性归因：产品型/工具型项目，第三方插件生态天然弱」，非质量性结论；D3.1 的 Star 增量与 Issue 关闭时间为采集失败/缺失，非项目真实为零，已按退化口径与 N/A 处理，未以中性档替代。</p>
+<p><strong>生命周期阶段判定</strong>：年龄 1,663 天，非新项目；archived=否；近 30 天有 18 次 commit、2026-09-26 发布 v0.41.0、近 90 天 PR 306/关闭 Issue 94，排除死寂期；近 90 天 Star 增量与前一窗口不可得，爆发期“翻倍”分支不启用；按 D3.1 退化口径月增约 610–620/月（历史平均，可能高估），按 3.6 纪律 6 将“趋势上升”退化为当前绝对值，判为 📈 高速增长期。置信度中低：若后续补采显示近 90 天月增 ≤100，应迁移为 🏗️ 热闹维护期。</p>
+<p><strong>结论</strong>：D3 维度 6.4/10，处于“一般偏上”。优势是社区规模与品牌势能强（33.8k Star、5.3k Fork、PR/发布活跃），潜在客户池大；短板是贡献者结构极窄（4 人）、第三方插件/衍生生态尚未形成，社区势能更多由产品与公司运营驱动，而非开发者生态自组织。商业化含义：获客基本盘可观，但生态护城河与社区自增长能力偏弱，需依赖项目方持续投入与品牌运营。</p>
+<p>数据归因: 结构性归因：单人/小团队维护（contributors=4，核心团队高度集中，外部贡献多样性无证据）；时间序列数据缺失（stargazers API 404，Star 近 90 天增量不可得，月增采用退化口径）</p>
+<h3>D4. 商业模式与变现潜力（得分: 8.0/10）</h3>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>打分</th>
+<th>档位</th>
+<th>核心判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D4.1 协议对变现模式的影响</td>
+<td>2.0</td>
+<td><strong>2.0</strong></td>
+<td>9–10 档（100%）</td>
+<td>MIT / Apache-2.0 双许可，所有变现路径无法律约束</td>
+</tr>
+<tr>
+<td>D4.2 变现路径清晰度</td>
+<td>3.5</td>
+<td><strong>2.8</strong></td>
+<td>7–8 档（80%）</td>
+<td>主路径（托管算力 + 积分）清晰且有成功先例，备选路径（Pro/团队版）尚待产品化</td>
+</tr>
+<tr>
+<td>D4.3 付费转化逻辑</td>
+<td>2.5</td>
+<td><strong>2.0</strong></td>
+<td>7–8 档（80%）</td>
+<td>生成即消耗成本，付费触发点天然；但 BYO-Key / 自带订阅构成部分绕过风险</td>
+</tr>
+<tr>
+<td>D4.4 增值服务空间与定价天花板</td>
+<td>2.0</td>
+<td><strong>1.2</strong></td>
+<td>5–6 档（60%）</td>
+<td>专业消费者客单 $100–1K/年区间清晰，$10K+ 企业客单缺乏产品与销售证据</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>8.0</strong></td>
+<td>—</td>
+<td>变现结构天然嵌入价值链条，主要不确定性在企业级上行空间</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>D4.1 协议对变现模式的影响</h3>
+<p><strong>打分: 2.0 / 2（9–10 档，100%）</strong></p>
+<ul>
+<li>README 明确声明：<em>"ArtCraft is dual-licensed under MIT or Apache-2.0, at your option"</em>，并引用 <code>LICENSE-MIT</code> / <code>LICENSE-APACHE</code> 与 <code>NOTICE</code>（含第三方材料豁免清单）；GitHub API 实采 <code>license: Apache-2.0</code>。</li>
+<li>该协议组合属最宽松档位：<strong>Open Core、SaaS 托管、双协议商业授权、闭源衍生、私有化部署授权</strong>均无传染性障碍，无需为规避许可证而重构模块边界。</li>
+<li>数据质量提示：本地 <code>collect_local.py</code> 在仓库根目录未检出标准 <code>LICENSE</code> 文件（<code>license.file: null</code>），但 README 与 <code>NOTICE</code> 的存在表明采用双许可文件命名（<code>LICENSE-MIT</code>/<code>LICENSE-APACHE</code>）而非单一 <code>LICENSE</code>，故判定为采集口径差异，不构成实质合规风险。</li>
+<li>结论：协议不仅不限制变现，反而为"客户端全开源 + 后端服务收费"这一商业模式提供了最干净的授权基础——用户可自由 fork 前端，无法自由复刻后端算力与账号体系。</li>
+</ul>
+<h3>D4.2 变现路径清晰度</h3>
+<p><strong>打分: 2.8 / 3.5（7–8 档，80%）</strong></p>
+<p>项目代码结构直接暴露了商业架构：workspace 中包含 <code>crates/api_clients/artcraft/{artcraft_api_defs, artcraft_client, artcraft_router}</code>（官方后端客户端）与 12 个第三方 provider 客户端（<code>fal_client</code>、<code>gmicloud_client</code>、<code>grok_api_client</code>、<code>midjourney_client</code>、<code>openai_sora_client</code>、<code>worldlabs_*</code>），README 的模型目录注释更指向 <code>artcraft-services/crates/service/web/storyteller_web/...</code>——<strong>前端全开源、后端服务闭源</strong>的 Open Core 事实结构已经成立。</p>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>可行性</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SaaS / 托管算力 + 积分</strong></td>
+<td>★★★★☆（主路径）</td>
+<td>官方 provider "ArtCraft" 提供 62 个模型的统一接入，用户付费购买生成额度；对标 Cursor（开源壳 + 付费云）、Krea、ComfyUI Cloud、Freepik/OpenArt 聚合器，先例充分</td>
+</tr>
+<tr>
+<td><strong>Open Core（Pro 版桌面功能）</strong></td>
+<td>★★★☆☆（备选）</td>
+<td>已有 <code>getartcraft.com</code> 官方分发页与双平台发布 CI，具备做付费版分发的通道；但素材中未见 Pro 功能分层证据</td>
+</tr>
+<tr>
+<td><strong>团队/企业授权</strong></td>
+<td>★★☆☆☆</td>
+<td>无 SSO、无团队协作、无 admin 相关模块痕迹</td>
+</tr>
+<tr>
+<td><strong>市场/插件（资产包抽成）</strong></td>
+<td>★★★☆☆</td>
+<td>README 列出 "Kitbashing"（3D 素材包）、"Mixed Asset Crafting"，天然可延伸为素材/场景包市场</td>
+</tr>
+<tr>
+<td><strong>专业服务（影视/工作室定制）</strong></td>
+<td>★★☆☆☆</td>
+<td>目标用户含 filmmakers，但无服务化产品化痕迹</td>
+</tr>
+<tr>
+<td><strong>捐赠/赞助</strong></td>
+<td>★☆☆☆☆</td>
+<td>33.8K star 但无赞助入口（无 Open Collective/GitHub Sponsors 暴露）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>扣分理由</strong>：主路径（聚合算力 + 积分）清晰且已被 Krea/Freepik/OpenArt 验证，但项目方（4 位贡献者、v0.41.0 早期版本）尚未公开任何定价页、企业版功能对比或商业授权条款，第二路径仍停留在"技术可行"而非"产品成立"。</p>
+<h3>D4.3 付费转化逻辑</h3>
+<p><strong>打分: 2.0 / 2.5（7–8 档，80%）</strong></p>
+<ul>
+<li><strong>触发点极其自然</strong>：工具的核心动作是"生成"，而生成按次计费（Veo/Sora/Seedance/FLUX 等推理成本高企）。免费额度耗尽即无法继续创作，"免费不够用 → 付费"的漏斗几乎不需要教育成本，这是 AI 创作类产品转化率最高的结构之一。</li>
+<li><strong>付费意愿强</strong>：目标客户为艺术家、设计师、影视工作者——本身已在为 Midjourney / Runway / Krea 订阅付费，属于已被市场验证的高 ARPU 人群，且以美元计价的可变成本可顺滑转嫁。</li>
+<li><strong>转化路径短</strong>：下载桌面端 → 登录官方账号 → 使用 ArtCraft 统一额度生成（无需逐家注册、逐家绑卡、逐家配 Key），"一站式聚合 + 统一计费"本身就是付费理由（节省账号管理与额度碎片化的时间成本）。</li>
+<li><strong>扣分风险（真实存在）</strong>：代码中保留了 12 个第三方 provider 客户端，含 <code>grok_consumer_client</code>、<code>midjourney_client</code>、<code>kinovi_web_client</code> 等<strong>消费级订阅/cookie 复用</strong>实现。这意味着技术型用户可以绕过 ArtCraft 计费、直接使用自有消费订阅或自备 API Key（<code>fal_client</code> 等），对高阶用户构成明确的"免费平替"逃逸通道，削弱了单一付费触发点的强制性。</li>
+</ul>
+<h3>D4.4 增值服务空间与定价天花板</h3>
+<p><strong>打分: 1.2 / 2（5–6 档，60%）</strong></p>
+<ul>
+<li><strong>增值方向明确</strong>：云渲染/长任务队列、团队素材库与版本管理、模型路由与成本优化（<code>artcraft_router</code> 已具备路由抽象）、企业内网私有化部署、SLA 与合规审计、场景/资产包市场抽成。</li>
+<li><strong>收入扩展性良好</strong>：积分制天然是 per-usage，可随用户创作量线性增长，且能在同一体系内叠加 per-seat（团队版）与 enterprise flat fee。</li>
+<li><strong>天花板受约束</strong>：当前可证据化的客单区间是专业消费者 <strong>$20–100/月（$240–1,200/年）</strong>，与 Midjourney/Runway/Krea 同档；单客 $10K+/年的企业客单需要 SSO/审计/合规/专属支持等模块，而素材中（452 个开放 issue、4 名贡献者、无企业功能代码痕迹）均无对应支撑。</li>
+<li><strong>毛利结构性隐忧</strong>：聚合器模式下推理成本占比高，若仅做"转售算力"则毛利被上游模型厂商压制；真正的溢价必须来自 crafting 层（3D 合成、角色一致性、镜头调度）——这也是 README 主打的差异化，但该溢价能否被客户认账仍待市场检验。</li>
+</ul>
+<hr />
+<h3>维度小结</h3>
+<p>ArtCraft 的商业模式在结构上是<strong>"开放客户端 + 封闭算力服务"</strong>的教科书式组合：MIT/Apache-2.0 双许可扫清了全部授权障碍，62 模型 / 5 家 provider 的统一接入与积分计费构成天然付费点，且转化逻辑（生成即付费）优于绝大多数开源工具类项目。核心不确定性集中在两处：一是 <strong>BYO-Key / 自带订阅</strong>带来的高阶用户逃逸，二是<strong>企业级上行空间缺乏产品化证据</strong>——项目尚处 v0.41.0、4 名贡献者的公司早期阶段，客单天花板目前只能锚定在专业消费者档位。综合判定为"良好"（8.0/10），变现结构优于同规模开源项目，但距离卓越（企业级 SaaS 叠乘）仍有明确缺口。</p>
+<h3>D5. 竞争格局与差异化壁垒（权重 12%）（得分: 6.6/10）</h3>
+<h4>竞品验证说明（前置声明）</h4>
+<p>本次评估的竞品信息来源分两类，按其真实可复核程度分级标注：</p>
+<ol>
+<li><strong>仓库内引用（已实测）</strong>：以下竞品在本次提供的 ArtCraft README 原文中被直接点名，引用片段可当场复核：
+   - <code>aggregators such as OpenArt and Freepik</code>（README「Models and Providers」节末段）
+   - <code>Additional provider integrations are planned for Kling, Google, Runway, and Luma</code>（同上）</li>
+<li><strong>训练记忆转引（未实测）</strong>：ComfyUI、InvokeAI 等开源同类项目<strong>未经本次分析环境的实际搜索验证</strong>——本次投喂素材仅包含对 <code>artcraft</code> 名称的 GitHub Search API 结果（见下），该结果全部为 ArtCraft 自身的 fork/镜像，不构成任何真实竞品发现；素材中未提供可用的 Web 搜索接口或针对竞品关键词的 GitHub 搜索返回。<strong>这两项的 Star 数、功能描述均标注为「未实测」，仅在报告中作为行业参照，不参与任何计分证据链。</strong></li>
+</ol>
+<p><strong>关于素材中「竞品清单」的判定</strong>：GitHub Search API 返回的 3 个仓库（<code>isaccanedo/artcraft</code> 1 star、<code>eddyvn98/artcraft</code> 0 star、<code>artcraft-IDE/artcraft</code> 0 star）描述文本与原项目完全一致，均为 ArtCraft 的 fork / 镜像站，<strong>并非竞品</strong>。因此「按精确名称搜索，GitHub 上不存在同名真实竞品」是一条可用的硬事实，但<strong>不能</strong>据此推断「无竞品」——同类竞品存在于不同的命名空间下。</p>
+<hr />
+<h4>D5.1 竞品对比与市场定位</h4>
+<p><strong>打分: 2.4 / 3（7–8 档，80%）</strong></p>
+<table>
+<thead>
+<tr>
+<th>竞品名称</th>
+<th>类型</th>
+<th>仓库/官网</th>
+<th>验证方式</th>
+<th>Star/用户量</th>
+<th>核心差异</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ComfyUI</td>
+<td>直接竞品</td>
+<td>github.com/comfyanonymous/ComfyUI</td>
+<td><strong>未实测</strong>（记忆转引，本次无搜索接口，需复核）</td>
+<td>N/A（未实测）</td>
+<td>节点图（node graph）式工作流，插件生态庞大，社区驱动，偏技术型用户</td>
+</tr>
+<tr>
+<td>InvokeAI</td>
+<td>直接竞品</td>
+<td>github.com/invoke-ai/InvokeAI</td>
+<td><strong>未实测</strong>（记忆转引，需复核）</td>
+<td>N/A（未实测）</td>
+<td>自托管 Web 画布式 SD 工作台，聚焦本地模型推理与统一画布</td>
+</tr>
+<tr>
+<td>OpenArt</td>
+<td>直接竞品（商业聚合器）</td>
+<td>openart.ai</td>
+<td><strong>仓库内引用（已实测）</strong>：README "aggregators such as OpenArt and Freepik"</td>
+<td>—</td>
+<td>云端一站式 AI 创作套件 + 模型聚合，订阅制，浏览器即用</td>
+</tr>
+<tr>
+<td>Freepik AI Suite</td>
+<td>直接竞品（商业聚合器）</td>
+<td>freepik.com</td>
+<td><strong>仓库内引用（已实测）</strong>：同上</td>
+<td>—</td>
+<td>素材库 + 多模型聚合的大流量平台，靠现有素材用户基础分发</td>
+</tr>
+<tr>
+<td>Runway</td>
+<td>间接竞品 / 上游供应商</td>
+<td>runwayml.com</td>
+<td><strong>仓库内引用（已实测）</strong>：README 计划集成 Runway</td>
+<td>—</td>
+<td>自研视频模型 + 面向影视的 Web 工具链，模型与工具一体化</td>
+</tr>
+</tbody>
+</table>
+<p><strong>定位清晰度</strong>：README 首屏即给出 "The IDE for artists" / "the IDE for interactive AI image and video creation"，并在功能表中明确「先在 2D/3D 场景中构图、打光、摆位，再生成」（Image to Location、3D Image Compositing、Character Posing、Scene Blocking with Kitbashing、Character Identity Transfer），形成一条与上述竞品<strong>可一句话区分</strong>的定位：<strong>它不是模型、不是节点图、也不是纯提示词网页——而是"先搭建空间场景、再调用任意模型出图/出视频"的桌面级创作 IDE</strong>。聚合 62 个模型（图像 16 / 视频 25 / 音频 5 / 3D 网格 11 / 世界与高斯泼溅 5）横跨 5 家 Provider，是其"IDE 而非模型"定位的直接证据。</p>
+<p><strong>扣分理由</strong>：赛道极度拥挤。开源侧有 ComfyUI 这类生态规模远超本项目的对手（未实测，需复核）；商业侧有 OpenArt / Freepik 这类既做聚合又资金充裕、且被 ArtCraft 自己在 README 中点名视为"订阅可复用"对象的对手；上游模型厂商（Runway、OpenAI Sora、Google Veo）也在持续下沉做自有创作端。ArtCraft 的"3D 空间控制"差异化真实且鲜明，但<strong>尚未构成"无直接竞品或明显领先"</strong>的 9–10 档条件。</p>
+<hr />
+<h4>D5.2 技术壁垒与网络效应</h4>
+<p><strong>打分: 1.8 / 3（5–6 档，60%）</strong></p>
+<p><strong>技术壁垒（中等）</strong>：工程体量本身就是门槛——482,290 行代码（Rust 271,135 行 + TypeScript/TSX 206,569 行），40 余个 workspace crate，包含 <code>crates/lib/browser_emulation</code>、<code>cloudflare_mitigation</code>、<code>cookie_store</code>、<code>jwt_light</code>，以及自建的 <code>grok_consumer_client</code>、<code>kinovi_web_client</code>、<code>midjourney_client</code>、<code>openai_sora_client</code>、<code>worldlabs_consumer_client</code>。这套「浏览器仿真 + 反 Cloudflare + Cookie 会话维持」的消费端逆向接入层，是本项目最难被短期复制的一块工程资产。</p>
+<p>但这不是<strong>商业防御性</strong>壁垒：无专利、无自研模型、无专有训练数据；62 模型目录全部来自第三方 API 集成，属于<strong>商务关系 + 工程对接</strong>，而非算法或数据资产。同类集成对资金更充裕的聚合器（OpenArt、Freepik）不构成阻碍，且逆向客户端在供应商改版时随时失效——它是<strong>负债型壁垒</strong>（维护成本高、对外依赖强），而非资产型。</p>
+<p><strong>网络效应（弱，接近不成立）</strong>：素材中<strong>没有任何</strong>插件生态、模型市场、作品社区、共享资产库的证据；README 只列出 Discord / YouTube / X / LinkedIn 四个社媒链接。贡献者仅 <strong>4 人</strong>，开放 Issue <strong>452 个</strong>（近 90 天关闭 94 个，PR 新增 306 个），反映的是<strong>单点维护压力</strong>而非社区共建网络。用户增长带来的价值提升主要体现为「API 采购规模议价」这一弱规模效应，没有数据飞轮（用户生成内容不回馈模型或检索）。</p>
+<p>综上：有技术门槛但缺乏可持续的防御结构，无网络效应。「有一定壁垒但不深厚」正是 5–6 档的定义。</p>
+<hr />
+<h4>D5.3 切换成本与用户粘性</h4>
+<p><strong>打分: 1.2 / 2（5–6 档，60%）</strong></p>
+<ul>
+<li><strong>迁移成本（中等）</strong>：用户在 ArtCraft 内积累的是<strong>场景工程</strong>——3D 布局、机位、角色姿态、角色身份参考、图层与 kitbash 资产组合。这类项目文件格式私有，切到 ComfyUI / OpenArt 需重建整套构图逻辑，属于实质性成本。但<strong>产出的图像/视频是完全可移植的通用资产</strong>，提示词、素材、导出物都不锁定，用户"带走成果"的成本极低。</li>
+<li><strong>深度集成（浅）</strong>：形态是本地桌面应用（Windows/macOS 发布流水线 + Linux 源码构建），不嵌入企业生产管线；素材中未出现 SDK、编程式 API、CI/渲染农场接入、团队协作或版本管理等深度绑定能力。集成深度停留在"个人创作工具"层级。</li>
+<li><strong>习惯锁定（弱）</strong>：产品处于 v0.41.0（2026-09-26）的 0.x 阶段，10 个 release 集中在 2026 年 3–9 月，功能面（"More previews are coming for scene blocking, canvas editing, and scene relighting"）仍在快速变动，尚未形成稳定到能沉淀组织流程的成熟工作流。近 30 天仅 18 次 commit，也说明迭代节奏在放缓，难以靠持续增值强化粘性。</li>
+</ul>
+<p>结论：迁移有成本但不构成强锁定，未达到 7–8 档「迁移有较高成本、用户粘性较强」的门槛。</p>
+<hr />
+<h4>D5.4 护城河可持续性</h4>
+<p><strong>打分: 1.2 / 2（5–6 档，60%）</strong></p>
+<ul>
+<li><strong>护城河趋势（走平偏弱）</strong>：正向信号是社区心智——<strong>33,787 Star / 5,349 Fork</strong>，90 天内 306 个 PR、94 个 Issue 关闭、10 次发版（v0.20.0 → v0.41.0），说明项目活跃且有声量。负向信号同样明确：<strong>贡献者仅 4 人</strong>对应 452 个开放 Issue，维护带宽与用户规模严重失衡；近 30 天 18 次 commit 表明开发强度回落。护城河没有加深的迹象。</li>
+<li><strong>颠覆风险（中等偏高，且来自三个方向）</strong>：
+  1. <strong>上游挤压</strong>：Sora、Veo、Kling、Runway 等模型厂商正在把创作端产品化，README 自己也承认这些是"计划集成的 Provider"——既依赖又竞争。
+  2. <strong>聚合器价格战</strong>：OpenArt / Freepik 在模型聚合维度规模更大、订阅更便宜，而"多模型聚合"恰恰是 ArtCraft 价值主张的一半。
+  3. <strong>逆向客户端脆弱性</strong>：<code>browser_emulation</code> / <code>cloudflare_mitigation</code> / <code>cookie_store</code> 这类 crate 的存在，本身就是"上游随时可封堵"的技术自证——一旦 Midjourney、Grok 等收紧消费端接口，这部分能力会瞬间归零，且涉及合规灰区。</li>
+<li><strong>时间窗口</strong>：3D 场景编排 + 机位/姿态控制 + 多模型聚合这一组合目前仍稀缺，窗口尚未关闭，但属于「靠工程速度抢时间」型优势，不是结构性护城河。叠加 <code>test_ratio 仅 1.9%</code>、本地扫描 <code>license: NONE</code>（README 声明 MIT/Apache-2.0 双许可，与仓库根目录未检出许可文件存在不一致）等治理短板，长期防御力评估偏保守。</li>
+</ul>
+<p>判定为「护城河一般，有中等颠覆风险」，而非「护城河在削弱、有明确颠覆者」。</p>
+<hr />
+<h4>小结</h4>
+<p>ArtCraft 在竞争格局中占据一个<strong>真实且易于表述的差异化位置</strong>：「面向影视/美术的 AI 创作 IDE」——用 2D/3D 空间编排与机位、姿态、角色身份控制，把"提示词赌博"变成"可复现的工艺"，并横向聚合 62 个模型作为弹药库。33.8k Star 与密集发版证明这套叙事已被市场认可。</p>
+<p>但其防御结构存在三处结构性弱点：<strong>（a）无专利/自研模型/专有数据，壁垒是工程与商务对接，可被资金更充裕的聚合器追赶；（b）完全无网络效应，4 名贡献者撑 452 个开放 Issue，社区未形成共建；（c）核心差异化的一部分建立在消费端逆向接入之上，合规与技术双重脆弱。</strong> 因此 D5 得分 6.6/10，属"一般偏上"：定位清晰可讲，但护城河不够深，需要尽快把「场景工程资产」沉淀为导出不可逆的工作流与协作层，才能把当前的差异化窗口转化为真正的锁定。</p>
+<h3>D6. 法律合规与知识产权（权重 7%）（得分: 6.2/10）</h3>
+<p><strong>评估基线</strong>：本维度依据仓库内 LICENSE / Cargo.toml / package.json / CI 配置 / 文档目录清单等硬事实评估；商标与专利状态无法由 AI 自动核查，按方法论默认档处理并降置信度。需特别说明：本项目为 Rust（271k 行）+ TypeScript/TSX（206k 行）双栈单体仓库，代码总量 482,290 行、内部 crate/包 90+ 个，法律面扫描成本本身较高。</p>
+<h4>细则打分表</h4>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>打分</th>
+<th>档位</th>
+<th>核心依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D6.1 开源协议合规性与商业限制</td>
+<td>3</td>
+<td>2.4</td>
+<td>7–8 档（80%）</td>
+<td>GitHub API 明确识别 Apache-2.0（含专利授权、无 copyleft、无 Commons Clause/BUSL），但本地采集 <code>license.file=null / license="NONE"</code>，且 manifest 内声明为 <code>MIT OR Apache-2.0</code>，存在声明不一致</td>
+</tr>
+<tr>
+<td>D6.2 依赖链法律风险</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6 档（60%）</td>
+<td>依赖面极大（40 个 workspace crate + 前端 ~55 直接依赖/~50 devDependencies + 50 个内部 lib 包），且无 lockfile 可供传递依赖全量扫描；存在数个需人工审查的非 registry / 弱 copyleft 候选</td>
+</tr>
+<tr>
+<td>D6.3 商标与专利风险</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6 档（60%，未经人工核查，置信度低）</td>
+<td>商标可用性未核查；但代码中大量以第三方商标命名客户端（Midjourney / OpenAI Sora / Grok / WorldLabs / fal / GMICloud），且无 TRADEMARK 政策文件</td>
+</tr>
+<tr>
+<td>D6.4 贡献者协议完备性</td>
+<td>2</td>
+<td>0.8</td>
+<td>3–4 档（40%）</td>
+<td>无 CONTRIBUTING.md、无 CLA/DCO 配置、无 <code>.github</code> 贡献模板；仅 4 名贡献者且 <code>authors</code> 字段高度集中于单一作者</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>6.2</strong></td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h4>D6.1 开源协议合规性与商业限制 — 打分: 2.4 / 3（7–8 档，80%）</h4>
+<ul>
+<li><strong>协议明确性（部分扣分）</strong>：GitHub API 返回 <code>license: "Apache-2.0"</code>，属规范 SPDX 许可、含明确专利授权条款（Apache-2.0 §3），对商业化最友好的一档。但本地 <code>collect_local.py</code> 实测 <code>license: {"file": null, "license": "NONE"}</code>，即仓库根目录未检出 LICENSE 文件——两者矛盾，可能是文件命名/位置非标准（如 <code>LICENSE.md</code>/<code>COPYING</code> 或子目录）或采集器漏采，<strong>必须人工复核根 LICENSE 位</strong>。同时 <code>crates/desktop/artcraft/Cargo.toml</code> 与 <code>frontend/package.json</code> 均声明 <code>license = "MIT OR Apache-2.0"</code>，与仓库级 Apache-2.0 声明不一致（虽同属宽松许可，但双许可/单许可口径不一，会影响下游对企业用户的许可承诺清晰度）。</li>
+<li><strong>copyleft 传染性</strong>：自身代码无 copyleft。Rust 侧外部依赖（tauri 2.11.2、reqwest、sqlx 0.7.4、image、egui/eframe、wry、rodio、scraper、ciborium 等）与前端主流依赖（react、three、konva、radix-ui、lodash 等）绝大多数为 MIT/Apache 系，未见 AGPL；未发现 AGPL/GPL 传染性依赖。属可管理范围。</li>
+<li><strong>商业附加条款</strong>：无 Commons Clause、无 BUSL/SSPL、无 "非商业使用" 限制；<code>publish = false</code>（全部 crate 与前端包均私有）说明项目不走 crates.io/npm 分发，反而降低了下游协议摩擦。</li>
+<li><strong>扣分归因（非协议类型本身）</strong>：① 根 LICENSE 文件可采集性为 0，声明与实物未闭环；② 仓库级与 manifest 级许可声明存在 Apache-2.0 vs "MIT OR Apache-2.0" 的不一致。</li>
+</ul>
+<h4>D6.2 依赖链法律风险 — 打分: 1.5 / 2.5（5–6 档，60%）</h4>
+<ul>
+<li><strong>依赖数量</strong>：数量级偏大——Rust workspace 40 个 member + 外部依赖数十个；前端 55 项直接依赖 + ~50 项 devDependencies + 50 个内部 <code>@storyteller/*</code> 包。合规审查面广，即使全部为宽松许可，人工核验成本仍不低（不满足 9–10 档"依赖少且来源可靠"）。</li>
+<li><strong>依赖协议审查（未见传染性确证，但有需人工核验项）</strong>：未见 GPL/AGPL 确证依赖；但存在若干<strong>需人工核实</strong>的候选：</li>
+<li><code>ccapture.js: "github:aceslowman/ccapture.js#npm-fix"</code>（<code>frontend/apps/artcraft/package.json</code>）——非 npm registry 的个人 GitHub fork 直连，来源、许可与维护状态均不可从素材确证，属"来源不明/高风险包"类别；</li>
+<li><code>soundtouchjs@^0.3.0</code>——SoundTouch 血统库历史上采用 LGPL，需核实其 npm 包实际 SPDX 后判定是否构成弱 copyleft 义务；</li>
+<li><code>mediabunny</code>、<code>resvg 0.45</code> 等 MPL 系弱 copyleft 候选，需确认"以依赖形式链接/调用"是否触发文件级开源义务；</li>
+<li><code>opencut-wasm@^0.2.10</code>、<code>@sparkjsdev/spark</code> 等预编译 wasm 包，其内含许可与专利条款需单独核验。</li>
+<li><strong>数据缺口</strong>：素材未提供 <code>Cargo.lock</code> / <code>package-lock.json</code> 内容，<strong>传递依赖无法全量扫描</strong>，故无法给出"无传染性依赖"的确定性结论——这是本细则不能给高分的主要客观原因。</li>
+</ul>
+<h4>D6.3 商标与专利风险 — 打分: 1.5 / 2.5（5–6 档，60%，未经人工核查，置信度低）</h4>
+<ul>
+<li>依方法论规定：商标检索与专利排查无法自动化，本轮<strong>无人工核查数据</strong>，故默认按 5–6 档给 1.5/2.5，并标注置信度低。<strong>不对"ArtCraft"/"storytold" 是否可注册、是否已存在在先商标作任何断言。</strong></li>
+<li><strong>可从素材确证的结构性风险信号（提示实际风险可能高于默认档，建议人工复核后向下修正）</strong>：</li>
+<li>仓库内存在 11 个 <code>crates/api_clients/*</code> 客户端，直接以第三方商业商标命名：<code>midjourney_client</code>、<code>openai_sora_client</code>、<code>grok_api_client</code> / <code>grok_consumer_client</code>、<code>worldlabs_api_client</code> / <code>worldlabs_consumer_client</code>、<code>fal_client</code>、<code>gmicloud_client</code>、<code>kinovi_web_client</code>。产品化时以这些名称做功能宣传，属名义性合理使用与商标混淆之间的灰色地带。</li>
+<li>更实质的风险在于<strong>规避技术措施与未公开接口逆向</strong>：存在 <code>crates/lib/cloudflare_mitigation</code>、<code>crates/lib/browser_emulation</code>、<code>openai_sora_client/src/requests/auth_sentinel_2/</code>、<code>midjourney_client</code> 中"解析 HTML 取 websocket token"与 CBOR 帧解析、以及 <code>crates/vendor/tauri-plugin-http</code>（注释明示"vendor 以便通过 private API 访问 cookie"）。这类实现属于<strong>合同/ToS 与反规避条款（含 DMCA §1201 类）</strong>风险面，而非单纯的商标/专利问题，但对商业化路径的阻断力可能大于协议本身。</li>
+<li>无 TRADEMARK / NOTICE 政策文件；Apache-2.0 §6 明确不授予商标许可，故"ArtCraft"品牌与第三方商标使用规则均无内部制度约束。</li>
+<li>附：<code>tauri</code> feature 注释"<code>devtools</code> prevents App Store distribution"表明发行渠道存在平台政策限制（非法律项，但与商业分发合规相关）。</li>
+</ul>
+<h4>D6.4 贡献者协议完备性 — 打分: 0.8 / 2（3–4 档，40%）</h4>
+<ul>
+<li><strong>CLA/DCO</strong>：文档清单（40 个 .md）中<strong>无 CONTRIBUTING.md、无 CLA 文件、无 DCO 签名要求</strong>；CI 仅 2 条发布流水线（<code>artcraft-macos-publish.yml</code>、<code>artcraft-windows-publish.yml</code>），不含贡献合规检查。</li>
+<li><strong>版权归属</strong>：相对有利的一面是版权高度集中——多个 crate 的 <code>Cargo.toml</code> 均写明 <code>authors = ["Brandon Thomas &lt;bt@brand.io&gt;", "Brandon Thomas &lt;echelon@gmail.com&gt;"]</code>，全仓库贡献者仅 4 人。这意味着"双协议/商业授权"路径在事实上可行，但<strong>缺乏书面 CLA 使外部贡献部分的版权让渡无凭据</strong>（4 人中的非核心贡献者代码无法追溯授权）。</li>
+<li><strong>贡献流程</strong>：存在 <code>AGENTS.md</code> / <code>CLAUDE.md</code> / <code>.claude/rules/*.md</code> 等"面向 AI 编码代理"的规范，但<strong>不是面向人类贡献者的贡献流程</strong>；无 issue/PR 模板。综合判为"流程不规范、版权未分散但未确权"→ 3–4 档。</li>
+</ul>
+<h4>结论</h4>
+<p><strong>D6 得分 6.2/10（一般偏上，5–6 档上限附近）</strong>。法律面呈"协议层干净、合规层暗礁"的分裂格局：</p>
+<ol>
+<li><strong>协议层</strong>是加分项：Apache-2.0（含专利授权、无 copyleft、无商业附加条款）+ 全私有发布（<code>publish=false</code>）+ 贡献者集中（4 人），从"代码能不能被商业使用/双协议"角度看障碍很小，仅需补齐根 LICENSE 文件与统一 manifest 许可口径。</li>
+<li><strong>合规层是最大隐患</strong>：项目本质是围绕 Midjourney、OpenAI Sora、Grok/xAI、WorldLabs、fal、GMICloud 等第三方闭源服务的<strong>非官方客户端集合</strong>，并内置 <code>cloudflare_mitigation</code>（挑战规避）、<code>browser_emulation</code>（指纹伪装）、HTML 抓 token、vendored 插件读取私有 cookie 等实现。这类风险不属于本维度四项细则的评分口径（不重复计分），但<strong>对"以该仓库代码为基础做商业产品"的阻断力可能强于协议本身</strong>——建议在最终报告的法律风险章节单列，并作为商业化前置尽调项（需执业律师意见）。</li>
+<li>商标/专利状态未经人工核查，D6.3 采用默认档，实际下行风险偏高；建议补做"ArtCraft"文字商标检索（含 3D/AI 生成相关类别）与第三方商标使用合规审查。</li>
+</ol>
+<h3>D7. 企业就绪度与可运营性（得分: 5.3/10）</h3>
+<p><strong>总体判断</strong>：ArtCraft 是一款<strong>纯客户端桌面应用</strong>（Tauri + 自研 egui 原生壳 <code>artcraft-native</code>），商业化载体是「桌面 IDE + 云端 ArtCraft 账号/积分计费后端」。因此本维度需要区分两类主体：<strong>客户端分发运维</strong>（证据充分、工程化程度较高）与<strong>企业级安全/可观测/高可用</strong>（几乎空白）。企业采购方最关心的 SSO、RBAC、审计、指标监控均无实现，是被评估项目中典型的"消费级产品形态"。</p>
+<h3>D7.1 运维复杂度与升级路径（3 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>结论</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>配置管理</td>
+<td>无配置文件/环境变量体系。用户偏好通过 <code>Saved</code> 结构 serde 持久化（页面、视图模式、各页设置），Provider Key 走 <code>Backend</code> 统一存取；仅 <code>ARTCRAFT_SCREENSHOT</code> 一个无头截图环境变量。对桌面端可接受，但无集中配置/配置中心能力。</td>
+</tr>
+<tr>
+<td>运维负担</td>
+<td>终端用户侧近乎零运维（装机即用）；CI 侧负担真实存在：macOS 工作流含大量证书/钥匙串调试回显（<code>security find-identity</code>、<code>openssl pkcs12 -info</code> 等），Windows 工作流需 <code>choco install cmake/strawberryperl/pkgconfiglite/llvm/nasm</code> 才能编译 <code>wreq</code>，属"重构建环境"。</td>
+</tr>
+<tr>
+<td>升级路径</td>
+<td><code>tauri-action</code> 自动出 draft release，tag <code>artcraft-v__VERSION__</code>；但<strong>仓库无 CHANGELOG.md</strong>，版本仍处 0.x（0.20 → 0.41，2026-03~09 共 10 个 release，近 90 天 2 个），版本号频繁跳变且跨多个 minor（0.24/0.27/0.28/0.29/0.32/0.37/0.41），无升级/回滚说明。桌面端"回滚"= 重装旧版，理论可行但未文档化。</td>
+</tr>
+<tr>
+<td>数据迁移</td>
+<td>本地 SQLite（<code>crates/schema/database/sqlite_tasks</code>）+ <code>SQLX_OFFLINE: true</code> 预编译查询缓存；未见 migrations 目录或迁移脚本，<code>InferenceModelType</code> 注释明确写了"不得更改既有序列化值，除非有迁移策略"，说明迁移靠人工纪律而非机制。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>打分: 1.8 / 3（5–6 档，60%）</strong>
+理由：桌面形态使日常运维成本低（加分），但升级路径与数据迁移缺少文档化保障（无 CHANGELOG、无迁移脚本、0.x 高频跃迁），仅达到"需一定运维投入、升级需手动操作"档位。</p>
+<h3>D7.2 安全管理与权限控制（2.5 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>结论</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>认证授权</td>
+<td>有自建账号体系：<code>login_with_password</code> / <code>login_with_browser</code>（设备码轮询：interval / 过期时间 / 取消标志）、<code>LoginChallengeClient</code>、<code>Set-Cookie</code> 解析 session、<code>jwt_light</code> crate。<strong>无 SSO / OAuth 企业登录 / LDAP / SAML</strong>。</td>
+</tr>
+<tr>
+<td>权限模型</td>
+<td>无 RBAC / ABAC。仅有"是否登录"布尔门控（如 <code>app.rs</code> 中敏感操作先检查登录态）与前端数量上限/二次确认（<code>ConfirmResetButton</code>、删除 <code>showActionReminder</code>）。</td>
+</tr>
+<tr>
+<td>审计日志</td>
+<td>无审计日志模块，无操作留痕导出。反向风险：<code>kinovi_web_client</code> 多个客户端用 <code>info!</code> <strong>完整打印请求体与响应体（含 prompt、参考素材 URL）</strong>，<code>generate_image.rs</code> 的 <code>host_override</code> 可指向任意主机（SSRF/劫持面）。</td>
+</tr>
+<tr>
+<td>数据安全</td>
+<td>传输侧依赖 <code>reqwest</code>/<code>wreq</code> TLS + <code>crossOrigin="anonymous"</code> + <code>?cors=1</code>/<code>?threejs=true</code> 规避缓存污染；<strong>凭据（session）以 <code>RwLock</code> 内存持有并 <code>session::save</code> 落地，未见本地加密（无 keyring/Keychain 集成）</strong>；浏览器端 <code>localStorage</code> 读写仅 try/catch。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>打分: 1.0 / 2.5（3–4 档，40%）</strong>
+理由：具备可用的账号认证与会话管理，但企业安全四要素（SSO、细粒度权限、审计、加密存储）中仅"认证"一项成立，安全机制整体薄弱且存在日志泄露用户内容的合规缺口。</p>
+<h3>D7.3 可扩展性与高可用能力（2.5 分）</h3>
+<p><strong>打分: N/A（数据不适用）</strong>
+理由：该项目是单用户桌面应用（<code>artcraft-native</code> 纯 Rust egui + Tauri 壳），不提供服务器端部署面，"水平扩展 / 集群部署 / 故障转移 / 分布式数据一致性"在架构上不存在对应对象。唯一的分布式相关证据是客户端对上游 provider 的<strong>请求级弹性</strong>：<code>artcraft_router</code> 多 provider 路由、<code>request_mismatch_mitigation_strategy</code>、<code>cloudflare_mitigation</code>、模型列表 3 次 250ms 退避重试、5s 任务轮询——这属于"上游容错"，而非"自身可扩展"。为避免以服务端标准误罚一个刻意的桌面产品，本细则按 N/A 处理并从维度满分中剔除（<strong>维度置信度相应下降</strong>）。</p>
+<h3>D7.4 集成兼容与可观测性（2 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>结论</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>API 完备性</td>
+<td>内部 API 层相当完备：<code>artcraft_api_defs</code>（DTO）/ <code>artcraft_client</code>（endpoints/errors/host）/ <code>artcraft_router</code>（多 provider 请求构建），枚举用 <code>utoipa::ToSchema</code> 生成 schema，<code>_docs/artcraft_omni_api.md</code> 存在；<code>@storyteller/ui-video-editor</code> 通过 <code>VideoEditorAdapters</code>（存储/媒体源/图库/认证/导出/Toast）做依赖注入，是明确的宿主扩展边界。但<strong>无对外公开的 REST/gRPC/SDK 契约文档</strong>，集成面主要面向内部前端与 provider。</td>
+</tr>
+<tr>
+<td>标准协议</td>
+<td>无 OpenTelemetry、无 Prometheus <code>/metrics</code>、无 Webhook、无健康检查端点。</td>
+</tr>
+<tr>
+<td>监控告警</td>
+<td>无内置指标；可观测性依赖桌面端 UI（TaskQueue 的伪进度 <code>((now-created)/duration)*100</code> 截断到 95%）。</td>
+</tr>
+<tr>
+<td>日志体系</td>
+<td>统一用 <code>log</code> crate + <code>info!/warn!</code>，但<strong>无结构化日志（非 tracing/json）、无统一级别治理</strong>，且前端大量 <code>console.log</code> 残留（<code>TaskQueue</code>、<code>PageDraw</code>、<code>PaintSurface</code> 的 <code>console.log("isdragging")</code> 等），调试输出与生产日志混排。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>打分: 1.2 / 2（5–6 档，60%）</strong>
+理由：API 分层与适配器注入是真实亮点（属于"有 API"），但标准协议、指标、健康检查、结构化日志四项全缺，落在"有 API 但监控/日志薄弱"档。</p>
+<h3>维度小结</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D7.1 运维复杂度与升级路径</td>
+<td>3</td>
+<td>1.8</td>
+<td>5–6 档（60%）</td>
+</tr>
+<tr>
+<td>D7.2 安全管理与权限控制</td>
+<td>2.5</td>
+<td>1.0</td>
+<td>3–4 档（40%）</td>
+</tr>
+<tr>
+<td>D7.3 可扩展性与高可用能力</td>
+<td>2.5</td>
+<td>N/A</td>
+<td>不适用</td>
+</tr>
+<tr>
+<td>D7.4 集成兼容与可观测性</td>
+<td>2</td>
+<td>1.2</td>
+<td>5–6 档（60%）</td>
+</tr>
+<tr>
+<td><strong>合计（剔除 N/A 后等比缩放）</strong></td>
+<td><strong>7.5</strong></td>
+<td><strong>4.0</strong></td>
+<td><strong>5.3 / 10</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>商业化含义</strong>：ArtCraft 的付费方大概率是<strong>个人创作者/工作室席位订阅</strong>，而非需要私有化部署与合规审计的大型企业。若要走企业路线，最低成本的三件事是：① 补 CHANGELOG + 本地 SQLite 迁移机制与 Windows 代码签名；② 移除 <code>info!</code> 中对 prompt/响应的全量打印，凭据落地改接 OS Keychain；③ 接入结构化日志 + 基础指标/崩溃上报。SSO 与 RBAC 在桌面单机形态下优先级可后置。</p>
+<h3>D8. 团队治理与可持续性（得分: 7.2/10）</h3>
+<h3>素材概况</h3>
+<table>
+<thead>
+<tr>
+<th>硬事实</th>
+<th>数值</th>
+<th>来源</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>仓库年龄</td>
+<td>约 4 年 6 个月（创建于 2022-03-31）</td>
+<td>GitHub API created_at</td>
+</tr>
+<tr>
+<td>最近推送</td>
+<td>2026-10-18（距今 ≤ 30 天）</td>
+<td>pushed_at</td>
+</tr>
+<tr>
+<td>近 30 天 commit</td>
+<td>18 次</td>
+<td>Commits API 实采</td>
+</tr>
+<tr>
+<td>近 90 天新建 PR</td>
+<td>306 个</td>
+<td>PR API 实采</td>
+</tr>
+<tr>
+<td>近 90 天关闭 Issue</td>
+<td>94 个（现存开放 452 个）</td>
+<td>Issues API 实采</td>
+</tr>
+<tr>
+<td>贡献者数</td>
+<td>4 人</td>
+<td>Contributors API 实采</td>
+</tr>
+<tr>
+<td>发布节奏</td>
+<td>v0.20 → v0.41，2026-03 至 2026-09 至少 10 个正式 Release</td>
+<td>Releases API</td>
+</tr>
+<tr>
+<td>商业主体迹象</td>
+<td>官网 getartcraft.com 提供下载、Discord 社区、YouTube 官方频道、X 账目、LinkedIn 公司页（artcraft-ai）</td>
+<td>README</td>
+</tr>
+<tr>
+<td>治理文档</td>
+<td>有 <code>ROADMAP.md</code>、<code>AGENTS.md</code>/<code>CLAUDE.md</code>（内部开发规范）；<strong>无</strong> <code>GOVERNANCE.md</code>、<strong>无</strong> <code>CONTRIBUTING.md</code></td>
+<td>本地扫描 doc_files</td>
+</tr>
+<tr>
+<td>基金会归属</td>
+<td>未见 CNCF/Apache/LF 归属</td>
+<td>组织页/README</td>
+</tr>
+<tr>
+<td>生产流水线</td>
+<td>2 条发布 workflow（macOS/Windows publish），可直接出货</td>
+<td>ci_workflows</td>
+</tr>
+<tr>
+<td>代码体量</td>
+<td>482,290 行（.rs 271k / .ts+tsx 206k），3254 个 Rust 文件</td>
+<td>collect_local.py</td>
+</tr>
+</tbody>
+</table>
+<h3>细则打分</h3>
+<h4>D8.1 核心维护者能力与背景 —— <strong>打分: 2.0 / 2.5（7–8 档，80%）</strong></h4>
+<ul>
+<li><strong>技术能力（强）</strong>：48 万行 Rust + TypeScript 单仓库、37 个 workspace crate、自研 12 类第三方 AI 供应商客户端（fal / midjourney / openai_sora / worldlabs / grok 等）、自研 browser_emulation 与 cloudflare_mitigation 模块、egui 原生桌面端而非套壳 webview——这是工业级工程组织能力，不是业余项目可达的架构深度。</li>
+<li><strong>商业经验（有明确证据）</strong>：官网提供下载页、带品牌化的 Discord/YouTube/X/LinkedIn 公司页（artcraft-ai）、双平台自动发布流水线、多个 0.x 正式版本号管理——说明已有公司在实际运营该项目并面向终端用户出货，具备产品化与 GTM 经验。</li>
+<li><strong>投入度（推定全职）</strong>：近 90 天 306 个 PR + 近半年至少 10 次 Release + 持续 4 年多的推送，节奏远超业余投入。</li>
+<li><strong>巴士因子（3–4，扣分点）</strong>：Contributors API 仅返回 <strong>4 人</strong>。对万星级（33,787 Star）项目而言，贡献集中度极高，任一核心成员（尤其是技术主脑）离开都会造成显著中断风险；306 个 PR / 90 天与仅 4 名贡献者的组合，也提示 PR 高度集中于同一小圈子。</li>
+<li><strong>归因说明</strong>：这是<strong>结构性「小团队/公司集中开发」</strong> 归因——4 人是真实巴士因子风险，但不能反推技术质量差；D2 应独立依据代码与文档事实评估。</li>
+</ul>
+<h4>D8.2 治理模型透明度 —— <strong>打分: 0.8 / 2（3–4 档，40%）</strong></h4>
+<ul>
+<li>未发现 <code>GOVERNANCE.md</code>、<code>CONTRIBUTING.md</code>、行为准则（Code of Conduct）或任何书面决策流程；<code>ROADMAP.md</code> 存在，提供了方向性信息，但只是产品路线图，不是治理文件。</li>
+<li><code>AGENTS.md</code> / <code>CLAUDE.md</code> 属于<strong>内部（含 AI 编码代理）开发规范</strong>，面向团队自身流水线，不构成对外部贡献者的准入/评审机制说明。</li>
+<li>决策显然由公司核心团队单向主导：Issue 开放、Release 公开、Roadmap 公开（透明度有基础分），但不存在外部贡献者进入决策层的路径，也不属于任何中立基金会。</li>
+<li>判定落在 3–4 档（治理不透明/自组织、核心团队主导且无成文流程），高于 1–2 档（完全无治理结构）——因为 Roadmap、公开 Issue 跟踪与公开版本记录确实存在。</li>
+</ul>
+<h4>D8.3 资金支持与商业赞助 —— <strong>打分: 2.0 / 2.5（7–8 档，80%）</strong></h4>
+<ul>
+<li><strong>有商业实体在运营</strong>：getartcraft.com 官方下载站 + LinkedIn 公司主页 + 品牌化社媒矩阵 + 双平台签名发布流水线，是「有公司实体」的直接证据，属评分指引中 7–8 档的典型形态（有公司支持、资金可持续）。</li>
+<li><strong>未达 9–10 档</strong>：素材中没有任何外部可核验的融资信息（无融资新闻、无 Open Collective/GitHub Sponsors 页面数据、无基金会立项），无法确认资金体量与可持续时长，故按保守口径给 7–8 档而非 9–10 档。</li>
+<li>商业模式自洽度高（AI 视频创作 IDE 直接对接付费模型 API），具备内生现金流可能性，这加强了对资金可持续性的正向判断。</li>
+</ul>
+<h4>D8.4 项目可持续性与传承风险 —— <strong>打分: 2.4 / 3（7–8 档，80%）</strong></h4>
+<ul>
+<li><strong>活跃趋势（平稳偏升）</strong>：近 30 天 18 次 commit、近 90 天 306 个 PR、94 个 Issue 关闭、2026-09-26 刚发布 v0.41.0、pushed_at 距今 ≤ 30 天——不存在停滞信号；版本号从 v0.20 迭代到 v0.41 且版本粒度细（0.37 → 0.41 仅两周），属持续高强度迭代。</li>
+<li><strong>无废弃标记</strong>：<code>archived = false</code>，README/发布页无 deprecated/unmaintained 声明。</li>
+<li><strong>分叉风险评估</strong>：5,349 Fork 对 33,787 Star（约 15.8%）偏高，但结合「桌面应用需自行编译、官网另提供二进制下载」的事实，高 Fork 更可能是构建/自用分叉而非社区分裂信号，不按分裂风险扣分。</li>
+<li><strong>传承风险（扣至 7–8 档而非 9–10 档）</strong>：项目为公司主导、贡献者仅 4 人、无治理文件也无社区接管机制；一旦公司战略转移，外部接管路径不清晰。同时 452 个开放 Issue 显示需求积压重，但 90 天关闭 94 个说明分流仍在进行，未构成积压失控。</li>
+<li><strong>一票否决检查</strong>：D8.4 = 2.4 分（满分 3）&gt; 1 分，<strong>不触发 D8.4 一票否决</strong>；项目年龄远超 90 天，新项目豁免不适用。</li>
+</ul>
+<h3>结论</h3>
+<p>ArtCraft 的团队维度呈现「<strong>工程肌肉强壮、组织治理单薄</strong>」的典型公司主导开源形态：有真实的商业实体、明确的产品化与运营能力、以及 4 年不间断的高强度迭代节奏（D8.1 高分、D8.3 7–8 档、D8.4 7–8 档），但在治理透明度上是明显短板——没有 CONTRIBUTING/GOVERNANCE、无基金会中立性、决策权完全集中在 4 人贡献者池内，外部社区无法进入决策层（D8.2 落 3–4 档）。</p>
+<p>对商业化的含义：<strong>短期执行力强、长期中立性与传承性弱</strong>。适合作为商业产品/工具链依赖（交付节奏与工程质量有保障），但若评估方希望的是「社区共治、可长期独立演化」的上游基础设施型依赖，则存在供应商/单组织锁定风险（vendor lock-in），且 4 人巴士因子意味着必须关注公司层面的存续信号（融资、团队扩张、治理文件补全）。<strong>上述风险属组织与可持续性风险，技术质量判定应独立由 D2 依据代码与文档事实给出，不因团队规模小而下调技术评价。</strong></p>
+<p><strong>数据归因</strong>: 结构性归因：单人/小团队维护（Contributors API 仅 4 人，其余指标——33,787 Star、90 天 306 PR、持续 Release——均处高位，说明贡献低是团队刻意保持小规模集中开发所致，非活跃度不足，亦非质量信号）；治理透明度低为<strong>事实性缺口</strong>（无 GOVERNANCE.md/CONTRIBUTING.md），非归因所致。未发现 archived/deprecated 等负面证据，不适用「质量性归因」。</p>
+<h3>D9. 上手难度与易用性（得分: 8.0/10）</h3>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>打分</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D9.1 安装难度</td>
+<td><strong>打分: 2.0 / 2.5（7–8 档，80%）</strong></td>
+<td>终端用户可通过 getartcraft.com 或 GitHub Releases 获取 Windows/macOS 预编译安装包，属于一键式桌面安装；无需 pip/npm/docker，也不需要外部数据库。扣分点在于：Linux 仅提供源码构建路径，且源码构建涉及大型 Rust workspace、Node 前端与 CMake/pkg-config/LLVM/NASM 等原生依赖，平台覆盖并非全平台一键安装。</td>
+</tr>
+<tr>
+<td>D9.2 部署与配置难度</td>
+<td><strong>打分: 2.0 / 2.5（7–8 档，80%）</strong></td>
+<td>项目是桌面应用，不存在服务端多组件编排；安装后主要是在应用内完成登录/模型提供方配置，素材中可见 <code>login-modal</code>、<code>provider-setup-modal</code>、<code>settings-modal</code> 等组件。无外部数据库/缓存/消息队列初始化要求，SQLite 任务库为内嵌使用。素材未见 Docker/Helm 部署清单，也没有独立 quickstart 脚本；快速验证依赖 README 的两分钟 demo 与首次 Text to Image 操作，因此未给到 9–10 档。</td>
+</tr>
+<tr>
+<td>D9.3 易用性与操作门槛</td>
+<td><strong>打分: 2.0 / 2.5（7–8 档，80%）</strong></td>
+<td>产品定位为 “The IDE for artists”，日常操作以 GUI 为主，不要求用户记忆 CLI 命令；提供模型选择器、画布、2D/3D 合成、角色姿态等可视化工具，默认路径可从提示词直接开始。扣分点在于：62 个模型与多模态创作概念会增加选择与理解成本；素材未展示系统化的错误提示/自动补全/交互式帮助，错误处理友好度无法充分验证。</td>
+</tr>
+<tr>
+<td>D9.4 学习曲线与首体验</td>
+<td><strong>打分: 2.0 / 2.5（7–8 档，80%）</strong></td>
+<td>首次成功路径较短：下载安装后可从 Text to Image 开始，README 提供两分钟演示视频和大量功能预览，普通创作者可在分钟级完成第一次生成。扣分点在于：仓库统计示例文件为 0，未提供 quickstart 脚本、交互式 onboarding 或模板项目；进阶的 2D/3D 合成、Character Posing、Scene Blocking 等需要创意工具与 3D 领域知识，学习曲线在高级功能上明显变陡。</td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<p>ArtCraft 的终端用户主路径是 <strong>Windows/macOS 桌面安装包 + GUI 创作界面</strong>，安装与首次体验门槛较低，符合 🟢 简单等级（8–10 档）。其主要上手障碍不在安装，而在 <strong>Linux 仅源码构建</strong>、<strong>源码构建依赖复杂</strong>，以及 <strong>62 个模型与 2D/3D Crafting 功能带来的进阶学习曲线</strong>。素材未提供 quickstart 脚本与示例项目，也缺少对错误提示和 onboarding 的直接证据，因此未给到 9–10 档。综合判定：<strong>D9 上手难度为 🟢 简单，得分 8.0/10，置信度中等</strong>。</p>
+<h3>D10. 功能价值——使用价值视角（权重 0%，平行维度）</h3>
+<p><strong>维度定位</strong>: 本维度只回答「使用者实际获得了多少效用」，不评价付费意愿。ArtCraft 是面向艺术家、设计师、电影人的桌面级 AI 图像/视频创作 IDE（Rust + egui 原生桌面 + TS/TSX 前端，482,290 行代码），效用主体是<strong>个体创作者的工作流效率</strong>，而非开发者侧的基础设施依赖，因此评分口径按「专业创作工具」理解，并与库/框架类项目不可直接横向对比。</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>打分</th>
+<th>档位</th>
+<th>折算</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10.1 效用强度</td>
+<td>3</td>
+<td>1.8</td>
+<td>5–6 档（60%）</td>
+<td>0.6</td>
+</tr>
+<tr>
+<td>D10.2 实际使用规模</td>
+<td>3</td>
+<td>N/A</td>
+<td>—</td>
+<td>剔除</td>
+</tr>
+<tr>
+<td>D10.3 免费可得的完整效用</td>
+<td>2</td>
+<td>1.6</td>
+<td>7–8 档（80%）</td>
+<td>0.8</td>
+</tr>
+<tr>
+<td>D10.4 效用可持续性</td>
+<td>2</td>
+<td>1.2</td>
+<td>5–6 档（60%）</td>
+<td>0.6</td>
+</tr>
+<tr>
+<td><strong>合计（按剩余 7 分等比缩放）</strong></td>
+<td><strong>7（有效）</strong></td>
+<td><strong>（得分: 6.6/10）</strong></td>
+<td>—</td>
+<td>4.6 / 7 × 10</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>D10.1 效用强度（满分 3）</h3>
+<p><strong>打分: 1.8 / 3（5–6 档，60%）</strong></p>
+<p><strong>判断依据</strong>:</p>
+<ul>
+<li><strong>效用内容明确且非玩具级</strong>。README 展示的能力不是单点滤镜，而是一整套「先搭景、再生成」的创作管线：3D 图像合成、Image to Location（同一环境多机位）、角色姿态与身份迁移、Image→3D Mesh、场景 Blocking/Kitbashing、背景移除、2D 画布编辑 + 局部重绘。这些能力针对的是 AI 生图最真实的痛点——<strong>构图不可控、角色跨镜头不一致</strong>，对分镜/预演类工作流是实质性提效，而非「分钟级便利」。</li>
+<li><strong>效用层级：个人/团队工作流工具，非基础设施</strong>。它替代的是「在多个模型网页之间来回切换 + 手工 PS 合成 + 反复抽卡」的流程，属于专业创作者日常可依赖的工具位；但对开发者生态不构成依赖（无库/API 依赖方价值），因此达不到「项目级依赖」的 7–8 档语义。</li>
+<li><strong>效用确定性偏弱、可替代性高</strong>。①效用完全建立在外部模型 API 可用之上（workspace 中 fal/gmicloud/grok/midjourney/openai_sora/worldlabs 等客户端 + ArtCraft 自有机型目录），任一供应商限流/改版/涨价都会直接影响产出；②同类替代品密集（ComfyUI 生态、Krea、Freepik、Runway 等），且 62 模型目录本身是聚合价值而非独占价值——用户换一个聚合器，效用差别不大；③v0.x 版本号 + 452 个开放 Issue 说明功能仍在快速变动期，效用尚未完全稳定可预期。</li>
+<li><strong>Issue 深度侧面印证效用真实</strong>：452 个开放 Issue、90 天内关闭 94 个、306 个 PR，反映用户是在<strong>真实生产流程中使用并反馈</strong>，而不是收藏式 Star。</li>
+</ul>
+<p><strong>结论</strong>: 效用真实、专业、有明确差异化（3D 搭景 + 身份一致性），但被高可替代性与对外部模型服务的强依赖压在「明确但有限的效率提升」档位。</p>
+<hr />
+<h3>D10.2 实际使用规模（满分 3）</h3>
+<p><strong>打分: N/A（数据缺失且结构性不可得）</strong></p>
+<p><strong>判断依据</strong>:</p>
+<ul>
+<li>实采结果：<code>npm_weekly_downloads = N/A</code>、<code>pypi_monthly_downloads = N/A</code>；GitHub Dependents（Used by）未采集到有效计数。本项目是<strong>桌面应用</strong>（发布渠道为 getartcraft.com 下载页 + GitHub Releases 的 Windows/macOS 二进制），既无包管理器分发，也无「被依赖」语义，因此下载量/依赖方两项指标<strong>结构性不适用</strong>，不存在可实采的官方计数。</li>
+<li>间接信号（不可替代为打分依据，仅作参照）：Star 33,787、Fork 5,349、watchers 192、452 个开放 Issue、10 个近月发布（最新 <code>artcraft-v0.41.0</code>，2026-09-26）。这些说明关注度与迭代活跃度极高，但<strong>Star ≠ 安装量 ≠ 活跃使用</strong>，按防幻觉规则不得据此折算下载规模，故本项如实标 N/A。</li>
+<li><strong>数据归因: 结构性归因——应用型桌面项目（无包管理下载/依赖方指标，使用规模不可测），非负面信号，亦非「无人使用」证据</strong>。按 1.7 纪律，本项标 N/A 而非低分，从维度满分中剔除后等比缩放。</li>
+</ul>
+<hr />
+<h3>D10.3 免费可得的完整效用（满分 2）</h3>
+<p><strong>打分: 1.6 / 2（7–8 档，80%）</strong></p>
+<p><strong>判断依据</strong>:</p>
+<ul>
+<li><strong>代码层面近乎完整开源</strong>：仓库包含完整桌面应用（<code>artcraft-native</code>，纯 Rust egui，无 Tauri/webview）、完整前端（1,205 个 .ts + 452 个 .tsx，约 206K 行）、SQLite 本地任务库、文件/图像处理库与全部第三方 provider 客户端，<strong>不是「壳开源、核心闭源」</strong>。协议为 MIT 或 Apache-2.0 双许可（README 声明；GitHub API 返回 Apache-2.0；本地扫描未识别到根 LICENSE 文件，与 README 指向的 <code>LICENSE-MIT</code>/<code>LICENSE-APACHE</code> 存在采集口径差异，属需人工复核的小瑕疵）。</li>
+<li><strong>关键限制：自有 62 模型目录依赖官方云服务</strong>。<code>crates/api_clients/artcraft/*</code> 全部是<strong>客户端</strong>（<code>artcraft_client</code>/<code>artcraft_router</code>/<code>artcraft_api_defs</code>），模型目录的权威来源注释指向 <code>artcraft-services</code>（服务端仓库，不在本仓库内）。也就是说，想用 ArtCraft 聚合的 62 个模型，需要 ArtCraft 账号与付费额度，<strong>服务端不可自托管</strong>——这是典型的「客户端开源 + 网关闭环」结构。</li>
+<li><strong>但 BYO-Key 路径保留了大量免费可得效用</strong>：<code>fal_client</code>、<code>gmicloud_client</code>、<code>grok_api_client</code>、<code>midjourney_client</code>、<code>openai_sora_client</code>、<code>worldlabs_api_client</code> 均在仓库内，用户可自带各厂商订阅/密钥绕过 ArtCraft 网关。加之生成成本本质上是 GPU 成本（任何方案都要付费给模型方），ArtCraft 并未在<strong>软件能力</strong>上设置「不付费即不可用」的阉割。</li>
+<li>与 D4.3 的张力说明：本项 7–8 档偏高意味着「免费可得的效用比例大」，相应地厂商侧付费转化抓手主要落在<strong>模型额度/聚合便利性</strong>而非功能墙，这与 D4.3 的转化强度天然反相关，属正常价值结构，不构成矛盾。</li>
+</ul>
+<p><strong>结论</strong>: 软件本体与第三方接入能力免费可得，扣分点集中在「自有机型目录必须走官方云」。</p>
+<hr />
+<h3>D10.4 效用可持续性（满分 2）</h3>
+<p><strong>打分: 1.2 / 2（5–6 档，60%）</strong></p>
+<p><strong>判断依据</strong>:</p>
+<ul>
+<li><strong>本地化程度高（加分项）</strong>：原生 Rust/egui 桌面应用、SQLite 任务库（<code>sqlite_tasks</code>）、本地文件与图像处理（<code>filesys</code>/<code>images</code>/<code>file_to_base64_url</code>）、本地缓存（<code>memory_store</code>），2D/3D 合成与场景搭景这类<strong>差异化能力在本地运行</strong>，不依赖官方在线编辑器。</li>
+<li><strong>但核心效用依赖在线服务与供应商接口（主要扣分项）</strong>：所有生成能力都是远端模型调用；且仓库中 <code>browser_emulation</code>、<code>cloudflare_mitigation</code>、<code>cloudflare_errors</code>、<code>cookie_store</code>、<code>jwt_light</code> 等 crate 表明部分 provider 接入是<strong>通过浏览器指纹模拟/反爬绕过</strong>实现的消费级 Web 接口调用（如 Midjourney、Grok Consumer）。这类实现高度脆弱：供应商一次风控改版即可整条链路失效，停维后效用衰减速度快于普通 API 客户端。</li>
+<li><strong>可分叉性尚可</strong>：MIT/Apache-2.0 双许可允许自由分叉；<code>_docs/dev_setup.md</code> 提供从源码构建（含 Linux），有 2 条发布工作流（<code>artcraft-macos-publish.yml</code>、<code>artcraft-windows-publish.yml</code>）；Cargo workspace 结构清晰（<code>publish = false</code>，无发布混淆）。但可分叉 ≠ 可持续：分叉方仍需自行维护十余家厂商的认证/风控适配，维护成本显著高于普通库。</li>
+<li><strong>无强供应商锁定单一化</strong>：不绑定单一模型厂商（同时支持 ArtCraft / Grok / Midjourney / Sora / World Labs），单点失效不至于归零，符合 5–6 档「部分能力依赖在线服务，停维后效用打折」而非 1–2 档「停维即归零」。</li>
+</ul>
+<p><strong>结论</strong>: 本地化桌面形态 + 宽松许可保住下限，但对在线接口（尤其模拟 Web 会话类接入）的深度依赖决定了效用会随时间流失，停维后并非长期存续。</p>
+<hr />
+<h3>维度结论</h3>
+<p><strong>（得分: 6.6/10）</strong></p>
+<p>ArtCraft 的使用价值属于「专业创作工作流提效工具」：3D 搭景 + 角色身份一致性 + 62 模型聚合对手绘分镜/预演流程有真实、可感知的提效，代码本体开源完整、BYO-Key 路径可用，本地桌面形态与宽松许可带来良好的自由度和一定下限保障。压制本维度得分的是三点：<strong>高效用但高可替代</strong>（ComfyUI/Krea/Freepik 等替代品密集，聚合价值不独占）、<strong>自有模型目录必须走官方云网关</strong>（服务端不开源）、以及<strong>大量能力依赖对第三方 Web 接口的模拟接入</strong>（脆弱、停维即衰减）。</p>
+<p>使用规模一项因应用型分发形态无官方计数而标 N/A（结构性不可得，非负面信号），维度分数按剩余 7 分等比缩放，置信度中等偏低，建议在最终报告中与 D3（社区势能）、D4（商业价值）并列解读：本项目呈现「<strong>功能价值高、社区势能极高，但使用价值难以量化为下载指标</strong>」的价值画像。</p>
+<p>数据归因: 结构性归因——应用型桌面软件（无包管理器下载量与依赖方计数可采，Star 33,787/Fork 5,349 仅为关注度信号不可折算使用规模），D10.2 标 N/A，不构成质量或需求负面信号；无质量性负面证据（Issue 高关闭率 94/90d、PR 306/90d、10 次近期发布）。</p>
+<h3>D11. 社会价值——正外部性视角（得分: 5.4/10）</h3>
+<blockquote>
+<p>权重 0%，平行维度，不计入综合评分与一票否决，仅用于 3.4 价值画像。
+归属说明：本节评「对行业/社会的外溢贡献本身」，与 D3.4（品牌影响力→商业势能）视角不同；与 D2.5/D2.6 共用可及性工程素材，但评的是普惠效果而非工程质量。</p>
+</blockquote>
+<h3>事实基础</h3>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>实测值</th>
+<th>来源</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Star / Fork</td>
+<td>33,787 / 5,349（fork-star 比 15.8%）</td>
+<td>GitHub API</td>
+</tr>
+<tr>
+<td>贡献者</td>
+<td>4 人</td>
+<td>GitHub API</td>
+</tr>
+<tr>
+<td>开放 Issue / 近 90 天 PR</td>
+<td>452 / 306</td>
+<td>GitHub API</td>
+</tr>
+<tr>
+<td>代码规模</td>
+<td>482,290 行（Rust 271,135 / TS 113,930 / TSX 92,639）</td>
+<td>本地实测</td>
+</tr>
+<tr>
+<td>测试规模</td>
+<td>144 文件 / 8,980 行（test_ratio 1.9%）</td>
+<td>本地实测</td>
+</tr>
+<tr>
+<td>文档</td>
+<td>40 个 md（含 dev_setup、ROADMAP、AGENTS/CLAUDE 规约）</td>
+<td>本地实测</td>
+</tr>
+<tr>
+<td>包管理分发</td>
+<td>npm/pypi 下载量均 N/A（桌面应用，无库分发）</td>
+<td>实采</td>
+</tr>
+<tr>
+<td>模型聚合</td>
+<td>62 个第三方模型目录（图像 16 / 视频 25 / 音频 5 / 3D 11 / 世界 5）</td>
+<td>README</td>
+</tr>
+<tr>
+<td>License</td>
+<td>README 声明 MIT 或 Apache-2.0 双许可；本地 license 扫描返回 NONE（元数据不一致）</td>
+<td>README + 本地实测</td>
+</tr>
+<tr>
+<td>下游依赖计数</td>
+<td>N/A（非库形态，GitHub 无 dependents 语义）</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h3>D11.1 数字公共基础设施属性</h3>
+<p><strong>打分: 1.2 / 3（3–4 档，40%）</strong></p>
+<p>ArtCraft 是一款面向终端创作者的桌面应用（<code>artcraft-native</code>，纯 Rust + egui，Windows/macOS 发布，Linux 需源码自行构建），不是被下游引用的库或协议实现。npm/pypi 分发量均不可得且事实上不存在——没有包级复用路径，因此不存在「curl/OpenSSL 式数字底座」的供应链位势；假设项目停摆，波及的是其自身用户，而非任何第三方软件供应链。</p>
+<p>唯一具公共属性的构件是工作区内 <code>artcraft_router</code> / <code>artcraft_api_defs</code> 这一层对多家闭源模型 API 的统一抽象（fal、gmicloud、Grok、Midjourney、Sora、World Labs 等），它对「防止上层被单一模型商锁定」有工程示范意义，但该层为 workspace 内部 crate（<code>publish = false</code>），未作为独立开放组件对外分发，公共复用度接近于零。</p>
+<p>补充警示：fork 数高达 5,349（fork-star 比 15.8%，远超正常 3–8% 区间）而贡献者仅 4 人，说明 fork 主要来自「下载/备份式」克隆而非生态分叉；竞品检索结果中仅命中 0–1 star 的同名镜像仓库，进一步印证无真实下游生态。故不给 5–6 档。</p>
+<h3>D11.2 教育与人才价值</h3>
+<p><strong>打分: 1.5 / 2.5（5–6 档，60%）</strong></p>
+<p>正向依据：项目提供了较完整的开发者入口——<code>_docs/dev_setup.md</code>（含 Linux 构建）、<code>docs/performance.md</code>、<code>ROADMAP.md</code>、<code>AGENTS.md</code>/<code>CLAUDE.md</code> 分层规约与逐 crate 的 AGENTS 说明，以及 2 分钟官方演示视频与 Discord/YouTube 社群；对于一个 48 万行、Rust（egui 原生 GUI）+ TS/TSX 前端 monorepo 的混合工程，其「大规模 Rust workspace + AI 供应商适配层」结构本身具备一定的工程范本阅读价值。同时 README 用功能对照表（2D/3D 合成、角色姿态、身份迁移、视频生成）把 AI 影视制作流程拆解成可学习的工作流，对「AI 影像入门」有门槛降低效应。</p>
+<p>扣分依据：无任何硬证据表明其被课程/教材采用；无 awesome 列表或第三方教程数量数据（外部检索不可得）；Issue 中学习者提问占比无法采集；test_ratio 仅 1.9%、示例目录 0 个，作为「最佳实践示范」的成色偏弱；仓库内大量 AGENTS.md/CLAUDE.md 面向的是 AI 编码代理而非人类学习者。故判定为「有一定教学/学习场景，影响限于小圈子」，不上升至 7–8 档（置信度中低）。</p>
+<h3>D11.3 普惠与可及性</h3>
+<p><strong>打分: 1.5 / 2.5（5–6 档，60%）</strong></p>
+<p>显著的正外部性在于<strong>工作流层面的能力平权</strong>：单个独立艺术家/小团队用一个免费、开源（MIT/Apache-2.0 双许可）的桌面客户端，即可横向调用 62 个模型（Nano Banana、GPT Image、FLUX、Seedance、Veo、Kling、Sora、Suno、Hunyuan 3D、Marble 等），把过去需要多平台订阅 + 多套工具链才能拼出的「分镜—合成—生成—转 3D」流程收敛到一处。相比动辄数百美元/月的专业影视预演（previs）与 3D 合成套件，替代价格差可观；跨 Windows/macOS 双平台 + Linux 源码可构建，也覆盖了主流创作者硬件环境。</p>
+<p>明确的普惠缺口：(1) <strong>能力本体不免费</strong>——62 个模型全部是需付费凭据的第三方 API（README 中多项标注 † 停用 / ‡ 受限），免费的只是客户端外壳，边际使用成本仍由上游决定；(2) 无证据表明存在 i18n/多语言支持（文档全英文，未见 locale 资源），非英语创作者存在语言门槛；(3) 无任何无障碍（a11y）相关素材；(4) 桌面 GUI + 重度云端生成，对低配设备与弱网/欠发达地区不友好。</p>
+<p>综合为「有普惠效果但受付费门槛/语言/硬件限制」，落在 5–6 档；不因「开源免费」直接上抬至 7–8 档——开源的是壳，稀缺能力仍在闭源侧。</p>
+<h3>D11.4 开放标准与行业推动</h3>
+<p><strong>打分: 1.2 / 2（5–6 档，60%）</strong></p>
+<ul>
+<li>标准推动：不定义、不主导任何开放标准或协议；其对行业的主要姿态是<strong>适配</strong>闭源商业 API（为 Kling、Google、Runway、Luma 的后续接入做规划）。模型无关的路由层在「客户端侧弱化厂商锁定」上有一定示范效应，但未对外发布规范，也未被同行引用为事实标准。</li>
+<li>科研支撑：无论文引用、无科研使用证据，外部检索不可得，按 N/A 处理、不额外扣分亦不加分。</li>
+<li>行业示范效应：Apache-2.0/MIT 双许可（宽松、利于商用与二次开发）是正向的制度性外部性；「把 prompt 变成可复现的 craft 流程（2D/3D 合成、角色一致性、机位规划）」的产品理念对 AI 影像工具品类有一定启发。但 4 人贡献者规模、1.9% 测试占比与 0 示例，限制了其被同行当作工程标杆模仿的强度。</li>
+</ul>
+<p>结论：属「遵循开放许可与既有生态、但无标准制定与科研推动」，5–6 档。另需记录元数据瑕疵：README 声明双许可而本地文件扫描未识别到 LICENSE 文件，可能削弱下游对授权边界的确定性。</p>
+<h3>维度结论</h3>
+<p>ArtCraft 的正外部性集中在<strong>「普惠的工作流外壳」</strong>而非「公共基础设施」：它以便宜的开放客户端把昂贵的多模型 AI 影像能力整合给个体创作者，并把 prompt 升级为可复现的 craft 流程，这是真实的社会价值；但它不做开放标准、不构成供应链依赖、不提供服务端可复用组件，稀缺能力（模型算力）仍在上游闭源侧。Star/Fork 规模亮眼但贡献者仅 4 人、fork-star 比异常偏高、竞品检索仅命中镜像仓库，提示社区热度不宜直接等同于生态渗透。四项合计 5.4/10，画像定位为「有明确普惠与启蒙价值、但不具基础设施属性的应用型开源项目」。</p>
+<p>（置信度：中低。D11.1 缺 dependents 数据但可由「非库形态 + 无包分发」定性判定；D11.2 缺教程/课程与论文引用外部数据；D11.3 缺 i18n/a11y 的直接证据，按「无证据即不采信」处理。）</p>
+<h2>五、商业化价值判断</h2>
+<h3>5.1 核心商业价值</h3>
+<ul>
+<li>项目最大的商业价值在于：<strong>crafting 层的可控性封装 + 多模型聚合的计费入口</strong>。客户端以 2D/3D 场景编排、角色身份一致性、机位/姿态控制区别于单一生成模型与节点图工具，同时统一接入 62 个模型 / 5 家 provider，使「生成即消耗算力、额度耗尽即付费」的付费触发点天然成立（D1、D4）。</li>
+<li>价值验证依据：</li>
+<li>D4 得分 8.0（权重最高的维度），其中 D4.2 得 2.8 分（满分 3），变现结构在代码层面可见：客户端全开源 + 官方后端（artcraft_router / artcraft_api_defs，对应服务位于未公开的 artcraft-services）闭源，构成事实上的 Open Core（D4）。</li>
+<li>D1 得分 8.0：需求侧痛点真实（生成式模型缺少可控构图、角色一致性、镜头规划），替代方案密集（ComfyUI、Adobe、Runway、Midjourney、OpenArt/Freepik 等）（D1）。</li>
+<li>需求侧关注度信号：Star 33,787、Fork 5,349（15.8%）。需注明口径——桌面应用需自行编译，D8 判定高 Fork 更可能源于此而非社区分裂；Star/Fork 仅为关注度信号，不可折算为使用规模（D8、D10）。</li>
+</ul>
+<h3>5.2 价值量化判断</h3>
+<ul>
+<li>潜在市场规模估算：素材未提供可核验的 TAM/SAM 数据，本报告不做数值估算，仅列出可用锚点——目标客户为已在为 Midjourney/Runway 付费的高 ARPU 人群；可触达客单目前仅能锚定专业消费者 <strong>$240–1200/年</strong>档位；供给面为 62 个模型 / 5 家 provider（D4）。</li>
+<li>可触达市场估算：企业上行空间缺乏证据——无 SSO/团队协作/审计模块，无定价页与企业版功能对比，客单天花板暂无法突破专业消费者档（D4）。</li>
+<li>商业化时间窗口：<code>monetization_distance</code> 判为「较近」，开源客户端获客、模型目录/生成服务按量或订阅收费路径清晰；但项目处于 v0.41.0（pre-1.0）、4 名贡献者，公开定价页 N/A、无可见商业化文档，第二变现阶段尚未产品化（D4、D7）。</li>
+</ul>
+<h3>5.3 价值画像（商业 × 功能 × 社会）</h3>
+<ul>
+<li>功能价值 D10：<strong>6.6/10</strong>，社会价值 D11：<strong>5.4/10</strong>，公共价值分：<strong>6.0/10</strong>。</li>
+<li>画像判定：<strong>💼 纯商业工具</strong>（判定依据：综合评分 70.5 ≥ 65，公共价值分 6.0 &lt; 7）。综合评分不在 60–70 区间、公共价值分不在 6.5–7.5 区间，不构成画像临界。</li>
+<li>画像解读：D10 6.6 分的支撑是真实且专业的效用（3D 搭景、角色一致性、Image→3D Mesh、62 模型聚合），但属个人/团队工作流工具而非基础设施，且可替代性高；D11 5.4 分的结构性原因是唯一具公共性的构件（artcraft_router 统一抽象层）为 <code>publish=false</code> 的内部 crate，未对外分发，公共复用度近零。因此公共价值未达 7 分线，路径修正方向为：<strong>按 D4 最优路径直接变现，不做「影响力变现」型（赞助/基金会托管）路线</strong>；同时因公共价值仅 6.0 而非高位，商业化动作对社区声誉的边际反噬风险低于明星资产型项目。</li>
+</ul>
+<h2>六、商业路径分析</h2>
+<h3>6.1 推荐商业路径（最优路径）</h3>
+<ul>
+<li>模式：<strong>Open Core + 聚合算力按量/订阅计费</strong>。</li>
+<li>路径描述：开源桌面客户端承担获客与工作流承载，官方后端提供 62 个模型的统一目录与路由，用户生成按次消耗算力，免费额度耗尽后转为付费；先例参照 Krea、Freepik、OpenArt、Cursor（D4）。</li>
+<li>可行性论证：</li>
+<li>授权侧无障碍：D4.1 得 2.0 分（满分 2），MIT/A</li>
+</ul>
+<h2>十二、项目地址</h2>
+<p><svg class="ri ri-muted" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.001 2C6.47598 2 2.00098 6.475 2.00098 12C2.00098 16.425 4.86348 20.1625 8.83848 21.4875C9.33848 21.575 9.52598 21.275 9.52598 21.0125C9.52598 20.775 9.51348 19.9875 9.51348 19.15C7.00098 19.6125 6.35098 18.5375 6.15098 17.975C6.03848 17.6875 5.55098 16.8 5.12598 16.5625C4.77598 16.375 4.27598 15.9125 5.11348 15.9C5.90098 15.8875 6.46348 16.625 6.65098 16.925C7.55098 18.4375 8.98848 18.0125 9.56348 17.75C9.65098 17.1 9.91348 16.6625 10.201 16.4125C7.97598 16.1625 5.65098 15.3 5.65098 11.475C5.65098 10.3875 6.03848 9.4875 6.67598 8.7875C6.57598 8.5375 6.22598 7.5125 6.77598 6.1375C6.77598 6.1375 7.61348 5.875 9.52598 7.1625C10.326 6.9375 11.176 6.825 12.026 6.825C12.876 6.825 13.726 6.9375 14.526 7.1625C16.4385 5.8625 17.276 6.1375 17.276 6.1375C17.826 7.5125 17.476 8.5375 17.376 8.7875C18.0135 9.4875 18.401 10.375 18.401 11.475C18.401 15.3125 16.0635 16.1625 13.8385 16.4125C14.201 16.725 14.5135 17.325 14.5135 18.2625C14.5135 19.6 14.501 20.675 14.501 21.0125C14.501 21.275 14.6885 21.5875 15.1885 21.4875C19.259 20.1133 21.9999 16.2963 22.001 12C22.001 6.475 17.526 2 12.001 2Z"/></svg> <a href="https://github.com/storytold/artcraft">https://github.com/storytold/artcraft</a></p>
+<hr />
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+</blockquote>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家　<a href="https://github.com/weixiongf" target="_blank" rel="noopener">@冯伟雄</a>　<a href="https://www.mova.work">www.mova.work</a></p>
+<p><strong>查看所有报告：</strong><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/">https://weixiongf.github.io/Open-Source-Alpha-Reports/</a></p><div class="page-footer">本页面由 <span class="at-acc">@向量之心</span> 打造的 github_anyliasis 系统自动维护。报告为 AI 辅助生成的第三方独立分析，仅供研究参考，不构成投资建议。</div></body></html>

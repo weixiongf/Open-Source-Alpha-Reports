@@ -1,0 +1,1383 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><title>AnyPS5 商业价值分析报告</title><style>/* default — 品牌蓝紫主题（从 md2pdf.py 原 CSS 常量迁出，视觉与历史产物一致） */
+@page { size: A4; margin: 18mm 15mm 20mm 15mm; }
+* { box-sizing: border-box; }
+/* 字体规范：西文/数字优先系统 UI 字体（数字收敛、观感现代），汉字回落开源思源黑体 CN / Noto Sans SC（OFL 免费商用）；正文 Regular/标题 Bold/大字数字 Light；tabular-nums 保证表格数字列对齐 */
+body { font-family:"Segoe UI","Helvetica Neue",Arial,"Source Han Sans CN","思源黑体 CN","Noto Sans SC",sans-serif; color:#1e293b; font-size:10.5pt; line-height:1.75; margin:0; font-variant-numeric:tabular-nums; }
+.cover { page-break-after: always; text-align:center; padding-top:40px; }
+.cover .kicker { color:#2563eb; letter-spacing:6px; font-size:12pt; font-weight:500; }
+.cover h1 { font-size:26pt; margin:14px 0 6px; }
+.cover .sub { color:#64748b; font-size:11pt; margin-bottom:22px; }
+.badge { display:inline-block; background:linear-gradient(135deg,#2563eb,#7c3aed); color:#fff; border-radius:18px; padding:16px 44px; margin:10px 0 18px; }
+.badge .g { font-size:34pt; font-weight:300; line-height:1; }
+.badge .s { font-size:12pt; opacity:.92; margin-top:4px; }
+.meta { color:#475569; font-size:9.5pt; margin-top:14px; margin-bottom:40px; }
+.bars { max-width:620px; margin:20px auto 0; text-align:left; }
+.bar-row { display:flex; align-items:center; gap:8px; margin:5px 0; font-size:9pt; }
+.bar-name { width:110px; text-align:right; color:#334155; font-weight:500; }
+.bar-track { flex:1; height:9px; background:#f1f5f9; border-radius:5px; overflow:hidden; }
+.bar-fill { display:block; height:100%; border-radius:5px; }
+.bar-val { width:30px; font-weight:700; color:#0f172a; }
+.bar-w { width:52px; color:#94a3b8; font-size:8pt; }
+h1 { font-size:17pt; color:#0f172a; border-bottom:3px solid #2563eb; padding-bottom:8px; }
+h2 { font-size:13.5pt; color:#1d4ed8; margin-top:26px; page-break-after: avoid; border-left:5px solid #2563eb; padding-left:10px; }
+h3 { font-size:11.5pt; color:#0f172a; margin-top:18px; page-break-after: avoid; }
+table { border-collapse:collapse; width:100%; margin:10px 0; font-size:9pt; font-variant-numeric:tabular-nums; }
+thead { display:table-header-group; } /* 打印/PDF 长表跨页时表头每页重复 */
+tr { page-break-inside:avoid; } /* 行内不断开；长表整体允许跨页，避免整表被推到下一页留大块空白 */
+th { background:#eff6ff; color:#1e3a8a; }
+th,td { border:1px solid #dbe3ef; padding:5px 8px; text-align:left; }
+tr:nth-child(even) td { background:#f8fafc; }
+code { background:#f1f5f9; border-radius:4px; padding:1px 5px; font-family:"JetBrains Mono","Cascadia Mono",monospace; font-size:9pt; color:#be185d; }
+pre { background:#0f172a; color:#e2e8f0; border-radius:8px; padding:12px 14px; overflow-x:auto; page-break-inside:avoid; }
+pre code { background:none; color:inherit; padding:0; }
+blockquote { border-left:4px solid #93c5fd; background:#eff6ff; margin:10px 0; padding:8px 14px; color:#334155; border-radius:0 8px 8px 0; }
+hr { border:none; border-top:1px dashed #cbd5e1; margin:22px 0; }
+strong { color:#0f172a; }
+.credit { color:#2563eb; font-size:10.5pt; font-weight:700; letter-spacing:1px; margin-top:12px; }
+.at-acc { background:#dbeafe; color:#1d4ed8; border-radius:4px; padding:0 4px; font-weight:500; white-space:nowrap; }
+.tail { page-break-inside:avoid; margin-top:26px; border-top:2px solid #2563eb; padding-top:14px; }
+.tail p { color:#64748b; font-size:8.5pt; line-height:1.6; margin:0 0 10px; }
+.tail .credit { text-align:center; margin:0; }
+.page-footer { text-align:center; color:#94a3b8; font-size:8.5pt; line-height:1.6; margin-top:28px; padding-top:12px; border-top:1px solid #e2e8f0; }
+/* Remix Icon 内联 SVG（icon_mode=remix 时由脚本注入，语义色与评分条一致） */
+.ri { width:1.05em; height:1.05em; vertical-align:-0.18em; display:inline-block; }
+.ri-ok { color:#16a34a; } .ri-warn { color:#d97706; } .ri-bad { color:#dc2626; }
+.ri-muted { color:#64748b; } .ri-star { color:#f59e0b; } .ri-brand { color:#2563eb; }
+.ri-gold { color:#d4a017; } .ri-silver { color:#9ca3af; } .ri-bronze { color:#b45309; }
+/* 屏幕预览：@page 边距仅在打印时生效，浏览器中居中限宽并收边（不影响 PDF 输出） */
+@media screen {
+  body { margin: 0 auto; padding: 28px 36px 56px; max-width: 980px; }
+}
+</style></head><body><div class="cover">
+<div class="kicker">开源项目商业化潜力分析 · 第 134 期</div>
+<h1>GitHub 开源项目 AnyPS5<br>商业价值分析报告</h1>
+<div class="sub">boykopovar/AnyPS5 · 开源 PS5 可执行文件重编译重链接工具 · 九维度加权评估</div>
+<div class="badge"><div class="g">B 级 · 59.5</div><div class="s">综合评分（满分 100）· 中等商业化潜力</div></div>
+<div><svg viewBox="0 0 560 480" width="560" height="480" xmlns="http://www.w3.org/2000/svg"><polygon points="280.0,209.6 299.5,216.7 309.9,234.7 306.3,255.2 290.4,268.6 269.6,268.6 253.7,255.2 250.1,234.7 260.5,216.7" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,179.2 319.1,193.4 339.9,229.4 332.7,270.4 300.8,297.1 259.2,297.1 227.3,270.4 220.1,229.4 240.9,193.4" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,148.8 338.6,170.1 369.8,224.2 359.0,285.6 311.2,325.7 248.8,325.7 201.0,285.6 190.2,224.2 221.4,170.1" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,118.4 358.2,146.8 399.8,218.9 385.3,300.8 321.6,354.3 238.4,354.3 174.7,300.8 160.2,218.9 201.8,146.8" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,88.0 377.7,123.6 429.7,213.6 411.6,316.0 332.0,382.8 228.0,382.8 148.4,316.0 130.3,213.6 182.3,123.6" fill="none" stroke="#e2e8f0" stroke-width="1"/><line x1="280.0" y1="240.0" x2="280.0" y2="88.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="377.7" y2="123.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="429.7" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="411.6" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="332.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="228.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="148.4" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="130.3" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="182.3" y2="123.6" stroke="#d8dee9" stroke-width="1"/><polygon points="280.0,156.4 355.2,150.3 399.8,218.9 335.3,271.9 317.4,342.8 246.2,332.8 210.2,280.3 199.2,225.7 240.9,193.4" fill="rgba(37,99,235,.22)" stroke="#2563eb" stroke-width="2.5"/><circle cx="280.0" cy="156.4" r="3.5" fill="#2563eb"/><circle cx="355.2" cy="150.3" r="3.5" fill="#2563eb"/><circle cx="399.8" cy="218.9" r="3.5" fill="#2563eb"/><circle cx="335.3" cy="271.9" r="3.5" fill="#2563eb"/><circle cx="317.4" cy="342.8" r="3.5" fill="#2563eb"/><circle cx="246.2" cy="332.8" r="3.5" fill="#2563eb"/><circle cx="210.2" cy="280.3" r="3.5" fill="#2563eb"/><circle cx="199.2" cy="225.7" r="3.5" fill="#2563eb"/><circle cx="240.9" cy="193.4" r="3.5" fill="#2563eb"/><text x="280.0" y="44.0" text-anchor="middle" font-size="12.5" fill="#334155" font-weight="600">D1</text><text x="280.0" y="58.0" text-anchor="middle" font-size="11" fill="#64748b">市场需求 5.5</text><text x="406.0" y="89.9" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D2</text><text x="406.0" y="103.9" text-anchor="start" font-size="11" fill="#64748b">技术成熟度 7.7</text><text x="473.0" y="206.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D3</text><text x="473.0" y="220.0" text-anchor="start" font-size="11" fill="#64748b">社区生态 8.0</text><text x="449.7" y="338.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D4</text><text x="449.7" y="352.0" text-anchor="start" font-size="11" fill="#64748b">变现潜力 4.2</text><text x="347.0" y="424.2" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D5</text><text x="347.0" y="438.2" text-anchor="start" font-size="11" fill="#64748b">竞争格局 7.2</text><text x="213.0" y="424.2" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D6</text><text x="213.0" y="438.2" text-anchor="end" font-size="11" fill="#64748b">法律合规 6.5</text><text x="110.3" y="338.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D7</text><text x="110.3" y="352.0" text-anchor="end" font-size="11" fill="#64748b">企业就绪 5.3</text><text x="87.0" y="206.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D8</text><text x="87.0" y="220.0" text-anchor="end" font-size="11" fill="#64748b">团队治理 5.4</text><text x="154.0" y="89.9" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D9</text><text x="154.0" y="103.9" text-anchor="end" font-size="11" fill="#64748b">上手难度 4.0</text></svg></div>
+<div class="bars"><div class="bar-row"><span class="bar-name">D3 社区生态</span>
+<span class="bar-track"><span class="bar-fill" style="width:80.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.0</span><span class="bar-w">权重11%</span></div>
+<div class="bar-row"><span class="bar-name">D2 技术成熟度</span>
+<span class="bar-track"><span class="bar-fill" style="width:77.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.7</span><span class="bar-w">权重14%</span></div>
+<div class="bar-row"><span class="bar-name">D5 竞争格局</span>
+<span class="bar-track"><span class="bar-fill" style="width:72.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.2</span><span class="bar-w">权重12%</span></div>
+<div class="bar-row"><span class="bar-name">D6 法律合规</span>
+<span class="bar-track"><span class="bar-fill" style="width:65.0%;background:#d97706"></span></span>
+<span class="bar-val">6.5</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D1 市场需求</span>
+<span class="bar-track"><span class="bar-fill" style="width:55.0%;background:#dc2626"></span></span>
+<span class="bar-val">5.5</span><span class="bar-w">权重13%</span></div>
+<div class="bar-row"><span class="bar-name">D8 团队治理</span>
+<span class="bar-track"><span class="bar-fill" style="width:54.0%;background:#dc2626"></span></span>
+<span class="bar-val">5.4</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D7 企业就绪</span>
+<span class="bar-track"><span class="bar-fill" style="width:53.0%;background:#dc2626"></span></span>
+<span class="bar-val">5.3</span><span class="bar-w">权重8%</span></div>
+<div class="bar-row"><span class="bar-name">D4 变现潜力</span>
+<span class="bar-track"><span class="bar-fill" style="width:42.0%;background:#dc2626"></span></span>
+<span class="bar-val">4.2</span><span class="bar-w">权重18%</span></div>
+<div class="bar-row"><span class="bar-name">D9 上手难度</span>
+<span class="bar-track"><span class="bar-fill" style="width:40.0%;background:#dc2626"></span></span>
+<span class="bar-val">4.0</span><span class="bar-w">权重10%</span></div></div>
+<div class="meta">分析时点 2026-10-21 ｜ 数据来源：GitHub API + 仓库代码实测 ｜ 方法论 v1.6.4</div>
+</div><h1>第 134 期 · AnyPS5 商业化潜力分析报告（完整版）</h1>
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家　@冯伟雄</p>
+<p><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/#methodology" target="_blank" rel="noopener">方法论版本: v1.6.4</a> | 综合评分: <strong>59.5</strong> | 等级: <strong>B（中等商业化潜力）</strong> | 价值画像: 公共产品型 | 【新项目豁免】无历史不构成停滞证据</p>
+</blockquote>
+<h2>核心发现</h2>
+<ol>
+<li><strong>规模势能</strong>：项目创建 77 天内累计 45,393 Star、4,168 Fork（Fork/Star 9.2%）、410 名贡献者，近 90 天新建 7,331 个 PR、近 30 天 12,301 次提交，生命周期判定为 🚀 爆发期（D3）。</li>
+<li><strong>核心能力</strong>：636,405 行 C++、3,010 个源文件，配套 323,267 行测试（测试占比 50.8%，即 323,267/636,405）与 16 条 CI 工作流，技术成熟度 7.7/10，为九个评分维度中的最高分项（D2）。</li>
+<li><strong>变现结构</strong>：GPL-2.0（version 2 only）、无 CLA、Sponsor 入口 0 个、付费分层 0 个、无企业版与托管服务，许可与商业模式维度 4.2/10，为九维最低（D4）。</li>
+<li><strong>交付门槛</strong>：示例文件 0 个、无 Dockerfile、无安装脚本，全功能需源码构建 63.6 万行 C++，易用性与交付维度 4.0/10（D9）。</li>
+<li><strong>公共价值</strong>：功能价值 7.8/10、社会价值 7.4/10，公共价值分 7.6/10，价值画像落点为 🏛️ 公共产品型（D10/D11）。</li>
+<li><strong>关键风险</strong>：仓库托管于个人账户（boykopovar），无 GOVERNANCE.md/CODEOWNERS、无任何资金信号；同时 1,002 个开放 Issue 与 90 天 7,331 个 PR 并存，库覆盖率仍处逐游戏攻坚阶段（D3/D8）。</li>
+</ol>
+<h2>一、项目概览</h2>
+<h3>1.1 基本信息</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>仓库</td>
+<td>boykopovar/AnyPS5</td>
+</tr>
+<tr>
+<td>一句话定位</td>
+<td>开源的 PS5 可执行文件重编译与重链接工具，可在 Windows/Linux/macOS 上原生运行 PS5 游戏，不使用模拟器</td>
+</tr>
+<tr>
+<td>主要语言</td>
+<td>C++</td>
+</tr>
+<tr>
+<td>协议</td>
+<td>GPL-2.0（仅 version 2）</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>本地部署（Windows/Linux/macOS 原生）+ 浏览器端 Web converter（文件不出本机）</td>
+</tr>
+<tr>
+<td>目标受众</td>
+<td>终端游戏玩家（辅：系统级开源贡献者/架构师/技术管理者）</td>
+</tr>
+<tr>
+<td>赛道</td>
+<td>开发者工具（重编译/重链接工具链），落地行业为游戏/互动娱乐</td>
+</tr>
+<tr>
+<td><strong>生命周期阶段</strong></td>
+<td><strong>爆发期</strong></td>
+</tr>
+<tr>
+<td><strong>项目年龄</strong></td>
+<td><strong>77 天</strong>（created_at 2026-08-03 → pushed_at 2026-10-20）</td>
+</tr>
+<tr>
+<td>最新版本</td>
+<td>v0.1.3（2026-10-20），首个版本 v0.1.0（2026-09-28）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>新项目豁免</strong>：项目年龄 77 天（&lt; 90 天）、无 archived/deprecated 标记、近 30 天有 commit（12,301 次），满足新项目豁免条件——无历史不构成停滞证据，项目可持续性维度的低分按「未知风险」而非「停滞证据」解读。</p>
+<h3>1.2 技术构成</h3>
+<ul>
+<li>二进制重编译与静态重链接 / PRX 系统库动态链接重实现 / GNM→SPIR-V 着色器转译（C++/Vulkan）。</li>
+<li>代码 636,405 行、源文件 3,010 个、测试文件 1,444 个；3rdparty 子模块含 SDL2、SPIRV-Tools、SPIRV-Headers、Vulkan-Headers、VulkanMemoryAllocator、glslang、ffmpeg-core、mimalloc、zstd 等 16 项。</li>
+<li>文档 150 份，含 ARCHITECTURE / BUILD / CONVENTIONS / ENVIRONMENT / GAME_TESTING / HW_ORACLE / TRACING / TechnicalDebt 及 docs/dev/debt 下 80+ 篇逐库技术债文档。</li>
+</ul>
+<h2>二、安装部署与使用指南</h2>
+<blockquote>
+<p>本项目上手难度评为 <strong>🔴 复杂（仅开发者可独立完成）</strong>，以下仅给出部署方案概要与技术要点，不展开逐步命令细节——非开发人员无法独立完成全链路操作。</p>
+</blockquote>
+<h3>方案概览（三条获取路径）</h3>
+<table>
+<thead>
+<tr>
+<th>路径</th>
+<th>适用人群</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>A. 浏览器 Web converter</strong></td>
+<td>所有人（零安装）</td>
+<td>README 提供 <code>https://boykopovar.github.io/AnyPS5/</code>，为在线转换入口，官方声明「files stay on your device」（文件不上传服务器）。这是唯一无需本地构建即可体验的路径，但仅覆盖「转换」环节，不含后续运行与调试。</td>
+</tr>
+<tr>
+<td><strong>B. 源码构建（全功能）</strong></td>
+<td>C++ 开发者</td>
+<td>项目<strong>未提供 Dockerfile、未提供包管理器安装（无 pip/npm 发行物）、本地实测依赖清单为空</strong>，README 将用户直接导向 <a href="docs/dev/BUILD.md">Build instructions</a>。构建产物为可执行文件 + 一组 PRX 系统库实现 + 着色器重编译器，需完整本地工具链。</td>
+</tr>
+<tr>
+<td><strong>C. 仅 relinker 构建（macOS，含 Apple Silicon）</strong></td>
+<td>macOS 开发者</td>
+<td>README 明确：「The relinker-only build runs on macOS, including Apple silicon.」——为 macOS 上的缩减构建形态。</td>
+</tr>
+</tbody>
+</table>
+<h3>构建与环境要点（不含具体命令，请以 <code>docs/dev/BUILD.md</code> 为准）</h3>
+<ul>
+<li><strong>语言与规模</strong>：C++ 为主，源码 636,405 行（<code>.cpp</code> 549,455 行 / <code>.hpp</code> 52,769 行），源码文件 3,010 个，编译耗时不可忽略。</li>
+<li><strong>第三方组件</strong>：仓库内以子模块/内嵌形态提供 <code>3rdparty/SPIRV-Tools</code>（README 提示：以 <code>ANYPS5_ENABLE_SPIRV_TOOLS</code> 编译开关启用 SPIR-V 校验）；无集中依赖清单文件，依赖关系需按 BUILD.md 与环境文档 <code>docs/dev/ENVIRONMENT.md</code> 现场确认。</li>
+<li><strong>图形栈前置</strong>：项目核心是 relinker + <code>core/libs/prx</code> 系统库实现 + <code>core/shader/recompiler</code> 着色器重编译（输出 SPIR-V），隐含需要可用的 Vulkan 图形栈/驱动环境（topics 含 <code>vulkan</code>、<code>spir-v</code>）。</li>
+<li><strong>平台覆盖</strong>：Linux / Windows（主目标）+ macOS（relinker-only），无 Docker/K8s/Helm 交付物。</li>
+<li><strong>无外部服务依赖</strong>：不需要初始化数据库/缓存/消息队列，属单机命令行工具形态（这一点降低部署编排成本）。</li>
+</ul>
+<h3>初始配置</h3>
+<ul>
+<li><strong>输入映射</strong>：支持 SDL 映射的手柄（含摇杆与扳机）；键鼠需通过 <code>anyps5-input.ini</code> 配置文件手工编写，格式见 <code>docs/user/INPUT_MAPPING.md</code>。无图形化配置界面。</li>
+<li><strong>除输入外无强制配置项</strong>：默认即用的部分有限，实际可用性取决于目标程序落在 <code>core/libs/prx</code> 已实现函数集合内的比例。</li>
+</ul>
+<h3>验证与排障</h3>
+<ul>
+<li><strong>验证方式</strong>：README 指向 <a href="docs/user/USAGE.md">Usage</a>；兼容性状态以社区维护的 blocker map 与 <a href="https://github.com/boykopovar/AnyPS5/discussions/categories/game-bring-up">Game bring-up</a> 讨论区（每款游戏一个 thread）为准，建议先选该表中已跑通的标题做验证。</li>
+<li><strong>错误处理预期（重要）</strong>：README 明确「Unsupported or unexpected states strictly throw <code>std::runtime_error</code>. <code>what()</code> is printed to stderr and the process terminates.」——即遇未支持状态时<strong>进程直接终止</strong>，无回退、无修复建议，排障需结合 <code>docs/dev/TRACING.md</code>、<code>docs/dev/GAME_TESTING.md</code> 自行定位。</li>
+<li><strong>前置素材门槛</strong>：需自备合法的 PS5 可执行文件；项目声明不包含、不分发任何固件、密钥或专有库，不提供任何示例工程（本地实测示例文件数 = 0）。</li>
+</ul>
+<hr />
+<h2>D9 维度详析</h2>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+<th>关键依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D9.1 安装难度</td>
+<td>2.5</td>
+<td><strong>1.0</strong></td>
+<td>3–4 档（40%）</td>
+<td>无一键安装：无 Dockerfile、无 pip/npm 发行物、无 install 脚本；仅源码构建，需 C++ 工具链 + 3rdparty/SPIRV-Tools + Vulkan 栈；构建文档存在于 <code>docs/dev/BUILD.md</code>，但整体需开发人员操作</td>
+</tr>
+<tr>
+<td>D9.2 部署与配置难度</td>
+<td>2.5</td>
+<td><strong>1.0</strong></td>
+<td>3–4 档（40%）</td>
+<td>无 docker-compose/Helm/K8s 交付物；无 quickstart/demo 脚本，且项目不提供任何示例程序（需自备合法 PS5 可执行文件）；优势是无外部数据库/中间件需初始化，单机命令行形态</td>
+</tr>
+<tr>
+<td>D9.3 易用性与操作门槛</td>
+<td>2.5</td>
+<td><strong>1.0</strong></td>
+<td>3–4 档（40%）</td>
+<td>错误处理为硬失败：未支持状态直接抛 <code>std::runtime_error</code>、打印 <code>what()</code> 到 stderr 后进程退出；键鼠需手写 <code>anyps5-input.ini</code>；无 GUI，需 PS5 PRX/重链接/SPIR-V/Vulkan 领域背景</td>
+</tr>
+<tr>
+<td>D9.4 学习曲线与首体验</td>
+<td>2.5</td>
+<td><strong>1.0</strong></td>
+<td>3–4 档（40%）</td>
+<td>全量首体验为「数小时构建 + 自备可执行文件 + 依赖尚不完备的系统库覆盖率」，兼容性处于 v0.1.x 早期、开放 issue 1002；缓解因素：Web converter 可零安装完成「转换」验证，用户文档 USAGE/INPUT_MAPPING 存在</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>4.0 / 10</strong></td>
+<td><strong>🔴 复杂</strong></td>
+<td>上手难度等级判定：1–4 → 🔴 复杂（仅开发者）</td>
+</tr>
+</tbody>
+</table>
+<h3>分析</h3>
+<p><strong>结论：上手难度 4.0 / 10，评级 🔴 复杂。</strong> 这是一款面向「开发者/移植工程师」的 C++ 工具链，而非面向终端用户的成品软件；商业化推广的第一道门槛——试用转化——存在实质障碍。</p>
+<p><strong>1) 安装链路完全依赖源码构建（D9.1）。</strong> 硬事实：<code>has_dockerfile: false</code>、本地采集依赖清单为空（无 requirements.txt/package.json 类清单）、CI 中无容器镜像发布工作流（16 个 workflow 中 <code>build.yml</code>/<code>release.yml</code> 为构建发布用途，未见镜像交付）。README 首屏把用户直接引向 <code>docs/dev/BUILD.md</code>，而该文档位于 <code>docs/dev/</code> 目录，定位即开发者。636k 行 C++ 体量 + <code>3rdparty/SPIRV-Tools</code> 内嵌第三方 + 隐含 Vulkan 图形栈，属于「装编译器、装图形 SDK、拉子模块、长时编译」的典型开发流程。平台覆盖是加分项（Windows/Linux/macOS，且 macOS 支持 Apple Silicon 的 relinker-only 构建），但「覆盖平台」不等于「安装简单」。故落 3–4 档。</p>
+<p><strong>2) 部署无标准化编排，但无外部组件负担（D9.2）。</strong> 项目是单机命令行工具，不需要初始化数据库/缓存/消息队列，这避免了典型后端的多组件编排痛点。但另一侧的缺口更致命：<strong>没有任何标准部署物</strong>（无 compose/Helm）、<strong>没有任何 quickstart 脚本或 demo</strong>，且因法律与许可约束（README Disclaimer：不含任何版权软件/固件/密钥）项目<strong>不可能提供示例可执行文件</strong>，用户必须自备合法 PS5 二进制才能进行第一次验证。这使得「10 分钟内跑通 demo」在结构上无法成立。唯一的快速验证替代是浏览器端 Web converter（本地文件不出设备），它把「转换」这一步的部署成本降到零——是项目最有价值的低门槛入口，但它不覆盖「运行/调试」环节，且并非工具本体的部署方式。故落 3–4 档。</p>
+<p><strong>3) 操作面窄但错误体验生硬（D9.3）。</strong> README 罕见地把错误策略写在首屏：「Unsupported or unexpected states strictly throw <code>std::runtime_error</code>. <code>what()</code> is printed to stderr and the process terminates.」——这是明确的硬失败、无降级、无修复建议设计，且 README 自己强调这是「strictly」。对使用者而言，遇到未实现函数只会看到 stderr 一行信息 + 进程退出，需要凭 <code>docs/dev/TRACING.md</code>、<code>docs/dev/GAME_TESTING.md</code> 的开发者文档自行定位。配置面很小（仅手柄/键鼠映射走 <code>anyps5-input.ini</code>），这本身是优点（默认即用），但手写 ini、无 GUI、无自动补全、无智能提示，加之使用前提是理解 PRX 动态库、重链接、SPIR-V 重编译等概念，非专家基本无法判断「失败是我的问题还是项目未支持」。故落 3–4 档。</p>
+<p><strong>4) 首体验是「构建成功」而非「目标达成」（D9.4）。</strong> 入门引导资料并不缺：README 链出 <a href="docs/user/USAGE.md">Usage</a>、<code>docs/user/INPUT_MAPPING.md</code>，开发侧另有 ARCHITECTURE / BUILD / ENVIRONMENT / GAME_TESTING / TRACING 等 150 份文档，并有社区 roadmap 与 per-title bring-up 讨论区——文档深度远超同类早期项目。但「首次成功使用」的定义对这类工具很苛刻：它要求「某个游戏真的能跑起来」，而项目当前为 v0.1.3（2026-10-20 发布）、系统库覆盖率按「已声明函数中已实现的比例」口径公布（README 自注分母持续增长）、开放 issue 1002 条。加之示例文件实测为 0、无交互式 onboarding、构建本身即小时级，整体属「数天学习曲线」。缓解因素是 Web converter 让「转换一个文件」可在分钟级完成，形成半个 Aha Moment，但到达「可玩」仍需数天至数周。故落 3–4 档。</p>
+<p><strong>商业含义</strong>：D9 是权重 10% 的「转化率维度」。本项目 4.0 分的直接后果是——<strong>试用漏斗极窄</strong>：绝大多数潜在用户（普通玩家、媒体、发行商务）无法完成安装与首验，只有具备 C++/图形栈/主机移植背景的工程师能进入；同时「硬失败无提示」的设计会放大负面首体验（失败即崩溃且无解释），对口碑传播不利。改善杠杆按性价比排序：① 发布官方预编译二进制（Windows/Linux，含 relinker-only 包）替代源码构建，可单项提升 D9.1；② 提供一条 <code>docker run</code> 或单文件绿色包 + 3 分钟 quickstart 录屏，补 D9.2「快速验证」；③ 将 <code>std::runtime_error</code> 硬终止改为「未实现函数清单 + 可继续运行/跳过」的可诊断模式，并输出可提交的日志包，直接改善 D9.3；④ 扩充 Web converter 能力边界（含输入映射生成器）作为零安装 Aha Moment 入口。</p>
+<h2>三、评分总览</h2>
+<h3>3.1 九维评分表</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>权重</th>
+<th>得分（10 分制）</th>
+<th>加权得分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1 需求与市场</td>
+<td>0.13</td>
+<td>5.5</td>
+<td>0.715</td>
+</tr>
+<tr>
+<td>D2 技术成熟度</td>
+<td>0.14</td>
+<td>7.7</td>
+<td>1.078</td>
+</tr>
+<tr>
+<td>D3 社区与生态</td>
+<td>0.11</td>
+<td>8.0</td>
+<td>0.880</td>
+</tr>
+<tr>
+<td>D4 许可与商业模式</td>
+<td>0.18</td>
+<td>4.2</td>
+<td>0.756</td>
+</tr>
+<tr>
+<td>D5 竞争格局</td>
+<td>0.12</td>
+<td>7.2</td>
+<td>0.864</td>
+</tr>
+<tr>
+<td>D6 法律合规</td>
+<td>0.07</td>
+<td>6.5</td>
+<td>0.455</td>
+</tr>
+<tr>
+<td>D7 工程与运维</td>
+<td>0.08</td>
+<td>5.3</td>
+<td>0.424</td>
+</tr>
+<tr>
+<td>D8 可持续性与治理</td>
+<td>0.07</td>
+<td>5.4</td>
+<td>0.378</td>
+</tr>
+<tr>
+<td>D9 易用性与交付</td>
+<td>0.10</td>
+<td>4.0</td>
+<td>0.400</td>
+</tr>
+<tr>
+<td><strong>加权和</strong></td>
+<td><strong>1.00</strong></td>
+<td>—</td>
+<td><strong>5.950</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>综合评分（百分制）= 5.950 × 10 = 59.5</strong></p>
+<h3>3.2 等级与一票否决核查</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>综合评分</td>
+<td>59.5 / 100</td>
+</tr>
+<tr>
+<td>商业化潜力等级</td>
+<td><strong>B（中等商业化潜力）</strong></td>
+</tr>
+<tr>
+<td>一票否决</td>
+<td>未触发</td>
+</tr>
+<tr>
+<td>D6 法律合规（维度总分）</td>
+<td>6.5（&gt; 3，不触发）</td>
+</tr>
+<tr>
+<td>D8.4 项目可持续性（细则小分，满分 3）</td>
+<td>1.2（&gt; 1，不触发；且适用新项目豁免）</td>
+</tr>
+<tr>
+<td>D4.1 协议对变现模式的影响（细则小分，满分 2）</td>
+<td>1.2（&gt; 0.5，不触发）</td>
+</tr>
+<tr>
+<td>否决检查完整性</td>
+<td>九维均正常出分，检查完整</td>
+</tr>
+</tbody>
+</table>
+<h3>3.3 平行维度表（不进入综合评分公式）</h3>
+<table>
+<thead>
+<tr>
+<th>平行维度</th>
+<th>得分（10 分制）</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10 功能价值</td>
+<td>7.8</td>
+<td>与 D11 合成公共价值分，仅用于价值画像判定</td>
+</tr>
+<tr>
+<td>D11 社会价值</td>
+<td>7.4</td>
+<td>同上</td>
+</tr>
+<tr>
+<td><strong>公共价值分</strong>（(D10+D11)/2）</td>
+<td><strong>7.6</strong></td>
+<td>价值画像落点：🏛️ 公共产品型</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>平行维度不参与一票否决：任何取值既不触发、也不豁免否决。</p>
+</blockquote>
+<h2>四、各维度详细分析</h2>
+<h3>D1. 市场需求与商业机会（得分: 5.5/10）</h3>
+<h3>1.6 项目分类打标</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>开发者工具（重编译/重链接工具链）；辅：中间件（PRX 系统库重实现层）、游戏开发</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>媒体内容（游戏/互动娱乐）；辅：通用/跨行业（二进制翻译、着色器转译技术可外溢到研究教学）</td>
+</tr>
+<tr>
+<td>目标用户角色</td>
+<td>终端游戏玩家（非技术用户为主）；辅：系统级开发者/C++ 贡献者、架构师、技术管理者</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>游戏移植与运行、原型验证（重编译技术验证）、学习研究；辅：内容（游戏）保存与兼容性测试</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>本地部署（Windows/Linux/macOS 原生；另提供浏览器端 Web converter，文件不出本机）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>一句话定位</strong>：
+AnyPS5 是一个开源的 PlayStation 5 可执行文件重编译/重链接工具，适用于在 Windows / Linux / macOS 上原生运行 PS5 游戏，主要面向终端游戏玩家与系统级开源贡献者，用于把 PS5 可执行文件转换为目标平台原生格式，并以重实现的 PRX 系统库 + SPIR-V 着色器重编译器替代模拟器运行时，从而获得"无模拟、无独立运行时进程"的原生执行路径。</p>
+<hr />
+<h3>D1.1 目标市场规模与增长性</h3>
+<p><strong>打分: 1.5 / 2.5（5–6 档，60%）</strong></p>
+<p>判断依据：</p>
+<ul>
+<li><strong>市场层级</strong>：项目处于"主机游戏跨平台运行/游戏保存（preservation）"赛道。该赛道用户注意力极大，但<strong>付费市场极薄</strong>——同类项目（PS2/PS3/Switch 模拟器生态）几乎全部以免费 + 捐赠/赞助（Patreon、GitHub Sponsors）为主要收入形态，从未形成稳定的按份付费市场。这是一个"用户规模大 ≠ 付费市场大"的典型错配赛道。</li>
+<li><strong>TAM 量级估算</strong>：可直接变现的"主机二进制重编译/移植工具"软件市场为<strong>千万至亿美元级</strong>，且受法律约束严重压缩；其邻接硬件市场（复古掌机、Mini PC 游戏设备）虽为十亿美元级，但本项目并不直接售卖硬件。<strong>估算未经外部数据验证（本次无外部检索可用），置信度低，仅作量级判断，不代表具体市场规模数字。</strong></li>
+<li><strong>增长趋势</strong>：用户侧需求扩张明显（45,393 Star、4,168 Fork、90 天 7,331 个 PR、1002 个开放 Issue、Discord 社区活跃，均为实采硬数据），说明"想在 PC 上玩主机游戏"的需求真实且在高涨；但<strong>可付费规模的增长被法律风险（DMCA 反规避、厂商诉讼先例）与"厂商官方 PC 移植"双重压制</strong>，属于"需求增长 ≠ 收入增长"。</li>
+<li><strong>结论</strong>：用户市场巨型、付费市场偏小，落在"亿美元级、平稳（软件侧）"档，未达十亿美元级商业市场标准。</li>
+</ul>
+<hr />
+<h3>D1.2 痛点真实性与解决程度</h3>
+<p><strong>打分: 1.5 / 2.5（5–6 档，60%）</strong></p>
+<p>判断依据：</p>
+<ul>
+<li><strong>痛点真实性（强）</strong>：对核心玩家群体而言，"在没有 PS5 硬件/想在 PC 上以原生性能运行独占或已有游戏"属于强需求。硬证据：2.5 个月内 45,393 Star、410 位贡献者、90 天 7,331 个 PR、12301 次/30 天提交、项目自建 v0.1.0→v0.1.3 连续发版、社区第三方 blocker map 与"Game bring-up"逐游戏讨论区——这些都是"非用不可"级别的社区投入度信号，不是自嗨型项目。</li>
+<li><strong>解决完整度（弱）</strong>：项目尚处 0.x（首版 v0.1.0 发布于 2026-09-28，最新 v0.1.3 于 2026-10-20）。README 明确写着 "Unsupported or unexpected states strictly throw <code>std::runtime_error</code> ... the process terminates"——即遇未实现路径直接终止进程；库覆盖率指标被特意注明为"已声明函数中的百分比，而非 PS5 全部系统函数"。这是<strong>典型的部分方案/逐游戏攻坚状态</strong>，距离"开箱可用"很远（1002 个开放 Issue 也印证）。</li>
+<li><strong>替代成本（低）</strong>：替代选择充沛且在增强——① 直接买一台 PS5（本世代主机仍在售，硬件成本低于折腾成本）；② PS Plus 云串流 / Remote Play；③ 索尼持续把第一方作品官方移植到 PC；④ 同期模拟器路线（PS4/PS5 方向的社区模拟器）。项目自身定位为"互操作性与保存研究"，进一步说明它是补充品而非不可替代品。</li>
+<li><strong>结论</strong>：痛点真实且热度极高，但方案完整度低、替代品众多，落在"锦上添花～准刚需之间、方案基本可用"的 5–6 档。</li>
+</ul>
+<hr />
+<h3>D1.3 市场时机判断</h3>
+<p><strong>打分: 1.5 / 2.5（5–6 档，60%）</strong></p>
+<p>判断依据：</p>
+<ul>
+<li><strong>技术成熟度</strong>：底层技术栈已过"期望膨胀期"——Vulkan、SPIR-V、Spirv-Tools 校验（README 明示 <code>ANYPS5_ENABLE_SPIRV_TOOLS</code> 路径）、动态链接/PRX 库重实现、二进制重编译（N64/PS2/PS3 世代已验证）均为工程化成熟技术；项目另有 63.6 万行代码、50.8% 测试占比、16 条 CI 工作流，工程化程度远超同阶段项目。<strong>但"PS5 静态重链接"这一具体技术路线仍属前沿，是品类开创者而非跟随者。</strong></li>
+<li><strong>竞争密度</strong>：格局未定，但两侧均有强压：一侧是索尼自身（第一方游戏持续官方 PC 化，直接消灭部分需求），另一侧是模拟器路线与同类移植项目；同时主机厂商对破解/规避技术持敌对态度（业界已有模拟器被诉下架先例，此处不引具体判例细节，仅作风险定性）。既非蓝海真空，也非红海垄断。</li>
+<li><strong>监管/标准</strong>：<strong>负向</strong>。没有政策或行业标准推动，反而是 DMCA 反规避条款与"禁止分发密钥/固件/受版权保护二进制"的合规红线在压制需求爆发；项目 README 的 Disclaimer 专门强调不包含密钥与专有库，说明团队自身把法律风险视为一级约束。</li>
+<li><strong>时机结论</strong>：技术就绪 + 社区势能巨大（先发优势真实存在），但赛道本身"未成市场"、法律天花板低、且 PS5 仍在本世代生命周期内（保存需求尚未到峰值）。综合落在"需正面竞争/教育成本高"的 5–6 档，不给 7–8 档。</li>
+</ul>
+<hr />
+<h3>D1.4 应用场景广度</h3>
+<p><strong>打分: 1.0 / 2.5（3–4 档，40%）</strong></p>
+<p>判断依据：</p>
+<ul>
+<li><strong>行业覆盖</strong>：核心用途高度集中在"游戏/互动娱乐"单一行业。docs/dev/debt 下上百个 <code>libSceXxx.md</code> 技术债文档（SceAudioOut、SceNet、SceJpegDec、SceFont…）说明其系统库重实现<strong>深度绑定 PlayStation 平台 API 语义</strong>，不具备跨行业复用性。</li>
+<li><strong>场景多样性</strong>：属于典型<strong>纵向专用工具</strong>（单一场景：把 PS5 二进制跑到 PC 上），而非横向通用工具。虽有"研究/教学/保存（preservation）"的次级场景，但仍围绕同一技术对象。</li>
+<li><strong>可延展性（唯一的加分项）</strong>：① 核心能力可迁移到同架构家族的 PS4 乃至更早平台，迁移天花板不低；② 着色器重编译器（GNM → SPIR-V）具备独立技术外溢价值，可服务通用图形翻译需求；③ Web converter 提供了零安装的轻量入口。但这些属于"潜在可延展"，尚未在 README 中体现为多行业落地用例（示例项目数 0）。</li>
+<li><strong>结论</strong>：单一行业、窄场景、延展性存在但未兑现，落在 3–4 档。</li>
+</ul>
+<hr />
+<h3>维度结论</h3>
+<p>AnyPS5 是一个<strong>社区热度与工程成熟度显著超前于其商业化基本面</strong>的项目：45k+ Star、410 贡献者、90 天 7,331 PR、50.8% 测试占比，证明其解决的是真实的高热度痛点并具备罕见的组织动能（D1.2 痛点真实性、D1.3 技术就绪度均为强项）；但赛道本身是"用户规模巨大、付费市场极薄、法律天花板明确"的游戏保存/移植细分领域（D1.1、D1.4 明显偏弱），且产品仍处 v0.1.x「未实现即抛异常终止」的攻坚期，替代品（买主机、云串流、官方 PC 移植、模拟器）众多。</p>
+<p>因此 D1 判定为<strong>市场机会"真实但窄且难变现"</strong>：适合作为技术品牌与生态入口（吸引贡献者、建立重编译技术护城河），不适合作为独立收费产品的直接依据；真正的商业价值更可能出现在"技术能力外溢"（图形/着色器转译、二进制翻译工程能力）与"生态位运营"（赞助、周边、B 端技术授权）而非软件本身售卖。</p>
+<p><strong>维度总分：5.5 / 10（D1.1 1.5 + D1.2 1.5 + D1.3 1.5 + D1.4 1.0）</strong>
+<strong>置信度说明</strong>：D1.1 市场规模为量级估算，本次无外部数据可核验，置信度低；D1.2–D1.4 判断均基于 README、实采 GitHub API 数据与本地代码统计等硬事实，置信度中高。</p>
+<h3>D2 技术成熟度与产品质量（得分: 7.7/10）</h3>
+<blockquote>
+<p>说明：本维度仅依据仓库代码、CI 配置与文档等工程事实评估，不受 Star/Fork/热度等社区数据影响。D2.5 判定为 N/A（项目内核为 CLI/库形态的移植工具，<code>demo/web</code> 仅是可移植性进度看板与 WASM 演示站点，非产品主界面），总分按其余 7 项（满分 9）等比缩放。</p>
+</blockquote>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D2.1 产品设计与创新性</td>
+<td>1.5</td>
+<td>1.2</td>
+<td>7–8 档（80%）</td>
+</tr>
+<tr>
+<td>D2.2 架构设计与工程质量</td>
+<td>2.0</td>
+<td>1.6</td>
+<td>7–8 档（80%）</td>
+</tr>
+<tr>
+<td>D2.3 代码整洁性与规范性</td>
+<td>1.0</td>
+<td>0.8</td>
+<td>7–8 档（80%）</td>
+</tr>
+<tr>
+<td>D2.4 安全性</td>
+<td>1.0</td>
+<td>0.6</td>
+<td>5–6 档（60%）</td>
+</tr>
+<tr>
+<td>D2.5 UI/UX/UE</td>
+<td>1.0</td>
+<td>N/A</td>
+<td>不适用</td>
+</tr>
+<tr>
+<td>D2.6 功能完备度与稳定性</td>
+<td>1.5</td>
+<td>0.9</td>
+<td>5–6 档（60%）</td>
+</tr>
+<tr>
+<td>D2.7 文档与开发者体验</td>
+<td>1.0</td>
+<td>0.8</td>
+<td>7–8 档（80%）</td>
+</tr>
+<tr>
+<td>D2.8 测试与质量保障</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>9–10 档（100%）</td>
+</tr>
+<tr>
+<td><strong>合计（缩放后）</strong></td>
+<td>9.0</td>
+<td>6.9</td>
+<td><strong>7.7 / 10</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>D2.1 产品设计与创新性（满分 1.5）</h3>
+<p><strong>打分: 1.2 / 1.5（7–8 档，80%）</strong></p>
+<ul>
+<li><strong>产品理念清晰且极具野心</strong>：把 PS5 可执行文件自动移植到 Linux/Windows，路径拆解为「PRX 动态库重实现（<code>core/libs/prx/libSce*</code> 数十个子库）→ ELF 重链接（<code>core/relinker/elfpatcher</code>，含 Windows stub emitter、macOS image、TLS 扫描）→ RDNA 着色器重编译为 SPIR-V → Vulkan 后端」三段式，概念闭环完整。</li>
+<li><strong>显著的技术创新</strong>：<code>core/shader/recompiler</code> 实现完整的 RDNA 指令解码（<code>RdnaOpcode.hpp</code> 1110 行、VOP1/2/3/3P/VINTRP 解码器）、CFG 构建（含跳转表识别、<code>s_swappc_b64</code> 调用恢复）、多轮 IR 优化（常量折叠、MaskedSelect 消除、镶嵌 lowering、SRT walker）与 SPIR-V 发射；<code>libSceAgcDriver</code> 做硬件寄存器→Vulkan 状态解码、DCC/HTILE 元数据、纹理平铺与 guest 内存镜像。这不是对现有方案的复制，而是逆向+编译器+图形栈的复合创新，差异化极强（同类仅少数模拟器项目可比）。</li>
+<li><strong>功能设计扣分点</strong>：产品面铺得极宽但深而不均——<code>PendingExports.cpp</code>、<code>libSceNet/Export.cpp</code>、<code>libSceNpCppWebApi/Export.cpp</code> 大面积以 <code>NotImplemented_nid_no_patch</code> 桩填充，<code>docs/dev/debt/</code> 下约 100 个按库记录的债务文档正是功能未闭环的自证，属于「设计精巧度」层面的减分。</li>
+<li>结论：理念与创新足以站在 9–10 档，但功能取舍尚未收敛到「精巧」，综合落于 7–8 档。</li>
+</ul>
+<h3>D2.2 架构设计与工程质量（满分 2）</h3>
+<p><strong>打分: 1.6 / 2（7–8 档，80%）</strong></p>
+<ul>
+<li><strong>分层清晰、范式正确</strong>：<code>core/relinker</code>（二进制重链接）、<code>core/shader/recompiler</code>（解码→控制流→IR→优化→SPIR-V 后端的经典编译管线）、<code>core/libs/prx</code>（按平台库边界纵向切分）、<code>3rdparty</code>（mbedtls/FFmpeg/SPIRV-Tools/VulkanMemoryAllocator 等 submodule 化）四层职责分明，并有 <code>docs/dev/ARCHITECTURE.md</code>、<code>CONVENTIONS.md</code> 显式固化设计约定。</li>
+<li><strong>模块解耦</strong>：着色器侧以 IR 为中心、Pass 间通过 <code>IrBuilder</code>/不可变 <code>shared_ptr&lt;const IrResourcePlan&gt;</code> 传递，<code>Optimization</code> 各 Pass（ConstantFolder / MaskedSelectEliminator / DeadCodeEliminator / TessellationLowering / ResourceTracker / ResourceMaterializer）可独立组合；资源侧 <code>ShaderResources</code>/<code>GuestBufferMemory</code>/<code>Texture</code>/<code>DepthSurface</code>/<code>Recorder</code> 职责划分清楚，<code>ImageTableAbi</code>、<code>PipelineSpecialization</code> 作为跨层契约。</li>
+<li><strong>复刻难度极高（技术护城河强）</strong>：需要 RDNA 指令语义、SPIR-V 生成、Vulkan 资源/内存一致性、PS5 ABI/PIE 重定位、逆向得到的寄存器默认值表（<code>RegisterDefaultsData.hpp</code>）等复合领域知识，工程积累量 63.6 万行，短时间无法复刻。</li>
+<li><strong>扣分点</strong>：存在多处千行级巨型文件与巨型函数（<code>SpirvModuleEmitter.cpp</code> 约 2000 行、<code>ResourceTracker.cpp</code> 1357 行、<code>Recompiler.cpp</code>&gt;1100 行、<code>GraphBuilder.cpp</code>&gt;1000 行、<code>SpirvAluEmitterMath.cpp</code>&gt;1100 行）；大量 <code>getenv</code> 驱动的全局静态开关与函数内 <code>static</code> 单例削弱可测性与并发能力；<code>docs/dev/TechnicalDebt.md</code> + 约 100 篇按库债务文档表明技术债已被系统记录而非清零。</li>
+</ul>
+<h3>D2.3 代码整洁性与规范性（满分 1）</h3>
+<p><strong>打分: 0.8 / 1（7–8 档，80%）</strong></p>
+<ul>
+<li><strong>规范有据且被强制执行</strong>：<code>.github/workflows/conventions.yml</code> 在 PR 上运行 <code>tools/check_conventions.py</code>（并特意从 base 检出脚本以防 PR 篡改），<code>docs/dev/CONVENTIONS.md</code> 明文约定；命名整体一致（类型 PascalCase、函数 camelCase、匿名命名空间封装内部实现），关键结构用 <code>static_assert</code> 固化 ABI 尺寸。</li>
+<li><strong>注释质量较高</strong>：样例代码普遍解释「为什么这样优化」（如 LRU 纹理缓存预算、写代际与 DCC 键校验、失败记忆化动机），非流水账式注释。</li>
+<li><strong>扣分点</strong>：存在明显复制粘贴型冗余——<code>RegisterDefaultsData.hpp</code> 逐版本大段表数据、<code>PendingExports.cpp</code> 数百个同构桩、<code>RdnaVectorOpDecoder.cpp</code> 中 <code>vop1Opcodes</code> 与 <code>vop3EncodedVop1Opcodes</code> 高度重复、<code>Soo</code> 系列 <code>#ifdef _WIN32</code> 双份并行实现；位偏移魔法数在 <code>State.cpp</code>、<code>SpirvImageEmitter.cpp</code>、<code>ResourceMaterializer.cpp</code> 中密集且解释不足。</li>
+</ul>
+<h3>D2.4 安全性（满分 1）</h3>
+<p><strong>打分: 0.6 / 1（5–6 档，60%）</strong></p>
+<ul>
+<li><strong>安全编码意识在线</strong>：作为执行不可信 guest 代码的模拟层，样例中普遍存在强校验——<code>GuestMemory::CheckRange</code>（空指针/溢出/对齐/可写性）、<code>DirectMemory</code> 的 <code>ValidateLength/Alignment/Range</code> + <code>MAP_FIXED_NOREPLACE</code> + 复用页清零、<code>libSceSsl</code> 的 DER/PEM 长度与整数溢出校验、释放前 <code>zeroize</code>、<code>ShaderDiskCache</code> 反序列化的边界/count/varint/哈希校验、<code>Texture</code>/<code>DepthSurface</code> 的格式与 HTILE 校验、<code>libSceNet</code> 的 iov 与 <code>UIO_MAXIOV</code> 校验。</li>
+<li><strong>扣分点</strong>：<code>has_security_md: false</code>，无 <code>SECURITY.md</code> 与漏洞披露流程；16 个 CI workflow 均为构建/标签/页面/测试类，<strong>未见 CodeQL、Dependabot、Snyk、Trivy 等依赖或代码安全扫描</strong>；<code>3rdparty</code> 下 ffmpeg/mbedtls/SPIRV-Tools 等以 submodule 固定但无自动补丁跟踪；未实现 API 返回 0 的桩可能被 guest 误判为成功（隐蔽行为风险）。</li>
+</ul>
+<h3>D2.5 UI/UX/UE 人机交互（满分 1）</h3>
+<p><strong>打分: N/A（不适用）</strong></p>
+<ul>
+<li>项目主体是移植引擎/CLI 工具与库集合，未提供桌面 GUI/移动端 UI；<code>demo/web</code> 与 <code>pages.yml</code> 部署的是实现进度看板与 WASM 转换器演示，属辅助站点而非产品主界面，且素材中无界面截图、前端组件与交互流程可供评审。按规则标记 N/A，不参与计分。</li>
+</ul>
+<h3>D2.6 功能完备度与稳定性（满分 1.5）</h3>
+<p><strong>打分: 0.9 / 1.5（5–6 档，60%）</strong></p>
+<ul>
+<li><strong>功能广度大但深度未闭合</strong>：核心链路（重链接、着色器重编译、AGC 图形/内存、Net/Pad/SaveData/Http/Ssl/Ajm/AvPlayer 等）已有实质实现，但 <code>PendingExports.cpp</code> 与多个 <code>Export.cpp</code> 大量导出仍为 <code>NotImplemented_nid_no_patch</code> 桩，<code>docs/dev/debt/</code> 约 100 个按库债务文档即缺口清单。</li>
+<li><strong>版本成熟度低</strong>：最新 <code>v0.1.3</code>（2026-10-20），首发 <code>v0.1.0</code>（2026-09-28），仓库创建于 2026-08-03，运行不足 3 个月，属 pre-1.0 早期（新项目，无历史版本不作额外惩罚，但 0.1.x 语义明确表示 API/行为仍可能变动）。开放 Issue 数 1002、90 天 PR 7331，说明迭代极快、Breaking Change 风险高。</li>
+<li><strong>运行环境/硬件要求偏高</strong>：需 Vulkan 能力 GPU 与驱动、PS5 可执行体与其运行期依赖、配套 <code>tools/hw-oracle</code> 硬件取样工具（<code>docs/dev/HW_ORACLE.md</code>、<code>GAME_TESTING.md</code>），环境门槛非「宽松通用」。</li>
+<li><strong>无国际化/本地化证据</strong>：未见 i18n 框架、多语言资源或 l10n 相关文档。</li>
+<li><strong>加分项</strong>：性能工程充分（页状态缓存、SSE2 差异比较、64 KiB 块差分上传、多级 memo 与磁盘着色器缓存、ASAN 构建），性能瓶颈控制有据可查。</li>
+</ul>
+<h3>D2.7 文档与开发者体验（满分 1）</h3>
+<p><strong>打分: 0.8 / 1（7–8 档，80%）</strong></p>
+<ul>
+<li>文档体系罕见地完整：<code>README.md</code>、<code>CONTRIBUTING.md</code>、<code>AGENTS.md</code>、<code>docs/user/</code>，以及 <code>docs/dev/</code> 下的 <code>ARCHITECTURE.md</code>、<code>BUILD.md</code>、<code>CONVENTIONS.md</code>、<code>ENVIRONMENT.md</code>、<code>GAME_TESTING.md</code>、<code>HW_ORACLE.md</code>、<code>PROGRESS.md</code>、<code>TRACING.md</code>、<code>TechnicalDebt.md</code>，再加约 100 篇按 <code>libSce*</code> 逐库的债务/实现状态文档；<code>pages.yml</code> 还会把进度报告发布为站点（<code>progress.json</code> 对比未变则跳过部署），文档与实现持续同步。</li>
+<li>扣分点：无 API 参考文档生成配置，示例目录为 0 个示例（<code>示例: 0 文件</code>），缺少可直接照抄的最小可运行样例与交互式教程；文档偏「给内部贡献者」的工程手册，外部使用者上手材料偏薄（新用户跑通第一个 demo 的成本属 D9.4，此处不重复计分）。</li>
+</ul>
+<h3>D2.8 测试与质量保障（满分 1）</h3>
+<p><strong>打分: 1.0 / 1（9–10 档，100%）</strong></p>
+<ul>
+<li><strong>测试体量惊人</strong>：测试文件 1444 个、测试代码 323,267 行，测试占比 50.8%（含着色器/寄存器/一致性等数据驱动用例），与 63.6 万行实现规模形成真正的对照。</li>
+<li><strong>CI/CD 多层门禁</strong>：<code>build.yml</code> 在 Linux（self-hosted + ccache + MESA 缓存）、Windows（WinLibs MinGW）、macOS（含 x86_64 Rosetta）多平台跑 ctest，另有 <code>relinker-asan</code> 做 ASAN 构建与 TLS 覆盖用例、<code>register-context</code>/<code>write-watch</code> 定向重复跑（<code>--repeat until-fail:3</code>）、<code>tools/check_test_registration.py</code> 强制每个测试可执行文件注册到 ctest、<code>tools/check_skips.py</code> 校验跳过项、超过 30s 的慢测试自动告警。</li>
+<li><strong>工程化门禁齐全</strong>：<code>conventions.yml</code> 做规范检查、<code>pr-intake.yml</code> 限额与自动关闭、<code>area-labels.yml</code>/<code>pr-labels.yml</code>/<code>fix-label.yml</code>/<code>conflict-label.yml</code> 做标签与冲突治理、<code>build.yml</code> 内置按改动路径选择测试（<code>tools/select_tests.py</code>）与 PR 合并预演（多 PR 顺序 merge 后统一构建）。</li>
+<li>唯一保留：未见显式覆盖率阈值（如 codecov gate），但以测试规模与门禁密度衡量已属 9–10 档。</li>
+</ul>
+<hr />
+<h3>结论</h3>
+<p><strong>（D2 得分: 7.7/10）</strong></p>
+<p>AnyPS5 在 D2 维度呈现出典型的「架构与工程质量强、完备度与安全治理弱」的早期重型项目画像：RDNA→IR→SPIR-V 的重编译管线、PRX 重链接与 Vulkan 图形抽象构成了<strong>极高复刻门槛的技术护城河</strong>，63.6 万行代码、50.8% 测试占比、16 条 CI 流水线与约 100 篇逐库债务文档也证明其工程纪律远超同类早期项目；但版本仅为 <code>v0.1.3</code>、数百导出仍为桩、约 100 个库存在成文未闭环债务、运行环境要求 Vulkan GPU + PS5 运行时、缺乏 SECURITY.md 与依赖/代码安全扫描，使其商业交付成熟度仍不足以支撑「开箱即用」的产品承诺。缩放后 7.7 分反映「工程底子扎实、产品成熟度待补」的整体判断，商业化短板集中在功能完备度（D2.6）与安全治理（D2.4）。</p>
+<h3>D3. 社区健康度与生态势能（得分: 8.0/10）</h3>
+<blockquote>
+<p><strong>新项目专项判定</strong>: 项目年龄 <strong>77 天</strong>（代码预计算，&lt; 90 天）→ 按「新项目专项处理原则」评估。但本项目属于专项中的<strong>例外情形</strong>：数据不是「尚未发生」的零值，而是<strong>异常亮眼</strong>——77 天累计 45,393 Star、4,168 Fork、410 位贡献者、4 个 release。按专项原则「新项目数据异常亮眼时正常按档位打高分，不得以项目年轻为由压低」，各细则按实际证据上浮至对应档位。</p>
+</blockquote>
+<h4>细则打分总表</h4>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>打分</th>
+<th>档位</th>
+<th>关键依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D3.1 社区活跃度指标</td>
+<td>3.0</td>
+<td><strong>3.0</strong></td>
+<td>9–10 档（100%）</td>
+<td>月增外推 ~1.5 万/月（远超 500 阈值）；Fork/Star 9.2%；90 天 7,331 PR、781 Issue 关闭；30 天 12,301 commit</td>
+</tr>
+<tr>
+<td>D3.2 贡献者结构多样性</td>
+<td>2.5</td>
+<td><strong>2.0</strong></td>
+<td>7–8 档（80%）</td>
+<td>410 位贡献者（远超 50+ 档位线），但组织多样性无硬证据</td>
+</tr>
+<tr>
+<td>D3.3 第三方生态成熟度</td>
+<td>3.0</td>
+<td><strong>1.8</strong></td>
+<td>5–6 档（60%）</td>
+<td>已出现第三方衍生项目（社区 roadmap），但无插件市场/主流平台集成</td>
+</tr>
+<tr>
+<td>D3.4 品牌认知与行业影响力</td>
+<td>1.5</td>
+<td><strong>1.2</strong></td>
+<td>7–8 档（80%）</td>
+<td>4.5 万 Star 支撑领域内高辨识度；企业背书/媒体覆盖无证据，取档位下沿</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10.0</strong></td>
+<td><strong>8.0</strong></td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h4>D3.1 社区活跃度指标</h4>
+<p><strong>打分: 3.0 / 3（9–10 档，100%）</strong></p>
+<ul>
+<li><strong>Star 增速（外推口径）</strong>: 近 90 天增量 API 因 stargazers 分页上限不可得（N/A）。项目年龄 77 天 &gt; 30 天，故采用 <strong>30–90 天口径：近 90 天增量 ÷ 3</strong>，且因项目全部生命周期（77 天）都落在 90 天窗口内，增量即全量 Star 45,393 → <strong>≈ 15,131 Star/月</strong>。交叉参考退化公式（Star 总量 ÷ 年龄月数 = 45,393 ÷ 2.57）≈ <strong>17,700/月</strong> 作为上界。两种口径均落在「月增 &gt; 500」的 9–10 档内 30 倍以上。<strong>该数值为外推，早期红利显著、后续必然衰减，报告中不视为稳态增速</strong>。</li>
+<li><strong>Fork 比率</strong>: 4,168 / 45,393 = <strong>9.2%</strong>，衍生意愿强（Star 已远大于 100，分母足够大，比率具参考性）；Fork 绝对量 4,168 亦远超「被看好」的 300 门槛。</li>
+<li><strong>Issue/PR 活跃度</strong>: 近 90 天 PR 创建 <strong>7,331</strong> 条、Issue 关闭 <strong>781</strong> 条，社区参与度极高。<strong>需注意</strong>：该仓配置 16 个 CI 工作流，含 <code>pr-intake</code> / <code>pr-labels</code> / <code>pr-overlap</code> / <code>progress-report</code> 等自动化流水，PR 量可能含自动化生成成分，不宜等同于纯人工参与度；但 781 条 Issue 关闭 + 30 天 12,301 commit 仍独立支撑「极度活跃」判断。</li>
+<li><strong>响应速度</strong>: Issue 平均关闭时间<strong>不可测（N/A）</strong>——素材未提供 closed_at 分布。以代理指标替代：90 天关闭 781 条 + 4 次 release（v0.1.0→v0.1.3，间隔 9/28 至 10/20）+ 最近推送 2026-10-20，表明维护者响应链通畅。</li>
+<li><strong>风险标注</strong>: 开放 Issue <strong>1,002</strong> 条与 7,331 PR 并存，存在积压压力（评分指引 3–4 档的「大量积压」特征在绝对量上部分成立）。但以关闭吞吐（≈8.7 条/天）与提交强度衡量，仍判为活跃而非积压失控，故不减档，将积压列为<strong>后续观察项</strong>。</li>
+</ul>
+<h4>D3.2 贡献者结构多样性</h4>
+<p><strong>打分: 2.0 / 2.5（7–8 档，80%）</strong></p>
+<ul>
+<li><strong>贡献者数量</strong>: <strong>410 位</strong>，是 9–10 档门槛（50+）的 8 倍，在 77 天内形成如此规模的外部参与极为罕见。</li>
+<li><strong>组织多样性</strong>: 素材未提供贡献者所属组织字段，<strong>无法验证是否来自 10+ 组织</strong>（N/A 子项）。从项目性质（PS5 可执行文件移植，GPL-2.0，个人作者 <code>boykopovar</code> 发起）看，参与者更可能是个人开发者/爱好者而非企业团队，故未按 9–10 档（要求 10+ 组织）给满。</li>
+<li><strong>核心团队占比</strong>: 无 PR 作者归属明细，无法量化「核心 vs 外部」比例；410 贡献者对 7,331 PR 说明外部输入量级巨大，核心团队不可能垄断提交。</li>
+<li><strong>归因纪律</strong>: 本项目与新项目专项的「贡献者少属自然状态」情形相反——贡献者结构<strong>已超预期成型</strong>，不适用中性档。同时无「单人依赖」风险特征，巴士因子风险显著低于同类早期项目（传承风险仍留 D8 评估）。</li>
+</ul>
+<h4>D3.3 第三方生态成熟度</h4>
+<p><strong>打分: 1.8 / 3（5–6 档，60%）</strong></p>
+<ul>
+<li><strong>衍生项目（正向证据）</strong>: 已出现<strong>第三方独立衍生项目</strong>——社区 blocker map（<code>AlxcBTW/anyps5-roadmap</code>），基于公开 GitHub 数据独立构建并跟踪逐游戏进度；README 明确指向该外部项目。这是 77 天新项目中相当罕见的生态信号，构成档位上浮依据（高于专项 5–6 档「底线」的默认语义）。</li>
+<li><strong>集成生态（缺失）</strong>: 无主流平台/工具集成证据（无 Dockerfile、无 IDE/云平台插件、无包管理器分发记录）。</li>
+<li><strong>插件/扩展（缺失）</strong>: 本体是 relinker + prx 库实现，架构上不设插件机制，无可枚举的第三方插件/主题市场。</li>
+<li><strong>教程/课程（不足）</strong>: 仓库自有文档极丰富（150 个文档文件，含 <code>docs/dev/*</code> 与逐系统库技术债档案），但<strong>外部</strong>教程/课程/技术博客无素材证据。</li>
+<li><strong>结论</strong>: 生态仅发育出「社区衍生工具 + Discord 社群 + 逐游戏 bring-up 讨论帖」这一层次，未达 7–8 档（「一定数量的插件和集成」）。按新项目专项，缺失部分标注为「第三方生态尚未发育，不构成负面信号」。</li>
+</ul>
+<h4>D3.4 品牌认知与行业影响力</h4>
+<p><strong>打分: 1.2 / 1.5（7–8 档，80%）</strong></p>
+<ul>
+<li><strong>品牌辨识度</strong>: 77 天 45,393 Star 在 PS5 移植 / 逆向互操作这一垂直领域属于现象级，远超「小圈子内有认知度」（5–6 档）的量级，判为领域内高辨识度。</li>
+<li><strong>行业采用/背书</strong>: <strong>无证据</strong>——无知名企业/项目采用声明，发起方为个人而非知名组织，不适用「发布即具背书」的上浮条款。</li>
+<li><strong>媒体覆盖</strong>: 无技术媒体/会议相关素材证据。</li>
+<li>综合：三项考察点中仅「品牌辨识度」有硬证据支撑，另两项为空缺，故取 <strong>7–8 档下沿（80%）</strong> 而非 9–10 档。按新项目专项，媒体与背书缺位标注为「尚未建立，不构成负面信号」。</li>
+</ul>
+<hr />
+<h4>数据归因</h4>
+<p><strong>数据归因: 时间性归因（太新，created_at 距今 77 天 &lt; 90 天）——但归因为「时间性」而非「低数据」</strong>。本维度不存在低数据问题：Star/Fork/贡献者/PR/Issue 关闭量全部处于高位，无「低数据 → 低质量」的推断链需要拆解。唯一的数据缺口是 Star 近 90 天增量（API 分页上限不可得，非项目真实为 0），已按 30–90 天口径外推并标注不确定性，<strong>未以中性档替代</strong>。无运营性/结构性/质量性负面归因成立：项目无废弃迹象、无 Issue 长期无响应证据、近 90 天 release 与 commit 持续。反之亦无良性归因需要「洗地」——数据本身即正面。</p>
+<h4>生命周期阶段判定</h4>
+<p><strong>🚀 爆发期</strong></p>
+<ul>
+<li>匹配路径（按 3.6 词典优先级）：非 archived/deprecated（排除废弃期）→ 年龄 77 天 &lt; 90 天且近 30 天 commit 12,301、10-20 有新 release（排除死寂期）→ <strong>年龄 &lt; 90 天 且 Star 总量 45,393 ≥ 1000（命中爆发期）</strong>，同时满足 Fork 4,168 ≥ 500 的辅助条件分支。</li>
+<li>交叉印证：与 D3.1 满分、D3.2 高贡献者数一致；D8.4 活动数据侧应表现为极高频维护（本维度不越界判定）。</li>
+<li><strong>商业化含义</strong>: 现象级关注，潜在客户池极速形成；但 77 天 4.5 万 Star 属强外推区间，须警惕「昙花一现」——后续若月增断崖式跌破高速增长阈值，阶段应迁移为平缓/衰退。<strong>GPL-2.0 + 逆向互操作定位（README 明确声明不含版权软件/固件/密钥）意味着社区势能虽强，商业转化受许可与法律边界强约束，D3 高分不等于商业可行性</strong>。</li>
+</ul>
+<hr />
+<h3>D4 商业模式与变现潜力（权重 18%）</h3>
+<p><strong>维度结论：AnyPS5 在技术侧是一个体量惊人的工程（63.6 万行代码、410 名贡献者、45,393 Star），但在商业侧几乎是"零基础设施"状态：无公司实体、无付费分层、无赞助入口、无企业版，且主业（PS5 可执行文件二进制重链接 + 系统 prx 库重实现）本身处于主机厂商法务灰区。GPL-2.0 封锁了闭源衍生与 Open Core 的主流做法，而"文件不离开本机"的纯客户端 Web 转换器又让 SaaS 计费失去抓手。综合判断：变现路径极为狭窄，最高天花板大概率停留在社区捐赠量级。</strong></p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+<th>核心判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D4.1 协议对变现模式的影响</td>
+<td>2</td>
+<td>1.2</td>
+<td>5–6 档（60%）</td>
+<td>GPL-2.0（only），强传染性，闭源衍生与 Open Core 受限</td>
+</tr>
+<tr>
+<td>D4.2 变现路径清晰度</td>
+<td>3.5</td>
+<td>2.1</td>
+<td>5–6 档（60%）</td>
+<td>仅"捐赠/赞助"一条有先例的路径，且不可规模化</td>
+</tr>
+<tr>
+<td>D4.3 付费转化逻辑</td>
+<td>2.5</td>
+<td>0.5</td>
+<td>1–2 档（20%）</td>
+<td>全部功能免费且本地运行，找不到任何强制付费触发点</td>
+</tr>
+<tr>
+<td>D4.4 增值服务空间与定价天花板</td>
+<td>2</td>
+<td>0.4</td>
+<td>1–2 档（20%）</td>
+<td>目标客户为个人玩家/保存主义者，客单价趋近于零</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>4.2</strong></td>
+<td>—</td>
+<td><strong>（得分: 4.2/10）</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>D4.1 协议对变现模式的影响</h3>
+<p><strong>打分: 1.2 / 2（5–6 档，60%）</strong></p>
+<p>硬事实：<code>LICENSE</code> 文件为 GNU GPL <strong>Version 2, June 1991</strong>，README 明确写 "licensed under the GNU General Public License version 2 <strong>only</strong>"（非 "or later"），本地扫描 <code>license: GPL</code>。仓库无任何双协议声明、无 CLA（未见 <code>has_codeowners</code>，也无 CLA 机器人 workflow，16 个 workflow 中仅有标签/构建/发布类，无 CLA 校验）。</p>
+<p>按评分表，GPL 属"显著约束"档：强传染性使得以下路径受限——</p>
+<ul>
+<li><strong>闭源衍生 / Open Core 的企业功能模块</strong>：若企业功能与 <code>core/relinker</code>、<code>core/libs/prx</code> 以链接方式结合，整体须以 GPL 公开；实践中需做进程级隔离（独立可执行文件 + IPC）才勉强可行，工程成本高。</li>
+<li><strong>双协议（Dual License）</strong>：需要 100% 版权集中或完整 CLA。本项目有 <strong>410 名贡献者</strong>，历史提交未做版权转让，做双协议的法律清理成本极高——这实际上是比协议本身更硬的约束。</li>
+<li><strong>SaaS 托管</strong>：GPL-2.0 不含 AGPL 的网络条款，理论上"不分发二进制即可不触发"，托管本身不被禁止；但这反而把变现压力推给了 D4.3（用户无付费理由），而非协议授权。</li>
+</ul>
+<p>未落入 3–4 档（AGPL/SSPL）的原因：GPL-2.0 仍允许收费分发、允许提供有偿服务与支持，也允许作者在自持版权部分做商业授权尝试，只是路径被显著收窄。</p>
+<hr />
+<h3>D4.2 变现路径清晰度</h3>
+<p><strong>打分: 2.1 / 3.5（5–6 档，60%）</strong></p>
+<p>逐模式核查（依据 README、topics、仓库结构）：</p>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>可行性</th>
+<th>依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Open Core</td>
+<td>✗ 低</td>
+<td>GPL-2.0 强传染 + 410 贡献者无 CLA，闭源企业版法律路径不通；且项目本体已是"全功能免费"，无天然的企业专属功能可切</td>
+</tr>
+<tr>
+<td>SaaS 托管</td>
+<td>✗ 低</td>
+<td>已有 <code>boykopovar.github.io/AnyPS5</code> 的 Web converter，且明确标注 "files stay on your device"——纯客户端 WASM 式转换，无服务器成本，也就无"托管收费"的抓手</td>
+</tr>
+<tr>
+<td>双协议许可</td>
+<td>✗ 极低</td>
+<td>版权分散在 410 人手中，无 CLA/无版权集中机制</td>
+</tr>
+<tr>
+<td>专业服务</td>
+<td>△ 理论可行</td>
+<td>PS5 移植的咨询/定制在技术上稀缺，但客户若为正规发行商，其合法路径是 Sony 官方 SDK；若为灰色客户，则服务方承担连带法务风险</td>
+</tr>
+<tr>
+<td>市场/插件</td>
+<td>✗</td>
+<td>无插件体系、无扩展 API、无平台化设计</td>
+</tr>
+<tr>
+<td>认证/生态</td>
+<td>✗</td>
+<td>无认证计划、无商业伙伴体系</td>
+</tr>
+<tr>
+<td>捐赠/赞助</td>
+<td>○ 唯一有先例</td>
+<td>主机模拟/互操作赛道（RPCS3、Dolphin 等）已被证明可通过 Patreon/GitHub Sponsors 获得每年十万至百万美元量级的社区资助；本项目 <strong>45,393 Star / 4,168 Fork / 425 watcher / 410 贡献者</strong>，社区基数足以支撑</td>
+</tr>
+</tbody>
+</table>
+<p>但需注意两点压低评分的事实：其一，README 与主页<strong>未出现任何 Sponsor/Patreon/OpenCollective 链接</strong>，说明捐赠通道尚未搭建；其二，README 的 <code>Disclaimer</code> 段落主动声明"不含版权软件、固件、密钥或专有库"，并提示用户自行承担合法性——这种自我限定恰恰说明作者清楚商业化的法务边界，倾向"研究/保存"定位而非商业产品定位。</p>
+<p>综合：存在 1 条（捐赠）有行业先例但尚未启动的路径，另有 1 条（专业服务）法务风险过高的备选，属于"有潜在路径但尚不清晰，需验证"，落在 5–6 档。</p>
+<hr />
+<h3>D4.3 付费转化逻辑</h3>
+<p><strong>打分: 0.5 / 2.5（1–2 档，20%）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测情况</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>免费→付费触发点</td>
+<td><strong>不存在</strong>。全功能开源可自编译（<code>docs/dev/BUILD.md</code> 提供完整构建指引），发布物 <code>v0.1.0</code>–<code>v0.1.3</code> 直接可下载，Web converter 免登录、免额度、文件不出本机</td>
+</tr>
+<tr>
+<td>付费意愿强度</td>
+<td>极低。目标人群是玩家、保存主义者、逆向爱好者，该群体对"免费 + 开源"有强规范预期；且项目本身处于 GPL 社区文化中</td>
+</tr>
+<tr>
+<td>转化漏斗</td>
+<td>无漏斗。没有账号体系、没有用量计量、没有团队/席位概念、没有闭源服务端组件</td>
+</tr>
+</tbody>
+</table>
+<p>唯一可设想的触发点（如"云 GPU 跑兼容性测试"、"优先适配某款游戏"、"商用授权豁免 GPL"）在当前代码与文档中<strong>均无任何实现或规划痕迹</strong>。按指引"完全找不到付费触发点"应落 1–2 档；给到 20% 而非 0，是因为理论上仍可通过"付费加急适配/付费支持"制造人工触发点，只是完全未验证。</p>
+<hr />
+<h3>D4.4 增值服务空间与定价天花板</h3>
+<p><strong>打分: 0.4 / 2（1–2 档，20%）</strong></p>
+<ul>
+<li><strong>增值空间</strong>：可叠加的增值项极少。合规审计（帮助用户确认所转换二进制的合法性）反而是负资产——它会把项目推向法务对立面；SLA/高可用对本项目无意义（本地 CLI + 静态网页，无服务端）；安全加固、分析报表、监控告警等企业级增值项与"把 PS5 可执行文件转成 Linux/Windows 原生程序"这一核心场景几乎无交集。</li>
+<li><strong>定价天花板</strong>：受 TAM 约束。合法付费客户只有两类：(a) 拥有 PS5 游戏版权、希望做 PC 移植的发行商——他们会用 Sony 官方工具链，不会采购一个 GPL 的重链接器；(b) 个人玩家/保存社区——ARPU 天花板就是个位数到数十美元的捐赠。企业级 $10K+/年 的客单价在本场景中缺乏支付主体。</li>
+<li><strong>收入扩展性</strong>：无 per-seat 基础（工具是单机 CLI），也无 per-usage 计费面（无服务端调用），更无 enterprise flat fee 的采购方。演进路径基本封死。</li>
+<li>唯一可量化的正面信号是工程可信度：<strong>测试代码 323,267 行 / 测试占比 50.8%</strong>、<strong>16 个 CI workflow</strong>、<strong>150 份文档</strong>（含 <code>ARCHITECTURE.md</code>、<code>TechnicalDebt.md</code>、按 libSce* 逐库拆分的债务清单），这提升了"值得捐赠/值得企业赞助（如硬件厂商、云游戏公司做无指向性赞助）"的说服力，但属于捐赠逻辑而非增值服务逻辑。</li>
+</ul>
+<p>按指引"几乎无增值空间"落 1–2 档。</p>
+<hr />
+<h3>关键风险与结论</h3>
+<ol>
+<li><strong>法务风险 &gt; 商业风险</strong>。项目主业是对 Sony 专有系统库（<code>libSceAgc</code>、<code>libSceAudioOut</code>、<code>libSceNgs2</code> 等，见 <code>docs/dev/debt/</code> 逐库清单）的接口重实现与可执行文件重链接。Sony v. Connectix / Sony v. Bleem 的先例为"为实现互操作性进行的逆向工程"提供了一定抗辩空间，但<strong>一旦有商业实体从中直接获利</strong>（收费分发、SaaS 订阅、企业授权），抗辩空间迅速收窄，且会引入"引诱侵权/规避技术保护措施"的额外主张。这是所有变现路径上方的天花板。</li>
+<li><strong>协议与治理结构双重锁死</strong>。GPL-2.0 only + 410 贡献者 + 无 CLA + 无 CODEOWNERS，意味着即便出现商业化机会，也无法快速做版权重组或双协议切换。</li>
+<li><strong>变现基础设施为零</strong>。无 Sponsor 链接、无商业实体、无付费分层、无企业版分支、无定价页。当前状态是"纯社区工程项目"，而非"待商业化的开源产品"。</li>
+<li>相对乐观的一点：45K Star 的社区势能与 410 人的贡献者规模，在主机互操作赛道已被证明可以转化为 Patreon/GitHub Sponsors 量级的社区资助（参照 RPCS3 模式），年收入量级可能达到 <strong>$10K–$500K</strong> 区间——但这是"捐赠"而非"商业模式"，且需要作者主动搭建通道并承担随之上升的法务可见度。</li>
+</ol>
+<p><strong>维度总分：（得分: 4.2/10）</strong> — 变现潜力显著低于开源项目平均水平，核心障碍是"GPL 封锁闭源路径 + 本地零成本架构消除付费抓手 + 法务灰区压制企业客单价"三者叠加。</p>
+<h3>D5. 竞争格局与差异化壁垒（得分: 7.2/10）</h3>
+<h3>D5.1 竞品对比与市场定位（3 分）</h3>
+<p><strong>打分: 2.4 / 3（7–8 档，80%）</strong></p>
+<p>本项目采用「重链接（relink）+ 原生 PRX 系统库实现」路线，直接将被移植可执行文件转换为目标系统原生格式（见 README 原文：<em>"Includes a relinker (core/relinker) that converts executable to the target system's native format and implementations of system prx libraries (core/libs/prx) suitable for dynamic linking. No emulation or separate runtime process."</em>）。这一「非模拟、非运行时」的技术路径在 PS5 兼容层领域具有明确定位，与主流模拟器路线有本质区别。</p>
+<p><strong>防幻觉与验证说明</strong>：本次通过 GitHub Search API 以项目名 <code>AnyPS5</code> 检索，命中 5 个仓库，<strong>全部为本项目的同名 fork/复制品</strong>（星数 0–1，描述与本项目逐字相同），不构成实质竞争；这说明同名生态被本项目垄断，但也意味着<strong>没有同技术路径的直接竞品经本次搜索验证</strong>。真正的间接竞品（模拟器、二进制翻译层）本次未做搜索实测，以下表格中相应项<strong>标注为「转引，未经本次搜索验证」</strong>，可能存在偏差。</p>
+<table>
+<thead>
+<tr>
+<th>竞品名称</th>
+<th>类型</th>
+<th>仓库/官网</th>
+<th>验证方式</th>
+<th>Star/用户量</th>
+<th>核心差异</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>darkneko-id/AnyPS5 等 5 个同名 fork</td>
+<td>直接复制品（非实质竞品）</td>
+<td>github.com/darkneko-id/AnyPS5 等</td>
+<td><strong>已实测</strong>（GitHub Search API 命中，verified=true）</td>
+<td>0–1（总星约 1）</td>
+<td>描述、定位与本项目逐字一致，属 fork/复制，无独立技术路线；反向证明本项目的命名与定位已被生态绑定</td>
+</tr>
+<tr>
+<td>shadPS4</td>
+<td>间接竞品（PS4 模拟器，技术路径不同）</td>
+<td>社区知名 PS4 模拟器</td>
+<td><strong>转引，未经本次搜索验证</strong></td>
+<td>未实测</td>
+<td>采用动态重编译 + 模拟硬件环境，用户需在模拟器里跑游戏；AnyPS5 追求生成原生可执行文件，性能路径不同但目标（PC 上玩 PlayStation 游戏）重叠</td>
+</tr>
+<tr>
+<td>RPCS3</td>
+<td>间接竞品（PS3 模拟器，成熟度标杆）</td>
+<td>社区知名 PS3 模拟器</td>
+<td><strong>转引，未经本次搜索验证</strong></td>
+<td>未实测</td>
+<td>模拟器路线，生态与兼容性数据库成熟；代表「模拟器」这一替代方案对用户心智的占领</td>
+</tr>
+<tr>
+<td>Wine / Proton</td>
+<td>间接竞品（Windows→Linux 兼容层）</td>
+<td>Wine 项目及 Proton 发行版</td>
+<td><strong>转引，未经本次搜索验证</strong></td>
+<td>未实测</td>
+<td>让 Windows 二进制在 Linux 原生运行，理念（兼容层 + 不完整模拟）最接近，但目标平台与玩家场景不同</td>
+</tr>
+<tr>
+<td>FEX-Emu / Box64</td>
+<td>间接竞品（x86 指令二进制翻译层）</td>
+<td>各自开源仓库</td>
+<td><strong>转引，未经本次搜索验证</strong></td>
+<td>未实测</td>
+<td>跨指令集二进制翻译，与 AnyPS5 的「重链接」思路同属「非模拟」阵营，是潜在技术替代路径</td>
+</tr>
+</tbody>
+</table>
+<p><strong>定位判断</strong>：在 PS5 兼容领域，本项目定位高度独特（原生重链接 vs 主流模拟器），差异化鲜明；但用户要解决的底层需求（在 PC 上运行 PS 游戏）存在多个成熟替代方案（模拟器生态），且这些替代方案的用户基数与成熟度显著更高。因此本项目「定位独特但赛道有强替代」，落入 7–8 档。</p>
+<hr />
+<h3>D5.2 技术壁垒与网络效应（3 分）</h3>
+<p><strong>打分: 2.4 / 3（7–8 档，80%）</strong></p>
+<blockquote>
+<p>归属说明：从零复刻的工程量已在 D2.2 计分，本节仅从<strong>商业防御效果</strong>评估。</p>
+</blockquote>
+<p><strong>技术壁垒</strong>：核心壁垒是极其庞大的系统库重新实现工程与领域知识积累，代码侧可见 <code>docs/dev/debt/</code> 下 <strong>80+ 个 <code>libSce*</code>（PS5 系统库）技术债文档</strong>（如 <code>libSceAgc.md</code>、<code>libSceAudioOut.md</code> 等），配合 60 万+ 行 C++ 与自研 SPIR-V shader 重编译器（<code>core/shader/recompiler/Recompiler.cpp</code>）。这类「逐函数重实现平台 SDK 行为」的工作高度依赖逆向工程知识与硬件行为校准（<code>docs/dev/HW_ORACLE.md</code>），后来者难以短期复制，壁垒实质且深厚。</p>
+<p><strong>网络效应</strong>：存在清晰的社区数据飞轮雏形——
+- <strong>410 名贡献者</strong>、90 天 <strong>7331 个 PR</strong>，社区协作密度极高；
+- 每款游戏的兼容性状态以「一游戏一帖」众包（README：<em>"Test reports go in the Game bring-up discussions, one thread per title"</em>）；
+- 第三方社区项目 <code>anyps5-roadmap</code>（<code>github.com/AlxcBTW/anyps5-roadmap</code>）基于公开 GitHub 数据自动生成 blocker map，形成兼容性数据资产的社区沉淀；
+- 项目内 <code>progress.html</code> / <code>history.html</code> 提供库与 shader 覆盖率可视化。</p>
+<p><strong>规模效应</strong>：每新增一个库函数实现，所有依赖该库的游戏同步受益，边际成本递减，具备正反馈。</p>
+<p><strong>短板</strong>：GPL-2.0 全开源且代码完全公开，理论上可被 fork；网络效应尚属「社区协作」层面，距离插件/市场型的强网络效应仍有差距。综合落入 7–8 档。</p>
+<hr />
+<h3>D5.3 切换成本与用户粘性（2 分）</h3>
+<p><strong>打分: 1.2 / 2（5–6 档，60%）</strong></p>
+<p><strong>迁移成本</strong>：面向的终端用户是「想把 PS5 可执行文件跑在 PC 上的玩家」——其切换对象通常是模拟器。切换仅需更换工具重新转换，不涉及业务逻辑重写或大规模数据迁移；配置面仅 <code>anyps5-input.ini</code> 这类轻量输入映射文件（README 提及），迁移门槛低。</p>
+<p><strong>深度集成 / 习惯锁定</strong>：工具为「一次性转换 + 运行」模式，非嵌入用户生产流程的常驻组件，粘性主要来自<strong>特定游戏能否跑通</strong>（per-game 兼容性），而非体系化锁定。对<strong>贡献者/开发者</strong>侧粘性较高（60 万行代码、领域知识、80+ 库债务文档形成的参与门槛），但这不构成终端用户粘性。</p>
+<p>综合：用户侧迁移成本低、可轻易切换到成熟模拟器，但重度玩家对「已成功跑通的游戏 + 已调好的输入配置」存在一定路径依赖，给 5–6 档。</p>
+<hr />
+<h3>D5.4 护城河可持续性（2 分）</h3>
+<p><strong>打分: 1.2 / 2（5–6 档，60%）</strong></p>
+<p><strong>护城河趋势（增强）</strong>：项目处于高速扩张期——30 天 <strong>12301 次提交</strong>、1 个月内连发 v0.1.0→v0.1.3 四个版本、410 贡献者、持续更新的 progress map，说明社区动能与实现覆盖度在快速爬升，护城河当前<strong>在加深</strong>。</p>
+<p><strong>颠覆风险（中高）</strong>：
+1. <strong>法律/合规风险为最大不确定性</strong>——PS5 兼容/逆向类项目历来面临平台方诉讼与下架压力（同类项目有被关停先例），GPL-2.0 与 README 免责声明（<em>"does not include... firmware, cryptographic keys, or proprietary libraries"</em>）显示团队已做合规隔离，但风险不可消除；
+2. <strong>技术变革</strong>：PS5 固件/系统更新可能改变库行为，需持续跟进逆向；
+3. <strong>竞争路线</strong>：成熟模拟器生态（间接竞品，用户心智更强）持续迭代，可能长期压制「原生重链接」路线的用户采纳。</p>
+<p><strong>时间窗口</strong>：技术领先性可维持，但法律与平台演进构成明确的存续性风险，难以判断「短期无颠覆」。综合 5–6 档。</p>
+<hr />
+<h3>数据可信度说明</h3>
+<p>补采数据存在异常信号需提请注意：项目创建于 <code>2026-08-03</code>，至 <code>2026-10-20</code> 仅约 2.5 个月即达 <strong>45,393 star / 4,168 fork / 410 贡献者 / 30 天 12,301 commits</strong>，增速远超典型开源项目，不排除数据统计口径或仓库状态的异常。因此本维度对「网络效应强度 / 护城河增强趋势」的判断置信度<strong>中等</strong>；但技术壁垒（80+ 库债务文档、60 万行代码、自研 SPIR-V 重编译器）与差异化定位（非模拟重链接路线）有仓库内硬证据支撑，结论稳健。竞品对比中仅「同名 fork」经本次实测，<strong>间接竞品均未经本次搜索验证</strong>，D5.1 评分的置信度相应下调。</p>
+<hr />
+<p><strong>维度小结（得分: 7.2/10）</strong>：AnyPS5 以「重链接 + 原生库实现」的独特技术路线在 PS5 兼容领域形成清晰差异化，技术壁垒深厚（海量系统库重实现 + shader 重编译器 + 领域知识），并已孕育社区兼容性数据飞轮；短板在于终端用户切换成本低、存在成熟模拟器替代路线，且面临显著的法律与平台演进颠覆风险，护城河「深但存续性不确定」。</p>
+<h3>D6. 法律合规与知识产权（得分: 6.5/10）</h3>
+<h3>细则打分</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D6.1 开源协议合规性与商业限制</td>
+<td><strong>打分: 1.8 / 3（5–6 档，60%）</strong></td>
+<td>一般</td>
+<td>根目录存在完整 GPL-2.0 LICENSE，GitHub 元数据标注 <code>GPL-2.0</code>，协议明确、无 Commons Clause/BUSL 等商业附加限制。但 GPL-2.0 属强 copyleft，衍生的闭源分发、专有产品集成会触发源码开放义务，传染范围覆盖整个衍生作品。本细则不重复因“GPL 类型本身”扣分，仅就 copyleft 传染范围与合规可管理性评估：需法律审查，但标准协议路径清晰、可管理，落在 5–6 档。</td>
+</tr>
+<tr>
+<td>D6.2 依赖链法律风险</td>
+<td><strong>打分: 2.0 / 2.5（7–8 档，80%）</strong></td>
+<td>良好</td>
+<td>本地扫描未发现 <code>requirements.txt</code>/<code>package.json</code> 等依赖清单（<code>dependencies: {}</code>），但 CONTRIBUTING 披露第三方代码以 <code>3rdparty/</code> 子模块形式内置并从源码构建，点名 SDL2、freetype、Vulkan-Headers、SPIRV-Headers、glslang、SPIRV-Tools。上述常见依赖以 zlib/FTL/Apache/MIT/BSD 类许可为主，未见 AGPL/GPL 强传染依赖的硬证据；依赖数量少、来源为主流项目，整体可控。但缺少完整 SBOM 与传递依赖逐项审计，不能给 9–10 档。</td>
+</tr>
+<tr>
+<td>D6.3 商标与专利风险</td>
+<td><strong>打分: 1.5 / 2.5（5–6 档，60%，未经人工核查，置信度低）</strong></td>
+<td>一般</td>
+<td>未进行商标检索与专利排查，材料中未见商标使用政策。项目名“AnyPS5”包含“PS5”，与索尼商标存在潜在冲突点；且 PS5 可执行文件移植业务可能涉及逆向工程、技术保护措施与平台厂商权利边界，需专业法律意见。按自动化限制规则，无人工核查数据时默认 5–6 档，禁止凭模型记忆断言商标/专利状态。</td>
+</tr>
+<tr>
+<td>D6.4 贡献者协议完备性</td>
+<td><strong>打分: 1.2 / 2（5–6 档，60%）</strong></td>
+<td>一般</td>
+<td>存在详细 CONTRIBUTING.md、PR 模板与严格 CI 贡献流程，贡献规范程度较高；但未发现 CLA、DCO 签署要求或 CODEOWNERS，版权归属未通过贡献者协议集中。贡献者达 410 人、90 天 PR 创建量 7331，版权分散度高，对未来双协议/ relicensing 构成实质障碍。符合“有贡献指南但无正式 CLA”的 5–6 档。</td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<p>AnyPS5 的法律合规画像呈“协议清晰但 copyleft 强约束、贡献流程规范但版权未集中”的特征。GPL-2.0 本身是成熟标准协议，无商业附加条款，法律文本明确；但强 copyleft 使闭源分发、专有产品嵌入等路径不可行，商业化更适配“开源软件 + 支持/服务/托管”模式，而非闭源衍生变现。依赖链以常见宽松许可第三方库为主，风险可控，但缺少 SBOM 和传递依赖审计。商标与专利是本维度最大不确定项：项目名含“PS5”、业务涉及 PS5 可执行文件移植，必须进行人工商标检索、专利 FTO 与平台法律意见，当前评分置信度低。贡献者协议缺位导致版权分散，若未来考虑双协议或更换许可证，需回溯取得 410 名贡献者授权，成本较高。</p>
+<p><strong>维度总分: 6.5/10</strong>（D6.1 1.8 + D6.2 2.0 + D6.3 1.5 + D6.4 1.2）</p>
+<h3>D7. 企业就绪度与可运营性（权重 8%）（得分: 5.3/10）</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th style="text-align: right;">满分</th>
+<th style="text-align: right;">小分</th>
+<th>档位</th>
+<th>核心判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D7.1 运维复杂度与升级路径</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1.8</td>
+<td>5–6 档（60%）</td>
+<td>构建/运行依赖复杂，升级以手动替换为主；缓存有版本化失效机制，但缺迁移/回滚说明</td>
+</tr>
+<tr>
+<td>D7.2 安全管理与权限控制</td>
+<td style="text-align: right;">2.5</td>
+<td style="text-align: right;">1.0</td>
+<td>3–4 档（40%）</td>
+<td>无 SSO/RBAC/审计/安全政策；仅有 guest TLS、输入校验和内存保护</td>
+</tr>
+<tr>
+<td>D7.3 可扩展性与高可用能力</td>
+<td style="text-align: right;">2.5</td>
+<td style="text-align: right;">N/A</td>
+<td>不适用</td>
+<td>单机桌面翻译层，水平扩展/集群/故障转移不适用</td>
+</tr>
+<tr>
+<td>D7.4 集成兼容与可观测性</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1.2</td>
+<td>5–6 档（60%）</td>
+<td>有内部 C ABI 与较强开发者剖析，但无标准外部 API/监控协议/结构化日志</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>维度总分按剩余满分 7.5 折算：4.0 / 7.5 × 10 = <strong>5.3/10</strong>。D7.3 标 N/A 导致整体置信度中等；若强行按“服务化部署”评估，D7.3 约落 3–4 档，总分约 5.0。</p>
+</blockquote>
+<h4>D7.1 运维复杂度与升级路径</h4>
+<p><strong>打分: 1.8 / 3（5–6 档，60%）</strong></p>
+<ul>
+<li><strong>配置管理</strong>：构建侧使用 CMake/Ninja，文档有 <code>docs/dev/BUILD.md</code>、<code>ENVIRONMENT.md</code>、<code>ARCHITECTURE.md</code>；但运行期大量行为由环境变量控制，如 <code>APS5_SINGLE_LANE</code>、<code>APS5_IGNORE_DEPTH_TEST</code>、<code>APS5_TRACE_BDA</code>、<code>ANYPS5_ENABLE_SPIRV_TOOLS</code> 等，缺少统一配置 schema/配置中心。对单机工具可接受，对企业运维不够友好。</li>
+<li><strong>运维负担</strong>：跨 Linux/Windows/macOS，依赖 Vulkan、FFmpeg、mbedTLS、子模块、MinGW/WinLibs、Mesa 驱动等；CI 使用 self-hosted Linux runner、ccache、30 秒测试预算，说明维护成本不低。1002 个开放 issue 也反映支持负担。</li>
+<li><strong>升级路径</strong>：近期为 <code>v0.1.0</code>→<code>v0.1.3</code> 的快速迭代，升级基本是替换二进制/重新构建；未见 CHANGELOG 或迁移说明。<code>ShaderDiskCache.cpp</code> 的 <code>FileHeader</code> 含 magic/format/sourceVersion/key/payload hash/size，缓存不兼容时可拒绝加载，属于“自动失效”而非“自动迁移”。</li>
+<li><strong>数据迁移</strong>：着色器缓存可丢弃，迁移复杂度低；<code>SaveDataCore.hpp</code> 使用宿主文件系统与 <code>param.bin</code>/<code>blocks.bin</code>/别名表，无数据库迁移框架。整体缺回滚与升级验证文档。</li>
+</ul>
+<p>判断：符合“需一定运维投入，升级需手动操作”的 5–6 档，但达不到“升级平滑且支持回滚”的 7–8 档。</p>
+<h4>D7.2 安全管理与权限控制</h4>
+<p><strong>打分: 1.0 / 2.5（3–4 档，40%）</strong></p>
+<ul>
+<li><strong>认证授权</strong>：无 SSO/OAuth/LDAP/SAML，无 RBAC/ABAC。作为单机工具，多用户认证本身不适用；但企业采用仍会关注代码签名、沙箱、漏洞披露与供应链安全，这些均缺失。</li>
+<li><strong>审计日志</strong>：无安全审计体系；仅有 <code>RecordWrittenPath_nid_no_patch</code> 等零散写入路径记录，以及 <code>APS5_TRACE_*</code> 调试追踪，不构成企业审计日志。</li>
+<li><strong>数据安全</strong>：<code>libSceSsl/Export.cpp</code> 基于 mbedTLS 实现 TLS 客户端、证书校验、RNG、CTR-DRBG、释放前 zeroize；<code>GuestMemory.cpp</code>/<code>DirectMemory.cpp</code> 有页保护、guard page、范围/对齐校验；<code>SceTypes.hpp</code> 用 <code>static_assert</code> 校验 ABI 布局。这些是稳健性措施，不是企业级密钥管理/加密存储/主机侧认证。</li>
+<li><strong>安全治理</strong>：无 <code>SECURITY.md</code>、无 <code>CODEOWNERS</code>、无代码签名/沙箱/SBOM 说明；项目需运行不可信 guest 二进制，攻击面较大。</li>
+</ul>
+<p>判断：安全机制存在但薄弱，且缺企业安全治理，落 3–4 档。</p>
+<h4>D7.3 可扩展性与高可用能力</h4>
+<p><strong>打分: N/A / 2.5（不适用）</strong></p>
+<ul>
+<li>该项目是本地桌面/CLI 的 PS5 可执行文件翻译层，不是多实例服务；水平扩展、集群部署、故障转移、分布式一致性不适用。</li>
+<li>单机内部有并发与一致性设计：<code>GuestMemory</code> 的页状态/写监视/代际、<code>VulkanDevice</code> 的多线程与管线缓存、<code>ShaderDiskCache</code> 的并发缓存、<code>Recorder</code>/<code>BufferPool</code> 等；但这些属于单机性能与正确性，不是企业 HA 能力。</li>
+<li>若企业强制服务化，当前形态是单进程、依赖宿主 GPU/Vulkan 驱动，无故障转移，约落 3–4 档。按方法论以 N/A 处理、不计入满分。</li>
+</ul>
+<h4>D7.4 集成兼容与可观测性</h4>
+<p><strong>打分: 1.2 / 2（5–6 档，60%）</strong></p>
+<ul>
+<li><strong>API 完备性</strong>：无公开 REST/gRPC/OpenAPI/protobuf；有面向 PS5 库的 C ABI 导出、内部 C++ 模块接口、Web converter（WASM）。集成面偏“被 guest 二进制调用”，不是企业系统集成 API。</li>
+<li><strong>标准协议</strong>：使用 Vulkan/SPIR-V、SDL、FFmpeg、mbedTLS 等行业标准；但无 OpenTelemetry/Prometheus/Webhook 等运维标准协议。</li>
+<li><strong>监控告警</strong>：开发者可观测性较强，<code>ProfileOutput</code>、<code>PerformanceTrace</code>、<code>reportTextureCounters</code>、<code>reportStorageTraffic</code>、<code>reportTables</code>、缓存 <code>Totals</code> 等提供纹理/存储/表/缓存统计；但无标准 metrics 端点、健康检查或告警集成。</li>
+<li><strong>日志体系</strong>：以 stderr/printf 和環境变量控制的 tracing 为主，未见结构化 JSON 日志与正式日志级别管理；对开发者排障有用，对企业集中日志/审计不足。</li>
+</ul>
+<p>判断：有内部 API 和较强诊断能力，但外部集成与标准可观测性薄弱，落 5–6 档。</p>
+<h4>结论</h4>
+<p>AnyPS5 的工程基础扎实：63.6 万行代码、32.3 万行测试（测试比 50.8%）、16 个 CI workflow、跨 Linux/Windows/macOS 构建、ASAN/ctest/测试选择等实践，说明其持续集成与回归控制高于许多同类开源项目。但企业就绪度仍偏弱：</p>
+<ol>
+<li><strong>可运营性</strong>：构建与运行依赖多、环境变量 sprawl、升级手动、缺 CHANGELOG/迁移/回滚说明；着色器缓存版本化只能做到“失效”，不能做到“平滑迁移”。</li>
+<li><strong>安全治理</strong>：无 SSO/RBAC/审计/<code>SECURITY.md</code>/代码签名/沙箱；仅有 guest TLS、输入校验和内存保护，难以满足企业安全审查。</li>
+<li><strong>可观测性</strong>：内部 profiling 丰富，但缺标准 metrics/健康检查/结构化日志，企业监控体系难以直接接入。</li>
+<li><strong>高可用</strong>：单机工具定位使 HA/水平扩展不适用；若服务化需架构改造。</li>
+</ol>
+<p>因此，该项目当前更适合技术型个人用户、 preservation 社区与小团队，不宜直接作为企业生产级平台采购；企业采用前需补齐安全政策、配置规范、升级迁移文档、标准可观测性与打包/签名流程。另需注意 GPL-2.0 对闭源企业集成的法务审查成本（非 D7 计分项）。</p>
+<h3>D8. 团队治理与可持续性（得分: 5.4/10）</h3>
+<p><strong>维度总览</strong>: 该项目 78 天内积累了 45,393 Star、4,168 Fork、410 名贡献者、近 30 天 12,301 次 commit、90 天 7,331 个 PR，工程活跃度属顶级水平；贡献流程文档（CONTRIBUTING/ARCHITECTURE/CONVENTIONS/TechnicalDebt + 16 个 CI 含 conventions 检查）极为细致，技术维护能力毋庸置疑。但项目托管于个人账户（boykopovar）而非组织/基金会，无 GOVERNANCE.md、无 CODEOWNERS、无任何资金/赞助/商业实体证据，且项目年龄仅约 78 天（&lt; 90 天），按 D8.4 新项目专项处理。<strong>核心结论：组织与可持续性风险是真实存在的（治理形式化缺失 + 资金缺位 + 历史过短），但这属组织风险，不代表技术不行——技术质量归 D2 独立评估，本项目 LOC 636k、测试占比 50.8%、16 CI 的工程事实显示技术成熟度很高。</strong></p>
+<h3>细则打分</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D8.1 核心维护者能力与背景</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8 档（80%）</td>
+<td>技术能力极强（636k LOC / 50.8% 测试 / 16 CI / 详尽技术债与架构文档）；投入度极高（近 30 天 12,301 commits，非业余可比）；巴士因子有正面证据（410 名贡献者，远超单人项目）但托管于个人账户、缺组织化共维护机制；<strong>商业/创业经验无任何证据</strong>（无公司实体、无企业服务背景披露）。技术+投入达标撑起 7–8 档，商业经验缺口为扣分项</td>
+</tr>
+<tr>
+<td>D8.2 治理模型透明度</td>
+<td>2.0</td>
+<td>1.2</td>
+<td>5–6 档（60%）</td>
+<td>流程文档极详尽（CONTRIBUTING 定义 PR 限额、stale 策略、AI 声明、conventions 自动检查、reviewer 硬件验证要求等），决策过程对贡献者较透明；但<strong>无 GOVERNANCE.md、无 CODEOWNERS、非 CNCF/Apache/LF 基金会成员</strong>，顶层决策与领导权更替机制未文档化，决策由核心团队/账户所有者主导</td>
+</tr>
+<tr>
+<td>D8.3 资金支持与商业赞助</td>
+<td>2.5</td>
+<td>1.0</td>
+<td>3–4 档（40%）</td>
+<td>素材中<strong>无 GitHub Sponsors / Open Collective / VC / 公司支持的任何证据</strong>；仓库为个人账户，无商业实体运营；GPL-2.0 + PS5 移植题材本身法律敏感，短期难获机构资金。维护者高度活跃（排除 1–2 档「已不活跃」），故落 3–4 档「几乎无资金、靠热情」</td>
+</tr>
+<tr>
+<td>D8.4 项目可持续性与传承风险</td>
+<td>3.0</td>
+<td>1.2</td>
+<td>3–4 档（40%，新项目专项）</td>
+<td><strong>年龄约 78 天（&lt; 90 天），按新项目专项评估</strong>：① 无 archived/deprecated 标记；② 近 30 天 12,301 commits，极活跃；③ Issue 持续关闭（90 天关闭 781，现存 1,002），响应在运转。三项均无负面信号 → 取新项目底线 4 分档（1.2/3），标注「新项目无历史，可持续性未知，不构成停滞证据」。底线取 4 分档而非 6 分档：78 天历史不足以判断长期传承能力，风险客观存在</td>
+</tr>
+</tbody>
+</table>
+<p><strong>D8.4 一票否决检查</strong>: D8.4 = 1.2/3 &gt; 1，本身不触发否决；且项目年龄 &lt; 90 天、无 archived/deprecated 标记、近 30 天有 commit → 满足 3.3「D8.4 新项目豁免」，报告标注「新项目豁免：无历史不构成停滞证据」。</p>
+<h3>关键发现</h3>
+<ol>
+<li><strong>顶级工程活跃度</strong>: 12,301 commits/30d、410 贡献者、7,331 PR/90d，规模与活跃度远超同阶段开源项目，维护连续性短期无忧。</li>
+<li><strong>治理依附个人账户</strong>: 无组织/基金会、无 GOVERNANCE.md/CODEOWNERS，顶层决策与领导权更替缺乏制度化保障，长传承风险是真实短板。</li>
+<li><strong>零资金信号</strong>: 无 Sponsors/Open Collective/VC/公司实体，纯社区/个人驱动，资金可持续性无从验证。</li>
+<li><strong>新项目时间性归因</strong>: 78 天历史不足以支撑趋势或传承判断，D8.4 按新项目专项取底线 4 分档，属「未知风险」而非「停滞证据」。</li>
+</ol>
+<p><strong>数据归因: 时间性归因：太新（created_at 2026-08-03，年龄约 78 天 &lt; 90 天，治理历史与资金/赞助记录尚未形成）；兼结构性归因：个人账户托管（boykopovar 个人仓库，非组织/基金会），组织集中度风险真实存在——此为组织风险表述，技术质量不受影响（D2 独立评估，工程事实显示技术成熟度高）。</strong></p>
+<h3>D10. 功能价值——使用价值视角（平行维度，权重 0%，不计入综合评分）（得分: 7.8/10）</h3>
+<blockquote>
+<p>本维度只回答「用它的人省了/赚了多少」，不问付费意愿；权重 0，不参与综合评分与一票否决。</p>
+</blockquote>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>打分</th>
+<th>档位</th>
+<th>折算</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10.1</td>
+<td>效用强度</td>
+<td>3</td>
+<td>2.0</td>
+<td>5–6 档</td>
+<td>60%</td>
+</tr>
+<tr>
+<td>D10.2</td>
+<td>实际使用规模</td>
+<td>3</td>
+<td>1.8</td>
+<td>5–6 档</td>
+<td>60%（低置信度）</td>
+</tr>
+<tr>
+<td>D10.3</td>
+<td>免费可得的完整效用</td>
+<td>2</td>
+<td>2.0</td>
+<td>9–10 档</td>
+<td>100%</td>
+</tr>
+<tr>
+<td>D10.4</td>
+<td>效用可持续性</td>
+<td>2</td>
+<td>2.0</td>
+<td>9–10 档</td>
+<td>100%</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td><strong>7.8</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>细则分析</h3>
+<h4>D10.1 效用强度（2.0 / 3，5–6 档，60%）</h4>
+<p><strong>打分: 2.0 / 3（5–6 档，60%）</strong></p>
+<ul>
+<li><strong>替代的是「一整台主机 + 一套商业移植流程」</strong>：项目提供 relinker 把 PS5 可执行文件直接转换为目标系统原生格式，并配套实现 <code>core/libs/prx</code> 下的系统 PRX 库用于动态链接，明确声明「No emulation or separate runtime process」。对终端用户，其理论效用不是分钟级便利，而是「让只能在主机上运行的软件在 PC 上原生运行」这类<strong>能力型效用</strong>，效用层级本身可归入项目级甚至更高。</li>
+<li><strong>但当前兑现有硬上限</strong>：版本仅到 <strong>v0.1.3</strong>（2026-10-20 发布），README 自述「Unsupported or unexpected states strictly throw <code>std::runtime_error</code>……进程终止」，即遇未实现状态是<strong>直接崩溃而非降级</strong>；<code>docs/dev/debt/</code> 下按 <code>libSce*</code> 逐个列出技术债（Acm/Agc/Ajm/Audio/Http/Net/Ngs2 等 100+ 条目），说明系统库覆盖仍在爬坡，且 README 明确「system libraries 百分比只对『已知函数』计算，总数会随声明增长而变」——覆盖率数字本身不代表整机兼容度。社区 blocker map（anyps5-roadmap）按「每游戏一帖」跟踪卡点，说明单游戏打通仍需人工 bring-up。</li>
+<li><strong>效用确定性偏低</strong>：效用高度依赖「该游戏是否恰好落在已实现库/着色器路径内」，属于典型<strong>场景依赖型效用</strong>，不是稳定可预期的产出。</li>
+<li>综合：效用<strong>天花板高、当下兑现有限</strong>，落在「明确但有限的效率提升」档，且存在成熟模拟器方案（不同技术路线、可用性更成熟）作为替代。若后续 PRX 覆盖率与 Vulkan/着色器重编译成熟度提升，本项具备向 7–8 档上移的空间。</li>
+</ul>
+<h4>D10.2 实际使用规模（1.8 / 3，5–6 档，60%，低置信度）</h4>
+<p><strong>打分: 1.8 / 3（5–6 档，60%）</strong></p>
+<ul>
+<li><strong>关键口径数据缺失</strong>：Dependents（Used by）计数未采集，npm/pypi 下载量对本项目不适用（实采返回 N/A），无 GitHub Release 下载计数。也就是说，方法论要求的「依赖方数量 / 下载量」两项硬指标均为 <strong>N/A</strong>，本项无法按标准口径确证。</li>
+<li><strong>可用的替代证据（实采）</strong>：Stars <strong>45,393</strong>、Forks <strong>4,168</strong>、Contributors <strong>410</strong>、开放 Issue <strong>1,002</strong>、90 天关闭 Issue <strong>781</strong>、90 天新建 PR <strong>7,331</strong>、30 天提交 <strong>12,301</strong>；README 链出第三方社区项目 anyps5-roadmap（按游戏跟踪卡点）与 Discord、以及「Game bring-up」讨论区「一游戏一帖」的实测报告机制。Forks 4k+ 与千级 Issue 流量表明存在<strong>大量动手试用（克隆/构建/跑游戏）行为</strong>，而非纯围观。</li>
+<li><strong>不宜高估的理由</strong>：① 项目年龄仅 <strong>78 天（&lt; 90 天）</strong>，使用规模本处形成期；② Star 增长曲线（78 天 45k）与 PR/commit 量级（90 天 7.3k PR、月 1.2 万提交）显著偏高，参与侧信号可能被大规模自动化/代理式贡献放大，<strong>贡献侧热度 ≠ 终端用户留存量</strong>；③ 无任何「生产/日常可用」的用户案例清单，兼容性进度显示多数游戏仍有 blocker。因此按 5–6 档（千级–万级试用规模）给分并下调置信度，未按 Star 数直接映射到 9–10 档。</li>
+<li><strong>数据归因</strong>：时间性归因（太新，创建 78 天）+ 结构性归因（工具型低依赖计数——终端用户工具，Dependents/包下载量天然不构成有效口径）。<strong>归因证据充分（created_at、License/部署形态、无包管理分发），且不存在质量性负面证据（Issue 90 天关闭 781、PR 活跃处理、无维护中断迹象），故「使用规模数据缺失/偏低」不构成质量负面信号。</strong></li>
+</ul>
+<h4>D10.3 免费可得的完整效用（2.0 / 2，9–10 档，100%）</h4>
+<p><strong>打分: 2.0 / 2（9–10 档，100%）</strong></p>
+<ul>
+<li><strong>无任何付费墙</strong>：仓库为 GPL-2.0 only，全部能力（relinker、PRX 库实现、着色器重编译器 <code>core/shader/recompiler</code>）均在开源树内，无企业版/云服务分层，无「不付费即不可用」设计。</li>
+<li><strong>自托管即完整效用</strong>：relinker-only 构建可在 macOS（含 Apple Silicon）本地跑；<code>docs/dev/BUILD.md</code> + 16 个 CI workflow（含 build/release）支撑自建；Web converter 明确「files stay on your device」——即官方托管形态也是<strong>纯客户端</strong>，与自建等价。</li>
+<li><strong>唯一「非免费」要素不是本项目设置的</strong>：用户需自备合法取得的 PS5 二进制，README 免责声明明确不包含/不要求版权软件、固件、密钥；这属于上游素材约束，非项目功能阉割。</li>
+<li>与 D4.3 的对照值得写入结论：本项目 D10.3 接近满分，正对应「交换价值近乎为零」的形态——使用价值几乎全部免费外溢，商业转化路径需另寻（服务/支持/托管/周边），属正常张力而非缺陷。</li>
+</ul>
+<h4>D10.4 效用可持续性（2.0 / 2，9–10 档，100%）</h4>
+<p><strong>打分: 2.0 / 2（9–10 档，100%）</strong></p>
+<ul>
+<li><strong>完全本地化</strong>：核心是本地 relinker + 本地动态库 + 本地 SPIR-V 重编译，无官方云服务、无账号体系、无在线激活；唯一「在线物」是纯客户端 Web converter 与进度徽章（静态页），不构成运行时外部依赖。</li>
+<li><strong>停维后效用不全归零</strong>：对已能跑通的游戏，产出的是本地原生二进制与库，停维后仍可继续运行；受损的是「未覆盖游戏的兼容性增量」，属效用「停止增长」而非「立即归零」。</li>
+<li><strong>可分叉维护性强</strong>：GPL-2.0 允许自由分叉；代码完整（636,405 行，含 3,232,67 行测试、test_ratio 0.508）、有 ARCHITECTURE/CONVENTIONS/ENVIRONMENT/BUILD 等开发文档与 16 条 CI，构建路径有文档化说明；410 名贡献者 + 活跃 PR 流意味着人力池可迁移。扣分空间仅在于 3rdparty 子模块（如 SPIRV-Tools）与 Vulkan 驱动/GPU 覆盖带来的环境敏感性，属「少量可替换外部依赖」。</li>
+</ul>
+<h3>结论</h3>
+<ul>
+<li><strong>价值画像</strong>：典型的「<strong>使用价值极高、商业价值外溢</strong>」型项目位于谱系上靠前端——效用免费且完整（D10.3/D10.4 满分），效用天花板达「能力型/基础设施级」，但当下兑现受 PRX 覆盖率与崩溃式失败策略限制（D10.1 中档），使用规模尚处 78 天的形成期且缺可量化口径（D10.2 中档、低置信度）。</li>
+<li><strong>一句话判读</strong>：这是「<strong>给用户省一台主机钱和一套移植工程量</strong>」的工具，免费可得分项拉满；其真正短板不在「值不值」，而在「<strong>现在能跑通多少款</strong>」——门槛是覆盖率工程与 bring-up 人力，而非定价或授权结构。</li>
+<li><strong>对商业化的含义（不改变本维度权重）</strong>：D10.3/D10.4 接近满分与 D4.3 付费转化天然反相关，任何变现设计都必须避开「阉割开源功能」路线，否则直接摧毁本维度的核心优势。</li>
+<li><strong>数据归因</strong>：时间性归因（太新，78 天，使用规模尚未形成）+ 结构性归因（工具型低依赖计数，Dependents/包下载量不足以度量终端用户工具）；无质量性负面证据，低使用规模不构成质量负面信号。置信度：中（D10.2 因缺 Dependents/下载量实采，标注低置信度）。</li>
+</ul>
+<h3>D11. 社会价值——正外部性视角（平行维度，权重 0%，不计入综合评分）（得分: 7.4/10）</h3>
+<blockquote>
+<p>本维度为平行维度：权重 0，不进入综合评分、不参与一票否决，仅用于 3.4 价值画像。以下评分反映「项目对使用者之外的行业与社会」的外溢贡献，而非其商业变现能力。</p>
+</blockquote>
+<h3>项目外溢属性速览</h3>
+<p>AnyPS5 是一个把 PS5 可执行文件重链接（relinker）为 Linux/Windows 原生格式、并实现 <code>core/libs/prx</code> 系统库以支持动态链接的移植工具（无模拟器、无独立运行时进程），并以 GPL-2.0 完全开源。项目自述定位为「interoperability, research, preservation, and compatibility」。社区规模异常庞大：45,393 Star / 4,168 Fork / 410 contributors / 90 天 7,331 PR / 30 天 12,301 commit，636,405 行代码、1,444 个测试文件（测试占比 50.8%）、16 条 CI 工作流、150 份文档（含 <code>docs/dev/ARCHITECTURE.md</code>、<code>CONVENTIONS.md</code>、<code>TRACING.md</code>、<code>TechnicalDebt.md</code> 及 80+ 份按系统库拆分的债务文档），并提供纯前端「文件不出设备」的 Web 转换器。这些硬事实构成本维度评分的主要依据。</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D11.1</td>
+<td>数字公共基础设施属性</td>
+<td>3</td>
+<td>1.8</td>
+<td>5–6 档（60%）</td>
+</tr>
+<tr>
+<td>D11.2</td>
+<td>教育与人才价值</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8 档（80%）</td>
+</tr>
+<tr>
+<td>D11.3</td>
+<td>普惠与可及性</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8 档（80%）</td>
+</tr>
+<tr>
+<td>D11.4</td>
+<td>开放标准与行业推动</td>
+<td>2</td>
+<td>1.6</td>
+<td>7–8 档（80%）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td><strong>7.4</strong></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<h3>D11.1 数字公共基础设施属性</h3>
+<p><strong>打分: 1.8 / 3（5–6 档，60%）</strong></p>
+<ul>
+<li><strong>关键依赖地位（弱）</strong>：AnyPS5 是终端用户面向的<strong>应用型工具</strong>，不是被下游软件库引用的底层依赖。本地 <code>dependencies</code> 为空，Topics 与 README 均无「被其他项目链接/嵌入」的迹象；对照 curl/OpenSSL 式「数字底座」，它不具备供应链级被依赖地位。GitHub Search 竞品清单显示的是 0–1 Star 的<strong>同名复刻/派生仓库</strong>而非下游消费者，进一步说明其生态位是「独立工具」而非「被依赖的公共库」。</li>
+<li><strong>停摆影响面（小）</strong>：假设项目消失，不会有软件供应链断裂，损失集中于「PS5 游戏移植/保存」这一细分实践的可选路径之一；社区路线图（anyps5-roadmap）与 Discord/讨论区会失去枢纽，但不波及通用软件生产。</li>
+<li><strong>数字公共产品属性（较强）</strong>：GPL-2.0 强制开源回馈、无专有依赖、明确声明不含版权软件/固件/密钥、Web 转换器「文件留在本机」的设计对隐私友好，这些符合 DPG 的「开放、可复用、服务公共利益」特征；README 的 preservation/interoperability 定位亦属典型公共品叙事。</li>
+<li><strong>净判断</strong>：公共品「性质」达标但「基础设施地位」不达标（无下游依赖、无供应链停摆面），故落在 5–6 档而非 7–8 档。</li>
+</ul>
+<h3>D11.2 教育与人才价值</h3>
+<p><strong>打分: 2.0 / 2.5（7–8 档，80%）</strong></p>
+<ul>
+<li><strong>源码学习价值（强）</strong>：636,405 行 C++ 工程配 1,444 个测试文件（测试:源码 ≈ 50.8%）、16 条 CI（含 <code>conventions.yml</code>、<code>pr-intake.yml</code>、<code>pr-overlap.yml</code>、<code>web-tests.yml</code>），并有 <code>AGENTS.md</code>、<code>CONTRIBUTING.md</code>、<code>docs/dev/CONVENTIONS.md</code>、<code>ARCHITECTURE.md</code>、<code>TRACING.md</code>、<code>TechnicalDebt.md</code> 与 80+ 份按 <code>libSce*</code> 拆分的债务文档——这是一份罕见的「大型逆向/重链接工程如何组织」的公开范本，对二进制重链接、动态库 ABI 复刻、SPIR-V 重编译等方向具备直接借鉴价值。</li>
+<li><strong>门槛降低效应（强）</strong>：410 位 contributor、90 天 7,331 个 PR、30 天 12,301 次提交，说明该项目实际充当了<strong>大量新人进入该领域的实训场</strong>；<code>docs/user/USAGE.md</code>＋<code>INPUT_MAPPING.md</code>＋分游戏 bring-up 讨论区（一标题一线程）构成完整的上手路径。</li>
+<li><strong>教学采用（证据不足，扣分项）</strong>：未见任何高校课程/教材/awesome 列表采用证据，也无 Issue 学习者提问占比数据，因此不足以进入 9–10 档「事实上的行业教材」。</li>
+<li><strong>净判断</strong>：工程范本与人才漏斗效应明确，教学制度化证据缺失 → 7–8 档。</li>
+</ul>
+<h3>D11.3 普惠与可及性</h3>
+<p><strong>打分: 2.0 / 2.5（7–8 档，80%）</strong></p>
+<ul>
+<li><strong>能力平权化（强）</strong>：把「主机独占二进制在 PC 原生运行」这一原本需要官方移植（成本极高、多数作品永无移植）或自制模拟器团队级投入的能力，以 GPL-2.0 零成本开放给个人与中小团队；Web 转换器免安装、纯本地处理，进一步压低使用门槛。</li>
+<li><strong>替代价格差（显著）</strong>：对照项并非同类商业软件（无同类商业产品可对标，属空白市场），而是「购买主机硬件」或「等待官方移植」；差额在数量级上极大。此为定性判断，无付费竞品价格可引用。</li>
+<li><strong>可及性支持（中等）</strong>：控制器经 SDL 映射、键鼠可经 <code>anyps5-input.ini</code> 配置，输入侧可及性有工程保障；但<strong>未见多语言文档/i18n 证据</strong>（文档全英文、无 locale 相关目录），亦未提供无障碍（a11y）专项说明；硬件侧要求运行现代 Vulkan 环境的 PC，低配设备无法受益。README 中的法律免责声明（用户自行确保合法性）也意味着「普惠」在现实中受法律风险约束，并非对所有人群等效可用。</li>
+<li><strong>净判断</strong>：平权幅度大但语言/硬件/法律三重限制仍在 → 7–8 档。</li>
+</ul>
+<h3>D11.4 开放标准与行业推动</h3>
+<p><strong>打分: 1.6 / 2（7–8 档，80%）</strong></p>
+<ul>
+<li><strong>标准推动（强）</strong>：核心链路建立在<strong>开放标准</strong>之上——着色器重编译器输出 SPIR-V（可选经 SPIRV-Tools 校验），图形栈走 Vulkan（<code>spir-v</code>、<code>vulkan</code> 为官方 Topics），重链接产物为目标系统原生格式（无私有容器、无强制运行时）。这在事实上对抗平台厂商锁定，并把「主机二进制 → 开放图形栈」的路径标准化。</li>
+<li><strong>行业示范效应（中强）</strong>：<code>TechnicalDebt.md</code> + 分库债务文档 + 严格的「不支持状态一律抛 <code>std::runtime_error</code> 并终止」失败语义，是一种可被同行复制的工程治理范式；社区第三方路线图（anyps5-roadmap 由公开 GitHub 数据构建）说明其产出已成为他人二次公共品的数据源。</li>
+<li><strong>科研支撑（无数据）</strong>：未见学术引用/论文使用证据，该考察点以 N/A 处理，不据此扣分，但也不加分；因此不足以进入 9–10 档「定义或主导行业标准」。</li>
+<li><strong>净判断</strong>：实现并推广了重要开放标准且有示范效应，但非标准的制定者 → 7–8 档。</li>
+</ul>
+<h3>结论</h3>
+<p>AnyPS5 的正外部性呈「<strong>强公共品性质、弱基础设施地位</strong>」的形态：它不以库的形式被下游依赖（D11.1 因此受限），但在教育范本（D11.2）、零成本平权（D11.3）与开放标准实践（D11.4）三项上明显高于行业中位，综合 <strong>7.4/10</strong>。其外溢价值的最主要放大器是「410 位贡献者 + 高密度 CI/文档 + 客户端侧 Web 工具」这一组合，最主要内容约束是<strong>法律灰区</strong>（依赖用户自备合法二进制）与<strong>英语单语、Vulkan 硬性要求</strong>造成的可及性天花板。</p>
+<p><strong>置信度说明</strong>：中。Dependents 计数、学术引用、i18n/a11y 专项证据、竞品定价均不可得（标 N/A 或定性处理）；D11.1 的档位判断在「无下游依赖」这一单一强事实上确定，若后续取得 Dependents 或高校课程采用证据，D11.1/D11.2 各有 ±1 档的上行空间。</p>
+<h2>五、商业化价值判断</h2>
+<h3>5.1 核心商业价值</h3>
+<ul>
+<li><strong>项目最大的商业价值在于</strong>：一套已工程化的「PS5 可执行文件 → 目标平台原生格式」重编译重链接技术栈，以及围绕它形成的 410 人贡献者社区。其 RDNA 指令解码→IR→多轮优化→SPIR-V 发射的完整管线、ELF 重链接与 AGC 寄存器→Vulkan 状态解码，构成极高的复刻门槛（D2 得分 7.7/10，为九维最高）。</li>
+<li><strong>价值验证依据</strong>：</li>
+<li>需求侧规模：45,393 Star、4,168 Fork、90 天 7,331 个 PR、近 30 天 12,301 次提交（D3 8.0/10）。</li>
+<li>工程可信度：636,405 行代码 / 3,010 个源文件 / 323,267 行测试（50.8%）/ 16 条 CI 工作流 / 150 份文档（D2）。</li>
+<li>竞争位形：GitHub Search API 实测命中 5 个同名仓库，均为本项目 fork/复制，最高 1 星，同技术路径直接竞品缺席（D5）。</li>
+<li><strong>反向验证</strong>：D4 明确「同类主机运行工具几乎全部依靠捐赠，未形成按份付费市场」，即用户规模大不等于付费市场大。</li>
+</ul>
+<h3>5.2 价值量化判断</h3>
+<ul>
+<li><strong>潜在市场规模估算</strong>：本次无外部检索可用，D1.1 为量级估算、置信度低，故本报告不给出具体市场规模数值。可引用的定性事实是「替代品充沛（PS5 硬件、PS Plus 云串流/Remote Play、索尼第一方官方 PC 移植、同期模拟器路线）」以及「同类工具几乎全部依靠捐赠」（D1）。</li>
+<li><strong>可触达市场估算</strong>：在同等口径下不可得。可确认的结构性事实是付费触发点计数为 0——赞助入口 0 个、付费分层 0 个、企业版 0 个；Web converter 为纯客户端实现（README 明示 files stay on your device），无服务端成本也就无 SaaS 计费抓手（D4）。</li>
+<li><strong>商业化时间窗口</strong>：当前不具备收费交付条件。版本 v0.1.3（2026-10-20，距首个版本 v0.1.0 仅 22 天），PendingExports 与多库 Export 仍为大面积 NotImplemented 桩，docs/dev/debt 下约 100 篇逐库债务文档即未闭环清单，库覆盖率仅按「已声明函数」比例公布（D2/D1）。收费窗口的开启前提是覆盖率从「逐游戏攻坚」转为「批量可用」，该时点在现有素材中无法给出。</li>
+</ul>
+<h3>5.3 价值画像（商业 × 功能 × 社会）</h3>
+<ul>
+<li><strong>功能价值 D10</strong>：7.8/10，<strong>社会价值 D11</strong>：7.4/10，<strong>公共价值分</strong>：7.6/10</li>
+<li><strong>画像判定</strong>：🏛️ <strong>公共产品型</strong>（综合评分 59.5 &lt; 65，公共价值分 7.6 ≥ 7；综合评分未落入 60–70 临界区间，公共价值分未落入 6.5–7.5 临界区间，无需标注画像临界）</li>
+<li><strong>画像解读</strong>：</li>
+<li><strong>为什么是这一类</strong>：开源版即全部价值——GPL-2.0 only、无企业版分层、无付费墙，relinker 与 Web converter 均本地/客户端运行，用户无需为任何能力付费（D10.3 项 2.0/2.0，即 9–10 档）；同时项目不构成 curl/OpenSSL 式的供应链级下游依赖（本地依赖清单为 0，D11.1 项 1.8/2.0 被压在 5–6 档），呈「强公共品性质、弱基础设施地位」形态。</li>
+<li><strong>对第六章路径的修正方向</strong>：按方法论 3.4，公共产品型不建议直接变现，应走「影响力变现」——赞助 / 基金会托管 / 大厂雇佣维护者 / 围绕生态做服务与培训。需特别注意 D10.3 满分与 D4.3（付费转化）天然反相关：任何功能阉割式付费路线都会直接摧毁本维度的核心优势。</li>
+</ul>
+<h2>六、商业路径分析</h2>
+<h3>6.1 推荐商业路径（最优路径）</h3>
+<ul>
+<li>**模式</li>
+</ul>
+<h2>十二、项目地址</h2>
+<p><svg class="ri ri-muted" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.001 2C6.47598 2 2.00098 6.475 2.00098 12C2.00098 16.425 4.86348 20.1625 8.83848 21.4875C9.33848 21.575 9.52598 21.275 9.52598 21.0125C9.52598 20.775 9.51348 19.9875 9.51348 19.15C7.00098 19.6125 6.35098 18.5375 6.15098 17.975C6.03848 17.6875 5.55098 16.8 5.12598 16.5625C4.77598 16.375 4.27598 15.9125 5.11348 15.9C5.90098 15.8875 6.46348 16.625 6.65098 16.925C7.55098 18.4375 8.98848 18.0125 9.56348 17.75C9.65098 17.1 9.91348 16.6625 10.201 16.4125C7.97598 16.1625 5.65098 15.3 5.65098 11.475C5.65098 10.3875 6.03848 9.4875 6.67598 8.7875C6.57598 8.5375 6.22598 7.5125 6.77598 6.1375C6.77598 6.1375 7.61348 5.875 9.52598 7.1625C10.326 6.9375 11.176 6.825 12.026 6.825C12.876 6.825 13.726 6.9375 14.526 7.1625C16.4385 5.8625 17.276 6.1375 17.276 6.1375C17.826 7.5125 17.476 8.5375 17.376 8.7875C18.0135 9.4875 18.401 10.375 18.401 11.475C18.401 15.3125 16.0635 16.1625 13.8385 16.4125C14.201 16.725 14.5135 17.325 14.5135 18.2625C14.5135 19.6 14.501 20.675 14.501 21.0125C14.501 21.275 14.6885 21.5875 15.1885 21.4875C19.259 20.1133 21.9999 16.2963 22.001 12C22.001 6.475 17.526 2 12.001 2Z"/></svg> <a href="https://github.com/boykopovar/AnyPS5">https://github.com/boykopovar/AnyPS5</a></p>
+<hr />
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+</blockquote>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家　<a href="https://github.com/weixiongf" target="_blank" rel="noopener">@冯伟雄</a>　<a href="https://www.mova.work">www.mova.work</a></p>
+<p><strong>查看所有报告：</strong><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/">https://weixiongf.github.io/Open-Source-Alpha-Reports/</a></p><div class="page-footer">本页面由 <span class="at-acc">@向量之心</span> 打造的 github_anyliasis 系统自动维护。报告为 AI 辅助生成的第三方独立分析，仅供研究参考，不构成投资建议。</div></body></html>

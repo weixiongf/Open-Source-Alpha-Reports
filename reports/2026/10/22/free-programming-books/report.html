@@ -1,0 +1,1553 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><title>Free-programming-books 商业价值分析报告</title><style>/* default — 品牌蓝紫主题（从 md2pdf.py 原 CSS 常量迁出，视觉与历史产物一致） */
+@page { size: A4; margin: 18mm 15mm 20mm 15mm; }
+* { box-sizing: border-box; }
+/* 字体规范：西文/数字优先系统 UI 字体（数字收敛、观感现代），汉字回落开源思源黑体 CN / Noto Sans SC（OFL 免费商用）；正文 Regular/标题 Bold/大字数字 Light；tabular-nums 保证表格数字列对齐 */
+body { font-family:"Segoe UI","Helvetica Neue",Arial,"Source Han Sans CN","思源黑体 CN","Noto Sans SC",sans-serif; color:#1e293b; font-size:10.5pt; line-height:1.75; margin:0; font-variant-numeric:tabular-nums; }
+.cover { page-break-after: always; text-align:center; padding-top:40px; }
+.cover .kicker { color:#2563eb; letter-spacing:6px; font-size:12pt; font-weight:500; }
+.cover h1 { font-size:26pt; margin:14px 0 6px; }
+.cover .sub { color:#64748b; font-size:11pt; margin-bottom:22px; }
+.badge { display:inline-block; background:linear-gradient(135deg,#2563eb,#7c3aed); color:#fff; border-radius:18px; padding:16px 44px; margin:10px 0 18px; }
+.badge .g { font-size:34pt; font-weight:300; line-height:1; }
+.badge .s { font-size:12pt; opacity:.92; margin-top:4px; }
+.meta { color:#475569; font-size:9.5pt; margin-top:14px; margin-bottom:40px; }
+.bars { max-width:620px; margin:20px auto 0; text-align:left; }
+.bar-row { display:flex; align-items:center; gap:8px; margin:5px 0; font-size:9pt; }
+.bar-name { width:110px; text-align:right; color:#334155; font-weight:500; }
+.bar-track { flex:1; height:9px; background:#f1f5f9; border-radius:5px; overflow:hidden; }
+.bar-fill { display:block; height:100%; border-radius:5px; }
+.bar-val { width:30px; font-weight:700; color:#0f172a; }
+.bar-w { width:52px; color:#94a3b8; font-size:8pt; }
+h1 { font-size:17pt; color:#0f172a; border-bottom:3px solid #2563eb; padding-bottom:8px; }
+h2 { font-size:13.5pt; color:#1d4ed8; margin-top:26px; page-break-after: avoid; border-left:5px solid #2563eb; padding-left:10px; }
+h3 { font-size:11.5pt; color:#0f172a; margin-top:18px; page-break-after: avoid; }
+table { border-collapse:collapse; width:100%; margin:10px 0; font-size:9pt; font-variant-numeric:tabular-nums; }
+thead { display:table-header-group; } /* 打印/PDF 长表跨页时表头每页重复 */
+tr { page-break-inside:avoid; } /* 行内不断开；长表整体允许跨页，避免整表被推到下一页留大块空白 */
+th { background:#eff6ff; color:#1e3a8a; }
+th,td { border:1px solid #dbe3ef; padding:5px 8px; text-align:left; }
+tr:nth-child(even) td { background:#f8fafc; }
+code { background:#f1f5f9; border-radius:4px; padding:1px 5px; font-family:"JetBrains Mono","Cascadia Mono",monospace; font-size:9pt; color:#be185d; }
+pre { background:#0f172a; color:#e2e8f0; border-radius:8px; padding:12px 14px; overflow-x:auto; page-break-inside:avoid; }
+pre code { background:none; color:inherit; padding:0; }
+blockquote { border-left:4px solid #93c5fd; background:#eff6ff; margin:10px 0; padding:8px 14px; color:#334155; border-radius:0 8px 8px 0; }
+hr { border:none; border-top:1px dashed #cbd5e1; margin:22px 0; }
+strong { color:#0f172a; }
+.credit { color:#2563eb; font-size:10.5pt; font-weight:700; letter-spacing:1px; margin-top:12px; }
+.at-acc { background:#dbeafe; color:#1d4ed8; border-radius:4px; padding:0 4px; font-weight:500; white-space:nowrap; }
+.tail { page-break-inside:avoid; margin-top:26px; border-top:2px solid #2563eb; padding-top:14px; }
+.tail p { color:#64748b; font-size:8.5pt; line-height:1.6; margin:0 0 10px; }
+.tail .credit { text-align:center; margin:0; }
+.page-footer { text-align:center; color:#94a3b8; font-size:8.5pt; line-height:1.6; margin-top:28px; padding-top:12px; border-top:1px solid #e2e8f0; }
+/* Remix Icon 内联 SVG（icon_mode=remix 时由脚本注入，语义色与评分条一致） */
+.ri { width:1.05em; height:1.05em; vertical-align:-0.18em; display:inline-block; }
+.ri-ok { color:#16a34a; } .ri-warn { color:#d97706; } .ri-bad { color:#dc2626; }
+.ri-muted { color:#64748b; } .ri-star { color:#f59e0b; } .ri-brand { color:#2563eb; }
+.ri-gold { color:#d4a017; } .ri-silver { color:#9ca3af; } .ri-bronze { color:#b45309; }
+/* 屏幕预览：@page 边距仅在打印时生效，浏览器中居中限宽并收边（不影响 PDF 输出） */
+@media screen {
+  body { margin: 0 auto; padding: 28px 36px 56px; max-width: 980px; }
+}
+</style></head><body><div class="cover">
+<div class="kicker">开源项目商业化潜力分析 · 第 136 期</div>
+<h1>GitHub 开源项目 Free-programming-books<br>商业价值分析报告</h1>
+<div class="sub">EbookFoundation/free-programming-books · 免费编程书索引 · 九维度加权评估</div>
+<div class="badge"><div class="g">A 级 · 65.8</div><div class="s">综合评分（满分 100）· 高商业化潜力</div></div>
+<div><svg viewBox="0 0 560 480" width="560" height="480" xmlns="http://www.w3.org/2000/svg"><polygon points="280.0,209.6 299.5,216.7 309.9,234.7 306.3,255.2 290.4,268.6 269.6,268.6 253.7,255.2 250.1,234.7 260.5,216.7" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,179.2 319.1,193.4 339.9,229.4 332.7,270.4 300.8,297.1 259.2,297.1 227.3,270.4 220.1,229.4 240.9,193.4" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,148.8 338.6,170.1 369.8,224.2 359.0,285.6 311.2,325.7 248.8,325.7 201.0,285.6 190.2,224.2 221.4,170.1" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,118.4 358.2,146.8 399.8,218.9 385.3,300.8 321.6,354.3 238.4,354.3 174.7,300.8 160.2,218.9 201.8,146.8" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,88.0 377.7,123.6 429.7,213.6 411.6,316.0 332.0,382.8 228.0,382.8 148.4,316.0 130.3,213.6 182.3,123.6" fill="none" stroke="#e2e8f0" stroke-width="1"/><line x1="280.0" y1="240.0" x2="280.0" y2="88.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="377.7" y2="123.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="429.7" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="411.6" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="332.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="228.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="148.4" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="130.3" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="182.3" y2="123.6" stroke="#d8dee9" stroke-width="1"/><polygon points="280.0,148.8 347.4,159.7 404.2,218.1 331.3,269.6 310.2,322.8 240.5,348.6 207.6,281.8 151.3,217.3 187.2,129.4" fill="rgba(37,99,235,.22)" stroke="#2563eb" stroke-width="2.5"/><circle cx="280.0" cy="148.8" r="3.5" fill="#2563eb"/><circle cx="347.4" cy="159.7" r="3.5" fill="#2563eb"/><circle cx="404.2" cy="218.1" r="3.5" fill="#2563eb"/><circle cx="331.3" cy="269.6" r="3.5" fill="#2563eb"/><circle cx="310.2" cy="322.8" r="3.5" fill="#2563eb"/><circle cx="240.5" cy="348.6" r="3.5" fill="#2563eb"/><circle cx="207.6" cy="281.8" r="3.5" fill="#2563eb"/><circle cx="151.3" cy="217.3" r="3.5" fill="#2563eb"/><circle cx="187.2" cy="129.4" r="3.5" fill="#2563eb"/><text x="280.0" y="44.0" text-anchor="middle" font-size="12.5" fill="#334155" font-weight="600">D1</text><text x="280.0" y="58.0" text-anchor="middle" font-size="11" fill="#64748b">市场需求 6.0</text><text x="406.0" y="89.9" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D2</text><text x="406.0" y="103.9" text-anchor="start" font-size="11" fill="#64748b">技术成熟度 6.9</text><text x="473.0" y="206.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D3</text><text x="473.0" y="220.0" text-anchor="start" font-size="11" fill="#64748b">社区生态 8.3</text><text x="449.7" y="338.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D4</text><text x="449.7" y="352.0" text-anchor="start" font-size="11" fill="#64748b">变现潜力 3.9</text><text x="347.0" y="424.2" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D5</text><text x="347.0" y="438.2" text-anchor="start" font-size="11" fill="#64748b">竞争格局 5.8</text><text x="213.0" y="424.2" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D6</text><text x="213.0" y="438.2" text-anchor="end" font-size="11" fill="#64748b">法律合规 7.6</text><text x="110.3" y="338.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D7</text><text x="110.3" y="352.0" text-anchor="end" font-size="11" fill="#64748b">企业就绪 5.5</text><text x="87.0" y="206.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D8</text><text x="87.0" y="220.0" text-anchor="end" font-size="11" fill="#64748b">团队治理 8.6</text><text x="154.0" y="89.9" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D9</text><text x="154.0" y="103.9" text-anchor="end" font-size="11" fill="#64748b">上手难度 9.5</text></svg></div>
+<div class="bars"><div class="bar-row"><span class="bar-name">D9 上手难度</span>
+<span class="bar-track"><span class="bar-fill" style="width:95.0%;background:#16a34a"></span></span>
+<span class="bar-val">9.5</span><span class="bar-w">权重10%</span></div>
+<div class="bar-row"><span class="bar-name">D8 团队治理</span>
+<span class="bar-track"><span class="bar-fill" style="width:86.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.6</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D3 社区生态</span>
+<span class="bar-track"><span class="bar-fill" style="width:83.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.3</span><span class="bar-w">权重11%</span></div>
+<div class="bar-row"><span class="bar-name">D6 法律合规</span>
+<span class="bar-track"><span class="bar-fill" style="width:76.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.6</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D2 技术成熟度</span>
+<span class="bar-track"><span class="bar-fill" style="width:69.0%;background:#d97706"></span></span>
+<span class="bar-val">6.9</span><span class="bar-w">权重14%</span></div>
+<div class="bar-row"><span class="bar-name">D1 市场需求</span>
+<span class="bar-track"><span class="bar-fill" style="width:60.0%;background:#d97706"></span></span>
+<span class="bar-val">6.0</span><span class="bar-w">权重13%</span></div>
+<div class="bar-row"><span class="bar-name">D5 竞争格局</span>
+<span class="bar-track"><span class="bar-fill" style="width:58.0%;background:#dc2626"></span></span>
+<span class="bar-val">5.8</span><span class="bar-w">权重12%</span></div>
+<div class="bar-row"><span class="bar-name">D7 企业就绪</span>
+<span class="bar-track"><span class="bar-fill" style="width:55.0%;background:#dc2626"></span></span>
+<span class="bar-val">5.5</span><span class="bar-w">权重8%</span></div>
+<div class="bar-row"><span class="bar-name">D4 变现潜力</span>
+<span class="bar-track"><span class="bar-fill" style="width:39.0%;background:#dc2626"></span></span>
+<span class="bar-val">3.9</span><span class="bar-w">权重18%</span></div></div>
+<div class="meta">分析时点 2026-10-22 ｜ 数据来源：GitHub API + 仓库代码实测 ｜ 方法论 v1.6.4</div>
+</div><h1>第 136 期 · Free-programming-books 商业化潜力分析报告（完整版）</h1>
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家　@冯伟雄</p>
+<p><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/#methodology" target="_blank" rel="noopener">方法论版本: v1.6.4</a> | 综合评分: <strong>65.8</strong> | 等级: <strong>A（高商业化潜力）</strong> | 价值画像: 明星资产 | 【画像临界】落点与相邻画像路径差异见 5.3</p>
+</blockquote>
+<h2>核心发现</h2>
+<ol>
+<li><strong>规模势能（D3：8.3/10）</strong>：399,740 Star、66,975 Fork（Fork 率 16.8%，即 66,975/399,740）、430 名贡献者、9,783 Watchers；近 90 天新建 PR 160 个、近 30 天 commit 56 次，项目创建于 2013-10-11，年龄 4,758 天，无 archived/deprecated 标记。</li>
+<li><strong>核心能力（D9：9.5/10，D2：6.9/10）</strong>：产品本体为 213 个 Markdown 清单 + 605 行 Python（1 个源文件），零安装、零运行时依赖（dependencies 为空），首次使用秒级；技术复刻门槛极低，测试文件 0 个、测试代码 0 行（test_ratio 0.0%）。</li>
+<li><strong>变现结构（D4：3.9/10）</strong>：CC BY 4.0 允许商业使用但无任何付费触发点——全部内容以明文 Markdown 提交，clone/fork 即得全量，无定价、无付费版、无版本发布；7 种主流变现模式中 6 种结构性不成立，唯一成立路径为捐赠/赞助且已在运行。</li>
+<li><strong>关键风险（D2/D7/D5）</strong>：近 90 天关闭 Issue 12 个、当前开放 93 个，对应同期 160 个新建 PR；check-urls 工作流以 <code>|| true</code> 吞掉链接校验失败；第三方 Action 按主版本浮标引用未 SHA 钉死，无 CodeQL/Dependabot、无 SECURITY.md。</li>
+<li><strong>价值画像</strong>：D10 功能价值 8.2/10、D11 社会价值 7.9/10 → 公共价值分 8.1/10，综合评分 65.8（等级 A），落点画像为「⭐ 明星资产」1，且落在 60–70 画像临界区间。</li>
+<li><strong>治理与可持续性（D8：8.6/10，D6：7.6/10）</strong>：由 Free Ebook Foundation（美国 501(c)(3) 非营利，捐赠美国境内可抵税）机构化托管，具备组织级 GitHub Sponsors 渠道；无正式 CLA、无 DCO sign-off，版权分散于 430 名贡献者。</li>
+</ol>
+<h2>一、项目概览</h2>
+<h3>1.1 基础信息</h3>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>仓库</td>
+<td>EbookFoundation/free-programming-books</td>
+</tr>
+<tr>
+<td>描述</td>
+<td>免费可得的编程书籍资源清单（Freely available programming books）</td>
+</tr>
+<tr>
+<td>主要语言</td>
+<td>Python（仅 1 个源文件、605 行，为 lint/构建脚本）</td>
+</tr>
+<tr>
+<td>许可证</td>
+<td>Creative Commons Attribution 4.0 International（CC BY 4.0）</td>
+</tr>
+<tr>
+<td>主题标签</td>
+<td>education / books / list / resource / hacktoberfest</td>
+</tr>
+<tr>
+<td>品类</td>
+<td>文档与知识管理；通用/跨行业（教育培训）</td>
+</tr>
+<tr>
+<td>形态</td>
+<td>社区众包 + 静态站点托管（GitHub Pages），非商业</td>
+</tr>
+<tr>
+<td><strong>生命周期阶段</strong></td>
+<td><strong>热闹维护期</strong></td>
+</tr>
+<tr>
+<td><strong>项目年龄</strong></td>
+<td><strong>4,758 天</strong>（创建于 2013-10-11）</td>
+</tr>
+</tbody>
+</table>
+<p>生命周期判定为「热闹维护期」：存量规模巨大（399,740 Star）、维护持续（近 30 天 56 次 commit）、增速自然回落，与 D3.1/D3.2 的档位互相印证；非新项目，故不适用新项目专项（项目年龄 4,758 天，远超 90 天）。</p>
+<h3>1.2 内容规模与形态</h3>
+<ul>
+<li>内容资产：213 个 Markdown 文档，覆盖 books / courses / casts / more 多品类，40+ 自然语言（D1 口径）；书籍与课程各约 44 种语言版本（D11 口径），含孟加拉语、缅甸语、乌尔都语、泰米尔语等非主流语区。</li>
+<li>使用入口：静态站 <code>ebookfoundation.github.io/free-programming-books/</code> 与搜索站 <code>free-programming-books-search</code>，另有 README 内嵌搜索表单与全量 zip 下载，三重入口。</li>
+<li>工程形态：7 个 CI workflow（check-urls、comment-pr、detect-conflicting-prs、fpb-lint、issues-pinner、rtl-ltr-linter、stale），无 Dockerfile、无部署构建配置、无 API/SDK、无版本发布（Tag/Release 为 0）。</li>
+</ul>
+<h2>二、安装部署与使用指南</h2>
+<blockquote>
+<p>前置说明：本仓库是一个<strong>纯 Markdown 资源清单</strong>（213 个文档文件、0 个可运行服务、0 个测试），仓库内<strong>不含</strong> Dockerfile、docker-compose、Helm Chart、install 脚本或依赖清单（<code>dependencies: {}</code>）。因此“安装”这一步实际上是“<strong>获取内容</strong>”，不存在安装失败的可能。以下步骤全部取自 README 原文链接与仓库结构，普通用户（含非技术人员）可独立完成。</p>
+</blockquote>
+<h3>1. 零安装直接使用（推荐路径，约 10 秒）</h3>
+<p>无需安装任何东西，打开浏览器即可：</p>
+<ul>
+<li><strong>动态搜索站点</strong>（README 首段给出，可直接按书名/作者搜索）：
+  <code>https://ebookfoundation.github.io/free-programming-books-search/</code></li>
+<li><strong>静态阅读站点</strong>（README 称 “This page is available as an easy-to-read website”）：
+  <code>https://ebookfoundation.github.io/free-programming-books/</code></li>
+<li><strong>README 内置搜索框</strong>：页面中部表单 <code>action="https://ebookfoundation.github.io/free-programming-books-search"</code>、<code>name="search"</code>、占位符 <code>Search Book or Author</code>，输入关键词点 Search 即可。</li>
+</ul>
+<h3>2. 全量下载 / 离线留存</h3>
+<ul>
+<li>README 的 “Repo Size” 徽章直接指向打包下载地址：
+  <code>https://github.com/EbookFoundation/free-programming-books/archive/refs/heads/main.zip</code></li>
+<li>解压后用任意 Markdown 阅读器打开对应清单文件即可，<strong>无需安装运行时、无需初始化数据库/缓存/消息队列</strong>（仓库依赖清单为空，唯一 <code>.py</code> 文件 605 行，属维护脚本类，普通读者不需要运行）。</li>
+</ul>
+<h3>3. 按需定位清单文件（仓库目录结构即导航）</h3>
+<table>
+<thead>
+<tr>
+<th>需求</th>
+<th>打开的文件（README 原文路径）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>英文·按编程语言</td>
+<td><code>books/free-programming-books-langs.md</code></td>
+</tr>
+<tr>
+<td>英文·按学科</td>
+<td><code>books/free-programming-books-subjects.md</code></td>
+</tr>
+<tr>
+<td>中文书籍</td>
+<td><code>books/free-programming-books-zh.md</code></td>
+</tr>
+<tr>
+<td>中文课程</td>
+<td><code>courses/free-courses-zh.md</code></td>
+</tr>
+<tr>
+<td>中文播客/录屏</td>
+<td><code>casts/free-podcasts-screencasts-zh.md</code></td>
+</tr>
+<tr>
+<td>速查表（全语言）</td>
+<td><code>more/free-programming-cheatsheets.md</code></td>
+</tr>
+<tr>
+<td>交互式教程（中文/英文等）</td>
+<td><code>more/free-programming-interactive-tutorials-zh.md</code> 等</td>
+</tr>
+<tr>
+<td>题集/竞赛编程</td>
+<td><code>more/problem-sets-competitive-programming.md</code></td>
+</tr>
+<tr>
+<td>浏览器内编程练习场</td>
+<td><code>more/free-programming-playgrounds.md</code></td>
+</tr>
+<tr>
+<td>其他 40+ 语言版本</td>
+<td><code>books/free-programming-books-&lt;lang&gt;.md</code>（README “Other Languages” 列表）</td>
+</tr>
+</tbody>
+</table>
+<h3>4. 参与贡献（可选，需 GitHub 基础）</h3>
+<ol>
+<li>按 README 指引先读 <code>docs/CONTRIBUTING.md</code>、<code>docs/HOWTO.md</code>（README: “If you're new to GitHub, welcome”）、<code>docs/CODE_OF_CONDUCT.md</code>；上述文档提供多语言译文（README “Translations” 章节，入口 <code>docs/README.md#translations</code>）。</li>
+<li>从 README 徽章指向的 <code>good first issue</code> / <code>help wanted</code> 标签挑选任务。</li>
+<li>提交 PR 后会触发 7 条 CI 工作流校验：<code>check-urls.yml</code>（链接可用性）、<code>fpb-lint.yml</code>（清单格式 lint）、<code>rtl-ltr-linter.yml</code>（双向文字排版）、<code>detect-conflicting-prs.yml</code>、<code>comment-pr.yml</code>、<code>issues-pinner.yml</code>、<code>stale.yml</code>。<strong>格式不符合 lint 规则是最常见的返工原因</strong>，首次贡献前务必读 <code>CONTRIBUTING</code>。</li>
+</ol>
+<h3>5. 自建镜像站点（进阶，仓库未提供打包方案）</h3>
+<p>仓库内<strong>没有</strong>任何静态站点构建配置、Dockerfile、docker-compose 或 Helm Chart，官方站点托管在 GitHub Pages 上。若组织需要内网/自有域名镜像，需自备 Markdown→HTML 渲染流水线（任意静态站点生成器）并处理 213 个文档的目录与语言跳转；这部分工作量不在本仓库的交付范围内，属“自行拼装”。</p>
+<hr />
+<h2>D9 维度详析</h2>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>打分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D9.1 安装难度</td>
+<td>2.5</td>
+<td><strong>2.5</strong></td>
+<td>9–10 档（100%）</td>
+<td>本仓库无需安装即可使用：浏览器打开两个 GitHub Pages 站点即完成“安装”；仓库 <code>dependencies: {}</code>、无 Dockerfile、无 install 脚本、无系统级依赖（无数据库/编译器/运行时要求）；<code>.md</code> 内容天然跨 Windows/macOS/Linux/移动端全平台。严格优于“单条命令安装”的最低门槛。</td>
+</tr>
+<tr>
+<td>D9.2 部署与配置难度</td>
+<td>2.5</td>
+<td><strong>2.0</strong></td>
+<td>7–8 档（80%）</td>
+<td>配置复杂度为零（无配置文件模板、无外部组件初始化、无启动参数），快速验证成本近零（打开站点即验证）。扣分点：仓库<strong>未提供任何标准化部署物</strong>（无 Dockerfile / docker-compose / Helm / static-site 构建配置 / Makefile），官方站点与搜索站点均由 GitHub Pages 侧生成，组织若要自建/内网镜像需自行搭建渲染流水线，不构成“一键部署”的交付形态。</td>
+</tr>
+<tr>
+<td>D9.3 易用性与操作门槛</td>
+<td>2.5</td>
+<td><strong>2.5</strong></td>
+<td>9–10 档（100%）</td>
+<td>核心操作=“点链接→读清单→点书名”，零命令、零参数、零 API；README 提供结构化目录（Books / Cheat Sheets / Courses / Interactive / Podcasts / Playgrounds）与 40+ 语言分文件入口；针对易失效的链接设置了 <code>check-urls.yml</code> 自动巡检，降低“点开 404”的负面体验；README 内嵌搜索表单弥补仓库内无搜索引擎的短板；非技术人群（学生、产品、商务）可独立使用。</td>
+</tr>
+<tr>
+<td>D9.4 学习曲线与首体验</td>
+<td>2.5</td>
+<td><strong>2.5</strong></td>
+<td>9–10 档（100%）</td>
+<td>首次成功使用为<strong>秒级</strong>（点击站点或 README 目录即得结果），学习曲线近乎水平；无前置领域知识要求（不需要懂框架原理/协议规范）；入门引导完整：<code>docs/HOWTO.md</code> 明确面向 GitHub 新手、<code>docs/CONTRIBUTING.md</code> + 行为准则 + 多语言译文、<code>good first issue</code> 标签分流新人任务；示例即内容本身（213 个清单文件、按语言/主题双维度组织），可模仿性极强。贡献侧存在 lint 格式门槛，已计入发现项而非消费侧门槛。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>维度总分: 9.5 / 10（🟢 简单等级，面向所有人）</strong></p>
+<h3>分析结论</h3>
+<ol>
+<li>
+<p><strong>上手摩擦几乎为零，是该项目最突出的产品属性。</strong> 6 万+ fork、39.9 万 star、430 位贡献者、90 天 160 个 PR，本质上依赖“打开即读、改一行 Markdown 即可贡献”的极低门槛；若把安装/部署链路做重，该项目不可能积累到这一量级的社区规模。D9 是其<strong>结构性优势维度</strong>。</p>
+</li>
+<li>
+<p><strong>“无部署物”是唯一实质扣分项，但影响有限。</strong> 仓库不提供 Dockerfile/compose/Helm，也不含静态站点构建配置；官方静态站与搜索站依赖 GitHub Pages。对“读者”零影响，对“想把清单内嵌到自家产品/内网”的 B 端场景则意味着需自建渲染与索引管线——这是商业化落地时的集成成本，而非使用门槛。</p>
+</li>
+<li>
+<p><strong>易用性优势不等于商业杠杆。</strong> 高 D9 说明“试用转化”没有漏斗损耗，但也说明<strong>没有人愿意为一个浏览器里免费可读的清单付“上手成本”型溢价</strong>——易用性在这里是社区规模的成因，不能直接转化为定价能力；可商业化的空间在搜索站、机构授权、内容治理工具链等外围，而非清单本体。</p>
+</li>
+<li>
+<p><strong>维护侧的隐性门槛在“规范性”而非“技术性”。</strong> <code>fpb-lint.yml</code>、<code>rtl-ltr-linter.yml</code>、<code>check-urls.yml</code> 三条 CI 决定了贡献者必须遵守严格的条目格式与链接有效性；对首次贡献者是实际返工来源，但项目已通过 <code>docs/HOWTO.md</code>、<code>good first issue</code> 标签与多语言贡献指南做了前置引导，属于可控门槛。</p>
+</li>
+</ol>
+<h2>三、评分总览</h2>
+<h3>3.1 九维评分表（入公式维度）</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>权重</th>
+<th>得分（10 分制）</th>
+<th>加权得分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1 市场需求与时机</td>
+<td>0.13</td>
+<td>6.0</td>
+<td>0.78</td>
+</tr>
+<tr>
+<td>D2 技术成熟度</td>
+<td>0.14</td>
+<td>6.9</td>
+<td>0.97</td>
+</tr>
+<tr>
+<td>D3 社区与生态</td>
+<td>0.11</td>
+<td>8.3</td>
+<td>0.91</td>
+</tr>
+<tr>
+<td>D4 商业模式可行性</td>
+<td>0.18</td>
+<td>3.9</td>
+<td>0.70</td>
+</tr>
+<tr>
+<td>D5 竞争壁垒</td>
+<td>0.12</td>
+<td>5.8</td>
+<td>0.70</td>
+</tr>
+<tr>
+<td>D6 法律与合规</td>
+<td>0.07</td>
+<td>7.6</td>
+<td>0.53</td>
+</tr>
+<tr>
+<td>D7 工程与运维</td>
+<td>0.08</td>
+<td>5.5</td>
+<td>0.44</td>
+</tr>
+<tr>
+<td>D8 团队与可持续性</td>
+<td>0.07</td>
+<td>8.6</td>
+<td>0.60</td>
+</tr>
+<tr>
+<td>D9 用户体验与接入</td>
+<td>0.10</td>
+<td>9.5</td>
+<td>0.95</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>1.00</strong></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>四、各维度详细分析</h2>
+<h3>D1. 市场需求与商业机会（权重 13%）（得分: 6.0/10）</h3>
+<p><strong>项目分类标签</strong></p>
+<ul>
+<li><strong>项目类型</strong>：文档与知识管理（教育与学习资源目录）</li>
+<li><strong>适用行业</strong>：通用/跨行业（教育培训）</li>
+<li><strong>目标用户</strong>：编程学习者、各语言开发者、技术教育者</li>
+<li><strong>运作模式</strong>：社区众包维护 + GitHub Pages 静态站点，非营利基金会运营</li>
+<li><strong>部署形态</strong>：静态站点托管（GitHub Pages）/ 仓库本地克隆</li>
+<li><strong>一句话定位</strong>：free-programming-books 是一个社区众包的免费编程学习资源目录，适用于各行业的开发者教育与自学场景，主要面向编程学习者和开发者，用于按语言/主题发现免费书籍、课程、播客与练习资源。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+<th>判断摘要</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1.1 目标市场规模与增长性</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6 档（60%）</td>
+<td>相邻教育市场大，但项目处于免费环节，可直接货币化市场小；赛道成熟</td>
+</tr>
+<tr>
+<td>D1.2 痛点真实性与解决程度</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6 档（60%）</td>
+<td>找免费优质书是真实需求，但属“锦上添花”，替代品极多</td>
+</tr>
+<tr>
+<td>D1.3 市场时机判断</td>
+<td>2.5</td>
+<td>1.0</td>
+<td>3–4 档（40%）</td>
+<td>2013 年至今赛道成熟，AI 搜索/问答正在削弱静态目录价值</td>
+</tr>
+<tr>
+<td>D1.4 应用场景广度</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8 档（80%）</td>
+<td>40+ 自然语言、7 类资源形态、全行业开发者可用，但静态列表延展有限</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>6.0</strong></td>
+<td><strong>5–6 档（60%）</strong></td>
+<td>需求真实且受众庞大，商业机会薄弱</td>
+</tr>
+</tbody>
+</table>
+<h4>D1.1 目标市场规模与增长性</h4>
+<p><strong>打分: 1.5 / 2.5（5–6 档，60%）</strong></p>
+<ul>
+<li><strong>TAM 估算</strong>：项目本身是免费、CC BY 4.0 的链接目录，不是可售卖产品；其直接可货币化市场仅限于捐赠、赞助、流量合作，量级很小。相邻的在线教育/开发者学习市场体量很大，但项目不处于付费环节，不能把相邻市场直接视为自身 TAM。<strong>该量级判断未经外部市场数据验证，置信度低。</strong></li>
+<li><strong>增长趋势</strong>：免费编程学习资源已高度丰富，目录型产品进入平稳甚至被替代的阶段；增长主要来自社区贡献和语言覆盖扩展，而非商业需求扩张。</li>
+<li><strong>市场层级</strong>：属于成熟红海中的“免费资源目录”细分，awesome list、搜索引擎、课程平台、AI 问答均在同一需求上竞争。</li>
+<li><strong>硬事实支撑</strong>：399,740 stars、66,975 forks、430 contributors，说明受众规模巨大；但 stars 不等于付费意愿，项目无定价、无付费产品、无销售路径。</li>
+</ul>
+<h4>D1.2 痛点真实性与解决程度</h4>
+<p><strong>打分: 1.5 / 2.5（5–6 档，60%）</strong></p>
+<ul>
+<li><strong>痛点真实性</strong>：“找到可信、免费、多语言的编程书”是真实需求，尤其对自学者和非英语开发者有价值；但它不是“非用不可”的刚需，更多是学习路径中的辅助环节。</li>
+<li><strong>解决完整度</strong>：覆盖较完整，包含书籍、课程、播客/ screencast、cheat sheets、交互教程、题集、playground 等 7 类资源，并覆盖 40+ 自然语言；但本质仍是静态链接列表，存在链接失效、质量参差、更新滞后问题。CI 中有 <code>check-urls.yml</code> 等 7 个 workflow，说明维护方已意识到链接质量问题。</li>
+<li><strong>替代成本</strong>：替代品极多——搜索引擎、GitHub topics、其他 awesome lists、freeCodeCamp、OSSU、YouTube、MDN、LLM 问答等。用户不用此项目，几乎总能找到替代路径。</li>
+<li><strong>社区信号</strong>：90 天 160 个 PR、430 名贡献者、30 天 56 次提交，说明社区活跃、需求真实；但 93 个开放 Issue、90 天仅关闭 12 个 Issue，反映维护吞吐有限，进一步限制“完整解决方案”的体验。</li>
+</ul>
+<h4>D1.3 市场时机判断</h4>
+<p><strong>打分: 1.0 / 2.5（3–4 档，40%）</strong></p>
+<ul>
+<li><strong>技术成熟度曲线</strong>：项目创建于 2013 年，至今已 13 年；免费学习资源目录早已越过早期阶段，进入成熟期。当前技术变量是 AI 搜索与对话式学习助手，它们正在替代“人工维护的静态链接目录”的部分发现功能。</li>
+<li><strong>竞争密度</strong>：已有 freeCodeCamp、OSSU、roadmap.sh、各类 awesome lists、YouTube、MDN 等强势替代者；市场不是没有空位，而是空位价值在下降。</li>
+<li><strong>监管/标准</strong>：开放教育、开源内容有政策顺风，但没有针对该项目的强制性标准或政策催化，不足以推动需求爆发。</li>
+<li><strong>结论</strong>：不是“爆发前夜”，也不是“严重超前”，而是成熟偏晚；教育用户成本低，但差异化困难，商业化窗口不理想。</li>
+</ul>
+<h4>D1.4 应用场景广度</h4>
+<p><strong>打分: 2.0 / 2.5（7–8 档，80%）</strong></p>
+<ul>
+<li><strong>行业覆盖</strong>：任何有软件开发者的行业都可使用，属于跨行业的教育/参考资源；不绑定金融、医疗、制造等单一行业。</li>
+<li><strong>场景多样性</strong>：资源形态覆盖书籍、课程、播客、cheat sheets、交互教程、题集、playground，语言覆盖 40+ 自然语言，场景较丰富。</li>
+<li><strong>可延展性</strong>：核心能力是“资源筛选与目录组织”，可迁移到其他学习资源类型和语种，也可通过搜索站点增强发现体验；但作为静态列表，难以嵌入企业工作流或成为基础设施级产品，因此未给 9–10 档。</li>
+</ul>
+<h4>结论</h4>
+<p>free-programming-books 的需求侧信号非常强：399,740 stars、66,975 forks、430 名贡献者、90 天 160 个 PR，证明它拥有庞大受众和活跃社区，所解决的“免费编程资源发现”问题真实存在。但需求强不等于商业机会强：项目由非营利基金会运营，采用 CC BY 4.0 全免费许可，没有付费产品、定价或销售路径，变现距离很远；同时痛点属于“锦上添花”，替代品密集，市场时机成熟偏晚，AI 搜索还在削弱静态目录的边际价值。应用场景广度是其主要优势，但静态列表形态限制了产品化延展。</p>
+<p><strong>D1 维度得分：6.0/10</strong>——需求真实、受众庞大，但商业机会薄弱，更适合作为品牌/流量/公益资产，而非独立商业化项目。</p>
+<h3>D2. 技术成熟度与产品质量（得分: 6.9/10）</h3>
+<blockquote>
+<p>说明：本项目本质是「多语言免费编程书籍索引」内容型仓库，而非软件产品——代码仅 1 个 Python 文件（605 行）+ 7 个 GitHub Actions 工作流，主体是 213 个 Markdown 清单文件。因此各细则按「内容型/工具型仓库」的设计范式评估，而非按应用型软件标准苛责。本维度评分完全基于代码与工程事实，未受 39.9 万 Star 等社区数据影响。</p>
+</blockquote>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D2.1</td>
+<td>产品设计与创新性</td>
+<td>1.5</td>
+<td>1.2</td>
+<td>7–8 档（80%）</td>
+</tr>
+<tr>
+<td>D2.2</td>
+<td>架构设计与工程质量</td>
+<td>2.0</td>
+<td>1.2</td>
+<td>5–6 档（60%）</td>
+</tr>
+<tr>
+<td>D2.3</td>
+<td>代码整洁性与规范性</td>
+<td>1.0</td>
+<td>0.6</td>
+<td>5–6 档（60%）</td>
+</tr>
+<tr>
+<td>D2.4</td>
+<td>安全性</td>
+<td>1.0</td>
+<td>0.6</td>
+<td>5–6 档（60%）</td>
+</tr>
+<tr>
+<td>D2.5</td>
+<td>UI/UX/UE 人机交互</td>
+<td>1.0</td>
+<td>N/A</td>
+<td>不适用（无自建 UI）</td>
+</tr>
+<tr>
+<td>D2.6</td>
+<td>功能完备度与稳定性</td>
+<td>1.5</td>
+<td>1.2</td>
+<td>7–8 档（80%）</td>
+</tr>
+<tr>
+<td>D2.7</td>
+<td>文档与开发者体验</td>
+<td>1.0</td>
+<td>0.8</td>
+<td>7–8 档（80%）</td>
+</tr>
+<tr>
+<td>D2.8</td>
+<td>测试与质量保障</td>
+<td>1.0</td>
+<td>0.6</td>
+<td>5–6 档（60%）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td>（D2.5 为 N/A，按 7 项满分 9 分等比缩放）</td>
+<td><strong>9.0</strong></td>
+<td><strong>6.2</strong></td>
+<td><strong>6.9/10</strong></td>
+</tr>
+</tbody>
+</table>
+<h3>D2.1 产品设计与创新性</h3>
+<p><strong>打分: 1.2 / 1.5（7–8 档，80%）</strong></p>
+<ul>
+<li><strong>产品理念</strong>：极其清晰——「把全网免费且合法的编程书籍/课程/播客/速查表，按语言与主题双重维度结构化收录，任何人零门槛取用」。README 首屏即给出按语言、按主题的入口，无歧义。</li>
+<li><strong>功能设计（信息架构）</strong>：仓库按 <code>books/</code>（书籍）、<code>casts/</code>（播客/录屏）、<code>courses/</code>（课程）、<code>more/</code>（速查表等）四条主线组织，每条主线再按 50+ 种语言拆分为独立 Markdown 文件（<code>-ar / -zh / -pt_BR / -fa_IR</code>…），并提供 <code>books/free-programming-books-langs.md</code>（按语言）与 <code>-subjects.md</code>（按主题）两个正交视图。取舍得当，无明显冗余目录，未见「功能堆砌」。</li>
+<li><strong>创新性</strong>：模式上属于 2013 年即成型的「Awesome List / 众包索引」范式，无技术层面创新；但在<strong>多语言本地化深度</strong>上明显超出同类（支持阿拉伯语、希伯来语、波斯语、乌尔都语等 RTL 语种，并配套专门的 RTL/LTR 校验工具），属于体验层与内容组织层的差异化创新。</li>
+<li><strong>差异化</strong>：相较同类编程资源索引，其护城河是「语种覆盖宽度 + 13 年持续众包沉淀 + 严格的入库校验」。综上给 7–8 档。</li>
+</ul>
+<h3>D2.2 架构设计与工程质量</h3>
+<p><strong>打分: 1.2 / 2.0（5–6 档，60%）</strong></p>
+<ul>
+<li><strong>架构合理性</strong>：作为内容型仓库，其「架构」表现为目录约定 + 自动化工具链，设计与项目类型匹配：<code>books/ casts/ courses/ more/</code> 为内容层，<code>scripts/</code> 为工具层（<code>rtl_ltr_linter.py</code>），<code>.github/workflows/</code> 为质量层，<code>.github/actions/</code> 内含本地复合 Action（<code>awesomebot-gh-summary-action</code>），职责分层清晰。</li>
+<li><strong>模块解耦与抽象</strong>：工具层与内容层基本解耦——linter 以路径参数（<code>books casts courses more</code>）接收输入，可独立运行；但整体抽象层次很浅，缺少可复用公共库，<code>check-urls.yml</code> 内的内联 shell（jq/sed 拼装 GitHub Outputs）与其它 workflow 存在重复的「取变更文件 → 矩阵」样板逻辑。</li>
+<li><strong>目录管理</strong>：目录规范一致，<code>&lt;类别&gt;/free-&lt;类别&gt;-&lt;语种&gt;.md</code> 命名规则严格统一，是本项目最突出的工程习惯；但根目录未见 <code>CONTRIBUTING.md</code>、<code>SECURITY.md</code>、<code>CODEOWNERS</code>。</li>
+<li><strong>代码量与复刻难度</strong>：总代码仅 605 行 / 1 个源文件，功能复杂度与代码量匹配（不需要更多代码），但<strong>技术复刻难度极低</strong>——任何人可在数日内复刻同等工具链；真正的门槛是 430 位贡献者、13 年、50+ 语种的内容积累，属内容护城河而非技术护城河。</li>
+<li><strong>技术债</strong>：无密集 TODO/FIXME 迹象，但 <code>check-urls.yml</code> 中 <code>awesome_bot ... || true</code> 主动吞掉失败、URL 校验结果仅落在 artifact 与 summary 而不阻断合并，属已知的「门禁软化」债。综合给 5–6 档。</li>
+</ul>
+<h3>D2.3 代码整洁性与规范性</h3>
+<p><strong>打分: 0.6 / 1.0（5–6 档，60%）</strong></p>
+<ul>
+<li><strong>代码整洁度</strong>：代码面极小（605 行 Python），审查成本低；7 个 workflow 均有较高质量的行内注释（说明 <code>fetch-depth</code> 选用理由、artifact 重命名规避 <code>actions/download-artifact</code> bug 等），可读性良好。</li>
+<li><strong>命名规范</strong>：workflow/job/step 命名语义清晰（<code>get-changed-files</code> / <code>check-urls</code> / <code>reporter</code>），Python 脚本按路径参数组织，符合惯例。</li>
+<li><strong>风格约束</strong>：<strong>未发现</strong>针对 Python 代码的 lint/format 配置（无 ruff/flake8/black/pre-commit 配置文件，<code>dependencies</code> 为空），内容层有 <code>fpb-lint</code> 与 <code>rtl-ltr-linter</code> 双 linter，但代码层无统一风格门禁。</li>
+<li><strong>重复率</strong>：workflow 间存在重复的变更文件收集/矩阵构造样板（<code>check-urls.yml</code> 与 <code>rtl-ltr-linter.yml</code> 均用 <code>tj-actions/changed-files@v46</code> + 相似 shell 处理）。综合给 5–6 档。</li>
+</ul>
+<h3>D2.4 安全性</h3>
+<p><strong>打分: 0.6 / 1.0（5–6 档，60%）</strong></p>
+<ul>
+<li><strong>攻击面与安全编码</strong>：仓库无服务端、无数据库、无用户输入处理路径，SQL 注入 / 命令注入 / XSS 的暴露面近乎为零；workflow 权限声明较克制（多处显式 <code>permissions: contents: read</code> / <code>contents: none</code>），符合最小权限实践，这是加分项。</li>
+<li><strong>敏感信息</strong>：未见任何硬编码密钥/Token，全部使用 <code>secrets.GITHUB_TOKEN</code> 或 <code>github.token</code>，合规。</li>
+<li><strong>依赖安全（主要扣分项）</strong>：第三方 Action 仅按主版本浮标引用（<code>actions/checkout@v7</code>、<code>tj-actions/changed-files@v46</code>、<code>eps1lon/actions-label-merge-conflict@v3.1.0</code>、<code>actions/stale@v10</code>），<strong>未做 commit SHA 钉死</strong>；<code>tj-actions/changed-files</code> 属近年发生过供应链投毒事件的 Action 族群，浮标引用构成实质供应链风险。<code>fpb-lint</code> 通过 <code>npm install -g</code> 全局安装且未锁版本。</li>
+<li><strong>安全扫描</strong>：workflow 清单中<strong>无</strong> CodeQL / Dependabot / Trivy / Snyk 等任何安全扫描配置，无 <code>SECURITY.md</code>；<code>check-urls</code> 用 <code>|| true</code> 掩盖失败，使恶意/失效链接无法形成阻断。综合给 5–6 档（基本措施到位，存在中低风险）。</li>
+</ul>
+<h3>D2.5 UI/UX/UE 人机交互</h3>
+<p><strong>打分: N/A / 1.0（不适用）</strong></p>
+<p>项目无自建界面：既无 Web 前端（<code>_includes/</code> 仅为 GitHub Pages 站点片段）、无桌面/移动 GUI，也无交互式 CLI。用户消费内容的方式是 GitHub/Jekyll 渲染的 Markdown，界面与交互体验完全由平台决定（GitHub 渲染器），不构成本项目可控的评估对象。按方法论标记 N/A，不计入分母。</p>
+<h3>D2.6 功能完备度与稳定性</h3>
+<p><strong>打分: 1.2 / 1.5（7–8 档，80%）</strong></p>
+<ul>
+<li><strong>功能覆盖</strong>：作为索引型产品，覆盖度极高——50+ 语种的书籍清单、课程、播客/录屏、速查表，且按语言/主题双视图组织，核心场景（找免费书、按语种找、按主题找）全覆盖，未见明显缺口。</li>
+<li><strong>版本成熟度</strong>：仓库自 2013 年持续运营，<code>recent_releases</code> 为空、无任何 Tag/Release；但这是内容型仓库的常态（交付物是 main 分支的 Markdown），不属于新项目宽免范围，此处仅作中性记录，不额外惩罚。</li>
+<li><strong>向后兼容</strong>：无 API/无版本号，不存在 Breaking Change 问题；文件路径变更会影响外部引用，但因有 linter 与严格的目录约定而风险可控。</li>
+<li><strong>性能</strong>：静态 Markdown，无运行时开销，不存在性能瓶颈。</li>
+<li><strong>运行环境要求</strong>：内容消费者<strong>零环境要求</strong>（浏览器即可）；仅贡献者链路需要 Node（<code>free-programming-books-lint</code>）+ Python 3.11（<code>python-bidi</code>、<code>PyYAML</code>），环境要求宽松通用，无 Docker、无 GPU/特殊硬件依赖（硬件项 N/A）。</li>
+<li><strong>国际化/本地化</strong>：本项目的最强项——50+ 语种原生分文件维护，覆盖 CJK、西里尔、RTL（ar/he/fa_IR/ur），并专设 <code>rtl-ltr-linter.yml</code> 校验双向文本混排，i18n 深度属行业头部水平。</li>
+<li><strong>隐患</strong>：内容质量强依赖外链有效性（link rot），Issue 积压 93 个、90 天仅关闭 12 个，维护吞吐相对 PR 流入（90 天 160 个）偏紧。综合给 7–8 档。</li>
+</ul>
+<h3>D2.7 文档与开发者体验</h3>
+<p><strong>打分: 0.8 / 1.0（7–8 档，80%）</strong></p>
+<ul>
+<li><strong>文档覆盖</strong>：README 形态完善（项目定位、目录导航、多语种入口、贡献方式、许可声明）；<code>docs/</code> 目录存在，含贡献者指引类文档；提供多语言 README 版本。<code>has_contributing: false</code>（根目录无独立 <code>CONTRIBUTING.md</code>），贡献规范实际写在 README 与 <code>docs/</code> 中，可用但不够显式。</li>
+<li><strong>文档质量</strong>：以「清单即文档」的形态呈现，示例充分（213 个 Markdown 文件本身就是内容示例与格式范例）；<code>.github/PULL_REQUEST_TEMPLATE.md</code> 提供了结构化 PR 模板。缺少架构图/流程图（对内容型仓库非必需）。</li>
+<li><strong>版本同步</strong>：无版本号体系，故不存在文档与版本不同步问题；文档即产品本身，始终与 main 同步。</li>
+<li><strong>不足</strong>：无 API 参考（不适用）、无交互式教程、无 <code>SECURITY.md</code>/<code>CODEOWNERS</code>，治理类文档缺位。综合给 7–8 档。</li>
+</ul>
+<h3>D2.8 测试与质量保障</h3>
+<p><strong>打分: 0.6 / 1.0（5–6 档，60%）</strong></p>
+<ul>
+<li><strong>测试覆盖</strong>：<code>test_lines = 0</code>、测试文件 0 个——<strong>没有任何单元测试或集成测试</strong>，605 行 Python linter 无自动化测试保护，是明确短板。</li>
+<li><strong>CI/CD</strong>：7 个 workflow 覆盖面相当广且设计成熟：<code>check-urls.yml</code>（变更文件 → 矩阵并发 10 路 URL 校验 → artifact → 汇总报告）、<code>fpb-lint.yml</code>（内容格式 lint）、<code>rtl-ltr-linter.yml</code>（双向文本 lint）、<code>detect-conflicting-prs.yml</code>（冲突 PR 自动打标并留言）、<code>comment-pr.yml</code>（把 lint 错误回写 PR 评论并打 <code>linter error</code> 标签）、<code>issues-pinner.yml</code>、<code>stale.yml</code>（60 天 PR 置 stale、30 天关闭，draft 豁免）。相比「CI 形同虚设」的项目，本项目的 CI 是<strong>真实有效的内容质量门禁</strong>，这是本细则的主要得分来源。</li>
+<li><strong>质量门禁</strong>：具备多层门禁（格式 lint + 链接有效性 + RTL 规范 + 冲突检测 + PR 反馈闭环），但缺少代码层静态分析与安全扫描，且 URL 校验用 <code>|| true</code> 不阻断合并，门禁存在软化。综合看「有一定测试/校验 + 健全 CI、但无单元测试与覆盖率」，给 5–6 档。</li>
+</ul>
+<h3>结论</h3>
+<p>D2 维度得分 <strong>6.9/10（一般偏上）</strong>。项目在<strong>内容型产品的设计与完备度上表现优异</strong>：多语言信息架构（50+ 语种、RTL 专项支持）、13 年内容沉淀、7 条真实生效的 CI 质量门禁（格式 lint / 链接校验 / 双向文本 lint / PR 反馈闭环），支撑其作为「免费编程书籍索引」的品类标杆地位。短板集中在<strong>软件工程纵深而非产品质量</strong>：仅 605 行代码且零单元测试、第三方 Action 未做 SHA 钉死且无任何安全扫描（供应链风险）、缺少针对代码的 lint/format 配置、根目录治理文档（CONTRIBUTING/SECURITY/CODEOWNERS）缺位，技术复刻门槛极低——护城河来自内容与贡献者网络，而非可交付的软件技术资产。对于商业化而言，其作为「内容资产」成熟度高，但作为「可被集成、可被加固的技术交付物」成熟度一般。</p>
+<h3>D3. 社区健康度与生态势能（得分: 8.3/10）</h3>
+<p><strong>项目性质说明</strong>: 本项目为「免费编程书籍索引」型资源仓库（Python 脚本仅 605 行，主要为 lint/URL 校验工具链），并非软件产品。其社区与生态指标应放在“知识型资源社区”语境下解读，但 D3 各细则仍按通用档位打分；资源型项目天然具有 Fork 与贡献意愿，在解读 Fork 比率与 PR 量时需注意这一点。</p>
+<h3>D3.1 社区活跃度指标（满分 3 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Star 增速</td>
+<td>近 90 天增量 N/A（Star 超 4 万分页上限不可取）；退化口径 = 399,740 ÷ 156.3 月 ≈ <strong>2,557 / 月（历史平均，明显高估）</strong></td>
+<td>数值落 9–10 档，但为历史平均退化值，对 13 年老项目高估严重，不作主要判据</td>
+</tr>
+<tr>
+<td>Fork 比率</td>
+<td>66,951 / 399,519 ≈ <strong>16.8%</strong></td>
+<td>远高于常见开源项目（通常 5–15%），意味着较强的衍生意愿（克隆为本地副本、本地化 Fork）</td>
+</tr>
+<tr>
+<td>Issue 活跃度</td>
+<td>近 90 天新建 PR <strong>160</strong>（≈53/月）、关闭 Issue <strong>12</strong>、开放 Issue <strong>93</strong>、近 30 天 commit <strong>56</strong></td>
+<td>PR 流量极活跃；Issue 关闭量偏少但存在 stale 自动治理（stale.yml）</td>
+</tr>
+<tr>
+<td>响应速度</td>
+<td>无平均关闭时间数据（API 未提供）→ 响应速度不可直接测</td>
+<td>以提交节奏和 PR 合并流量间接佐证维护连续性</td>
+</tr>
+</tbody>
+</table>
+<p><strong>打分: 2.4 / 3（7–8 档，80%）</strong></p>
+<p>判断依据：Fork 比率 16.8%、近 90 天 160 个 PR、近 30 天 56 次 commit，整体处于高度活跃区间，明显高于“5–6 档 月增 20–100 / 响应 &lt;30 天”的行业平均线；但未达 9–10 档“社区极度活跃（响应 &lt;2 天、无积压）”——开放 Issue 93 个、90 天内仅关闭 12 个，Issue 侧存在长期存量，且响应速度指标缺失，不宜给满档。Star 月增采用退化口径（历史平均 2,557/月），方法论明确警示其会高估老项目早期红利，故<strong>不据此抬升至 100% 档</strong>。</p>
+<h3>D3.2 贡献者结构多样性（满分 2.5 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>贡献者数量</td>
+<td>GitHub API contributors = <strong>430</strong>（已接近分页上限）</td>
+<td>远超“50+ 活跃贡献者”量级</td>
+</tr>
+<tr>
+<td>组织多样性</td>
+<td>由 Free Ebook Foundation（非营利组织）托管，贡献者以 Hacktoberfest 全球个人贡献者为主</td>
+<td>组织来源分散于个人，未见明确的多企业参与证据</td>
+</tr>
+<tr>
+<td>核心团队占比</td>
+<td>近 90 天 160 个外部 PR，核心决策集中于基金会少量维护者（CODEOWNERS 缺失、无 CONTRIBUTING 于仓库根目录，CONTRIBUTING 位于 docs/）</td>
+<td>外部贡献占比高，核心团队以审核角色存在</td>
+</tr>
+</tbody>
+</table>
+<p><strong>打分: 2.0 / 2.5（7–8 档，80%）</strong></p>
+<p>判断依据：贡献者规模（430）与外部 PR 流量已远超 9–10 档的“50+ 贡献者”门槛，外部贡献占比高、Hacktoberfest 年度活动带来持续新人流入，这是本维度最强项；但“来自 10+ 组织”缺乏硬证据，实际为“基金会 + 全球个人贡献者”的两层结构，组织和企业多样性不足，故取 7–8 档而非满档。此低分归因属结构性（个人贡献者主导），<strong>不构成技术质量负面信号</strong>（技术质量以 D2 独立结论为准）。</p>
+<h3>D3.3 第三方生态成熟度（满分 3 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值/证据</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>插件/扩展</td>
+<td>无插件市场（项目本身非工具，不适用插件概念）；但存在官方动态搜索站 <code>free-programming-books-search</code> 与静态站镜像</td>
+<td>生态形态为“衍生站点”而非插件</td>
+</tr>
+<tr>
+<td>集成生态</td>
+<td>README 展示 Awesome badge、Hacktoberfest 2025 官方统计徽章、CC BY 4.0 许可、GitHub Pages 部署；被 GitHub Octoverse 点名为最受欢迎仓库之一</td>
+<td>与主流平台（GitHub Pages / Hacktoberfest / Awesome 列表）深度整合</td>
+</tr>
+<tr>
+<td>衍生项目</td>
+<td>社区大量本地化 Fork 与镜像（README 自带 213 个多语言文档、50+ 语种书目文件即生态产物）；多语言社区独立维护同构列表</td>
+<td>衍生态丰富但形态单一（内容镜像类）</td>
+</tr>
+<tr>
+<td>教程/课程</td>
+<td>该列表本身即被海量教程、高校课程、学习路线引用，是“免费学习资源”领域的事实标准入口</td>
+<td>外部引用极广</td>
+</tr>
+</tbody>
+</table>
+<p><strong>打分: 2.4 / 3（7–8 档，80%）</strong></p>
+<p>判断依据：生态整合与外部引用强度足以支撑“有一定数量的集成与广泛衍生物”的 7–8 档；但项目类型为资源清单，无法形成 9–10 档所要求的“插件市场 + 主流平台集成 + 成功商业衍生品”三角——未见围绕本仓库的商业产品化案例（基金会为非营利、许可为 CC BY 4.0，天然抑制商业衍生变现），故不给满档。</p>
+<h3>D3.4 品牌认知与行业影响力（满分 1.5 分）</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测值/证据</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>品牌辨识度</td>
+<td>399,740 Star，GitHub 全站历史 Top 级仓库；「free-programming-books」在“免费编程资源”领域基本等同于品类代名词</td>
+<td>9–10 档</td>
+</tr>
+<tr>
+<td>行业采用</td>
+<td>由 Free Ebook Foundation 非营利组织托管，README 引用 GitHub Octoverse 官方榜单作为背书；多语种社区（中/日/韩/俄/西/葡等 50+ 语种）自发维护同构列表</td>
+<td>9–10 档</td>
+</tr>
+<tr>
+<td>媒体覆盖</td>
+<td>长年被技术博客、学习路线、高校课程引用；Hacktoberfest 官方徽章集成</td>
+<td>9–10 档</td>
+</tr>
+</tbody>
+</table>
+<p><strong>打分: 1.5 / 1.5（9–10 档，100%）</strong></p>
+<p>判断依据：13 年积累的 40 万 Star 与“GitHub 最受欢迎仓库之一”的官方定位，属于明确的行业知名品牌；其品牌影响力是本项目 D3 维度最无争议的强项。</p>
+<h3>维度结论</h3>
+<ul>
+<li><strong>强项</strong>: 品牌认知与行业影响力（满档）、贡献者规模与外部 PR 流量、Fork 意愿（16.8%）——社区即潜在用户池这一商业化前提<strong>充分成立</strong>。</li>
+<li><strong>短板</strong>: ① Issue 侧存量治理偏弱（93 开放 / 90 天仅关闭 12），响应速度不可量化，社区运营偏“PR 驱动、Issue 滞后”；② 生态形态单一（内容镜像与静态站），无插件/商业衍生品，且 CC BY 4.0 + 非营利托管结构使<strong>生态势能难以直接转化为商业收入</strong>；③ 组织多样性不足，决策依赖基金会少量维护者。</li>
+<li><strong>对商业化的含义</strong>: 作为“流量与品牌资产”价值极高（40 万 Star 的目录入口），但社区势能属于<strong>公益型内容社区</strong>，付费转化意愿弱、生态缺乏商业接口——D3 高分反映的是“注意力资产”，不等于“付费客户池”。</li>
+</ul>
+<p><strong>数据归因</strong>: 无良性归因（本维度各项硬指标均处高位，不存在“低数据需归因”情形；唯一受限项为 Star 近 90 天增量因 stargazers 分页上限不可得，月增采用历史平均退化公式 2,557/月并在正文标注高估，未据此抬分）。</p>
+<h3>生命周期阶段判定</h3>
+<p><strong>🏗️ 热闹维护期</strong></p>
+<p>判定依据（按 3.6 词典优先级匹配）:
+- ⚰️ 废弃期：archived = false，无停止维护声明 → 不命中。
+- 💤 死寂期：近 30 天 56 次 commit、近 90 天 160 个 PR，维护活跃 → 不命中。
+- 🚀 爆发期：年龄 4,758 天 ≥ 90 天，且无前一窗口增量数据可证“翻倍” → 不命中。
+- 📈 高速增长期：需“Star 月增 &gt; 100 且趋势上升”。当前月增仅能以历史平均退化口径（2,557/月）近似，方法论明确指出该口径会高估老项目早期红利；且“趋势上升”因两个连续观察窗口均不可得而无法成立（3.6 纪律 6：该类条件退化，不能以退化值直接认定为持续增长）→ 不命中。
+- 🏗️ 热闹维护期：Star 总量 399,740 ≥ 1,000，当前月增远低于 100（成熟期必然低于 13 年历史均值），且近 30 天有 56 次 commit / Issue 有响应 → <strong>命中</strong>。</p>
+<p>含义：成熟活跃、稳定可靠，属“存量巨头”而非“增长标的”——社区势能已充分释放、增速自然回落，与 D3.1 的 7–8 档、D3.2 的 7–8 档互相印证；同时与 D8 维护连续性证据（近 30 天 56 commit）一致。</p>
+<h3>D4. 商业模式与变现潜力（得分: 3.9/10）</h3>
+<blockquote>
+<p>权重 18%，本维度为六大维度中权重最高项。本项目为"资源清单型"仓库而非软件产品，其商业化问题本质上是<strong>内容型开源项目能否变现</strong>的问题，需与软件型项目区别对待。</p>
+</blockquote>
+<h3>D4.1 协议对变现模式的影响</h3>
+<p><strong>打分: 1.6 / 2（7–8 档，80%）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察项</th>
+<th>实测结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LICENSE 文件</td>
+<td>Creative Commons Attribution 4.0 International（CC BY 4.0），全文完整落盘</td>
+</tr>
+<tr>
+<td>本地检测器识别</td>
+<td><code>UNKNOWN</code>（工具库未收录 CC 系列，属工具局限，非协议缺失）</td>
+</tr>
+<tr>
+<td>传染性</td>
+<td>无。CC BY 4.0 不含 ShareAlike，无 copyleft 传染</td>
+</tr>
+<tr>
+<td>商业使用</td>
+<td>明确允许（Section 2(a)(1) 授予 worldwide、royalty-free 的复制与改编权）</td>
+</tr>
+<tr>
+<td>附加义务</td>
+<td>仅署名（Section 3(a)）+ 标注修改 + 链接协议文本</td>
+</tr>
+<tr>
+<td>专利/商标</td>
+<td>Section 2(b)(2) 明确<strong>不授予</strong>专利与商标许可</td>
+</tr>
+<tr>
+<td>代码资产</td>
+<td>仅 <code>1</code> 个 <code>.py</code> 文件 / <code>605</code> 行（lint 脚本），无 <code>dependencies</code>，无 Dockerfile</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：</p>
+<ol>
+<li><strong>协议对变现路径"零约束"</strong>：CC BY 4.0 属宽松型协议，任何人可将其内容用于商业目的（包括托管、二次分发、印刷出版、嵌入付费产品），只需署名。从这个意义上，Open Core / SaaS / 双协议 / 专业服务等路径在<strong>法律层面</strong>均不被阻断，与 MIT/Apache 的约束等级基本等价。</li>
+<li><strong>扣分原因一：协议类型错配</strong>。CC BY 4.0 是<strong>内容协议</strong>而非软件协议（Creative Commons 官方明确不推荐用于软件），仓库内 605 行 Python 脚本处于协议适用性的灰色地带；同时 Section 2(b)(2) 不授予专利许可，若未来基于此构建商业软件，专利风险敞口无协议兜底。</li>
+<li><strong>扣分原因二：协议不提供任何变现杠杆</strong>。"零约束"是双向的——协议既不妨碍你商业化，也不妨碍<strong>任何其他人</strong>以零成本 fork 并原样商业化。仓库已有 <code>66,975</code> 个 fork，内容为纯 Markdown（213 个文档文件），再托管成本≈0。因此协议层面不存在可用于构建 Open Core/双协议壁垒的"专有资产"，协议分数高但无法转化为商业保护。</li>
+</ol>
+<p>综上，协议本身不构成商业化障碍（区别于 GPL/AGPL 的显著/严重约束），但因协议类型与项目形态不匹配、且无法形成任何排他性资产，未达 9–10 档。</p>
+<h3>D4.2 变现路径清晰度</h3>
+<p><strong>打分: 1.4 / 3.5（3–4 档，40%）</strong></p>
+<table>
+<thead>
+<tr>
+<th>变现模式</th>
+<th>可行性</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Open Core</strong></td>
+<td>❌ 不成立</td>
+<td>无核心软件产品。仓库主体是书籍链接清单（<code>books/</code>、<code>courses/</code>、<code>casts/</code>、<code>more/</code> 下的 213 个 Markdown），唯一代码是 <code>605</code> 行 lint 脚本，不存在"开源核心 + 闭源企业功能"的分层基础</td>
+</tr>
+<tr>
+<td><strong>SaaS 托管</strong></td>
+<td>❌ 不成立</td>
+<td>已有免费托管形态：GitHub Pages 静态站 + 搜索站（README 明确给出两个 <code>ebookfoundation.github.io</code> 链接）。托管价值已由 GitHub 免费提供，无付费空间；且内容可被任何人零成本再托管</td>
+</tr>
+<tr>
+<td><strong>双协议许可</strong></td>
+<td>❌ 不成立</td>
+<td>内容价值来自"指向第三方<strong>免费</strong>资源"的链接，链接本身不可被独占授权；无闭源衍生场景</td>
+</tr>
+<tr>
+<td><strong>专业服务</strong></td>
+<td>❌ 不成立</td>
+<td>项目无部署形态、无配置项、无集成接口，不存在咨询/定制/培训需求</td>
+</tr>
+<tr>
+<td><strong>市场/插件</strong></td>
+<td>❌ 不成立</td>
+<td>非平台型产品，无抽成对象</td>
+</tr>
+<tr>
+<td><strong>认证/生态</strong></td>
+<td>❌ 不成立</td>
+<td>无技术标准、无认证体系可挂靠</td>
+</tr>
+<tr>
+<td><strong>捐赠/赞助</strong></td>
+<td>⚠️ 唯一现实路径，且已在运行</td>
+<td>README 明确："The Free Ebook Foundation now administers the repo, a <strong>not-for-profit</strong> organization... Donations to the Free Ebook Foundation are <strong>tax-deductible in the US</strong>"；README 的 badge 区含 <code>GitHub org sponsors</code> 链接</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：</p>
+<ul>
+<li><strong>7 种主流模式中 6 种结构性不成立</strong>，唯一成立的是捐赠/赞助，且并非"待探索"而是"已在运行"的既有安排。</li>
+<li>捐赠路径的<strong>天花板极低</strong>：参照附录 C，Vue.js 纯社区捐赠模式公开估算约 $1M+/年，已是该模式的头部水平；而本项目的受众画像是"主动寻找<strong>免费</strong>学习资料的学生与初学者"，其付费能力与付费意愿均处于开发者群体最低区间。同时项目由 501(c)(3) 非营利基金会托管，<strong>组织形态本身即排除了利润导向的商业化</strong>。</li>
+<li>贡献侧活跃度佐证项目是"社区公益工程"而非"商业产品在孵化"：<code>430</code> 位贡献者、90 天 <code>160</code> 个 PR、<code>56</code> 次 30 天提交、<code>recent_releases</code> 为空（无版本发布概念）、<code>open_issues</code> 仅 <code>93</code>（以内容勘误/链接失效为主，CI 中 <code>check-urls.yml</code>、<code>fpb-lint.yml</code> 亦服务于此）。</li>
+<li>未落入 1–2 档的原因：捐赠通道<strong>真实存在且合规运营</strong>（非营利主体、税务可抵扣、Sponsors 入口），并非"完全无变现路径"。</li>
+</ul>
+<h3>D4.3 付费转化逻辑</h3>
+<p><strong>打分: 0.5 / 2.5（1–2 档，20%）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测结论</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>免费→付费触发点</td>
+<td><strong>不存在</strong>。仓库无任何功能分层：全部内容以 Markdown 明文提交，任何人 clone/fork 即得全量；无 PRO 版、无配额、无 API key、无速率限制</td>
+</tr>
+<tr>
+<td>付费意愿强度</td>
+<td><strong>极低且方向相反</strong>。项目定位是 "Freely available programming books"，用户的进入动机就是"零成本获取"；要求其为"免费书籍的目录"付费在逻辑上自相矛盾</td>
+</tr>
+<tr>
+<td>转化漏斗</td>
+<td><strong>不存在</strong>。使用者→贡献者（PR/翻译）→捐赠者 是唯一的正向链路，但贡献者转化靠 Hacktoberfest 等社区激励驱动（topics 含 <code>hacktoberfest</code>），与付费无因果关联</td>
+</tr>
+<tr>
+<td>付费版功能对比</td>
+<td>无（<code>recent_releases: []</code>，无付费版/企业版痕迹）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：仓库内无任何商业化配置痕迹——无 <code>dependencies</code>、无 Dockerfile、无 <code>SECURITY.md</code>、无 <code>CODEOWNERS</code>、无发布版本，说明其工程资源全部投向内容维护与 CI 校验，而非产品化。唯一接近"付费"的动作是自愿捐赠，属<strong>赠与行为</strong>而非<strong>转化行为</strong>，无触发点、无漏斗、无升级路径，符合 1–2 档"完全找不到付费触发点"。</p>
+<h3>D4.4 增值服务空间与定价天花板</h3>
+<p><strong>打分: 0.4 / 2（1–2 档，20%）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>实测结论</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>增值空间</td>
+<td>近乎为零。无 API、无 SDK、无部署形态、无 SLA 可售、无合规/审计/分析附加模块。理论上可叠加的唯一形态是<strong>站点广告位/赞助位</strong>（受众规模巨大：<code>399,740</code> star、<code>9,783</code> watcher），但与 501(c)(3) 非营利章程及 CC BY 的开放精神直接冲突</td>
+</tr>
+<tr>
+<td>定价天花板</td>
+<td>极低。可触达的付费单元仅为个人自愿捐赠，量级在 $10–100 区间；不存在企业采购场景，无 per-seat / per-usage 计价对象</td>
+</tr>
+<tr>
+<td>收入扩展性</td>
+<td>无。无 seat 概念、无用量维度、无企业 flat fee 承接主体；且内容可被无限免费复制，任何增值层都可被绕过</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：本项目 605 行代码中不含任何运行时服务，213 个文档文件全部是链接清单，<strong>不具备"核心功能之上叠加增值层"的结构基础</strong>。同时 README 明示非营利属性与税务可抵扣捐赠，组织形态已把"提高客单价"从目标函数中移除。对照评分指引"3–4 档：增值空间小、客单价低"，本项目比该档更弱——增值空间近乎不存在，故落 1–2 档。</p>
+<h3>结论</h3>
+<p><strong>（得分: 3.9/10）</strong></p>
+<p>本项目的商业化能力存在<strong>结构性缺陷</strong>，而非执行不到位：</p>
+<ol>
+<li><strong>它不是一门生意，而是一项公益基础设施</strong>。Free Ebook Foundation 的 501(c)(3) 非营利定位、税务可抵扣捐赠、CC BY 4.0 内容授权三者构成一致的"公共品"设计，组织目标函数中本就不含盈利。</li>
+<li><strong>六条主流变现路径中五条因产品形态缺失而结构性不成立</strong>（无软件产品→无 Open Core/双协议；已由 GitHub Pages 免费托管→无 SaaS 空间；无部署形态→无专业服务；非平台→无抽成/认证）。仅捐赠/赞助一条路径成立且已运营，天花板参照 Vue.js 量级（约 $1M+/年）已属乐观上限。</li>
+<li><strong>协议得分高但不产生商业价值</strong>。CC BY 4.0 对变现"零约束"（1.6/2），但同样的零约束也让 66,975 个 fork 可以零成本复制全部价值，协议不提供任何护城河——这是本项目与 GitLab/Supabase 类 Open Core 案例的根本分野。</li>
+<li><strong>其真实价值在"影响力"而非"收入"</strong>：399,740 star、430 位贡献者、90 天 160 个 PR、覆盖 40+ 语言的本地化内容，是开发者生态中的顶级流量入口与教育公益资产。若评估口径为"生态影响力/战略卡位"，结论将显著不同；但在<strong>商业模式与变现潜力</strong>这一口径下，应给出低分。</li>
+</ol>
+<p><strong>建议</strong>：若投资/收购方关注的是流量入口价值（可导向招聘、课程、云服务等下游变现），需明确该价值<strong>不在本仓库内</strong>实现，而需外部主体另建产品承接；若仅评估本仓库自身的商业可持续性，则其可持续性依赖捐赠与志愿者，而非收入。</p>
+<h3>D5. 竞争格局与差异化壁垒（得分: 5.8/10）</h3>
+<h3>D5.1 竞品对比与市场定位</h3>
+<p><strong>竞品检索说明</strong>: 通过 GitHub Search API 关键词检索「free programming books」类项目，返回 5 条结果，均已确认仓库真实存在（返回 <code>full_name</code> / <code>stars</code> / <code>pushed_at</code> / <code>verified: true</code>）。检索的<strong>局限</strong>需说明：返回结果未按 star 排序，头部出现的是本项目的<strong>同名克隆（fork）</strong>，说明在同类关键词下「被复制」比「被挑战」更普遍；大规模同类项目未落入本次检索结果集，因此下表中「Star/用户量」仅代表<strong>本次检索结果集内</strong>的相对规模，不能等同于全域市场份额。</p>
+<table>
+<thead>
+<tr>
+<th>竞品名称</th>
+<th>类型</th>
+<th>仓库/官网</th>
+<th>验证方式</th>
+<th>Star/用户量</th>
+<th>核心差异</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sx4im/programming-books-pdf</td>
+<td>直接竞品</td>
+<td>github.com/sx4im/programming-books-pdf</td>
+<td>已实测：GitHub Search API 返回（<code>verified: true</code>，pushed_at 2026-09-27，描述「670+ books across 32 languages, searchable」）</td>
+<td>61 star</td>
+<td>同样做「多语言免费编程书目录」+ 站内搜索，但规模约为本项目的 1/6500，且以 PDF 分发为卖点，无基金会治理与多语种维护体系</td>
+</tr>
+<tr>
+<td>marsilvdilva/free-programming-books</td>
+<td>直接竞品（本项目克隆）</td>
+<td>github.com/marsilvdilva/free-programming-books</td>
+<td>已实测：GitHub Search API 返回（<code>verified: true</code>，描述与本项目逐字相同，pushed_at 2026-10-18）</td>
+<td>11 star</td>
+<td>与本项目同名、同描述、同结构，属内容搬运型 fork，无独立贡献者网络与 CI 体系</td>
+</tr>
+<tr>
+<td>ladagojoom/free-programming-books</td>
+<td>直接竞品（本项目克隆）</td>
+<td>github.com/ladagojoom/free-programming-books</td>
+<td>已实测：GitHub Search API 返回（<code>verified: true</code>，pushed_at 2026-10-18）</td>
+<td>3 star</td>
+<td>同上，克隆体，无差异化</td>
+</tr>
+<tr>
+<td>sanusanth/Python-Basic-programs</td>
+<td>间接竞品</td>
+<td>github.com/sanusanth/Python-Basic-programs</td>
+<td>已实测：GitHub Search API 返回（<code>verified: true</code>，pushed_at 2023-02-15，已两年半无推送）</td>
+<td>97 star</td>
+<td>做「学习材料」但形态是代码示例集合，非书目索引；单语言、单主题，服务对象是 Python 入门者</td>
+</tr>
+<tr>
+<td>gotonote/awesome-agent-boom</td>
+<td>间接竞品（细分垂直）</td>
+<td>github.com/gotonote/awesome-agent-boom</td>
+<td>已实测：GitHub Search API 返回（<code>verified: true</code>，pushed_at 2026-10-21，描述「AI Agent 开源书单/教程合集」）</td>
+<td>20 star</td>
+<td>只在「LLM Agent」一个垂直主题内做书单，是品类切片而非全品类替代</td>
+</tr>
+<tr>
+<td>sindresorhus/awesome</td>
+<td>间接竞品（元清单）</td>
+<td>github.com/sindresorhus/awesome</td>
+<td>已实测：仓库内引用——本项目 README 首段直接挂载其 badge <code>&lt;img src=".../sindresorhus/awesome/..."&gt;</code> 并链接该仓库</td>
+<td>Star 数未取数（N/A）</td>
+<td>不提供书目本体，只做「清单的清单」入口；与本项目是导流/收录关系而非替代关系</td>
+</tr>
+</tbody>
+</table>
+<p><strong>定位清晰度</strong>: README 开篇定位为「List of Free Learning Resources <strong>In Many Languages</strong>」，并给出三条互补交付形态：GitHub 仓库（原料）、静态站 <code>ebookfoundation.github.io/free-programming-books/</code>（阅读）、独立搜索站 <code>.../free-programming-books-search/</code>（检索）。差异化落点是<strong>语种广度</strong>——<code>books/</code> 目录实测含 48 个 Markdown 文件（其中 <code>free-programming-books-langs.md</code> 与 <code>-subjects.md</code> 为英文按语言/按主题分类），README 列出 40+ 语种入口，另含 <code>courses/</code>、<code>casts/</code>、<code>more/</code>（cheatsheets、interactive tutorials、playgrounds、problem sets）多条资源线。同类检索结果中无一具备这种多语种 × 多资源形态的矩阵结构。</p>
+<p><strong>判断依据</strong>: 在本品类的可检索结果集内，本项目以 399,740 star 对最高 97 star 的竞品形成三个数量级的领先，定位（多语种免费学习资源索引 + 非营利治理）明确且被竞品以「克隆」方式间接确认；但品类本身进入门槛极低（Markdown 即产品），「无直接竞品」更多源于「不值得正面竞争」而非「不可竞争」。</p>
+<p><strong>打分: 2.4 / 3（7–8 档，80%）</strong></p>
+<h3>D5.2 技术壁垒与网络效应</h3>
+<p><strong>技术壁垒</strong>: 近乎为零。全仓代码实测仅 605 行 Python（1 个源文件），无依赖清单、无测试（test_ratio 0.0），产品本体是 Markdown 文本。无专利、无专有算法、无独占数据源——所有收录内容均为公开可访问的免费资源链接。更关键的是 LICENSE 为 <strong>CC BY 4.0</strong>（本地实测 <code>LICENSE</code> 文件头为 "Attribution 4.0 International"），该协议<strong>明确允许他人复制、再分发甚至商用</strong>，只要求署名。这意味着法律层面不但不设防，反而为克隆者提供了授权通道——检索结果中已出现两个同名克隆（11 star / 3 star）即为实证。</p>
+<p><strong>网络效应</strong>: 存在但偏弱-中等。正向循环确实成立：贡献者越多 → 语种/条目越全 → 读者与搜索流量越大 → 吸引更多贡献者（尤其 Hacktoberfest 期间，README 挂有 Hacktoberfest 2025 统计 badge，仓库 topics 亦含 <code>hacktoberfest</code>）。硬数据支撑活跃度：430 位贡献者、90 天 160 个 PR、30 天 56 次提交、开放 Issue 仅 93。但这类网络效应是<strong>内容型</strong>而非<strong>协议型</strong>：新用户加入不产生「必须留在同一平台」的互操作性收益，克隆体可以零成本继承全部内容并继续独立演进，网络效应无法沉淀为排他性资产。</p>
+<p><strong>规模效应</strong>: 有一定体现。条目总量与语种覆盖构成「一站式」体验优势，品牌带来的自然搜索流量又反向降低获客成本；7 个 CI workflow（<code>check-urls.yml</code> 链接存活检查、<code>fpb-lint.yml</code> 格式校验、<code>rtl-ltr-linter.yml</code> 从右至左语种排版校验、<code>detect-conflicting-prs.yml</code> 冲突 PR 检测等）是长期沉淀出的<strong>维护工艺</strong>，克隆者拿到的是快照，拿不到这套治理流程与 430 人协作惯例——这是本项目唯一的准壁垒，但属组织能力而非技术壁垒。</p>
+<p><strong>判断依据</strong>: 技术复制成本≈0（一条 <code>git clone</code>），法律上被 CC BY 4.0 主动放开，数据非独占；壁垒实际落在「品牌 + 贡献者协作工艺 + 语种覆盖」这一层软资产上，不深厚。</p>
+<p><strong>打分: 1.8 / 3（5–6 档，60%）</strong></p>
+<h3>D5.3 切换成本与用户粘性</h3>
+<p><strong>迁移成本</strong>: 对绝大多数用户（读者）而言为零。产品交付形态是可收藏的网页与 Markdown 文件，用户「使用」即「阅读/搜索」，改用一个竞品清单只需换一个书签，无账号、无数据、无历史记录。对贡献者而言有轻度成本：需遵循 CONTRIBUTING 流程、通过 <code>fpb-lint</code> 格式校验、理解多语种文件组织与 RTL 排版规则——但这是<strong>贡献门槛</strong>而非<strong>迁移锁定</strong>，且贡献者本身是流动的自愿者。</p>
+<p><strong>深度集成</strong>: 不存在。仓库无 Dockerfile、无依赖清单、无 API/SDK、无插件体系、无数据导出格式（因为数据本身就是纯文本）。任何第三方要「集成」它，最重的方式也只是静态抓取 Markdown，切换源的成本同样接近零。</p>
+<p><strong>习惯锁定</strong>: 仅在「品牌即入口」层面成立——用户习惯直接搜索「free programming books」并落到本项目，搜索站与静态站强化了这一路径依赖；但这是<strong>认知习惯</strong>，不是<strong>流程依赖</strong>，组织层面没有任何业务流程构建在其上。</p>
+<p><strong>判断依据</strong>: 典型「即插即用即走」型产品，读者侧切换成本≈1 次点击，无集成深度、无数据沉淀、无流程锁定。</p>
+<p><strong>打分: 0.4 / 2（1–2 档，20%）</strong></p>
+<h3>D5.4 护城河可持续性</h3>
+<p><strong>护城河趋势</strong>: 短期稳定偏增强。项目未归档（<code>archived: false</code>），最近推送 2026-10-20，30 天 56 次提交、90 天 160 个 PR，治理主体为 Free Ebook Foundation 非营利组织（README 明示其职责为「promoting the creation, distribution, archiving, and sustainability of free ebooks」，并接受可抵税捐赠），组织连续性优于个人维护的清单项目。400k star 的量级使其在 GitHub 生态内具备「默认答案」地位，README 亦自述已进入 GitHub Octoverse 的最受欢迎仓库行列。</p>
+<p><strong>颠覆风险</strong>: 中等且方向明确。①<strong>链接腐化</strong>是长期结构性损耗——书目本质是外部 URL 集合，被收录资源下线即造成条目失效，项目只能用 <code>check-urls.yml</code> 被动巡检，维护成本随条目数线性增长；②<strong>AI 问答/生成式检索</strong>是更实质的威胁：用户问「推荐一本免费的 Rust 书」时，答案可直接由模型生成，绕过了「清单 + 搜索站」这一层入口，本项目的核心资产（索引与流量）恰好位于被绕过的环节；③<strong>低成本克隆</strong>持续稀释品牌——检索已见两个同名 fork，CC BY 4.0 使这种稀释合法且不可追责。</p>
+<p><strong>时间窗口</strong>: 品牌与 SEO 存量优势在中期（AI 答案引擎尚未完全取代链接型检索的过渡期内）仍可维持；但护城河不具备「随时间自动加深」的机制——每新增一个语种/条目都同时增加维护负担与被复制面，属<strong>消耗型资产</strong>而非<strong>累积型资产</strong>。</p>
+<p><strong>判断依据</strong>: 护城河稳定但由品牌与组织治理支撑，缺乏技术与法律防线；面临 AI 检索入口替代的中等颠覆风险，优势不能自动强化。</p>
+<p><strong>打分: 1.2 / 2（5–6 档，60%）</strong></p>
+<h3>结论</h3>
+<p>本项目是「品类型」项目的极端样本：以 399,740 star / 66,975 fork / 430 贡献者坐稳「免费编程书目录」这一细分的第一名，在其可检索的竞品集合内领先三个数量级（最高 97 star），多语种 × 多资源形态的矩阵与基金会治理构成清晰定位（D5.1 = 2.4/3）。但这一领先<strong>不构成防御</strong>：产品本体是 605 行 Python 支撑的 Markdown 文本，采用 CC BY 4.0 主动放开复制权，检索结果中已出现同名克隆；用户侧零迁移成本、零集成深度、零数据锁定（D5.3 = 0.4/2）；壁垒实际落在品牌、430 人协作工艺与 40+ 语种覆盖这类软资产上（D5.2 = 1.8/3），且面临链接腐化与 AI 检索入口替代的双重侵蚀（D5.4 = 1.2/2）。</p>
+<p><strong>商业含义</strong>: 这是一个<strong>高影响力、低可防御性</strong>的资产。任何商业化路径（导流、赞助、搜索站增值）都必须建立在「品牌与社区信任」而非「产品锁定」之上——一旦品牌注意力被 AI 答案引擎分流，没有技术或数据层面的缓冲带。适合以非营利/赞助/生态品牌变现逻辑评估，不适合按 SaaS 型护城河定价。</p>
+<h3>D6. 法律合规与知识产权</h3>
+<p><strong>维度得分: 7.6/10</strong>（权重 7%）</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>打分</th>
+<th>档位</th>
+<th>核心依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D6.1 开源协议合规性与商业限制</td>
+<td>3</td>
+<td>2.4</td>
+<td>7–8（80%）</td>
+<td>CC BY 4.0 完整法律文本，无 copyleft、无商业附加条款；但无 SPDX 标识行、CC 非软件许可、索引收录「保留所有权利」资源</td>
+</tr>
+<tr>
+<td>D6.2 依赖链法律风险</td>
+<td>2.5</td>
+<td>2.5</td>
+<td>9–10（100%）</td>
+<td><code>dependencies: {}</code>，无任何包管理器依赖清单，代码仅 605 行单文件 Python</td>
+</tr>
+<tr>
+<td>D6.3 商标与专利风险</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6（60%）</td>
+<td>未经人工核查，置信度低（自动化限制，按方法论默认档）</td>
+</tr>
+<tr>
+<td>D6.4 贡献者协议完备性</td>
+<td>2</td>
+<td>1.2</td>
+<td>5–6（60%）</td>
+<td>有详尽贡献指南与 PR 模板，但无正式 CLA、无 DCO，版权分散于 430 名贡献者</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>7.6</strong></td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>D6.1 开源协议合规性与商业限制</h3>
+<p><strong>打分: 2.4 / 3（7–8 档，80%）</strong></p>
+<p><strong>事实依据</strong></p>
+<ul>
+<li>仓库根目录存在完整 <code>LICENSE</code> 文件，为 Creative Commons Attribution 4.0 International 官方法律文本全文（Section 1–8 齐全），GitHub API 将其识别为 <code>CC-BY-4.0</code>，SPDX 标识在平台侧明确。</li>
+<li><strong>协议明确性（轻微扣分点）</strong>：LICENSE 正文首行为「Attribution 4.0 International」，<strong>未包含标准 SPDX 标识行</strong>（如 <code>SPDX-License-Identifier: CC-BY-4.0</code>），导致本地 <code>collect_local.py</code> 的协议识别器返回 <code>UNKNOWN</code>。对自动化合规扫描（如 FOSSA / SCA 工具链）而言会产生一次人工确认成本，但不构成实质法律障碍。</li>
+<li><strong>copyleft 传染性</strong>：无。CC BY 4.0 属「署名型」而非「传染型」许可，Section 2(a)(1) 授予 worldwide、royalty-free、irrevocable 的复制与演绎权；Section 3(a)(4) 仅要求演绎作品的 Adapter's License 不得妨碍他人履行本许可，<strong>不要求衍生作品同协议授权</strong>。依赖链中无 GPL/AGPL。</li>
+<li><strong>商业附加条款</strong>：无。不存在 Commons Clause、BUSL、SSPL 或「非商业使用」限制（对照：同为 CC 家族的 <code>CC BY-NC</code> 才会封锁商业路径，本项目未采用）。<strong>商业变现（增值服务、托管索引 API、付费镜像、企业订阅）在法律上可行</strong>，唯一硬性义务是 Section 3(a) 的署名（保留 430+ 贡献者署名、许可声明与 URI 链接）以及 Section 2(a)(5)(b)「不得对下游施加额外限制」。</li>
+<li><strong>须提请买方注意的三项实质风险</strong>（不构成否决，但影响尽调结论）：
+  1. <strong>CC 并非软件许可</strong>：本项目唯一源码为 605 行 Python 脚本（<code>.py</code> 1 文件），将其置于 CC BY 4.0 之下在法律上属「非推荐用法」——Creative Commons 官方明确不建议将 CC 用于软件，因其未处理专利授权、源码/目标码分发等软件特有事项。若商业化产品需修改该脚本并与自有代码库合并，许可边界会变模糊。
+  2. <strong>CC BY 4.0 明确不授予专利与商标权</strong>：LICENSE Section 2(b)(2) 原文「Patent and trademark rights are not licensed under this Public License」。不能从本项目许可推导出任何专利默示许可。
+  3. <strong>索引内容的第三方版权暴露</strong>：<code>docs/CONTRIBUTING.md</code> 明文承认「While we include resources that are "All Rights Reserved" but free to read」——即列表收录的部分资源并非自由许可。清单本身（标题 + URL + 简短著录）通常属事实性汇编，转载风险较低；但若商业产品<strong>抓取/镜像被链接的书籍内容</strong>，则脱离了本项目许可的覆盖范围，将直接面对第三方版权与 DMCA 下架风险。这是本维度最需要在产品设计阶段设边界的点。</li>
+</ul>
+<p><strong>结论</strong>：协议清晰、无传染、无商业封锁，法律合规可管理性良好；扣分主要来自 SPDX 标识缺失与 CC 应用于代码带来的解释成本，而非协议类型本身（协议对变现模式的档位影响不在本细则重复计分）。</p>
+<hr />
+<h3>D6.2 依赖链法律风险</h3>
+<p><strong>打分: 2.5 / 2.5（9–10 档，100%）</strong></p>
+<p><strong>事实依据</strong></p>
+<ul>
+<li>本地实测 <code>dependencies: {}</code>：仓库<strong>无</strong> <code>requirements.txt</code>、<code>package.json</code>、<code>go.mod</code>、<code>pyproject.toml</code> 等任何依赖清单，无 Dockerfile。语言分布仅 <code>.py</code> 1 个文件 / 605 行，其余 213 个文档文件均为 Markdown 列表。</li>
+<li>传递依赖为零 → GPL/AGPL 传染性依赖数量为零，无来源不明的高风险包，合规审查成本接近于零。</li>
+<li>残留项（已在 D6.1 覆盖，不重复扣分）：CI 侧引用了两个第三方 GitHub Action/工具——<code>vhf/free-programming-books-lint</code>（<code>fpb-lint.yml</code>）与 <code>dkhamsing/awesome_bot</code>（URL 校验）。二者仅在 CI 中执行、不进入分发产物，且其许可证在本次素材中未提供，<strong>未经人工核查</strong>；即便为 GPL，也不构成对分发物的传染（CI 工具不随产品分发）。另有 <code>courses/</code>、<code>books/</code> 等 213 个 Markdown 文件指向数千个站外资源，这属于「内容链接风险」而非「软件依赖链风险」，已在 D6.1 评述。</li>
+</ul>
+<p><strong>结论</strong>：依赖链在法律层面近乎"零表面积"，是本项目在 D6 维度最干净的环节。</p>
+<hr />
+<h3>D6.3 商标与专利风险</h3>
+<p><strong>打分: 1.5 / 2.5（5–6 档，60%）——未经人工核查，置信度低</strong></p>
+<p><strong>事实依据与自动化限制声明</strong></p>
+<ul>
+<li>依据方法论规定，商标检索（USPTO/EUIPO/CNIPA）与专利 FTO 排查<strong>无法由本模型自动完成</strong>，本节<strong>不臆断任何商标注册或专利状态</strong>，按默认档给分并标注置信度低。</li>
+<li>可确认的素材事实：</li>
+<li>仓库 README 与文件清单中<strong>未见独立商标政策文件</strong>（无 <code>TRADEMARK.md</code>、无品牌使用条款），即项目方未对「free-programming-books」名称在衍生品/商业产品中的使用设立明确规则。这对商业化是双刃剑：无限制意味着使用阻力小，但也意味着无法借此建立品牌护城河，且一旦第三方抢注，项目方缺乏主张依据。</li>
+<li>名称「free-programming-books」为高度描述性词组（叙述性使用），显著性弱，本身注册难度较高；母体组织名「EbookFoundation」为独立标识。</li>
+<li>技术领域为「内容策展/链接索引」，不含算法、硬件或数据处理专利密集点，专利暴露面理论较低——但此为<strong>基于技术领域的推断，非检索结论</strong>。</li>
+<li>需人工补做的核查清单：① "free-programming-books" 与 "EbookFoundation" 在第 9/16/41 类的商标检索；② 组织方是否已有商标注册或声明；③ 商业化产品命名是否会与现有编程教育品牌冲突。</li>
+</ul>
+<p><strong>结论</strong>：无素材层面的冲突证据，但亦无商标政策与人工检索支撑，按方法论保守处理，待人工尽调后上调。</p>
+<hr />
+<h3>D6.4 贡献者协议完备性</h3>
+<p><strong>打分: 1.2 / 2（5–6 档，60%）</strong></p>
+<p><strong>事实依据</strong></p>
+<ul>
+<li><strong>贡献流程：规范。</strong> <code>docs/CONTRIBUTING.md</code> 内容质量高于行业平均——含收录范围界定（书/课程/交互教程/playground/播客/题集六类）、Markdown 格式细则、字母序规则、许可证标注规范（CC BY / CC BY-SA / GFDL 等）、RTL/LTR 双向文本 lint 规则、7 个 CI workflow（<code>fpb-lint.yml</code>、<code>check-urls.yml</code>、<code>detect-conflicting-prs.yml</code>、<code>rtl-ltr-linter.yml</code> 等）自动校验。另有 <code>.github/PULL_REQUEST_TEMPLATE.md</code> 与 <code>CODE_OF_CONDUCT.md</code>。</li>
+<li><strong>CLA/DCO：缺失（核心扣分项）。</strong> 贡献指南虽以小标题「Contributor License Agreement」呈现，但实质内容仅一句：「By contributing, you agree to the [LICENSE] of this repository.」——这是 <strong>inbound=outbound 的许可声明</strong>，不是独立的贡献者许可协议；仓库无独立 CLA 文件、无 CLA Assistant 类机器人、无 DCO <code>Signed-off-by</code> 要求（PR 模板中亦未要求 sign-off）。</li>
+<li><strong>版权归属：分散，不可集中控制。</strong> 430 名贡献者各自保留其贡献的版权，仅以 CC BY 4.0 向公众授予非独占、不可再许可（<code>non-sublicensable</code>，Section 2(a)(1)）的许可。<strong>直接后果：项目方无法实施双协议（open-core / 商业授权）模式</strong>——重新授权需要逐一取得 430 名贡献者的额外授权，实操上不可行。这实质性关闭了一条常见商业化路径（对照 D4 维度评估）。</li>
+<li>另需注意：根目录<strong>无</strong> <code>CONTRIBUTING.md</code>（位于 <code>docs/</code> 子目录），GitHub 右侧「Contributing」入口不会自动识别；<code>has_codeowners: false</code>、<code>has_security_md: false</code>，治理基础设施不完整；<code>issues_closed_90d: 12</code> 对 <code>prs_created_90d: 160</code>（Issue 关闭率显著低于 PR 吞吐），提示维护带宽集中于 PR 而非问题治理——非法律项，但影响尽调时对「贡献流程可持续性」的判断。</li>
+</ul>
+<p><strong>结论</strong>：贡献流程规范性好（可达 7–8 档），但缺少正式 CLA/DCO 与版权集中机制，直接锁死再许可型商业模式，综合落于 5–6 档。</p>
+<hr />
+<h3>维度小结</h3>
+<p>free-programming-books 在 D6 维度呈现<strong>「协议极宽松、治理偏松散」</strong>的典型开源内容项目画像：</p>
+<ul>
+<li><strong>优势</strong>：CC BY 4.0 允许商业使用、允许演绎、无 copyleft 传染、无任何商业附加条款；零第三方代码依赖使依赖链合规成本近乎为零。这是本维度最有利的结构。</li>
+<li><strong>主要法律边界（须在产品设计阶段明确）</strong>：① 商业产品只能复用<strong>索引/著录层</strong>，不得镜像或转售被链接的书籍内容——项目中确收录 "All Rights Reserved" 资源；② CC BY 4.0 不含专利与商标授权（LICENSE §2(b)(2)），商标可用性未经人工检索；③ 无 CLA 意味着<strong>无法走「开源版 + 商业授权版」双轨变现</strong>，商业化只能做增值服务（托管 API、检索、企业内网镜像、赞助/广告）而非许可销售。</li>
+<li><strong>可低成本修复项</strong>：补 SPDX 标识行、根目录挂 <code>CONTRIBUTING.md</code>、补 <code>TRADEMARK.md</code> 政策、引入 DCO。若引入 CLA 需全体 430 名历史贡献者回溯签署，成本极高，实际不可行——应将「无法双协议」作为<strong>既定约束</strong>而非待修复缺陷纳入商业模型。</li>
+</ul>
+<h3>D7. 企业就绪度与可运营性（权重 8%，得分: 5.5/10）</h3>
+<p><strong>评估口径说明</strong>：该项目本质是 Markdown 资源清单仓库，不是可部署的运行时应用；无服务端、无用户体系、无数据库。D7.2 的认证/权限/审计/加密在企业应用层面不适用，按 N/A 剔除；D7.1、D7.3、D7.4 按“内容仓库 + GitHub 托管分发”的实际运营形态评估。</p>
+<p><strong>证据摘要</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>事实项</th>
+<th>实测值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>代码规模</td>
+<td>605 行 Python，1 个源码文件</td>
+</tr>
+<tr>
+<td>测试</td>
+<td>0 文件 / 0 行</td>
+</tr>
+<tr>
+<td>CI</td>
+<td>7 个 GitHub Actions workflow</td>
+</tr>
+<tr>
+<td>发布</td>
+<td><code>recent_releases</code> 为空，无 tag/release 证据</td>
+</tr>
+<tr>
+<td>容器化</td>
+<td>无 Dockerfile</td>
+</tr>
+<tr>
+<td>依赖清单</td>
+<td>空（<code>dependencies: {}</code>）</td>
+</tr>
+<tr>
+<td>社区运营</td>
+<td>93 open issues；90 天 160 PRs、关闭 12 issues；430 contributors；30 天 56 commits</td>
+</tr>
+<tr>
+<td>安全治理文件</td>
+<td>无 <code>SECURITY.md</code>、无 <code>CODEOWNERS</code></td>
+</tr>
+<tr>
+<td>API/协议</td>
+<td>无 OpenAPI/protobuf/SDK；无 Prometheus/OpenTelemetry/Webhook 配置</td>
+</tr>
+</tbody>
+</table>
+<h3>D7.1 运维复杂度与升级路径</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>配置管理</td>
+<td>无应用配置、无环境变量/配置中心；主要“配置”是 7 个 CI workflow YAML，结构简单但无统一配置管理</td>
+</tr>
+<tr>
+<td>运维负担</td>
+<td>无运行时运维；但社区维护负担较高——90 天 160 PRs、93 open issues，同期仅关闭 12 issues，PR/issue 分流压力明显</td>
+</tr>
+<tr>
+<td>升级路径</td>
+<td>无 tag/release、无 CHANGELOG；消费者只能跟随 <code>main</code> 或 pin commit，回滚依赖 Git revert/reset，无正式发布回滚机制</td>
+</tr>
+<tr>
+<td>数据迁移</td>
+<td>纯 Markdown 内容，无数据库，升级不涉及数据迁移</td>
+</tr>
+</tbody>
+</table>
+<p>静态内容使运行时运维成本极低，但缺少版本化发布与回滚流程，社区维护投入偏高，符合“需一定运维投入，升级需手动操作”的 5–6 档。</p>
+<p><strong>打分: 1.8 / 3（5–6 档，60%）</strong></p>
+<h3>D7.2 安全管理与权限控制</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>认证授权</td>
+<td>无应用层登录、SSO/OAuth/LDAP/SAML；无认证代码</td>
+</tr>
+<tr>
+<td>权限模型</td>
+<td>无 RBAC/ABAC；仓库权限完全依赖 GitHub 组织/分支保护，仓库内无 CODEOWNERS 等证据</td>
+</tr>
+<tr>
+<td>审计日志</td>
+<td>无应用审计模块；仅 GitHub 平台自身操作记录</td>
+</tr>
+<tr>
+<td>数据安全</td>
+<td>内容公开、无密钥/敏感数据、无加密存储需求；无 SECURITY.md</td>
+</tr>
+</tbody>
+</table>
+<p>该项目不是多租户服务，企业认证、细粒度权限、审计日志与加密存储不属于其产品形态，应判 N/A，不应按“无安全机制”打 0 分。</p>
+<p><strong>打分: N/A（不适用，剔除）</strong></p>
+<h3>D7.3 可扩展性与高可用能力</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>水平扩展</td>
+<td>内容为静态 Markdown，天然可镜像、可由 CDN/静态托管分发，无状态，无应用层扩展改造需求</td>
+</tr>
+<tr>
+<td>高可用</td>
+<td>自身不运营集群，依赖 GitHub/GitHub Pages；仓库内无故障转移、SLA、健康检查或容灾配置</td>
+</tr>
+<tr>
+<td>性能瓶颈</td>
+<td>无运行时性能瓶颈；内容更新受 PR 评审吞吐影响</td>
+</tr>
+<tr>
+<td>数据一致性</td>
+<td>Git 单一事实源；镜像/Fork 可能滞后，无跨副本同步一致性机制</td>
+</tr>
+</tbody>
+</table>
+<p>静态形态带来天然横向分发优势，但高可用、SLA 与一致性保障完全外包给 GitHub，缺少项目级保障，符合“静态分发可接受，企业级 HA 需额外建设”的 5–6 档。</p>
+<p><strong>打分: 1.5 / 2.5（5–6 档，60%）</strong></p>
+<h3>D7.4 集成兼容与可观测性</h3>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>API 完备性</td>
+<td>无 REST/gRPC/OpenAPI/SDK；集成方式仅为 <code>git clone</code>、raw Markdown 链接或 GitHub API</td>
+</tr>
+<tr>
+<td>标准协议</td>
+<td>无 OpenTelemetry/Prometheus/Webhook 等标准集成或可观测协议</td>
+</tr>
+<tr>
+<td>监控告警</td>
+<td>仅 CI 的 URL 检查、lint、冲突检测；无服务健康检查、指标暴露、告警配置</td>
+</tr>
+<tr>
+<td>日志体系</td>
+<td>GitHub Actions 日志与 linter 输出；无结构化应用日志/日志级别管理</td>
+</tr>
+</tbody>
+</table>
+<p>具备基础的内容消费路径与 CI 质量门禁，但无正式 API 和可观测体系，集成能力有限，符合“有 API 但监控/日志薄弱”以下的 3–4 档。</p>
+<p><strong>打分: 0.8 / 2（3–4 档，40%）</strong></p>
+<h3>维度结论</h3>
+<p>D7 得分 = (1.8 + 1.5 + 0.8) / (3 + 2.5 + 2) × 10 = <strong>5.5/10</strong>。</p>
+<p>该项目作为静态知识库，运行时运维与横向分发负担极低，这是明显优势；但企业就绪度不能只看静态分发：缺少版本化发布/回滚、SLA 与 HA 责任边界、正式 API、监控告警与审计体系。D7.2 因无应用层用户与权限模型判 N/A，使本维度置信度中等。商业化上，若定位为“内容/数据授权 + 赞助”，D7 不是主要障碍；若定位为“企业级知识服务/API”，则需补齐版本化数据发布、API/SDK、监控告警与合规审计能力。</p>
+<h3>D8. 团队治理与可持续性（得分: 8.6/10）</h3>
+<p><strong>维度定位</strong>: 本项目并非典型软件库，而是由非营利组织托管的超大型多语言编程学习资源策展列表（213 个 Markdown 文档、仅 605 行 Python 脚本）。D8 评估其"人"的要素——维护者能力、治理透明度、资金与传承风险。项目年龄约 13 年（创建于 2013-10-11），远超 90 天，<strong>不适用新项目专项</strong>，D8.4 按完整标准评估。</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>打分</th>
+<th>档位</th>
+<th>核心依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D8.1 核心维护者能力与背景</td>
+<td>2.5</td>
+<td><strong>2.0 / 2.5</strong></td>
+<td>7–8（80%）</td>
+<td>430 贡献者、非营利基金会托管、维护活跃，但以志愿投入为主、无商业化团队</td>
+</tr>
+<tr>
+<td>D8.2 治理模型透明度</td>
+<td>2.0</td>
+<td><strong>1.6 / 2.0</strong></td>
+<td>7–8（80%）</td>
+<td>有 CONTRIBUTING/CODE_OF_CONDUCT/HOWTO、自动化 CI 审查、基金会治理；缺 GOVERNANCE.md/CODEOWNERS</td>
+</tr>
+<tr>
+<td>D8.3 资金支持与商业赞助</td>
+<td>2.5</td>
+<td><strong>2.0 / 2.5</strong></td>
+<td>7–8（80%）</td>
+<td>Free Ebook Foundation（美国 501(c)(3) 非营利）、可抵税捐赠、GitHub Sponsors 组织级赞助；无 VC/大厂全职团队</td>
+</tr>
+<tr>
+<td>D8.4 项目可持续性与传承风险</td>
+<td>3.0</td>
+<td><strong>3.0 / 3.0</strong></td>
+<td>9–10（100%）</td>
+<td>13 年持续活跃、近 30 天 56 次 commit、90 天 160 个 PR、无 archived/deprecated、基金会+430 贡献者可传承</td>
+</tr>
+</tbody>
+</table>
+<h3>细则分析</h3>
+<p><strong>D8.1 核心维护者能力与背景 — 打分: 2.0 / 2.5（7–8 档，80%）</strong>
+- 技术能力：策展列表项目的技术门槛不高（605 行 Python 脚本 + Markdown），但维护者展现了成熟的社区运营与大规摸链接治理能力——7 个 CI workflow（URL 校验、格式 lint、冲突 PR 检测、RTL/LTR 语言 lint、stale 处理）表明工程化治理水平远超普通列表项目。
+- 商业经验：由 <strong>Free Ebook Foundation</strong>（非营利组织）托管，非商业团队；原始列表由 Victor Felder 迁至 GitHub，现由基金会+志愿维护者管理。缺乏企业服务/创业背景，但机构化治理部分弥补。
+- 投入度与巴士因子：<strong>430 名贡献者</strong>、近 90 天 160 个 PR，维护者群体规模大、接力机制健全，<strong>巴士因子显著高于 5</strong>——远优于评分指引 9–10 档的"≥5"要求。但核心团队并非已知全职商业化团队，故未达 9–10 档——按 7–8 档"团队投入度高、巴士因子 ≥3"给分。
+- 数据归因：本项目属"内容策展/列表型"结构，代码量低（605 行）是项目类型属性，非技术缺陷；贡献者基数与活跃度均处高位，无低数据风险。</p>
+<p><strong>D8.2 治理模型透明度 — 打分: 1.6 / 2.0（7–8 档，80%）</strong>
+- 治理文档：具备 <code>docs/CONTRIBUTING.md</code>、<code>docs/CODE_OF_CONDUCT.md</code>（Contributor Covenant 1.3 改编）、<code>docs/HOWTO.md</code>、<code>.github/PULL_REQUEST_TEMPLATE.md</code>，贡献流程、格式规范、许可与行为准则相当完整。
+- 开放程度：决策通过公开 PR + 自动化 CI（fpb-lint、URL 校验）执行，格式规则机器可验证，透明度较高；但<strong>无 GOVERNANCE.md、无 CODEOWNERS、无显式路线图文档</strong>，最终决策权集中于基金会/核心维护者。
+- 组织属性：属 <strong>Free Ebook Foundation</strong>（专用非营利基金会），虽非 CNCF/Apache/Linux Foundation 级别，但具备独立法定实体与明确的使命约束。综合达 7–8 档"有基本治理结构、决策较透明"，未达 9–10 档（无完善治理文档+顶级基金会）。</p>
+<p><strong>D8.3 资金支持与商业赞助 — 打分: 2.0 / 2.5（7–8 档，80%）</strong>
+- 现有资金：由 <strong>Free Ebook Foundation</strong>（美国 501(c)(3) 非营利，捐赠可抵税）运营，具备制度化筹资渠道（ebookfoundation.org/contributions.html）。
+- 赞助收入：README 展示 <strong>组织级 GitHub Sponsors 徽章</strong>（github.com/sponsors/EbookFoundation），有稳定的小额赞助入口。
+- 商业实体：非商业实体，无 VC、无大厂全职团队，主要靠非营利捐赠+志愿投入。
+- 资金可持续性：非营利基金会结构+可抵税捐赠+组织赞助，资金机制稳定但规模有限，不足以支撑高成本运营。达 7–8 档"有稳定赞助或公司支持，资金可持续"，未达 9–10 档（无 VC/大厂全职团队）。</p>
+<p><strong>D8.4 项目可持续性与传承风险 — 打分: 3.0 / 3（9–10 档，100%）</strong>
+- 活跃趋势：近 30 天 <strong>56 次 commit</strong>、近 90 天 <strong>160 个 PR</strong>，开放 Issue 仅 93 个且持续处理，13 年长跑保持高位活跃，无停滞迹象（活跃水平归 D3.1，此处仅判趋势方向为平稳/高位）。
+- 维护延续性：基金会托管 + 430 贡献者 + 成熟的 PR/CI 接力机制，核心团队退出后社区接管几乎无风险。
+- 历史信号：<strong>archived=false、无 deprecated/unmaintained 标记</strong>。
+- 分叉风险：66,975 个 Fork 主要源于 fork-and-PR 贡献流程（列表型项目特性），并非社区分裂信号；无大量负面反馈。
+- 结论：治理完善、可传承、无分裂风险，达 9–10 档。项目年龄 13 年，<strong>不触发新项目豁免，一票否决检查按完整标准执行</strong>——D8.4=3.0 &gt; 1，否决不成立。</p>
+<h3>数据归因</h3>
+<p>数据归因: 结构性归因：列表型/内容策展项目（证据：仅 605 行 Python + 213 个 Markdown 文档，代码量低系项目类型属性而非质量缺陷；同时贡献者 430 人、近 30 天 56 次 commit 显示维护活跃，非低数据项目，无良性/恶性归因争议）。</p>
+<h3>小结</h3>
+<p>本项目团队治理与可持续性表现优异（8.6/10）：<strong>超大规模贡献者基数（430）、13 年持续活跃维护、非营利基金会机构化治理、稳定的非营利筹资渠道</strong>构成强商业化无关但极强的"运营可持续性"底座；短板在于<strong>缺正式 GOVERNANCE.md/CODEOWNERS、资金规模有限、无全职商业化团队</strong>。需强调：本项目本质是免费教育资源策展列表，商业化路径极为有限，但其组织可持续性与传承能力在开源项目群体中属头部水平，D8.4 无任何停滞/废弃信号，一票否决不触发。</p>
+<h3>D10. 功能价值——使用价值视角（平行维度，权重 0%，不计入综合评分）（得分: 8.2/10）</h3>
+<blockquote>
+<p><strong>平行维度说明</strong>: 本维度只回答「用它的人获得了多少效用」，不参与百分制综合评分、不参与一票否决。本项目为<strong>纯文档/清单型仓库</strong>（605 行 Python 仅用于 lint/构建脚本，213 个 Markdown 文档即产品本体），其功能价值形态与软件库/服务类项目差异极大，评分时已按形态适配。</p>
+</blockquote>
+<h3>细则打分</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10.1 效用强度</td>
+<td>3</td>
+<td>1.8</td>
+<td>5–6 档（60%）</td>
+<td>见下</td>
+</tr>
+<tr>
+<td>D10.2 实际使用规模</td>
+<td>3</td>
+<td>2.4</td>
+<td>7–8 档（80%）</td>
+<td>见下</td>
+</tr>
+<tr>
+<td>D10.3 免费可得的完整效用</td>
+<td>2</td>
+<td>2.0</td>
+<td>9–10 档（100%）</td>
+<td>见下</td>
+</tr>
+<tr>
+<td>D10.4 效用可持续性</td>
+<td>2</td>
+<td>2.0</td>
+<td>9–10 档（100%）</td>
+<td>见下</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>8.2</strong></td>
+<td>—</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h4>D10.1 效用强度</h4>
+<p><strong>打分: 1.8 / 3（5–6 档，60%）</strong></p>
+<ul>
+<li><strong>单用户节省量</strong>: 中等偏上。为学习者一次性汇总了跨 40+ 自然语言、覆盖书籍/课程/速查表/播客/编程练习场/交互式教程等多品类的免费资源，单次检索可节省数十分钟到数小时的分散搜索成本；README 直接提供动态搜索站（<code>free-programming-books-search</code>）与静态站点两种消费入口，检索摩擦极低。</li>
+<li><strong>效用层级</strong>: 属「参考目录/发现层」效用，而非「项目级依赖」或「业务命脉级基础设施」。使用者读完即走，不需要把它嵌入任何工程流程——这与本维度 7–8 档要求的「项目级依赖、显著节省开发/运营成本」存在结构性差距。</li>
+<li><strong>效用确定性</strong>: 高。资源条目为静态事实（书名+链接），不依赖运行时或特定场景；CI 中 <code>check-urls.yml</code> 持续校验外链存活，进一步保障「点开即能用」的确定性。但<strong>单条资源的实际可用性仍受第三方站点存续影响</strong>（目录本身不托管内容），且 AI 搜索/通用搜索引擎对本类需求构成强替代，稀缺性有限。</li>
+<li><strong>Issue/使用深度证据</strong>: 社区行为以「提交条目 PR」为主（90 天 160 个 PR、56 次近 30 天提交），说明使用深度停留在「消费+补充」层，未见围绕其构建下游工具链的迹象。</li>
+</ul>
+<h4>D10.2 实际使用规模</h4>
+<p><strong>打分: 2.4 / 3（7–8 档，80%）</strong></p>
+<ul>
+<li><strong>依赖方/下载量（实采）</strong>: GitHub Dependents 与 npm/PyPI 包下载量对纯文档型仓库<strong>不适用</strong>（本项目不发布任何软件包，实采结果 <code>npm_weekly_downloads: N/A</code>、<code>pypi_monthly_downloads: N/A</code>），故不按「下载量」档位判分，改以本生态内可实采的使用强度代理指标判定。</li>
+<li><strong>可实采代理指标</strong>: Star <strong>399,740</strong>、Fork <strong>66,975</strong>、Watchers <strong>9,783</strong>、Contributors <strong>430</strong>、近 90 天 PR <strong>160</strong> 个、近 30 天提交 <strong>56</strong> 次；README 自述已进入 GitHub Octoverse「最受欢迎仓库」行列，并由 Free Ebook Foundation 以非营利组织形式长期运营，配套独立静态站点与搜索站点两个公开消费入口。按项生态换算，66k Fork + 40 万 Star 的量级远超本档「十万级依赖方或月下载百万级」的门槛，属该细分类目的<strong>事实行业标配</strong>。</li>
+<li><strong>未给满 9–10 档的原因</strong>: 无包管理平台口径的可验证下载/拉取计数，使用规模只能以 Star/Fork/站点访问代理，证据强度不足以支撑「百万级依赖方、千万级月下载」的事实认定，故保守取 7–8 档上限。</li>
+<li><strong>数据归因</strong>: 结构性归因：非软件包形态（纯文档型仓库天然无 Dependents / 包下载计数，使用规模须以 Star/Fork/贡献者/镜像站点代理）。<strong>使用规模处于生态顶部，不存在低使用规模问题，不适用低分归因检查</strong>。</li>
+</ul>
+<h4>D10.3 免费可得的完整效用</h4>
+<p><strong>打分: 2.0 / 2（9–10 档，100%）</strong></p>
+<ul>
+<li><strong>开源版完整性</strong>: 仓库内容即全部价值，<strong>无任何付费墙、无企业版、无功能阉割</strong>。全部 213 个清单文档、构建脚本、lint 规则、CI 配置均在仓库内公开。</li>
+<li><strong>自托管完整性</strong>: 内容为纯 Markdown，克隆即得完整效用；静态站点与动态搜索站由 GitHub Pages 从同一仓库构建，自托管不损失任何能力。</li>
+<li><strong>无隐性收费</strong>: 无账号体系、无额度限制、无「免费试用/付费解锁」。项目通过 Free Ebook Foundation 接受捐赠（可抵税），属<strong>捐赠型</strong>而非<strong>转化型</strong>模式，与 D4.3 付费转化逻辑天然反向——本项满分与 D4.3 低分是同一价值结构的两个侧面，不构成矛盾。</li>
+</ul>
+<h4>D10.4 效用可持续性</h4>
+<p><strong>打分: 2.0 / 2（9–10 档，100%）</strong></p>
+<ul>
+<li><strong>停维后效用存续</strong>: 内容为纯静态文本，已克隆/已 Fork 的副本永久可用，停维不会使既有效用归零（区别于在线服务型项目）。</li>
+<li><strong>供应商锁定</strong>: 无。不依赖任何闭源组件、云服务或厂商 API；GitHub 仅为托管载体，66,975 个 Fork 构成天然的多副本冗余。</li>
+<li><strong>可分叉维护性</strong>: CC BY 4.0 显式允许复制、再分发与演绎（需署名），430 名贡献者 + 成熟 CONTRIBUTING/HOWTO/CODE_OF_CONDUCT 文档（含多语言译本）+ 7 个 CI 工作流（含 <code>check-urls.yml</code> 链接校验、<code>fpb-lint.yml</code> 格式校验）使社区分叉后的可维护性极高。</li>
+<li><strong>唯一效用衰减点</strong>: 目录指向的是<strong>外部第三方资源</strong>，条目链接会随时间腐化；该风险已被 CI 定期链接检查部分对冲，且属清单类项目的固有属性，不构成扣分理由。</li>
+</ul>
+<hr />
+<h3>维度结论</h3>
+<p><strong>（得分: 8.2/10）</strong></p>
+<p>free-programming-books 是<strong>「功能价值极高、商业价值形态缺失」的典型样本</strong>：其免费可得的完整效用（D10.3 满分）与效用可持续性（D10.4 满分）均达顶格，使用规模处于 GitHub 生态顶部（40 万 Star / 6.7 万 Fork / 430 贡献者），是一个真正意义上的公共基础设施级学习资源目录；唯一短板在<strong>效用强度（D10.1，1.8/3）</strong>——它提供的是「发现层」效用而非「工程依赖层」效用，单用户价值真实但可被通用搜索替代，且不进入任何生产流程。</p>
+<p>这一价值画像正好解释了它在商业维度上的天然失分：项目<strong>没有任何可交换的价值载体</strong>（无 SaaS、无企业版、无付费 API），运营方为非营利基金会，靠捐赠而非转化维持。因此 D10 高分与 D1–D9 商业评分偏低<strong>互不矛盾</strong>——本维度补齐的信息是：<strong>这是一个对社会效用贡献巨大、但不存在商业化路径的公共品</strong>，而非「一个失败的产品」。</p>
+<p><strong>数据归因</strong>: 结构性归因：非软件包形态（纯文档型仓库无 Dependents / 包下载计数，使用规模以 Star 399,740 / Fork 66,975 / 贡献者 430 / 双官方站点代理）；使用规模处于生态顶部，<strong>不构成任何质量或采用度负面信号</strong>。</p>
+<h3>D11. 社会价值（正外部性视角）（得分: 7.9/10）</h3>
+<blockquote>
+<p>平行维度：权重 0%，不计入综合评分与一票否决，仅用于 3.4 价值画像。
+定位说明：该项目并非软件库/框架，而是「免费编程学习资源索引」——正外部性是其<strong>唯一的产品价值</strong>，因此本维度得分高不代表其商业势能强，只反映其对社会知识供给的贡献。</p>
+</blockquote>
+<h3>细则打分</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>打分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D11.1</td>
+<td>数字公共基础设施属性</td>
+<td>3</td>
+<td>1.8</td>
+<td>5–6 档（60%）</td>
+</tr>
+<tr>
+<td>D11.2</td>
+<td>教育与人才价值</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8 档（80%）</td>
+</tr>
+<tr>
+<td>D11.3</td>
+<td>普惠与可及性</td>
+<td>2.5</td>
+<td>2.5</td>
+<td>9–10 档（100%）</td>
+</tr>
+<tr>
+<td>D11.4</td>
+<td>开放标准与行业推动</td>
+<td>2</td>
+<td>1.6</td>
+<td>7–8 档（80%）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td><strong>7.9</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>D11.1 数字公共基础设施属性</h3>
+<p><strong>打分: 1.8 / 3（5–6 档，60%）</strong></p>
+<p><strong>判断依据：</strong></p>
+<ul>
+<li><strong>不是软件供应链底座</strong>：仓库代码总量仅 605 行（单个 <code>.py</code> 文件），无依赖声明（<code>dependencies: {}</code>），不被任何下游代码 <code>import</code> 或作为构建依赖。因此按 curl/OpenSSL 式「数字底座」标准衡量，其<strong>停摆对软件供应链的技术冲击接近于零</strong>——这是本项目在 D11.1 上无法进入高分段的结构性原因。</li>
+<li><strong>但具备强「知识基础设施」属性</strong>：它是全球最大的免费编程学习资源目录之一，README 自述已被 GitHub Octoverse 列为最受欢迎仓库之一；由<strong>非营利组织 Free Ebook Foundation</strong>（可接受美国抵税捐赠的公益机构）托管，符合数字公共产品（DPG）「开放、可复用、服务公共利益」的核心特征。</li>
+<li><strong>可替代性中等偏高</strong>：Fork 数达 66,975，意味着列表内容已被海量镜像复制，单点停摆的实质影响被分布化稀释；同时同类竞品（如 <code>sx4im/programming-books-pdf</code> 等）存在但规模相差 4 个数量级（61 stars vs 399,740 stars），说明<strong>替代者存在、但替代品的权威性与覆盖面远不可比</strong>。</li>
+<li>综合：属于「所在领域的重要参考基础设施，但非不可替代的关键依赖」，落在 5–6 档。</li>
+</ul>
+<hr />
+<h3>D11.2 教育与人才价值</h3>
+<p><strong>打分: 2.0 / 2.5（7–8 档，80%）</strong></p>
+<p><strong>判断依据：</strong></p>
+<ul>
+<li><strong>教学采用极高</strong>：项目本体即教学内容目录，213 个文档文件覆盖书籍（约 44 种语言）、在线课程（约 44 种语言）、播客/录屏、速查表、交互式教程、题集与在线演练场等全学习链路，事实上是大量「如何自学编程」类文章的默认引用源。</li>
+<li><strong>门槛降低效应显著且是显性设计目标</strong>：<code>docs/HOWTO.md</code>（"If you're new to GitHub, welcome"）把 Git/GitHub 协作入门做成了面向零基础贡献者的教学模块；Hacktoberfest 长期参与（README 挂载 2025 年 Hacktoberfest 徽章）、<code>good first issue</code> / <code>help wanted</code> 标签体系，使该仓库成为<strong>开源协作的第一课现场</strong>（近 90 天 160 个 PR），人才孵化外溢远超普通项目。</li>
+<li><strong>扣分项：源码学习价值近乎为零</strong>。605 行 Python（含 <code>fpb-lint</code> 类校验脚本）+ 0 测试，代码本身不构成可研读的工程范本；学习价值来自其<strong>内容编排与协作规范</strong>，而非实现。</li>
+<li>三项中两项达顶档、一项明显短板，故取 7–8 档（80%）。</li>
+</ul>
+<hr />
+<h3>D11.3 普惠与可及性</h3>
+<p><strong>打分: 2.5 / 2.5（9–10 档，100%）</strong></p>
+<p><strong>判断依据：</strong></p>
+<ul>
+<li><strong>能力平权化达到顶格</strong>：把「系统学习编程」所需的核心资料（书籍、课程、题集、演练环境）以<strong>零成本</strong>交付给任何人；对个人自学者、中小团队培训、欠发达地区教育机构而言，直接替代了原本需要付费的能力供给。</li>
+<li><strong>替代价格差</strong>：等价的商业方案为技术出版物（单本约 30–50 美元）与订阅制学习平台（年费数百美元量级）；本项目价格为 0，且 CC BY 4.0 允许再分发与本地化，价格差为 100%。</li>
+<li><strong>可及性支持在同类中罕见地完备</strong>：书籍列表覆盖 44 种语言、课程列表覆盖 44 种语言，且明确包含孟加拉语、缅甸语、印地语、泰米尔语、泰卢固语、乌尔都语、僧伽罗语、尼泊尔语、旁遮普语、高棉语等<strong>非英语、非主流语区</strong>，普惠指向性明确；纯文本/Markdown 形态 + 静态站点 + 独立搜索站（GitHub Pages），<strong>无硬件要求、无网络带宽门槛、可离线阅读</strong>；另有 <code>rtl-ltr-linter.yml</code> 专门校验 RTL（阿拉伯语/希伯来语/波斯语/乌尔都语）排版正确性，属于实质性无障碍/多语工程投入。</li>
+<li>三项考察点全部满足且强度罕见，取 9–10 档（100%）。</li>
+</ul>
+<hr />
+<h3>D11.4 开放标准与行业推动</h3>
+<p><strong>打分: 1.6 / 2（7–8 档，80%）</strong></p>
+<p><strong>判断依据：</strong></p>
+<ul>
+<li><strong>开放许可与开放获取倡导</strong>：全仓 CC BY 4.0，允许任意复用、翻译、再分发（含商用），是「开放知识」许可实践的规模化示范；由非营利基金会治理，避免内容资产被单一厂商锁定——在「防止厂商锁定」这一实质意图上成立，但<strong>不是技术标准的定义者</strong>（无协议/规范输出），因此不进入 9–10 档。</li>
+<li><strong>行业示范效应明显</strong>：作为 <code>sindresorhus/awesome</code> 生态中最具代表性的列表之一，其列表格式、贡献规范（<code>PULL_REQUEST_TEMPLATE.md</code>、<code>CONTRIBUTING</code>、<code>CODE_OF_CONDUCT</code> 多语言翻译）、以及配套工程化 CI（<code>fpb-lint.yml</code> 列表格式校验、<code>check-urls.yml</code> 链接自动巡检、<code>detect-conflicting-prs.yml</code>、<code>stale.yml</code> 共 7 条 workflow）被后续大量 awesome/资源类仓库模仿，抬高了「清单类仓库」的工程水位。竞品中已有直接沿用同名与同描述的克隆仓库，反向印证其模板地位。</li>
+<li><strong>科研支撑</strong>：无采集到论文引用数据（N/A），不作加分亦不扣分。</li>
+<li>综合为「推广了重要开放许可实践 + 有清晰示范效应，但无标准主导权」，取 7–8 档（80%）。</li>
+</ul>
+<hr />
+<h3>结论</h3>
+<p>free-programming-books 是一个<strong>典型的正外部性最大化、商业势能几乎为空</strong>的项目：其 605 行代码、0 测试、无任何下游技术依赖，决定了它在「数字底座」意义上无法高分；但其 39.97 万 stars、6.7 万 forks、430 位贡献者、213 篇文档、44 种语言的内容覆盖、非营利基金会治理与 CC BY 4.0 许可，使它在<strong>教育普惠与可及性上达到同类顶格</strong>。</p>
+<ul>
+<li>维度得分 <strong>7.9/10</strong>，显著高于一般工具类项目的 D11 水平，但这<strong>不构成商业机会</strong>——它的价值恰恰建立在「不商业化」之上（免费、开放、公益托管）。</li>
+<li>对 3.4 价值画像的输入：该项目属于「社会价值极高 / 商业变现路径近乎不存在」的象限；任何商业化尝试（付费墙、内容授权封锁）都会直接摧毁其核心资产（社区信任与贡献流），因此<strong>不建议作为商业标的，宜作为生态公共品/品牌道义资产看待</strong>。</li>
+<li>置信度说明：D11.4 的科研引用数据不可得（N/A 处理）；D11.1 的下游使用规模（引用该列表的教程/课程数量）无实采指标，以 README 自述的 Octoverse 地位与 Star 规模间接推断，存在中等不确定性。</li>
+</ul>
+<h2>十二、项目地址</h2>
+<p><svg class="ri ri-muted" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.001 2C6.47598 2 2.00098 6.475 2.00098 12C2.00098 16.425 4.86348 20.1625 8.83848 21.4875C9.33848 21.575 9.52598 21.275 9.52598 21.0125C9.52598 20.775 9.51348 19.9875 9.51348 19.15C7.00098 19.6125 6.35098 18.5375 6.15098 17.975C6.03848 17.6875 5.55098 16.8 5.12598 16.5625C4.77598 16.375 4.27598 15.9125 5.11348 15.9C5.90098 15.8875 6.46348 16.625 6.65098 16.925C7.55098 18.4375 8.98848 18.0125 9.56348 17.75C9.65098 17.1 9.91348 16.6625 10.201 16.4125C7.97598 16.1625 5.65098 15.3 5.65098 11.475C5.65098 10.3875 6.03848 9.4875 6.67598 8.7875C6.57598 8.5375 6.22598 7.5125 6.77598 6.1375C6.77598 6.1375 7.61348 5.875 9.52598 7.1625C10.326 6.9375 11.176 6.825 12.026 6.825C12.876 6.825 13.726 6.9375 14.526 7.1625C16.4385 5.8625 17.276 6.1375 17.276 6.1375C17.826 7.5125 17.476 8.5375 17.376 8.7875C18.0135 9.4875 18.401 10.375 18.401 11.475C18.401 15.3125 16.0635 16.1625 13.8385 16.4125C14.201 16.725 14.5135 17.325 14.5135 18.2625C14.5135 19.6 14.501 20.675 14.501 21.0125C14.501 21.275 14.6885 21.5875 15.1885 21.4875C19.259 20.1133 21.9999 16.2963 22.001 12C22.001 6.475 17.526 2 12.001 2Z"/></svg> <a href="https://github.com/EbookFoundation/free-programming-books">https://github.com/EbookFoundation/free-programming-books</a></p>
+<hr />
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+</blockquote>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家　<a href="https://github.com/weixiongf" target="_blank" rel="noopener">@冯伟雄</a>　<a href="https://www.mova.work">www.mova.work</a></p>
+<p><strong>查看所有报告：</strong><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/">https://weixiongf.github.io/Open-Source-Alpha-Reports/</a></p><div class="page-footer">本页面由 <span class="at-acc">@向量之心</span> 打造的 github_anyliasis 系统自动维护。报告为 AI 辅助生成的第三方独立分析，仅供研究参考，不构成投资建议。</div></body></html>

@@ -1,0 +1,1487 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><title>Anatomy 商业价值分析报告</title><style>/* default — 品牌蓝紫主题（从 md2pdf.py 原 CSS 常量迁出，视觉与历史产物一致） */
+@page { size: A4; margin: 18mm 15mm 20mm 15mm; }
+* { box-sizing: border-box; }
+/* 字体规范：西文/数字优先系统 UI 字体（数字收敛、观感现代），汉字回落开源思源黑体 CN / Noto Sans SC（OFL 免费商用）；正文 Regular/标题 Bold/大字数字 Light；tabular-nums 保证表格数字列对齐 */
+body { font-family:"Segoe UI","Helvetica Neue",Arial,"Source Han Sans CN","思源黑体 CN","Noto Sans SC",sans-serif; color:#1e293b; font-size:10.5pt; line-height:1.75; margin:0; font-variant-numeric:tabular-nums; }
+.cover { page-break-after: always; text-align:center; padding-top:40px; }
+.cover .kicker { color:#2563eb; letter-spacing:6px; font-size:12pt; font-weight:500; }
+.cover h1 { font-size:26pt; margin:14px 0 6px; }
+.cover .sub { color:#64748b; font-size:11pt; margin-bottom:22px; }
+.badge { display:inline-block; background:linear-gradient(135deg,#2563eb,#7c3aed); color:#fff; border-radius:18px; padding:16px 44px; margin:10px 0 18px; }
+.badge .g { font-size:34pt; font-weight:300; line-height:1; }
+.badge .s { font-size:12pt; opacity:.92; margin-top:4px; }
+.meta { color:#475569; font-size:9.5pt; margin-top:14px; margin-bottom:40px; }
+.bars { max-width:620px; margin:20px auto 0; text-align:left; }
+.bar-row { display:flex; align-items:center; gap:8px; margin:5px 0; font-size:9pt; }
+.bar-name { width:110px; text-align:right; color:#334155; font-weight:500; }
+.bar-track { flex:1; height:9px; background:#f1f5f9; border-radius:5px; overflow:hidden; }
+.bar-fill { display:block; height:100%; border-radius:5px; }
+.bar-val { width:30px; font-weight:700; color:#0f172a; }
+.bar-w { width:52px; color:#94a3b8; font-size:8pt; }
+h1 { font-size:17pt; color:#0f172a; border-bottom:3px solid #2563eb; padding-bottom:8px; }
+h2 { font-size:13.5pt; color:#1d4ed8; margin-top:26px; page-break-after: avoid; border-left:5px solid #2563eb; padding-left:10px; }
+h3 { font-size:11.5pt; color:#0f172a; margin-top:18px; page-break-after: avoid; }
+table { border-collapse:collapse; width:100%; margin:10px 0; font-size:9pt; font-variant-numeric:tabular-nums; }
+thead { display:table-header-group; } /* 打印/PDF 长表跨页时表头每页重复 */
+tr { page-break-inside:avoid; } /* 行内不断开；长表整体允许跨页，避免整表被推到下一页留大块空白 */
+th { background:#eff6ff; color:#1e3a8a; }
+th,td { border:1px solid #dbe3ef; padding:5px 8px; text-align:left; }
+tr:nth-child(even) td { background:#f8fafc; }
+code { background:#f1f5f9; border-radius:4px; padding:1px 5px; font-family:"JetBrains Mono","Cascadia Mono",monospace; font-size:9pt; color:#be185d; }
+pre { background:#0f172a; color:#e2e8f0; border-radius:8px; padding:12px 14px; overflow-x:auto; page-break-inside:avoid; }
+pre code { background:none; color:inherit; padding:0; }
+blockquote { border-left:4px solid #93c5fd; background:#eff6ff; margin:10px 0; padding:8px 14px; color:#334155; border-radius:0 8px 8px 0; }
+hr { border:none; border-top:1px dashed #cbd5e1; margin:22px 0; }
+strong { color:#0f172a; }
+.credit { color:#2563eb; font-size:10.5pt; font-weight:700; letter-spacing:1px; margin-top:12px; }
+.at-acc { background:#dbeafe; color:#1d4ed8; border-radius:4px; padding:0 4px; font-weight:500; white-space:nowrap; }
+.tail { page-break-inside:avoid; margin-top:26px; border-top:2px solid #2563eb; padding-top:14px; }
+.tail p { color:#64748b; font-size:8.5pt; line-height:1.6; margin:0 0 10px; }
+.tail .credit { text-align:center; margin:0; }
+.page-footer { text-align:center; color:#94a3b8; font-size:8.5pt; line-height:1.6; margin-top:28px; padding-top:12px; border-top:1px solid #e2e8f0; }
+/* Remix Icon 内联 SVG（icon_mode=remix 时由脚本注入，语义色与评分条一致） */
+.ri { width:1.05em; height:1.05em; vertical-align:-0.18em; display:inline-block; }
+.ri-ok { color:#16a34a; } .ri-warn { color:#d97706; } .ri-bad { color:#dc2626; }
+.ri-muted { color:#64748b; } .ri-star { color:#f59e0b; } .ri-brand { color:#2563eb; }
+.ri-gold { color:#d4a017; } .ri-silver { color:#9ca3af; } .ri-bronze { color:#b45309; }
+/* 屏幕预览：@page 边距仅在打印时生效，浏览器中居中限宽并收边（不影响 PDF 输出） */
+@media screen {
+  body { margin: 0 auto; padding: 28px 36px 56px; max-width: 980px; }
+}
+</style></head><body><div class="cover">
+<div class="kicker">开源项目商业化潜力分析 · 第 137 期</div>
+<h1>GitHub 开源项目 Anatomy<br>商业价值分析报告</h1>
+<div class="sub">wheresryan22/anatomy · 面向 AI Agent 的等距机械插画技能 · 九维度加权评估</div>
+<div class="badge"><div class="g">A 级 · 70.0</div><div class="s">综合评分（满分 100）· 高商业化潜力</div></div>
+<div><svg viewBox="0 0 560 480" width="560" height="480" xmlns="http://www.w3.org/2000/svg"><polygon points="280.0,209.6 299.5,216.7 309.9,234.7 306.3,255.2 290.4,268.6 269.6,268.6 253.7,255.2 250.1,234.7 260.5,216.7" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,179.2 319.1,193.4 339.9,229.4 332.7,270.4 300.8,297.1 259.2,297.1 227.3,270.4 220.1,229.4 240.9,193.4" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,148.8 338.6,170.1 369.8,224.2 359.0,285.6 311.2,325.7 248.8,325.7 201.0,285.6 190.2,224.2 221.4,170.1" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,118.4 358.2,146.8 399.8,218.9 385.3,300.8 321.6,354.3 238.4,354.3 174.7,300.8 160.2,218.9 201.8,146.8" fill="none" stroke="#e2e8f0" stroke-width="1"/><polygon points="280.0,88.0 377.7,123.6 429.7,213.6 411.6,316.0 332.0,382.8 228.0,382.8 148.4,316.0 130.3,213.6 182.3,123.6" fill="none" stroke="#e2e8f0" stroke-width="1"/><line x1="280.0" y1="240.0" x2="280.0" y2="88.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="377.7" y2="123.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="429.7" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="411.6" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="332.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="228.0" y2="382.8" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="148.4" y2="316.0" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="130.3" y2="213.6" stroke="#d8dee9" stroke-width="1"/><line x1="280.0" y1="240.0" x2="182.3" y2="123.6" stroke="#d8dee9" stroke-width="1"/><polygon points="280.0,126.0 358.2,146.8 392.3,220.2 348.5,279.5 315.4,337.1 237.4,357.1 181.3,297.0 214.1,228.4 197.0,141.0" fill="rgba(37,99,235,.22)" stroke="#2563eb" stroke-width="2.5"/><circle cx="280.0" cy="126.0" r="3.5" fill="#2563eb"/><circle cx="358.2" cy="146.8" r="3.5" fill="#2563eb"/><circle cx="392.3" cy="220.2" r="3.5" fill="#2563eb"/><circle cx="348.5" cy="279.5" r="3.5" fill="#2563eb"/><circle cx="315.4" cy="337.1" r="3.5" fill="#2563eb"/><circle cx="237.4" cy="357.1" r="3.5" fill="#2563eb"/><circle cx="181.3" cy="297.0" r="3.5" fill="#2563eb"/><circle cx="214.1" cy="228.4" r="3.5" fill="#2563eb"/><circle cx="197.0" cy="141.0" r="3.5" fill="#2563eb"/><text x="280.0" y="44.0" text-anchor="middle" font-size="12.5" fill="#334155" font-weight="600">D1</text><text x="280.0" y="58.0" text-anchor="middle" font-size="11" fill="#64748b">市场需求 7.5</text><text x="406.0" y="89.9" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D2</text><text x="406.0" y="103.9" text-anchor="start" font-size="11" fill="#64748b">技术成熟度 8.0</text><text x="473.0" y="206.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D3</text><text x="473.0" y="220.0" text-anchor="start" font-size="11" fill="#64748b">社区生态 7.5</text><text x="449.7" y="338.0" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D4</text><text x="449.7" y="352.0" text-anchor="start" font-size="11" fill="#64748b">变现潜力 5.2</text><text x="347.0" y="424.2" text-anchor="start" font-size="12.5" fill="#334155" font-weight="600">D5</text><text x="347.0" y="438.2" text-anchor="start" font-size="11" fill="#64748b">竞争格局 6.8</text><text x="213.0" y="424.2" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D6</text><text x="213.0" y="438.2" text-anchor="end" font-size="11" fill="#64748b">法律合规 8.2</text><text x="110.3" y="338.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D7</text><text x="110.3" y="352.0" text-anchor="end" font-size="11" fill="#64748b">企业就绪 7.5</text><text x="87.0" y="206.0" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D8</text><text x="87.0" y="220.0" text-anchor="end" font-size="11" fill="#64748b">团队治理 4.4</text><text x="154.0" y="89.9" text-anchor="end" font-size="12.5" fill="#334155" font-weight="600">D9</text><text x="154.0" y="103.9" text-anchor="end" font-size="11" fill="#64748b">上手难度 8.5</text></svg></div>
+<div class="bars"><div class="bar-row"><span class="bar-name">D9 上手难度</span>
+<span class="bar-track"><span class="bar-fill" style="width:85.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.5</span><span class="bar-w">权重10%</span></div>
+<div class="bar-row"><span class="bar-name">D6 法律合规</span>
+<span class="bar-track"><span class="bar-fill" style="width:82.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.2</span><span class="bar-w">权重7%</span></div>
+<div class="bar-row"><span class="bar-name">D2 技术成熟度</span>
+<span class="bar-track"><span class="bar-fill" style="width:80.0%;background:#16a34a"></span></span>
+<span class="bar-val">8.0</span><span class="bar-w">权重14%</span></div>
+<div class="bar-row"><span class="bar-name">D1 市场需求</span>
+<span class="bar-track"><span class="bar-fill" style="width:75.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.5</span><span class="bar-w">权重13%</span></div>
+<div class="bar-row"><span class="bar-name">D3 社区生态</span>
+<span class="bar-track"><span class="bar-fill" style="width:75.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.5</span><span class="bar-w">权重11%</span></div>
+<div class="bar-row"><span class="bar-name">D7 企业就绪</span>
+<span class="bar-track"><span class="bar-fill" style="width:75.0%;background:#2563eb"></span></span>
+<span class="bar-val">7.5</span><span class="bar-w">权重8%</span></div>
+<div class="bar-row"><span class="bar-name">D5 竞争格局</span>
+<span class="bar-track"><span class="bar-fill" style="width:68.0%;background:#d97706"></span></span>
+<span class="bar-val">6.8</span><span class="bar-w">权重12%</span></div>
+<div class="bar-row"><span class="bar-name">D4 变现潜力</span>
+<span class="bar-track"><span class="bar-fill" style="width:52.0%;background:#dc2626"></span></span>
+<span class="bar-val">5.2</span><span class="bar-w">权重18%</span></div>
+<div class="bar-row"><span class="bar-name">D8 团队治理</span>
+<span class="bar-track"><span class="bar-fill" style="width:44.0%;background:#dc2626"></span></span>
+<span class="bar-val">4.4</span><span class="bar-w">权重7%</span></div></div>
+<div class="meta">分析时点 2026-10-22 ｜ 数据来源：GitHub API + 仓库代码实测 ｜ 方法论 v1.6.4</div>
+</div><h1>第 137 期 · Anatomy 商业化潜力分析报告（完整版）</h1>
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家　@冯伟雄</p>
+<p><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/#methodology" target="_blank" rel="noopener">方法论版本: v1.6.4</a> | 综合评分: <strong>70.0</strong> | 等级: <strong>A（高商业化潜力）</strong> | 价值画像: 明星资产 | 【新项目豁免】无历史不构成停滞证据 | 【画像临界】落点与相邻画像路径差异见 5.3</p>
+</blockquote>
+<h2>核心发现</h2>
+<ol>
+<li><strong>规模势能</strong>：项目创建于 2026-10-08、评估时年龄 13 天，累计 18,544 Star / 1,434 Fork（Fork÷Star = 7.7%），近 90 天创建 124 个 PR、近 30 天 153 次 commit、13 位贡献者（D3）；Star 月增约 42,800/月为外推值（stargazers 接口采集失败，采用替代口径）。</li>
+<li><strong>核心能力</strong>：6,626 行 / 21 个源文件、运行时依赖为 0（仅用 Node 内置模块），配备 843 行的 <code>kit/iso-kit.ts</code> 几何 API、<code>audit.mjs</code> 几何审计与无头 Chrome 截图、悬空线检查，D2 技术成熟度 8.0/10。</li>
+<li><strong>生态接入</strong>：安装为 1 条 <code>npx skills add</code> 主命令（另有 git clone / curl 两条备选），兼容 Claude Code / Antigravity / OpenCode / Codex / MiniMax Code 共 5 个宿主，8 个示例的构建产物已提交，D9 易用性 8.5/10 为九维最高分。</li>
+<li><strong>变现</strong>：MIT 全开放、无付费层、无定价、无 Sponsor 入口、无 Open Core 分层，D4 商业变现 5.2/10 为九维第二低，18,544 Star 与官网、社区画廊等分发资产未转化为任何收入证据。</li>
+<li><strong>关键风险</strong>：维护者为个人账号 + 个人域名，巴士因子 ≤ 2，D8 可持续性 4.4/10 为九维最低；64 个开放 Issue 对近 90 天关闭 4 个，测试代码 0 行（test_ratio 0.0%，D2.8 0.6）。</li>
+<li><strong>综合结论</strong>：综合评分 70.0、A 级（高商业化潜力），公共价值分 7.2，价值画像为 ⭐ 明星资产且处画像临界区间；项目年龄 13 天 &lt; 90 天，触发新项目豁免。</li>
+</ol>
+<h2>一、项目概览</h2>
+<ul>
+<li><strong>项目</strong>：wheresryan22/anatomy — 面向 AI 编程代理（Agent Skill）的等距插画生成技能，把真实机器与复杂系统绘制为可交互 SVG，可选 WebGL / 3D 效果。</li>
+<li><strong>生命周期阶段</strong>：爆发期</li>
+<li><strong>项目年龄</strong>：13 天（created_at 2026-10-08，pushed_at 2026-10-18，年龄取自计算结果）</li>
+<li><strong>协议</strong>：MIT License（LICENSE 全文，元数据 MIT；SPDX 标识未在协议文件中显式出现）</li>
+<li><strong>主语言</strong>：JavaScript；代码分布 .ts 2,658 行 / .js 2,426 行 / .tsx 1,542 行，6,626 行 / 21 个源文件</li>
+<li><strong>分类</strong>：开发者工具（AI Agent Skill）｜通用/跨行业｜开源 Skill 分发（MIT 全开放，无 Open Core 分层）</li>
+<li><strong>目标用户</strong>：前端开发者 / 全栈开发者 / 技术内容创作者与文档工程师</li>
+<li><strong>部署形态</strong>：本地部署（<code>npx skills add</code> 或 git clone 到本地 skills 目录），无 Dockerfile、无服务端、无账号体系</li>
+<li><strong>社区规模</strong>：18,544 Star / 1,434 Fork / 13 贡献者 / 64 开放 Issue / 近 90 天创建 PR 124 个 / 近 30 天 commit 153 次</li>
+<li><strong>版本</strong>：v1.0.0（2026-10-10）、v1.1.0（2026-10-12）</li>
+<li><strong>阶段解读</strong>：13 天即出现 18,544 Star、124 个 PR 与 153 次 commit，属爆发期特征；因年龄 &lt; 90 天，D8.4 按新项目专项取 1.2/3（&gt; 1 不触发停滞否决），并触发 3.3 新项目豁免——<strong>新项目豁免：无历史不构成停滞证据</strong>，项目无 archived / deprecated 标记且近 30 天有 commit。</li>
+</ul>
+<h2>二、安装部署与使用指南</h2>
+<blockquote>
+<p>上手难度等级：🟢 <strong>简单</strong>（D9 得分 8.5/10）—— 单条命令安装、零 npm 依赖、用自然语言调用，非开发者可按以下步骤独立完成。</p>
+</blockquote>
+<h3>一、环境准备</h3>
+<table>
+<thead>
+<tr>
+<th>需要</th>
+<th>用途</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Claude Code / Antigravity / OpenCode / Codex / MiniMax Code</td>
+<td>全部功能</td>
+<td>该 Skill 为 Claude Code 编写，同时遵循开放的 Agent Skills 格式</td>
+</tr>
+<tr>
+<td>Node.js 20.10+</td>
+<td>构建、kit、自检脚本</td>
+<td>仅用内置模块，<strong>无需 <code>npm install</code></strong>；skills CLI 1.7.1 版本要求 Node 22.20+</td>
+</tr>
+<tr>
+<td>Chrome 或 Chromium</td>
+<td>自检脚本（可选）</td>
+<td>会查找 macOS/Linux/Windows 常见路径与 Playwright 缓存；其他位置可设 <code>CHROME_PATH</code></td>
+</tr>
+<tr>
+<td>React 18+</td>
+<td>仅 React 输出</td>
+<td>涉及 <code>kit/react/</code>、<code>examples/test-rig/</code>、<code>examples/spot-plate/</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>无需 API Key，无需数据库 / 缓存 / 消息队列等任何外部组件。</p>
+</blockquote>
+<h3>二、安装（三种方式，任选其一）</h3>
+<p><strong>方式 1：skills CLI（推荐，一条命令）</strong></p>
+<pre><code class="language-sh">npx skills add wheresryan22/anatomy -g
+</code></pre>
+<p>CLI 会询问要为哪些 agent 安装；用 <code>-a</code> 跳过询问：</p>
+<pre><code class="language-sh">npx skills add wheresryan22/anatomy -g -a claude-code
+</code></pre>
+<p>可选值：<code>-a claude-code</code>、<code>-a antigravity</code>、<code>-a opencode</code>、<code>-a codex</code>、<code>-a minimax-code</code>。去掉 <code>-g</code> 则安装到当前项目（如 <code>.claude/skills/anatomy</code>）。</p>
+<p><strong>方式 2：git clone</strong></p>
+<pre><code class="language-sh">git clone https://github.com/wheresryan22/anatomy.git ~/.claude/skills/anatomy
+</code></pre>
+<p>（Antigravity 用 <code>~/.gemini/antigravity/skills/anatomy</code>，OpenCode 用 <code>~/.config/opencode/skills/anatomy</code>，Codex 用 <code>~/.agents/skills/anatomy</code>，MiniMax Code 用 <code>~/.minimax/skills/anatomy</code>。）</p>
+<p><strong>方式 3：ZIP / 一行 curl（macOS、Linux）</strong></p>
+<pre><code class="language-sh">mkdir -p ~/.claude/skills/anatomy &amp;&amp; curl -L https://github.com/wheresryan22/anatomy/archive/refs/heads/main.tar.gz | tar -xz --strip-components=1 -C ~/.claude/skills/anatomy
+</code></pre>
+<h3>三、首次调用</h3>
+<p>在 Claude Code 中直接说一句话，无需参数、无需配置文件：</p>
+<pre><code class="language-text">/anatomy explain how a token bucket rate limiter works, interactive
+</code></pre>
+<p>Codex 中用 <code>$anatomy</code>；Antigravity、OpenCode、MiniMax Code 用 <code>/anatomy</code>。也可不点名 skill——说"画一张等轴测解释图"它同样会被加载。</p>
+<p><strong>技能没出现时</strong>：Claude Code 若启动时 <code>skills</code> 目录还不存在，运行 <code>/reload-skills</code>；其他 agent 重启对应 CLI。</p>
+<h3>四、零配置验证（1 分钟内跑通）</h3>
+<ul>
+<li>直接打开 <code>examples/</code> 下任意已构建的 <code>.html</code> 页面即可查看成品。</li>
+<li>或本地构建最小示例（约 300 行）：</li>
+</ul>
+<pre><code class="language-sh">node examples/dial-indicator/build.mjs
+</code></pre>
+<p>其余示例同理：<code>node examples/desk-computer/build.mjs</code>、<code>node examples/arcade-cabinet/build.mjs</code>、<code>node examples/raptor-engine/build.mjs</code>、<code>node examples/ripple-tank/build.mjs</code>、<code>node examples/turning-dial/build.mjs</code>；React 示例（<code>test-rig</code>、<code>spot-plate</code>）无构建脚本，需拷入 React 应用。加 <code>--light</code> 切换浅色主题。</p>
+<h3>五、常见问题</h3>
+<ul>
+<li><strong>Codex 中浏览器自检被沙箱拦截</strong>：图仍会生成，仅自检失败。可选：在该命令上批准沙箱外运行（需 <code>approval_policy = "on-request"</code>）；或在 <code>~/.codex/config.toml</code> 中放开网络与 <code>/tmp</code> 写权限；或自行运行 <code>node scripts/capture.mjs page.html --out shots/page.png</code>。</li>
+<li><strong>提升出图质量的三条习惯</strong>：说清"要解释的点"并给真实数字（尺寸/计数/速率/阈值）；或直接点名机器对象并说明什么该动；说明交付形态（独立 HTML / 单个 SVG / React 组件）与明暗主题。</li>
+</ul>
+<h2>三、评分总览</h2>
+<h3>3.1 九维评分表（商业化评级维度）</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>权重</th>
+<th>得分（10 分制）</th>
+<th>加权得分</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D1 市场需求</td>
+<td>0.13</td>
+<td>7.5</td>
+<td>9.75</td>
+</tr>
+<tr>
+<td>D2 技术成熟度</td>
+<td>0.14</td>
+<td>8.0</td>
+<td>11.20</td>
+</tr>
+<tr>
+<td>D3 社区势能</td>
+<td>0.11</td>
+<td>7.5</td>
+<td>8.25</td>
+</tr>
+<tr>
+<td>D4 商业变现</td>
+<td>0.18</td>
+<td>5.2</td>
+<td>9.36</td>
+</tr>
+<tr>
+<td>D5 竞争壁垒</td>
+<td>0.12</td>
+<td>6.8</td>
+<td>8.16</td>
+</tr>
+<tr>
+<td>D6 法律合规</td>
+<td>0.07</td>
+<td>8.2</td>
+<td>5.74</td>
+</tr>
+<tr>
+<td>D7 运维与集成</td>
+<td>0.08</td>
+<td>7.5</td>
+<td>6.00</td>
+</tr>
+<tr>
+<td>D8 可持续性</td>
+<td>0.07</td>
+<td>4.4</td>
+<td>3.08</td>
+</tr>
+<tr>
+<td>D9 易用性</td>
+<td>0.10</td>
+<td>8.5</td>
+<td>8.50</td>
+</tr>
+<tr>
+<td><strong>综合评分</strong></td>
+<td>1.00</td>
+<td>—</td>
+<td><strong>70.0</strong></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>综合评分 70.0 / 等级 A（高商业化潜力）</strong>，加权得分合计 70.0（各维度加权贡献合计后四舍五入至 0.1）。</li>
+<li><strong>最高三项</strong>：D9 易用性 8.5、D6 法律合规 8.2、D2 技术成熟度 8.0；<strong>最低两项</strong>：D8 可持续性 4.4、D4 商业变现 5.2。</li>
+<li>本项目不存在用户利益侵害相关的扣分项，综合评分即为加权得分。</li>
+</ul>
+<h3>3.2 一票否决与豁免检查</h3>
+<table>
+<thead>
+<tr>
+<th>检查项</th>
+<th>阈值</th>
+<th>实际取值</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D6 维度总分</td>
+<td>≤ 3 分</td>
+<td>8.2</td>
+<td>不触发</td>
+</tr>
+<tr>
+<td>D8.4 项目可持续性（细则小分）</td>
+<td>≤ 1 分</td>
+<td>1.2</td>
+<td>不触发</td>
+</tr>
+<tr>
+<td>D4.1 协议对变现模式的影响（细则小分）</td>
+<td>≤ 0.5 分</td>
+<td>2.0</td>
+<td>不触发</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>一票否决未触发，等级维持 A；<strong>新项目豁免：无历史不构成停滞证据</strong>（年龄 13 天 &lt; 90 天、无 archived/deprecated、近 30 天 153 次 commit）。</li>
+</ul>
+<h3>3.3 平行维度表（D10 / D11，不进入综合评分公式）</h3>
+<table>
+<thead>
+<tr>
+<th>平行维度</th>
+<th>得分（10 分制）</th>
+<th>细则构成</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10 功能价值</td>
+<td>7.7</td>
+<td>D10.1 1.8 / D10.2 N/A / D10.3 2.0 / D10.4 1.6</td>
+<td>仅用于价值画像判定</td>
+</tr>
+<tr>
+<td>D11 社会价值</td>
+<td>6.8</td>
+<td>D11.1 1.2 / D11.2 2.0 / D11.3 2.0 / D11.4 1.6</td>
+<td>仅用于价值画像判定</td>
+</tr>
+<tr>
+<td><strong>公共价值分</strong></td>
+<td><strong>7.2</strong></td>
+<td>(D10 + D11) ÷ 2</td>
+<td>与综合评分共同决定画像</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>口径说明：D10.2 使用规模因仓库为 Agent Skill 形态（未发布 npm/PyPI，无 Dependents 与下载计数器）计 N/A，D10 维度置信度相应下降；D10 / D11 任何取值既不触发也不豁免一票否决。</p>
+</blockquote>
+<h3>3.4 价值画像判定</h3>
+<table>
+<thead>
+<tr>
+<th>判定项</th>
+<th>取值</th>
+<th>条件</th>
+<th>结论</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>综合评分</td>
+<td>70.0</td>
+<td>≥ 65</td>
+<td>满足</td>
+</tr>
+<tr>
+<td>公共价值分</td>
+<td>7.2</td>
+<td>≥ 7</td>
+<td>满足</td>
+</tr>
+<tr>
+<td>画像</td>
+<td>⭐ 明星资产</td>
+<td>综合 ≥ 65 且 公共价值 ≥ 7</td>
+<td>命中</td>
+</tr>
+<tr>
+<td>临界标注</td>
+<td>画像临界</td>
+<td>综合评分处 60–70 边缘、公共价值分处 6.5–7.5 区间</td>
+<td>需标注</td>
+</tr>
+</tbody>
+</table>
+<h2>四、各维度详细分析</h2>
+<h3>D1. 市场需求与商业机会（得分: 7.5/10）</h3>
+<h3>D1.0 项目分类打标</h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>项目类型</td>
+<td>开发者工具（AI Agent 技能/Skill）、文档与知识管理、前端与UI</td>
+</tr>
+<tr>
+<td>适用行业</td>
+<td>通用/跨行业（重点：教育培训、媒体内容、制造工业的技术传播场景）</td>
+</tr>
+<tr>
+<td>目标用户角色</td>
+<td>前端开发者、全栈开发者、技术内容创作者/技术文档工程师</td>
+</tr>
+<tr>
+<td>适用场景</td>
+<td>研发流程优化、内容管理、学习研究、原型验证</td>
+</tr>
+<tr>
+<td>部署形态</td>
+<td>本地部署（<code>npx skills add</code> / git clone 到本地 skills 目录 + 本地 headless Chrome 校验）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>一句话定位</strong>：Anatomy 是一个面向 AI 编程代理（Claude Code、Codex、Antigravity 等）的 Agent Skill，适用于技术文档、教育科普与产品营销等跨行业场景，主要面向前端/全栈开发者与技术内容创作者，用于把抽象技术概念构建成可交互、可校验的等距 SVG/WebGL 解释性插图。</p>
+<hr />
+<h3>D1.1 目标市场规模与增长性</h3>
+<p><strong>打分: 2.0 / 2.5（7–8 档，80%）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TAM 估算</td>
+<td>项目真正的"问题域"是<strong>技术解释性可视化</strong>（技术文档配图、科普/教学插图、产品页与博客的可视化叙事）。该问题域横跨「图表与可视化软件」「技术写作/文档工具」「设计与插画工具」三个既有市场，整体为数十亿美元量级；Anatomy 自身可触达的细分（"由 agent 生成等距技术插图"）仅为其很薄的一层</td>
+</tr>
+<tr>
+<td>增长趋势</td>
+<td>扩张。生成式 AI 正在重构"内容 → 视觉"的生产链路，2025–2026 年出现大量 AI 图表/信息图产品（Napkin、Mermaid Chart、Whimsical、Gamma 等），赛道处于明显上升期；同时 Tech Docs / DevRel 内容产能需求在持续增长</td>
+</tr>
+<tr>
+<td>市场层级</td>
+<td>新兴蓝海偏成长期：Agent Skill 这一<strong>分发形态</strong>是全新的（格式随 Claude Code Skills 于 2025 年推出），Anatomy 属于该形态下的早期头部作品；但"AI 生成图解"这一能力层已有先行者</td>
+</tr>
+</tbody>
+</table>
+<p><strong>依据</strong>：项目定位为跨行业的通用"解释图"生产能力，而非某个垂直行业的专用工具，理论上可挂靠到数十亿美元级的可视化/文档内容市场；但当前产品形态是一个<strong>免费、MIT、零依赖的本地 Skill</strong>，其"可货币化表面积"远小于问题域本身。</p>
+<blockquote>
+<p><strong>数据说明</strong>：外部市场规模数据无法在本次分析中实采核验，以上量级为按项目类型/行业类别做的<strong>估算，置信度低</strong>，未引用任何具体市场数字或第三方来源。可核验的硬事实仅为：10 天内 18,544 star、1,434 fork、13 contributors、90 天内 124 个 PR（实为建仓 10 天内的数据）——这是<strong>需求信号</strong>，不是市场规模。</p>
+</blockquote>
+<hr />
+<h3>D1.2 痛点真实性与解决程度</h3>
+<p><strong>打分: 1.5 / 2.5（5–6 档，60%）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>痛点真实性</td>
+<td>真实但<strong>分人群</strong>：技术文档/DevRel/科普内容团队确实长期为"高质量解释图"付费（外包插画、动效、explainer video 单价常在数百至数千美元），这一支付意愿的存在是痛点真实性的硬证据。但对绝大多数开发者而言，"画不出好插图"属于<strong>锦上添花</strong>而非"非用不可"——README 的 Limits 也自认它不是图表库、不画人物与精确地图</td>
+</tr>
+<tr>
+<td>解决完整度</td>
+<td><strong>方案相当完整</strong>，是该项目最强的一环：从"取真实数字 → 发明机械隐喻 → 列部件表 → 一次成型建几何 → 由后向前绘制 → 加动效 → 自检"的完整工作流，配套 <code>kit/</code> 绘图库、<code>audit.mjs</code> 几何审计（证明无穿模、端点都落在支座上、重叠按深度序绘制）、headless Chrome 截图/放大关节/lines.mjs 悬空线检查、以及 HTML/SVG/React/打印 PDF 四种交付形态</td>
+</tr>
+<tr>
+<td>替代成本</td>
+<td><strong>替代品众多且便宜</strong>：draw.io / Excalidraw / Mermaid 覆盖"够用的图"，Figma / Illustrator 覆盖"好看的图"，Midjourney / DALL·E 覆盖"氛围图"，LLM 直接写 SVG 覆盖"凑合的图"。Anatomy 的差异化（几何自洽 + 等距相机 + 可交互 + 可审计）确实无人正面覆盖，但用户"不用它"的代价依然很低</td>
+</tr>
+</tbody>
+</table>
+<p><strong>关键矛盾</strong>：方案完整度（8 档水平）拉高了评分，痛点强度（5 档水平）拉低了评分，综合落在 5–6 档。另一个减分项是<strong>交付成本</strong>：README 明说"It is slow on purpose"，一个图是"很长的会话"，Raptor 构建需数分钟、3D 轨道审计 30 个部件需 15–20 分钟——这与"锦上添花"的需求强度不匹配，用户很可能在第一次长耗时后放弃。</p>
+<hr />
+<h3>D1.3 市场时机判断</h3>
+<p><strong>打分: 2.0 / 2.5（7–8 档，80%）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>技术成熟度曲线</td>
+<td>多模态/代码生成模型的能力已越过纯演示期，可以稳定产出结构化 SVG 与着色器代码；Anatomy 用"硬核校验层"（几何审计 + 浏览器截图自检）把不稳定的模型输出压成可交付物，正处在"技术可用 → 工程化落地"的窗口</td>
+</tr>
+<tr>
+<td>竞争密度</td>
+<td>格局<strong>远未固化</strong>：Agent Skill 这一形态的生态刚起步，Anatomy 在 10 天内冲到 18.5k star，是该品类事实上的头部；同时兼容 Claude Code / Antigravity / OpenCode / Codex / MiniMax Code 五个宿主，主动规避单平台锁定</td>
+</tr>
+<tr>
+<td>监管/标准</td>
+<td>正向因素：Agent Skills 正走向开放标准（README 引用 agentskills.io 与各宿主官方文档），标准形成会放大分发效率；负向因素：赛道无政策驱动，热度更依赖 AI 编码代理本身的使用量增长</td>
+</tr>
+</tbody>
+</table>
+<p><strong>时机判定</strong>：属于"市场爆发前夜/极早期"。风险同样明确——（1）宿主平台原生能力一旦内置高质量图形生成，Skill 层会被吞并；（2）上游模型 SVG 能力提升会削弱"kit + 校验"的护城河；（3）18.5k star 来自 10 天极短窗口，存在话题性放大成分，需后续热度曲线验证（本次 star 时间序列采集失败，为 N/A）。</p>
+<hr />
+<h3>D1.4 应用场景广度</h3>
+<p><strong>打分: 2.0 / 2.5（7–8 档，80%）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>行业覆盖</td>
+<td>广：仓库内 8 个示例已横跨航天动力（Raptor 2 发动机试车台）、物理教学（波纹水槽）、机械计量（千分表/量块）、复古消费电子（1984 台式机）、街机硬件、工业测试台架（React 站点生产图）、化学实验（点滴板）、3D 组合锁——覆盖制造、教育、媒体、互联网研发多个行业</td>
+</tr>
+<tr>
+<td>场景多样性</td>
+<td>横向通用工具，但<strong>输出类型受限</strong>：只画"机器、仪器、工具与家具"，不做坐标轴/数据图（明确声明不是图表库），不画人物与精确地图。抽象概念需经"机械隐喻"转译（缓存键 → 弹子锁，GPU 上下文 → 龙门点样机），这既是特色也是门槛</td>
+</tr>
+<tr>
+<td>可延展性</td>
+<td>强：核心 kit（等距相机、<code>lathe</code> 回转体、<code>tube</code> 管路、<code>gl</code> 着色器层、<code>turn</code> 3D 运行时）可复用到相邻场景；交付形态可延展到独立 HTML、单文件 SVG、React/Next.js 组件、A4 打印 PDF（海报/技术图/两页讲解），并已有社区画廊投稿通道（<code>anatomy-community</code> + <code>scripts/publish.mjs --submit</code>），具备形成"模板/作品生态"的雏形</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>结论</h3>
+<p>Anatomy 在 D1 维度呈现<strong>"需求信号极强、变现地表极薄"</strong>的典型结构性特征。</p>
+<p><strong>加分侧</strong>：时机极佳。Agent Skill 生态刚成型，Anatomy 在 10 天内拿下 18.5k star / 1.4k fork / 13 位贡献者 / 90 天 124 个 PR，是罕见的高强度需求验证；同时兼容 5 个宿主平台，规避单点依赖；输出可落到 HTML / SVG / React / PDF 四种交付形态，跨行业示例覆盖航天、教育、机械、消费电子、化学，"通用能力层"的定位清晰。方案完整度也显著高于同类：<code>audit.mjs</code> 几何审计 + headless Chrome 截图自检 + 悬空线检查，把 LLM 生成图形最大的"不可信"问题工程化了，这在同类项目里几乎没见到。</p>
+<p><strong>减分侧</strong>：（1）痛点强度不足以支撑强付费——它是"锦上添花"型生产力工具，替代品（Excalidraw/Mermaid/Figma/AI 生图）廉价且充足；（2）<strong>变现距离远</strong>：MIT + 零依赖 + 本地运行 + 无账号体系 + 无托管渲染服务 + 无 Open Core 分层，目前看不到任何原生收费点，只能靠企业定制、私有 kit 集成、模板市场或托管渲染等间接路径；（3）<strong>交付成本与需求强度错配</strong>："slow on purpose"的长会话 + 分钟级构建 + 15–20 分钟 3D 审计，对非刚需场景是致命的；（4）<strong>社区承接能力存疑</strong>：64 个开放 Issue 对 4 个已关闭 Issue，PR 涌入速度（124/90d）远超合并吞吐，热度可能正在转化为维护债。</p>
+<p><strong>D1 维度综合打分：7.5 / 10</strong>（置信度：中低——TAM 为类别量级估算未经外部数据验证，star 时间序列与增长曲线采集失败）。</p>
+<h3>D2 技术成熟度与产品质量（得分: 8.0/10）</h3>
+<blockquote>
+<p><strong>评估口径</strong>：本维度仅依据代码结构、工程配置、文档、CI 与发布事实打分，不采用 Star/Fork/热度等社区数据。D2.5 因项目无独立产品级用户界面标记 N/A，D2 总分按其余 7 项满分 9 分等比缩放。</p>
+</blockquote>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>打分</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>D2.1 产品设计与创新性</strong></td>
+<td><strong>打分: 1.2 / 1.5（7–8 档，80%）</strong></td>
+<td>产品定位清晰：以 agent skill 形式生成真实机械与复杂系统的等距插画，输出 polished SVG，并可选 WebGL shader 与 3D 效果。功能围绕“几何生成—视觉表达—交互/导出”展开，提供 <code>kit</code>、React 渲染层、10 篇 references 与 9 个示例，设计取舍明确。相比普通 SVG 绘图库，其“agent skill + 程序化等距工程图 + 交互演示”具有明显差异化。不足是整体仍是技能/示例库形态，产品化边界与端到端工作流不如成熟商业产品明确。</td>
+</tr>
+<tr>
+<td><strong>D2.2 架构设计与工程质量</strong></td>
+<td><strong>打分: 1.6 / 2（7–8 档，80%）</strong></td>
+<td>分层清晰：<code>kit/iso-kit.ts</code> 承担投影、平面、挤出、线框、刻度等核心几何能力；<code>kit/react/</code> 承担 React 组件与动画；<code>examples/</code> 按“geometry/rig/live/art/figure”拆分；<code>references/</code> 与 <code>scripts/</code> 职责明确。核心抽象如 <code>Point3</code>、<code>Plane</code>、<code>Projection</code>、<code>Plan</code>、<code>ExtrudeOptions</code> 等具备复用性，6,626 行 / 21 个源码文件与功能复杂度基本匹配。主要扣分点：<code>kit/iso-kit.ts</code> 843 行、<code>examples/raptor-engine/live.js</code> 908 行、<code>examples/arcade-cabinet/live.js</code> 598 行，单文件偏大；多个示例中出现 <code>knurl</code>、<code>sideArc</code> 等重复 helper，存在一定复制式工程；未见统一包管理/依赖清单，复用边界还可更清晰。整体复刻门槛中等偏高，需要等距投影、几何挤出与 SVG/WebGL 渲染领域知识。</td>
+</tr>
+<tr>
+<td><strong>D2.3 代码整洁性与规范性</strong></td>
+<td><strong>打分: 0.8 / 1（7–8 档，80%）</strong></td>
+<td>代码总体呈现较强的领域建模风格：TypeScript 类型较多，函数命名在几何语境下基本一致，如 <code>extrude</code>、<code>cylinder</code>、<code>circleRing</code>、<code>pathOf</code>、<code>onTop</code>、<code>sideTicks</code> 等；模块边界清楚，未见明显大段无意义重复。不足是部分常量名较晦涩（如 <code>P</code>、<code>RA</code>、<code>RB</code>、<code>BIG_Y</code>、<code>GAPS</code>），长文件内函数密度高；本地数据未显示 lint/format 配置，示例间存在重复几何 helper。整体可读性良好，但未达到“整洁优雅、几乎无重复”的 9–10 档。</td>
+</tr>
+<tr>
+<td><strong>D2.4 安全性</strong></td>
+<td><strong>打分: 0.8 / 1（7–8 档，80%）</strong></td>
+<td>项目以静态 SVG 生成、本地几何计算和可选 WebGL 为主，无服务端、数据库、认证或远程执行面，攻击面较小；本地采集 <code>dependencies</code> 为空，未见硬编码密钥/Token 迹象，并包含 <code>SECURITY.md</code>。不足是 CI 只做构建/回归，未集成 Dependabot、Snyk、Trivy 等依赖或安全扫描；对 agent 输入/外部内容的边界校验在现有材料中无法确认。整体安全实践良好，但未达到“完善安全编码 + 集成扫描”的 9–10 档。</td>
+</tr>
+<tr>
+<td><strong>D2.5 UI/UX/UE 人机交互</strong></td>
+<td><strong>打分: N/A / 1（不适用）</strong></td>
+<td>项目核心交付物是 agent skill、SVG 生成工具链与 React 渲染组件；虽有交互式示例（SVG/WebGL/React/CSS），但不存在统一的产品级 Web、桌面或移动端应用界面，素材也未提供可评估的界面截图与交互评测。按“无 UI 项目”处理，不参与计分。</td>
+</tr>
+<tr>
+<td><strong>D2.6 功能完备度与稳定性</strong></td>
+<td><strong>打分: 1.2 / 1.5（7–8 档，80%）</strong></td>
+<td>功能覆盖较广：9 个示例覆盖街机柜、桌面电脑、千分表、按钮、猛禽发动机、波纹槽、点样板、测试台、转盘等不同机械/系统；已发布 <code>v1.0.0</code>、<code>v1.1.0</code>，说明具备初步版本化交付能力。运行环境要求低：无本地运行时依赖，CI 使用 Node 22 构建示例；静态 SVG 方案性能风险较低，WebGL 为可选增强。不足：项目创建于 2026-10-08，至推送日仅约 10 天，版本历史过短，长期向后兼容性无法验证；64 个开放 Issue 与 90 天仅关闭 4 个 Issue，维护压力值得关注；未发现 i18n/l10n 配置，国际化支持缺失。</td>
+</tr>
+<tr>
+<td><strong>D2.7 文档与开发者体验</strong></td>
+<td><strong>打分: 1.0 / 1（9–10 档，100%）</strong></td>
+<td>文档体系完善：包含 <code>README.md</code>、<code>SKILL.md</code>、<code>CHANGELOG.md</code>、<code>CONTRIBUTING.md</code>、<code>SECURITY.md</code>、<code>CODE_OF_CONDUCT.md</code>、PR 模板；<code>references/</code> 下有 3d、craft、kit、motion、print、publish、react、verify、walkthrough、webgl 共 10 篇专题文档，覆盖使用、扩展、验证、发布与 WebGL 等关键路径。对 agent skill 类项目而言，文档覆盖面和结构化程度突出，达到 9–10 档。</td>
+</tr>
+<tr>
+<td><strong>D2.8 测试与质量保障</strong></td>
+<td><strong>打分: 0.6 / 1（5–6 档，60%）</strong></td>
+<td>CI 质量门禁较强：单一 workflow 会重建全部 9 个示例，分别执行普通/<code>--light</code> 构建，转盘示例还执行 <code>--verify</code> 与 <code>stress.mjs</code>，并通过 <code>node --test scripts/*.test.mjs</code> 跑回归测试，最后检查 committed pages 无 diff。但本地统计 <code>test_lines=0</code>、<code>test_ratio=0.0%</code>，虽显示 45 个测试相关文件，却无法确认有效单测覆盖率；未见覆盖率报告、lint/静态分析、依赖安全扫描等门禁。整体属于“有回归测试与构建 CI，但覆盖率和多层质量门禁证据不足”，对应 5–6 档。</td>
+</tr>
+</tbody>
+</table>
+<h3>结论</h3>
+<p>D2 维度得分 <strong>8.0/10</strong>。项目在<strong>产品创新性、模块分层、文档完整度与示例构建 CI</strong> 上表现突出：核心 <code>iso-kit</code> 具备可复用的等距几何抽象，9 个示例验证了跨场景生成能力，10 篇 references 显著降低 agent 使用与二次开发门槛。主要短板集中在<strong>测试覆盖率与质量门禁证据不足、部分核心/示例文件过大、示例间存在重复 helper、缺少 i18n 与安全扫描集成</strong>；此外项目版本历史很短，长期稳定性仍需观察。综合看，技术成熟度高于行业平均，具备支撑商业化交付的基础，但需补强自动化测试覆盖率、静态检查与安全扫描后再进入更严格的生产交付场景。</p>
+<h1>D3. 社区健康度与生态势能（得分: 7.5/10）</h1>
+<blockquote>
+<p><strong>项目状态</strong>：年龄 13 天（&lt; 90 天，<strong>新项目</strong>）。本维度按新项目专项处理原则打分——同时本项目的社区数据<strong>异常亮眼</strong>（13 天 18.5K Star），触发 D3 总则例外条款「爆发型不压分」，按实际档位据实打分并在正文标注爆发特征，<strong>不得以项目年轻为由压低</strong>。</p>
+</blockquote>
+<h3>细则打分</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D3.1 社区活跃度指标</td>
+<td>3</td>
+<td>3.0</td>
+<td>9–10 档（100%）</td>
+<td>Star 月增外推 ~42,800/月，远超 &gt;500 阈值；13 天 124 PR、153 commits/30d，社区极度活跃</td>
+</tr>
+<tr>
+<td>D3.2 贡献者结构多样性</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6 档（60%）</td>
+<td>13 贡献者（落在 5–20 区间），已出现外部参与，但组织多样性未知</td>
+</tr>
+<tr>
+<td>D3.3 第三方生态成熟度</td>
+<td>3</td>
+<td>1.8</td>
+<td>5–6 档（60%）</td>
+<td>已集成 5 个 Agent 平台（Claude Code/Codex 等）+ 官网，但无插件市场/衍生商业品</td>
+</tr>
+<tr>
+<td>D3.4 品牌认知与行业影响力</td>
+<td>1.5</td>
+<td>1.2</td>
+<td>7–8 档（80%）</td>
+<td>13 天 18.5K Star 属发布即现象级关注（疑似 GitHub Trending），但企业采用/背书未证实</td>
+</tr>
+</tbody>
+</table>
+<h3>D3.1 社区活跃度指标 — <strong>打分: 3.0 / 3（9–10 档，100%）</strong></h3>
+<ul>
+<li><strong>Star 增速</strong>：年龄 13 天 &lt; 30 天，按附录 A「年轻项目月增外推」——18,544 ÷ 13 × 30 ≈ <strong>42,800 / 月</strong>，远超 9–10 档「&gt;500/月」阈值。此值波动极大（外推不确定性高），但即便保守打对折仍在爆发档。近 90 天/近 7 天增量因 stargazers API 404 采集失败（非项目真实为 0），故采用总量外推口径，已标注。</li>
+<li><strong>Fork 比率</strong>：1,434 / 18,544 ≈ <strong>7.7%</strong>，为健康水平（Star &lt; 100 才需淡化处理，本项目 Star 量级大、Fork 绝对量 1,434 为「被强烈看好」的正向证据）。</li>
+<li><strong>Issue/PR 活跃度</strong>：近 90 天 124 PR、近 30 天 153 commits，对 13 天龄项目而言参与度极高。</li>
+<li><strong>响应速度</strong>：近 90 天关闭 4 Issue、当前 64 开放 Issue——关闭量相对流入偏低，<strong>存在 triage 积压迹象</strong>，但项目仅 13 天且处发布洪峰，属正常放量期，暂不据此降档，列入观察项。</li>
+<li><strong>归因说明</strong>：数据非低位、无需低数据归因；属爆发型新项目。</li>
+</ul>
+<h3>D3.2 贡献者结构多样性 — <strong>打分: 1.5 / 2.5（5–6 档，60%）</strong></h3>
+<ul>
+<li><strong>贡献者数量</strong>：API 实采 <strong>13 人</strong>，落在评分指引 5–20 贡献者区间（5–6 档）。对 13 天龄项目已属亮眼，结合 124 PR 显示外部参与正在形成，依新项目专项「已出现外部贡献者 → 按实际上浮」，本档取 5–6 档上沿。</li>
+<li><strong>组织多样性</strong>：素材未提供贡献者所属组织信息，无法确认多组织参与，不做额外加分。</li>
+<li><strong>核心团队占比</strong>：无 PR 作者级明细，无法量化核心/外部比例。</li>
+<li><strong>归因说明</strong>：贡献者集中（13 人、组织未知）属<strong>结构性归因：小团队/早期集中</strong>——真实存在的组织与巴士因子风险（归 D8 评估，此处不重复计分）；但<strong>不代表技术质量差</strong>，技术结论以 D2 独立评估为准。项目仅 13 天，贡献者结构尚在扩张期，非「已衰」状态。</li>
+</ul>
+<h3>D3.3 第三方生态成熟度 — <strong>打分: 1.8 / 3（5–6 档，60%）</strong></h3>
+<ul>
+<li><strong>集成生态</strong>：README 显示已适配 <strong>5 个主流 Agent 平台</strong>（Claude Code、Antigravity、OpenCode、Codex、MiniMax Code），并在 agentskills.io 标注「Agent Skills compatible」，另有独立官网 skills.wheresryan.sh/anatomy——已出现「被主流工具集成」信号。</li>
+<li><strong>插件/扩展、衍生项目、教程</strong>：暂无插件市场、二次开发/商业衍生项目或外部教程生态（项目仅 13 天，属自然状态）。</li>
+<li><strong>归因说明</strong>：第三方生态需时间发育，当前缺失<strong>不构成负面信号</strong>（新项目专项底线 5–6 档）；已具多平台集成，取 5–6 档上沿 60%。</li>
+</ul>
+<h3>D3.4 品牌认知与行业影响力 — <strong>打分: 1.2 / 1.5（7–8 档，80%）</strong></h3>
+<ul>
+<li><strong>品牌辨识度</strong>：13 天 18,544 Star 属<strong>发布即现象级关注</strong>（量级符合 GitHub Trending 顶部特征），远超「小圈子认知」。</li>
+<li><strong>行业采用/媒体覆盖</strong>：企业采用与会议/媒体背书未被素材证实，故不入 9–10 档。</li>
+<li><strong>归因说明</strong>：依新项目专项「发布即具关注度的除外」条款，凭 18.5K Star 的实际关注度上浮至 7–8 档（而非新项目默认 5–6 档底线）。</li>
+</ul>
+<h3>结论</h3>
+<p>Anatomy 在 13 天内斩获 18.5K Star、1.4K Fork、124 PR、13 位贡献者并以 7.7% 健康 Fork 比率成长，是典型的<strong>现象级爆发型新项目</strong>，社区势能极为充沛，具备转化为潜在客户池的强信号。主要短板在于：① Issue 关闭量（4）相对流入（64 开放）偏低，需持续观察 triage 能力是否跟上洪峰；② 贡献者仅 13 人且组织多样性未证实，巴士因子结构性风险真实存在（归 D8 评估）；③ 第三方生态除多 Agent 平台集成外尚未发育。以上均与项目年轻相关，按新项目专项不构成负面信号，但与「高 Star」并存的维护可持续性需在后续观察窗口验证。</p>
+<p><strong>数据归因: 无良性归因（数据非低位）——本项目 Star/PR/贡献者指标均处高位，属爆发型新项目；Star 月增因 stargazers API 采集失败（404，非真实为 0）采用附录 A 年轻项目外推口径，波动较大。</strong></p>
+<h3>生命周期阶段判定</h3>
+<p><strong>阶段：🚀 爆发期</strong></p>
+<p>判定依据（按 3.6 阶段词典优先级匹配）：
+- 年龄 <strong>13 天 &lt; 90 天</strong> 且 <strong>Star 总量 18,544 ≥ 1,000</strong> → 命中「爆发期」条件；Fork 总量 1,434 ≥ 500 亦为佐证。
+- 未命中废弃/死寂前序阶段（未 archived，近 30 天 153 commits、近 90 天 2 次 release，维护活跃）。
+- 商业化含义：现象级关注，重点跟踪，警惕昙花一现——需在后续窗口验证留存与维护可持续性。</p>
+<h3>D4. 商业模式与变现潜力</h3>
+<p>Anatomy 是一个面向 Claude Code / Antigravity / OpenCode / Codex 等智能体的「Agent Skill」，本质是一套编码了作者制图工艺的指令集 + 无依赖绘图库（kit），通过 <code>npx skills add</code> 免费分发。项目创建于 2026-10-08、10 天内即获 1.85 万 Star，热度极高，但<strong>代码库内不存在任何付费产品、定价、Sponsor 入口或商业授权痕迹</strong>——这是本维度评估的核心底色。</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>打分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D4.1 协议对变现模式的影响</td>
+<td>2</td>
+<td>2.0</td>
+<td>9–10 档（100%）</td>
+</tr>
+<tr>
+<td>D4.2 变现路径清晰度</td>
+<td>3.5</td>
+<td>1.4</td>
+<td>3–4 档（40%）</td>
+</tr>
+<tr>
+<td>D4.3 付费转化逻辑</td>
+<td>2.5</td>
+<td>1.0</td>
+<td>3–4 档（40%）</td>
+</tr>
+<tr>
+<td>D4.4 增值服务空间与定价天花板</td>
+<td>2</td>
+<td>0.8</td>
+<td>3–4 档（40%）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>5.2</strong></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h4>D4.1 协议对变现模式的影响</h4>
+<p><strong>打分: 2.0 / 2（9–10 档，100%）</strong></p>
+<p>LICENSE 文件为纯正 MIT（Copyright © 2026 Ryan），<code>package.json</code>/README 均标注 MIT，仓库无任何自定义限制性条款。按评分指引，MIT 属于"所有变现路径均可行"的最高档，协议本身对 Open Core、SaaS 托管、专业服务、市场抽成等<strong>不构成任何法律约束</strong>。</p>
+<p>需要区分的是：协议"无约束"是法律层面的开门，并非商业层面的加分。MIT 的双刃性是——它同样允许任何第三方 fork 后闭源转售或托管，<strong>作者无法通过协议锁定独家商业权益</strong>（双协议模式因此天然不可用，除非未来更换协议）。该细则仅评协议对变现路径的约束，协议维度满分成立，故给满分，但其"无护城河"的副作用在 D4.2/D4.3 中体现。</p>
+<h4>D4.2 变现路径清晰度</h4>
+<p><strong>打分: 1.4 / 3.5（3–4 档，40%）</strong></p>
+<p>逐条比对可行模式：</p>
+<ul>
+<li><strong>Open Core</strong>：理论上可做"免费 skill + 闭源高级 kit/企业图库"，但 kit 当前全部 MIT 开源、无功能分层痕迹，且 MIT 下任何"闭源企业版"都可被社区 fork 免费复刻，护城河极弱。</li>
+<li><strong>SaaS 托管</strong>：存在 <code>anatomy-community</code> 社区画廊与 <code>skills.wheresryan.sh/anatomy</code> 网站，具备托管的雏形，但<strong>仅为免费展示/分享（PR 提交），无任何计费或配额限制</strong>。</li>
+<li><strong>双协议</strong>：MIT 不可行（除非改协议，会引发信任问题）。</li>
+<li><strong>专业服务</strong>（定制插图/咨询/打印）：这是最现实的路径——技术插画/可打印海报本身是高价值定制服务，作者的个人工艺是真正稀缺资源，但项目内无服务入口、无报价。</li>
+<li><strong>市场/插件抽成</strong>：社区画廊的"分享图形"若演化为付费图库/抽成市场，是想象空间，但完全未落地。</li>
+<li><strong>捐赠/赞助</strong>：README 只请求 ⭐ Star，<strong>无 Sponsor 链接、无 Open Collective</strong>（Vue 式的天花板路径也未启用）。</li>
+<li><strong>认证/生态</strong>：无任何认证体系或合作伙伴计划。</li>
+</ul>
+<p>结论：项目拥有不错的<strong>分发资产</strong>（1.85 万 Star、Web 站点、社区画廊、<code>npx skills</code> 分发渠道），理论上可嫁接 2–3 条路径，但<strong>没有一条被实现或验证</strong>。按"变现路径模糊，需大量探索"落入 3–4 档。若作者后续启用 Sponsor 或推出付费高级 skill 包/托管服务，有向上迁移到 5–6 档空间。</p>
+<h4>D4.3 付费转化逻辑</h4>
+<p><strong>打分: 1.0 / 2.5（3–4 档，40%）</strong></p>
+<ul>
+<li><strong>免费→付费触发点</strong>：不存在。skill 完全免费、MIT、零依赖、<code>npx skills add</code> 一键安装，用户没有任何"免费不够用"的硬性场景。潜在触发点（更高复杂度图形、SLA、团队共享图库、托管渲染、打印级输出）在代码与文档中均无付费墙设计。</li>
+<li><strong>付费意愿强度</strong>：目标用户是使用 Claude Code 的开发者、技术写作者、内容创作者，习惯免费开源工具，对付费 Agent Skill 的付费习惯尚未形成；真正可能付费的是"需要定制插画的企业/出版方"，但这类客户走的是服务而非产品。</li>
+<li><strong>转化漏斗</strong>：从使用者到付费者无任何漏斗——没有注册、没有用量计量、没有升级按钮、没有 sponsor 触点，付费路径非"不够自然"而是"未搭建"。</li>
+</ul>
+<p>按"付费逻辑勉强、用户更愿意用免费版"落入 3–4 档。这是本维度最薄弱项。</p>
+<h4>D4.4 增值服务空间与定价天花板</h4>
+<p><strong>打分: 0.8 / 2（3–4 档，40%）</strong></p>
+<ul>
+<li><strong>增值空间</strong>：可叠加的方向包括——托管渲染服务、团队共享图库、打印制作（<code>scripts/print.mjs</code> 已能产出 A4 PDF 海报/技术图）、企业定制插图、SLA 支持。这些在技术上"有料"（打印管线、社区画廊已存在），但均未产品化。</li>
+<li><strong>定价天花板</strong>：作为<strong>软件/订阅</strong>，Agent Skill 难以 per-seat 计费（用户零成本自建），客单价上限低；作为<strong>定制插画服务</strong>，单张技术插图可报价数百至数千元，天花板取决于作者产能而非产品规模，难以规模化。</li>
+<li><strong>收入扩展性</strong>：缺乏 per-seat / per-usage 计量的载体，收入难以从"个人服务"扩展为"平台化"结构。</li>
+</ul>
+<p>按"增值空间小、客单价低"落入 3–4 档。社区画廊 + 打印能力提供了微弱的向上想象，但不足以进入 5–6 档。</p>
+<hr />
+<h3>维度结论</h3>
+<p><strong>Anatomy 的商业模式处于"高热度、零变现"阶段（得分: 5.2/10）。</strong></p>
+<ul>
+<li><strong>协议层无碍</strong>：MIT 让一切变现路径在法律上可行，但也意味着零排他性护城河，第三方可自由 fork 并商业化。</li>
+<li><strong>变现层空白</strong>：项目是一个纯粹的、作者驱动的开源 Agent Skill，无付费产品、无定价、无 Sponsor、无服务入口；1.85 万 Star 与社区画廊目前只服务于"被发现"和"被分享"，未转化为任何收入结构。</li>
+<li><strong>最现实的路径</strong>是作者个人品牌下的<strong>专业服务/定制插画与打印生产</strong>——其工艺（kit、audit、验证管线）是真正稀缺资产；而产品化（Open Core / SaaS）在 MIT 与零依赖、易复刻的特性下护城河极弱。</li>
+<li>提升空间在于：启用 Sponsor、推出付费高级 skill / 托管渲染、或将社区画廊升级为带抽成的图库市场，均可把 D4.2/D4.3 向上拉一档。就当前证据而言，这是一个<strong>优质开源资产而非成熟商业体</strong>。</li>
+</ul>
+<blockquote>
+<p>置信度说明：所有小分基于 README、LICENSE 与仓库结构实采，未发现任何商业化代码或定价信息，判断较为确定；变现阶段属早期（项目仅 10 天），未来若有变现动作需重新评估。</p>
+</blockquote>
+<h3>D5. 竞争格局与差异化壁垒（权重 12%）（得分: 6.8/10）</h3>
+<p><strong>一句话结论</strong>：Anatomy 以「把抽象概念发明成一台可运转的等距机械」形成了非常清晰的差异化定位，严格同类的独立竞品极少，18,544 stars 也说明其品类心智领先；但其 MIT 全开源、零依赖、标准化 Agent Skill 形态导致复制门槛低、切换成本低，护城河主要来自工艺、品牌与先发社区，而非专利、数据或网络效应。</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th style="text-align: right;">满分</th>
+<th style="text-align: right;">小分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D5.1 竞品对比与市场定位</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3.0</td>
+<td>9–10 档，100%</td>
+</tr>
+<tr>
+<td>D5.2 技术壁垒与网络效应</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1.8</td>
+<td>5–6 档，60%</td>
+</tr>
+<tr>
+<td>D5.3 切换成本与用户粘性</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.8</td>
+<td>3–4 档，40%</td>
+</tr>
+<tr>
+<td>D5.4 护城河可持续性</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1.2</td>
+<td>5–6 档，60%</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td style="text-align: right;"><strong>10</strong></td>
+<td style="text-align: right;"><strong>6.8</strong></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>D5.1 竞品对比与市场定位</h3>
+<p><strong>打分: 3.0 / 3（9–10 档，100%）</strong></p>
+<p><strong>验证说明</strong>：本节竞品通过补采的 GitHub Search API 实测清单确认，4 个仓库均 <code>verified=true</code>；未执行 Web 搜索，商业竞品与通用 AI 绘图工具未纳入验证，因此商业侧竞品覆盖置信度中等。经检索确认，严格同类的独立直接竞品仅有 1 个，且为本项目的中文化衍生项目，不足 3 个；下表补充相邻/间接替代路径，不将间接竞品凑数为直接竞品。</p>
+<table>
+<thead>
+<tr>
+<th>竞品名称</th>
+<th>类型</th>
+<th>仓库/官网</th>
+<th style="text-align: right;">验证方式</th>
+<th style="text-align: right;">Star/用户量</th>
+<th>核心差异</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>globestudio</td>
+<td>间接竞品</td>
+<td>github.com/alevizio/globestudio</td>
+<td style="text-align: right;">GitHub Search API 实测（verified=true）</td>
+<td style="text-align: right;">21 stars</td>
+<td>面向设计师的 dotted maps / 3D globes，支持 SVG、GLB、WebM 等导出；解决地理可视化，不是「发明机械并解释概念」的 agent skill</td>
+</tr>
+<tr>
+<td>anatomy-cn</td>
+<td>直接替代/衍生项目</td>
+<td>github.com/yangshun2005/anatomy-cn</td>
+<td style="text-align: right;">GitHub Search API 实测（verified=true）</td>
+<td style="text-align: right;">6 stars</td>
+<td>本项目的中文化版本，描述几乎相同；说明可复制性强，但不构成独立竞品</td>
+</tr>
+<tr>
+<td>withicons</td>
+<td>间接竞品</td>
+<td>github.com/withevergrow/withicons</td>
+<td style="text-align: right;">GitHub Search API 实测（verified=true）</td>
+<td style="text-align: right;">3 stars</td>
+<td>500 icons × 20 styles 的动画 SVG 图标库；解决「图标素材」，不解决「复杂系统解释图」</td>
+</tr>
+<tr>
+<td>premium-agent-skills</td>
+<td>间接/生态位竞品</td>
+<td>github.com/naimkatiman/premium-agent-skills</td>
+<td style="text-align: right;">GitHub Search API 实测（verified=true）</td>
+<td style="text-align: right;">0 stars</td>
+<td>跨 agent 的 skill 集合（repo audit / avatar motion），争夺 Agent Skill 安装位，但非图形解释品类</td>
+</tr>
+</tbody>
+</table>
+<p><strong>判断依据</strong>：</p>
+<ul>
+<li><strong>直接竞品稀缺</strong>：严格意义上的「Agent Skill + 等距机械插画 + 可交互 SVG/WebGL/3D」同品类独立项目未检索到；<code>anatomy-cn</code> 是同一项目的 Sicher? 中文化衍生，不是独立竞争产品。</li>
+<li><strong>定位清晰且差异化强</strong>：README 明确「不是图表库」，不画坐标轴/数据系列，而是让 Claude 先发明一个物理对象，再用几十个实体零件、等距相机、四色阴影、实时读数与缓动交互来解释概念。这个定位与 Mermaid/Excalidraw 类「画框图」、图标库、通用 AI 生图都形成明显区隔。</li>
+<li><strong>品类心智领先</strong>：18,544 stars 对相邻项目 21 / 6 / 3 / 0 stars，说明其在「agent 生成等距解释图」这一细分品类中已占据明显领先位置。</li>
+</ul>
+<hr />
+<h3>D5.2 技术壁垒与网络效应</h3>
+<p><strong>打分: 1.8 / 3（5–6 档，60%）</strong></p>
+<p><strong>判断依据</strong>：</p>
+<ul>
+<li><strong>技术/工艺壁垒真实存在</strong>：本地实测 6,626 行代码、21 个源码文件、0 个运行时依赖；<code>kit/</code> 包含等距相机、实体与零件库、<code>lathe.mjs</code> 旋转体、<code>tube.mjs</code> 管线、<code>gl.mjs</code> WebGL 层、<code>turn*.mjs</code> 3D 运行时；<code>kit/audit.mjs</code> 可证明「没有管线穿过物体、每个端点落在支座上、重叠按深度排序」；headless Chrome 截图/近距离检查/线端检查构成自验证闭环。380 零件压力测试手在 1440px 下约 20fps，说明 3D 运行时有一定工程深度。</li>
+<li><strong>但商业防御效果弱</strong>：全部 MIT 开源，无专利、无专有数据、无模型权重壁垒；代码可直接 fork，<code>anatomy-cn</code> 在项目创建约 5 天后即出现，说明复制速度很快。</li>
+<li><strong>网络效应薄弱</strong>：存在 <code>anatomy-community</code> 社区 gallery 与 PR 提交流程，但尚处早期；13 位贡献者、1,434 forks 更多体现影响力而非锁定效应。没有「用户越多、数据/模型/插件越强」的数据飞轮。</li>
+<li><strong>规模效应有限</strong>：零依赖、静态生成带来低边际成本，但不形成成本或体验上的规模优势。</li>
+</ul>
+<p>因此属于「有一定壁垒但不深厚」：工艺与验证工具链是真实门槛，但不是商业上的强护城河。</p>
+<hr />
+<h3>D5.3 切换成本与用户粘性</h3>
+<p><strong>打分: 0.8 / 2（3–4 档，40%）</strong></p>
+<p><strong>判断依据</strong>：</p>
+<ul>
+<li><strong>迁移成本低</strong>：安装方式是 <code>npx skills add</code> 或 <code>git clone</code>，无账号、无云数据、无专有格式；产物是独立的 HTML、SVG 或 React/Next.js 源码，用户卸载 skill 后仍可保留和使用已生成图形。</li>
+<li><strong>深度集成有限</strong>：React 输出会依赖 <code>kit/react/</code> 组件，但源码 MIT 且可复制；没有数据库、配置中心或组织级数据沉淀，切换时不需要迁移大量业务数据。</li>
+<li><strong>存在一定习惯锁定</strong>：<code>/anatomy</code> 命令已适配 Claude Code、Antigravity、OpenCode、Codex、MiniMax Code 五类 agent，用户会形成「让 agent 画机械解释图」的提示习惯；但这类习惯可被同类 skill 或直接让模型生成 SVG/HTML 替代。</li>
+<li>综合看，用户可轻易切换，粘性主要来自出图质量与工作流习惯，而非结构性锁定。</li>
+</ul>
+<hr />
+<h3>D5.4 护城河可持续性</h3>
+<p><strong>打分: 1.2 / 2（5–6 档，60%）</strong></p>
+<p><strong>判断依据</strong>：</p>
+<ul>
+<li><strong>正面趋势</strong>：18,544 stars、1,434 forks、13 位贡献者；近 30 天 153 次 commit、近 90 天 124 个 PR，说明项目活跃。Agent Skills 生态处于上升期，Anatomy 作为早期头部项目有品牌与先发优势，社区 gallery 若成长可转化为弱网络效应。</li>
+<li><strong>负面因素</strong>：无专利/数据壁垒，MIT 允许直接商用与 fork；Agent Skill 格式标准化，安装与分发门槛极低；中文化衍生项目快速出现；通用多模态模型与图表工具正在增强「直接生成交互式 SVG/HTML」的能力，存在中期颠覆风险。</li>
+<li><strong>维护瓶颈</strong>：64 个开放 issue，但近 90 天仅关闭 4 个 issue；3D 模式仍为 beta，380 零件压力测试在移动端节流配置下仅 13–15fps。若社区运营与 issue 处理跟不上，先发优势会被稀释。</li>
+<li><strong>时间窗口</strong>：品牌与工艺领先预计可维持约 6–12 个月；若不能把 stars 转化为 gallery 网络、企业工作流或专有评测/基准，护城河难以持续加深。</li>
+</ul>
+<hr />
+<h3>维度结论</h3>
+<p>Anatomy 在 D5 上呈现明显「产品定位强、商业壁垒弱」的结构：<strong>D5.1 接近满分</strong>，因为它在一个极细分的品类里几乎没有独立直接竞品，且定位表达非常清晰；但 <strong>D5.2–D5.4 均低于 7 分</strong>，原因是 MIT 全开源、零依赖、产物可携带、无数据/账号锁定，导致技术工艺壁垒难以转化为商业防御，网络效应尚在早期。综合得分 <strong>6.8/10</strong>，属于「定位独特、工艺扎实，但护城河一般，需要通过社区 gallery、企业工作流与品牌运营把先发优势沉淀为可持续壁垒」的项目。</p>
+<h3>D6. 法律合规与知识产权（得分: 8.2/10）</h3>
+<blockquote>
+<p>评估口径：本维度只评估法律合规与知识产权障碍。协议类型对变现模式的影响归 D4.1，不在此重复扣分。D6.3 因无人工商标/专利检索数据，按规则取 5–6 档并标注低置信度。</p>
+</blockquote>
+<h3>D6.1 开源协议合规性与商业限制</h3>
+<p><strong>打分: 3.0 / 3（9–10 档，100%）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>协议明确性</td>
+<td>仓库根目录存在完整 <code>LICENSE</code>，为标准 MIT 全文；GitHub 元数据也识别为 MIT。<code>LICENSE</code> 中未显式写入 <code>SPDX-License-Identifier</code>，但协议文本清晰，不构成实质法律障碍。</td>
+</tr>
+<tr>
+<td>copyleft 传染性</td>
+<td>未发现 GPL/AGPL 等 copyleft 协议。项目自身为 MIT，依赖情况见 D6.2，当前无传染性风险。</td>
+</tr>
+<tr>
+<td>商业附加条款</td>
+<td>未发现 Commons Clause、BUSL、SSPL 或字段使用限制等商业附加条款；MIT 允许商用、修改、分发和再许可。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：协议清晰、宽松，无商业使用限制和 copyleft 传染风险。SPDX 标识未显式嵌入属于轻微形式问题，不影响法律明确性。本项给满分。</p>
+<h3>D6.2 依赖链法律风险</h3>
+<p><strong>打分: 2.5 / 2.5（9–10 档，100%）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>依赖协议审查</td>
+<td>本地采集 <code>dependencies</code> 为空；<code>CONTRIBUTING.md</code> 明确说明 kit、构建脚本和检查脚本仅使用 Node.js 内置模块。未发现 GPL/AGPL 等传染性依赖。</td>
+</tr>
+<tr>
+<td>依赖数量</td>
+<td>第三方运行依赖为 0，依赖链极短，合规审查成本极低。</td>
+</tr>
+<tr>
+<td>依赖来源</td>
+<td>主要依赖 Node.js 内置模块，来源可靠；未发现来源不明或高风险包。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：依赖链法律风险极低，无传染性依赖，符合 9–10 档标准。</p>
+<h3>D6.3 商标与专利风险</h3>
+<p><strong>打分: 1.5 / 2.5（5–6 档，60%）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>商标可用性</td>
+<td>未执行人工商标检索，不能断言项目名称“anatomy”是否可注册或是否侵犯他人商标。“anatomy”为通用英文词，显著性可能偏弱，但需专业检索确认。</td>
+</tr>
+<tr>
+<td>专利风险</td>
+<td>未执行专利排查，无法确认 SVG/WebGL 可视化及 agent skill 相关技术是否存在专利风险；当前无已知专利争议数据。</td>
+</tr>
+<tr>
+<td>商标政策</td>
+<td>在已提供材料中未发现商标使用政策或名称使用限制声明。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：商标与专利状态未经人工核查，按评分规则默认取 5–6 档，给 1.5/2.5，置信度低。商业化前建议做商标检索和必要的专利 FTO 排查。</p>
+<h3>D6.4 贡献者协议完备性</h3>
+<p><strong>打分: 1.2 / 2（5–6 档，60%）</strong></p>
+<table>
+<thead>
+<tr>
+<th>考察点</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CLA/DCO</td>
+<td>未发现 CLA 或 DCO 配置。<code>CONTRIBUTING.md</code> 要求贡献者遵守 Code of Conduct，但没有明确的贡献者版权许可协议或 Developer Certificate of Origin 签署要求。</td>
+</tr>
+<tr>
+<td>版权归属</td>
+<td><code>LICENSE</code> 版权声明为 “Copyright (c) 2026 Ryan”，但仓库有 13 名贡献者。无 CLA/DCO 时，贡献者保留其贡献版权，版权集中度和双协议许可空间存在不确定性。</td>
+</tr>
+<tr>
+<td>贡献流程</td>
+<td>贡献流程较规范：有 <code>CONTRIBUTING.md</code>、<code>CODE_OF_CONDUCT.md</code>、PR 模板、CI 工作流和详细的检查要求。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>结论</strong>：贡献流程和工程规范较好，但缺少正式 CLA/DCO，版权集中控制不足。按评分指引“有贡献指南但无正式 CLA”归入 5–6 档，给 1.2/2。</p>
+<h3>维度汇总</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D6.1 开源协议合规性与商业限制</td>
+<td>3</td>
+<td>3.0</td>
+<td>9–10 档（100%）</td>
+</tr>
+<tr>
+<td>D6.2 依赖链法律风险</td>
+<td>2.5</td>
+<td>2.5</td>
+<td>9–10 档（100%）</td>
+</tr>
+<tr>
+<td>D6.3 商标与专利风险</td>
+<td>2.5</td>
+<td>1.5</td>
+<td>5–6 档（60%，低置信度）</td>
+</tr>
+<tr>
+<td>D6.4 贡献者协议完备性</td>
+<td>2</td>
+<td>1.2</td>
+<td>5–6 档（60%）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td><strong>10</strong></td>
+<td><strong>8.2</strong></td>
+<td><strong>良好</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>总体结论</strong>：项目法律基础较好，MIT 协议清晰，无商业附加条款，第三方依赖为零，依赖链法律风险极低。主要短板有两项：一是商标/专利状态未经人工核查，存在信息缺口；二是缺少 CLA/DCO，13 名贡献者背景下版权集中和后续双协议商业化存在不确定性。综合得分 <strong>8.2/10</strong>，属于良好档，但尚未达到 9 分以上的“卓越”水平。建议商业化前补做商标检索、明确贡献者许可机制，并在 <code>LICENSE</code> 或包元数据中补充 SPDX 标识。</p>
+<h3>D7. 企业就绪度与可运营性（得分: 7.5/10）</h3>
+<blockquote>
+<p><strong>维度适用性判断（重要前置）</strong>：本项目是一个「Agent Skill + 类型化绘图工具包」——交付物是本地安装的 skill（<code>npx skills add</code>）与被 <code>--build</code> 出来的<strong>静态 SVG/HTML 页面</strong>，不存在服务端进程、多租户账号体系、持久化数据存储。因此 D7.2 的 IAM（SSO/RBAC/审计/加密）与 D7.3 的集群/故障转移等条目<strong>结构性不适用</strong>，按 N/A 规则处理：D7.2 整项置 N/A（2.5 分从满分中剔除），D7.3 仅就「性能瓶颈/扩展性」这一可评估侧面打分。剩余满分 7.5 分，本维度得分按 <code>5.6 ÷ 7.5 × 10 = 7.47 ≈ 7.5</code> 折算，<strong>置信度中等偏低</strong>（两项在传统企业采购语境下的关键考察点缺席，只是缺席原因是不适用而非能力缺失）。</p>
+</blockquote>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>得分</th>
+<th>档位</th>
+<th>关键依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D7.1 运维复杂度与升级路径</td>
+<td>3</td>
+<td>2.4</td>
+<td>7–8 档（80%）</td>
+<td>零依赖（<code>dependencies: {}</code>）、仅用 Node 内置模块、语义化版本 + CHANGELOG、无状态无数据迁移；但无文档化回滚流程、无配置管理机制</td>
+</tr>
+<tr>
+<td>D7.2 安全管理与权限控制</td>
+<td>2.5</td>
+<td>N/A</td>
+<td>—</td>
+<td>本地单用户 skill，无服务端、无账号、无共享数据，SSO/RBAC/审计/加密结构性不适用；已有 SECURITY.md 披露流程与零依赖供应链作为实际安全面</td>
+</tr>
+<tr>
+<td>D7.3 可扩展性与高可用能力</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8 档（80%）</td>
+<td>产出为静态文件，天然可 CDN 分发、无状态无单点；扣分在浏览器端渲染成本（3D beta 每帧重投影约 90 个零件）无公开性能预算</td>
+</tr>
+<tr>
+<td>D7.4 集成兼容与可观测性</td>
+<td>2</td>
+<td>1.2</td>
+<td>5–6 档（60%）</td>
+<td>有类型化 TS 工具包与 React 组件作为 SDK 面、<code>references/*.md</code> 覆盖用法；但无 API 参考、无 npm 包、无指标/健康检查/结构化日志</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3>D7.1 运维复杂度与升级路径</h3>
+<p><strong>打分: 2.4 / 3（7–8 档，80%）</strong></p>
+<ul>
+<li><strong>配置管理</strong>：几乎不存在需要运维的配置面——<code>dependencies: {}</code>，README 声明「No API keys and nothing to <code>npm install</code>: the kit uses only Node's built-in modules」，运行时仅有 <code>--light</code>、<code>--verify</code> 之类构建开关。这是「配置极简」而非「配置体系完善」，无环境变量/配置中心的诉求也相应不存在。</li>
+<li><strong>运维负担</strong>：极低。无 Dockerfile、无守护进程、无数据库；CI 在 <code>macos-latest</code> 上以单 job、30 分钟超时完成 7 个示例 × 2 主题的重建，说明构建可完全自动化。</li>
+<li><strong>升级路径</strong>：版本节奏清晰（<code>v1.0.0</code> 2026-10-10 → <code>v1.1.0</code> 2026-10-12），升级方式为 <code>npx skills add wheresryan22/anatomy -g</code> 重装或拉取仓库，仓库根有 <code>CHANGELOG.md</code>。<strong>扣分点</strong>：CHANGELOG 内容未在素材中展开，无法验证是否含破坏性变更说明；未见任何文档化的回滚流程（如「锁定上一 tag 重装」的操作指引），回滚能力只能靠 git 手工完成。</li>
+<li><strong>数据迁移</strong>：无状态、无持久化数据，升级不涉及数据迁移——这是本项最强的一点。CI 中「Committed pages are unchanged」步骤（<code>git diff --stat --exit-code</code> + 空 <code>git status --porcelain</code>）实质是一道<strong>构建漂移闸门</strong>，防止升级后产出物静默变化，属于轻量但有效的升级保障机制。</li>
+</ul>
+<p>结论：对一个零依赖的本地 skill 而言，运维成本处于理论下界；短板仅在「回滚与变更兼容性缺少书面化运维手册」，故落 7–8 档。</p>
+<h3>D7.2 安全管理与权限控制</h3>
+<p><strong>打分: N/A（不适用，不计入评分）</strong></p>
+<p>本项四个考察点在本产品形态下均不成立：</p>
+<ul>
+<li>认证授权 / 权限模型 / 审计日志：skill 以文件形式装入用户自己的 Claude Code / Codex / OpenCode 等客户端，进程、凭据、执行权限均由宿主的本地环境与 Agent 平台托管，项目侧不存在可授权的「用户—角色—资源」模型，也没有服务端调用链可供审计。</li>
+<li>数据安全（加密存储/传输）：项目不存储、不传输用户数据；产出是被写入本地磁盘的 SVG/HTML。真正的保密责任（图纸涉及的自研机型/系统细节）落在使用方仓库与 Agent 平台，而非本工具。</li>
+</ul>
+<p>不判低分的<strong>实质理由</strong>：项目在实际安全面上并非空白——存在 <code>SECURITY.md</code>（漏洞披露渠道）、<code>CODE_OF_CONDUCT.md</code>、<code>CONTRIBUTING.md</code>，且 <strong>零第三方依赖</strong>直接消灭了最常见的供应链攻击面（无 <code>node_modules</code> 传递依赖），这一点对「把脚本跑在企业内网」的客户反而是加分项。</p>
+<p><strong>采购提示（写给最终报告读者）</strong>：传统的「SSO + RBAC + 审计 + 加密」检查表对本项目<strong>不适用</strong>；企业侧的实际安全检查点应替换为：①<code>SECURITY.md</code> 披露与响应流程；②零依赖/无网络回连（可离线运行）；③skill 生成并执行的 Node 脚本需在受控沙箱/CI 中运行；④产出物（图纸）的密级由使用方 DLP 承接。若买方硬性要求 IAM 能力，则本项目不可满足——但该缺失不影响其作为开发效率工具的商业化可行性。</p>
+<h3>D7.3 可扩展性与高可用能力</h3>
+<p><strong>打分: 2.0 / 2.5（7–8 档，80%）</strong></p>
+<ul>
+<li><strong>水平扩展 / 高可用 / 数据一致性</strong>：结构性不适用——无服务端、无会话、无共享状态，产出是可任意复制到 CDN/静态站点的静态页面，天然没有单点故障与分布式一致性问题。这部分不构成任何商业障碍。</li>
+<li><strong>性能瓶颈（唯一可评估侧面）</strong>：存在可识别的浏览器端压力点。<code>examples/raptor-engine/live.js</code>（908 行）承载装配拆解动画；README 明确 turning-dial 的 3D 模式为 <strong>beta</strong>，「约 90 个零件每帧被重新投影与重着色」，叠加 WebGL shader 层（ripple-tank 有两层 WebGL）。项目已在 CI 中加入 <code>turning-dial/stress.mjs --light</code> 压力步骤，说明作者识别并部分覆盖了该风险，但仓库内未见公开的性能预算/帧率基准，README 仅有 "Limits" 一节做定性说明。</li>
+<li><strong>可扩展性（作为库）</strong>：<code>kit/iso-kit.ts</code>（843 行）与 <code>kit/react/*</code> 提供了可复用底座，示例通过 <code>build.mjs</code> 增量构建，扩展新图形的边际成本低。</li>
+</ul>
+<p>结论：无集群层面的可扩展性缺口，扣分仅源于「重图形场景缺量化性能口径」，落 7–8 档而非 9–10。</p>
+<h3>D7.4 集成兼容与可观测性</h3>
+<p><strong>打分: 1.2 / 2（5–6 档，60%）</strong></p>
+<ul>
+<li><strong>API 完备性</strong>：存在实质可编程接口——<code>kit/iso-kit.ts</code> 导出 <code>iso</code>/<code>extrude</code>/<code>cylinder</code>/<code>coil</code>/<code>cameraOf</code> 等几何函数与 <code>Plan</code>/<code>SolidPaths</code>/<code>Camera</code>/<code>Theme</code> 等类型；<code>kit/react/draw.tsx</code> 导出 <code>Solid</code>/<code>Line</code>/<code>Wire</code>/<code>Dots</code>/<code>FaceText</code>/<code>IsoFigure</code>/<code>Plate</code> 组件，<code>kit/react/live.tsx</code> 导出 <code>Stage</code>/<code>useLoop</code>/<code>useEased</code>。这是完整的嵌入式 SDK 面，但<strong>未发布为 npm 包</strong>（安装渠道只有 <code>npx skills add</code> 的 skill 形态），也没有 <code>.d.ts</code> 产物或 API reference 页面；<code>references/</code> 下 10 篇文档（<code>3d.md</code>、<code>webgl.md</code>、<code>react.md</code>、<code>print.md</code>、<code>publish.md</code>、<code>verify.md</code> 等）是<strong>面向 Agent 的操作指引</strong>，不是面向集成方的 API 手册。</li>
+<li><strong>标准协议</strong>：OpenTelemetry/Prometheus/Webhook 等结构性不适用（无运行时服务）。可计入的替代物是「自校验/自证」能力：README 描述 skill 会「zooming in on every joint」检查自身产出，<code>--verify</code> 与 <code>scripts/capture.mjs</code> 提供构建期与视觉回归校验——这属于<strong>构建期可验证性</strong>，不是运行期可观测性。</li>
+<li><strong>监控告警</strong>：无指标端点、无健康检查（不适用）；CI 徽章与 11 步构建流水线是唯一的持续性质量信号。</li>
+<li><strong>日志体系</strong>：无结构化日志库、无日志级别管理；示例 <code>live.js</code> 中的 <code>say</code>/<code>announce</code>/<code>describe</code> 函数是<strong>面向最终用户与 Agent 的文案播报</strong>（可访问性叙述），并非运维日志。</li>
+</ul>
+<p>结论：集成面「有 API 但文档与可观测性薄弱」，符合 5–6 档定义，且该档位已内含「监控/日志类考察点不适用」的折算。</p>
+<hr />
+<h3>维度结论</h3>
+<p>本维度体现出一个<strong>典型的「工具型/技能型」开源项目的企业就绪度画像</strong>：运维侧几乎没有负担（零依赖、无状态、语义化发版、构建漂移闸门、CI 全量重建示例），这是它能被 18,544 star 的用户群低成本采用的重要原因；而传统企业采购清单上的 IAM、集群高可用、可观测性三块<strong>在其产品形态下不成立</strong>，不应被计为缺陷。</p>
+<p>真正的商业化短板有两处，且都可修补：
+1. <strong>运维/集成文档断层</strong>——CHANGELOG 未验证含破坏性变更说明、无回滚流程、kit 未发布为可依赖的 npm 包、无 API reference；企业若要把它嵌进自有渲染管线，采购方会要求这些。
+2. <strong>重图形场景缺性能口径</strong>——3D 模式仍在 beta，缺帧率/规模基准，企业客户在做端侧性能验收时会要求数据。</p>
+<p>若面向企业商业化，优先级建议：发布 <code>kit</code> 为带类型的 npm 包 + OpenAPI 级的 API 文档 → 补「版本兼容与回滚」运维手册 → 给出典型图元数量/帧率的性能基线（复用已有 <code>stress.mjs</code>）。</p>
+<h3>D8. 团队治理与可持续性（得分: 4.4/10）</h3>
+<p><strong>项目年龄判定</strong>: 创建于 2026-10-08，最近推送 2026-10-18，评估基准日约 2026-10-22 → 项目年龄约 <strong>14 天（&lt; 90 天）</strong>，属新项目。D8.4 按「新项目专项」评估，并适用 3.3 一票否决豁免；D8.1/D8.3 的团队与资金短板按 1.7 归因表「时间性归因：太新」解读——组织能力尚未成形，不构成「技术质量不足」的证据。</p>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+<th>主要依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D8.1 核心维护者能力与背景</td>
+<td>2.5</td>
+<td><strong>1.0</strong></td>
+<td>3–4 档（40%）</td>
+<td>个人主导、13 贡献者、无商业实体/全职证据</td>
+</tr>
+<tr>
+<td>D8.2 治理模型透明度</td>
+<td>2.0</td>
+<td><strong>1.2</strong></td>
+<td>5–6 档（60%）</td>
+<td>贡献指南/CoC/Security 完备，无 GOVERNANCE/路线图</td>
+</tr>
+<tr>
+<td>D8.3 资金支持与商业赞助</td>
+<td>2.5</td>
+<td><strong>1.0</strong></td>
+<td>3–4 档（40%）</td>
+<td>无 Sponsors/Open Collective/公司实体证据</td>
+</tr>
+<tr>
+<td>D8.4 项目可持续性与传承风险</td>
+<td>3.0</td>
+<td><strong>1.2</strong></td>
+<td>3–4 档（40%，新项目底线档）</td>
+<td>无归档标记 + 30 天 153 commit，但 Issue 积压 64</td>
+</tr>
+</tbody>
+</table>
+<h3>D8.1 核心维护者能力与背景</h3>
+<p><strong>打分: 1.0 / 2.5（3–4 档，40%）</strong></p>
+<p>事实依据：
+- 维护者身份为个人 GitHub 账号 <code>wheresryan22</code> + 个人 X 账号 + 个人域名（<code>skills.wheresryan.sh</code>），无公司/组织实体迹象，无组织主页；
+- 贡献者 13 人，<code>prs_created_90d = 124</code>（全部集中在 14 天窗口内，约 9 PR/天），<code>commits_30d = 153</code>——协作流入真实且密集，但缺少 CODEOWNERS / 组织架构，无法证明核心层已从「1 人 + 爆发期外部 PR」演化为稳定小组；
+- 无全职投入、无企业服务/商业化经历的任何可验证信息（README、CONTRIBUTING、组织页均无）；
+- 巴士因子：无 CODEOWNERS，CoC 执行通道指向单一维护者 X 账号 → 决策与执行高度绑定 1 人，巴士因子评估 ≤ 2。</p>
+<p>按评分指引「高度依赖 1 人，业余投入」落入 3–4 档。项目技术表达与工程质量（详见 D2，如 CI、几何审计、双主题校验、零依赖脚本）显著高于该档位的组织成熟度，但这属于<strong>组织风险</strong>而非技术判断，两类表述不可混同。</p>
+<h3>D8.2 治理模型透明度</h3>
+<p><strong>打分: 1.2 / 2（5–6 档，60%）</strong></p>
+<p>事实依据（正面）：
+- <code>CONTRIBUTING.md</code> 详尽程度超出行业平均：含环境搭建、构建与校验命令清单、PR 流程（7 步，明确「大改动先开 Issue 达成方案一致」）、合入代码风格硬规则（无注释、kit 改动 opt-in、双主题、无穿模、线端闭合、shader 不跳变、数字必须真实）；
+- <code>CODE_OF_CONDUCT.md</code>（Contributor Covenant 2.1 全文 + 四级执法梯度）、<code>SECURITY.md</code>（明确范围、仅支持 main 最新提交、私有漏洞上报通道）、<code>CHANGELOG.md</code>、PR 模板、Issue 表单齐备；
+- <code>CI</code> 单 workflow（<code>ci.yml</code>），并在贡献指南中说明 CI 校验内容（重建示例 + <code>git diff --exit-code</code>），决策校验部分可外部复现。</p>
+<p>事实依据（缺口）：
+- 无 <code>GOVERNANCE.md</code>、无 <code>CODEOWNERS</code>、无公开路线图文档；
+- 不属于任何基金会（非 CNCF/Apache/LF 项目），无组织主体；
+- 决策权归属在文档中未形式化（无维护者名单、无投票/晋升机制），实质仍是「核心团队（1 人）主导」。</p>
+<p>按指引「有简单的贡献指南，决策由核心团队主导」→ 5–6 档，取该档上限 1.2/2（贡献指南质量接近 7–8 档门槛，但治理文档与组织归属缺失，不上探）。</p>
+<h3>D8.3 资金支持与商业赞助</h3>
+<p><strong>打分: 1.0 / 2.5（3–4 档，40%）</strong></p>
+<p>事实依据：
+- 未采集到 GitHub Sponsors / Open Collective / FUNDING.yml / 商业实体 / VC 融资的任何证据；主页为个人域名下的 skill 展示页（<code>skills.wheresryan.sh/anatomy</code>），非公司站点；
+- 项目零依赖（<code>dependencies: {}</code>），运行成本极低，这降低了对资金的<strong>刚性</strong>需求，但不改变「当前无资金来源」的事实；
+- 维护者处于高活跃状态（30 天 153 commit、14 天内 2 个 release：v1.0.0 / v1.1.0），排除「无资金且已不活跃」的 1–2 档。</p>
+<p>按指引「几乎无资金支持，纯靠热情」→ 3–4 档，取 1.0/2.5。补充判断：作为「agent skill」型项目，其潜在变现路径（托管服务、企业版 skill 包、付费示例库）尚未见任何公开规划，商业化资金侧完全空白。</p>
+<h3>D8.4 项目可持续性与传承风险</h3>
+<p><strong>打分: 1.2 / 3（3–4 档，40%；新项目专项底线档）</strong></p>
+<p>按「新项目专项」（年龄 &lt; 90 天）仅依据三项事实评估：</p>
+<table>
+<thead>
+<tr>
+<th>事实</th>
+<th>实测</th>
+<th>判定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>archived / deprecated 标记</td>
+<td>archived=false；README/发布页无 deprecated/unmaintained 声明</td>
+<td>无负面信号</td>
+</tr>
+<tr>
+<td>近 30 天 commit</td>
+<td><strong>有</strong>（153 次；pushed_at 2026-10-18）</td>
+<td>活跃，无停滞信号</td>
+</tr>
+<tr>
+<td>Issue 响应（可得时）</td>
+<td>开放 64，近 90 天仅关闭 4；但同时近 90 天创建 PR 124 个</td>
+<td>有积压，但属 14 天爆发式增长下的流量性积压，非废弃证据</td>
+</tr>
+</tbody>
+</table>
+<p>结论：三项中两项明确无负面信号，Issue 积压为增长期伴生现象（14 天项目在 18.5k star 涌入下开 64 个 Issue 属正常），不足以构成「停滞/废弃」证据。按专项规则取 <strong>底线 3–4 档（1.2/3，10 分制 4 分档）</strong>，并标注：<strong>「新项目无历史，可持续性未知，不构成停滞证据」</strong>。</p>
+<p>方向性说明（不计分，避免与 D3.1 重复计分）：唯一可得的趋势数据为「14 天内从 0 → 18.5k star、2 个正式 release、153 commit/30d」，方向为爆发上升，但窗口过短（&lt; 2 周），不足以支撑「持续上升」的 9–10 档判断；且无 star 时间序列（stargazers 采集 404）可交叉验证增长速度。</p>
+<p><strong>一票否决检查</strong>: D8.4 = 1.2 &gt; 1（未触发停滞否决）；且项目年龄 14 天 &lt; 90 天、无 archived/deprecated 标记、近 30 天有 commit → <strong>新项目豁免生效（豁免否决，不豁免评分）</strong>。另检查 D6（法律合规）与 D4.1（协议对变现影响）：本项目 MIT 协议，不触发 D4.1 否决；D6 由对应维度独立评估，本维度不作结论。</p>
+<h3>小结</h3>
+<p>团队维度的核心矛盾是：<strong>热度与工程纪律处于顶级，组织厚度处于起步线</strong>。18.5k star、124 PR/14 天、详尽到「行尾必须落在实边上」的贡献规范，说明项目具备吸引协作与自我约束的能力；但治理形式化（无 GOVERNANCE/CODEOWNERS/路线图）、资金与商业实体（全无）、巴士因子（决策绑定单一维护者）三项均未达「可持续运营」门槛，总计 4.4/10 属「弱于平均，构成商业化障碍」。需要强调：这是<strong>组织与可持续性风险，而非技术质量结论</strong>——项目在 D2 相关的工程质量信号（CI、几何审计、双主题校验、零依赖确定性构建）表现突出，D8 的低分不得反向用于下调技术维度判断。</p>
+<p><strong>数据归因: 时间性归因：太新（created_at 2026-10-08，评估日约 14 天）+ 结构性归因：单人/小团队维护（个人域名站点、单一 X 账号作为执法/上报通道、无 CODEOWNERS 与组织主体；13 贡献者与 124 PR 均为 14 天爆发期流入，未形成稳定治理层）</strong>——上述归因不修改评分，仅约束解读：低组织成熟度反映的是项目尚处萌芽期与个人主导，不能据此推断「技术不行」。</p>
+<h3>D9. 上手难度与易用性（得分: 8.5/10）</h3>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>满分</th>
+<th>打分</th>
+<th>档位</th>
+<th>判断依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D9.1 安装难度</td>
+<td>2.5</td>
+<td><strong>2.5</strong></td>
+<td>9–10 档（100%）</td>
+<td>单条命令 <code>npx skills add wheresryan22/anatomy -g</code> 完成安装；<code>dependencies: {}</code>，README 明确"无依赖，仅用 Node 内置模块"，无需 <code>npm install</code>；另有 git clone、ZIP 一键 curl 三条兜底路径；覆盖 Claude Code / Antigravity / OpenCode / Codex / MiniMax Code 五类宿主与 macOS/Linux/Windows 三平台（Windows 走 ZIP 手动解压）</td>
+</tr>
+<tr>
+<td>D9.2 部署与配置难度</td>
+<td>2.5</td>
+<td><strong>2.0</strong></td>
+<td>7–8 档（80%）</td>
+<td>无服务端、无数据库/缓存/消息队列需初始化，安装即"部署完毕"；但<strong>无 Dockerfile / docker-compose / Helm</strong>，也无标准化部署产物；五个 agent 对应五套手工目录路径（<code>~/.claude/skills</code>、<code>~/.gemini/antigravity/skills</code>、<code>~/.config/opencode/skills</code>、<code>~/.agents/skills</code>、<code>~/.minimax/skills</code>）易错；Codex 需编辑 <code>~/.codex/config.toml</code>（<code>approval_policy</code>、<code>sandbox_mode</code>、<code>writable_roots</code>）才能跑通自检，且 README 自承"新版 Codex 配置项名称可能不同"</td>
+</tr>
+<tr>
+<td>D9.3 易用性与操作门槛</td>
+<td>2.5</td>
+<td><strong>2.0</strong></td>
+<td>7–8 档（80%）</td>
+<td>交互面是一句话 <code>/anatomy explain how a token bucket rate limiter works, interactive</code>，无参数、无 CLI 记忆负担，甚至不点名也会被触发；默认浅色主题、默认输出独立 HTML，开箱即用；但<strong>"It is slow on purpose"</strong>——单图是一个长会话，Raptor 构建需数分钟、30 部件全 3D 环绕审计需 15–20 分钟，3D 为 beta（1440px 下 380 部件压力手约 20 fps，限速手机档 13–15 fps）；出错时依赖 agent 转述审计结果，用户侧无结构化错误码，二次定制输出需读 <code>references/kit.md</code> 等 9 份长文档</td>
+</tr>
+<tr>
+<td>D9.4 学习曲线与首体验</td>
+<td>2.5</td>
+<td><strong>2.0</strong></td>
+<td>7–8 档（80%）</td>
+<td>有清晰 quickstart、8 个完整示例且<strong>构建产物已提交</strong>（打开 <code>.html</code> 即有 Aha Moment，秒级）、<code>evals/evals.json</code> 提供可直接复制的提示词、"三条习惯"给出提示词方法论、<code>references/walkthrough.md</code> 设计走查；但自有图首次成功需一次完整 agent 会话（分钟级到小时级），无交互式教程/onboarding 流程；深度使用（kit API、WebGL、React 双组件拆分、3D 模式）门槛显著上升</td>
+</tr>
+</tbody>
+</table>
+<h3>分析</h3>
+<p><strong>核心结论：这是一个"安装门槛极低、使用入口极低，但产出成本与深度使用门槛偏高"的 Agent Skill。</strong></p>
+<ul>
+<li><strong>安装链路是项目最突出的易用性资产。</strong> 零 npm 依赖（本地实测 <code>dependencies: {}</code>，依赖清单为空）加上 <code>npx skills add ... -g</code> 单命令，把传统开源项目"装驱动 → 配数据库 → 改配置 → 跑 demo"的四步压成一步。对已经装了 Claude Code 的目标用户而言，从看到项目到装上不超过 1 分钟。Windows 仅提供 ZIP 手动路径、未给一行命令，是唯一的平台性瑕疵，但不构成阻断。</li>
+<li><strong>"部署"在本项目里近乎不存在，也就没有部署复杂度。</strong> 无 Dockerfile 属于形态使然而非缺陷——它不是服务端软件。真正被扣分的是<strong>多宿主路径分散</strong>（5 套目录）和 <strong>Codex 沙箱配置</strong>这一具体摩擦点：沙箱会拦截 headless Chrome 自检，用户必须改 TOML 或手动跑 <code>scripts/capture.mjs</code>，对非开发者不友好，且官方文档对配置项命名不稳定性给出了免责声明。</li>
+<li><strong>操作面做到了最低认知负荷，但时间成本被明确标价。</strong> 自然语言即接口，用户不需要知道 SVG、等轴测投影或 WebGL 是什么；同时 <code>kit/audit.mjs</code>、<code>scripts/lines.mjs</code>、<code>scripts/capture.mjs</code>、<code>scripts/turn-check.mjs</code> 构成自检闭环，agent 会读回自己生成的 PNG，降低了"画错了但没人发现"的失败率。代价是 README 在 Limits 里明确写着"慢是刻意的"：单张图是一整段长会话，这与"10 分钟内首次成功"的卓越档标准相冲突，故落在 7–8 档。</li>
+<li><strong>首体验设计成熟度高于平均。</strong> 8 个示例（<code>dial-indicator</code>、<code>desk-computer</code>、<code>arcade-cabinet</code>、<code>raptor-engine</code>、<code>ripple-tank</code>、<code>test-rig</code>、<code>spot-plate</code>、<code>turning-dial</code>）全部提供已构建页面，<code>examples/dial-indicator</code> 仅约 300 行，是最短的照抄样本；<code>evals/evals.json</code> 的 4 条示例提示词覆盖 docs、落地页、React 组件、PNG 预览等真实场景，用户不必从零想提示词。缺的是交互式引导与"第一次就成功"的确定性——出图质量仍取决于用户是否遵守"说想法而非说画法、给真实数字、说明落地形态"这三条习惯。</li>
+<li><strong>商业化含义</strong>：该项目的试用转化摩擦几乎全部集中在"你是否已经在用受支持的 AI agent"这一前置条件上，而不在安装部署本身。一旦前置满足，漏斗极短；但要把产出投入生产（React/Next.js 集成、自定义 kit、3D 模式），需要前端工程能力，属于"上手容易、精通用难"的典型形态。定级 🟢 简单（8–10 档），报告可放心展开具体命令与步骤。</li>
+</ul>
+<blockquote>
+<p>置信度说明：D9.1/D9.2 依据 README 安装章节、依赖清单与仓库结构（<code>has_dockerfile: false</code>、<code>dependencies: {}</code>）实采，置信度高；D9.3/D9.4 的用户侧错误提示体验与真实首次成功率缺乏外部用户反馈数据，主要依据 README 的 Limits/Requirements 自述与脚本清单推断，置信度中等。</p>
+</blockquote>
+<h3>D10. 功能价值（使用价值视角，平行维度，权重 0%）（得分: 7.7/10）</h3>
+<blockquote>
+<p>本维度不计入百分制综合评分、不参与一票否决，仅用于 3.4 价值画像判定。D10.2 因使用规模指标客观上无法采集而标 N/A，本维度满分按 7 分等比缩放，置信度相应下降。</p>
+</blockquote>
+<h3>细则打分表</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>小分</th>
+<th>满分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D10.1</td>
+<td>效用强度</td>
+<td>1.8</td>
+<td>3</td>
+<td>5–6 档（60%）</td>
+</tr>
+<tr>
+<td>D10.2</td>
+<td>实际使用规模</td>
+<td>N/A</td>
+<td>3</td>
+<td>数据不可采集</td>
+</tr>
+<tr>
+<td>D10.3</td>
+<td>免费可得的完整效用</td>
+<td>2.0</td>
+<td>2</td>
+<td>9–10 档（100%）</td>
+</tr>
+<tr>
+<td>D10.4</td>
+<td>效用可持续性</td>
+<td>1.6</td>
+<td>2</td>
+<td>7–8 档（80%）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>5.4 / 7（N/A 缩放后）</strong></td>
+<td></td>
+<td><strong>7.7/10</strong></td>
+</tr>
+</tbody>
+</table>
+<h3>D10.1 效用强度</h3>
+<p><strong>打分: 1.8 / 3（5–6 档，60%）</strong></p>
+<p>Anatomy 的使用价值来自「把一段技术概念变成一个可交互的等轴测说明图」。README 明确给出可落地的场景：Next.js 文档插图、博客/落地页解释器、可打印的 A4 技术图（<code>scripts/print.mjs</code>）、React 组件形态。用户拿到的不是一次性截图，而是自己拥有的源码资产——一个 Node 构建脚本加上它生成的页面，或 React 端的几何模块 + 静态服务组件 + 客户端运动组件。</p>
+<p>效用真实且不低：一张「240 个实体 + 15 根线缆」带实时读数、可悬停拆解、带几何自审（<code>kit/audit.mjs</code> 证明没有管线穿过任何东西）的图，人工完成需要设计 + 前端 + 校对的多轮往返；技能把它压进一次 agent 会话。产出物还带可打印版、明暗双主题、无 WebGL 时 SVG 仍可读的降级路径。</p>
+<p>但它停在「明确但有限」这一档，理由有三：</p>
+<ol>
+<li><strong>效用层级是工具级，不是运行时依赖</strong>。它是产出物的生成器，产出物本身才是价值载体；用户不会「持续依赖」它，而是偶发调用一次。</li>
+<li><strong>可替代性不低</strong>。同类需求可被 Mermaid / Excalidraw / D3 手写，或直接用通用 agent 提示词产出 SVG 覆盖；Anatomy 的差异在于工艺约束（四色阶阴影、深度排序、几何审计）与自验证闭环，这提升了质量上限，但不改变「可被绕开」这一事实。README 自己承认「无机构可画的概念会出得更弱」。</li>
+<li><strong>效用确定性受外部条件牵制</strong>。需要 Claude Code / Antigravity / OpenCode / Codex / MiniMax Code 之一、Node 20.10+、以及 Chrome（自检脚本）；README 明说「它故意很慢」，Raptor 构建要几分钟，3D 全轨道审计 15–20 分钟，3D 模式仍标 beta。产出质量随 agent 与提示词波动。</li>
+</ol>
+<p>因此判为 5–6 档：明确、可观的效率提升，但属偶发、可替代的工具型效用，未达「项目级依赖」量级。</p>
+<h3>D10.2 实际使用规模</h3>
+<p><strong>打分: N/A / 3（数据不可采集）</strong></p>
+<p>D10.2 的三项指定数据源在本项目上<strong>全部不存在或不适用</strong>，属测量口径缺失，非「无人使用」：</p>
+<ul>
+<li><strong>GitHub Dependents</strong>：仓库为 Agent Skill 形态（根目录 <code>SKILL.md</code> 的技能文件夹），不是被其他仓库 import 的库，Dependents 计数机制不适用，素材未提供该计数。</li>
+<li><strong>包管理平台下载量</strong>：实采结果 npm_weekly_downloads = N/A、pypi_monthly_downloads = N/A。安装途径是 <code>npx skills add wheresryan22/anatomy</code>（CLI 直接复制仓库）或 <code>git clone</code> / ZIP 下载，<strong>技能本身未发布为 npm 包</strong>，项目 <code>dependencies: {}</code>，因此不存在可计的注册表下载量。</li>
+<li><strong>Docker pulls / 镜像</strong>：<code>has_dockerfile = false</code>，不适用。</li>
+</ul>
+<p>按防幻觉规则，取不到即标 N/A，禁止用模型记忆或估算填充。但需把可得的<strong>注意力代理指标</strong>记入画像，供读者自行折算：10 天内 18544 Star / 1434 Fork / 13 贡献者 / 90 天 124 个 PR / 30 天 153 次提交 / 64 个开放 Issue（含专门的 figure_request 表单）/ 10-10 与 10-12 连发 v1.0.0、v1.1.0 / 独立的社区画廊仓库 <code>anatomy-community</code>。这些是<strong>兴趣与参与信号，不是使用量计数</strong>，不能替换 D10.2 的口径，因此不予折算成分数。</p>
+<p><strong>数据归因: 时间性归因：太新（created_at 2026-10-08，距最近推送 2026-10-18 仅约 10 天，&lt; 90 天）+ 结构性归因：工具型低依赖计数（技能以仓库克隆方式分发，未发布至 npm/PyPI，无 Dependents 与下载计数器可用）。使用规模尚未形成，且部分口径客观不可测，不构成质量负面信号；本细则标 N/A、维度满分由 10 缩放至 7，置信度下降。</strong></p>
+<h3>D10.3 免费可得的完整效用</h3>
+<p><strong>打分: 2.0 / 2（9–10 档，100%）</strong></p>
+<p>免费可得性是本项目的结构性优势，且是「完全免费」而非「核心免费」：</p>
+<ul>
+<li><strong>许可</strong>：MIT（<code>LICENSE</code> 实采确认），无任何附加条款。</li>
+<li><strong>开源版即全部价值</strong>：仓库中不存在企业版/付费版的分层痕迹，无 license key、无 API key（README 明示 "No API keys and nothing to <code>npm install</code>"）。<code>kit/</code>（iso-kit、lathe、tube、audit、gl、turn 系列）、<code>references/</code> 12 份长文指南、8 个完整示例、<code>scripts/</code> 全部自检工具链均在仓库内。</li>
+<li><strong>自托管/本地即完整</strong>：<code>dependencies: {}</code>，只用 Node 内置模块；示例的<strong>构建产物 HTML 已提交</strong>，clone 下来即可直接打开预览，无需运行任何服务。</li>
+<li><strong>无隐性收费</strong>：<code>scripts/publish.mjs</code> 的社区画廊投稿同样免费（Gist 或自动 PR）。</li>
+<li>唯一的"外部成本"是宿主 agent 的订阅与 Chrome 二进制，与项目自身的收费设计无关。</li>
+</ul>
+<p>对照 D4.3：本项目付费转化逻辑基本为零（无可观察的商业化入口），与 D10.3 满分构成典型的价值张力——<strong>使用价值全额释放、交换价值未捕获</strong>。这不是矛盾，而是本维度与商业维度正交的直接体现。</p>
+<h3>D10.4 效用可持续性</h3>
+<p><strong>打分: 1.6 / 2（7–8 档，80%）</strong></p>
+<ul>
+<li><strong>停维后效用存续</strong>：极强。安装后的技能是本地文件夹（Markdown + JS），产出物是独立 HTML / 单文件 SVG / React 组件，不回调任何服务端；项目停维后，已安装用户与已生成的图形长期可用。</li>
+<li><strong>可分叉维护性</strong>：极强。MIT + <code>dependencies: {}</code> + 仅用 Node 内置模块，构建可重现性有明确证据——README 称示例在 Node 20.19 与 22.11 上「逐字节重建一致」，CONTRIBUTING 甚至把「kit 改动须让所有既有示例保持字节一致」作为硬规；CI（<code>ci.yml</code>）在仓库内。</li>
+<li><strong>扣分点（为何不给满分）</strong>：技能的效用无法脱离<strong>第三方宿主 agent 与 LLM</strong> 独立存在——一张图的实际生成依赖 Claude Code / Codex 等外部闭源平台的能力与计费；Chromium 也是自验证闭环（<code>capture.mjs</code> / <code>drive.mjs</code> / <code>lines.mjs</code> / <code>turn-check.mjs</code>）的必要外部依赖。这些是可替换的（README 列出 5 个兼容宿主 + <code>CHROME_PATH</code> 兜底），不构成供应商锁定，但使「效用完全本地化」不成立。</li>
+</ul>
+<p>故判为 7–8 档：主体本地化、依赖少量且可替换，停维后效用基本存续。</p>
+<h3>结论</h3>
+<p>Anatomy 的使用价值呈<strong>「强度中等、获取零门槛、存续极稳」</strong>的三角结构：它不是任何人业务的运行时依赖，但在「技术概念 → 交互式等轴测说明图」这个具体任务上，它把多工种数小时的往返压缩成一次会话，且产出物（构建脚本 + 独立页面 + 几何审计）归用户所有。免费维度几乎无懈可击（MIT、零依赖、产物已提交、无付费墙），可持续性也很高（可逐字节重建、易分叉），唯一真实短板是效用层级与可替代性。</p>
+<p>使用规模本该是这块信息的关键补角，但本项目以仓库克隆方式分发、未登注册表，Dependents 与下载量在口径上不可测，只能以 10 天 18544 Star / 1434 Fork / 124 PR 的注意力指标旁证——<strong>热度极高，但它证明的是关注度，不是使用量</strong>，本维度不据此加分。整体判为高免费高存续的优质工具型资产，且在 D4（付费转化）方向大概率无对应收益。</p>
+<p><strong>数据归因: 时间性归因：太新（创建至最近推送约 10 天）+ 结构性归因：工具型低依赖计数（技能仓库形态，无 npm/PyPI 发布，无 Dependents 与下载计数器可用）。使用规模低/不可测不构成质量负面信号；D10.2 标 N/A 导致本维度满分缩放至 7 分，置信度下降。</strong></p>
+<h3>D11. 社会价值（正外部性视角）</h3>
+<blockquote>
+<p><strong>平行维度</strong>：权重 0%，不计入综合评分与一票否决，仅用于 3.4 价值画像。
+<strong>归属说明</strong>：本维度评「对行业/社会的外溢贡献本身」，与 D3.4 的品牌商业势能、D2.5/D2.6 的工程质量视角相互独立。</p>
+</blockquote>
+<p><strong>项目速写</strong>：Anatomy 是一个符合开放 Agent Skills 格式的技能包（SKILL.md + kit/ 绘图库 + references/ 长文指南 + 8 个完整示例），让 Claude Code / Antigravity / OpenCode / Codex / MiniMax Code 生成等距 SVG/WebGL/3D 解释性插图。MIT 许可、零 npm 依赖、纯 Node 内置模块构建。项目创建于 2026-10-08，采集时仅约 10 天，已获 18,544 star / 1,434 fork / 13 位贡献者。<strong>核心事实：它不是被下游代码 import 的库，而是被「装入 agent 目录」的技能与素材包，npm 周下载 / PyPI 月下载均 N/A（未发布到包管理器）。</strong></p>
+<h3>细则打分</h3>
+<table>
+<thead>
+<tr>
+<th>细则</th>
+<th>内容</th>
+<th>满分</th>
+<th>小分</th>
+<th>档位</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D11.1</td>
+<td>数字公共基础设施属性</td>
+<td>3</td>
+<td>1.2</td>
+<td>3–4 档（40%）</td>
+</tr>
+<tr>
+<td>D11.2</td>
+<td>教育与人才价值</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8 档（80%）</td>
+</tr>
+<tr>
+<td>D11.3</td>
+<td>普惠与可及性</td>
+<td>2.5</td>
+<td>2.0</td>
+<td>7–8 档（80%）</td>
+</tr>
+<tr>
+<td>D11.4</td>
+<td>开放标准与行业推动</td>
+<td>2.0</td>
+<td>1.6</td>
+<td>7–8 档（80%）</td>
+</tr>
+<tr>
+<td><strong>合计</strong></td>
+<td></td>
+<td><strong>10</strong></td>
+<td><strong>6.8</strong></td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h4>D11.1 数字公共基础设施属性</h4>
+<p><strong>打分: 1.2 / 3（3–4 档，40%）</strong></p>
+<ul>
+<li><strong>关键依赖地位</strong>：不成立。Anatomy 是「被复制进 <code>~/.claude/skills/anatomy</code> 的文件夹」，不是被 import 的软件包——本地依赖清单为 <code>{}</code>，npm/PyPI 下载量均 N/A，无 Dependents 计数。<code>kit/</code>（iso-kit、lathe、tube、gl.mjs、turn.mjs）虽具备库形态，但仅随仓库分发、未独立发版，外部复用需整仓克隆。</li>
+<li><strong>停摆影响面</strong>：假设项目消失，波及的是「愿意用它画解释性插图的用户」这一使用场景，而非任何软件供应链；不会有下游构建失败。这与 curl/OpenSSL 式数字底座、乃至 ECharts/D3 式前端基础设施均不同量级。</li>
+<li><strong>数字公共产品属性</strong>：部分成立。MIT 许可、零依赖、示例页面已构建并提交（克隆即可打开）、社区画廊（anatomy-community）与 <code>scripts/publish.mjs --submit</code> 的 PR 提交流程，都体现「开放、可复用、服务公共利益（知识解释）」的 DPG 特征。但公共属性停留在<strong>内容/素材层</strong>（可复用的示例与绘图规范），未形成被广泛依赖的基础设施层。</li>
+<li>结论：公共品属性真实但薄弱——「可复用」而非「被依赖」。取 40%。</li>
+</ul>
+<h4>D11.2 教育与人才价值</h4>
+<p><strong>打分: 2.0 / 2.5（7–8 档，80%）</strong></p>
+<ul>
+<li><strong>教学采用</strong>：项目定位本身就是教学性产物——「explains an idea by building it as a real, working object」，把抽象概念（令牌桶限流、CDN 边缘缓存、连接池、缓存键）实体化为可交互机械。<code>references/</code> 下有 9 篇长文指南（craft / kit / motion / react / verify / webgl / walkthrough / 3d / print），构成成体系的教学材料；<code>evals/evals.json</code> 提供「好答案应包含什么」的评测集，具备教学范例性质。打印能力（一页海报 / 一页技术图 / 两页详解 A4 PDF）进一步指向课堂与文档场景。</li>
+<li><strong>门槛降低效应</strong>：显著。此前制作这种高完成度等距技术插图需要插画师 + 前端工程师协作数天，现在一条 <code>/anatomy ...</code> 提示即可产出可编辑源码（自有 HTML/SVG/React 组件）。这对技术写作者、教师、独立开发者的能力门槛是实质降低。</li>
+<li><strong>源码学习价值</strong>：代码本身是高质量工程范本——<code>kit/audit.mjs</code> 做几何审计（无穿模、端点有座、遮挡按深度排序）、<code>scripts/lines.mjs</code> 检查悬空线端、<code>scripts/turn-check.mjs</code> 校验 3D、380 部件压力手用于性能测量，全部零第三方依赖。这套「让 Claude 读自己生成的每一张 PNG 当批评者」的验证方法论，本身具有被同行研读的价值。</li>
+<li>扣分点：项目仅 10 天，<strong>无外部课程/教材/awesome 列表采用的实证</strong>；仓库本身 <code>test_lines = 0</code>（虽有审计/截图脚本，无常规单测），代码规范还禁止写注释（house rule：no comments in code），削弱了作为「可读物教材」的一面对初学者的友好度。故不给 9–10 档。</li>
+</ul>
+<h4>D11.3 普惠与可及性</h4>
+<p><strong>打分: 2.0 / 2.5（7–8 档，80%）</strong></p>
+<ul>
+<li><strong>能力平权化</strong>：较强。原本属于专业插画/信息设计服务的能力（等距技术插图、WebGL 特效、3D 转盘、可印刷技术图），以 MIT + 零依赖方式下放给个人与中小团队；对教育机构、独立博主、开源文档作者尤其实用。</li>
+<li><strong>替代价格差</strong>：显著。同类能力若走商业路径（定制信息图/技术插画外包、商业图表与 3D 可视化 SaaS），为按件/按席位计费；本项目边际成本近零，仅需已有的 agent 订阅。</li>
+<li><strong>可及性支持</strong>：</li>
+<li>正面：明暗双主题（浅色优先设计）；<strong>reduced-motion 下所有图形静止</strong>、无 WebGL 时 SVG 仍可读（渐进降级）；纯 SVG 输出天然对屏幕阅读器与文本搜索友好；零 npm 依赖降低了环境搭建摩擦。中文社区已出现本地化分支（<code>yangshun2005/anatomy-cn</code>，6 star），说明有跨语言扩散需求。</li>
+<li>限制项：①主要文档与界面文案为英文，<strong>仓库内无内建 i18n</strong>（本地化靠社区 fork）；②使用前提是付费 agent（Claude Code 等）+ Node ≥20.10 + Chrome（校验环节），并非零门槛；③3D beta 在 380 部件压力场景仅 20 fps（1440px）、限流手机档 13–15 fps，低端硬件体验受限；④WebGL 着色器需要可用的 GPU 上下文。</li>
+<li>综合：能力平权效果真实且明显，可及性工程（降级/减动效/双主题）优于平均，但语言与前置工具链构成实际人群过滤，故落在 7–8 档而非 9–10 档。</li>
+</ul>
+<h4>D11.4 开放标准与行业推动</h4>
+<p><strong>打分: 1.6 / 2（7–8 档，80%）</strong></p>
+<ul>
+<li><strong>标准推动</strong>：较扎实。项目严格实现开放的 <strong>Agent Skills 格式</strong>（<code>agentskills.io</code>，仓库根即 SKILL.md 文件夹），并同时适配 Claude Code / Antigravity / OpenCode / Codex / MiniMax Code 五家 agent，明确对抗单一厂商锁定——在 agent 技能生态尚处标准形成期时，这是一种有意的「跨厂商可移植」示范。输出侧同样押注开放标准：SVG、WebGL、React 组件、可提交的独立 HTML，无私有格式。</li>
+<li><strong>科研支撑</strong>：<strong>N/A 素材</strong>——未检索到论文引用数据，也无学术使用证据；本项不单独计分（不虚估）。</li>
+<li><strong>行业示范效应</strong>：具备雏形。其「几何审计 + 无头浏览器截图 + 让模型自查 PNG」的验证闭环、"kit 变更必须让所有既有示例字节一致"的兼容契约，是可被 agent 工具类项目借鉴的工程范式；10 天内 18.5k star 也说明示范被注意。但项目太年轻，尚无「被同行广泛模仿/引用」的实证，且它<strong>遵循而非定义</strong>标准（没有主导某个协议），故不到 9–10 档。</li>
+<li>结论：标准兼容与防锁定做得优于平均，示范效应真实但未被时间验证，取 80%。</li>
+</ul>
+<hr />
+<h3>维度结论</h3>
+<p><strong>（得分: 6.8/10）</strong></p>
+<p>Anatomy 的正外部性是<strong>「知识与表达能力的平权」型</strong>，而不是「软件供应链底座」型。它在教育与可及性两个方向表现最好（各 2.0/2.5）：把原本需要专业插画与前端协作才能得到的技术解释图，以 MIT、零依赖、渐进降级（无 WebGL 仍可读、减动效即静止、明暗双主题）的方式下放给个人、教师与文档作者；<code>references/</code> 九篇指南与 <code>evals/</code> 评测集构成了成体系的教学材料。开放性也做得有意识：主动实现跨五家 agent 的开放 Agent Skills 格式以反对锁定。</p>
+<p>它拿不到高分的短板集中在「基础设施属性」：这是一个被复制进目录的技能包，而非被 import 的库，无包管理器分发、无 Dependents、停摆不波及任何构建链，因此 D11.1 只能给 40%；此外英文单语言、需付费 agent 与 Chrome 前置，限制了其普惠上限。</p>
+<p><strong>置信度提示</strong>：项目上线仅约 10 天（2026-10-08 创建，2026-10-18 最后推送），star/fork 规模对「社会价值」的证据力弱于长期项目；学术引用、外部课程采用、下游依赖三项外部数据均不可得（部分标 N/A），本维度结论的置信度为<strong>中低</strong>，建议在 3.4 价值画像中使用时与 D3.4（品牌影响力）分别引用、不互相加权。</p>
+<h2>五、商业化价值判断</h2>
+<h3>5.1 核心商业价值</h3>
+<ul>
+<li><strong>项目最大的商业价值在于</strong>：把「LLM 生成图形不可信」这一工程难题落成可校验管线——<code>kit/iso-kit.ts</code>（843 行几何 API）+ <code>audit.mjs</code> 几何审计（无穿模、端点有座、深度排序）+ 无头 Chrome 截图与悬空线检查，使插图产出从「凭运气」变为可回归验证；该工艺组合在同类项目中心少见（D1、D2、D11 交叉一致）。</li>
+<li><strong>价值验证依据</strong>：</li>
+<li>能力侧：D2 技术成熟度 8</li>
+</ul>
+<h2>十二、项目地址</h2>
+<p><svg class="ri ri-muted" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.001 2C6.47598 2 2.00098 6.475 2.00098 12C2.00098 16.425 4.86348 20.1625 8.83848 21.4875C9.33848 21.575 9.52598 21.275 9.52598 21.0125C9.52598 20.775 9.51348 19.9875 9.51348 19.15C7.00098 19.6125 6.35098 18.5375 6.15098 17.975C6.03848 17.6875 5.55098 16.8 5.12598 16.5625C4.77598 16.375 4.27598 15.9125 5.11348 15.9C5.90098 15.8875 6.46348 16.625 6.65098 16.925C7.55098 18.4375 8.98848 18.0125 9.56348 17.75C9.65098 17.1 9.91348 16.6625 10.201 16.4125C7.97598 16.1625 5.65098 15.3 5.65098 11.475C5.65098 10.3875 6.03848 9.4875 6.67598 8.7875C6.57598 8.5375 6.22598 7.5125 6.77598 6.1375C6.77598 6.1375 7.61348 5.875 9.52598 7.1625C10.326 6.9375 11.176 6.825 12.026 6.825C12.876 6.825 13.726 6.9375 14.526 7.1625C16.4385 5.8625 17.276 6.1375 17.276 6.1375C17.826 7.5125 17.476 8.5375 17.376 8.7875C18.0135 9.4875 18.401 10.375 18.401 11.475C18.401 15.3125 16.0635 16.1625 13.8385 16.4125C14.201 16.725 14.5135 17.325 14.5135 18.2625C14.5135 19.6 14.501 20.675 14.501 21.0125C14.501 21.275 14.6885 21.5875 15.1885 21.4875C19.259 20.1133 21.9999 16.2963 22.001 12C22.001 6.475 17.526 2 12.001 2Z"/></svg> <a href="https://github.com/wheresryan22/anatomy">https://github.com/wheresryan22/anatomy</a></p>
+<hr />
+<blockquote>
+<p><strong>免责声明</strong>：本报告由 <span class="at-acc">@魔法工厂</span> 专属 AI 辅助生成，属第三方独立分析测评，评测标准、评价方法以及相关方法论由 <span class="at-acc">@向量之心</span> 团队制定。数据受采集时点与来源限制可能存在偏差，请自行核实后使用。报告结论仅供参考，据此操作风险自担。报告所用方法和结果数据与被分析项目及其维护者无隶属或授权关系。所涉商标、协议、数据归原权利人所有。报告仅供研究与信息参考，不构成投资、法律或商业决策建议。</p>
+</blockquote>
+<p><strong>报告出品</strong>：@魔法工厂　@向量之心　@南山科学家　<a href="https://github.com/weixiongf" target="_blank" rel="noopener">@冯伟雄</a>　<a href="https://www.mova.work">www.mova.work</a></p>
+<p><strong>查看所有报告：</strong><a href="https://weixiongf.github.io/Open-Source-Alpha-Reports/">https://weixiongf.github.io/Open-Source-Alpha-Reports/</a></p><div class="page-footer">本页面由 <span class="at-acc">@向量之心</span> 打造的 github_anyliasis 系统自动维护。报告为 AI 辅助生成的第三方独立分析，仅供研究参考，不构成投资建议。</div></body></html>
